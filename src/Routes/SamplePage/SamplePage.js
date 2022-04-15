@@ -31,6 +31,7 @@ import './sample-page.scss';
  */
 const SamplePage = () => {
   const dispatch = useDispatch();
+  console.log('heeeeeeeeeeeeeeeeeeere');
 
   useEffect(() => {
     insights?.chrome?.appAction?.('sample-page');

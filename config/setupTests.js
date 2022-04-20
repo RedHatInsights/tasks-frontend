@@ -25,7 +25,7 @@ global.window.insights = {
         ),
     },
     isBeta: jest.fn(),
-    getUserPermissions: () => Promise.resolve(),b3a5bb (Create app)
+    getUserPermissions: () => Promise.resolve(),
   },
 };
 

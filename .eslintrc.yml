@@ -4,3 +4,5 @@ globals:
   shallow: readonly
   render: 'readonly'
   mount: 'readonly'
+rules:
+  react/jsx-no-useless-fragment: error

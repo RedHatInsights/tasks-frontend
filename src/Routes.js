@@ -5,7 +5,7 @@ import { Bullseye, Spinner } from '@patternfly/react-core';
 
 const TasksPage = lazy(() =>
   import(
-    /* webpackChunkName: "SamplePage" */ './SmartComponents/TasksPage/TasksPage'
+    /* webpackChunkName: "TasksPage" */ './SmartComponents/TasksPage/TasksPage'
   )
 );
 

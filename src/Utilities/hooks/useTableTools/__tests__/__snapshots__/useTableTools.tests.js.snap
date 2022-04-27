@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useTableTools returns tableProps 1`] = `
+Object {
+  "all": Array [
+    Object {
+      "tableProps": Object {
+        "cells": Array [
+          Object {
+            "props": Object {
+              "width": 35,
+            },
+            "sortByProp": "title",
+            "title": "Task",
+          },
+          Object {
+            "props": Object {
+              "width": 20,
+            },
+            "sortByProp": "system_count",
+            "title": "Systems",
+          },
+          Object {
+            "props": Object {
+              "width": 20,
+            },
+            "sortByProp": "runDateTime",
+            "title": "Run date/time",
+          },
+        ],
+        "rows": Array [
+          Array [
+            <div>
+              <a
+                href="beta/insights/tasks"
+              >
+                taskA
+              </a>
+            </div>,
+            10,
+            "2022-04-21T10:10:00",
+          ],
+          Array [
+            <div>
+              <a
+                href="beta/insights/tasks"
+              >
+                taskB
+              </a>
+            </div>,
+            5,
+            "2022-04-20T10:10:00",
+          ],
+        ],
+      },
+    },
+  ],
+  "current": Object {
+    "tableProps": Object {
+      "cells": Array [
+        Object {
+          "props": Object {
+            "width": 35,
+          },
+          "sortByProp": "title",
+          "title": "Task",
+        },
+        Object {
+          "props": Object {
+            "width": 20,
+          },
+          "sortByProp": "system_count",
+          "title": "Systems",
+        },
+        Object {
+          "props": Object {
+            "width": 20,
+          },
+          "sortByProp": "runDateTime",
+          "title": "Run date/time",
+        },
+      ],
+      "rows": Array [
+        Array [
+          <div>
+            <a
+              href="beta/insights/tasks"
+            >
+              taskA
+            </a>
+          </div>,
+          10,
+          "2022-04-21T10:10:00",
+        ],
+        Array [
+          <div>
+            <a
+              href="beta/insights/tasks"
+            >
+              taskB
+            </a>
+          </div>,
+          5,
+          "2022-04-20T10:10:00",
+        ],
+      ],
+    },
+  },
+  "error": undefined,
+}
+`;

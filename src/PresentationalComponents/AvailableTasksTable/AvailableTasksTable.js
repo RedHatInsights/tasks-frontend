@@ -1,7 +1,7 @@
 import React from 'react';
 
-const AvailableTasks = () => {
+const AvailableTasksTable = () => {
   return <div aria-label="available-tasks">Available tasks</div>;
 };
 
-export default AvailableTasks;
+export default AvailableTasksTable;

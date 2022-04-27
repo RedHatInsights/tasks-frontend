@@ -9,8 +9,16 @@ import {
 import { TasksTabs } from '../../PresentationalComponents';
 import { TASKS_PAGE_TABS } from '../../constants';
 
-const AvailableTasks = lazy(() => import('../AvailableTasks/AvailableTasks'));
-const CompletedTasks = lazy(() => import('../CompletedTasks/CompletedTasks'));
+const AvailableTasksTable = lazy(() =>
+  import(
+    '../../PresentationalComponents/AvailableTasksTable/AvailableTasksTable'
+  )
+);
+const CompletedTasksTable = lazy(() =>
+  import(
+    '../../PresentationalComponents/CompletedTasksTable/CompletedTasksTable'
+  )
+);
 
 import './tasks-page.scss';
 
@@ -36,7 +44,11 @@ const TasksPage = () => {
         <Stack hasGutter>
           <StackItem>
             <Suspense fallback={<Spinner />}>
-              {tabIndex === 0 ? <AvailableTasks /> : <CompletedTasks />}
+              {tabIndex === 0 ? (
+                <AvailableTasksTable />
+              ) : (
+                <CompletedTasksTable />
+              )}
             </Suspense>
           </StackItem>
         </Stack>

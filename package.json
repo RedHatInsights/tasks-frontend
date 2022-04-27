@@ -17,7 +17,8 @@
       "<rootDir>/src/**/*.js",
       "!<rootDir>/src/**/index.js",
       "!<rootDir>/src/**/stories/*",
-      "!<rootDir>/src/*.js"
+      "!<rootDir>/src/*.js",
+      "!<rootDir>/src/**/__fixtures__/*.js"
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/.+fixtures.+"
@@ -63,6 +64,7 @@
     "@redhat-cloud-services/frontend-components": "^3.8.7",
     "@redhat-cloud-services/frontend-components-notifications": "^3.2.5",
     "@redhat-cloud-services/frontend-components-utilities": "^3.2.14",
+    "axios": "^0.27.0",
     "classnames": "^2.3.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -79,9 +81,10 @@
     "@babel/preset-env": "7.16.11",
     "@babel/preset-react": "7.16.7",
     "@redhat-cloud-services/eslint-config-redhat-cloud-services": "^1.2.3",
-    "@redhat-cloud-services/frontend-components-config": "^4.6.8",
+    "@redhat-cloud-services/frontend-components-config": "^4.6.9",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.2",
+    "@testing-library/react-hooks": "^7.0.2",
     "@testing-library/user-event": "^13.5.0",
     "babel-jest": "27.5.1",
     "babel-plugin-transform-imports": "^2.0.0",

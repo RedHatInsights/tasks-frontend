@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useRowsBuilder returns a rows configuration 1`] = `
+Object {
+  "all": Array [
+    Object {
+      "tableProps": Object {
+        "rows": Array [
+          Array [
+            <div>
+              <a
+                href="beta/insights/tasks"
+              >
+                taskA
+              </a>
+            </div>,
+            10,
+            "2022-04-21T10:10:00",
+          ],
+          Array [
+            <div>
+              <a
+                href="beta/insights/tasks"
+              >
+                taskB
+              </a>
+            </div>,
+            5,
+            "2022-04-20T10:10:00",
+          ],
+        ],
+      },
+    },
+  ],
+  "current": Object {
+    "tableProps": Object {
+      "rows": Array [
+        Array [
+          <div>
+            <a
+              href="beta/insights/tasks"
+            >
+              taskA
+            </a>
+          </div>,
+          10,
+          "2022-04-21T10:10:00",
+        ],
+        Array [
+          <div>
+            <a
+              href="beta/insights/tasks"
+            >
+              taskB
+            </a>
+          </div>,
+          5,
+          "2022-04-20T10:10:00",
+        ],
+      ],
+    },
+  },
+  "error": undefined,
+}
+`;

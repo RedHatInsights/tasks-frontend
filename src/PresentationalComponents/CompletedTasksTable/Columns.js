@@ -4,7 +4,7 @@ export const Task = {
     width: 35,
   },
   sortByProp: 'title',
-  //renderExport: (task) => task.title,
+  renderExport: (task) => task.title,
 };
 
 export const Systems = {
@@ -13,7 +13,7 @@ export const Systems = {
     width: 20,
   },
   sortByProp: 'system_count',
-  //renderExport: (task) => task.totalSystemCount,
+  renderExport: (task) => task.system_count,
 };
 
 export const RunDateTime = {
@@ -21,10 +21,10 @@ export const RunDateTime = {
   props: {
     width: 20,
   },
-  sortByProp: 'runDateTime',
-  //renderExport: (task) => task.runDateTime,
+  sortByProp: 'end',
+  renderExport: (task) => task.end,
 };
 
-//export const exportableColumns = [Task, Systems, RunDateTime];
+export const exportableColumns = [Task, Systems, RunDateTime];
 
 export default [Task, Systems, RunDateTime];

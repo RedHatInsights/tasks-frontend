@@ -12,6 +12,9 @@ Object {
             },
             "sortByProp": "title",
             "title": "Task",
+            "transforms": Array [
+              [Function],
+            ],
           },
           Object {
             "props": Object {
@@ -19,6 +22,9 @@ Object {
             },
             "sortByProp": "system_count",
             "title": "Systems",
+            "transforms": Array [
+              [Function],
+            ],
           },
           Object {
             "props": Object {
@@ -26,8 +32,12 @@ Object {
             },
             "sortByProp": "runDateTime",
             "title": "Run date/time",
+            "transforms": Array [
+              [Function],
+            ],
           },
         ],
+        "onSort": [Function],
         "rows": Array [
           Array [
             <div>
@@ -38,7 +48,7 @@ Object {
               </a>
             </div>,
             10,
-            "2022-04-21T10:10:00",
+            "Invalid date",
           ],
           Array [
             <div>
@@ -49,9 +59,96 @@ Object {
               </a>
             </div>,
             5,
-            "2022-04-20T10:10:00",
+            "20 Apr 2022, 11:10 UTC",
           ],
         ],
+        "sortBy": Object {
+          "direction": "asc",
+          "index": 0,
+        },
+      },
+      "toolbarProps": Object {
+        "pagination": Object {
+          "itemCount": 2,
+          "onPerPageSelect": [Function],
+          "onSetPage": [Function],
+          "page": 1,
+          "perPage": 10,
+        },
+      },
+    },
+    Object {
+      "tableProps": Object {
+        "cells": Array [
+          Object {
+            "props": Object {
+              "width": 35,
+            },
+            "sortByProp": "title",
+            "title": "Task",
+            "transforms": Array [
+              [Function],
+            ],
+          },
+          Object {
+            "props": Object {
+              "width": 20,
+            },
+            "sortByProp": "system_count",
+            "title": "Systems",
+            "transforms": Array [
+              [Function],
+            ],
+          },
+          Object {
+            "props": Object {
+              "width": 20,
+            },
+            "sortByProp": "runDateTime",
+            "title": "Run date/time",
+            "transforms": Array [
+              [Function],
+            ],
+          },
+        ],
+        "onSort": [Function],
+        "rows": Array [
+          Array [
+            <div>
+              <a
+                href="beta/insights/tasks"
+              >
+                taskA
+              </a>
+            </div>,
+            10,
+            "Invalid date",
+          ],
+          Array [
+            <div>
+              <a
+                href="beta/insights/tasks"
+              >
+                taskB
+              </a>
+            </div>,
+            5,
+            "20 Apr 2022, 11:10 UTC",
+          ],
+        ],
+        "sortBy": Object {
+          "direction": "asc",
+          "index": 0,
+        },
+      },
+      "toolbarProps": Object {
+        "pagination": Object {
+          "itemCount": 2,
+          "onPerPageSelect": [Function],
+          "onSetPage": [Function],
+          "page": 1,
+          "perPage": 10,
+        },
       },
     },
   ],
@@ -64,6 +161,9 @@ Object {
           },
           "sortByProp": "title",
           "title": "Task",
+          "transforms": Array [
+            [Function],
+          ],
         },
         Object {
           "props": Object {
@@ -71,6 +171,9 @@ Object {
           },
           "sortByProp": "system_count",
           "title": "Systems",
+          "transforms": Array [
+            [Function],
+          ],
         },
         Object {
           "props": Object {
@@ -78,8 +181,12 @@ Object {
           },
           "sortByProp": "runDateTime",
           "title": "Run date/time",
+          "transforms": Array [
+            [Function],
+          ],
         },
       ],
+      "onSort": [Function],
       "rows": Array [
         Array [
           <div>
@@ -90,7 +197,7 @@ Object {
             </a>
           </div>,
           10,
-          "2022-04-21T10:10:00",
+          "Invalid date",
         ],
         Array [
           <div>
@@ -101,9 +208,22 @@ Object {
             </a>
           </div>,
           5,
-          "2022-04-20T10:10:00",
+          "20 Apr 2022, 11:10 UTC",
         ],
       ],
+      "sortBy": Object {
+        "direction": "asc",
+        "index": 0,
+      },
+    },
+    "toolbarProps": Object {
+      "pagination": Object {
+        "itemCount": 2,
+        "onPerPageSelect": [Function],
+        "onSetPage": [Function],
+        "page": 1,
+        "perPage": 10,
+      },
     },
   },
   "error": undefined,

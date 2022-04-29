@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useTableSort returns a table sort configuration 1`] = `
+Object {
+  "all": Array [
+    Object {
+      "sorter": [Function],
+      "tableProps": Object {
+        "cells": Array [
+          Object {
+            "props": Object {
+              "width": 35,
+            },
+            "sortByProp": "title",
+            "title": "Task",
+            "transforms": Array [
+              [Function],
+            ],
+          },
+          Object {
+            "props": Object {
+              "width": 20,
+            },
+            "sortByProp": "system_count",
+            "title": "Systems",
+            "transforms": Array [
+              [Function],
+            ],
+          },
+          Object {
+            "props": Object {
+              "width": 20,
+            },
+            "sortByProp": "runDateTime",
+            "title": "Run date/time",
+            "transforms": Array [
+              [Function],
+            ],
+          },
+        ],
+        "onSort": [Function],
+        "sortBy": Object {
+          "direction": "asc",
+          "index": 0,
+        },
+      },
+    },
+  ],
+  "current": Object {
+    "sorter": [Function],
+    "tableProps": Object {
+      "cells": Array [
+        Object {
+          "props": Object {
+            "width": 35,
+          },
+          "sortByProp": "title",
+          "title": "Task",
+          "transforms": Array [
+            [Function],
+          ],
+        },
+        Object {
+          "props": Object {
+            "width": 20,
+          },
+          "sortByProp": "system_count",
+          "title": "Systems",
+          "transforms": Array [
+            [Function],
+          ],
+        },
+        Object {
+          "props": Object {
+            "width": 20,
+          },
+          "sortByProp": "runDateTime",
+          "title": "Run date/time",
+          "transforms": Array [
+            [Function],
+          ],
+        },
+      ],
+      "onSort": [Function],
+      "sortBy": Object {
+        "direction": "asc",
+        "index": 0,
+      },
+    },
+  },
+  "error": undefined,
+}
+`;

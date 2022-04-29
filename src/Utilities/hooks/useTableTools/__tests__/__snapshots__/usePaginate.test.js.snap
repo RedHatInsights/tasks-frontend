@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`usePaginate returns a paginate configuration 1`] = `
+Object {
+  "all": Array [
+    Object {
+      "paginator": [Function],
+      "setPage": [Function],
+      "toolbarProps": Object {
+        "pagination": Object {
+          "onPerPageSelect": [Function],
+          "onSetPage": [Function],
+          "page": 1,
+          "perPage": 10,
+        },
+      },
+    },
+  ],
+  "current": Object {
+    "paginator": [Function],
+    "setPage": [Function],
+    "toolbarProps": Object {
+      "pagination": Object {
+        "onPerPageSelect": [Function],
+        "onSetPage": [Function],
+        "page": 1,
+        "perPage": 10,
+      },
+    },
+  },
+  "error": undefined,
+}
+`;
+
+exports[`usePaginate returns a paginate configuration 2`] = `
+Array [
+  Object {
+    "end": null,
+    "id": 1,
+    "initiated_by": "Michael",
+    "start": "2022-04-21T10:10:00",
+    "status": "running",
+    "system_count": 10,
+    "title": "taskA",
+  },
+  Object {
+    "end": "2022-04-20T11:10:00",
+    "id": 2,
+    "initiated_by": "Michael",
+    "start": "2022-04-20T10:10:00",
+    "status": "complete",
+    "system_count": 5,
+    "title": "taskB",
+  },
+]
+`;

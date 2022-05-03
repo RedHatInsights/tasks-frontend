@@ -38,13 +38,9 @@ Update `config/dev.webpack.config.js` according to your application URL. [Read m
 
 ## Deploying
 
-- The starter repo uses Travis to deploy the webpack build to another Github repo defined in `.travis.yml`
-  - That Github repo has the following branches:
-    - `ci-beta` (deployed by pushing to `master` or `main` on this repo)
-    - `ci-stable` (deployed by pushing to `ci-stable` on this repo)
-    - `qa-beta` (deployed by pushing to `qa-beta` on this repo)
-    - `qa-stable` (deployed by pushing to `qa-stable` on this repo)
-    - `prod-beta` (deployed by pushing to `prod-beta` on this repo)
-    - `prod-stable` (deployed by pushing to `prod-stable` on this repo)
-- Travis uploads results to RedHatInsight's [codecov](https://codecov.io) account. To change the account, modify CODECOV_TOKEN on https://travis-ci.com/.
-
+| Push to branch in this repo  | Updated branch in build repo  | Environment       | Available at
+| :--------------------------- | :---------------------------- | :---------------- | :-----------
+| master                       | stage-beta                    | stage beta        | https://console.stage.redhat.com/beta
+| stage-stable                 | stage-stable                  | stage stable      | https://console.stage.redhat.com
+| prod-beta                    | prod-beta                     | production beta   | https://console.redhat.com/beta 
+| prod-stable                  | prod-stable                   | production stable | https://console.redhat.com

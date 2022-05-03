@@ -2,7 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { Pagination, PaginationVariant } from '@patternfly/react-core';
 import { Table, TableBody, TableHeader } from '@patternfly/react-table';
-//import PrimaryToolbar from '@redhat-cloud-services/frontend-components/PrimaryToolbar';
+import PrimaryToolbar from '@redhat-cloud-services/frontend-components/PrimaryToolbar';
 import TableToolbar from '@redhat-cloud-services/frontend-components/TableToolbar';
 import useTableTools from '../useTableTools';
 
@@ -11,16 +11,19 @@ const TasksTables = ({
   ouiaId,
   items = [],
   columns = [],
-  //filters = [],
-  //options = {},
+  filters = [],
+  options = {},
   //toolbarProps: toolbarPropsProp,
   //...tablePropsRest
 }) => {
-  const { tableProps } = useTableTools(items, columns);
+  const { toolbarProps, tableProps } = useTableTools(items, columns, {
+    filters,
+    ...options,
+  });
 
   return (
     <React.Fragment>
-      {/*<PrimaryToolbar {...toolbarProps} />*/}
+      <PrimaryToolbar {...toolbarProps} />
 
       <Table
         aria-label={label}

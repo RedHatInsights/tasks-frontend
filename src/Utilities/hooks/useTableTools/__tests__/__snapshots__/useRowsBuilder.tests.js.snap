@@ -15,7 +15,7 @@ Object {
               </a>
             </div>,
             10,
-            "2022-04-21T10:10:00",
+            "Invalid date",
           ],
           Array [
             <div>
@@ -26,9 +26,12 @@ Object {
               </a>
             </div>,
             5,
-            "2022-04-20T10:10:00",
+            "20 Apr 2022, 11:10 UTC",
           ],
         ],
+      },
+      "toolbarProps": Object {
+        "pagination": undefined,
       },
     },
   ],
@@ -44,7 +47,7 @@ Object {
             </a>
           </div>,
           10,
-          "2022-04-21T10:10:00",
+          "Invalid date",
         ],
         Array [
           <div>
@@ -55,9 +58,12 @@ Object {
             </a>
           </div>,
           5,
-          "2022-04-20T10:10:00",
+          "20 Apr 2022, 11:10 UTC",
         ],
       ],
+    },
+    "toolbarProps": Object {
+      "pagination": undefined,
     },
   },
   "error": undefined,

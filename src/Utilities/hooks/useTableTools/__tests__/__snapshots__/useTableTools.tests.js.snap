@@ -20,6 +20,7 @@ Object {
             "props": Object {
               "width": 20,
             },
+            "renderExport": [Function],
             "sortByProp": "system_count",
             "title": "Systems",
             "transforms": Array [
@@ -30,7 +31,7 @@ Object {
             "props": Object {
               "width": 20,
             },
-            "sortByProp": "runDateTime",
+            "sortByProp": "run_date_time",
             "title": "Run date/time",
             "transforms": Array [
               [Function],
@@ -40,26 +41,37 @@ Object {
         "onSort": [Function],
         "rows": Array [
           Array [
-            <div>
-              <a
-                href="beta/insights/tasks"
-              >
-                taskA
-              </a>
-            </div>,
-            10,
-            "Invalid date",
+            Object {
+              "title": "taskA",
+            },
+            Object {
+              "title": 10,
+            },
+            Object {
+              "title": "Running",
+            },
           ],
           Array [
-            <div>
-              <a
-                href="beta/insights/tasks"
-              >
-                taskB
-              </a>
-            </div>,
-            5,
-            "20 Apr 2022, 11:10 UTC",
+            Object {
+              "title": "taskB",
+            },
+            Object {
+              "title": 5,
+            },
+            Object {
+              "title": "20 Apr 2022, 11:10 UTC",
+            },
+          ],
+          Array [
+            Object {
+              "title": "taskB",
+            },
+            Object {
+              "title": 3,
+            },
+            Object {
+              "title": "25 Apr 2022, 11:10 UTC",
+            },
           ],
         ],
         "sortBy": Object {
@@ -69,7 +81,7 @@ Object {
       },
       "toolbarProps": Object {
         "pagination": Object {
-          "itemCount": 2,
+          "itemCount": 3,
           "onPerPageSelect": [Function],
           "onSetPage": [Function],
           "page": 1,
@@ -94,6 +106,7 @@ Object {
             "props": Object {
               "width": 20,
             },
+            "renderExport": [Function],
             "sortByProp": "system_count",
             "title": "Systems",
             "transforms": Array [
@@ -104,7 +117,7 @@ Object {
             "props": Object {
               "width": 20,
             },
-            "sortByProp": "runDateTime",
+            "sortByProp": "run_date_time",
             "title": "Run date/time",
             "transforms": Array [
               [Function],
@@ -114,26 +127,37 @@ Object {
         "onSort": [Function],
         "rows": Array [
           Array [
-            <div>
-              <a
-                href="beta/insights/tasks"
-              >
-                taskA
-              </a>
-            </div>,
-            10,
-            "Invalid date",
+            Object {
+              "title": "taskA",
+            },
+            Object {
+              "title": 10,
+            },
+            Object {
+              "title": "Running",
+            },
           ],
           Array [
-            <div>
-              <a
-                href="beta/insights/tasks"
-              >
-                taskB
-              </a>
-            </div>,
-            5,
-            "20 Apr 2022, 11:10 UTC",
+            Object {
+              "title": "taskB",
+            },
+            Object {
+              "title": 5,
+            },
+            Object {
+              "title": "20 Apr 2022, 11:10 UTC",
+            },
+          ],
+          Array [
+            Object {
+              "title": "taskB",
+            },
+            Object {
+              "title": 3,
+            },
+            Object {
+              "title": "25 Apr 2022, 11:10 UTC",
+            },
           ],
         ],
         "sortBy": Object {
@@ -143,7 +167,7 @@ Object {
       },
       "toolbarProps": Object {
         "pagination": Object {
-          "itemCount": 2,
+          "itemCount": 3,
           "onPerPageSelect": [Function],
           "onSetPage": [Function],
           "page": 1,
@@ -169,6 +193,7 @@ Object {
           "props": Object {
             "width": 20,
           },
+          "renderExport": [Function],
           "sortByProp": "system_count",
           "title": "Systems",
           "transforms": Array [
@@ -179,7 +204,7 @@ Object {
           "props": Object {
             "width": 20,
           },
-          "sortByProp": "runDateTime",
+          "sortByProp": "run_date_time",
           "title": "Run date/time",
           "transforms": Array [
             [Function],
@@ -189,26 +214,37 @@ Object {
       "onSort": [Function],
       "rows": Array [
         Array [
-          <div>
-            <a
-              href="beta/insights/tasks"
-            >
-              taskA
-            </a>
-          </div>,
-          10,
-          "Invalid date",
+          Object {
+            "title": "taskA",
+          },
+          Object {
+            "title": 10,
+          },
+          Object {
+            "title": "Running",
+          },
         ],
         Array [
-          <div>
-            <a
-              href="beta/insights/tasks"
-            >
-              taskB
-            </a>
-          </div>,
-          5,
-          "20 Apr 2022, 11:10 UTC",
+          Object {
+            "title": "taskB",
+          },
+          Object {
+            "title": 5,
+          },
+          Object {
+            "title": "20 Apr 2022, 11:10 UTC",
+          },
+        ],
+        Array [
+          Object {
+            "title": "taskB",
+          },
+          Object {
+            "title": 3,
+          },
+          Object {
+            "title": "25 Apr 2022, 11:10 UTC",
+          },
         ],
       ],
       "sortBy": Object {
@@ -218,7 +254,7 @@ Object {
     },
     "toolbarProps": Object {
       "pagination": Object {
-        "itemCount": 2,
+        "itemCount": 3,
         "onPerPageSelect": [Function],
         "onSetPage": [Function],
         "page": 1,

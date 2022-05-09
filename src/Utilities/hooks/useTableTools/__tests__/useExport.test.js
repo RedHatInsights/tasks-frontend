@@ -4,19 +4,24 @@ import items from './__fixtures__/items.fixtures';
 import useExport, { jsonForItems, csvForItems } from '../useExport';
 
 describe('useExport', () => {
-  const exporter = jest.fn(() => Promise.resolve(items));
-  const defaultOptions = {
-    exporter,
-    columns,
-  };
+  let workingExporter = jest.fn(() => Promise.resolve(items));
+  let defaultOptions;
+
+  beforeEach(() => {
+    defaultOptions = {
+      columns,
+    };
+  });
 
   it('returns an export config toolbar config', () => {
+    defaultOptions.exporter = workingExporter;
     const { result } = renderHook(() => useExport(defaultOptions));
     expect(result.current.toolbarProps.exportConfig).toBeDefined();
     expect(result).toMatchSnapshot();
   });
 
   it('returns an export config toolbar config', () => {
+    defaultOptions.exporter = workingExporter;
     const { result } = renderHook(() =>
       useExport({
         ...defaultOptions,
@@ -27,19 +32,20 @@ describe('useExport', () => {
   });
 
   it('calls the exporter via onSelect', () => {
+    defaultOptions.exporter = workingExporter;
     const { result } = renderHook(() => useExport(defaultOptions));
 
     act(() => {
       result.current.toolbarProps.exportConfig.onSelect(null, 'csv');
     });
 
-    expect(exporter).toHaveBeenCalled();
+    expect(defaultOptions.exporter).toHaveBeenCalled();
 
     act(() => {
       result.current.toolbarProps.exportConfig.onSelect(null, 'json');
     });
 
-    expect(exporter).toHaveBeenCalled();
+    expect(defaultOptions.exporter).toHaveBeenCalled();
   });
 });
 

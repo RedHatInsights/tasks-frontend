@@ -1,5 +1,6 @@
-import React, { Suspense, lazy, useState } from 'react';
-
+import React, { Suspense, lazy, useEffect, useState } from 'react';
+import propTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import { Spinner, StackItem, Stack } from '@patternfly/react-core';
 import { Main } from '@redhat-cloud-services/frontend-components/Main';
 import {
@@ -10,22 +11,25 @@ import { TasksTabs } from '../../PresentationalComponents';
 import { TASKS_PAGE_TABS } from '../../constants';
 
 const AvailableTasksTable = lazy(() =>
-  import(
-    '../../PresentationalComponents/AvailableTasksTable/AvailableTasksTable'
-  )
+  import('../AvailableTasksTable/AvailableTasksTable')
 );
 const CompletedTasksTable = lazy(() =>
-  import(
-    '../../PresentationalComponents/CompletedTasksTable/CompletedTasksTable'
-  )
+  import('../../SmartComponents/CompletedTasksTable/CompletedTasksTable')
 );
 
 import './tasks-page.scss';
 
-const TasksPage = () => {
-  const [tabIndex, setTab] = useState(0);
+const TasksPage = ({ tab }) => {
+  const history = useHistory();
+  const [tabIndex, setTab] = useState(tab);
+  useEffect(() => {
+    if (tab === 0) {
+      history.push('available');
+    }
+  }, []);
 
   const updateTab = (event, index) => {
+    history.push(index ? 'executed' : 'available');
     setTab(index);
   };
 
@@ -55,6 +59,10 @@ const TasksPage = () => {
       </Main>
     </React.Fragment>
   );
+};
+
+TasksPage.propTypes = {
+  tab: propTypes.number,
 };
 
 export default TasksPage;

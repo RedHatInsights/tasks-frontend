@@ -362,7 +362,7 @@ exports[`TasksTables should render correctly 1`] = `
           data-label="Task"
         >
           <a
-            href="beta/insights/tasks"
+            href="/executed/1"
           >
             taskA
           </a>
@@ -394,7 +394,7 @@ exports[`TasksTables should render correctly 1`] = `
           data-label="Task"
         >
           <a
-            href="beta/insights/tasks"
+            href="/executed/2"
           >
             taskB
           </a>

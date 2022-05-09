@@ -7,7 +7,7 @@ describe('useTableTools', () => {
   it('returns tableProps', () => {
     const { result } = renderHook(() => useTableTools(items, columns));
     expect(result).toMatchSnapshot();
-    expect(result.current.tableProps.rows.length).toBe(2);
+    expect(result.current.tableProps.rows.length).toBe(3);
     expect(result.current.tableProps.cells.length).toBe(3);
   });
 

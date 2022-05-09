@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { sortable } from '@patternfly/react-table';
-import { orderArrayByProp, orderByArray, uniq } from '../../helpers';
+import { orderArrayByProp, uniq } from '../../helpers';
 
 const isSortable = (column) => column.sortByProp || column.sortByFunction;
 
@@ -33,19 +33,12 @@ const useTableSort = (columns, options = {}) => {
   };
   const currentSortableColumn = columns[sortBy.index - columnOffset(options)];
   const sorter = (items) =>
-    currentSortableColumn?.sortByArray
-      ? orderByArray(
-          items,
-          currentSortableColumn?.sortByProp,
-          currentSortableColumn?.sortByArray,
-          sortBy.direction
-        )
-      : orderArrayByProp(
-          currentSortableColumn?.sortByProp ||
-            currentSortableColumn?.sortByFunction,
-          items,
-          sortBy.direction
-        );
+    orderArrayByProp(
+      currentSortableColumn?.sortByProp ||
+        currentSortableColumn?.sortByFunction,
+      items,
+      sortBy.direction
+    );
   return {
     sorter,
     tableProps: {

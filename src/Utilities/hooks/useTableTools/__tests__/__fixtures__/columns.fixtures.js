@@ -12,12 +12,13 @@ export default [
       width: 20,
     },
     sortByProp: 'system_count',
+    renderExport: (item) => item.system_count,
   },
   {
     title: 'Run date/time',
     props: {
       width: 20,
     },
-    sortByProp: 'runDateTime',
+    sortByProp: 'run_date_time',
   },
 ];

@@ -58,7 +58,6 @@ TasksTables.propTypes = {
       title: propTypes.node,
       transforms: propTypes.array,
       sortByProperty: propTypes.string,
-      sortByArray: propTypes.array,
       sortByFunction: propTypes.func,
       renderFunc: propTypes.func,
     })

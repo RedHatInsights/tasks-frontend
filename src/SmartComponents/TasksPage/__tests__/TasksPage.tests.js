@@ -9,11 +9,7 @@ import TasksPage from '../TasksPage';
 
 describe('TasksPage', () => {
   let props;
-  let mockStore;
-
-  beforeEach(() => {
-    mockStore = configureStore();
-  });
+  let mockStore = configureStore();
 
   afterEach(() => {
     jest.clearAllMocks();
@@ -24,7 +20,7 @@ describe('TasksPage', () => {
     const { asFragment } = render(
       <MemoryRouter keyLength={0}>
         <Provider store={store}>
-          <TasksPage {...props} />
+          <TasksPage tab={0} />
         </Provider>
       </MemoryRouter>
     );
@@ -49,6 +45,10 @@ describe('TasksPage', () => {
     userEvent.click(screen.getByText('Completed tasks'));
     await waitFor(() =>
       expect(screen.getByLabelText('completed-tasks')).toBeInTheDocument()
+    );
+    userEvent.click(screen.getByText('Available tasks'));
+    await waitFor(() =>
+      expect(screen.getByLabelText('available-tasks')).toBeInTheDocument()
     );
   });
 });

@@ -28,7 +28,24 @@ describe('usePaginate', () => {
     const paginatedItems = result.current.paginator(items);
 
     expect(paginatedItems).toMatchSnapshot();
-    expect(paginatedItems.length).toBe(2);
+    expect(paginatedItems.length).toBe(3);
     expect(paginatedItems[1]).toBe(items[1]);
+  });
+
+  it('returns page 1', () => {
+    const { result } = renderHook(() => usePaginate());
+
+    act(() => {
+      result.current.setPage(-1);
+    });
+
+    expect(result.current.toolbarProps.pagination.page).toBe(1);
+  });
+
+  it('returns empty objection with pagination disabled', () => {
+    let options = { pagination: false };
+    const { result } = renderHook(() => usePaginate(options));
+
+    expect(result.current).toEqual({});
   });
 });

@@ -1,21 +1,16 @@
-import React from 'react';
-import moment from 'moment';
+const columnProp = (column) =>
+  column.key ||
+  column.original?.toLowerCase() ||
+  column.sortByProp?.toLowerCase();
 
-const renderRunDateTime = (end) => {
-  return end === 'null'
-    ? 'Running'
-    : moment.utc(end).format('DD MMM YYYY, HH:mm UTC');
-};
+const buildRow = (item, columns, index) =>
+  columns.map((column) => ({
+    title: column.renderFunc
+      ? column.renderFunc(undefined, undefined, item, index)
+      : item[columnProp(column)],
+  }));
 
-const buildRow = (item, index) => [
-  <div key={`task-title-${index}`}>
-    <a href="beta/insights/tasks">{item.title}</a>
-  </div>,
-  item.system_count,
-  renderRunDateTime(item.end),
-];
-
-const useRowsBuilder = (items, options = {}) => {
+const useRowsBuilder = (items, columns, options = {}) => {
   const filteredItems = options?.filter ? options.filter(items) : items;
 
   const sortedItems = options?.sorter
@@ -26,7 +21,9 @@ const useRowsBuilder = (items, options = {}) => {
     ? options?.paginator(filteredItems)
     : sortedItems;
 
-  const rows = paginatedItems.map((item, index) => buildRow(item, index));
+  const rows = paginatedItems.map((item, index) =>
+    buildRow(item, columns, index)
+  );
 
   const pagination = options?.pagination
     ? {

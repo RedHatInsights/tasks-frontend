@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getPropery should return values of keys 1`] = `"value-level-3"`;
+
+exports[`getPropery should return values of keys 2`] = `"value-level-2"`;
+
+exports[`getPropery should return values of keys 3`] = `[MockFunction]`;
+
+exports[`orderArrayByProp sorts an array by numbers asc 1`] = `
+Array [
+  Object {
+    "end": "2022-04-28T11:10:00",
+    "id": 3,
+    "initiated_by": "Michael",
+    "run_date_time": "25 Apr 2022, 11:10 UTC",
+    "start": "2022-04-25T10:10:00",
+    "status": "complete",
+    "system_count": 3,
+    "title": "taskB",
+  },
+  Object {
+    "end": "2022-04-20T11:10:00",
+    "id": 2,
+    "initiated_by": "Michael",
+    "run_date_time": "20 Apr 2022, 11:10 UTC",
+    "start": "2022-04-20T10:10:00",
+    "status": "complete",
+    "system_count": 5,
+    "title": "taskB",
+  },
+  Object {
+    "end": null,
+    "id": 1,
+    "initiated_by": "Michael",
+    "run_date_time": "Running",
+    "start": "2022-04-21T10:10:00",
+    "status": "running",
+    "system_count": 10,
+    "title": "taskA",
+  },
+]
+`;
+
+exports[`orderArrayByProp sorts an array by numbers desc 1`] = `
+Array [
+  Object {
+    "end": null,
+    "id": 1,
+    "initiated_by": "Michael",
+    "run_date_time": "Running",
+    "start": "2022-04-21T10:10:00",
+    "status": "running",
+    "system_count": 10,
+    "title": "taskA",
+  },
+  Object {
+    "end": "2022-04-20T11:10:00",
+    "id": 2,
+    "initiated_by": "Michael",
+    "run_date_time": "20 Apr 2022, 11:10 UTC",
+    "start": "2022-04-20T10:10:00",
+    "status": "complete",
+    "system_count": 5,
+    "title": "taskB",
+  },
+  Object {
+    "end": "2022-04-28T11:10:00",
+    "id": 3,
+    "initiated_by": "Michael",
+    "run_date_time": "25 Apr 2022, 11:10 UTC",
+    "start": "2022-04-25T10:10:00",
+    "status": "complete",
+    "system_count": 3,
+    "title": "taskB",
+  },
+]
+`;
+
+exports[`orderArrayByProp sorts an array by string asc 1`] = `
+Array [
+  Object {
+    "end": null,
+    "id": 1,
+    "initiated_by": "Michael",
+    "run_date_time": "Running",
+    "start": "2022-04-21T10:10:00",
+    "status": "running",
+    "system_count": 10,
+    "title": "taskA",
+  },
+  Object {
+    "end": "2022-04-20T11:10:00",
+    "id": 2,
+    "initiated_by": "Michael",
+    "run_date_time": "20 Apr 2022, 11:10 UTC",
+    "start": "2022-04-20T10:10:00",
+    "status": "complete",
+    "system_count": 5,
+    "title": "taskB",
+  },
+  Object {
+    "end": "2022-04-28T11:10:00",
+    "id": 3,
+    "initiated_by": "Michael",
+    "run_date_time": "25 Apr 2022, 11:10 UTC",
+    "start": "2022-04-25T10:10:00",
+    "status": "complete",
+    "system_count": 3,
+    "title": "taskB",
+  },
+]
+`;
+
+exports[`orderArrayByProp sorts an array by string desc 1`] = `
+Array [
+  Object {
+    "end": "2022-04-20T11:10:00",
+    "id": 2,
+    "initiated_by": "Michael",
+    "run_date_time": "20 Apr 2022, 11:10 UTC",
+    "start": "2022-04-20T10:10:00",
+    "status": "complete",
+    "system_count": 5,
+    "title": "taskB",
+  },
+  Object {
+    "end": "2022-04-28T11:10:00",
+    "id": 3,
+    "initiated_by": "Michael",
+    "run_date_time": "25 Apr 2022, 11:10 UTC",
+    "start": "2022-04-25T10:10:00",
+    "status": "complete",
+    "system_count": 3,
+    "title": "taskB",
+  },
+  Object {
+    "end": null,
+    "id": 1,
+    "initiated_by": "Michael",
+    "run_date_time": "Running",
+    "start": "2022-04-21T10:10:00",
+    "status": "running",
+    "system_count": 10,
+    "title": "taskA",
+  },
+]
+`;

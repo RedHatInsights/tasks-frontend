@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks';
+import { act, renderHook } from '@testing-library/react-hooks';
 import useTableSort, { useTableSortWithItems } from '../useTableSort';
 import columns from './__fixtures__/columns.fixtures';
 
@@ -19,6 +19,29 @@ describe('useTableSort', () => {
       })
     );
     expect(result.current.tableProps.sortBy).toEqual(sortBy);
+  });
+
+  it('updates sortBy with onSort', () => {
+    const sortBy = {
+      index: 3,
+      direction: 'asc',
+    };
+    const newSortBy = {
+      index: 0,
+      direction: 'desc',
+    };
+
+    const { result } = renderHook(() =>
+      useTableSort(columns, {
+        sortBy,
+      })
+    );
+
+    act(() => {
+      result.current.tableProps.onSort(null, 0, 'desc');
+    });
+
+    expect(result.current.tableProps.sortBy).toEqual(newSortBy);
   });
 });
 

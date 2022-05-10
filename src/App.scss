@@ -1,2 +1,13 @@
 // Importing Global Variables
 @import "~@redhat-cloud-services/frontend-components-utilities/styles/all";
+
+.completed-task-details-button {
+  margin: auto;
+  display: flex;
+  justify-content: right;
+}
+
+.completed-task-details-info-border {
+  padding: 16px;
+  width: 80%;
+}

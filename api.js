@@ -10,3 +10,12 @@ const getExecutedTasks = async (path) => {
 export const fetchExecutedTasks = () => {
   return getExecutedTasks(EXECUTED_TASKS_ROOT);
 };
+
+export const fetchExecutedTask = (path) => {
+  return getExecutedTasks(EXECUTED_TASKS_ROOT.concat(path));
+};
+
+export const fetchExecutedTaskJobs = (id) => {
+  let idPath = `/${id}`;
+  return fetchExecutedTask(idPath.concat('/jobs'));
+};

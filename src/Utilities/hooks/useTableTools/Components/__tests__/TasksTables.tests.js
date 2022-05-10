@@ -1,9 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 
 import TasksTables from '../TasksTables';
 import { completedTasksTableItems } from './TasksTable.fixtures';
-import columns from '../../../../../PresentationalComponents/CompletedTasksTable/Columns';
+import columns from '../../../../../SmartComponents/CompletedTasksTable/Columns';
 
 describe('TasksTables', () => {
   let props;
@@ -22,7 +23,11 @@ describe('TasksTables', () => {
   });
 
   it('should render correctly', () => {
-    const { asFragment } = render(<TasksTables {...props} />);
+    const { asFragment } = render(
+      <MemoryRouter>
+        <TasksTables {...props} />
+      </MemoryRouter>
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });

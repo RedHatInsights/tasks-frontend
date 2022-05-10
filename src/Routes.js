@@ -9,6 +9,12 @@ const TasksPage = lazy(() =>
   )
 );
 
+const CompletedTaskDetails = lazy(() =>
+  import(
+    /* webpackChunkName: "CompletedTaskDetails" */ './SmartComponents/CompletedTaskDetails/CompletedTaskDetails'
+  )
+);
+
 /**
  * the Switch component changes routes depending on the path.
  *
@@ -26,7 +32,16 @@ export const Routes = () => (
     }
   >
     <Switch>
-      <Route path="/" component={TasksPage} />
+      <Route exact path="/" render={() => <TasksPage tab={0} />} />
+      {/*<Redirect exact from="/" to={'/available'} />*/}
+      <Route exact path="/available" render={() => <TasksPage tab={0} />} />
+      <Route exact path="/executed" render={() => <TasksPage tab={1} />} />
+      <Route
+        exact
+        path="/executed/:id"
+        //render={() => <CompletedTaskDetails />}
+        component={CompletedTaskDetails}
+      />
       {/* Finally, catch all unmatched routes */}
       <Route>
         <Redirect to="/" />

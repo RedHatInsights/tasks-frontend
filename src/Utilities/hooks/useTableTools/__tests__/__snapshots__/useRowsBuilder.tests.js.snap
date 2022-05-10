@@ -7,26 +7,37 @@ Object {
       "tableProps": Object {
         "rows": Array [
           Array [
-            <div>
-              <a
-                href="beta/insights/tasks"
-              >
-                taskA
-              </a>
-            </div>,
-            10,
-            "Invalid date",
+            Object {
+              "title": "taskA",
+            },
+            Object {
+              "title": 10,
+            },
+            Object {
+              "title": "Running",
+            },
           ],
           Array [
-            <div>
-              <a
-                href="beta/insights/tasks"
-              >
-                taskB
-              </a>
-            </div>,
-            5,
-            "20 Apr 2022, 11:10 UTC",
+            Object {
+              "title": "taskB",
+            },
+            Object {
+              "title": 5,
+            },
+            Object {
+              "title": "20 Apr 2022, 11:10 UTC",
+            },
+          ],
+          Array [
+            Object {
+              "title": "taskB",
+            },
+            Object {
+              "title": 3,
+            },
+            Object {
+              "title": "25 Apr 2022, 11:10 UTC",
+            },
           ],
         ],
       },
@@ -39,26 +50,37 @@ Object {
     "tableProps": Object {
       "rows": Array [
         Array [
-          <div>
-            <a
-              href="beta/insights/tasks"
-            >
-              taskA
-            </a>
-          </div>,
-          10,
-          "Invalid date",
+          Object {
+            "title": "taskA",
+          },
+          Object {
+            "title": 10,
+          },
+          Object {
+            "title": "Running",
+          },
         ],
         Array [
-          <div>
-            <a
-              href="beta/insights/tasks"
-            >
-              taskB
-            </a>
-          </div>,
-          5,
-          "20 Apr 2022, 11:10 UTC",
+          Object {
+            "title": "taskB",
+          },
+          Object {
+            "title": 5,
+          },
+          Object {
+            "title": "20 Apr 2022, 11:10 UTC",
+          },
+        ],
+        Array [
+          Object {
+            "title": "taskB",
+          },
+          Object {
+            "title": 3,
+          },
+          Object {
+            "title": "25 Apr 2022, 11:10 UTC",
+          },
         ],
       ],
     },

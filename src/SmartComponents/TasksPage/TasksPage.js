@@ -3,12 +3,14 @@ import propTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { Spinner, StackItem, Stack } from '@patternfly/react-core';
 import { Main } from '@redhat-cloud-services/frontend-components/Main';
-import {
-  PageHeader,
-  PageHeaderTitle,
-} from '@redhat-cloud-services/frontend-components/PageHeader';
+import { PageHeader } from '@redhat-cloud-services/frontend-components/PageHeader';
 import { TasksTabs } from '../../PresentationalComponents';
-import { TASKS_PAGE_TABS } from '../../constants';
+import {
+  TASKS_PAGE_HEADER,
+  TASKS_PAGE_HEADER_FLEX_PROPS,
+  TASKS_PAGE_TABS,
+} from '../../constants';
+import FlexibleFlex from '../../Utilities/hooks/useTableTools/Components/FlexibleFlex';
 
 const AvailableTasksTable = lazy(() =>
   import('../AvailableTasksTable/AvailableTasksTable')
@@ -36,7 +38,10 @@ const TasksPage = ({ tab }) => {
   return (
     <React.Fragment>
       <PageHeader>
-        <PageHeaderTitle title="Tasks" />
+        <FlexibleFlex
+          flexContents={TASKS_PAGE_HEADER}
+          flexProps={TASKS_PAGE_HEADER_FLEX_PROPS}
+        />
       </PageHeader>
       <TasksTabs
         className="tabs-background"

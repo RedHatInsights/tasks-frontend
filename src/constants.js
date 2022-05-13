@@ -6,9 +6,11 @@ import { getTimeDiff, renderRunDateTime } from './Utilities/helpers';
 import { ExternalLinkAltIcon } from '@patternfly/react-icons';
 import TasksPopover from './PresentationalComponents/TasksPopover/TasksPopover';
 import { OutlinedQuestionCircleIcon } from '@patternfly/react-icons';
+import RunTaskButton from './PresentationalComponents/RunTaskButton/RunTaskButton';
 
 const today = new Date();
 export const TASKS_API_ROOT = '/api/tasks/v1';
+export const AVAILABLE_TASKS_ROOT = '/tasks';
 export const EXECUTED_TASKS_ROOT = '/executed_tasks';
 const ACCESS_REDHAT_DOT_COM =
   'https://access.redhat.com/documentation/en-us/red_hat_insights/';
@@ -128,3 +130,36 @@ export const TASKS_PAGE_HEADER = [
     contents: [TASKS_PAGE_HEADER_TITLE, TASKS_PAGE_HEADER_POPOVER],
   },
 ];
+
+export const AVAILABLE_TASK_CARD_HEADER = {
+  contents: [
+    {
+      content: (title) => title,
+      match: 'title',
+    },
+  ],
+};
+
+export const AVAILABLE_TASK_CARD_BODY = {
+  contents: [
+    {
+      content: (description) => description,
+      match: 'description',
+    },
+  ],
+  classname: 'card-task-description',
+};
+
+export const AVAILABLE_TASK_CARD_FOOTER = {
+  contents: [
+    {
+      content: () => <a href="#">Download preview of playbook</a>,
+      classname: 'preview-playbook-link',
+      match: 'slug',
+    },
+    {
+      content: (slug) => <RunTaskButton id={slug} isFirst variant="primary" />,
+      match: 'slug',
+    },
+  ],
+};

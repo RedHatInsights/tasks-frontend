@@ -28,7 +28,7 @@ import {
   log4j_task,
   upgrade_leap_task,
 } from './__tests__/__fixtures__/completedTasksDetails.fixtures';
-import FlexibleFlex from '../../Utilities/hooks/useTableTools/Components/FlexibleFlex';
+import FlexibleFlex from '../../PresentationalComponents/FlexibleFlex/FlexibleFlex';
 
 const CompletedTaskDetails = () => {
   const { id } = useParams();

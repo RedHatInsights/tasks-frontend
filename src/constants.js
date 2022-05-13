@@ -1,14 +1,29 @@
 import React from 'react';
 import { Button } from '@patternfly/react-core';
+import { PageHeaderTitle } from '@redhat-cloud-services/frontend-components/PageHeader';
 import { dispatchNotification } from './Utilities/Dispatcher';
 import { getTimeDiff, renderRunDateTime } from './Utilities/helpers';
+import { ExternalLinkAltIcon } from '@patternfly/react-icons';
+import TasksPopover from './PresentationalComponents/TasksPopover/TasksPopover';
+import { OutlinedQuestionCircleIcon } from '@patternfly/react-icons';
 
+const today = new Date();
 export const TASKS_API_ROOT = '/api/tasks/v1';
 export const EXECUTED_TASKS_ROOT = '/executed_tasks';
+const ACCESS_REDHAT_DOT_COM =
+  'https://access.redhat.com/documentation/en-us/red_hat_insights/';
+const YEAR = `${today.getFullYear()}/html/`;
+
 export const TASKS_PAGE_TABS = ['Available tasks', 'Completed tasks'];
 export const COMPLETED_INFO_PANEL_FLEX_PROPS = {
   direction: { default: 'column' },
 };
+export const TASKS_PAGE_HEADER_FLEX_PROPS = {
+  flex: { default: 'flex_1' },
+  alignItems: { default: 'alignItemsCenter' },
+  flexWrap: { default: 'nowrap' },
+};
+
 export const COMPLETED_INFO_PANEL = [
   { contents: <b>Systems</b>, match: ['system_count'] },
   {
@@ -61,3 +76,55 @@ export const TASKS_TABLE_DEFAULTS = {
     },
   },
 };
+
+const TASKS_PAGE_POPOVER_HEADER = <div>About tasks</div>;
+const TASKS_PAGE_POPOVER_BODY = (
+  <div>
+    Tasks allows you to run resource-intensive additional troubleshooting on
+    your connected systems. Ansible Playbooks are written by Red Hat to do the
+    selected tasks.
+    <br /> <br />
+    Eligible systems include systems connected to console.redhat.com with rhc,
+    or Satellite with Cloud Connector.
+  </div>
+);
+
+const TASKS_PAGE_POPOVER_FOOTER = (
+  <div>
+    <a
+      href={`${ACCESS_REDHAT_DOT_COM}${YEAR}red_hat_connector_configuration_guide/index`}
+    >
+      <span>
+        Using rhc with systems <ExternalLinkAltIcon />
+      </span>
+    </a>
+    <br />
+    <a
+      href={`${ACCESS_REDHAT_DOT_COM}${YEAR}using_cloud_connector_to_remediate_issues_across_your_red_hat_satellite_infrastructure/index`}
+    >
+      <span>
+        Configure Cloud Connector and Satellite <ExternalLinkAltIcon />
+      </span>
+    </a>
+  </div>
+);
+
+const TASKS_PAGE_HEADER_TITLE = {
+  children: <PageHeaderTitle title="Tasks" />,
+  classname: 'page-header-title',
+};
+const TASKS_PAGE_HEADER_POPOVER = (
+  <TasksPopover
+    label="tasks-header-popover"
+    header={TASKS_PAGE_POPOVER_HEADER}
+    body={TASKS_PAGE_POPOVER_BODY}
+    footer={TASKS_PAGE_POPOVER_FOOTER}
+    content={<OutlinedQuestionCircleIcon />}
+  />
+);
+
+export const TASKS_PAGE_HEADER = [
+  {
+    contents: [TASKS_PAGE_HEADER_TITLE, TASKS_PAGE_HEADER_POPOVER],
+  },
+];

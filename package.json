@@ -55,6 +55,7 @@
     "start:proxy:beta": "NODE_ENV=development BETA=true webpack serve --config config/dev.webpack.config.js",
     "stage": "NODE_ENV=development webpack serve --config config/dev.stage.webpack.config.js",
     "test": "jest --verbose --env=jsdom",
+    "travis:build": "NODE_ENV=production webpack --config config/prod.webpack.config.js",
     "verify": "npm-run-all build lint test"
   },
   "dependencies": {

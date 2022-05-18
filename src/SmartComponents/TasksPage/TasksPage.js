@@ -10,7 +10,7 @@ import {
   TASKS_PAGE_HEADER_FLEX_PROPS,
   TASKS_PAGE_TABS,
 } from '../../constants';
-import FlexibleFlex from '../../Utilities/hooks/useTableTools/Components/FlexibleFlex';
+import FlexibleFlex from '../../PresentationalComponents/FlexibleFlex/FlexibleFlex';
 
 const AvailableTasksTable = lazy(() =>
   import('../AvailableTasksTable/AvailableTasksTable')

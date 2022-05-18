@@ -3,7 +3,6 @@ import { Flex, FlexItem } from '@patternfly/react-core';
 import propTypes from 'prop-types';
 
 const renderFlexItem = (content) => {
-  console.log(content, 'content');
   let flexItem;
   content?.classname
     ? (flexItem = (

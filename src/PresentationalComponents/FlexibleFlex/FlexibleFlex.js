@@ -13,8 +13,8 @@ const renderFlexItem = (content) => {
   return flexItem;
 };
 
-const FlexibleFlex = ({ data, flexContents, flexProps }) =>
-  flexContents.map((item) => {
+const FlexibleFlex = ({ data, flexContents, flexProps }) => {
+  return flexContents.map((item) => {
     return (
       <Flex key={item.match} {...flexProps}>
         {Array.isArray(item.contents)
@@ -30,6 +30,7 @@ const FlexibleFlex = ({ data, flexContents, flexProps }) =>
       </Flex>
     );
   });
+};
 
 FlexibleFlex.propTypes = {
   data: propTypes.object,

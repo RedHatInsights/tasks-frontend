@@ -5,6 +5,7 @@ import { Spinner, StackItem, Stack } from '@patternfly/react-core';
 import { Main } from '@redhat-cloud-services/frontend-components/Main';
 import { PageHeader } from '@redhat-cloud-services/frontend-components/PageHeader';
 import { TasksTabs } from '../../PresentationalComponents';
+import RunTaskModal from '../RunTaskModal/RunTaskModal';
 import {
   TASKS_PAGE_HEADER,
   TASKS_PAGE_HEADER_FLEX_PROPS,
@@ -24,6 +25,9 @@ import './tasks-page.scss';
 const TasksPage = ({ tab }) => {
   const history = useHistory();
   const [tabIndex, setTab] = useState(tab);
+  const [runTaskModalOpened, setRunTaskModalOpened] = useState(false);
+  const [activeTask, setActiveTask] = useState({});
+
   useEffect(() => {
     if (tab === 0) {
       history.push('available');
@@ -35,8 +39,18 @@ const TasksPage = ({ tab }) => {
     setTab(index);
   };
 
+  const openTaskModal = (task) => {
+    setRunTaskModalOpened(true);
+    setActiveTask(task);
+  };
+
   return (
     <React.Fragment>
+      <RunTaskModal
+        task={activeTask}
+        isOpen={runTaskModalOpened}
+        setModalOpened={setRunTaskModalOpened}
+      />
       <PageHeader>
         <FlexibleFlex
           flexContents={TASKS_PAGE_HEADER}
@@ -54,7 +68,7 @@ const TasksPage = ({ tab }) => {
           <StackItem>
             <Suspense fallback={<Spinner />}>
               {tabIndex === 0 ? (
-                <AvailableTasksTable />
+                <AvailableTasksTable openTaskModal={openTaskModal} />
               ) : (
                 <CompletedTasksTable />
               )}

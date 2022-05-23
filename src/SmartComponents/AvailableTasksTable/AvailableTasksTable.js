@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import propTypes from 'prop-types';
 //import { fetchAvailableTasks } from '../../../api';
 import { availableTasksTableItems } from '../../Utilities/hooks/useTableTools/Components/__tests__/TasksTable.fixtures';
 import CardBuilder from '../../PresentationalComponents/CardBuilder/CardBuilder';
@@ -8,7 +9,11 @@ import {
   AVAILABLE_TASK_CARD_FOOTER,
 } from '../../constants';
 
-const AvailableTasksTable = () => {
+const buildCardFuncArray = (openTaskModal) => {
+  return [{ openTaskModal: openTaskModal }];
+};
+
+const AvailableTasksTable = ({ openTaskModal }) => {
   //const [availableTasks, setAvailableTasks] = useState([]);
   const [availableTasks, setAvailableTasks] = useState(
     availableTasksTableItems
@@ -35,6 +40,7 @@ const AvailableTasksTable = () => {
               cardHeader={AVAILABLE_TASK_CARD_HEADER}
               cardBody={AVAILABLE_TASK_CARD_BODY}
               cardFooter={AVAILABLE_TASK_CARD_FOOTER}
+              actionFuncs={buildCardFuncArray(openTaskModal)}
             />
             <br />
           </React.Fragment>
@@ -42,6 +48,10 @@ const AvailableTasksTable = () => {
       })}
     </div>
   );
+};
+
+AvailableTasksTable.propTypes = {
+  openTaskModal: propTypes.func,
 };
 
 export default AvailableTasksTable;

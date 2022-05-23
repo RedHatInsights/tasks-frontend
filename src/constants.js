@@ -8,6 +8,9 @@ import TasksPopover from './PresentationalComponents/TasksPopover/TasksPopover';
 import { OutlinedQuestionCircleIcon } from '@patternfly/react-icons';
 import RunTaskButton from './PresentationalComponents/RunTaskButton/RunTaskButton';
 
+/**
+ * String constants
+ */
 const today = new Date();
 export const TASKS_API_ROOT = '/api/tasks/v1';
 export const AVAILABLE_TASKS_ROOT = '/tasks';
@@ -17,6 +20,11 @@ const ACCESS_REDHAT_DOT_COM =
 const YEAR = `${today.getFullYear()}/html/`;
 
 export const TASKS_PAGE_TABS = ['Available tasks', 'Completed tasks'];
+
+/**
+ * Flex constants
+ */
+
 export const COMPLETED_INFO_PANEL_FLEX_PROPS = {
   direction: { default: 'column' },
 };
@@ -41,9 +49,11 @@ export const COMPLETED_INFO_PANEL = [
   { contents: <b>Initiated by</b>, match: ['initiated_by'] },
   { contents: <b>Systems with messages</b>, match: ['messages_count'] },
 ];
+
 export const COMPLETED_INFO_BUTTONS_FLEX_PROPS = {
   align: { default: 'alignRigt' },
 };
+
 export const COMPLETED_INFO_BUTTONS = [
   {
     contents: (
@@ -61,25 +71,8 @@ export const COMPLETED_INFO_BUTTONS = [
   },
 ];
 
-export const TASKS_TABLE_DEFAULTS = {
-  exportable: {
-    onStart: () => {
-      dispatchNotification({
-        variant: 'info',
-        title: 'Preparing export',
-        description: 'Once complete, your download will start automatically.',
-      });
-    },
-    onComplete: () => {
-      dispatchNotification({
-        variant: 'success',
-        title: 'Downloading export',
-      });
-    },
-  },
-};
-
 const TASKS_PAGE_POPOVER_HEADER = <div>About tasks</div>;
+
 const TASKS_PAGE_POPOVER_BODY = (
   <div>
     Tasks allows you to run resource-intensive additional troubleshooting on
@@ -115,6 +108,7 @@ const TASKS_PAGE_HEADER_TITLE = {
   children: <PageHeaderTitle title="Tasks" />,
   classname: 'page-header-title',
 };
+
 const TASKS_PAGE_HEADER_POPOVER = (
   <TasksPopover
     label="tasks-header-popover"
@@ -130,6 +124,32 @@ export const TASKS_PAGE_HEADER = [
     contents: [TASKS_PAGE_HEADER_TITLE, TASKS_PAGE_HEADER_POPOVER],
   },
 ];
+
+/**
+ * Table constants
+ */
+
+export const TASKS_TABLE_DEFAULTS = {
+  exportable: {
+    onStart: () => {
+      dispatchNotification({
+        variant: 'info',
+        title: 'Preparing export',
+        description: 'Once complete, your download will start automatically.',
+      });
+    },
+    onComplete: () => {
+      dispatchNotification({
+        variant: 'success',
+        title: 'Downloading export',
+      });
+    },
+  },
+};
+
+/**
+ * Card Builder constants
+ */
 
 export const AVAILABLE_TASK_CARD_HEADER = {
   contents: [
@@ -150,16 +170,31 @@ export const AVAILABLE_TASK_CARD_BODY = {
   classname: 'card-task-description',
 };
 
+const DOWNLOAD_PLAYBOOK = {
+  content: () => <a href="#">Download preview of playbook</a>,
+  classname: 'preview-playbook-link',
+  match: 'slug',
+};
+
 export const AVAILABLE_TASK_CARD_FOOTER = {
   contents: [
-    {
+    DOWNLOAD_PLAYBOOK,
+    /*{
       content: () => <a href="#">Download preview of playbook</a>,
       classname: 'preview-playbook-link',
       match: 'slug',
-    },
+    },*/
     {
-      content: (slug) => <RunTaskButton id={slug} isFirst variant="primary" />,
-      match: 'slug',
+      content: (task, openTaskModal) => (
+        <RunTaskButton
+          task={task}
+          isFirst
+          variant="primary"
+          openTaskModal={openTaskModal}
+        />
+      ),
+      match: 'all',
+      actionFunc: 'openTaskModal',
     },
   ],
 };

@@ -2,15 +2,18 @@ import React from 'react';
 import { Button } from '@patternfly/react-core';
 import propTypes from 'prop-types';
 
-const RunTaskButton = ({ /*id, */ isFirst, variant }) => {
+const RunTaskButton = ({ task, isFirst, openTaskModal, variant }) => {
   return (
-    <Button variant={variant}>{isFirst ? 'Run task' : 'Run task again'}</Button>
+    <Button variant={variant} onClick={() => openTaskModal(task)}>
+      {isFirst ? 'Run task' : 'Run task again'}
+    </Button>
   );
 };
 
 RunTaskButton.propTypes = {
-  id: propTypes.string,
+  task: propTypes.object,
   isFirst: propTypes.bool,
+  openTaskModal: propTypes.func,
   variant: propTypes.string,
 };
 

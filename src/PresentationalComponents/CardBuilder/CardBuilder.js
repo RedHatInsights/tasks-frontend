@@ -2,64 +2,37 @@ import React from 'react';
 import { Card, CardBody, CardFooter, CardTitle } from '@patternfly/react-core';
 import propTypes from 'prop-types';
 
-const renderContentType = (data, item, actionFuncs) => {
-  let returnedContent;
-  let actionFunc = actionFuncs?.find((func) => {
-    if (item.actionFunc === Object.keys(func)[0]) {
-      return func[item.actionFunc];
-    }
-  });
-
-  typeof item.content === 'function'
-    ? (returnedContent = item.content(
-        item.match === 'all' ? data : data[item.match],
-        actionFunc?.[item.actionFunc]
-      ))
-    : (returnedContent = data[item.match]);
-
-  return returnedContent;
+export const CardBuilderContent = ({ content }) => {
+  return content;
 };
 
-const renderContent = (data, content, actionFuncs) => {
-  return content.map((item, index) => {
-    return (
-      <div key={`${item.match}-${index}`} className={item.classname}>
-        {renderContentType(data, item, actionFuncs)}
-      </div>
-    );
-  });
+const findChild = (children, component) => {
+  return children.find((child) => child.props.type === component);
 };
 
-const CardBuilder = ({
-  actionFuncs,
-  data,
-  cardClass,
-  cardHeader,
-  cardBody,
-  cardFooter,
-}) => {
+const CardBuilder = ({ children, cardClass }) => {
+  if (!Array.isArray(children)) {
+    children = [children];
+  }
+
   return (
     <Card className={cardClass}>
-      <CardTitle className={cardHeader.classname}>
-        {renderContent(data, cardHeader.contents)}
+      <CardTitle className={findChild(children, 'title').props.className}>
+        {findChild(children, 'title')}
       </CardTitle>
-      <CardBody className={cardBody.classname}>
-        {renderContent(data, cardBody.contents)}
+      <CardBody className={findChild(children, 'body').props.className}>
+        {findChild(children, 'body')}
       </CardBody>
-      <CardFooter className={cardFooter.classname}>
-        {renderContent(data, cardFooter.contents, actionFuncs)}
+      <CardFooter className={findChild(children, 'footer').props.className}>
+        {findChild(children, 'footer')}
       </CardFooter>
     </Card>
   );
 };
 
 CardBuilder.propTypes = {
-  actionFuncs: propTypes.array,
-  data: propTypes.object,
+  children: propTypes.any,
   cardClass: propTypes.string,
-  cardHeader: propTypes.object,
-  cardBody: propTypes.object,
-  cardFooter: propTypes.object,
 };
 
 export default CardBuilder;

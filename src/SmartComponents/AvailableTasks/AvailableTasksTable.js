@@ -8,8 +8,10 @@ import RunTaskButton from '../../PresentationalComponents/RunTaskButton/RunTaskB
 import EmptyStateDisplay from '../../PresentationalComponents/EmptyStateDisplay/EmptyStateDisplay';
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
 import {
+  AVAILABLE_TASKS_ROOT,
   EMPTY_TASKS_MESSAGE,
   EMPTY_TASKS_TITLE,
+  TASKS_API_ROOT,
   TASKS_ERROR,
 } from '../../constants';
 
@@ -24,7 +26,7 @@ const AvailableTasksTable = ({ availableTasks, error, openTaskModal }) => {
           text={TASKS_ERROR}
           error={`Error ${error?.response?.status}: ${error?.message}`}
         />
-      ) : !availableTasks.length ? (
+      ) : !availableTasks?.length ? (
         <EmptyStateDisplay
           title={EMPTY_TASKS_TITLE}
           text={EMPTY_TASKS_MESSAGE}
@@ -44,11 +46,15 @@ const AvailableTasksTable = ({ availableTasks, error, openTaskModal }) => {
                   content={
                     <Flex direction={{ default: 'column' }}>
                       <FlexItem>
-                        <a href="#">Download preview of playbook</a>
+                        <a
+                          href={`${TASKS_API_ROOT}${AVAILABLE_TASKS_ROOT}/${task.slug}/playbook`}
+                        >
+                          Download preview of playbook
+                        </a>
                       </FlexItem>
                       <FlexItem>
                         <RunTaskButton
-                          task={task}
+                          slug={task.slug}
                           isFirst
                           variant="primary"
                           openTaskModal={openTaskModal}

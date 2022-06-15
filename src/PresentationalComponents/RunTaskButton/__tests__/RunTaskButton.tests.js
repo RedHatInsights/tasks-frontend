@@ -12,7 +12,7 @@ describe('RunTaskButton', () => {
   beforeEach(() => {
     props = {
       className: '',
-      task: availableTasksTableItems[0],
+      slug: availableTasksTableItems[0].slug,
       isFirst: true,
       openTaskModal: jest.fn(),
       variant: 'primary',
@@ -51,6 +51,6 @@ describe('RunTaskButton', () => {
     await waitFor(() =>
       userEvent.click(screen.getByLabelText('taska-run-task-button'))
     );
-    expect(props.openTaskModal).toHaveBeenCalledWith(props.task);
+    expect(props.openTaskModal).toHaveBeenCalledWith(props.slug);
   });
 });

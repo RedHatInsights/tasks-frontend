@@ -28,9 +28,13 @@ export const TASKS_ERROR = [
   'Available tasks cannot be displayed at this time. Please retry and if the problem persists contact your system administrator.',
   '',
 ];
+export const TASK_ERROR = [
+  'This task cannot be displayed at this time. Please retry and if the problem persists contact your system administrator.',
+  '',
+];
 export const EMPTY_TASKS_TITLE = 'No available tasks';
 export const EMPTY_TASKS_MESSAGE = [
-  'This is a temporary message while we wait for mock-ups',
+  'Tasks are created and released by Red Hat. At this moment, there are no tasks available to run.',
 ];
 
 /**

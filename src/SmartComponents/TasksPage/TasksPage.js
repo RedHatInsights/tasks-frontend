@@ -14,6 +14,8 @@ import {
 import FlexibleFlex from '../../PresentationalComponents/FlexibleFlex/FlexibleFlex';
 import AvailableTasks from '../AvailableTasks/AvailableTasks';
 import CompletedTasksTable from '../../SmartComponents/CompletedTasksTable/CompletedTasksTable';
+import { fetchAvailableTask } from '../../../api';
+import { dispatchNotification } from '../../Utilities/Dispatcher';
 
 import './tasks-page.scss';
 
@@ -22,6 +24,7 @@ const TasksPage = ({ tab }) => {
   const [tabIndex, setTab] = useState(tab);
   const [runTaskModalOpened, setRunTaskModalOpened] = useState(false);
   const [activeTask, setActiveTask] = useState({});
+  const [error, setError] = useState();
 
   useEffect(() => {
     if (tab === 0) {
@@ -34,14 +37,27 @@ const TasksPage = ({ tab }) => {
     setTab(index);
   };
 
-  const openTaskModal = (task) => {
+  const openTaskModal = async (slug) => {
+    const task = await fetchAvailableTask(slug);
+    if (task?.response?.status && task?.response?.status !== 200) {
+      setError(task);
+      dispatchNotification({
+        variant: 'danger',
+        title: 'Error',
+        description: task.message,
+        dismissable: true,
+      });
+    } else {
+      setActiveTask(task);
+    }
+
     setRunTaskModalOpened(true);
-    setActiveTask(task);
   };
 
   return (
     <React.Fragment>
       <RunTaskModal
+        error={error}
         task={activeTask}
         isOpen={runTaskModalOpened}
         setModalOpened={setRunTaskModalOpened}

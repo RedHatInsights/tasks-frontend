@@ -4,17 +4,17 @@ import propTypes from 'prop-types';
 
 const RunTaskButton = ({
   classname,
-  task,
   isFirst,
   openTaskModal,
+  slug,
   variant,
 }) => {
   return (
     <Button
-      aria-label={`${task.slug}-run-task-button`}
+      aria-label={`${slug}-run-task-button`}
       className={classname}
       variant={variant}
-      onClick={() => openTaskModal(task)}
+      onClick={() => openTaskModal(slug)}
     >
       {isFirst ? 'Run task' : 'Run task again'}
     </Button>
@@ -23,9 +23,9 @@ const RunTaskButton = ({
 
 RunTaskButton.propTypes = {
   classname: propTypes.string,
-  task: propTypes.object,
   isFirst: propTypes.bool,
   openTaskModal: propTypes.func,
+  slug: propTypes.string,
   variant: propTypes.string,
 };
 

@@ -3,8 +3,15 @@ import { Flex, FlexItem, Modal } from '@patternfly/react-core';
 import propTypes from 'prop-types';
 import SystemTable from '../SystemTable/SystemTable';
 import { useDispatch } from 'react-redux';
+import { ExclamationCircleIcon } from '@patternfly/react-icons';
+import {
+  AVAILABLE_TASKS_ROOT,
+  TASKS_API_ROOT,
+  TASK_ERROR,
+} from '../../constants';
+import EmptyStateDisplay from '../../PresentationalComponents/EmptyStateDisplay/EmptyStateDisplay';
 
-const RunTaskModal = ({ task, isOpen, setModalOpened }) => {
+const RunTaskModal = ({ error, task, isOpen, setModalOpened }) => {
   const [selectedIds, setSelectedIds] = useState([]);
   const dispatch = useDispatch();
 
@@ -34,34 +41,49 @@ const RunTaskModal = ({ task, isOpen, setModalOpened }) => {
   return (
     <Modal
       aria-label="run-task-modal"
-      title={task.title}
+      title={task.title || 'Error'}
       isOpen={isOpen}
       onClose={() => setModalOpened(false)}
       width={'70%'}
     >
-      <React.Fragment>
-        <Flex>
-          <FlexItem>
-            <b>Task description</b>
-          </FlexItem>
-        </Flex>
-        <Flex style={{ paddingBottom: '8px' }}>
-          <FlexItem>{task.description}</FlexItem>
-        </Flex>
-        <Flex>
-          <FlexItem>
-            <a href="#">Download preview of playbook</a>
-          </FlexItem>
-        </Flex>
-        <br />
-        <b>Systems to run tasks on</b>
-        <SystemTable selectedIds={selectedIds} selectIds={selectIds} />
-      </React.Fragment>
+      {error ? (
+        <EmptyStateDisplay
+          icon={ExclamationCircleIcon}
+          color="#c9190b"
+          title={'This task cannot be displayed'}
+          text={TASK_ERROR}
+          error={`Error ${error?.response?.status}: ${error?.message}`}
+        />
+      ) : (
+        <React.Fragment>
+          <Flex>
+            <FlexItem>
+              <b>Task description</b>
+            </FlexItem>
+          </Flex>
+          <Flex style={{ paddingBottom: '8px' }}>
+            <FlexItem>{task.description}</FlexItem>
+          </Flex>
+          <Flex>
+            <FlexItem>
+              <a
+                href={`${TASKS_API_ROOT}${AVAILABLE_TASKS_ROOT}/${task.slug}/playbook`}
+              >
+                Download preview of playbook
+              </a>
+            </FlexItem>
+          </Flex>
+          <br />
+          <b>Systems to run tasks on</b>
+          <SystemTable selectedIds={selectedIds} selectIds={selectIds} />
+        </React.Fragment>
+      )}
     </Modal>
   );
 };
 
 RunTaskModal.propTypes = {
+  error: propTypes.object,
   isOpen: propTypes.bool,
   setModalOpened: propTypes.func,
   task: propTypes.object,

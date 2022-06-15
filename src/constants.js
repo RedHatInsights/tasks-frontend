@@ -15,6 +15,7 @@ const today = new Date();
 export const TASKS_API_ROOT = '/api/tasks/v1';
 export const AVAILABLE_TASKS_ROOT = '/tasks';
 export const EXECUTED_TASKS_ROOT = '/executed_tasks';
+export const SYSTEMS_ROOT = '/system';
 const ACCESS_REDHAT_DOT_COM =
   'https://access.redhat.com/documentation/en-us/red_hat_insights/';
 const YEAR = `${today.getFullYear()}/html/`;
@@ -179,11 +180,6 @@ const DOWNLOAD_PLAYBOOK = {
 export const AVAILABLE_TASK_CARD_FOOTER = {
   contents: [
     DOWNLOAD_PLAYBOOK,
-    /*{
-      content: () => <a href="#">Download preview of playbook</a>,
-      classname: 'preview-playbook-link',
-      match: 'slug',
-    },*/
     {
       content: (task, openTaskModal) => (
         <RunTaskButton

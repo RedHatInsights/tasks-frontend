@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SystemTable should render correctly 1`] = `
+<DocumentFragment>
+  <section
+    class="inventory"
+  >
+    <div>
+      <h1>
+        Inventory mock
+      </h1>
+    </div>
+  </section>
+</DocumentFragment>
+`;

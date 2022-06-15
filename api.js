@@ -3,6 +3,7 @@ import {
   TASKS_API_ROOT,
   AVAILABLE_TASKS_ROOT,
   EXECUTED_TASKS_ROOT,
+  SYSTEMS_ROOT,
 } from './src/constants';
 
 const getTasks = async (path) => {
@@ -26,4 +27,8 @@ export const fetchExecutedTask = (path) => {
 export const fetchExecutedTaskJobs = (id) => {
   let idPath = `/${id}`;
   return fetchExecutedTask(idPath.concat('/jobs'));
+};
+
+export const fetchSystems = (path) => {
+  return getTasks(SYSTEMS_ROOT.concat(path));
 };

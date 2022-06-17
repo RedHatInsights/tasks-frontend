@@ -34,37 +34,36 @@ export const TASKS_PAGE_HEADER_FLEX_PROPS = {
   alignItems: { default: 'alignItemsCenter' },
   flexWrap: { default: 'nowrap' },
 };
-
-export const COMPLETED_INFO_PANEL = [
-  { contents: <b>Systems</b>, match: ['system_count'] },
-  {
-    contents: <b>Run start</b>,
-    match: ['start'],
-    renderFunc: (start) => renderRunDateTime(...start),
-  },
-  {
-    contents: <b>Run end</b>,
-    match: ['start', 'end'],
-    renderFunc: (start, end) => getTimeDiff(start, end),
-  },
-  { contents: <b>Initiated by</b>, match: ['initiated_by'] },
-  { contents: <b>Systems with messages</b>, match: ['messages_count'] },
-];
-
 export const COMPLETED_INFO_BUTTONS_FLEX_PROPS = {
   align: { default: 'alignRigt' },
 };
 
+export const COMPLETED_INFO_PANEL = [
+  { children: <b>Systems</b>, match: ['system_count'] },
+  {
+    children: <b>Run start</b>,
+    match: ['start'],
+    renderFunc: (start) => renderRunDateTime(...start),
+  },
+  {
+    children: <b>Run end</b>,
+    match: ['start', 'end'],
+    renderFunc: (start, end) => getTimeDiff(start, end),
+  },
+  { children: <b>Initiated by</b>, match: ['initiated_by'] },
+  { children: <b>Systems with messages</b>, match: ['messages_count'] },
+];
+
 export const COMPLETED_INFO_BUTTONS = [
   {
-    contents: (
+    children: (
       <Button variant="secondary" ouiaId="run-this-task-again-button">
         Run this task again
       </Button>
     ),
   },
   {
-    contents: (
+    children: (
       <Button variant="primary" ouiaId="download-report-button">
         Download report
       </Button>
@@ -110,19 +109,21 @@ const TASKS_PAGE_HEADER_TITLE = {
   classname: 'page-header-title',
 };
 
-const TASKS_PAGE_HEADER_POPOVER = (
-  <TasksPopover
-    label="tasks-header-popover"
-    header={TASKS_PAGE_POPOVER_HEADER}
-    body={TASKS_PAGE_POPOVER_BODY}
-    footer={TASKS_PAGE_POPOVER_FOOTER}
-    content={<OutlinedQuestionCircleIcon />}
-  />
-);
+const TASKS_PAGE_HEADER_POPOVER = {
+  children: (
+    <TasksPopover
+      label="tasks-header-popover"
+      header={TASKS_PAGE_POPOVER_HEADER}
+      body={TASKS_PAGE_POPOVER_BODY}
+      footer={TASKS_PAGE_POPOVER_FOOTER}
+      content={<OutlinedQuestionCircleIcon />}
+    />
+  ),
+};
 
 export const TASKS_PAGE_HEADER = [
   {
-    contents: [TASKS_PAGE_HEADER_TITLE, TASKS_PAGE_HEADER_POPOVER],
+    children: [TASKS_PAGE_HEADER_TITLE, TASKS_PAGE_HEADER_POPOVER],
   },
 ];
 

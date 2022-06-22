@@ -6,14 +6,17 @@ import { getTimeDiff, renderRunDateTime } from './Utilities/helpers';
 import { ExternalLinkAltIcon } from '@patternfly/react-icons';
 import TasksPopover from './PresentationalComponents/TasksPopover/TasksPopover';
 import { OutlinedQuestionCircleIcon } from '@patternfly/react-icons';
-import RunTaskButton from './PresentationalComponents/RunTaskButton/RunTaskButton';
+import {
+  Skeleton,
+  SkeletonSize,
+} from '@redhat-cloud-services/frontend-components/Skeleton';
 
 /**
  * String constants
  */
 const today = new Date();
 export const TASKS_API_ROOT = '/api/tasks/v1';
-export const AVAILABLE_TASKS_ROOT = '/tasks';
+export const AVAILABLE_TASKS_ROOT = '/task';
 export const EXECUTED_TASKS_ROOT = '/executed_tasks';
 export const SYSTEMS_ROOT = '/system';
 const ACCESS_REDHAT_DOT_COM =
@@ -21,6 +24,14 @@ const ACCESS_REDHAT_DOT_COM =
 const YEAR = `${today.getFullYear()}/html/`;
 
 export const TASKS_PAGE_TABS = ['Available tasks', 'Completed tasks'];
+export const TASKS_ERROR = [
+  'Available tasks cannot be displayed at this time. Please retry and if the problem persists contact your system administrator.',
+  '',
+];
+export const EMPTY_TASKS_TITLE = 'No available tasks';
+export const EMPTY_TASKS_MESSAGE = [
+  'This is a temporary message while we wait for mock-ups',
+];
 
 /**
  * Flex constants
@@ -149,49 +160,7 @@ export const TASKS_TABLE_DEFAULTS = {
   },
 };
 
-/**
- * Card Builder constants
- */
-
-export const AVAILABLE_TASK_CARD_HEADER = {
-  contents: [
-    {
-      content: (title) => title,
-      match: 'title',
-    },
-  ],
-};
-
-export const AVAILABLE_TASK_CARD_BODY = {
-  contents: [
-    {
-      content: (description) => description,
-      match: 'description',
-    },
-  ],
-  classname: 'card-task-description',
-};
-
-const DOWNLOAD_PLAYBOOK = {
-  content: () => <a href="#">Download preview of playbook</a>,
-  classname: 'preview-playbook-link',
-  match: 'slug',
-};
-
-export const AVAILABLE_TASK_CARD_FOOTER = {
-  contents: [
-    DOWNLOAD_PLAYBOOK,
-    {
-      content: (task, openTaskModal) => (
-        <RunTaskButton
-          task={task}
-          isFirst
-          variant="primary"
-          openTaskModal={openTaskModal}
-        />
-      ),
-      match: 'all',
-      actionFunc: 'openTaskModal',
-    },
-  ],
-};
+export const LOADING_CONTENT = [
+  { title: <Skeleton size={SkeletonSize.md} /> },
+  { description: <Skeleton size={SkeletonSize.md} /> },
+];

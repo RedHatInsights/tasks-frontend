@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RunTaskButton should render Run task again 1`] = `
+<DocumentFragment>
+  <button
+    aria-disabled="false"
+    aria-label="taska-run-task-button"
+    class="pf-c-button pf-m-primary"
+    data-ouia-component-id="OUIA-Generated-Button-primary-2"
+    data-ouia-component-type="PF4/Button"
+    data-ouia-safe="true"
+    type="button"
+  >
+    Run task again
+  </button>
+</DocumentFragment>
+`;
+
+exports[`RunTaskButton should render correctly 1`] = `
+<DocumentFragment>
+  <button
+    aria-disabled="false"
+    aria-label="taska-run-task-button"
+    class="pf-c-button pf-m-primary"
+    data-ouia-component-id="OUIA-Generated-Button-primary-1"
+    data-ouia-component-type="PF4/Button"
+    data-ouia-safe="true"
+    type="button"
+  >
+    Run task
+  </button>
+</DocumentFragment>
+`;

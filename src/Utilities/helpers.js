@@ -1,27 +1,39 @@
 import React from 'react';
 import moment from 'moment';
+import {
+  Skeleton,
+  SkeletonSize,
+} from '@redhat-cloud-services/frontend-components/Skeleton';
 
 const renderRunning = (time) => {
   return time === 'null' || !time ? 'Running' : false;
 };
 
 export const renderRunDateTime = (time) => {
-  return (
-    renderRunning(time) || moment.utc(time).format('DD MMM YYYY, HH:mm UTC')
-  );
+  if (time === 'loading') {
+    return <Skeleton size={SkeletonSize.md} />;
+  } else {
+    return (
+      renderRunning(time) || moment.utc(time).format('DD MMM YYYY, HH:mm UTC')
+    );
+  }
 };
 
 export const getTimeDiff = ([start, end]) => {
-  return (
-    renderRunning(end) ||
-    `${renderRunDateTime(end)} (${moment
-      .duration(
-        moment(renderRunDateTime(end), 'DD MMM YYYY, HH:mm').diff(
-          moment(renderRunDateTime(start), 'DD MMM YYYY HH:mm')
+  if (start === 'loading') {
+    return <Skeleton size={SkeletonSize.md} />;
+  } else {
+    return (
+      renderRunning(end) ||
+      `${renderRunDateTime(end)} (${moment
+        .duration(
+          moment(renderRunDateTime(end), 'DD MMM YYYY, HH:mm').diff(
+            moment(renderRunDateTime(start), 'DD MMM YYYY HH:mm')
+          )
         )
-      )
-      .asHours()} hours)`
-  );
+        .asHours()} hours)`
+    );
+  }
 };
 
 export const uniq = (collection) => [...new Set(collection)];

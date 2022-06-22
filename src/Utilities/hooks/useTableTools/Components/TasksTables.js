@@ -14,10 +14,11 @@ const TasksTables = ({
   filters = [],
   options = {},
   //toolbarProps: toolbarPropsProp,
-  //...tablePropsRest
+  ...tablePropsRest
 }) => {
   const { toolbarProps, tableProps } = useTableTools(items, columns, {
     filters,
+    tableProps: tablePropsRest,
     ...options,
   });
 
@@ -25,13 +26,7 @@ const TasksTables = ({
     <React.Fragment>
       <PrimaryToolbar {...toolbarProps} />
 
-      <Table
-        aria-label={label}
-        ouiaId={ouiaId}
-        /*rows={rows}
-        cells={columns}*/
-        {...tableProps}
-      >
+      <Table aria-label={label} ouiaId={ouiaId} {...tableProps}>
         <TableHeader />
         <TableBody />
       </Table>

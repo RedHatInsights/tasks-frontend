@@ -41,6 +41,7 @@ const useTableTools = (items = [], columns = [], options = {}) => {
     toolbarProps: rowBuilderToolbarProps,
     tableProps: rowBuilderTableProps,
   } = useRowsBuilder(items, columns, {
+    emptyRows: options.tableProps.emptyRows,
     pagination: paginationToolbarProps?.pagination,
     paginator,
     filter,

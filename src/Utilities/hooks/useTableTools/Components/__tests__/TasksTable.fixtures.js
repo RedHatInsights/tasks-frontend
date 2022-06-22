@@ -21,6 +21,13 @@ export const completedTasksTableItems = [
   },
 ];
 
+export const availableTasksTableError = {
+  response: {
+    status: 404,
+  },
+  message: 'Error',
+};
+
 export const availableTasksTableItems = [
   {
     title: 'taskA',

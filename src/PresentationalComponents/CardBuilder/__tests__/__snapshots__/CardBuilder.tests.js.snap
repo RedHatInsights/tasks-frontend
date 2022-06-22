@@ -12,40 +12,43 @@ exports[`TasksTables should render correctly 1`] = `
     <div
       class="pf-c-card__title"
     >
-      <div>
-        taskA
-      </div>
+      Task title
     </div>
     <div
-      class="pf-c-card__body card-task-description"
+      class="pf-c-card__body"
     >
-      <div>
-        Uses the insights-client to determine if systems are affected by the LogShell vulnerability. Resource intensive scan
-      </div>
+      Task description
     </div>
     <div
       class="pf-c-card__footer"
     >
       <div
-        class="preview-playbook-link"
+        class="pf-l-flex pf-m-column"
       >
-        <a
-          href="#"
+        <div
+          class=""
         >
-          Download preview of playbook
-        </a>
-      </div>
-      <div>
-        <button
-          aria-disabled="false"
-          class="pf-c-button pf-m-primary"
-          data-ouia-component-id="OUIA-Generated-Button-primary-1"
-          data-ouia-component-type="PF4/Button"
-          data-ouia-safe="true"
-          type="button"
+          <a
+            href="#"
+          >
+            Download preview of playbook
+          </a>
+        </div>
+        <div
+          class=""
         >
-          Run task
-        </button>
+          <button
+            aria-disabled="false"
+            aria-label="taska-run-task-button"
+            class="pf-c-button pf-m-primary"
+            data-ouia-component-id="OUIA-Generated-Button-primary-1"
+            data-ouia-component-type="PF4/Button"
+            data-ouia-safe="true"
+            type="button"
+          >
+            Run task
+          </button>
+        </div>
       </div>
     </div>
   </article>

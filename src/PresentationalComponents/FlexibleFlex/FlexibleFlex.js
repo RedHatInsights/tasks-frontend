@@ -30,7 +30,7 @@ const FlexibleFlex = ({ data, flexContents, flexProps }) => {
 };
 
 FlexibleFlex.propTypes = {
-  data: propTypes.object,
+  data: propTypes.any,
   flexContents: propTypes.array,
   flexProps: propTypes.object,
 };

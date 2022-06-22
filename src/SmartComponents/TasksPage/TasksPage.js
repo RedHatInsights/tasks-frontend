@@ -1,7 +1,7 @@
-import React, { Suspense, lazy, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import propTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
-import { Spinner, StackItem, Stack } from '@patternfly/react-core';
+import { StackItem, Stack } from '@patternfly/react-core';
 import { Main } from '@redhat-cloud-services/frontend-components/Main';
 import { PageHeader } from '@redhat-cloud-services/frontend-components/PageHeader';
 import { TasksTabs } from '../../PresentationalComponents';
@@ -12,13 +12,8 @@ import {
   TASKS_PAGE_TABS,
 } from '../../constants';
 import FlexibleFlex from '../../PresentationalComponents/FlexibleFlex/FlexibleFlex';
-
-const AvailableTasksTable = lazy(() =>
-  import('../AvailableTasksTable/AvailableTasksTable')
-);
-const CompletedTasksTable = lazy(() =>
-  import('../../SmartComponents/CompletedTasksTable/CompletedTasksTable')
-);
+import AvailableTasks from '../AvailableTasks/AvailableTasks';
+import CompletedTasksTable from '../../SmartComponents/CompletedTasksTable/CompletedTasksTable';
 
 import './tasks-page.scss';
 
@@ -66,13 +61,11 @@ const TasksPage = ({ tab }) => {
       <Main>
         <Stack hasGutter>
           <StackItem>
-            <Suspense fallback={<Spinner />}>
-              {tabIndex === 0 ? (
-                <AvailableTasksTable openTaskModal={openTaskModal} />
-              ) : (
-                <CompletedTasksTable />
-              )}
-            </Suspense>
+            {tabIndex === 0 ? (
+              <AvailableTasks openTaskModal={openTaskModal} />
+            ) : (
+              <CompletedTasksTable />
+            )}
           </StackItem>
         </Stack>
       </Main>

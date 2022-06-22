@@ -33,6 +33,7 @@ const RunTaskModal = ({ task, isOpen, setModalOpened }) => {
 
   return (
     <Modal
+      aria-label="run-task-modal"
       title={task.title}
       isOpen={isOpen}
       onClose={() => setModalOpened(false)}

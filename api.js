@@ -7,9 +7,21 @@ import {
 } from './src/constants';
 
 const getTasks = async (path) => {
-  const request = await axios.get(TASKS_API_ROOT.concat(path));
+  let response;
 
-  return request.data;
+  const request = await axios
+    .get(TASKS_API_ROOT.concat(path))
+    .catch(function (error) {
+      return error;
+    });
+
+  if (request.status === 200) {
+    response = request.data.data;
+  } else {
+    response = request;
+  }
+
+  return response;
 };
 
 export const fetchAvailableTasks = () => {

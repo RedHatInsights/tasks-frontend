@@ -1,6 +1,5 @@
 import React, { Suspense, lazy } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-
 import { Bullseye, Spinner } from '@patternfly/react-core';
 
 const TasksPage = lazy(() =>

@@ -16,7 +16,7 @@ const getTasks = async (path) => {
     });
 
   if (request.status === 200) {
-    response = request.data.data;
+    response = request.data;
   } else {
     response = request;
   }
@@ -26,6 +26,10 @@ const getTasks = async (path) => {
 
 export const fetchAvailableTasks = () => {
   return getTasks(AVAILABLE_TASKS_ROOT);
+};
+
+export const fetchAvailableTask = (slug) => {
+  return getTasks(AVAILABLE_TASKS_ROOT.concat(`/${slug}`));
 };
 
 export const fetchExecutedTasks = () => {

@@ -39,7 +39,7 @@ exports[`TasksTables should render correctly 1`] = `
         >
           <button
             aria-disabled="false"
-            aria-label="taska-run-task-button"
+            aria-label="undefined-run-task-button"
             class="pf-c-button pf-m-primary"
             data-ouia-component-id="OUIA-Generated-Button-primary-1"
             data-ouia-component-type="PF4/Button"

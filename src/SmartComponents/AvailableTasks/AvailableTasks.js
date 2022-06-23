@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import propTypes from 'prop-types';
 import { fetchAvailableTasks } from '../../../api';
 import CardBuilder, {
@@ -52,13 +52,13 @@ const AvailableTasks = ({ openTaskModal }) => {
         dismissable: true,
       });
     } else {
-      setAvailableTasks(result);
+      setAvailableTasks(result.data);
     }
 
     setIsLoading(false);
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       const result = await fetchAvailableTasks();

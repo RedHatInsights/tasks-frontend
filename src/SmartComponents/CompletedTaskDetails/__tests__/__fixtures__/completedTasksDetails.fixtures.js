@@ -1,20 +1,57 @@
 export const log4j_task = {
   id: 42,
   task_title: 'Log4J Detection',
+  task_slug: 'log4j',
   description:
     'Uses the insights-client to determine if systems are affected by the LogShell vulnerability. Resource intensive scan',
   task_url: 'https://console.redhat.com/api/tasks/v1/task/log4J',
-  start: '2022-04-21T10:10:00',
-  end: null,
+  start_time: '2022-04-21T10:10:00',
+  end_time: null,
   initiated_by: 'UserX',
   status: 'running',
   system_count: 10,
   jobs: [
     {
+      id: 82,
       display_name: 'host01.example.com',
-      host_id: '00112233-4455-6677-8899aabbccddeeff',
+      system_id: '00112233-4455-6677-8899aabbccddeeff',
+      message: 'Vulnerability found.',
       status: 'completed',
-      //results: {'JSON structure'}
+    },
+    {
+      id: 83,
+      display_name: 'host02.example.com',
+      system_id: '00112233-4455-6677-8899aabbccddeefg',
+      message: 'No vulnerability found.',
+      status: 'completed',
+    },
+    {
+      id: 84,
+      display_name: 'host03.example.com',
+      system_id: '00112233-4455-6677-8899aabbccddeefh',
+      message: 'No vulnerability found.',
+      status: 'completed',
+    },
+    {
+      id: 85,
+      display_name: 'host04.example.com',
+      system_id: '00112233-4455-6677-8899aabbccddeefi',
+      message: 'Vulnerability found.',
+      status: 'completed',
+    },
+    {
+      id: 86,
+      display_name: 'host05.example.com',
+      system_id: '00112233-4455-6677-8899aabbccddeefj',
+      message: 'Vulnerability found.',
+      status: 'completed',
+    },
+    {
+      id: 87,
+      display_name: 'host06.example.com',
+      system_id: '00112233-4455-6677-8899aabbccddeefk',
+      message: 'No vulnerability found.',
+      status: 'completed',
     },
   ],
 };
@@ -32,10 +69,46 @@ export const upgrade_leap_task = {
   system_count: 5,
   jobs: [
     {
+      id: 82,
       display_name: 'host01.example.com',
-      host_id: '00112233-4455-6677-8899aabbccddeeff',
+      system_id: '00112233-4455-6677-8899aabbccddeeff',
+      message: 'Vulnerability found.',
       status: 'completed',
-      //results: {'JSON structure'}
+    },
+    {
+      id: 83,
+      display_name: 'host02.example.com',
+      system_id: '00112233-4455-6677-8899aabbccddeefg',
+      message: 'No vulnerability found.',
+      status: 'completed',
+    },
+    {
+      id: 84,
+      display_name: 'host03.example.com',
+      system_id: '00112233-4455-6677-8899aabbccddeefh',
+      message: 'No vulnerability found.',
+      status: 'completed',
+    },
+    {
+      id: 85,
+      display_name: 'host04.example.com',
+      system_id: '00112233-4455-6677-8899aabbccddeefi',
+      message: 'Vulnerability found.',
+      status: 'completed',
+    },
+    {
+      id: 86,
+      display_name: 'host05.example.com',
+      system_id: '00112233-4455-6677-8899aabbccddeefj',
+      message: 'Vulnerability found.',
+      status: 'completed',
+    },
+    {
+      id: 87,
+      display_name: 'host06.example.com',
+      system_id: '00112233-4455-6677-8899aabbccddeefk',
+      message: 'No vulnerability found.',
+      status: 'completed',
     },
   ],
 };

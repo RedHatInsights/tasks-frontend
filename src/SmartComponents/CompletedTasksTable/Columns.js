@@ -6,15 +6,16 @@ import {
   renderRunDateTime,
 } from '../../Utilities/helpers';
 
-const TaskNameCell = ({ id, title }, index) => (
+const TaskNameCell = ({ id, task_title }, index) => (
   <Link key={`task-title-${index}`} to={`/executed/${id}`}>
-    {title}
+    {task_title}
   </Link>
 );
 
 TaskNameCell.propTypes = {
   id: propTypes.number,
   title: propTypes.string,
+  task_title: propTypes.string,
   index: propTypes.number,
 };
 
@@ -23,8 +24,8 @@ export const TaskColumn = {
   props: {
     width: 35,
   },
-  sortByProp: 'title',
-  renderExport: (task) => task.title,
+  sortByProp: 'task_title',
+  renderExport: (task) => task.task_title,
   renderFunc: renderColumnComponent(TaskNameCell),
 };
 
@@ -33,7 +34,7 @@ export const SystemsCountColumn = {
   props: {
     width: 20,
   },
-  sortByProp: 'system_count',
+  sortByProp: 'systems_count',
   renderExport: (task) => task.system_count,
 };
 

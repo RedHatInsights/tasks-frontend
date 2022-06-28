@@ -8,7 +8,6 @@ import {
 
 const getTasks = async (path) => {
   let response;
-
   const request = await axios
     .get(TASKS_API_ROOT.concat(path))
     .catch(function (error) {
@@ -36,13 +35,13 @@ export const fetchExecutedTasks = () => {
   return getTasks(EXECUTED_TASKS_ROOT);
 };
 
-export const fetchExecutedTask = (path) => {
-  return getTasks(EXECUTED_TASKS_ROOT.concat(path));
+export const fetchExecutedTask = (id, jobs_path = '') => {
+  let idPath = `/${id}${jobs_path}`;
+  return getTasks(EXECUTED_TASKS_ROOT.concat(idPath));
 };
 
 export const fetchExecutedTaskJobs = (id) => {
-  let idPath = `/${id}`;
-  return fetchExecutedTask(idPath.concat('/jobs'));
+  return fetchExecutedTask(id, '/jobs');
 };
 
 export const fetchSystems = (path) => {

@@ -1,3 +1,4 @@
+import { emptyRows } from '../../../PresentationalComponents/NoResultsTable/NoResultsTable';
 const columnProp = (column) =>
   column.key ||
   column.original?.toLowerCase() ||
@@ -11,6 +12,8 @@ const buildRow = (item, columns, index) =>
   }));
 
 const useRowsBuilder = (items, columns, options = {}) => {
+  const EmptyRowsComponent = options.emptyRows || emptyRows;
+
   const filteredItems = options?.filter ? options.filter(items) : items;
 
   const sortedItems = options?.sorter
@@ -21,9 +24,10 @@ const useRowsBuilder = (items, columns, options = {}) => {
     ? options?.paginator(filteredItems)
     : sortedItems;
 
-  const rows = paginatedItems.map((item, index) =>
-    buildRow(item, columns, index)
-  );
+  const rows =
+    paginatedItems.length > 0
+      ? paginatedItems.map((item, index) => buildRow(item, columns, index))
+      : EmptyRowsComponent;
 
   const pagination = options?.pagination
     ? {

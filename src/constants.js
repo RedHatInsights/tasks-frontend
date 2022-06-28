@@ -17,7 +17,7 @@ import {
 const today = new Date();
 export const TASKS_API_ROOT = '/api/tasks/v1';
 export const AVAILABLE_TASKS_ROOT = '/task';
-export const EXECUTED_TASKS_ROOT = '/executed_tasks';
+export const EXECUTED_TASKS_ROOT = '/executed_task';
 export const SYSTEMS_ROOT = '/system';
 const ACCESS_REDHAT_DOT_COM =
   'https://access.redhat.com/documentation/en-us/red_hat_insights/';
@@ -28,6 +28,10 @@ export const TASKS_ERROR = [
   'Available tasks cannot be displayed at this time. Please retry and if the problem persists contact your system administrator.',
   '',
 ];
+export const COMPLETED_TASKS_ERROR = [
+  'Completed tasks connot be displayed at this time. Please return and if the problem persists contact your system administrator.',
+  '',
+];
 export const TASK_ERROR = [
   'This task cannot be displayed at this time. Please retry and if the problem persists contact your system administrator.',
   '',
@@ -35,6 +39,12 @@ export const TASK_ERROR = [
 export const EMPTY_TASKS_TITLE = 'No available tasks';
 export const EMPTY_TASKS_MESSAGE = [
   'Tasks are created and released by Red Hat. At this moment, there are no tasks available to run.',
+];
+export const EMPTY_COMPLETED_TASKS_TITLE = 'No completed tasks';
+export const EMPTY_COMPLETED_TASKS_MESSAGE = [
+  'Tasks allows you to run resource -intesive additional troubleshooting on your connected systems. Ansible Playbooks are written by Red Hat to do the selected tasks.',
+  '',
+  'To use a task, navigate to the "Available tasks" tab and choose a task to run.',
 ];
 
 /**
@@ -57,12 +67,12 @@ export const COMPLETED_INFO_PANEL = [
   { children: <b>Systems</b>, match: ['system_count'] },
   {
     children: <b>Run start</b>,
-    match: ['start'],
+    match: ['start_time'],
     renderFunc: (start) => renderRunDateTime(...start),
   },
   {
     children: <b>Run end</b>,
-    match: ['start', 'end'],
+    match: ['start_time', 'end_time'],
     renderFunc: (start, end) => getTimeDiff(start, end),
   },
   { children: <b>Initiated by</b>, match: ['initiated_by'] },
@@ -164,7 +174,74 @@ export const TASKS_TABLE_DEFAULTS = {
   },
 };
 
+/**
+ * Loading constants
+ */
+
 export const LOADING_CONTENT = [
   { title: <Skeleton size={SkeletonSize.md} /> },
   { description: <Skeleton size={SkeletonSize.md} /> },
+];
+
+export const LOADING_INFO_PANEL = {
+  system_count: <Skeleton size={SkeletonSize.md} />,
+  start_time: 'loading',
+  initiated_by: <Skeleton size={SkeletonSize.md} />,
+  messages_count: <Skeleton size={SkeletonSize.md} />,
+};
+
+export const LOADING_JOBS_TABLE = [
+  {
+    display_name: <Skeleton size={SkeletonSize.md} />,
+    status: <Skeleton size={SkeletonSize.md} />,
+    message: <Skeleton size={SkeletonSize.md} />,
+  },
+  {
+    display_name: <Skeleton size={SkeletonSize.md} />,
+    status: <Skeleton size={SkeletonSize.md} />,
+    message: <Skeleton size={SkeletonSize.md} />,
+  },
+  {
+    display_name: <Skeleton size={SkeletonSize.md} />,
+    status: <Skeleton size={SkeletonSize.md} />,
+    message: <Skeleton size={SkeletonSize.md} />,
+  },
+  {
+    display_name: <Skeleton size={SkeletonSize.md} />,
+    status: <Skeleton size={SkeletonSize.md} />,
+    message: <Skeleton size={SkeletonSize.md} />,
+  },
+  {
+    display_name: <Skeleton size={SkeletonSize.md} />,
+    status: <Skeleton size={SkeletonSize.md} />,
+    message: <Skeleton size={SkeletonSize.md} />,
+  },
+];
+
+export const LOADING_COMPLETED_TASKS_TABLE = [
+  {
+    task_title: <Skeleton size={SkeletonSize.md} />,
+    systems_count: <Skeleton size={SkeletonSize.md} />,
+    run_date_time: <Skeleton size={SkeletonSize.md} />,
+  },
+  {
+    task_title: <Skeleton size={SkeletonSize.md} />,
+    systems_count: <Skeleton size={SkeletonSize.md} />,
+    run_date_time: <Skeleton size={SkeletonSize.md} />,
+  },
+  {
+    task_title: <Skeleton size={SkeletonSize.md} />,
+    systems_count: <Skeleton size={SkeletonSize.md} />,
+    run_date_time: <Skeleton size={SkeletonSize.md} />,
+  },
+  {
+    task_title: <Skeleton size={SkeletonSize.md} />,
+    systems_count: <Skeleton size={SkeletonSize.md} />,
+    run_date_time: <Skeleton size={SkeletonSize.md} />,
+  },
+  {
+    task_title: <Skeleton size={SkeletonSize.md} />,
+    systems_count: <Skeleton size={SkeletonSize.md} />,
+    run_date_time: <Skeleton size={SkeletonSize.md} />,
+  },
 ];

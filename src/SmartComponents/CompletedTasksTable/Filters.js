@@ -5,6 +5,6 @@ export const nameFilter = {
   label: 'Task',
   filter: (tasks, value) =>
     tasks.filter((task) =>
-      task.title.toLowerCase().includes(value.toLowerCase())
+      task.task_title.toLowerCase().includes(value.toLowerCase())
     ),
 };

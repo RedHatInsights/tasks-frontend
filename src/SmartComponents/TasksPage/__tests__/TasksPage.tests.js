@@ -6,16 +6,19 @@ import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 
 import TasksPage from '../TasksPage';
+import { fetchExecutedTasks } from '../../../../api';
+import { fetchAvailableTasks } from '../../../../api';
+
+jest.mock('../../../../api');
 
 describe('TasksPage', () => {
   let props;
   let mockStore = configureStore();
 
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
-
   it('should render correctly', async () => {
+    fetchAvailableTasks.mockImplementation(async () => {
+      return { data: [] };
+    });
     const store = mockStore(props);
     const { asFragment } = render(
       <MemoryRouter keyLength={0}>
@@ -32,6 +35,9 @@ describe('TasksPage', () => {
   });
 
   it('should update tab index', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return { data: [] };
+    });
     const store = mockStore(props);
 
     render(

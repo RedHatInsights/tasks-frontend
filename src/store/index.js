@@ -1,10 +1,9 @@
 import { createContext } from 'react';
-import {
-  ReducerRegistry,
-  applyReducerHash,
-} from '@redhat-cloud-services/frontend-components-utilities/ReducerRegistry';
+import { applyReducerHash } from '@redhat-cloud-services/frontend-components-utilities/ReducerRegistry';
+import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/Registry';
+
 import promiseMiddleware from 'redux-promise-middleware';
-import notificationsMiddleware from '@redhat-cloud-services/frontend-components-notifications/notificationsMiddleware';
+import { notificationsReducer } from '@redhat-cloud-services/frontend-components-notifications/redux';
 
 let registry;
 
@@ -13,11 +12,12 @@ export const RegistryContext = createContext({
 });
 
 export function init(...middleware) {
-  registry = new ReducerRegistry({}, [
+  registry = getRegistry({}, [
     promiseMiddleware,
-    notificationsMiddleware({ errorDescriptionKey: ['detail', 'stack'] }),
-    ...middleware,
+    ...middleware.filter((item) => typeof item !== 'undefined'),
   ]);
+
+  registry.register({ notifications: notificationsReducer });
   return registry;
 }
 

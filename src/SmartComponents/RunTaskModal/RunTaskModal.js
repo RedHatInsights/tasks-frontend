@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Flex, FlexItem, Modal } from '@patternfly/react-core';
 import propTypes from 'prop-types';
 import SystemTable from '../SystemTable/SystemTable';
-import { useDispatch } from 'react-redux';
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
 import {
   AVAILABLE_TASKS_ROOT,
@@ -10,23 +9,14 @@ import {
   TASK_ERROR,
 } from '../../constants';
 import EmptyStateDisplay from '../../PresentationalComponents/EmptyStateDisplay/EmptyStateDisplay';
+import ExecuteTaskButton from '../../PresentationalComponents/ExecuteTaskButton/ExecuteTaskButton';
 
 const RunTaskModal = ({ error, task, isOpen, setModalOpened }) => {
   const [selectedIds, setSelectedIds] = useState([]);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     setSelectedIds([]);
   }, [task]);
-
-  useEffect(() => {
-    dispatch({
-      type: 'SELECT_ENTITY',
-      payload: {
-        selected: selectedIds,
-      },
-    });
-  }, [selectedIds]);
 
   const selectIds = (_event, _isSelected, _index, entity) => {
     let newSelectedIds = [...selectedIds];
@@ -76,6 +66,13 @@ const RunTaskModal = ({ error, task, isOpen, setModalOpened }) => {
           <br />
           <b>Systems to run tasks on</b>
           <SystemTable selectedIds={selectedIds} selectIds={selectIds} />
+          <ExecuteTaskButton
+            ids={selectedIds}
+            setModalOpened={setModalOpened}
+            slug={task.slug}
+            title={task.title}
+            variant="primary"
+          />
         </React.Fragment>
       )}
     </Modal>

@@ -70,6 +70,7 @@ const CompletedTasksTable = () => {
         />
       ) : (
         <TasksTables
+          label="completed-tasks-table"
           ouiaId="completed-tasks-table"
           columns={columns}
           items={completedTasks}

@@ -961,6 +961,7 @@ exports[`CompletedTasksTable should render correctly 1`] = `
       </div>
     </div>
     <table
+      aria-label="completed-tasks-table"
       class="pf-c-table pf-m-grid-md"
       data-ouia-component-id="completed-tasks-table"
       data-ouia-component-type="PF4/Table"

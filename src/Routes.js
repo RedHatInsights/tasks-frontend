@@ -32,16 +32,9 @@ export const Routes = () => (
   >
     <Switch>
       <Route exact path="/" render={() => <TasksPage tab={0} />} />
-      {/*<Redirect exact from="/" to={'/available'} />*/}
       <Route exact path="/available" render={() => <TasksPage tab={0} />} />
       <Route exact path="/executed" render={() => <TasksPage tab={1} />} />
-      <Route
-        exact
-        path="/executed/:id"
-        //render={() => <CompletedTaskDetails />}
-        component={CompletedTaskDetails}
-      />
-      {/* Finally, catch all unmatched routes */}
+      <Route exact path="/executed/:id" component={CompletedTaskDetails} />
       <Route>
         <Redirect to="/" />
       </Route>

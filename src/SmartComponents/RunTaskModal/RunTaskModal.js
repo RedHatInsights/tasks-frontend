@@ -11,12 +11,24 @@ import {
 import EmptyStateDisplay from '../../PresentationalComponents/EmptyStateDisplay/EmptyStateDisplay';
 import ExecuteTaskButton from '../../PresentationalComponents/ExecuteTaskButton/ExecuteTaskButton';
 
-const RunTaskModal = ({ error, task, isOpen, setModalOpened }) => {
-  const [selectedIds, setSelectedIds] = useState([]);
+const RunTaskModal = ({
+  description,
+  error,
+  isOpen,
+  selectedSystems,
+  setModalOpened,
+  slug,
+  title,
+}) => {
+  const [selectedIds, setSelectedIds] = useState();
+
+  useEffect(() => {
+    setSelectedIds(selectedSystems);
+  }, [selectedSystems]);
 
   useEffect(() => {
     setSelectedIds([]);
-  }, [task]);
+  }, [slug]);
 
   const selectIds = (_event, _isSelected, _index, entity) => {
     let newSelectedIds = [...selectedIds];
@@ -31,7 +43,7 @@ const RunTaskModal = ({ error, task, isOpen, setModalOpened }) => {
   return (
     <Modal
       aria-label="run-task-modal"
-      title={task.title || 'Error'}
+      title={title || 'Error'}
       isOpen={isOpen}
       onClose={() => setModalOpened(false)}
       width={'70%'}
@@ -52,12 +64,12 @@ const RunTaskModal = ({ error, task, isOpen, setModalOpened }) => {
             </FlexItem>
           </Flex>
           <Flex style={{ paddingBottom: '8px' }}>
-            <FlexItem>{task.description}</FlexItem>
+            <FlexItem>{description}</FlexItem>
           </Flex>
           <Flex>
             <FlexItem>
               <a
-                href={`${TASKS_API_ROOT}${AVAILABLE_TASKS_ROOT}/${task.slug}/playbook`}
+                href={`${TASKS_API_ROOT}${AVAILABLE_TASKS_ROOT}/${slug}/playbook`}
               >
                 Download preview of playbook
               </a>
@@ -69,8 +81,8 @@ const RunTaskModal = ({ error, task, isOpen, setModalOpened }) => {
           <ExecuteTaskButton
             ids={selectedIds}
             setModalOpened={setModalOpened}
-            slug={task.slug}
-            title={task.title}
+            slug={slug}
+            title={title}
             variant="primary"
           />
         </React.Fragment>
@@ -80,10 +92,13 @@ const RunTaskModal = ({ error, task, isOpen, setModalOpened }) => {
 };
 
 RunTaskModal.propTypes = {
+  description: propTypes.string,
   error: propTypes.object,
   isOpen: propTypes.bool,
+  selectedSystems: propTypes.array,
   setModalOpened: propTypes.func,
-  task: propTypes.object,
+  slug: propTypes.string,
+  title: propTypes.string,
 };
 
 export default RunTaskModal;

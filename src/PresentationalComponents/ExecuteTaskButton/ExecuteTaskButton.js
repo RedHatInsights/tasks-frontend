@@ -30,6 +30,7 @@ const ExecuteTaskButton = ({
         title: 'Error',
         description: result.message,
         dismissable: true,
+        autoDismiss: false,
       });
     } else {
       EXECUTE_TASK_NOTIFICATION(title, ids, result.data.id);

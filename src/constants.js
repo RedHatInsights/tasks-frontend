@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 import { Button } from '@patternfly/react-core';
 import { PageHeaderTitle } from '@redhat-cloud-services/frontend-components/PageHeader';
 import { dispatchNotification } from './Utilities/Dispatcher';
 import { getTimeDiff, renderRunDateTime } from './Utilities/helpers';
 import { ExternalLinkAltIcon } from '@patternfly/react-icons';
 import TasksPopover from './PresentationalComponents/TasksPopover/TasksPopover';
+import CompletedTaskDetailsKebab from './SmartComponents/CompletedTaskDetailsKebab/CompletedTaskDetailsKebab';
 import { OutlinedQuestionCircleIcon } from '@patternfly/react-icons';
 import {
   Skeleton,
@@ -66,22 +68,37 @@ export const COMPLETED_INFO_BUTTONS_FLEX_PROPS = {
 };
 
 export const COMPLETED_INFO_PANEL = [
-  { children: <b>Systems</b>, match: ['system_count'] },
+  { children: <b>Systems</b>, match: ['system_count'], key: 'systems' },
   {
     children: <b>Run start</b>,
     match: ['start_time'],
+    key: 'run-start',
     renderFunc: (start) => renderRunDateTime(...start),
   },
   {
     children: <b>Run end</b>,
-    match: ['start_time', 'end_time'],
-    renderFunc: (start, end) => getTimeDiff(start, end),
+    match: ['start_time', 'end_time', 'status'],
+    key: 'run-end',
+    renderFunc: (start, end, status) => getTimeDiff(start, end, status),
   },
-  { children: <b>Initiated by</b>, match: ['initiated_by'] },
-  { children: <b>Systems with messages</b>, match: ['messages_count'] },
+  {
+    children: <b>Initiated by</b>,
+    match: ['initiated_by'],
+    key: 'initiated-by',
+  },
+  {
+    children: <b>Systems with messages</b>,
+    match: ['messages_count'],
+    key: 'systems-with-messages',
+  },
 ];
 
-export const COMPLETED_INFO_BUTTONS = (slug, openTaskModal) => {
+export const COMPLETED_INFO_BUTTONS = (
+  slug,
+  openTaskModal,
+  //status,
+  setModalOpened
+) => {
   return [
     {
       children: (
@@ -98,6 +115,16 @@ export const COMPLETED_INFO_BUTTONS = (slug, openTaskModal) => {
           variant="secondary"
         />
       ),
+      key: 'run-task-again-details-button',
+    },
+    {
+      children: (
+        <CompletedTaskDetailsKebab
+          //status={status}
+          setModalOpened={setModalOpened}
+        />
+      ),
+      key: 'completed-task-details-kebab',
     },
   ];
 };
@@ -138,6 +165,7 @@ const TASKS_PAGE_POPOVER_FOOTER = (
 const TASKS_PAGE_HEADER_TITLE = {
   children: <PageHeaderTitle title="Tasks" />,
   classname: 'page-header-title',
+  key: 'tasks-page-header-title',
 };
 
 const TASKS_PAGE_HEADER_POPOVER = {
@@ -150,11 +178,13 @@ const TASKS_PAGE_HEADER_POPOVER = {
       content={<OutlinedQuestionCircleIcon />}
     />
   ),
+  key: 'tasks-page-header-popover',
 };
 
 export const TASKS_PAGE_HEADER = [
   {
     children: [TASKS_PAGE_HEADER_TITLE, TASKS_PAGE_HEADER_POPOVER],
+    key: 'tasks-page-header',
   },
 ];
 
@@ -270,3 +300,23 @@ export const EXECUTE_TASK_NOTIFICATION = (title, ids, task_id) => {
   });
 };
 /*eslint-enable react/no-unescaped-entities*/
+
+export const DELETE_TASK_BODY = (startTime, title) => {
+  return `Deleting the ${moment
+    .utc(startTime)
+    .format(
+      'MMM DD YYYY'
+    )} run of "${title}" will remove all data about this task. The report will no longer be accessible.`;
+};
+
+export const DELETE_TASK_ERROR = (title) => {
+  return `Error: Task "${title}" could not be deleted`;
+};
+
+export const CANCEL_TASK_BODY = (startTime, title) => {
+  return `Cancelling the ${startTime} run of "${title}" will stop any analysis in progress. Any existing results will be available.`;
+};
+
+export const CANCEL_TASK_ERROR = (title) => {
+  return `Error: Task "${title}" could not be cancelled`;
+};

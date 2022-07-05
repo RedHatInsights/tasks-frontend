@@ -3,6 +3,7 @@ import useFilterConfig from './useFilterConfig';
 import usePaginate from './usePaginate';
 import { useExportWithItems } from './useExport';
 import { useTableSortWithItems } from './useTableSort';
+import { useActionResolverWithItems } from './useActionResolver';
 
 const filteredAndSortedItems = (items, filter, sorter) => {
   const filtered = filter ? filter(items) : items;
@@ -30,6 +31,14 @@ const useTableTools = (items = [], columns = [], options = {}) => {
     columns,
     options
   );
+
+  const { tableProps: actionResolverTableProps } = useActionResolverWithItems({
+    //items: filteredAndSortedItems(identifiedItems, filter, sorter),
+    items: filteredAndSortedItems(items, filter, sorter),
+    ...options,
+    //...tablePropsOption,
+    ...tableProps,
+  });
 
   const { toolbarProps: exportToolbarProps } = useExportWithItems(
     filteredAndSortedItems(items, filter, sorter),
@@ -60,6 +69,7 @@ const useTableTools = (items = [], columns = [], options = {}) => {
     cells: columns,
     ...rowBuilderTableProps,
     ...sortableTableProps,
+    ...actionResolverTableProps,
   };
 
   return {

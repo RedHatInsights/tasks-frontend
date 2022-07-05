@@ -15,7 +15,7 @@ const SystemNameCell = ({ /*id,*/ display_name }, index) => (
 
 SystemNameCell.propTypes = {
   id: propTypes.string,
-  display_name: propTypes.string,
+  display_name: propTypes.node,
 };
 
 export const SystemColumn = {

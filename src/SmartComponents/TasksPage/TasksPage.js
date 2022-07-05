@@ -46,6 +46,7 @@ const TasksPage = ({ tab }) => {
         title: 'Error',
         description: task.message,
         dismissable: true,
+        autoDismiss: false,
       });
     } else {
       setActiveTask(task);

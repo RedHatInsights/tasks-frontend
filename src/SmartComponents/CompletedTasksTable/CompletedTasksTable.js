@@ -31,7 +31,9 @@ const CompletedTasksTable = () => {
   const [taskDetails, setTaskDetails] = useState({});
 
   const fetchData = async () => {
-    const result = await fetchExecutedTasks();
+    const path = `?limit=1000&offset=0`;
+    const result = await fetchExecutedTasks(path);
+
     setTasks(result);
   };
 

@@ -443,11 +443,11 @@ exports[`TasksTables should render correctly 1`] = `
             class="pf-c-options-menu__toggle-text"
           >
             <b>
-              1 - 10
+              1 - 2
             </b>
              of 
             <b>
-              0
+              2
             </b>
              
           </span>
@@ -549,11 +549,17 @@ exports[`TasksTables should render correctly 1`] = `
           <input
             aria-label="Current page"
             class="pf-c-form-control"
+            disabled=""
             max="1"
             min="1"
             type="number"
             value="1"
           />
+          <span
+            aria-hidden="true"
+          >
+            of 1
+          </span>
         </div>
         <div
           class="pf-c-pagination__nav-control"
@@ -883,7 +889,7 @@ exports[`TasksTables should render empty 1`] = `
             class="pf-c-options-menu__toggle-text"
           >
             <b>
-              1 - 10
+              0 - 0
             </b>
              of 
             <b>
@@ -989,11 +995,17 @@ exports[`TasksTables should render empty 1`] = `
           <input
             aria-label="Current page"
             class="pf-c-form-control"
-            max="1"
+            disabled=""
+            max="0"
             min="1"
             type="number"
-            value="1"
+            value="0"
           />
+          <span
+            aria-hidden="true"
+          >
+            of 0
+          </span>
         </div>
         <div
           class="pf-c-pagination__nav-control"

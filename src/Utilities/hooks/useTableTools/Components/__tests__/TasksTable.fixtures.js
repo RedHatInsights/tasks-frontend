@@ -1,27 +1,30 @@
-export const completedTasksTableItems = [
-  {
-    task_title: 'taskA',
-    task_slug: 'taska',
-    id: 1,
-    start_time: '2022-04-21T10:10:00',
-    end_time: 'null',
-    run_date_time: 'Running',
-    initiated_by: 'Michael',
-    status: 'running',
-    systems_count: 10,
-  },
-  {
-    task_title: 'taskB',
-    task_slug: 'taskb',
-    id: 2,
-    start_time: '2022-04-20T10:10:00',
-    end_time: '2022-04-20T11:10:00',
-    run_date_time: '20 Apr 2022, 11:10 UTC',
-    initiated_by: 'Michael',
-    status: 'complete',
-    systems_count: 5,
-  },
-];
+export const completedTasksTableItems = {
+  meta: { count: 2 },
+  data: [
+    {
+      task_title: 'taskA',
+      task_slug: 'taska',
+      id: 1,
+      start_time: '2022-04-21T10:10:00',
+      end_time: 'null',
+      run_date_time: 'Running',
+      initiated_by: 'Michael',
+      status: 'running',
+      systems_count: 10,
+    },
+    {
+      task_title: 'taskB',
+      task_slug: 'taskb',
+      id: 2,
+      start_time: '2022-04-20T10:10:00',
+      end_time: '2022-04-20T11:10:00',
+      run_date_time: '20 Apr 2022, 11:10 UTC',
+      initiated_by: 'Michael',
+      status: 'complete',
+      systems_count: 5,
+    },
+  ],
+};
 
 export const availableTasksTableError = {
   response: {

@@ -23,7 +23,7 @@ describe('CompletedTasksTable', () => {
 
   it('should render correctly', () => {
     fetchExecutedTasks.mockImplementation(async () => {
-      return { data: [] };
+      return { meta: { count: 0 }, data: [] };
     });
 
     const { asFragment } = render(
@@ -37,7 +37,7 @@ describe('CompletedTasksTable', () => {
 
   it.skip('should export', async () => {
     fetchExecutedTasks.mockImplementation(async () => {
-      return { data: completedTasksTableItems };
+      return completedTasksTableItems;
     });
 
     const store = mockStore(props);
@@ -55,7 +55,7 @@ describe('CompletedTasksTable', () => {
 
   it('should add filter', async () => {
     fetchExecutedTasks.mockImplementation(async () => {
-      return { data: completedTasksTableItems };
+      return completedTasksTableItems;
     });
 
     const store = mockStore(props);
@@ -76,7 +76,7 @@ describe('CompletedTasksTable', () => {
 
   it('should remove filter', async () => {
     fetchExecutedTasks.mockImplementation(async () => {
-      return { data: completedTasksTableItems };
+      return completedTasksTableItems;
     });
 
     const store = mockStore(props);

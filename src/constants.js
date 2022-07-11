@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@patternfly/react-core';
 import { PageHeaderTitle } from '@redhat-cloud-services/frontend-components/PageHeader';
 import { dispatchNotification } from './Utilities/Dispatcher';
@@ -17,7 +18,7 @@ import {
 const today = new Date();
 export const TASKS_API_ROOT = '/api/tasks/v1';
 export const AVAILABLE_TASKS_ROOT = '/task';
-export const EXECUTED_TASKS_ROOT = '/executed_task';
+export const EXECUTED_TASK_ROOT = '/executed_task';
 export const SYSTEMS_ROOT = '/system';
 const ACCESS_REDHAT_DOT_COM =
   'https://access.redhat.com/documentation/en-us/red_hat_insights/';
@@ -245,3 +246,22 @@ export const LOADING_COMPLETED_TASKS_TABLE = [
     run_date_time: <Skeleton size={SkeletonSize.md} />,
   },
 ];
+
+/*eslint-disable react/no-unescaped-entities*/
+export const EXECUTE_TASK_NOTIFICATION = (title, ids, task_id) => {
+  dispatchNotification({
+    variant: 'info',
+    title: 'Task running',
+    description: (
+      <span>
+        Your task "{title}" is running on {ids.length} system
+        {ids.length > 1 ? 's' : ''}.
+        <br />
+        <br />
+        <Link to={`/executed/${task_id}`}>View progress</Link>
+      </span>
+    ),
+    dismissable: true,
+  });
+};
+/*eslint-enable react/no-unescaped-entities*/

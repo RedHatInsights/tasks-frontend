@@ -19,6 +19,15 @@ const SystemTable = ({ selectedIds, selectIds }) => {
     inventory?.current?.onRefreshData();
   }, [dispatch]);
 
+  useEffect(() => {
+    dispatch({
+      type: 'SELECT_ENTITY',
+      payload: {
+        selected: selectedIds,
+      },
+    });
+  }, [selectedIds]);
+
   const mergedColumns = (defaultColumns) =>
     systemColumns.map((column) => {
       const isStringCol = typeof column === 'string';
@@ -41,7 +50,7 @@ const SystemTable = ({ selectedIds, selectIds }) => {
       isFullView
       autoRefresh
       initialLoading
-      showTags
+      //showTags
       hideFilters={{
         all: true,
         //name: false,

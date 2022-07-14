@@ -35,7 +35,7 @@ const TasksTables = ({
       <TableToolbar isFooter results={-1} selected={-1}>
         <Pagination
           variant={PaginationVariant.bottom}
-          /*{...toolbarProps.pagination}*/
+          {...toolbarProps.pagination}
         />
       </TableToolbar>
 

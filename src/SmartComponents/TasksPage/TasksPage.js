@@ -57,10 +57,12 @@ const TasksPage = ({ tab }) => {
   return (
     <React.Fragment>
       <RunTaskModal
+        description={activeTask.description}
         error={error}
-        task={activeTask}
         isOpen={runTaskModalOpened}
         setModalOpened={setRunTaskModalOpened}
+        slug={activeTask.slug}
+        title={activeTask.title}
       />
       <PageHeader>
         <FlexibleFlex
@@ -80,7 +82,7 @@ const TasksPage = ({ tab }) => {
             {tabIndex === 0 ? (
               <AvailableTasks openTaskModal={openTaskModal} />
             ) : (
-              <CompletedTasksTable />
+              <CompletedTasksTable openTaskModal={openTaskModal} />
             )}
           </StackItem>
         </Stack>

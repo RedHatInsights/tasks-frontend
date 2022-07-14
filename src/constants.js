@@ -11,6 +11,7 @@ import {
   Skeleton,
   SkeletonSize,
 } from '@redhat-cloud-services/frontend-components/Skeleton';
+import RunTaskButton from './PresentationalComponents/RunTaskButton/RunTaskButton';
 
 /**
  * String constants
@@ -80,22 +81,26 @@ export const COMPLETED_INFO_PANEL = [
   { children: <b>Systems with messages</b>, match: ['messages_count'] },
 ];
 
-export const COMPLETED_INFO_BUTTONS = [
-  {
-    children: (
-      <Button variant="secondary" ouiaId="run-this-task-again-button">
-        Run this task again
-      </Button>
-    ),
-  },
-  {
-    children: (
-      <Button variant="primary" ouiaId="download-report-button">
-        Download report
-      </Button>
-    ),
-  },
-];
+export const COMPLETED_INFO_BUTTONS = (slug, openTaskModal) => {
+  return [
+    {
+      children: (
+        <RunTaskButton
+          openTaskModal={openTaskModal}
+          slug={slug}
+          variant="secondary"
+        />
+      ),
+    },
+    {
+      children: (
+        <Button variant="primary" ouiaId="download-report-button">
+          Download report
+        </Button>
+      ),
+    },
+  ];
+};
 
 const TASKS_PAGE_POPOVER_HEADER = <div>About tasks</div>;
 

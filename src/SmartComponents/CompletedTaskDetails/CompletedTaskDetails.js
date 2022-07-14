@@ -29,6 +29,7 @@ import {
 } from '../../constants';
 import FlexibleFlex from '../../PresentationalComponents/FlexibleFlex/FlexibleFlex';
 import EmptyStateDisplay from '../../PresentationalComponents/EmptyStateDisplay/EmptyStateDisplay';
+import RunTaskModal from '../RunTaskModal/RunTaskModal';
 import { emptyRows } from '../../PresentationalComponents/NoResultsTable/NoResultsTable';
 import { dispatchNotification } from '../../Utilities/Dispatcher';
 
@@ -40,6 +41,12 @@ const CompletedTaskDetails = () => {
   const [completedTaskJobs, setCompletedTaskJobs] =
     useState(LOADING_JOBS_TABLE);
   const [error, setError] = useState();
+  const [runTaskModalOpened, setRunTaskModalOpened] = useState(false);
+  const [selectedSystems, setSelectedSystems] = useState([]);
+
+  const getSelectedSystems = () => {
+    return completedTaskJobs.map((job) => job.system);
+  };
 
   const isError = (result) => {
     return result?.response?.status && result?.response?.status !== 200;
@@ -67,12 +74,12 @@ const CompletedTaskDetails = () => {
         if (isError(taskJobs)) {
           setErrors(taskJobs);
         } else {
-          taskDetails.messages_count = taskJobs.filter((item) => {
-            return item.message !== 'No vulnerability found.';
+          taskDetails.messages_count = taskJobs.data.filter((item) => {
+            return item.results.message !== 'No vulnerability found.';
           }).length;
-          taskDetails.system_count = taskJobs.length;
+          taskDetails.system_count = taskJobs.data.length;
           await setCompletedTaskDetails(taskDetails);
-          await setCompletedTaskJobs(taskJobs);
+          await setCompletedTaskJobs(taskJobs.data);
         }
       }
     };
@@ -80,8 +87,21 @@ const CompletedTaskDetails = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    setSelectedSystems(getSelectedSystems());
+  }, [completedTaskJobs]);
+
   return (
     <div>
+      <RunTaskModal
+        description={completedTaskDetails.description}
+        error={error}
+        isOpen={runTaskModalOpened}
+        selectedSystems={selectedSystems}
+        setModalOpened={setRunTaskModalOpened}
+        slug={completedTaskDetails.task_slug}
+        title={completedTaskDetails.task_title}
+      />
       {error ? (
         <EmptyStateDisplay
           icon={ExclamationCircleIcon}
@@ -113,7 +133,11 @@ const CompletedTaskDetails = () => {
               </Flex>
               <FlexibleFlex
                 data={completedTaskDetails}
-                flexContents={COMPLETED_INFO_BUTTONS}
+                flexContents={COMPLETED_INFO_BUTTONS(
+                  completedTaskDetails.task_slug,
+                  setRunTaskModalOpened,
+                  getSelectedSystems
+                )}
                 flexProps={COMPLETED_INFO_BUTTONS_FLEX_PROPS}
               />
             </Flex>

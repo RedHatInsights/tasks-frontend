@@ -14,7 +14,6 @@ const TaskNameCell = ({ id, task_title }, index) => (
 
 TaskNameCell.propTypes = {
   id: propTypes.number,
-  title: propTypes.string,
   task_title: propTypes.string,
   index: propTypes.number,
 };

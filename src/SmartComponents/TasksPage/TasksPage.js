@@ -60,6 +60,7 @@ const TasksPage = ({ tab }) => {
         description={activeTask.description}
         error={error}
         isOpen={runTaskModalOpened}
+        selectedSystems={[]}
         setModalOpened={setRunTaskModalOpened}
         slug={activeTask.slug}
         title={activeTask.title}

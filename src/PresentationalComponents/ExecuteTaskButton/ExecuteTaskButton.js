@@ -42,6 +42,7 @@ const ExecuteTaskButton = ({
       className={classname}
       variant={variant}
       onClick={() => submitTask()}
+      isDisabled={!ids?.length}
     >
       Execute task
     </Button>

@@ -85,18 +85,18 @@ export const COMPLETED_INFO_BUTTONS = (slug, openTaskModal) => {
   return [
     {
       children: (
+        <Button variant="primary" ouiaId="download-report-button">
+          Download report
+        </Button>
+      ),
+    },
+    {
+      children: (
         <RunTaskButton
           openTaskModal={openTaskModal}
           slug={slug}
           variant="secondary"
         />
-      ),
-    },
-    {
-      children: (
-        <Button variant="primary" ouiaId="download-report-button">
-          Download report
-        </Button>
       ),
     },
   ];

@@ -31,7 +31,7 @@ export const getTimeDiff = ([start, end]) => {
             moment(renderRunDateTime(start), 'DD MMM YYYY HH:mm')
           )
         )
-        .asHours()} hours)`
+        .asMinutes()} min)`
     );
   }
 };

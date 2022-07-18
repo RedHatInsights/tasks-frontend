@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Flex, FlexItem, Modal } from '@patternfly/react-core';
+import { Button, Flex, FlexItem, Modal } from '@patternfly/react-core';
 import propTypes from 'prop-types';
 import SystemTable from '../SystemTable/SystemTable';
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
@@ -20,15 +20,22 @@ const RunTaskModal = ({
   slug,
   title,
 }) => {
-  const [selectedIds, setSelectedIds] = useState();
+  const [selectedIds, setSelectedIds] = useState(selectedSystems);
 
   useEffect(() => {
-    setSelectedIds(selectedSystems);
-  }, [selectedSystems]);
+    if (isOpen) {
+      setSelectedIds(selectedSystems);
+    }
+  }, [isOpen]);
 
   useEffect(() => {
     setSelectedIds([]);
   }, [slug]);
+
+  const cancelModal = () => {
+    setSelectedIds([]);
+    setModalOpened(false);
+  };
 
   const selectIds = (_event, _isSelected, _index, entity) => {
     let newSelectedIds = [...selectedIds];
@@ -47,6 +54,23 @@ const RunTaskModal = ({
       isOpen={isOpen}
       onClose={() => setModalOpened(false)}
       width={'70%'}
+      actions={[
+        <ExecuteTaskButton
+          key="execute-task-button"
+          ids={selectedIds}
+          setModalOpened={setModalOpened}
+          slug={slug}
+          title={title}
+          variant="primary"
+        />,
+        <Button
+          key="cancel-execute-task-button"
+          variant="link"
+          onClick={() => cancelModal()}
+        >
+          Cancel
+        </Button>,
+      ]}
     >
       {error ? (
         <EmptyStateDisplay
@@ -78,13 +102,6 @@ const RunTaskModal = ({
           <br />
           <b>Systems to run tasks on</b>
           <SystemTable selectedIds={selectedIds} selectIds={selectIds} />
-          <ExecuteTaskButton
-            ids={selectedIds}
-            setModalOpened={setModalOpened}
-            slug={slug}
-            title={title}
-            variant="primary"
-          />
         </React.Fragment>
       )}
     </Modal>

@@ -50,6 +50,7 @@ const AvailableTasks = ({ openTaskModal }) => {
         title: 'Error',
         description: result.message,
         dismissable: true,
+        autoDismiss: false,
       });
     } else {
       setAvailableTasks(result.data);

@@ -5,26 +5,24 @@ import {
   SkeletonSize,
 } from '@redhat-cloud-services/frontend-components/Skeleton';
 
-const renderRunning = (time) => {
-  return time === 'null' || !time ? 'Running' : false;
+const renderRunning = (status) => {
+  return status === 'Completed' ? false : status;
 };
 
 export const renderRunDateTime = (time) => {
   if (time === 'loading') {
     return <Skeleton size={SkeletonSize.md} />;
   } else {
-    return (
-      renderRunning(time) || moment.utc(time).format('DD MMM YYYY, HH:mm UTC')
-    );
+    return moment.utc(time).format('DD MMM YYYY, HH:mm UTC');
   }
 };
 
-export const getTimeDiff = ([start, end]) => {
+export const getTimeDiff = ([start, end, status]) => {
   if (start === 'loading') {
     return <Skeleton size={SkeletonSize.md} />;
   } else {
     return (
-      renderRunning(end) ||
+      renderRunning(status) ||
       `${renderRunDateTime(end)} (${moment
         .duration(
           moment(renderRunDateTime(end), 'DD MMM YYYY, HH:mm').diff(

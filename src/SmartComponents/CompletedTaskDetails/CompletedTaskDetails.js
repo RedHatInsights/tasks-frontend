@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import TasksTables from '../../Utilities/hooks/useTableTools/Components/TasksTables';
 import { Main } from '@redhat-cloud-services/frontend-components/Main';
 import {
@@ -30,6 +30,7 @@ import {
 import FlexibleFlex from '../../PresentationalComponents/FlexibleFlex/FlexibleFlex';
 import EmptyStateDisplay from '../../PresentationalComponents/EmptyStateDisplay/EmptyStateDisplay';
 import RunTaskModal from '../RunTaskModal/RunTaskModal';
+import DeleteCancelTaskModal from '../../PresentationalComponents/DeleteCancelTaskModal/DeleteCancelTaskModal';
 import { emptyRows } from '../../PresentationalComponents/NoResultsTable/NoResultsTable';
 import { dispatchNotification } from '../../Utilities/Dispatcher';
 
@@ -43,53 +44,74 @@ const CompletedTaskDetails = () => {
   const [error, setError] = useState();
   const [runTaskModalOpened, setRunTaskModalOpened] = useState(false);
   const [selectedSystems, setSelectedSystems] = useState([]);
+  const [isDeleteCancelModalOpened, setIsDeleteCancelModalOpened] =
+    useState(false);
+  const [isDelete, setIsDelete] = useState(false);
+  const [isCancel, setIsCancel] = useState(false);
+  const history = useHistory();
 
   const getSelectedSystems = () => {
     return completedTaskJobs.map((job) => job.system);
+  };
+
+  const fetchData = async () => {
+    let taskDetails = await fetchExecutedTask(id);
+
+    if (isError(taskDetails)) {
+      setNotification(taskDetails);
+      setError(taskDetails);
+    } else {
+      const taskJobs = await fetchExecutedTaskJobs(id);
+
+      if (isError(taskJobs)) {
+        setNotification(taskJobs);
+        setError(taskJobs);
+      } else {
+        taskDetails.messages_count = taskJobs.data.filter((item) => {
+          return item.results.message !== 'No vulnerability found.';
+        }).length;
+        taskDetails.system_count = taskJobs.data.length;
+        await setCompletedTaskDetails(taskDetails);
+        await setCompletedTaskJobs(taskJobs.data);
+      }
+    }
   };
 
   const isError = (result) => {
     return result?.response?.status && result?.response?.status !== 200;
   };
 
-  const setErrors = (result) => {
-    setError(result);
+  const setNotification = (result) => {
     dispatchNotification({
       variant: 'danger',
       title: 'Error',
       description: result.message,
       dismissable: true,
+      autoDismiss: false,
     });
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      let taskDetails = await fetchExecutedTask(id);
-
-      if (isError(taskDetails)) {
-        setErrors(taskDetails);
-      } else {
-        const taskJobs = await fetchExecutedTaskJobs(id);
-
-        if (isError(taskJobs)) {
-          setErrors(taskJobs);
-        } else {
-          taskDetails.messages_count = taskJobs.data.filter((item) => {
-            return item.results.message !== 'No vulnerability found.';
-          }).length;
-          taskDetails.system_count = taskJobs.data.length;
-          await setCompletedTaskDetails(taskDetails);
-          await setCompletedTaskJobs(taskJobs.data);
-        }
-      }
-    };
-
     fetchData();
   }, []);
 
   useEffect(() => {
     setSelectedSystems(getSelectedSystems());
   }, [completedTaskJobs]);
+
+  useEffect(async () => {
+    if (isDelete) {
+      history.push('/executed');
+      setIsDelete(false);
+    }
+
+    if (isCancel) {
+      await setCompletedTaskDetails(LOADING_INFO_PANEL);
+      await setCompletedTaskJobs(LOADING_JOBS_TABLE);
+      await fetchData();
+      setIsCancel(false);
+    }
+  }, [isCancel, isDelete]);
 
   return (
     <div>
@@ -100,6 +122,16 @@ const CompletedTaskDetails = () => {
         selectedSystems={selectedSystems}
         setModalOpened={setRunTaskModalOpened}
         slug={completedTaskDetails.task_slug}
+        title={completedTaskDetails.task_title}
+      />
+      <DeleteCancelTaskModal
+        id={completedTaskDetails.id}
+        isOpen={isDeleteCancelModalOpened}
+        setIsCancel={setIsCancel}
+        setIsDelete={setIsDelete}
+        setModalOpened={setIsDeleteCancelModalOpened}
+        startTime={completedTaskDetails.start_time}
+        status={completedTaskDetails.status}
         title={completedTaskDetails.task_title}
       />
       {error ? (
@@ -136,7 +168,8 @@ const CompletedTaskDetails = () => {
                 flexContents={COMPLETED_INFO_BUTTONS(
                   completedTaskDetails.task_slug,
                   setRunTaskModalOpened,
-                  getSelectedSystems
+                  //completedTaskDetails.status,
+                  setIsDeleteCancelModalOpened
                 )}
                 flexProps={COMPLETED_INFO_BUTTONS_FLEX_PROPS}
               />

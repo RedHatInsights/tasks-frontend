@@ -1,10 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import {
-  renderColumnComponent,
-  renderRunDateTime,
-} from '../../Utilities/helpers';
+import { renderColumnComponent } from '../../Utilities/helpers';
 
 const TaskNameCell = ({ id, task_title }, index) => (
   <Link key={`task-title-${index}`} to={`/executed/${id}`}>
@@ -14,7 +11,7 @@ const TaskNameCell = ({ id, task_title }, index) => (
 
 TaskNameCell.propTypes = {
   id: propTypes.number,
-  task_title: propTypes.string,
+  task_title: propTypes.any,
   index: propTypes.number,
 };
 
@@ -43,7 +40,7 @@ export const RunDateTimeColumn = {
     width: 20,
   },
   sortByProp: 'run_date_time',
-  renderExport: (task) => renderRunDateTime(task.run_date_time),
+  renderExport: (task) => task.run_date_time,
 };
 
 export const exportableColumns = [

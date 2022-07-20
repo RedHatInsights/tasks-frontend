@@ -1,20 +1,15 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { renderColumnComponent } from '../../Utilities/helpers';
 
-const SystemNameCell = ({ /*id,*/ display_name }, index) => (
-  <Link
-    key={`system-title-${index}`}
-    //to={`/executed/${id}`}
-    to={`/`}
-  >
+const SystemNameCell = ({ system, display_name }, index) => (
+  <a key={`system-title-${index}`} href={`/insights/inventory/${system}`}>
     {display_name}
-  </Link>
+  </a>
 );
 
 SystemNameCell.propTypes = {
-  id: propTypes.string,
+  system: propTypes.string,
   display_name: propTypes.node,
 };
 

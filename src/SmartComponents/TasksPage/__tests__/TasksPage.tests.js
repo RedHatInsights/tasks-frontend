@@ -36,7 +36,7 @@ describe('TasksPage', () => {
 
   it('should update tab index', async () => {
     fetchExecutedTasks.mockImplementation(async () => {
-      return { data: [] };
+      return { meta: { count: 0 }, data: [] };
     });
     const store = mockStore(props);
 

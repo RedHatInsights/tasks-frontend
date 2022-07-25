@@ -13,7 +13,7 @@ describe('TasksTables', () => {
     props = {
       label: 'table',
       ouiaId: 'ouia-table',
-      items: completedTasksTableItems,
+      items: completedTasksTableItems.data,
       columns: columns,
     };
   });

@@ -69,7 +69,7 @@ export const fetchExecutedTaskJobs = (id) => {
   return fetchExecutedTask(id, '/jobs');
 };
 
-export const fetchSystems = (path) => {
+export const fetchSystems = (path = '') => {
   return getTasks(SYSTEMS_ROOT.concat(path));
 };
 

@@ -50,12 +50,12 @@ const SystemTable = ({ selectedIds, selectIds }) => {
       isFullView
       autoRefresh
       initialLoading
-      //showTags
+      showTags
       hideFilters={{
         all: true,
-        //name: false,
+        name: false,
         //tags: false,
-        //operatingSystem: false,
+        operatingSystem: false,
       }}
       columns={mergedColumns}
       ref={inventory}

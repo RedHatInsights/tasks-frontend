@@ -24,7 +24,7 @@ export const defaultOnLoad = (columns, getRegistry) => {
         page: 1,
         perPage: 10,
         sortBy: {
-          key: 'last_updated',
+          key: 'updated',
           direction: 'desc',
         },
       }),

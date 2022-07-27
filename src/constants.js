@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import { Button } from '@patternfly/react-core';
 import { PageHeaderTitle } from '@redhat-cloud-services/frontend-components/PageHeader';
 import { dispatchNotification } from './Utilities/Dispatcher';
 import { getTimeDiff, renderRunDateTime } from './Utilities/helpers';
@@ -100,13 +99,6 @@ export const COMPLETED_INFO_BUTTONS = (
   setModalOpened
 ) => {
   return [
-    {
-      children: (
-        <Button variant="primary" ouiaId="download-report-button">
-          Download report
-        </Button>
-      ),
-    },
     {
       children: (
         <RunTaskButton
@@ -218,6 +210,11 @@ export const LOADING_CONTENT = [
   { title: <Skeleton size={SkeletonSize.md} /> },
   { description: <Skeleton size={SkeletonSize.md} /> },
 ];
+
+export const TASK_LOADING_CONTENT = {
+  task_title: <Skeleton size={SkeletonSize.sm} />,
+  task_description: <Skeleton size={SkeletonSize.md} />,
+};
 
 export const LOADING_INFO_PANEL = {
   system_count: <Skeleton size={SkeletonSize.md} />,

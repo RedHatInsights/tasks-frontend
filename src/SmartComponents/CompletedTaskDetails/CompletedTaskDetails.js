@@ -15,7 +15,6 @@ import {
 } from '@patternfly/react-core';
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
 import columns, { exportableColumns } from './Columns';
-import { fetchExecutedTask, fetchExecutedTaskJobs } from '../../../api';
 import * as Filters from './Filters';
 import {
   COMPLETED_INFO_PANEL,
@@ -32,7 +31,11 @@ import EmptyStateDisplay from '../../PresentationalComponents/EmptyStateDisplay/
 import RunTaskModal from '../RunTaskModal/RunTaskModal';
 import DeleteCancelTaskModal from '../../PresentationalComponents/DeleteCancelTaskModal/DeleteCancelTaskModal';
 import { emptyRows } from '../../PresentationalComponents/NoResultsTable/NoResultsTable';
-import { dispatchNotification } from '../../Utilities/Dispatcher';
+import {
+  getSelectedSystems,
+  fetchTask,
+  fetchTaskJobs,
+} from '../completedTaskDetailsHelpers';
 
 const CompletedTaskDetails = () => {
   const { id } = useParams();
@@ -50,46 +53,17 @@ const CompletedTaskDetails = () => {
   const [isCancel, setIsCancel] = useState(false);
   const history = useHistory();
 
-  const getSelectedSystems = () => {
-    return completedTaskJobs.map((job) => job.system);
-  };
-
   const fetchData = async () => {
-    let taskDetails = await fetchExecutedTask(id);
+    const fetchedTaskDetails = await fetchTask(id, setError);
 
-    if (isError(taskDetails)) {
-      setNotification(taskDetails);
-      setError(taskDetails);
-    } else {
-      const path = `?limit=${Math.pow(2, 31) - 1}&offset=0`;
-      const taskJobs = await fetchExecutedTaskJobs(id, path);
+    if (Object.keys(fetchedTaskDetails).length) {
+      const fetchedTaskJobs = await fetchTaskJobs(fetchedTaskDetails, setError);
 
-      if (isError(taskJobs)) {
-        setNotification(taskJobs);
-        setError(taskJobs);
-      } else {
-        taskDetails.messages_count = taskJobs.data.filter((item) => {
-          return item.results.message !== 'No vulnerability found.';
-        }).length;
-        taskDetails.system_count = taskJobs.data.length;
-        await setCompletedTaskDetails(taskDetails);
-        await setCompletedTaskJobs(taskJobs.data);
+      if (fetchedTaskJobs.length) {
+        await setCompletedTaskDetails(fetchedTaskDetails);
+        await setCompletedTaskJobs(fetchedTaskJobs);
       }
     }
-  };
-
-  const isError = (result) => {
-    return result?.response?.status && result?.response?.status !== 200;
-  };
-
-  const setNotification = (result) => {
-    dispatchNotification({
-      variant: 'danger',
-      title: 'Error',
-      description: result.message,
-      dismissable: true,
-      autoDismiss: false,
-    });
   };
 
   useEffect(() => {
@@ -97,7 +71,7 @@ const CompletedTaskDetails = () => {
   }, []);
 
   useEffect(() => {
-    setSelectedSystems(getSelectedSystems());
+    setSelectedSystems(getSelectedSystems(completedTaskJobs));
   }, [completedTaskJobs]);
 
   useEffect(async () => {
@@ -117,7 +91,7 @@ const CompletedTaskDetails = () => {
   return (
     <div>
       <RunTaskModal
-        description={completedTaskDetails.description}
+        description={completedTaskDetails.task_description}
         error={error}
         isOpen={runTaskModalOpened}
         selectedSystems={selectedSystems}

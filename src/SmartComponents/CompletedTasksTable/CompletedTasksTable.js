@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ExclamationCircleIcon, WrenchIcon } from '@patternfly/react-icons';
 import columns, { exportableColumns } from './Columns';
-import { fetchExecutedTasks } from '../../../api';
 import * as Filters from './Filters';
 import { renderRunDateTime } from '../../Utilities/helpers';
 import {
@@ -9,26 +8,61 @@ import {
   EMPTY_COMPLETED_TASKS_MESSAGE,
   EMPTY_COMPLETED_TASKS_TITLE,
   LOADING_COMPLETED_TASKS_TABLE,
+  TASK_LOADING_CONTENT,
   TASKS_TABLE_DEFAULTS,
 } from '../../constants';
+import { fetchExecutedTasks } from '../../../api';
 import { emptyRows } from '../../PresentationalComponents/NoResultsTable/NoResultsTable';
-import { dispatchNotification } from '../../Utilities/Dispatcher';
 import TasksTables from '../../Utilities/hooks/useTableTools/Components/TasksTables';
 import EmptyStateDisplay from '../../PresentationalComponents/EmptyStateDisplay/EmptyStateDisplay';
 import DeleteCancelTaskModal from '../../PresentationalComponents/DeleteCancelTaskModal/DeleteCancelTaskModal';
 import useActionResolver from './hooks/useActionResolvers';
+import {
+  createNotification,
+  fetchTask,
+  fetchTaskJobs,
+  getSelectedSystems,
+  isError,
+} from '../completedTaskDetailsHelpers';
+import RunTaskModal from '../RunTaskModal/RunTaskModal';
 
 const CompletedTasksTable = () => {
   const filters = Object.values(Filters);
   const [completedTasks, setCompletedTasks] = useState(
     LOADING_COMPLETED_TASKS_TABLE
   );
+  const [completedTaskDetails, setCompletedTaskDetails] =
+    useState(TASK_LOADING_CONTENT);
   const [error, setError] = useState();
+  const [taskError, setTaskError] = useState();
   const [isDelete, setIsDelete] = useState(false);
   const [isCancel, setIsCancel] = useState(false);
   const [isDeleteCancelModalOpened, setIsDeleteCancelModalOpened] =
     useState(false);
   const [taskDetails, setTaskDetails] = useState({});
+  const [runTaskModalOpened, setRunTaskModalOpened] = useState(false);
+  const [selectedSystems, setSelectedSystems] = useState([]);
+
+  const fetchTaskDetails = async (id) => {
+    setTaskError();
+    setRunTaskModalOpened(true);
+    const fetchedTaskDetails = await fetchTask(id, setTaskError);
+
+    if (Object.keys(fetchedTaskDetails).length) {
+      const fetchedTaskJobs = await fetchTaskJobs(
+        fetchedTaskDetails,
+        setTaskError
+      );
+
+      if (fetchedTaskJobs.length) {
+        setSelectedSystems(getSelectedSystems(fetchedTaskJobs));
+        await setCompletedTaskDetails(fetchedTaskDetails);
+      }
+    } else {
+      setRunTaskModalOpened(false);
+      await setCompletedTaskDetails({});
+    }
+  };
 
   const fetchData = async () => {
     const path = `?limit=1000&offset=0`;
@@ -37,25 +71,18 @@ const CompletedTasksTable = () => {
     setTasks(result);
   };
 
-  const createNotification = (result) => {
-    dispatchNotification({
-      variant: 'danger',
-      title: 'Error',
-      description: result.message,
-      dismissable: true,
-      autoDismiss: false,
-    });
-  };
-
   const handleCancelOrDeleteTask = async (task) => {
     await setTaskDetails(task);
     setIsDeleteCancelModalOpened(true);
   };
 
-  const actionResolver = useActionResolver(handleCancelOrDeleteTask);
+  const actionResolver = useActionResolver(
+    handleCancelOrDeleteTask,
+    fetchTaskDetails
+  );
 
   const setTasks = async (result) => {
-    if (result?.response?.status && result?.response?.status !== 200) {
+    if (isError(result)) {
       createNotification(result);
       setError(result);
     } else {
@@ -84,6 +111,15 @@ const CompletedTasksTable = () => {
 
   return (
     <React.Fragment>
+      <RunTaskModal
+        description={completedTaskDetails.task_description}
+        error={taskError}
+        isOpen={runTaskModalOpened}
+        selectedSystems={selectedSystems}
+        setModalOpened={setRunTaskModalOpened}
+        slug={completedTaskDetails.task_slug}
+        title={completedTaskDetails.task_title}
+      />
       <DeleteCancelTaskModal
         id={taskDetails.id}
         isOpen={isDeleteCancelModalOpened}

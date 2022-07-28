@@ -65,8 +65,13 @@ export const fetchExecutedTask = (id, jobs_path = '') => {
   return getTasks(EXECUTED_TASK_ROOT.concat(idPath));
 };
 
-export const fetchExecutedTaskJobs = (id) => {
-  return fetchExecutedTask(id, '/jobs');
+export const fetchExecutedTaskJobs = (id, path) => {
+  let jobPath = '/jobs';
+  if (path) {
+    jobPath += path;
+  }
+
+  return fetchExecutedTask(id, jobPath);
 };
 
 export const fetchSystems = (path) => {

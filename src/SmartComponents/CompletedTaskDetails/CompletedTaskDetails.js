@@ -61,7 +61,8 @@ const CompletedTaskDetails = () => {
       setNotification(taskDetails);
       setError(taskDetails);
     } else {
-      const taskJobs = await fetchExecutedTaskJobs(id);
+      const path = `?limit=${Math.pow(2, 31) - 1}&offset=0`;
+      const taskJobs = await fetchExecutedTaskJobs(id, path);
 
       if (isError(taskJobs)) {
         setNotification(taskJobs);

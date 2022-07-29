@@ -16,7 +16,7 @@ import {
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
 import columns, { exportableColumns } from './Columns';
 import { fetchExecutedTask, fetchExecutedTaskJobs } from '../../../api';
-import * as Filters from './Filters';
+import { statusFilters, systemFilter } from './Filters';
 import {
   COMPLETED_INFO_PANEL,
   COMPLETED_INFO_PANEL_FLEX_PROPS,
@@ -36,7 +36,6 @@ import { dispatchNotification } from '../../Utilities/Dispatcher';
 
 const CompletedTaskDetails = () => {
   const { id } = useParams();
-  const filters = Object.values(Filters);
   const [completedTaskDetails, setCompletedTaskDetails] =
     useState(LOADING_INFO_PANEL);
   const [completedTaskJobs, setCompletedTaskJobs] =
@@ -198,7 +197,7 @@ const CompletedTaskDetails = () => {
                 columns={columns}
                 items={completedTaskJobs}
                 filters={{
-                  filterConfig: filters,
+                  filterConfig: [...statusFilters, ...systemFilter],
                 }}
                 options={{
                   ...TASKS_TABLE_DEFAULTS,

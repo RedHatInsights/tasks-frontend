@@ -8,6 +8,11 @@ if [[ "${TRAVIS_BRANCH}" = "master" ]]; then
     rm -rf ./dist/.git
     BUILD_BETA=true npm run travis:build
     .travis/release.sh "stage-beta"
+
+    echo "PUSHING stage-stable"
+    rm -rf ./dist/.git
+    BUILD_BETA=true npm run travis:build
+    .travis/release.sh "stage-stable"
 fi
 
 if [[ "${TRAVIS_BRANCH}" = "prod-beta" ]]; then
@@ -17,7 +22,7 @@ if [[ "${TRAVIS_BRANCH}" = "prod-beta" ]]; then
     .travis/release.sh "${TRAVIS_BRANCH}"
 fi
 
-if [[ "${TRAVIS_BRANCH}" = "stage-stable" || "${TRAVIS_BRANCH}" = "prod-stable" ]]; then
+if [[ "${TRAVIS_BRANCH}" = "prod-stable" ]]; then
     echo "PUSHING ${TRAVIS_BRANCH}"
     rm -rf ./build/.git
     BUILD_STABLE=true npm run travis:build

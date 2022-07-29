@@ -66,12 +66,7 @@ export const fetchExecutedTask = (id, jobs_path = '') => {
 };
 
 export const fetchExecutedTaskJobs = (id, path) => {
-  let jobPath = '/jobs';
-  if (path) {
-    jobPath += path;
-  }
-
-  return fetchExecutedTask(id, jobPath);
+  return fetchExecutedTask(id, `/jobs${path}`);
 };
 
 export const fetchSystems = (path = '') => {

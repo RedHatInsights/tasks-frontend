@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Flex, FlexItem, Modal } from '@patternfly/react-core';
+import { Alert, Button, Flex, FlexItem, Modal } from '@patternfly/react-core';
 import propTypes from 'prop-types';
 import SystemTable from '../SystemTable/SystemTable';
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
 import {
   AVAILABLE_TASKS_ROOT,
+  INFO_ALERT_SYSTEMS,
   TASKS_API_ROOT,
   TASK_ERROR,
 } from '../../constants';
@@ -100,7 +101,10 @@ const RunTaskModal = ({
             </FlexItem>
           </Flex>
           <br />
-          <b>Systems to run tasks on</b>
+          <div style={{ paddingBottom: '8px' }}>
+            <b>Systems to run tasks on</b>
+          </div>
+          <Alert variant="info" isInline title={INFO_ALERT_SYSTEMS} />
           <SystemTable selectedIds={selectedIds} selectIds={selectIds} />
         </React.Fragment>
       )}

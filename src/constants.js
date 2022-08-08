@@ -312,8 +312,22 @@ export const DELETE_TASK_ERROR = (title) => {
   return `Error: Task "${title}" could not be deleted`;
 };
 
+export const EXISTING_RESULTS_STRING = () => {
+  return 'Any existing results will be available.';
+};
+
 export const CANCEL_TASK_BODY = (startTime, title) => {
-  return `Cancelling the ${startTime} run of "${title}" will stop any analysis in progress. Any existing results will be available.`;
+  return `Cancelling the ${moment
+    .utc(startTime)
+    .format(
+      'MMM DD YYYY'
+    )} run of "${title}" will stop any analysis in progress.`;
+};
+
+export const CANCEL_NON_SATELLITE_TASK_BODY = (startTime, title) => {
+  return CANCEL_TASK_BODY(startTime, title).concat(
+    ' Tasks running on systems connected with rhc cannot be cancelled.'
+  );
 };
 
 export const CANCEL_TASK_ERROR = (title) => {

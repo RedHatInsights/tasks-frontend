@@ -46,3 +46,7 @@ export const fetchTaskJobs = async (taskDetails, setError) => {
     return taskJobs.data;
   }
 };
+
+export const onlySatelliteConnected = (jobs) => {
+  return !jobs.some((job) => job.connection_type !== 'satellite');
+};

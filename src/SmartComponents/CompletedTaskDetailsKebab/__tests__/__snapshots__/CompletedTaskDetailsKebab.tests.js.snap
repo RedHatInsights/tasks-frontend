@@ -39,16 +39,16 @@ exports[`AvailableTasks should render Delete disabled 1`] = `
         role="menuitem"
       >
         <button
-          aria-disabled="true"
-          aria-label="delete-task-kebab-button"
-          class="pf-m-disabled pf-c-dropdown__menu-item"
-          data-ouia-component-id="delete-task-dropdown-item"
+          aria-disabled="false"
+          aria-label="cancel-task-kebab-button"
+          class="pf-c-dropdown__menu-item"
+          data-ouia-component-id="cancel-task-dropdown-item"
           data-ouia-component-type="PF4/DropdownItem"
           data-ouia-safe="true"
           tabindex="-1"
           type="button"
         >
-          Delete
+          Cancel
         </button>
       </li>
     </ul>

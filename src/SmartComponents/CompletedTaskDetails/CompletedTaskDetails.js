@@ -36,6 +36,7 @@ import {
   getSelectedSystems,
   fetchTask,
   fetchTaskJobs,
+  onlySatelliteConnected,
 } from '../completedTaskDetailsHelpers';
 
 const CompletedTaskDetails = () => {
@@ -101,6 +102,7 @@ const CompletedTaskDetails = () => {
       />
       <DeleteCancelTaskModal
         id={completedTaskDetails.id}
+        isOnlySatelliteConnected={onlySatelliteConnected(completedTaskJobs)}
         isOpen={isDeleteCancelModalOpened}
         setIsCancel={setIsCancel}
         setIsDelete={setIsDelete}

@@ -23,6 +23,7 @@ import {
   fetchTaskJobs,
   getSelectedSystems,
   isError,
+  onlySatelliteConnected,
 } from '../completedTaskDetailsHelpers';
 import RunTaskModal from '../RunTaskModal/RunTaskModal';
 
@@ -43,6 +44,8 @@ const CompletedTasksTable = () => {
   const [taskDetails, setTaskDetails] = useState({});
   const [runTaskModalOpened, setRunTaskModalOpened] = useState(false);
   const [selectedSystems, setSelectedSystems] = useState([]);
+  const [isOnlySatelliteConnected, setIsOnlySatelliteConnected] =
+    useState(false);
 
   const fetchTaskDetails = async (id) => {
     setTaskError();
@@ -54,6 +57,8 @@ const CompletedTasksTable = () => {
         fetchedTaskDetails,
         setTaskError
       );
+
+      setIsOnlySatelliteConnected(onlySatelliteConnected(fetchedTaskJobs));
 
       if (fetchedTaskJobs.length) {
         setSelectedSystems(getSelectedSystems(fetchedTaskJobs));
@@ -131,6 +136,7 @@ const CompletedTasksTable = () => {
       />
       <DeleteCancelTaskModal
         id={taskDetails.id}
+        isOnlySatelliteConnected={isOnlySatelliteConnected}
         isOpen={isDeleteCancelModalOpened}
         setIsCancel={setIsCancel}
         setIsDelete={setIsDelete}

@@ -37,6 +37,7 @@ const CompletedTasksTable = () => {
   const [taskError, setTaskError] = useState();
   const [isDelete, setIsDelete] = useState(false);
   const [isCancel, setIsCancel] = useState(false);
+  const [isRunTaskAgain, setIsRunTaskAgain] = useState(false);
   const [isDeleteCancelModalOpened, setIsDeleteCancelModalOpened] =
     useState(false);
   const [taskDetails, setTaskDetails] = useState({});
@@ -96,18 +97,25 @@ const CompletedTasksTable = () => {
     }
   };
 
+  const refetchData = async () => {
+    await setCompletedTasks(LOADING_COMPLETED_TASKS_TABLE);
+    fetchData();
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
 
   useEffect(async () => {
     if (isDelete || isCancel) {
-      await setCompletedTasks(LOADING_COMPLETED_TASKS_TABLE);
-      fetchData();
+      await refetchData();
       setIsDelete(false);
       setIsCancel(false);
+    } else if (isRunTaskAgain) {
+      await refetchData();
+      setIsRunTaskAgain(false);
     }
-  }, [isCancel, isDelete]);
+  }, [isCancel, isDelete, isRunTaskAgain]);
 
   return (
     <React.Fragment>
@@ -116,6 +124,7 @@ const CompletedTasksTable = () => {
         error={taskError}
         isOpen={runTaskModalOpened}
         selectedSystems={selectedSystems}
+        setIsRunTaskAgain={setIsRunTaskAgain}
         setModalOpened={setRunTaskModalOpened}
         slug={completedTaskDetails.task_slug}
         title={completedTaskDetails.task_title}

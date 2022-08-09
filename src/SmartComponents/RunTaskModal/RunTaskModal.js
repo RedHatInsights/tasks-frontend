@@ -16,6 +16,7 @@ const RunTaskModal = ({
   error,
   isOpen,
   selectedSystems,
+  setIsRunTaskAgain,
   setModalOpened,
   slug,
   title,
@@ -58,6 +59,7 @@ const RunTaskModal = ({
         <ExecuteTaskButton
           key="execute-task-button"
           ids={selectedIds}
+          setIsRunTaskAgain={setIsRunTaskAgain}
           setModalOpened={setModalOpened}
           slug={slug}
           title={title}
@@ -113,6 +115,7 @@ RunTaskModal.propTypes = {
   error: propTypes.object,
   isOpen: propTypes.bool,
   selectedSystems: propTypes.array,
+  setIsRunTaskAgain: propTypes.func,
   setModalOpened: propTypes.func,
   slug: propTypes.string,
   title: propTypes.string,

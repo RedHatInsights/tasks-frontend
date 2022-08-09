@@ -29,8 +29,8 @@ const RunTaskModal = ({
   }, [isOpen]);
 
   useEffect(() => {
-    setSelectedIds([]);
-  }, [slug]);
+    setSelectedIds(selectedSystems);
+  }, [selectedSystems]);
 
   const cancelModal = () => {
     setSelectedIds([]);
@@ -88,7 +88,7 @@ const RunTaskModal = ({
             </FlexItem>
           </Flex>
           <Flex style={{ paddingBottom: '8px' }}>
-            <FlexItem>{description}</FlexItem>
+            <FlexItem style={{ width: '100%' }}>{description}</FlexItem>
           </Flex>
           <Flex>
             <FlexItem>

@@ -1,19 +1,14 @@
-const useActionResolver = (handleTask) => {
-  const onClick = (apiCall, task) => {
-    apiCall(task);
+const useActionResolver = (handleTask, fetchTaskDetails) => {
+  const onClick = (funcCall, task) => {
+    funcCall(task);
   };
 
   return (/*row*/) => [
-    /*{
-      title: 'Download report',
-      onClick: (_event, _index, task) =>
-        onClick(`/executed_task/${task.id}/delete`, task),
-    },
     {
       title: 'Run this task again',
       onClick: (_event, _index, task) =>
-        onClick(`/executed_task/${task.id}/delete`, task),
-    },*/
+        onClick(fetchTaskDetails, task.task.title.props.id),
+    },
     {
       title: 'Delete',
       /*row.task.title.props.status === 'Completed' ||

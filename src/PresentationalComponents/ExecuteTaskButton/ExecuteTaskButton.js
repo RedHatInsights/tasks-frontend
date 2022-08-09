@@ -8,6 +8,7 @@ import { EXECUTE_TASK_NOTIFICATION } from '../../constants';
 const ExecuteTaskButton = ({
   classname,
   ids,
+  setIsRunTaskAgain,
   setModalOpened,
   slug,
   title,
@@ -33,6 +34,9 @@ const ExecuteTaskButton = ({
         autoDismiss: false,
       });
     } else {
+      if (setIsRunTaskAgain) {
+        setIsRunTaskAgain(true);
+      }
       EXECUTE_TASK_NOTIFICATION(title, ids, result.data.id);
     }
   };
@@ -53,6 +57,7 @@ const ExecuteTaskButton = ({
 ExecuteTaskButton.propTypes = {
   classname: propTypes.string,
   ids: propTypes.array,
+  setIsRunTaskAgain: propTypes.func,
   setModalOpened: propTypes.func,
   slug: propTypes.string,
   title: propTypes.string,

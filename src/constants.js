@@ -49,6 +49,8 @@ export const EMPTY_COMPLETED_TASKS_MESSAGE = [
   '',
   'To use a task, navigate to the "Available tasks" tab and choose a task to run.',
 ];
+export const INFO_ALERT_SYSTEMS =
+  'Eligible systems include systems connected to console.redhat.com with rhc, or Satellite with Cloud Connector.';
 
 /**
  * Flex constants

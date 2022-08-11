@@ -23,8 +23,8 @@ export const SystemColumn = {
   renderFunc: renderColumnComponent(SystemNameCell),
 };
 
-export const ResultColumn = {
-  title: 'Result',
+export const StatusColumn = {
+  title: 'Status',
   props: {
     width: 20,
   },
@@ -41,6 +41,6 @@ export const MessageColumn = {
   renderExport: (job) => job.message,
 };
 
-export const exportableColumns = [SystemColumn, ResultColumn, MessageColumn];
+export const exportableColumns = [SystemColumn, StatusColumn, MessageColumn];
 
-export default [SystemColumn, ResultColumn, MessageColumn];
+export default [SystemColumn, StatusColumn, MessageColumn];

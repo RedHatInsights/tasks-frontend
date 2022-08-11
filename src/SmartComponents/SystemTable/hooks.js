@@ -1,7 +1,7 @@
 import { fetchSystems } from '../../../api';
 import { buildFilterSortString } from './helpers';
 
-export const useGetEntities = (selectedIds) => {
+export const useGetEntities = (onComplete, { selectedIds }) => {
   return async (
     _items,
     { page = 1, per_page: perPage, orderBy, orderDirection, filters }
@@ -21,6 +21,8 @@ export const useGetEntities = (selectedIds) => {
       data,
       meta: { count },
     } = fetchedEntities || {};
+
+    onComplete && onComplete(fetchedEntities);
 
     return {
       results: data.map((entity) => ({

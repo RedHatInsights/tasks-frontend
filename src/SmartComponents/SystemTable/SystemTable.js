@@ -1,14 +1,17 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import propTypes from 'prop-types';
 import { defaultOnLoad, systemColumns } from './constants';
 import { useGetEntities } from './hooks';
+import { findCheckedValue } from './helpers';
 
 import { InventoryTable } from '@redhat-cloud-services/frontend-components/Inventory';
 import { Spinner } from '@patternfly/react-core';
 import { RegistryContext } from '../../store';
 import { useDispatch } from 'react-redux';
 
-const SystemTable = ({ selectedIds, selectIds }) => {
+const SystemTable = ({ bulkSelectIds, selectedIds, selectIds }) => {
+  const [items, setItems] = useState([]);
+  const [total, setTotal] = useState(0);
   const inventory = useRef(null);
   const { getRegistry } = useContext(RegistryContext);
   const dispatch = useDispatch();
@@ -27,6 +30,15 @@ const SystemTable = ({ selectedIds, selectIds }) => {
       },
     });
   }, [selectedIds]);
+
+  const onComplete = (result) => {
+    setTotal(result.meta.count);
+    setItems(result.data);
+  };
+
+  const getEntities = useGetEntities(onComplete, {
+    selectedIds,
+  });
 
   const mergedColumns = (defaultColumns) =>
     systemColumns.map((column) => {
@@ -61,7 +73,43 @@ const SystemTable = ({ selectedIds, selectIds }) => {
       ref={inventory}
       fallback={<Spinner />}
       onLoad={defaultOnLoad(systemColumns, getRegistry)}
-      getEntities={useGetEntities(selectedIds)}
+      getEntities={getEntities}
+      bulkSelect={{
+        id: 'systems-bulk-select',
+        isDisabled: !total,
+        count: selectedIds.length,
+        items: [
+          {
+            title: `Select none (0)`,
+            onClick: () => {
+              bulkSelectIds('none');
+            },
+          },
+          {
+            title: `Select page (${items?.length || 0})`,
+            onClick: () => {
+              bulkSelectIds('page', { items: items });
+            },
+          },
+          {
+            title: `Select all (${total || 0})`,
+            onClick: () => {
+              bulkSelectIds('all', { total: total });
+            },
+          },
+        ],
+        onSelect: () => {
+          if (selectedIds.length) {
+            bulkSelectIds('none');
+          } else {
+            bulkSelectIds('all', { total: total });
+          }
+        },
+        checked:
+          items && selectedIds
+            ? findCheckedValue(total, selectedIds.length)
+            : null,
+      }}
       tableProps={{
         canSelectAll: false,
         isStickyHeader: true,
@@ -72,6 +120,7 @@ const SystemTable = ({ selectedIds, selectIds }) => {
 };
 
 SystemTable.propTypes = {
+  bulkSelectIds: propTypes.func,
   selectedIds: propTypes.array,
   selectIds: propTypes.func,
 };

@@ -48,7 +48,7 @@ describe('SystemTable', () => {
     const { asFragment } = render(
       <MemoryRouter keyLength={0}>
         <Provider store={store}>
-          <SystemTable />
+          <SystemTable selectedIds={[]} />
         </Provider>
       </MemoryRouter>
     );

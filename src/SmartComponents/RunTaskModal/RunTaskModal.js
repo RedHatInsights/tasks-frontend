@@ -9,6 +9,7 @@ import {
   TASKS_API_ROOT,
   TASK_ERROR,
 } from '../../constants';
+import { fetchSystems } from '../../../api';
 import EmptyStateDisplay from '../../PresentationalComponents/EmptyStateDisplay/EmptyStateDisplay';
 import ExecuteTaskButton from '../../PresentationalComponents/ExecuteTaskButton/ExecuteTaskButton';
 
@@ -37,6 +38,34 @@ const RunTaskModal = ({
   const cancelModal = () => {
     setSelectedIds([]);
     setModalOpened(false);
+  };
+
+  const bulkSelectIds = async (type, options) => {
+    let newSelectedIds = [...selectedIds];
+
+    switch (type) {
+      case 'none': {
+        setSelectedIds([]);
+        break;
+      }
+
+      case 'page': {
+        options.items.forEach((item) => {
+          if (!newSelectedIds.includes(item.id)) {
+            newSelectedIds.push(item.id);
+          }
+        });
+
+        setSelectedIds(newSelectedIds);
+        break;
+      }
+
+      case 'all': {
+        let results = await fetchSystems(`?limit=${options.total}&offset=0`);
+        setSelectedIds(results.data.map(({ id }) => id));
+        break;
+      }
+    }
   };
 
   const selectIds = (_event, _isSelected, _index, entity) => {
@@ -107,7 +136,11 @@ const RunTaskModal = ({
             <b>Systems to run tasks on</b>
           </div>
           <Alert variant="info" isInline title={INFO_ALERT_SYSTEMS} />
-          <SystemTable selectedIds={selectedIds} selectIds={selectIds} />
+          <SystemTable
+            bulkSelectIds={bulkSelectIds}
+            selectedIds={selectedIds}
+            selectIds={selectIds}
+          />
         </React.Fragment>
       )}
     </Modal>
@@ -115,7 +148,7 @@ const RunTaskModal = ({
 };
 
 RunTaskModal.propTypes = {
-  description: propTypes.string,
+  description: propTypes.any,
   error: propTypes.object,
   isOpen: propTypes.bool,
   selectedSystems: propTypes.array,

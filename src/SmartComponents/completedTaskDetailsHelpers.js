@@ -6,7 +6,8 @@ export const getSelectedSystems = (completedTaskJobs) => {
 };
 
 export const isError = (result) => {
-  return result?.response?.status && result?.response?.status !== 200;
+  const statusString = result?.response?.status.toString();
+  return result?.response?.status && statusString[0] !== '2';
 };
 
 export const createNotification = (result) => {

@@ -12,42 +12,36 @@ export const log4j_task = {
   system_count: 10,
   jobs: [
     {
-      id: 82,
       display_name: 'host01.example.com',
       system_id: '00112233-4455-6677-8899aabbccddeeff',
       message: 'Vulnerability found.',
       status: 'completed',
     },
     {
-      id: 83,
       display_name: 'host02.example.com',
       system_id: '00112233-4455-6677-8899aabbccddeefg',
       message: 'No vulnerability found.',
       status: 'completed',
     },
     {
-      id: 84,
       display_name: 'host03.example.com',
       system_id: '00112233-4455-6677-8899aabbccddeefh',
       message: 'No vulnerability found.',
       status: 'completed',
     },
     {
-      id: 85,
       display_name: 'host04.example.com',
       system_id: '00112233-4455-6677-8899aabbccddeefi',
       message: 'Vulnerability found.',
       status: 'completed',
     },
     {
-      id: 86,
       display_name: 'host05.example.com',
       system_id: '00112233-4455-6677-8899aabbccddeefj',
       message: 'Vulnerability found.',
       status: 'completed',
     },
     {
-      id: 87,
       display_name: 'host06.example.com',
       system_id: '00112233-4455-6677-8899aabbccddeefk',
       message: 'No vulnerability found.',
@@ -55,6 +49,33 @@ export const log4j_task = {
     },
   ],
 };
+
+export const log4j_task_jobs = [
+  {
+    executed_task: 234,
+    system: 'f1356a99-754d-4219-9g25-fccb2cc6e2f2',
+    status: 'Success',
+    results: {},
+    updated_on: '2022-08-08T18:19:50.898540Z',
+    display_name: 'dl-test-device-2',
+  },
+  {
+    executed_task: 234,
+    system: '3262b268-23ed-4c5a-a918-d8c4923fdfbf',
+    status: 'Success',
+    results: {},
+    updated_on: '2022-08-08T18:19:50.898540Z',
+    display_name: 'MG-test-device',
+  },
+  {
+    executed_task: 234,
+    system: '42438801-c384-491a-943b-f5f621f0c882',
+    status: 'Success',
+    results: {},
+    updated_on: '2022-08-08T18:19:50.898540Z',
+    display_name: 'YL-test-device-85',
+  },
+];
 
 export const upgrade_leap_task = {
   id: 43,
@@ -69,42 +90,36 @@ export const upgrade_leap_task = {
   system_count: 5,
   jobs: [
     {
-      id: 82,
       display_name: 'host01.example.com',
       system_id: '00112233-4455-6677-8899aabbccddeeff',
       message: 'Vulnerability found.',
       status: 'completed',
     },
     {
-      id: 83,
       display_name: 'host02.example.com',
       system_id: '00112233-4455-6677-8899aabbccddeefg',
       message: 'No vulnerability found.',
       status: 'completed',
     },
     {
-      id: 84,
       display_name: 'host03.example.com',
       system_id: '00112233-4455-6677-8899aabbccddeefh',
       message: 'No vulnerability found.',
       status: 'completed',
     },
     {
-      id: 85,
       display_name: 'host04.example.com',
       system_id: '00112233-4455-6677-8899aabbccddeefi',
       message: 'Vulnerability found.',
       status: 'completed',
     },
     {
-      id: 86,
       display_name: 'host05.example.com',
       system_id: '00112233-4455-6677-8899aabbccddeefj',
       message: 'Vulnerability found.',
       status: 'completed',
     },
     {
-      id: 87,
       display_name: 'host06.example.com',
       system_id: '00112233-4455-6677-8899aabbccddeefk',
       message: 'No vulnerability found.',

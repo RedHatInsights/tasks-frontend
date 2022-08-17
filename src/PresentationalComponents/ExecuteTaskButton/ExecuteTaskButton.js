@@ -4,6 +4,7 @@ import propTypes from 'prop-types';
 import { executeTask } from '../../../api';
 import { dispatchNotification } from '../../Utilities/Dispatcher';
 import { EXECUTE_TASK_NOTIFICATION } from '../../constants';
+import { isError } from '../../SmartComponents/completedTaskDetailsHelpers';
 
 const ExecuteTaskButton = ({
   classname,
@@ -25,7 +26,7 @@ const ExecuteTaskButton = ({
     setModalOpened(false);
 
     let result = await executeTask(buildApiBody());
-    if (result?.response?.status && result?.response?.status !== 200) {
+    if (isError(result)) {
       dispatchNotification({
         variant: 'danger',
         title: 'Error',

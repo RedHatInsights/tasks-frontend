@@ -12,7 +12,7 @@ describe('RunTaskButton', () => {
   beforeEach(() => {
     props = {
       className: '',
-      slug: availableTasksTableItems[0].slug,
+      slug: availableTasksTableItems.data[0].slug,
       isFirst: true,
       openTaskModal: jest.fn(),
       variant: 'primary',

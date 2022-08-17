@@ -3,7 +3,14 @@ import propTypes from 'prop-types';
 import { renderColumnComponent } from '../../Utilities/helpers';
 
 const SystemNameCell = ({ system, display_name }, index) => (
-  <a key={`system-title-${index}`} href={`/insights/inventory/${system}`}>
+  <a
+    key={`system-title-${index}`}
+    href={
+      insights.chrome.isBeta()
+        ? `/beta/insights/inventory/${system}`
+        : `/insights/inventory/${system}`
+    }
+  >
     {display_name}
   </a>
 );

@@ -97,7 +97,7 @@ export const COMPLETED_INFO_PANEL = [
 export const COMPLETED_INFO_BUTTONS = (
   slug,
   openTaskModal,
-  //status,
+  status,
   setModalOpened
 ) => {
   return [
@@ -114,7 +114,7 @@ export const COMPLETED_INFO_BUTTONS = (
     {
       children: (
         <CompletedTaskDetailsKebab
-          //status={status}
+          status={status}
           setModalOpened={setModalOpened}
         />
       ),

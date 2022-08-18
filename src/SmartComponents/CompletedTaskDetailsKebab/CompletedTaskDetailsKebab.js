@@ -7,7 +7,7 @@ import {
   KebabToggle,
 } from '@patternfly/react-core';
 
-const CompletedTaskDetailsKebab = ({ /*status,*/ setModalOpened }) => {
+const CompletedTaskDetailsKebab = ({ status, setModalOpened }) => {
   const [isOpen, setIsOpen] = useState(false);
   const createDropdownItems = () => {
     //let type = status === 'Running' ? 'cancel' : 'delete';
@@ -18,6 +18,7 @@ const CompletedTaskDetailsKebab = ({ /*status,*/ setModalOpened }) => {
         component="button"
         data-ouia-component-id={`${type}-task-dropdown-item`}
         onClick={() => setModalOpened(true)}
+        isDisabled={status !== 'Completed'}
       >
         {type[0].toUpperCase() + type.slice(1)}
       </DropdownItem>,

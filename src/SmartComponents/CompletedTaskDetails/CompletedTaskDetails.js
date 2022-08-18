@@ -142,7 +142,7 @@ const CompletedTaskDetails = () => {
                 flexContents={COMPLETED_INFO_BUTTONS(
                   completedTaskDetails.task_slug,
                   setRunTaskModalOpened,
-                  //completedTaskDetails.status,
+                  completedTaskDetails.status,
                   setIsDeleteCancelModalOpened
                 )}
                 flexProps={COMPLETED_INFO_BUTTONS_FLEX_PROPS}

@@ -3,7 +3,7 @@ const useActionResolver = (handleTask, fetchTaskDetails) => {
     funcCall(task);
   };
 
-  return (/*row*/) => [
+  return (row) => [
     {
       title: 'Run this task again',
       onClick: (_event, _index, task) =>
@@ -11,6 +11,7 @@ const useActionResolver = (handleTask, fetchTaskDetails) => {
     },
     {
       title: 'Delete',
+      isDisabled: row.task.title.props.status !== 'Completed',
       /*row.task.title.props.status === 'Completed' ||
         row.task.title.props.status === 'Cancelled'
           ? 'Delete'

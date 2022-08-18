@@ -31,6 +31,7 @@ import EmptyStateDisplay from '../../PresentationalComponents/EmptyStateDisplay/
 import RunTaskModal from '../RunTaskModal/RunTaskModal';
 import DeleteCancelTaskModal from '../../PresentationalComponents/DeleteCancelTaskModal/DeleteCancelTaskModal';
 import { emptyRows } from '../../PresentationalComponents/NoResultsTable/NoResultsTable';
+import BreadcrumbLinkItem from '../../PresentationalComponents/BreadcrumbLinkItem/BreadcrumbLinkItem';
 import {
   getSelectedSystems,
   fetchTask,
@@ -120,9 +121,7 @@ const CompletedTaskDetails = () => {
         <React.Fragment>
           <PageHeader>
             <Breadcrumb ouiaId="completed-tasks-details-breadcrumb">
-              <BreadcrumbItem to="/beta/insights/tasks/executed">
-                Tasks
-              </BreadcrumbItem>
+              <BreadcrumbLinkItem to="/executed">Tasks</BreadcrumbLinkItem>
               <BreadcrumbItem isActive>
                 {completedTaskDetails.task_title}
               </BreadcrumbItem>

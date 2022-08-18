@@ -43,6 +43,7 @@ const DeleteCancelTaskModal = ({
   const renderButtons = () => {
     return [
       <Button
+        aria-label="delete-task-button"
         key="delete-task-button"
         ouiaId="delete-task-modal-button"
         variant="danger"
@@ -53,6 +54,7 @@ const DeleteCancelTaskModal = ({
         Delete task
       </Button>,
       <Button
+        aria-label="cancel-delete-modal-button"
         key="cancel"
         ouiaId="cancel-delete-modal-button"
         variant="link"

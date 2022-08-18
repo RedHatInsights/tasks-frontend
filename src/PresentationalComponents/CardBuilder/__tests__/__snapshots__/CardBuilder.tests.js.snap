@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TasksTables should render correctly 1`] = `
+exports[`CardBuilder should render correctly 1`] = `
 <DocumentFragment>
   <article
     class="pf-c-card"

@@ -6,7 +6,7 @@ import CardBuilder, { CardBuilderContent } from '../CardBuilder';
 import RunTaskButton from '../../RunTaskButton/RunTaskButton';
 import { availableTasksTableItems } from '../../../Utilities/hooks/useTableTools/Components/__tests__/TasksTable.fixtures';
 
-describe('TasksTables', () => {
+describe('CardBuilder', () => {
   let props;
 
   beforeEach(() => {

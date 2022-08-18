@@ -859,8 +859,175 @@ exports[`TasksTables should render empty 1`] = `
         data-ouia-component-id="OUIA-Generated-TableRow-4"
         data-ouia-component-type="PF4/TableRow"
         data-ouia-safe="true"
-      />
+      >
+        <th
+          aria-sort="none"
+          class="pf-c-table__sort pf-m-width-35"
+          data-key="0"
+          data-label="Task"
+          scope="col"
+        >
+          <button
+            class="pf-c-table__button"
+            type="button"
+          >
+            <div
+              class="pf-c-table__button-content"
+            >
+              <span
+                class="pf-c-table__text"
+              >
+                Task
+              </span>
+              <span
+                class="pf-c-table__sort-indicator"
+              >
+                <svg
+                  aria-hidden="true"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  style="vertical-align: -0.125em;"
+                  viewBox="0 0 256 512"
+                  width="1em"
+                >
+                  <path
+                    d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </button>
+        </th>
+        <th
+          aria-sort="none"
+          class="pf-c-table__sort pf-m-width-20"
+          data-key="1"
+          data-label="Systems"
+          scope="col"
+        >
+          <button
+            class="pf-c-table__button"
+            type="button"
+          >
+            <div
+              class="pf-c-table__button-content"
+            >
+              <span
+                class="pf-c-table__text"
+              >
+                Systems
+              </span>
+              <span
+                class="pf-c-table__sort-indicator"
+              >
+                <svg
+                  aria-hidden="true"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  style="vertical-align: -0.125em;"
+                  viewBox="0 0 256 512"
+                  width="1em"
+                >
+                  <path
+                    d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </button>
+        </th>
+        <th
+          aria-sort="none"
+          class="pf-c-table__sort pf-m-width-20"
+          data-key="2"
+          data-label="Run date/time"
+          scope="col"
+        >
+          <button
+            class="pf-c-table__button"
+            type="button"
+          >
+            <div
+              class="pf-c-table__button-content"
+            >
+              <span
+                class="pf-c-table__text"
+              >
+                Run date/time
+              </span>
+              <span
+                class="pf-c-table__sort-indicator"
+              >
+                <svg
+                  aria-hidden="true"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  style="vertical-align: -0.125em;"
+                  viewBox="0 0 256 512"
+                  width="1em"
+                >
+                  <path
+                    d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </button>
+        </th>
+      </tr>
     </thead>
+    <tbody
+      class=""
+      role="rowgroup"
+    >
+      <tr
+        class=""
+        data-ouia-component-id="OUIA-Generated-TableRow-5"
+        data-ouia-component-type="PF4/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-m-width-35"
+          colspan="3"
+          data-key="0"
+          data-label="Task"
+        >
+          <div
+            class="ins-c-table__empty"
+          >
+             
+            <div
+              class="pf-l-bullseye"
+            >
+              <div
+                class="pf-c-empty-state"
+              >
+                <div
+                  class="pf-c-empty-state__content"
+                >
+                  <h5
+                    class="pf-c-title pf-m-lg"
+                    data-ouia-component-id="OUIA-Generated-Title-1"
+                    data-ouia-component-type="PF4/Title"
+                    data-ouia-safe="true"
+                  >
+                    No matching items found
+                  </h5>
+                  <div
+                    class="pf-c-empty-state__body"
+                  >
+                    To continue, edit your filter settings and search again.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
   </table>
   <div
     class="pf-c-toolbar ins-c-table__toolbar ins-m-footer"

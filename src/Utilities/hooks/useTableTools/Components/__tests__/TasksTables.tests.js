@@ -3,6 +3,7 @@ import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
 import TasksTables from '../TasksTables';
+import { emptyRows } from '../../../../../PresentationalComponents/NoResultsTable/NoResultsTable';
 import { completedTasksTableItems } from './TasksTable.fixtures';
 import columns from '../../../../../SmartComponents/CompletedTasksTable/Columns';
 
@@ -34,9 +35,13 @@ describe('TasksTables', () => {
 
   // This test will be updated in future PR with empty state
   it('should render empty', () => {
-    props.items = undefined;
-    props.columns = undefined;
-    const { asFragment } = render(<TasksTables {...props} />);
+    props.items = [];
+    props.emptyRows = emptyRows('items');
+    const { asFragment } = render(
+      <MemoryRouter>
+        <TasksTables {...props} />
+      </MemoryRouter>
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });

@@ -20,6 +20,7 @@ export const EmptyStateDisplay = ({
   return (
     <EmptyState
       variant={isSmall ? EmptyStateVariant.small : EmptyStateVariant.large}
+      aria-label={error ? 'error-empty-state' : 'empty-state'}
     >
       {icon ? (
         <EmptyStateIcon

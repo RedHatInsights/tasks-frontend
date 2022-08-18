@@ -33,24 +33,29 @@ export const availableTasksTableError = {
   message: 'Error',
 };
 
-export const availableTasksTableItems = [
-  {
-    title: 'taskA',
-    slug: 'taska',
-    description:
-      'Uses the insights-client to determine if systems are affected by the LogShell vulnerability. Resource intensive scan',
-    published_date: '2022-01-01T13:45',
-    severity: 'critical',
+export const availableTasksTableItems = {
+  response: {
+    status: 200,
   },
-  {
-    title: 'taskB',
-    slug: 'taskb',
-    description:
-      'Uses the insights-client to determine if RHEL version can be upgraded with LEAP tool. Resource intensive scan',
-    published_date: '2021-10-13T00:00',
-    severity: 'moderate',
-  },
-];
+  data: [
+    {
+      title: 'taskA',
+      slug: 'taska',
+      description:
+        'Uses the insights-client to determine if systems are affected by the LogShell vulnerability. Resource intensive scan',
+      published_date: '2022-01-01T13:45',
+      severity: 'critical',
+    },
+    {
+      title: 'taskB',
+      slug: 'taskb',
+      description:
+        'Uses the insights-client to determine if RHEL version can be upgraded with LEAP tool. Resource intensive scan',
+      published_date: '2021-10-13T00:00',
+      severity: 'moderate',
+    },
+  ],
+};
 
 export const completedTaskJobsItems = [
   {

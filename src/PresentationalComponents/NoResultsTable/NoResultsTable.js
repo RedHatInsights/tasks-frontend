@@ -31,7 +31,7 @@ export const emptyRows = (type) => {
         {
           title: () => <NoResultsTable type={type} />, // eslint-disable-line
           props: {
-            colSpan: 3,
+            colSpan: 100,
           },
         },
       ],

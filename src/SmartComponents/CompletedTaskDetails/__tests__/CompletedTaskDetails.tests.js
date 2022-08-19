@@ -21,29 +21,21 @@ describe('CompletedTaskDetails', () => {
   let props;
   let mockStore = configureStore();
 
-  it.skip('should render correctly', async () => {
+  it('should render correctly', async () => {
+    const store = mockStore(props);
     fetchExecutedTask.mockImplementation(async () => {
       return log4j_task;
     });
 
-    const store = mockStore(props);
-    let container;
-    await act(async () => {
-      render(
-        <MemoryRouter keyLength={0}>
-          <Provider store={store}>
-            <CompletedTaskDetails />
-          </Provider>
-        </MemoryRouter>,
-        container
-      );
-    });
-
-    //await waitFor(() => expect(container).toMatchSnapshot());
-    //expect(container).toMatchSnapshot();
-    expect(container.querySelector('PageHeaderTitle').textContent).toBe(
-      'Log4J Detection'
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <CompletedTaskDetails />
+        </Provider>
+      </MemoryRouter>
     );
+
+    expect(screen.getByText('lalala')).toBeInTheDocument();
   });
 
   it.skip('should add filter', async () => {

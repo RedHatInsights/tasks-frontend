@@ -39,8 +39,9 @@ export const RunDateTimeColumn = {
   props: {
     width: 20,
   },
-  sortByProp: 'run_date_time',
+  sortByProp: 'end_time',
   renderExport: (task) => task.run_date_time,
+  renderFunc: (_, _empty, result) => result.run_date_time,
 };
 
 export const exportableColumns = [

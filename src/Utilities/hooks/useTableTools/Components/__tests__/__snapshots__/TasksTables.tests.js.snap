@@ -991,7 +991,7 @@ exports[`TasksTables should render empty 1`] = `
       >
         <td
           class="pf-m-width-35"
-          colspan="3"
+          colspan="100"
           data-key="0"
           data-label="Task"
         >

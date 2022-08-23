@@ -113,7 +113,7 @@ const SystemTable = ({ bulkSelectIds, selectedIds, selectIds }) => {
       tableProps={{
         canSelectAll: false,
         isStickyHeader: true,
-        onSelect: selectIds,
+        onSelect: items.length ? selectIds : null,
       }}
     />
   );

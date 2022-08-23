@@ -11,6 +11,7 @@ import {
 import AvailableTasksTable from './AvailableTasksTable';
 import { LOADING_CONTENT } from '../../constants';
 import { dispatchNotification } from '../../Utilities/Dispatcher';
+import { isError } from '../completedTaskDetailsHelpers';
 
 export const LoadingTasks = () => {
   const loadingTasks = LOADING_CONTENT;
@@ -43,7 +44,7 @@ const AvailableTasks = ({ openTaskModal }) => {
   const [error, setError] = useState();
 
   const setTasks = (result) => {
-    if (result?.response?.status && result?.response?.status !== 200) {
+    if (isError(result)) {
       setError(result);
       dispatchNotification({
         variant: 'danger',

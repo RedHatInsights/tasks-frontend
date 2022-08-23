@@ -9,6 +9,7 @@ import {
 } from '../../constants';
 import { /*cancelExecutedTask,*/ deleteExecutedTask } from '../../../api';
 import { dispatchNotification } from '../../Utilities/Dispatcher';
+import { isError } from '../../SmartComponents/completedTaskDetailsHelpers';
 
 const DeleteCancelTaskModal = ({
   id,
@@ -33,7 +34,7 @@ const DeleteCancelTaskModal = ({
   const handleTask = async (apiCall, ERROR, setType) => {
     const result = await apiCall(id);
     setModalOpened(false);
-    if (result?.response?.status && result?.response?.status !== 200) {
+    if (isError(result)) {
       createNotification(ERROR);
     } else {
       setType(true);

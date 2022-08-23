@@ -8,7 +8,7 @@ export const log4j_task = {
   start_time: '2022-04-21T10:10:00',
   end_time: null,
   initiated_by: 'UserX',
-  status: 'running',
+  status: 'Completed',
   system_count: 10,
   jobs: [
     {
@@ -62,7 +62,7 @@ export const log4j_task_jobs = [
   {
     executed_task: 234,
     system: '3262b268-23ed-4c5a-a918-d8c4923fdfbf',
-    status: 'Success',
+    status: 'Failure',
     results: {},
     updated_on: '2022-08-08T18:19:50.898540Z',
     display_name: 'MG-test-device',
@@ -70,7 +70,7 @@ export const log4j_task_jobs = [
   {
     executed_task: 234,
     system: '42438801-c384-491a-943b-f5f621f0c882',
-    status: 'Success',
+    status: 'Running',
     results: {},
     updated_on: '2022-08-08T18:19:50.898540Z',
     display_name: 'YL-test-device-85',

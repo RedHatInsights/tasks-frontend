@@ -14,6 +14,7 @@ const CompletedTaskDetailsKebab = ({ status, setModalOpened }) => {
     let type = 'delete';
     return [
       <DropdownItem
+        aria-label={`${type}-task-kebab-button`}
         key={`${type}-task`}
         component="button"
         data-ouia-component-id={`${type}-task-dropdown-item`}
@@ -28,8 +29,10 @@ const CompletedTaskDetailsKebab = ({ status, setModalOpened }) => {
   const [dropdownItems, setDropdownItems] = useState(createDropdownItems());
 
   useEffect(() => {
-    setDropdownItems(createDropdownItems());
-  }, []);
+    if (status !== undefined) {
+      setDropdownItems(createDropdownItems());
+    }
+  }, [status]);
 
   return (
     <Dropdown

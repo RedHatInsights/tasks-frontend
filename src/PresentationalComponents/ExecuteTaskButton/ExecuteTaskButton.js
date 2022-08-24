@@ -61,7 +61,7 @@ ExecuteTaskButton.propTypes = {
   setIsRunTaskAgain: propTypes.func,
   setModalOpened: propTypes.func,
   slug: propTypes.string,
-  title: propTypes.string,
+  title: propTypes.oneOfType([propTypes.string, propTypes.node]),
   variant: propTypes.string,
 };
 

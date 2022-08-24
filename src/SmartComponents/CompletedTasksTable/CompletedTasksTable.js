@@ -49,7 +49,7 @@ const CompletedTasksTable = () => {
     setRunTaskModalOpened(true);
     const fetchedTaskDetails = await fetchTask(id, setTaskError);
 
-    if (Object.keys(fetchedTaskDetails).length) {
+    if (Object.keys(fetchedTaskDetails).length > 0) {
       const fetchedTaskJobs = await fetchTaskJobs(
         fetchedTaskDetails,
         setTaskError
@@ -87,7 +87,7 @@ const CompletedTasksTable = () => {
       createNotification(result);
       setError(result);
     } else {
-      result.data.map((task) =>
+      result?.data?.map((task) =>
         task.status === 'Completed'
           ? (task.run_date_time = renderRunDateTime(task.end_time))
           : (task.run_date_time = task.status)
@@ -148,7 +148,7 @@ const CompletedTasksTable = () => {
             text={COMPLETED_TASKS_ERROR}
             error={`Error ${error?.response?.status}: ${error?.message}`}
           />
-        ) : completedTasks.length === 0 ? (
+        ) : completedTasks?.length === 0 ? (
           <EmptyStateDisplay
             icon={WrenchIcon}
             color="#6a6e73"

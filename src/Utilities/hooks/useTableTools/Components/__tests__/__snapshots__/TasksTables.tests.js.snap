@@ -379,7 +379,7 @@ exports[`TasksTables should render correctly 1`] = `
           data-key="2"
           data-label="Run date/time"
         >
-          Running
+          20 Apr 2022, 11:10 UTC
         </td>
       </tr>
       <tr
@@ -411,7 +411,7 @@ exports[`TasksTables should render correctly 1`] = `
           data-key="2"
           data-label="Run date/time"
         >
-          20 Apr 2022, 11:10 UTC
+          Running
         </td>
       </tr>
     </tbody>

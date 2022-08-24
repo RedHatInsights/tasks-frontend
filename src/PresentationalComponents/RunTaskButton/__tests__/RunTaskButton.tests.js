@@ -51,6 +51,6 @@ describe('RunTaskButton', () => {
     await waitFor(() =>
       userEvent.click(screen.getByLabelText('taska-run-task-button'))
     );
-    expect(props.openTaskModal).toHaveBeenCalledWith(props.slug);
+    expect(props.openTaskModal).toHaveBeenCalledWith(true);
   });
 });

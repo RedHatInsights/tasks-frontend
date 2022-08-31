@@ -9,74 +9,166 @@ import {
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store';
+import { init } from '../../../store';
 
 import CompletedTaskDetails from '../CompletedTaskDetails';
-import { fetchExecutedTask } from '../../../../api';
-import { log4j_task } from './__fixtures__/completedTasksDetails.fixtures';
+import {
+  deleteExecutedTask,
+  fetchExecutedTask,
+  fetchExecutedTaskJobs,
+} from '../../../../api';
+import {
+  log4j_task,
+  log4j_task_jobs,
+} from './__fixtures__/completedTasksDetails.fixtures';
+import * as dispatcher from '../../../Utilities/Dispatcher';
 
 jest.mock('../../../../api');
 
 describe('CompletedTaskDetails', () => {
-  let props;
-  let mockStore = configureStore();
+  const store = init().getStore();
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
 
-  it.skip('should render correctly', async () => {
+  it('should render correctly', async () => {
     fetchExecutedTask.mockImplementation(async () => {
       return log4j_task;
     });
 
-    const store = mockStore(props);
-    let container;
-    await act(async () => {
+    fetchExecutedTaskJobs.mockImplementation(async () => {
+      return { data: log4j_task_jobs };
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <CompletedTaskDetails />
+        </Provider>
+      </MemoryRouter>
+    );
+
+    await waitFor(() =>
+      expect(screen.getByLabelText('42-completed-jobs')).toBeInTheDocument()
+    );
+  });
+
+  it('should add system name filter', async () => {
+    fetchExecutedTask.mockImplementation(async () => {
+      return log4j_task;
+    });
+
+    fetchExecutedTaskJobs.mockImplementation(async () => {
+      return { data: log4j_task_jobs };
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <CompletedTaskDetails />
+        </Provider>
+      </MemoryRouter>
+    );
+
+    await waitFor(async () => {
+      userEvent.click(screen.getByLabelText('Conditional filter'));
+      userEvent.click(screen.getByText('System'));
+      const input = screen.getByLabelText('text input');
+      await waitFor(() => fireEvent.change(input, { target: { value: 'A' } }));
+      expect(input.value).toBe('A');
+    });
+  });
+
+  it('should remove system name filter', async () => {
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <CompletedTaskDetails />
+        </Provider>
+      </MemoryRouter>
+    );
+
+    await waitFor(async () => {
+      userEvent.click(screen.getByLabelText('Conditional filter'));
+      userEvent.click(screen.getByText('System'));
+      const input = screen.getByLabelText('text input');
+      await waitFor(() => fireEvent.change(input, { target: { value: 'A' } }));
+      expect(input.value).toBe('A');
+      await waitFor(() => userEvent.click(screen.getByLabelText('close')));
+      expect(input.value).toBe('');
+    });
+  });
+
+  it('should filter by status', async () => {
+    fetchExecutedTask.mockImplementation(async () => {
+      return log4j_task;
+    });
+
+    fetchExecutedTaskJobs.mockImplementation(async () => {
+      return { data: log4j_task_jobs };
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <CompletedTaskDetails />
+        </Provider>
+      </MemoryRouter>
+    );
+
+    await waitFor(() => userEvent.click(screen.getByLabelText('Options menu')));
+    await waitFor(() => userEvent.click(screen.getAllByText('Success')[0]));
+    await waitFor(() =>
+      expect(screen.getByText('dl-test-device-2')).toBeInTheDocument()
+    );
+  });
+
+  it('should delete task', async () => {
+    fetchExecutedTask.mockImplementation(async () => {
+      return log4j_task;
+    });
+
+    fetchExecutedTaskJobs.mockImplementation(async () => {
+      return { data: log4j_task_jobs };
+    });
+
+    act(() =>
       render(
         <MemoryRouter keyLength={0}>
           <Provider store={store}>
             <CompletedTaskDetails />
           </Provider>
-        </MemoryRouter>,
-        container
-      );
+        </MemoryRouter>
+      )
+    );
+
+    await waitFor(() => userEvent.click(screen.getByLabelText('Actions')));
+    await waitFor(() =>
+      userEvent.click(screen.getByLabelText('delete-task-kebab-button'))
+    );
+    await waitFor(() =>
+      userEvent.click(screen.getByLabelText('delete-task-button'))
+    );
+    expect(deleteExecutedTask).toHaveBeenCalled();
+  });
+
+  it('should export as CSV', async () => {
+    const notification = jest
+      .spyOn(dispatcher, 'dispatchNotification')
+      .mockImplementation();
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <CompletedTaskDetails />
+        </Provider>
+      </MemoryRouter>
+    );
+
+    await waitFor(async () => {
+      await waitFor(() => userEvent.click(screen.getByLabelText('Export')));
+      await waitFor(() => userEvent.click(screen.getByText('Export to CSV')));
+      expect(notification).toHaveBeenCalled();
     });
-
-    //await waitFor(() => expect(container).toMatchSnapshot());
-    //expect(container).toMatchSnapshot();
-    expect(container.querySelector('PageHeaderTitle').textContent).toBe(
-      'Log4J Detection'
-    );
-  });
-
-  it.skip('should add filter', async () => {
-    const store = mockStore(props);
-    const { asFragment } = render(
-      <MemoryRouter keyLength={0}>
-        <Provider store={store}>
-          <CompletedTaskDetails />
-        </Provider>
-      </MemoryRouter>
-    );
-
-    const input = screen.getByLabelText('text input');
-    fireEvent.change(input, { target: { value: 'A' } });
-    expect(input.value).toBe('A');
-    await waitFor(() => expect(asFragment()).toMatchSnapshot());
-  });
-
-  it.skip('should remove filter', async () => {
-    const store = mockStore(props);
-    const { asFragment } = render(
-      <MemoryRouter keyLength={0}>
-        <Provider store={store}>
-          <CompletedTaskDetails />
-        </Provider>
-      </MemoryRouter>
-    );
-
-    const input = screen.getByLabelText('text input');
-    fireEvent.change(input, { target: { value: 'A' } });
-    expect(input.value).toBe('A');
-    await waitFor(() => userEvent.click(screen.getByLabelText('close')));
-    expect(input.value).toBe('');
-    await waitFor(() => expect(asFragment()).toMatchSnapshot());
   });
 });

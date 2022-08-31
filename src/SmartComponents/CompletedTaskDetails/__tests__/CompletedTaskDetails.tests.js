@@ -24,6 +24,13 @@ import {
 import * as dispatcher from '../../../Utilities/Dispatcher';
 
 jest.mock('../../../../api');
+jest.mock(
+  '@redhat-cloud-services/frontend-components-utilities/RBACHook',
+  () => ({
+    esModule: true,
+    usePermissions: () => ({ hasAccess: true, isLoading: false }),
+  })
+);
 
 describe('CompletedTaskDetails', () => {
   const store = init().getStore();

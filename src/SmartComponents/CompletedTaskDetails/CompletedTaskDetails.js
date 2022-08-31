@@ -37,6 +37,8 @@ import {
   fetchTask,
   fetchTaskJobs,
 } from '../completedTaskDetailsHelpers';
+import { NotAuthorized } from '@redhat-cloud-services/frontend-components/NotAuthorized';
+import { usePermissions } from '@redhat-cloud-services/frontend-components-utilities/RBACHook';
 
 const CompletedTaskDetails = () => {
   const { id } = useParams();
@@ -52,6 +54,10 @@ const CompletedTaskDetails = () => {
   const [isDelete, setIsDelete] = useState(false);
   const [isCancel, setIsCancel] = useState(false);
   const history = useHistory();
+  const { hasAccess, isLoading } = usePermissions('inventory', [
+    'inventory:*:*',
+    'inventory:*:read',
+  ]);
 
   const fetchData = async () => {
     const fetchedTaskDetails = await fetchTask(id, setError);
@@ -164,24 +170,28 @@ const CompletedTaskDetails = () => {
             </Card>
             <br />
             <Card>
-              <TasksTables
-                label={`${completedTaskDetails.id}-completed-jobs`}
-                ouiaId={`${completedTaskDetails.id}-completed-jobs-table`}
-                columns={columns}
-                items={completedTaskJobs}
-                filters={{
-                  filterConfig: [...statusFilters, ...systemFilter],
-                }}
-                options={{
-                  ...TASKS_TABLE_DEFAULTS,
-                  exportable: {
-                    ...TASKS_TABLE_DEFAULTS.exportable,
-                    columns: exportableColumns,
-                  },
-                }}
-                emptyRows={emptyRows('jobs')}
-                isStickyHeader
-              />
+              {!isLoading && hasAccess ? (
+                <TasksTables
+                  label={`${completedTaskDetails.id}-completed-jobs`}
+                  ouiaId={`${completedTaskDetails.id}-completed-jobs-table`}
+                  columns={columns}
+                  items={completedTaskJobs}
+                  filters={{
+                    filterConfig: [...statusFilters, ...systemFilter],
+                  }}
+                  options={{
+                    ...TASKS_TABLE_DEFAULTS,
+                    exportable: {
+                      ...TASKS_TABLE_DEFAULTS.exportable,
+                      columns: exportableColumns,
+                    },
+                  }}
+                  emptyRows={emptyRows('jobs')}
+                  isStickyHeader
+                />
+              ) : (
+                <NotAuthorized serviceName="Inventory" />
+              )}
             </Card>
           </Main>
         </React.Fragment>

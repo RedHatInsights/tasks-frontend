@@ -14,7 +14,7 @@ const RunTaskButton = ({
       aria-label={`${slug}-run-task-button`}
       className={classname}
       variant={variant}
-      onClick={() => openTaskModal(true)}
+      onClick={() => openTaskModal(true, slug)}
     >
       {isFirst ? 'Run task' : 'Run task again'}
     </Button>

@@ -37,7 +37,7 @@ const TasksPage = ({ tab }) => {
     setTab(index);
   };
 
-  const openTaskModal = async (slug) => {
+  const openTaskModal = async (value, slug) => {
     const task = await fetchAvailableTask(slug);
     if (task?.response?.status && task?.response?.status !== 200) {
       setError(task);
@@ -52,7 +52,7 @@ const TasksPage = ({ tab }) => {
       setActiveTask(task);
     }
 
-    setRunTaskModalOpened(true);
+    setRunTaskModalOpened(value);
   };
 
   return (

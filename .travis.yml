@@ -10,6 +10,7 @@ node_js:
 - '16'
 install:
 - npm ci
+- npm install -g codecov
 jobs:
   include:
   - stage: Lint
@@ -18,6 +19,8 @@ jobs:
     script: npm run test && npx codecov
   - stage: Deploy
     script: npm run deploy && curl -sSL https://raw.githubusercontent.com/RedHatInsights/insights-frontend-builder-common/master/src/bootstrap.sh | bash -s
+after_success:
+  -codecov
 env:
   global:
   - REPO="git@github.com:RedHatInsights/tasks-frontend-build.git"

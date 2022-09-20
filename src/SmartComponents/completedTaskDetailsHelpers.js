@@ -39,9 +39,10 @@ export const fetchTaskJobs = async (taskDetails, setError) => {
     createNotification(taskJobs);
     setError(taskJobs);
   } else {
-    taskDetails.messages_count = taskJobs.data.filter((item) => {
-      return item.results.message !== 'No vulnerability found.';
-    }).length;
+    taskDetails.messages_count =
+      taskJobs.data.filter((item) => {
+        return item.results.message;
+      }).length || '-';
     taskDetails.system_count = taskJobs.data.length;
     return taskJobs.data;
   }

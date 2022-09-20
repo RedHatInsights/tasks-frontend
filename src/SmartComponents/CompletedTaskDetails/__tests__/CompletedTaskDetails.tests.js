@@ -20,6 +20,8 @@ import {
 import {
   log4j_task,
   log4j_task_jobs,
+  running_task,
+  running_task_jobs,
 } from './__fixtures__/completedTasksDetails.fixtures';
 import * as dispatcher from '../../../Utilities/Dispatcher';
 
@@ -34,11 +36,12 @@ jest.mock(
 
 describe('CompletedTaskDetails', () => {
   const store = init().getStore();
+
   afterEach(() => {
     jest.clearAllMocks();
   });
 
-  it('should render correctly', async () => {
+  it.skip('should render correctly completed', async () => {
     fetchExecutedTask.mockImplementation(async () => {
       return log4j_task;
     });
@@ -58,6 +61,38 @@ describe('CompletedTaskDetails', () => {
     await waitFor(() =>
       expect(screen.getByLabelText('42-completed-jobs')).toBeInTheDocument()
     );
+
+    await waitFor(() => {
+      expect(screen.findByText('This was a success.')).toBeInTheDocument();
+      expect(screen.findByText('This was a failure.')).toBeInTheDocument();
+      expect(screen.findByText('This timed out. Whoops!')).toBeInTheDocument();
+    });
+  });
+
+  it('should render correctly running', async () => {
+    fetchExecutedTask.mockImplementation(async () => {
+      return running_task;
+    });
+
+    fetchExecutedTaskJobs.mockImplementation(async () => {
+      return { data: running_task_jobs };
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <CompletedTaskDetails />
+        </Provider>
+      </MemoryRouter>
+    );
+
+    await waitFor(() =>
+      expect(screen.getByLabelText('217-completed-jobs')).toBeInTheDocument()
+    );
+    await waitFor(() => {
+      const noResultCells = screen.getAllByText('No result yet');
+      expect(noResultCells).toHaveLength(3);
+    });
   });
 
   it('should add system name filter', async () => {

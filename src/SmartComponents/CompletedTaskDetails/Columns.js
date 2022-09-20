@@ -44,8 +44,12 @@ export const MessageColumn = {
   props: {
     width: 20,
   },
-  sortByProp: 'message',
+  sortByProp: 'results.message',
   renderExport: (job) => job.message,
+  renderFunc: (_, _empty, job) =>
+    job.results.message || (
+      <span style={{ color: '#72767B' }}>No result yet</span>
+    ),
 };
 
 export const exportableColumns = [SystemColumn, StatusColumn, MessageColumn];

@@ -6,7 +6,7 @@ import {
 } from '@redhat-cloud-services/frontend-components/Skeleton';
 
 const renderRunning = (status) => {
-  return status === 'Completed' ? false : status;
+  return status === 'Completed' ? false : '-';
 };
 
 export const renderRunDateTime = (time) => {

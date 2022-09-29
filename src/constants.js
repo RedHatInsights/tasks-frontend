@@ -229,27 +229,27 @@ export const LOADING_JOBS_TABLE = [
   {
     display_name: <Skeleton size={SkeletonSize.md} />,
     status: <Skeleton size={SkeletonSize.md} />,
-    message: <Skeleton size={SkeletonSize.md} />,
+    results: { message: <Skeleton size={SkeletonSize.md} /> },
   },
   {
     display_name: <Skeleton size={SkeletonSize.md} />,
     status: <Skeleton size={SkeletonSize.md} />,
-    message: <Skeleton size={SkeletonSize.md} />,
+    results: { message: <Skeleton size={SkeletonSize.md} /> },
   },
   {
     display_name: <Skeleton size={SkeletonSize.md} />,
     status: <Skeleton size={SkeletonSize.md} />,
-    message: <Skeleton size={SkeletonSize.md} />,
+    results: { message: <Skeleton size={SkeletonSize.md} /> },
   },
   {
     display_name: <Skeleton size={SkeletonSize.md} />,
     status: <Skeleton size={SkeletonSize.md} />,
-    message: <Skeleton size={SkeletonSize.md} />,
+    results: { message: <Skeleton size={SkeletonSize.md} /> },
   },
   {
     display_name: <Skeleton size={SkeletonSize.md} />,
     status: <Skeleton size={SkeletonSize.md} />,
-    message: <Skeleton size={SkeletonSize.md} />,
+    results: { message: <Skeleton size={SkeletonSize.md} /> },
   },
 ];
 

@@ -23,7 +23,7 @@ SystemNameCell.propTypes = {
 export const SystemColumn = {
   title: 'System name',
   props: {
-    width: 35,
+    width: 30,
   },
   sortByProp: 'display_name',
   renderExport: (job) => job.display_name,
@@ -33,7 +33,7 @@ export const SystemColumn = {
 export const StatusColumn = {
   title: 'Status',
   props: {
-    width: 20,
+    width: 10,
   },
   sortByProp: 'status',
   renderExport: (job) => job.status,
@@ -42,14 +42,31 @@ export const StatusColumn = {
 export const MessageColumn = {
   title: 'Message',
   props: {
-    width: 20,
+    width: 35,
   },
   sortByProp: 'results.message',
   renderExport: (job) => job.message,
-  renderFunc: (_, _empty, job) =>
-    job.results.message || (
-      <span style={{ color: '#72767B' }}>No result yet</span>
-    ),
+  renderFunc: (_, _empty, job) => {
+    if (job.results.message) {
+      return job.results.message;
+    } else if (job.status === 'Failure') {
+      return (
+        <span>
+          Task failed to complete for an unknown reason. Retry this task at a
+          later time.
+        </span>
+      );
+    } else if (job.status === 'Timeout') {
+      return (
+        <span>
+          Task failed to complete due to timing out. Retry this task at a later
+          time.
+        </span>
+      );
+    } else if (job.status === 'Running') {
+      return <span style={{ color: '#72767B' }}>No result yet</span>;
+    }
+  },
 };
 
 export const exportableColumns = [SystemColumn, StatusColumn, MessageColumn];

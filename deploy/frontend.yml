@@ -20,12 +20,12 @@ objects:
       image: ${IMAGE}:${IMAGE_TAG}
       navItems:
         - expandable: true
-        title: Toolkit
-        routes:
-          - appId: "tasks"
-            title: "Tasks"
-            href: "/insights/toolkit/tasks"
-            product: "Red Hat Insights"
+          title: Toolkit
+          routes:
+            - appId: "tasks"
+              title: "Tasks"
+              href: "/insights/toolkit/tasks"
+              product: "Red Hat Insights"
       module:
         manifestLocation: "/apps/tasks/fed-mods.json"
         modules:

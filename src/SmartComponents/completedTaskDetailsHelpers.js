@@ -39,9 +39,13 @@ export const fetchTaskJobs = async (taskDetails, setError) => {
     createNotification(taskJobs);
     setError(taskJobs);
   } else {
-    taskDetails.messages_count =
+    taskDetails.alerts_count =
       taskJobs.data.filter((item) => {
-        return item.results.message;
+        if (item.status === 'Timeout' || item.status === 'Failure') {
+          return item;
+        } else {
+          return item.results.alert;
+        }
       }).length || '-';
     taskDetails.system_count = taskJobs.data.length;
     return taskJobs.data;

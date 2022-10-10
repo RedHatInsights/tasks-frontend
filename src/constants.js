@@ -52,6 +52,12 @@ export const EMPTY_COMPLETED_TASKS_MESSAGE = [
 export const INFO_ALERT_SYSTEMS =
   'Eligible systems include systems connected to console.redhat.com with rhc, or Satellite with Cloud Connector.';
 
+export const JOB_FAILED_MESSAGE =
+  'Task failed to complete for an unknown reason. Retry this task at a later time.';
+
+export const JOB_TIMED_OUT_MESSAGE =
+  'Task failed to complete due to timing out. Retry this task at a later time.';
+
 /**
  * Flex constants
  */
@@ -88,9 +94,9 @@ export const COMPLETED_INFO_PANEL = [
     key: 'initiated-by',
   },
   {
-    children: <b>Systems with messages</b>,
-    match: ['messages_count'],
-    key: 'systems-with-messages',
+    children: <b>Systems with alerts</b>,
+    match: ['alerts_count'],
+    key: 'systems-with-alerts',
   },
 ];
 
@@ -222,7 +228,7 @@ export const LOADING_INFO_PANEL = {
   system_count: <Skeleton size={SkeletonSize.md} />,
   start_time: 'loading',
   initiated_by: <Skeleton size={SkeletonSize.md} />,
-  messages_count: <Skeleton size={SkeletonSize.md} />,
+  alerts_count: <Skeleton size={SkeletonSize.md} />,
 };
 
 export const LOADING_JOBS_TABLE = [

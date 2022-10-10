@@ -46,6 +46,7 @@ const CompletedTaskDetails = () => {
     useState(LOADING_INFO_PANEL);
   const [completedTaskJobs, setCompletedTaskJobs] =
     useState(LOADING_JOBS_TABLE);
+  const [tableLoading, setTableLoading] = useState(true);
   const [error, setError] = useState();
   const [runTaskModalOpened, setRunTaskModalOpened] = useState(false);
   const [selectedSystems, setSelectedSystems] = useState([]);
@@ -60,6 +61,7 @@ const CompletedTaskDetails = () => {
   ]);
 
   const fetchData = async () => {
+    setTableLoading(true);
     const fetchedTaskDetails = await fetchTask(id, setError);
 
     if (Object.keys(fetchedTaskDetails).length) {
@@ -70,6 +72,7 @@ const CompletedTaskDetails = () => {
         await setCompletedTaskJobs(fetchedTaskJobs);
       }
     }
+    setTableLoading(false);
   };
 
   useEffect(() => {
@@ -188,6 +191,7 @@ const CompletedTaskDetails = () => {
                   }}
                   emptyRows={emptyRows('jobs')}
                   isStickyHeader
+                  isTableLoading={tableLoading}
                 />
               ) : (
                 <NotAuthorized serviceName="Inventory" />

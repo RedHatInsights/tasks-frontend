@@ -10,12 +10,17 @@ const filteredAndSortedItems = (items, filter, sorter) => {
   return sorter ? sorter(filtered) : filtered;
 };
 
-const useTableTools = (items = [], columns = [], options = {}) => {
+const useTableTools = (
+  items = [],
+  columns = [],
+  options = {},
+  isTableLoading
+) => {
   const {
     toolbarProps: paginationToolbarProps,
     setPage,
     paginator,
-  } = usePaginate(options);
+  } = usePaginate(options, isTableLoading);
 
   const {
     toolbarProps: conditionalFilterProps,

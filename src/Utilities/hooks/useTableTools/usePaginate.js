@@ -1,6 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import {
+  Skeleton,
+  SkeletonSize,
+} from '@redhat-cloud-services/frontend-components/Skeleton';
 
-const usePaginate = (options = {}) => {
+const usePaginate = (options = {}, isTableLoading) => {
   const { perPage = 10 } = options;
   const enablePagination = options?.pagination !== false;
 
@@ -38,11 +42,15 @@ const usePaginate = (options = {}) => {
         paginator,
         setPage,
         toolbarProps: {
-          pagination: {
-            ...paginationState,
-            onSetPage,
-            onPerPageSelect,
-          },
+          pagination: !isTableLoading ? (
+            {
+              ...paginationState,
+              onSetPage,
+              onPerPageSelect,
+            }
+          ) : (
+            <Skeleton size={SkeletonSize.lg} />
+          ),
         },
       }
     : {};

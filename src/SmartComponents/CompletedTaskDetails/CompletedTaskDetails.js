@@ -36,6 +36,7 @@ import {
   getSelectedSystems,
   fetchTask,
   fetchTaskJobs,
+  onlySatelliteConnected,
 } from '../completedTaskDetailsHelpers';
 import { NotAuthorized } from '@redhat-cloud-services/frontend-components/NotAuthorized';
 import { usePermissions } from '@redhat-cloud-services/frontend-components-utilities/RBACHook';
@@ -107,6 +108,7 @@ const CompletedTaskDetails = () => {
       />
       <DeleteCancelTaskModal
         id={completedTaskDetails.id}
+        isOnlySatelliteConnected={onlySatelliteConnected(completedTaskJobs)}
         isOpen={isDeleteCancelModalOpened}
         setIsCancel={setIsCancel}
         setIsDelete={setIsDelete}

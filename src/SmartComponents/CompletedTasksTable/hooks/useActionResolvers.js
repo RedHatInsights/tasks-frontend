@@ -10,12 +10,11 @@ const useActionResolver = (handleTask, fetchTaskDetails) => {
         onClick(fetchTaskDetails, task.task.title.props.id),
     },
     {
-      title: 'Delete',
-      isDisabled: row.task.title.props.status !== 'Completed',
-      /*row.task.title.props.status === 'Completed' ||
+      title:
+        row.task.title.props.status === 'Completed' ||
         row.task.title.props.status === 'Cancelled'
           ? 'Delete'
-          : 'Cancel',*/
+          : 'Cancel',
       onClick: (_event, _index, task) => {
         onClick(handleTask, task.task.title.props);
       },

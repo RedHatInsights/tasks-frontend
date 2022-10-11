@@ -2,23 +2,26 @@ import React from 'react';
 import { Button, Modal } from '@patternfly/react-core';
 import propTypes from 'prop-types';
 import {
-  //CANCEL_TASK_BODY,
-  //CANCEL_TASK_ERROR,
+  CANCEL_NON_SATELLITE_TASK_BODY,
+  CANCEL_TASK_BODY,
+  CANCEL_TASK_ERROR,
   DELETE_TASK_BODY,
   DELETE_TASK_ERROR,
+  EXISTING_RESULTS_STRING,
 } from '../../constants';
-import { /*cancelExecutedTask,*/ deleteExecutedTask } from '../../../api';
+import { cancelExecutedTask, deleteExecutedTask } from '../../../api';
 import { dispatchNotification } from '../../Utilities/Dispatcher';
 import { isError } from '../../SmartComponents/completedTaskDetailsHelpers';
 
 const DeleteCancelTaskModal = ({
   id,
+  isOnlySatelliteConnected,
   isOpen,
-  //setIsCancel,
+  setIsCancel,
   setIsDelete,
   setModalOpened,
   startTime,
-  //status,
+  status,
   title,
 }) => {
   const createNotification = (message) => {
@@ -42,7 +45,7 @@ const DeleteCancelTaskModal = ({
   };
 
   const renderButtons = () => {
-    return [
+    let actions = [
       <Button
         aria-label="delete-task-button"
         key="delete-task-button"
@@ -64,30 +67,8 @@ const DeleteCancelTaskModal = ({
         Cancel
       </Button>,
     ];
-    /*let actions;
 
-    if (status === 'Completed') {
-      actions = [
-        <Button
-          key="delete-task-button"
-          ouiaId="delete-task-modal-button"
-          variant="danger"
-          onClick={() =>
-            handleTask(deleteExecutedTask, DELETE_TASK_ERROR, setIsDelete)
-          }
-        >
-          Delete task
-        </Button>,
-        <Button
-          key="cancel"
-          ouiaId="cancel-delete-modal-button"
-          variant="link"
-          onClick={() => setModalOpened(false)}
-        >
-          Cancel
-        </Button>,
-      ];
-    } else if (status === 'Running') {
+    if (status === 'Running') {
       actions = [
         <Button
           key="cancel-task-button"
@@ -120,30 +101,44 @@ const DeleteCancelTaskModal = ({
       ];
     }
 
-    return actions;*/
+    return actions;
+  };
+
+  const renderCancelBody = () => {
+    return (
+      <div>
+        <span>
+          {isOnlySatelliteConnected
+            ? CANCEL_TASK_BODY(startTime, title)
+            : CANCEL_NON_SATELLITE_TASK_BODY(startTime, title)}
+        </span>
+        <br />
+        <br />
+        <span>{EXISTING_RESULTS_STRING()}</span>
+      </div>
+    );
   };
 
   return (
     <Modal
       aria-label="cancel-delete-task-modal"
-      //title={`${status === 'Completed' ? 'Delete' : 'Cancel'} this task?`}
-      title="Delete this task?"
+      title={`${status === 'Running' ? 'Cancel' : 'Delete'} this task?`}
       titleIconVariant="warning"
       isOpen={isOpen}
       onClose={() => setModalOpened(false)}
       width={'50%'}
       actions={renderButtons()}
     >
-      {/*status === 'Completed'
-        ? DELETE_TASK_BODY(startTime, title)
-        : CANCEL_TASK_BODY(startTime, title)*/}
-      {DELETE_TASK_BODY(startTime, title)}
+      {status === 'Running'
+        ? renderCancelBody()
+        : DELETE_TASK_BODY(startTime, title)}
     </Modal>
   );
 };
 
 DeleteCancelTaskModal.propTypes = {
   id: propTypes.number,
+  isOnlySatelliteConnected: propTypes.bool,
   isOpen: propTypes.bool,
   setIsCancel: propTypes.func,
   setIsDelete: propTypes.func,

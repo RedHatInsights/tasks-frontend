@@ -24,7 +24,7 @@ objects:
           routes:
             - appId: "tasks"
               title: "Tasks"
-              href: "/insights/toolkit/tasks"
+              href: "/insights/tasks"
               product: "Red Hat Insights"
       module:
         manifestLocation: "/apps/tasks/fed-mods.json"

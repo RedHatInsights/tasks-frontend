@@ -40,4 +40,4 @@ parameters:
   - name: IMAGE_TAG
     required: true
   - name: IMAGE
-    value: https://quay.io/repository/cloudservices/tasks-frontend
+    value: quay.io/cloudservices/tasks-frontend

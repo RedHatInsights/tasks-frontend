@@ -47,7 +47,15 @@ export const MessageColumn = {
     width: 35,
   },
   sortByProp: 'results.message',
-  renderExport: (job) => job.message,
+  renderExport: (job) => {
+    if (job.results.message) {
+      return job.results.message;
+    } else if (job.status === 'Failure') {
+      return JOB_FAILED_MESSAGE;
+    } else if (job.status === 'Timeout') {
+      return JOB_TIMED_OUT_MESSAGE;
+    }
+  },
   renderFunc: (_, _empty, job) => {
     if (job.results.message && job.results.alert) {
       return <SplitMessages content={job.results.message} />;

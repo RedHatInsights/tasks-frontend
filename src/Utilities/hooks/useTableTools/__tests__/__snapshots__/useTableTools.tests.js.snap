@@ -10,7 +10,7 @@ Object {
             "props": Object {
               "width": 35,
             },
-            "sortByProp": "title",
+            "sortByProp": "task_title",
             "title": "Task",
             "transforms": Array [
               [Function],
@@ -21,7 +21,7 @@ Object {
               "width": 20,
             },
             "renderExport": [Function],
-            "sortByProp": "system_count",
+            "sortByProp": "systems_count",
             "title": "Systems",
             "transforms": Array [
               [Function],
@@ -31,7 +31,7 @@ Object {
             "props": Object {
               "width": 20,
             },
-            "sortByProp": "run_date_time",
+            "sortByProp": "end_time",
             "title": "Run date/time",
             "transforms": Array [
               [Function],
@@ -40,39 +40,48 @@ Object {
         ],
         "onSort": [Function],
         "rows": Array [
-          Array [
-            Object {
-              "title": "taskA",
-            },
-            Object {
-              "title": 10,
-            },
-            Object {
-              "title": "Running",
-            },
-          ],
-          Array [
-            Object {
-              "title": "taskB",
-            },
-            Object {
-              "title": 5,
-            },
-            Object {
-              "title": "20 Apr 2022, 11:10 UTC",
-            },
-          ],
-          Array [
-            Object {
-              "title": "taskB",
-            },
-            Object {
-              "title": 3,
-            },
-            Object {
-              "title": "25 Apr 2022, 11:10 UTC",
-            },
-          ],
+          Object {
+            "cells": Array [
+              Object {
+                "title": "taskA",
+              },
+              Object {
+                "title": 10,
+              },
+              Object {
+                "title": "2022-04-20T11:10:00",
+              },
+            ],
+            "itemId": undefined,
+          },
+          Object {
+            "cells": Array [
+              Object {
+                "title": "taskB",
+              },
+              Object {
+                "title": 5,
+              },
+              Object {
+                "title": "null",
+              },
+            ],
+            "itemId": undefined,
+          },
+          Object {
+            "cells": Array [
+              Object {
+                "title": "taskC",
+              },
+              Object {
+                "title": 3,
+              },
+              Object {
+                "title": "2022-04-28T11:10:00",
+              },
+            ],
+            "itemId": undefined,
+          },
         ],
         "sortBy": Object {
           "direction": "asc",
@@ -96,7 +105,7 @@ Object {
             "props": Object {
               "width": 35,
             },
-            "sortByProp": "title",
+            "sortByProp": "task_title",
             "title": "Task",
             "transforms": Array [
               [Function],
@@ -107,7 +116,7 @@ Object {
               "width": 20,
             },
             "renderExport": [Function],
-            "sortByProp": "system_count",
+            "sortByProp": "systems_count",
             "title": "Systems",
             "transforms": Array [
               [Function],
@@ -117,7 +126,7 @@ Object {
             "props": Object {
               "width": 20,
             },
-            "sortByProp": "run_date_time",
+            "sortByProp": "end_time",
             "title": "Run date/time",
             "transforms": Array [
               [Function],
@@ -126,39 +135,48 @@ Object {
         ],
         "onSort": [Function],
         "rows": Array [
-          Array [
-            Object {
-              "title": "taskA",
-            },
-            Object {
-              "title": 10,
-            },
-            Object {
-              "title": "Running",
-            },
-          ],
-          Array [
-            Object {
-              "title": "taskB",
-            },
-            Object {
-              "title": 5,
-            },
-            Object {
-              "title": "20 Apr 2022, 11:10 UTC",
-            },
-          ],
-          Array [
-            Object {
-              "title": "taskB",
-            },
-            Object {
-              "title": 3,
-            },
-            Object {
-              "title": "25 Apr 2022, 11:10 UTC",
-            },
-          ],
+          Object {
+            "cells": Array [
+              Object {
+                "title": "taskA",
+              },
+              Object {
+                "title": 10,
+              },
+              Object {
+                "title": "2022-04-20T11:10:00",
+              },
+            ],
+            "itemId": undefined,
+          },
+          Object {
+            "cells": Array [
+              Object {
+                "title": "taskB",
+              },
+              Object {
+                "title": 5,
+              },
+              Object {
+                "title": "null",
+              },
+            ],
+            "itemId": undefined,
+          },
+          Object {
+            "cells": Array [
+              Object {
+                "title": "taskC",
+              },
+              Object {
+                "title": 3,
+              },
+              Object {
+                "title": "2022-04-28T11:10:00",
+              },
+            ],
+            "itemId": undefined,
+          },
         ],
         "sortBy": Object {
           "direction": "asc",
@@ -183,7 +201,7 @@ Object {
           "props": Object {
             "width": 35,
           },
-          "sortByProp": "title",
+          "sortByProp": "task_title",
           "title": "Task",
           "transforms": Array [
             [Function],
@@ -194,7 +212,7 @@ Object {
             "width": 20,
           },
           "renderExport": [Function],
-          "sortByProp": "system_count",
+          "sortByProp": "systems_count",
           "title": "Systems",
           "transforms": Array [
             [Function],
@@ -204,7 +222,7 @@ Object {
           "props": Object {
             "width": 20,
           },
-          "sortByProp": "run_date_time",
+          "sortByProp": "end_time",
           "title": "Run date/time",
           "transforms": Array [
             [Function],
@@ -213,39 +231,48 @@ Object {
       ],
       "onSort": [Function],
       "rows": Array [
-        Array [
-          Object {
-            "title": "taskA",
-          },
-          Object {
-            "title": 10,
-          },
-          Object {
-            "title": "Running",
-          },
-        ],
-        Array [
-          Object {
-            "title": "taskB",
-          },
-          Object {
-            "title": 5,
-          },
-          Object {
-            "title": "20 Apr 2022, 11:10 UTC",
-          },
-        ],
-        Array [
-          Object {
-            "title": "taskB",
-          },
-          Object {
-            "title": 3,
-          },
-          Object {
-            "title": "25 Apr 2022, 11:10 UTC",
-          },
-        ],
+        Object {
+          "cells": Array [
+            Object {
+              "title": "taskA",
+            },
+            Object {
+              "title": 10,
+            },
+            Object {
+              "title": "2022-04-20T11:10:00",
+            },
+          ],
+          "itemId": undefined,
+        },
+        Object {
+          "cells": Array [
+            Object {
+              "title": "taskB",
+            },
+            Object {
+              "title": 5,
+            },
+            Object {
+              "title": "null",
+            },
+          ],
+          "itemId": undefined,
+        },
+        Object {
+          "cells": Array [
+            Object {
+              "title": "taskC",
+            },
+            Object {
+              "title": 3,
+            },
+            Object {
+              "title": "2022-04-28T11:10:00",
+            },
+          ],
+          "itemId": undefined,
+        },
       ],
       "sortBy": Object {
         "direction": "asc",

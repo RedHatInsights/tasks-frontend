@@ -45,7 +45,7 @@ export const log4j_task_jobs = [
   },
 ];
 
-export const upgrade_leap_task = {
+export const upgrade_leapp_task = {
   id: 43,
   task_title: 'Upgrade RHEL version with LEAP tool',
   description:
@@ -57,6 +57,59 @@ export const upgrade_leap_task = {
   status: 'running',
   system_count: 5,
 };
+
+export const leapp_task_jobs = [
+  {
+    executed_task: 235,
+    system: 'f1356a99-754d-4219-9g25-fccb2cc6e2f2',
+    status: 'Success',
+    results: {},
+    updated_on: '2022-08-08T18:19:50.898540Z',
+    display_name: 'dl-test-device-2',
+  },
+  {
+    executed_task: 235,
+    system: 'f1356a99-754d-4219-9g25-fccb2cc53bee',
+    status: 'Success',
+    results: {
+      alert: true,
+      message: 'Your system has 2 inhibitors out of 5 potential problems',
+    },
+    updated_on: '2022-08-08T18:19:50.898540Z',
+    display_name: 'dl-test-device-3',
+  },
+  {
+    executed_task: 235,
+    system: '3262b268-23ed-4c5a-a918-d8c4923fdfbf',
+    status: 'Failure',
+    results: {
+      message: 'This was a failure.',
+    },
+    updated_on: '2022-08-08T18:19:50.898540Z',
+    display_name: 'MG-test-device',
+  },
+  {
+    executed_task: 235,
+    system: '42438801-c384-491a-943b-f5f621f0c882',
+    status: 'Timeout',
+    results: {
+      message: 'This timed out. Whoops!',
+    },
+    updated_on: '2022-08-08T18:19:50.898540Z',
+    display_name: 'YL-test-device-85',
+  },
+  {
+    executed_task: 235,
+    system: 'f1356a99-754d-4219-9g25-fccb2cf29c99',
+    status: 'Success',
+    results: {
+      alert: true,
+      message: 'Your system has 1 inhibitor out of 3 potential problems',
+    },
+    updated_on: '2022-08-08T18:19:50.898540Z',
+    display_name: 'dl-test-device-4',
+  },
+];
 
 export const running_task = {
   id: 217,

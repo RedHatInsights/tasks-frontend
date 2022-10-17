@@ -11,7 +11,7 @@ Object {
             "props": Object {
               "width": 35,
             },
-            "sortByProp": "title",
+            "sortByProp": "task_title",
             "title": "Task",
             "transforms": Array [
               [Function],
@@ -22,7 +22,7 @@ Object {
               "width": 20,
             },
             "renderExport": [Function],
-            "sortByProp": "system_count",
+            "sortByProp": "systems_count",
             "title": "Systems",
             "transforms": Array [
               [Function],
@@ -32,7 +32,7 @@ Object {
             "props": Object {
               "width": 20,
             },
-            "sortByProp": "run_date_time",
+            "sortByProp": "end_time",
             "title": "Run date/time",
             "transforms": Array [
               [Function],
@@ -55,7 +55,7 @@ Object {
           "props": Object {
             "width": 35,
           },
-          "sortByProp": "title",
+          "sortByProp": "task_title",
           "title": "Task",
           "transforms": Array [
             [Function],
@@ -66,7 +66,7 @@ Object {
             "width": 20,
           },
           "renderExport": [Function],
-          "sortByProp": "system_count",
+          "sortByProp": "systems_count",
           "title": "Systems",
           "transforms": Array [
             [Function],
@@ -76,7 +76,7 @@ Object {
           "props": Object {
             "width": 20,
           },
-          "sortByProp": "run_date_time",
+          "sortByProp": "end_time",
           "title": "Run date/time",
           "transforms": Array [
             [Function],

@@ -5,7 +5,11 @@ import useRowsBuilder from '../useRowsBuilder';
 
 describe('useRowsBuilder', () => {
   it('returns a rows configuration', () => {
-    const { result } = renderHook(() => useRowsBuilder(items, columns));
+    const { result } = renderHook(() =>
+      useRowsBuilder(items, columns, {
+        rowTransformer: [undefined],
+      })
+    );
     expect(result).toMatchSnapshot();
   });
 });

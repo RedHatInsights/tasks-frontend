@@ -51,3 +51,9 @@ export const fetchTaskJobs = async (taskDetails, setError) => {
     return taskJobs.data;
   }
 };
+
+export const hasAlert = (completedTaskJobs) => {
+  return completedTaskJobs.some(
+    (job) => job.status === 'Success' && job.results.alert
+  );
+};

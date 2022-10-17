@@ -4,14 +4,14 @@ export default [
     props: {
       width: 35,
     },
-    sortByProp: 'title',
+    sortByProp: 'task_title',
   },
   {
     title: 'Systems',
     props: {
       width: 20,
     },
-    sortByProp: 'system_count',
+    sortByProp: 'systems_count',
     renderExport: (item) => item.system_count,
   },
   {
@@ -19,6 +19,6 @@ export default [
     props: {
       width: 20,
     },
-    sortByProp: 'run_date_time',
+    sortByProp: 'end_time',
   },
 ];

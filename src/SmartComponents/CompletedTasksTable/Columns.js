@@ -31,7 +31,7 @@ export const SystemsCountColumn = {
     width: 20,
   },
   sortByProp: 'systems_count',
-  renderExport: (task) => task.system_count,
+  renderExport: (task) => task.systems_count,
 };
 
 export const RunDateTimeColumn = {

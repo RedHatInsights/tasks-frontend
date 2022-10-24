@@ -1,6 +1,8 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { renderColumnComponent } from '../../Utilities/helpers';
+import { JOB_FAILED_MESSAGE, JOB_TIMED_OUT_MESSAGE } from '../../constants';
+import SplitMessages from '../../PresentationalComponents/SplitMessages/SplitMessages';
 
 const SystemNameCell = ({ system, display_name }, index) => (
   <a
@@ -47,22 +49,12 @@ export const MessageColumn = {
   sortByProp: 'results.message',
   renderExport: (job) => job.message,
   renderFunc: (_, _empty, job) => {
-    if (job.results.message) {
-      return job.results.message;
+    if (job.results.message && job.results.alert) {
+      return <SplitMessages content={job.results.message} />;
     } else if (job.status === 'Failure') {
-      return (
-        <span>
-          Task failed to complete for an unknown reason. Retry this task at a
-          later time.
-        </span>
-      );
+      return <SplitMessages content={JOB_FAILED_MESSAGE} />;
     } else if (job.status === 'Timeout') {
-      return (
-        <span>
-          Task failed to complete due to timing out. Retry this task at a later
-          time.
-        </span>
-      );
+      return <SplitMessages content={JOB_TIMED_OUT_MESSAGE} />;
     } else if (job.status === 'Running') {
       return <span style={{ color: '#72767B' }}>No result yet</span>;
     }

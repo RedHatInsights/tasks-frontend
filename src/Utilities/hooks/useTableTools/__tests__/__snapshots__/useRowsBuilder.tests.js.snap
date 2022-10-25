@@ -6,39 +6,48 @@ Object {
     Object {
       "tableProps": Object {
         "rows": Array [
-          Array [
-            Object {
-              "title": "taskA",
-            },
-            Object {
-              "title": 10,
-            },
-            Object {
-              "title": "Running",
-            },
-          ],
-          Array [
-            Object {
-              "title": "taskB",
-            },
-            Object {
-              "title": 5,
-            },
-            Object {
-              "title": "20 Apr 2022, 11:10 UTC",
-            },
-          ],
-          Array [
-            Object {
-              "title": "taskB",
-            },
-            Object {
-              "title": 3,
-            },
-            Object {
-              "title": "25 Apr 2022, 11:10 UTC",
-            },
-          ],
+          Object {
+            "cells": Array [
+              Object {
+                "title": "taskA",
+              },
+              Object {
+                "title": 10,
+              },
+              Object {
+                "title": "2022-04-20T11:10:00",
+              },
+            ],
+            "itemId": undefined,
+          },
+          Object {
+            "cells": Array [
+              Object {
+                "title": "taskB",
+              },
+              Object {
+                "title": 5,
+              },
+              Object {
+                "title": "null",
+              },
+            ],
+            "itemId": undefined,
+          },
+          Object {
+            "cells": Array [
+              Object {
+                "title": "taskC",
+              },
+              Object {
+                "title": 3,
+              },
+              Object {
+                "title": "2022-04-28T11:10:00",
+              },
+            ],
+            "itemId": undefined,
+          },
         ],
       },
       "toolbarProps": Object {
@@ -49,39 +58,48 @@ Object {
   "current": Object {
     "tableProps": Object {
       "rows": Array [
-        Array [
-          Object {
-            "title": "taskA",
-          },
-          Object {
-            "title": 10,
-          },
-          Object {
-            "title": "Running",
-          },
-        ],
-        Array [
-          Object {
-            "title": "taskB",
-          },
-          Object {
-            "title": 5,
-          },
-          Object {
-            "title": "20 Apr 2022, 11:10 UTC",
-          },
-        ],
-        Array [
-          Object {
-            "title": "taskB",
-          },
-          Object {
-            "title": 3,
-          },
-          Object {
-            "title": "25 Apr 2022, 11:10 UTC",
-          },
-        ],
+        Object {
+          "cells": Array [
+            Object {
+              "title": "taskA",
+            },
+            Object {
+              "title": 10,
+            },
+            Object {
+              "title": "2022-04-20T11:10:00",
+            },
+          ],
+          "itemId": undefined,
+        },
+        Object {
+          "cells": Array [
+            Object {
+              "title": "taskB",
+            },
+            Object {
+              "title": 5,
+            },
+            Object {
+              "title": "null",
+            },
+          ],
+          "itemId": undefined,
+        },
+        Object {
+          "cells": Array [
+            Object {
+              "title": "taskC",
+            },
+            Object {
+              "title": 3,
+            },
+            Object {
+              "title": "2022-04-28T11:10:00",
+            },
+          ],
+          "itemId": undefined,
+        },
       ],
     },
     "toolbarProps": Object {

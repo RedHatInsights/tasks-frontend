@@ -1,6 +1,6 @@
 import { camelCase, getProperty } from '../../helpers';
 
-const CSV_FILE_PREFIX = 'compliance-export';
+const CSV_FILE_PREFIX = 'tasks-export';
 const CSV_DELIMITER = ',';
 const ENCODINGS = {
   csv: 'text/csv',
@@ -115,6 +115,7 @@ export const useExportWithItems = (items, columns, options = {}) => {
     onStart,
     onComplete,
   } = typeof options.exportable === 'object' ? options.exportable : {};
+
   const exportableSelectedColumns = (exportableColumns || columns).filter(
     (column) => columns.includes(column)
   );

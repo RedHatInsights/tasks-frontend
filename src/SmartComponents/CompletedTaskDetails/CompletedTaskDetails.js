@@ -36,9 +36,11 @@ import {
   getSelectedSystems,
   fetchTask,
   fetchTaskJobs,
+  hasAlert,
 } from '../completedTaskDetailsHelpers';
 import { NotAuthorized } from '@redhat-cloud-services/frontend-components/NotAuthorized';
 import { usePermissions } from '@redhat-cloud-services/frontend-components-utilities/RBACHook';
+import JobResultsDetails from './JobResultsDetails/JobResultsDetails';
 
 const CompletedTaskDetails = () => {
   const { id } = useParams();
@@ -188,6 +190,9 @@ const CompletedTaskDetails = () => {
                       ...TASKS_TABLE_DEFAULTS.exportable,
                       columns: exportableColumns,
                     },
+                    detailsComponent: hasAlert(completedTaskJobs)
+                      ? JobResultsDetails
+                      : null,
                   }}
                   emptyRows={emptyRows('jobs')}
                   isStickyHeader

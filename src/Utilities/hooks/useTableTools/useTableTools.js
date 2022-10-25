@@ -4,6 +4,7 @@ import usePaginate from './usePaginate';
 import { useExportWithItems } from './useExport';
 import { useTableSortWithItems } from './useTableSort';
 import { useActionResolverWithItems } from './useActionResolver';
+import useExpandable from './useExpandable';
 
 const filteredAndSortedItems = (items, filter, sorter) => {
   const filtered = filter ? filter(items) : items;
@@ -31,6 +32,9 @@ const useTableTools = (
     setPage,
   });
 
+  const { transformer: openItem, tableProps: expandableProps } =
+    useExpandable(options);
+
   const { tableProps: sortableTableProps, sorter } = useTableSortWithItems(
     items,
     columns,
@@ -56,6 +60,7 @@ const useTableTools = (
     tableProps: rowBuilderTableProps,
   } = useRowsBuilder(items, columns, {
     emptyRows: options.tableProps.emptyRows,
+    rowTransformer: [openItem],
     pagination: paginationToolbarProps?.pagination,
     paginator,
     filter,
@@ -74,6 +79,7 @@ const useTableTools = (
     cells: columns,
     ...rowBuilderTableProps,
     ...sortableTableProps,
+    ...expandableProps,
     ...actionResolverTableProps,
   };
 

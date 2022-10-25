@@ -22,7 +22,6 @@ export const statusFilters = [
       { label: 'Success', value: 'success' },
       { label: 'Failure', value: 'failure' },
       { label: 'Timeout', value: 'timeout' },
-      { label: 'Cancelled', value: 'cancelled' },
     ],
   },
 ];

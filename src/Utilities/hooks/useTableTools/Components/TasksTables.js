@@ -9,6 +9,7 @@ import useTableTools from '../useTableTools';
 const TasksTables = ({
   label,
   ouiaId,
+  isTableLoading,
   items = [],
   columns = [],
   filters = [],
@@ -16,11 +17,16 @@ const TasksTables = ({
   //toolbarProps: toolbarPropsProp,
   ...tablePropsRest
 }) => {
-  const { toolbarProps, tableProps } = useTableTools(items, columns, {
-    filters,
-    tableProps: tablePropsRest,
-    ...options,
-  });
+  const { toolbarProps, tableProps } = useTableTools(
+    items,
+    columns,
+    {
+      filters,
+      tableProps: tablePropsRest,
+      ...options,
+    },
+    isTableLoading
+  );
 
   return (
     <React.Fragment>
@@ -32,13 +38,14 @@ const TasksTables = ({
       </Table>
 
       {/* The -1 are to combat a bug currently in the TableToolbar component */}
-      <TableToolbar isFooter results={-1} selected={-1}>
-        <Pagination
-          variant={PaginationVariant.bottom}
-          {...toolbarProps.pagination}
-        />
-      </TableToolbar>
-
+      {!isTableLoading ? (
+        <TableToolbar isFooter results={-1} selected={-1}>
+          <Pagination
+            variant={PaginationVariant.bottom}
+            {...toolbarProps.pagination}
+          />
+        </TableToolbar>
+      ) : null}
       {/*ColumnManager && <ColumnManager />*/}
     </React.Fragment>
   );
@@ -47,6 +54,7 @@ const TasksTables = ({
 TasksTables.propTypes = {
   label: propTypes.string,
   ouiaId: propTypes.string,
+  isTableLoading: propTypes.bool,
   items: propTypes.array.isRequired,
   /*columns: propTypes.arrayOf(
     propTypes.shape({

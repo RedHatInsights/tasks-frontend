@@ -33,6 +33,7 @@ const CompletedTasksTable = () => {
   );
   const [completedTaskDetails, setCompletedTaskDetails] =
     useState(TASK_LOADING_CONTENT);
+  const [tableLoading, setTableLoading] = useState(true);
   const [error, setError] = useState();
   const [taskError, setTaskError] = useState();
   const [isDelete, setIsDelete] = useState(false);
@@ -94,10 +95,12 @@ const CompletedTasksTable = () => {
       );
 
       await setCompletedTasks(result.data);
+      setTableLoading(false);
     }
   };
 
   const refetchData = async () => {
+    setTableLoading(true);
     await setCompletedTasks(LOADING_COMPLETED_TASKS_TABLE);
     fetchData();
   };
@@ -174,6 +177,7 @@ const CompletedTasksTable = () => {
             }}
             emptyRows={emptyRows('tasks')}
             isStickyHeader
+            isTableLoading={tableLoading}
           />
         )}
       </div>

@@ -57,12 +57,17 @@ export const MessageColumn = {
     }
   },
   renderFunc: (_, _empty, job) => {
-    if (job.results.message && job.results.alert) {
-      return <SplitMessages content={job.results.message} />;
+    if (job.results.message) {
+      return (
+        <SplitMessages
+          content={job.results.message}
+          alert={job.results.alert}
+        />
+      );
     } else if (job.status === 'Failure') {
-      return <SplitMessages content={JOB_FAILED_MESSAGE} />;
+      return <SplitMessages content={JOB_FAILED_MESSAGE} alert={true} />;
     } else if (job.status === 'Timeout') {
-      return <SplitMessages content={JOB_TIMED_OUT_MESSAGE} />;
+      return <SplitMessages content={JOB_TIMED_OUT_MESSAGE} alert={true} />;
     } else if (job.status === 'Running') {
       return <span style={{ color: '#72767B' }}>No result yet</span>;
     }

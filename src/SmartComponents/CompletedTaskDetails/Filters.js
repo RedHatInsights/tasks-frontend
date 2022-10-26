@@ -6,7 +6,9 @@ export const systemFilter = [
     label: 'System',
     filter: (jobs, value) =>
       jobs.filter((job) =>
-        job.display_name.toLowerCase().includes(value.toLowerCase())
+        job.display_name
+          ? job.display_name.toLowerCase().includes(value.toLowerCase())
+          : null
       ),
   },
 ];

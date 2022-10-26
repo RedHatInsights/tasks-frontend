@@ -309,8 +309,8 @@ exports[`CompletedTasksTable should export 1`] = `
           data-ouia-safe="true"
         >
           <th
-            aria-sort="ascending"
-            class="pf-c-table__sort pf-m-selected pf-m-width-35"
+            aria-sort="none"
+            class="pf-c-table__sort pf-m-width-35"
             data-key="0"
             data-label="Task"
             scope="col"
@@ -340,7 +340,7 @@ exports[`CompletedTasksTable should export 1`] = `
                     width="1em"
                   >
                     <path
-                      d="M88 166.059V468c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12V166.059h46.059c21.382 0 32.09-25.851 16.971-40.971l-86.059-86.059c-9.373-9.373-24.569-9.373-33.941 0l-86.059 86.059c-15.119 15.119-4.411 40.971 16.971 40.971H88z"
+                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
                     />
                   </svg>
                 </span>
@@ -387,8 +387,8 @@ exports[`CompletedTasksTable should export 1`] = `
             </button>
           </th>
           <th
-            aria-sort="none"
-            class="pf-c-table__sort pf-m-width-20"
+            aria-sort="descending"
+            class="pf-c-table__sort pf-m-selected pf-m-width-20"
             data-key="2"
             data-label="Run date/time"
             scope="col"
@@ -418,7 +418,7 @@ exports[`CompletedTasksTable should export 1`] = `
                     width="1em"
                   >
                     <path
-                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                      d="M168 345.941V44c0-6.627-5.373-12-12-12h-56c-6.627 0-12 5.373-12 12v301.941H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.569 9.373 33.941 0l86.059-86.059c15.119-15.119 4.411-40.971-16.971-40.971H168z"
                     />
                   </svg>
                 </span>
@@ -448,9 +448,9 @@ exports[`CompletedTasksTable should export 1`] = `
             data-label="Task"
           >
             <a
-              href="/executed/1"
+              href="/executed/2"
             >
-              taskA
+              taskB
             </a>
           </td>
           <td
@@ -458,14 +458,14 @@ exports[`CompletedTasksTable should export 1`] = `
             data-key="1"
             data-label="Systems"
           >
-            10
+            5
           </td>
           <td
             class="pf-m-width-20"
             data-key="2"
             data-label="Run date/time"
           >
-            20 Apr 2022, 11:10 UTC
+            Running
           </td>
           <td
             class="pf-c-table__action"
@@ -515,9 +515,9 @@ exports[`CompletedTasksTable should export 1`] = `
             data-label="Task"
           >
             <a
-              href="/executed/2"
+              href="/executed/1"
             >
-              taskB
+              taskA
             </a>
           </td>
           <td
@@ -525,14 +525,14 @@ exports[`CompletedTasksTable should export 1`] = `
             data-key="1"
             data-label="Systems"
           >
-            5
+            10
           </td>
           <td
             class="pf-m-width-20"
             data-key="2"
             data-label="Run date/time"
           >
-            Running
+            20 Apr 2022, 11:10 UTC
           </td>
           <td
             class="pf-c-table__action"
@@ -936,8 +936,8 @@ exports[`CompletedTasksTable should render correctly 1`] = `
           data-ouia-safe="true"
         >
           <th
-            aria-sort="ascending"
-            class="pf-c-table__sort pf-m-selected pf-m-width-35"
+            aria-sort="none"
+            class="pf-c-table__sort pf-m-width-35"
             data-key="0"
             data-label="Task"
             scope="col"
@@ -967,7 +967,7 @@ exports[`CompletedTasksTable should render correctly 1`] = `
                     width="1em"
                   >
                     <path
-                      d="M88 166.059V468c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12V166.059h46.059c21.382 0 32.09-25.851 16.971-40.971l-86.059-86.059c-9.373-9.373-24.569-9.373-33.941 0l-86.059 86.059c-15.119 15.119-4.411 40.971 16.971 40.971H88z"
+                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
                     />
                   </svg>
                 </span>
@@ -1014,8 +1014,8 @@ exports[`CompletedTasksTable should render correctly 1`] = `
             </button>
           </th>
           <th
-            aria-sort="none"
-            class="pf-c-table__sort pf-m-width-20"
+            aria-sort="descending"
+            class="pf-c-table__sort pf-m-selected pf-m-width-20"
             data-key="2"
             data-label="Run date/time"
             scope="col"
@@ -1045,7 +1045,7 @@ exports[`CompletedTasksTable should render correctly 1`] = `
                     width="1em"
                   >
                     <path
-                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                      d="M168 345.941V44c0-6.627-5.373-12-12-12h-56c-6.627 0-12 5.373-12 12v301.941H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.569 9.373 33.941 0l86.059-86.059c15.119-15.119 4.411-40.971-16.971-40.971H168z"
                     />
                   </svg>
                 </span>

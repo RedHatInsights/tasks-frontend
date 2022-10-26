@@ -5,6 +5,7 @@ import * as Filters from './Filters';
 import { renderRunDateTime } from '../../Utilities/helpers';
 import {
   COMPLETED_TASKS_ERROR,
+  COMPLETED_TASKS_TABLE_DEFAULTS,
   EMPTY_COMPLETED_TASKS_MESSAGE,
   EMPTY_COMPLETED_TASKS_TITLE,
   LOADING_COMPLETED_TASKS_TABLE,
@@ -169,6 +170,7 @@ const CompletedTasksTable = () => {
             }}
             options={{
               ...TASKS_TABLE_DEFAULTS,
+              ...COMPLETED_TASKS_TABLE_DEFAULTS,
               actionResolver,
               exportable: {
                 ...TASKS_TABLE_DEFAULTS.exportable,

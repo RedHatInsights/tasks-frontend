@@ -192,6 +192,13 @@ export const TASKS_PAGE_HEADER = [
  * Table constants
  */
 
+export const COMPLETED_TASKS_TABLE_DEFAULTS = {
+  sortBy: {
+    index: 2,
+    direction: 'desc',
+  },
+};
+
 export const TASKS_TABLE_DEFAULTS = {
   exportable: {
     onStart: () => {

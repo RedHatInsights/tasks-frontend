@@ -4,18 +4,24 @@ import { renderColumnComponent } from '../../Utilities/helpers';
 import { JOB_FAILED_MESSAGE, JOB_TIMED_OUT_MESSAGE } from '../../constants';
 import SplitMessages from '../../PresentationalComponents/SplitMessages/SplitMessages';
 
-const SystemNameCell = ({ system, display_name }, index) => (
-  <a
-    key={`system-title-${index}`}
-    href={
-      insights.chrome.isBeta()
-        ? `/beta/insights/inventory/${system}`
-        : `/insights/inventory/${system}`
-    }
-  >
-    {display_name}
-  </a>
-);
+const SystemNameCell = ({ system, display_name }, index) => {
+  if (display_name) {
+    return (
+      <a
+        key={`system-title-${index}`}
+        href={
+          insights.chrome.isBeta()
+            ? `/beta/insights/inventory/${system}`
+            : `/insights/inventory/${system}`
+        }
+      >
+        {display_name}
+      </a>
+    );
+  } else {
+    return <span style={{ color: '#72767B' }}>System deleted</span>;
+  }
+};
 
 SystemNameCell.propTypes = {
   system: propTypes.string,
@@ -28,7 +34,7 @@ export const SystemColumn = {
     width: 30,
   },
   sortByProp: 'display_name',
-  renderExport: (job) => job.display_name,
+  renderExport: (job) => job.display_name || 'System deleted',
   renderFunc: renderColumnComponent(SystemNameCell),
 };
 

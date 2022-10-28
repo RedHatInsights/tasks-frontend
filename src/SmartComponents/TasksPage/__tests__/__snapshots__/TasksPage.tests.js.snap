@@ -85,7 +85,7 @@ exports[`TasksPage should render correctly 1`] = `
           <span
             class="pf-c-tabs__item-text"
           >
-            Available tasks
+            Available
           </span>
         </button>
       </li>
@@ -102,7 +102,7 @@ exports[`TasksPage should render correctly 1`] = `
           <span
             class="pf-c-tabs__item-text"
           >
-            Completed tasks
+            Activity
           </span>
         </button>
       </li>

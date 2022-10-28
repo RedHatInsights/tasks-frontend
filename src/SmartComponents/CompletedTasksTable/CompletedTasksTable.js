@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ExclamationCircleIcon, WrenchIcon } from '@patternfly/react-icons';
 import columns, { exportableColumns } from './Columns';
-import * as Filters from './Filters';
+import { nameFilter, statusFilter } from './Filters';
 import { renderRunDateTime } from '../../Utilities/helpers';
 import {
   COMPLETED_TASKS_ERROR,
@@ -28,7 +28,6 @@ import {
 import RunTaskModal from '../RunTaskModal/RunTaskModal';
 
 const CompletedTasksTable = () => {
-  const filters = Object.values(Filters);
   const [completedTasks, setCompletedTasks] = useState(
     LOADING_COMPLETED_TASKS_TABLE
   );
@@ -143,12 +142,12 @@ const CompletedTasksTable = () => {
         status={taskDetails.status}
         title={taskDetails.task_title}
       />
-      <div aria-label="completed-tasks">
+      <div aria-label="activity">
         {error ? (
           <EmptyStateDisplay
             icon={ExclamationCircleIcon}
             color="#c9190b"
-            title={'Completed tasks cannot be displayed'}
+            title={'Activities cannot be displayed'}
             text={COMPLETED_TASKS_ERROR}
             error={`Error ${error?.response?.status}: ${error?.message}`}
           />
@@ -161,12 +160,12 @@ const CompletedTasksTable = () => {
           />
         ) : (
           <TasksTables
-            label="completed-tasks-table"
-            ouiaId="completed-tasks-table"
+            label="activity-table"
+            ouiaId="activity-table"
             columns={columns}
             items={completedTasks}
             filters={{
-              filterConfig: filters,
+              filterConfig: [...nameFilter, ...statusFilter],
             }}
             options={{
               ...TASKS_TABLE_DEFAULTS,

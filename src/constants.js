@@ -26,13 +26,13 @@ const ACCESS_REDHAT_DOT_COM =
   'https://access.redhat.com/documentation/en-us/red_hat_insights/';
 const YEAR = `${today.getFullYear()}/html/`;
 
-export const TASKS_PAGE_TABS = ['Available tasks', 'Completed tasks'];
+export const TASKS_PAGE_TABS = ['Available', 'Activity'];
 export const TASKS_ERROR = [
   'Available tasks cannot be displayed at this time. Please retry and if the problem persists contact your system administrator.',
   '',
 ];
 export const COMPLETED_TASKS_ERROR = [
-  'Completed tasks connot be displayed at this time. Please return and if the problem persists contact your system administrator.',
+  'Activities connot be displayed at this time. Please return and if the problem persists contact your system administrator.',
   '',
 ];
 export const TASK_ERROR = [

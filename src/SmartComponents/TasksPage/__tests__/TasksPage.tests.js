@@ -48,11 +48,11 @@ describe('TasksPage', () => {
       </MemoryRouter>
     );
 
-    await userEvent.click(screen.getByText('Completed tasks'));
+    await userEvent.click(screen.getByText('Activity'));
     await waitFor(() =>
-      expect(screen.getByLabelText('completed-tasks')).toBeInTheDocument()
+      expect(screen.getByLabelText('activity')).toBeInTheDocument()
     );
-    await userEvent.click(screen.getByText('Available tasks'));
+    await userEvent.click(screen.getByText('Available'));
     await waitFor(() =>
       expect(screen.getByLabelText('available-tasks')).toBeInTheDocument()
     );

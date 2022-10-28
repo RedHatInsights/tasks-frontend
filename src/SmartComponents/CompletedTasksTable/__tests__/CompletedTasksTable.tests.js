@@ -171,26 +171,6 @@ describe('CompletedTasksTable', () => {
     expect(fetchExecutedTasks).toHaveBeenCalledTimes(2);
   });
 
-  it('should open delete modal', async () => {
-    fetchExecutedTasks.mockImplementation(async () => {
-      return completedTasksTableItems;
-    });
-
-    render(
-      <MemoryRouter keyLength={0}>
-        <Provider store={store}>
-          <CompletedTasksTable />
-        </Provider>
-      </MemoryRouter>
-    );
-
-    await waitFor(() => expect(fetchExecutedTasks).toHaveBeenCalled());
-    await waitFor(() =>
-      userEvent.click(screen.getAllByLabelText('Actions')[0])
-    );
-    await waitFor(() => userEvent.click(screen.getByText('Delete')));
-  });
-
   it('should set errors', async () => {
     fetchExecutedTasks.mockImplementation(async () => {
       return availableTasksTableError;
@@ -226,7 +206,7 @@ describe('CompletedTasksTable', () => {
 
     await waitFor(() => expect(fetchExecutedTasks).toHaveBeenCalled());
     await waitFor(() =>
-      userEvent.click(screen.getAllByLabelText('Actions')[0])
+      userEvent.click(screen.getAllByLabelText('Actions')[1])
     );
     await waitFor(() => userEvent.click(screen.getByText('Delete')));
     await waitFor(() =>

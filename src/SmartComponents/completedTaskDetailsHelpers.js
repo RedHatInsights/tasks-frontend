@@ -2,7 +2,14 @@ import { dispatchNotification } from '../Utilities/Dispatcher';
 import { fetchExecutedTask, fetchExecutedTaskJobs } from '../../api';
 
 export const getSelectedSystems = (completedTaskJobs) => {
-  return completedTaskJobs.map((job) => job.system);
+  let systemIds = [];
+  completedTaskJobs.forEach((job) => {
+    if (job.display_name) {
+      systemIds.push(job.system);
+    }
+  });
+
+  return systemIds;
 };
 
 export const isError = (result) => {

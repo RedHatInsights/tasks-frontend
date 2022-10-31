@@ -4,10 +4,14 @@ import {
   fetchTask,
   fetchTaskJobs,
 } from '../completedTaskDetailsHelpers';
-import { log4j_task_jobs } from '../CompletedTaskDetails/__tests__/__fixtures__/completedTasksDetails.fixtures';
+import {
+  log4j_task_jobs,
+  jobs_with_deleted_system,
+} from '../CompletedTaskDetails/__tests__/__fixtures__/completedTasksDetails.fixtures';
 import {
   errorResponse,
   log4j_task_jobs_systems,
+  jobs_systems_no_display,
   successResponse,
   taskJobsSuccess,
 } from './__fixtures__/completedTaskDetailsHelpers.fixtures';
@@ -25,6 +29,11 @@ describe('getSelectedSystems', () => {
   it('should return no systems', () => {
     let selectedSystems = getSelectedSystems([]);
     expect(selectedSystems).toEqual([]);
+  });
+
+  it('should return only systems with names', () => {
+    let selectedSystems = getSelectedSystems(jobs_with_deleted_system);
+    expect(selectedSystems).toEqual(jobs_systems_no_display);
   });
 });
 

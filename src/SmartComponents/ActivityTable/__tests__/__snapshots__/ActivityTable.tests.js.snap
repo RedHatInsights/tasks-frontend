@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CompletedTasksTable should export 1`] = `
+exports[`ActivityTable should export 1`] = `
 <DocumentFragment>
   <div
     aria-label="activity"
@@ -44,7 +44,7 @@ exports[`CompletedTasksTable should export 1`] = `
                       data-ouia-component-id="ConditionalFilter"
                       data-ouia-component-type="PF4/DropdownToggle"
                       data-ouia-safe="true"
-                      id="pf-dropdown-toggle-id-17"
+                      id="pf-dropdown-toggle-id-21"
                       type="button"
                     >
                       <span
@@ -139,7 +139,7 @@ exports[`CompletedTasksTable should export 1`] = `
                 data-ouia-component-id="Export"
                 data-ouia-component-type="PF4/DropdownToggle"
                 data-ouia-safe="true"
-                id="pf-dropdown-toggle-id-18"
+                id="pf-dropdown-toggle-id-22"
                 type="button"
               >
                 <span>
@@ -159,7 +159,7 @@ exports[`CompletedTasksTable should export 1`] = `
                 </span>
               </button>
               <ul
-                aria-labelledby="pf-dropdown-toggle-id-18"
+                aria-labelledby="pf-dropdown-toggle-id-22"
                 class="pf-c-dropdown__menu"
                 role="menu"
               >
@@ -337,7 +337,7 @@ exports[`CompletedTasksTable should export 1`] = `
         </div>
         <div
           class="pf-c-toolbar__expandable-content"
-          id="ins-primary-data-toolbar-expandable-content-7"
+          id="ins-primary-data-toolbar-expandable-content-9"
         >
           <div
             class="pf-c-toolbar__group"
@@ -366,13 +366,13 @@ exports[`CompletedTasksTable should export 1`] = `
       >
         <tr
           class=""
-          data-ouia-component-id="OUIA-Generated-TableRow-7"
+          data-ouia-component-id="OUIA-Generated-TableRow-13"
           data-ouia-component-type="PF4/TableRow"
           data-ouia-safe="true"
         >
           <th
             aria-sort="none"
-            class="pf-c-table__sort pf-m-width-35"
+            class="pf-c-table__sort pf-m-width-25"
             data-key="0"
             data-label="Task"
             scope="col"
@@ -411,7 +411,7 @@ exports[`CompletedTasksTable should export 1`] = `
           </th>
           <th
             aria-sort="none"
-            class="pf-c-table__sort pf-m-width-20"
+            class="pf-c-table__sort pf-m-width-10"
             data-key="1"
             data-label="Systems"
             scope="col"
@@ -450,8 +450,47 @@ exports[`CompletedTasksTable should export 1`] = `
           </th>
           <th
             aria-sort="descending"
-            class="pf-c-table__sort pf-m-selected pf-m-width-20"
+            class="pf-c-table__sort pf-m-selected pf-m-width-10"
             data-key="2"
+            data-label="Status"
+            scope="col"
+          >
+            <button
+              class="pf-c-table__button"
+              type="button"
+            >
+              <div
+                class="pf-c-table__button-content"
+              >
+                <span
+                  class="pf-c-table__text"
+                >
+                  Status
+                </span>
+                <span
+                  class="pf-c-table__sort-indicator"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="currentColor"
+                    height="1em"
+                    role="img"
+                    style="vertical-align: -0.125em;"
+                    viewBox="0 0 256 512"
+                    width="1em"
+                  >
+                    <path
+                      d="M168 345.941V44c0-6.627-5.373-12-12-12h-56c-6.627 0-12 5.373-12 12v301.941H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.569 9.373 33.941 0l86.059-86.059c15.119-15.119 4.411-40.971-16.971-40.971H168z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </button>
+          </th>
+          <th
+            aria-sort="none"
+            class="pf-c-table__sort pf-m-width-20"
+            data-key="3"
             data-label="Run date/time"
             scope="col"
           >
@@ -480,7 +519,7 @@ exports[`CompletedTasksTable should export 1`] = `
                     width="1em"
                   >
                     <path
-                      d="M168 345.941V44c0-6.627-5.373-12-12-12h-56c-6.627 0-12 5.373-12 12v301.941H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.569 9.373 33.941 0l86.059-86.059c15.119-15.119 4.411-40.971-16.971-40.971H168z"
+                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
                     />
                   </svg>
                 </span>
@@ -489,7 +528,7 @@ exports[`CompletedTasksTable should export 1`] = `
           </th>
           <td
             class=""
-            data-key="3"
+            data-key="4"
             data-label=""
           />
         </tr>
@@ -500,12 +539,12 @@ exports[`CompletedTasksTable should export 1`] = `
       >
         <tr
           class=""
-          data-ouia-component-id="OUIA-Generated-TableRow-8"
+          data-ouia-component-id="OUIA-Generated-TableRow-14"
           data-ouia-component-type="PF4/TableRow"
           data-ouia-safe="true"
         >
           <td
-            class="pf-m-width-35"
+            class="pf-m-width-25"
             data-key="0"
             data-label="Task"
           >
@@ -516,27 +555,51 @@ exports[`CompletedTasksTable should export 1`] = `
             </a>
           </td>
           <td
-            class="pf-m-width-20"
+            class="pf-m-width-10"
             data-key="1"
             data-label="Systems"
           >
             5
           </td>
           <td
-            class="pf-m-width-20"
+            class="pf-m-width-10"
             data-key="2"
+            data-label="Status"
+          >
+            <span
+              style="color: rgb(43, 154, 243); display: flex; align-items: center;"
+            >
+              <svg
+                aria-hidden="true"
+                fill="#2B9AF3"
+                height="1em"
+                role="img"
+                style="margin-right: 4px;"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  d="M513.417211,16.013668 L513.417211,112.013668 C513.406007,120.539653 520.082422,127.576718 528.597211,128.013668 C732.697211,136.513668 896.147211,305.013668 896.147211,511.343668 C896.147211,723.013668 724.007211,895.163668 512.417211,895.163668 C437.186239,895.277345 363.602574,873.135095 300.927211,831.523668 C294.58293,827.2982 286.138663,828.135095 280.747211,833.523668 L211.807211,902.353668 C208.502935,905.676185 206.82123,910.280199 207.20607,914.950237 C207.590911,919.620275 210.00361,923.886884 213.807211,926.623668 C300.709573,989.398037 405.213535,1023.13146 512.417211,1023.01398 C794.537211,1023.01398 1023.91724,793.433668 1023.91724,511.413668 C1024.00721,235.103668 804.007211,9.22366802 529.897211,0.00645736761 C525.571205,-0.116171039 521.377128,1.51204372 518.271915,4.52681369 C515.166702,7.54158367 513.415263,11.6857144 513.417211,16.013668 M97.1272107,212.923668 C64.2190689,258.479443 39.0698895,309.162997 22.6972107,362.923668 C21.2705092,367.756559 22.2039184,372.979173 25.2163356,377.018685 C28.2287528,381.058197 32.9681443,383.442545 38.0072107,383.453683 L139.407211,383.453683 C145.970195,383.46249 151.873012,379.462528 154.297211,373.363668 C164.307669,347.593304 177.068112,322.977652 192.357211,299.943668 C196.579666,293.633658 195.741339,285.216847 190.357211,279.863668 L121.497211,211.013668 C118.186635,207.662531 113.567544,205.940538 108.871166,206.30669 C104.174788,206.672841 99.8783994,209.089927 97.1272107,212.913668 M112.907211,511.433663 L17.0072107,511.433663 C12.679257,511.433663 8.5351263,513.183159 5.52035633,516.288373 C2.50558635,519.393586 0.877371594,523.587662 1.00721065,527.913668 C4.13104542,629.408217 37.6085847,727.635936 97.1172107,809.913668 C99.8539943,813.717268 104.120603,816.129968 108.790642,816.514809 C113.46068,816.899649 118.064693,815.217944 121.387211,811.913668 L190.217211,743.073668 C195.605784,737.682216 196.442679,729.237949 192.217211,722.893668 C153.520825,664.580171 131.611534,596.745437 128.887211,526.813668 C128.553964,518.220138 121.487197,511.427209 112.887211,511.433663"
+                />
+              </svg>
+              Running
+            </span>
+          </td>
+          <td
+            class="pf-m-width-20"
+            data-key="3"
             data-label="Run date/time"
           >
             Running
           </td>
           <td
             class="pf-c-table__action"
-            data-key="3"
+            data-key="4"
             style="padding-right: 0px;"
           >
             <div
               class="pf-c-dropdown pf-m-align-right"
-              data-ouia-component-id="OUIA-Generated-Dropdown-6"
+              data-ouia-component-id="OUIA-Generated-Dropdown-11"
               data-ouia-component-type="PF4/Dropdown"
               data-ouia-safe="true"
             >
@@ -545,7 +608,7 @@ exports[`CompletedTasksTable should export 1`] = `
                 aria-haspopup="true"
                 aria-label="Actions"
                 class="pf-c-dropdown__toggle pf-m-plain"
-                id="pf-dropdown-toggle-id-26"
+                id="pf-dropdown-toggle-id-36"
                 type="button"
               >
                 <svg
@@ -567,12 +630,12 @@ exports[`CompletedTasksTable should export 1`] = `
         </tr>
         <tr
           class=""
-          data-ouia-component-id="OUIA-Generated-TableRow-9"
+          data-ouia-component-id="OUIA-Generated-TableRow-15"
           data-ouia-component-type="PF4/TableRow"
           data-ouia-safe="true"
         >
           <td
-            class="pf-m-width-35"
+            class="pf-m-width-25"
             data-key="0"
             data-label="Task"
           >
@@ -583,27 +646,51 @@ exports[`CompletedTasksTable should export 1`] = `
             </a>
           </td>
           <td
-            class="pf-m-width-20"
+            class="pf-m-width-10"
             data-key="1"
             data-label="Systems"
           >
             10
           </td>
           <td
-            class="pf-m-width-20"
+            class="pf-m-width-10"
             data-key="2"
+            data-label="Status"
+          >
+            <span
+              style="color: rgb(62, 134, 53); display: flex; align-items: center;"
+            >
+              <svg
+                aria-hidden="true"
+                fill="#3E8635"
+                height="1em"
+                role="img"
+                style="margin-right: 4px;"
+                viewBox="0 0 512 512"
+                width="1em"
+              >
+                <path
+                  d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
+                />
+              </svg>
+              Completed
+            </span>
+          </td>
+          <td
+            class="pf-m-width-20"
+            data-key="3"
             data-label="Run date/time"
           >
             20 Apr 2022, 11:10 UTC
           </td>
           <td
             class="pf-c-table__action"
-            data-key="3"
+            data-key="4"
             style="padding-right: 0px;"
           >
             <div
               class="pf-c-dropdown pf-m-align-right"
-              data-ouia-component-id="OUIA-Generated-Dropdown-7"
+              data-ouia-component-id="OUIA-Generated-Dropdown-12"
               data-ouia-component-type="PF4/Dropdown"
               data-ouia-safe="true"
             >
@@ -612,7 +699,7 @@ exports[`CompletedTasksTable should export 1`] = `
                 aria-haspopup="true"
                 aria-label="Actions"
                 class="pf-c-dropdown__toggle pf-m-plain"
-                id="pf-dropdown-toggle-id-27"
+                id="pf-dropdown-toggle-id-37"
                 type="button"
               >
                 <svg
@@ -852,7 +939,7 @@ exports[`CompletedTasksTable should export 1`] = `
 </DocumentFragment>
 `;
 
-exports[`CompletedTasksTable should render correctly 1`] = `
+exports[`ActivityTable should render correctly 1`] = `
 <DocumentFragment>
   <div
     aria-label="activity"
@@ -1061,7 +1148,7 @@ exports[`CompletedTasksTable should render correctly 1`] = `
         >
           <th
             aria-sort="none"
-            class="pf-c-table__sort pf-m-width-35"
+            class="pf-c-table__sort pf-m-width-25"
             data-key="0"
             data-label="Task"
             scope="col"
@@ -1100,7 +1187,7 @@ exports[`CompletedTasksTable should render correctly 1`] = `
           </th>
           <th
             aria-sort="none"
-            class="pf-c-table__sort pf-m-width-20"
+            class="pf-c-table__sort pf-m-width-10"
             data-key="1"
             data-label="Systems"
             scope="col"
@@ -1139,8 +1226,47 @@ exports[`CompletedTasksTable should render correctly 1`] = `
           </th>
           <th
             aria-sort="descending"
-            class="pf-c-table__sort pf-m-selected pf-m-width-20"
+            class="pf-c-table__sort pf-m-selected pf-m-width-10"
             data-key="2"
+            data-label="Status"
+            scope="col"
+          >
+            <button
+              class="pf-c-table__button"
+              type="button"
+            >
+              <div
+                class="pf-c-table__button-content"
+              >
+                <span
+                  class="pf-c-table__text"
+                >
+                  Status
+                </span>
+                <span
+                  class="pf-c-table__sort-indicator"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="currentColor"
+                    height="1em"
+                    role="img"
+                    style="vertical-align: -0.125em;"
+                    viewBox="0 0 256 512"
+                    width="1em"
+                  >
+                    <path
+                      d="M168 345.941V44c0-6.627-5.373-12-12-12h-56c-6.627 0-12 5.373-12 12v301.941H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.569 9.373 33.941 0l86.059-86.059c15.119-15.119 4.411-40.971-16.971-40.971H168z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </button>
+          </th>
+          <th
+            aria-sort="none"
+            class="pf-c-table__sort pf-m-width-20"
+            data-key="3"
             data-label="Run date/time"
             scope="col"
           >
@@ -1169,7 +1295,7 @@ exports[`CompletedTasksTable should render correctly 1`] = `
                     width="1em"
                   >
                     <path
-                      d="M168 345.941V44c0-6.627-5.373-12-12-12h-56c-6.627 0-12 5.373-12 12v301.941H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.569 9.373 33.941 0l86.059-86.059c15.119-15.119 4.411-40.971-16.971-40.971H168z"
+                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
                     />
                   </svg>
                 </span>
@@ -1178,7 +1304,7 @@ exports[`CompletedTasksTable should render correctly 1`] = `
           </th>
           <td
             class=""
-            data-key="3"
+            data-key="4"
             data-label=""
           />
         </tr>
@@ -1194,7 +1320,7 @@ exports[`CompletedTasksTable should render correctly 1`] = `
           data-ouia-safe="true"
         >
           <td
-            class="pf-m-width-35"
+            class="pf-m-width-25"
             data-key="0"
             data-label="Task"
           >
@@ -1211,7 +1337,7 @@ exports[`CompletedTasksTable should render correctly 1`] = `
             </a>
           </td>
           <td
-            class="pf-m-width-20"
+            class="pf-m-width-10"
             data-key="1"
             data-label="Systems"
           >
@@ -1224,8 +1350,21 @@ exports[`CompletedTasksTable should render correctly 1`] = `
             </div>
           </td>
           <td
-            class="pf-m-width-20"
+            class="pf-m-width-10"
             data-key="2"
+            data-label="Status"
+          >
+            <div
+              class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+            >
+              <span
+                class="pf-u-screen-reader"
+              />
+            </div>
+          </td>
+          <td
+            class="pf-m-width-20"
+            data-key="3"
             data-label="Run date/time"
           >
             <div
@@ -1238,7 +1377,7 @@ exports[`CompletedTasksTable should render correctly 1`] = `
           </td>
           <td
             class="pf-c-table__action"
-            data-key="3"
+            data-key="4"
             style="padding-right: 0px;"
           >
             <div
@@ -1279,7 +1418,7 @@ exports[`CompletedTasksTable should render correctly 1`] = `
           data-ouia-safe="true"
         >
           <td
-            class="pf-m-width-35"
+            class="pf-m-width-25"
             data-key="0"
             data-label="Task"
           >
@@ -1296,7 +1435,7 @@ exports[`CompletedTasksTable should render correctly 1`] = `
             </a>
           </td>
           <td
-            class="pf-m-width-20"
+            class="pf-m-width-10"
             data-key="1"
             data-label="Systems"
           >
@@ -1309,8 +1448,21 @@ exports[`CompletedTasksTable should render correctly 1`] = `
             </div>
           </td>
           <td
-            class="pf-m-width-20"
+            class="pf-m-width-10"
             data-key="2"
+            data-label="Status"
+          >
+            <div
+              class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+            >
+              <span
+                class="pf-u-screen-reader"
+              />
+            </div>
+          </td>
+          <td
+            class="pf-m-width-20"
+            data-key="3"
             data-label="Run date/time"
           >
             <div
@@ -1323,7 +1475,7 @@ exports[`CompletedTasksTable should render correctly 1`] = `
           </td>
           <td
             class="pf-c-table__action"
-            data-key="3"
+            data-key="4"
             style="padding-right: 0px;"
           >
             <div
@@ -1364,7 +1516,7 @@ exports[`CompletedTasksTable should render correctly 1`] = `
           data-ouia-safe="true"
         >
           <td
-            class="pf-m-width-35"
+            class="pf-m-width-25"
             data-key="0"
             data-label="Task"
           >
@@ -1381,7 +1533,7 @@ exports[`CompletedTasksTable should render correctly 1`] = `
             </a>
           </td>
           <td
-            class="pf-m-width-20"
+            class="pf-m-width-10"
             data-key="1"
             data-label="Systems"
           >
@@ -1394,8 +1546,21 @@ exports[`CompletedTasksTable should render correctly 1`] = `
             </div>
           </td>
           <td
-            class="pf-m-width-20"
+            class="pf-m-width-10"
             data-key="2"
+            data-label="Status"
+          >
+            <div
+              class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+            >
+              <span
+                class="pf-u-screen-reader"
+              />
+            </div>
+          </td>
+          <td
+            class="pf-m-width-20"
+            data-key="3"
             data-label="Run date/time"
           >
             <div
@@ -1408,7 +1573,7 @@ exports[`CompletedTasksTable should render correctly 1`] = `
           </td>
           <td
             class="pf-c-table__action"
-            data-key="3"
+            data-key="4"
             style="padding-right: 0px;"
           >
             <div
@@ -1449,7 +1614,7 @@ exports[`CompletedTasksTable should render correctly 1`] = `
           data-ouia-safe="true"
         >
           <td
-            class="pf-m-width-35"
+            class="pf-m-width-25"
             data-key="0"
             data-label="Task"
           >
@@ -1466,7 +1631,7 @@ exports[`CompletedTasksTable should render correctly 1`] = `
             </a>
           </td>
           <td
-            class="pf-m-width-20"
+            class="pf-m-width-10"
             data-key="1"
             data-label="Systems"
           >
@@ -1479,8 +1644,21 @@ exports[`CompletedTasksTable should render correctly 1`] = `
             </div>
           </td>
           <td
-            class="pf-m-width-20"
+            class="pf-m-width-10"
             data-key="2"
+            data-label="Status"
+          >
+            <div
+              class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+            >
+              <span
+                class="pf-u-screen-reader"
+              />
+            </div>
+          </td>
+          <td
+            class="pf-m-width-20"
+            data-key="3"
             data-label="Run date/time"
           >
             <div
@@ -1493,7 +1671,7 @@ exports[`CompletedTasksTable should render correctly 1`] = `
           </td>
           <td
             class="pf-c-table__action"
-            data-key="3"
+            data-key="4"
             style="padding-right: 0px;"
           >
             <div
@@ -1534,7 +1712,7 @@ exports[`CompletedTasksTable should render correctly 1`] = `
           data-ouia-safe="true"
         >
           <td
-            class="pf-m-width-35"
+            class="pf-m-width-25"
             data-key="0"
             data-label="Task"
           >
@@ -1551,7 +1729,7 @@ exports[`CompletedTasksTable should render correctly 1`] = `
             </a>
           </td>
           <td
-            class="pf-m-width-20"
+            class="pf-m-width-10"
             data-key="1"
             data-label="Systems"
           >
@@ -1564,8 +1742,21 @@ exports[`CompletedTasksTable should render correctly 1`] = `
             </div>
           </td>
           <td
-            class="pf-m-width-20"
+            class="pf-m-width-10"
             data-key="2"
+            data-label="Status"
+          >
+            <div
+              class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+            >
+              <span
+                class="pf-u-screen-reader"
+              />
+            </div>
+          </td>
+          <td
+            class="pf-m-width-20"
+            data-key="3"
             data-label="Run date/time"
           >
             <div
@@ -1578,7 +1769,7 @@ exports[`CompletedTasksTable should render correctly 1`] = `
           </td>
           <td
             class="pf-c-table__action"
-            data-key="3"
+            data-key="4"
             style="padding-right: 0px;"
           >
             <div

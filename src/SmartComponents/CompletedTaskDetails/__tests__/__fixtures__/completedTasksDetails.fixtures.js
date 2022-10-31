@@ -367,3 +367,36 @@ export const running_task_jobs = [
     display_name: 'YL-test-device-85',
   },
 ];
+
+export const jobs_with_deleted_system = [
+  {
+    executed_task: 234,
+    system: 'f1356a99-754d-4219-9g25-fccb2cc6e2f2',
+    status: 'Success',
+    results: {
+      message: 'This was a success.',
+    },
+    updated_on: '2022-08-08T18:19:50.898540Z',
+    display_name: null,
+  },
+  {
+    executed_task: 234,
+    system: '3262b268-23ed-4c5a-a918-d8c4923fdfbf',
+    status: 'Failure',
+    results: {
+      message: 'This was a failure.',
+    },
+    updated_on: '2022-08-08T18:19:50.898540Z',
+    display_name: 'MG-test-device',
+  },
+  {
+    executed_task: 234,
+    system: '42438801-c384-491a-943b-f5f621f0c882',
+    status: 'Timeout',
+    results: {
+      message: 'This timed out. Whoops!',
+    },
+    updated_on: '2022-08-08T18:19:50.898540Z',
+    display_name: 'YL-test-device-85',
+  },
+];

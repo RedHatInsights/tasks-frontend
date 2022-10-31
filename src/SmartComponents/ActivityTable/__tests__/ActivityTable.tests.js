@@ -6,10 +6,10 @@ import { Provider } from 'react-redux';
 import { init } from '../../../store';
 import * as dispatcher from '../../../Utilities/Dispatcher';
 
-import CompletedTasksTable from '../CompletedTasksTable';
+import ActivityTable from '../ActivityTable';
 import {
   availableTasksTableError,
-  completedTasksTableItems,
+  activityTableItems,
 } from '../../../Utilities/hooks/useTableTools/Components/__tests__/TasksTable.fixtures';
 import {
   log4j_task,
@@ -24,7 +24,7 @@ import {
 
 jest.mock('../../../../api');
 
-describe('CompletedTasksTable', () => {
+describe('ActivityTable', () => {
   const store = init().getStore();
   afterEach(() => {
     jest.clearAllMocks();
@@ -32,27 +32,43 @@ describe('CompletedTasksTable', () => {
 
   it('should render correctly', () => {
     fetchExecutedTasks.mockImplementation(async () => {
-      return completedTasksTableItems;
+      return activityTableItems;
     });
 
     const { asFragment } = render(
       <MemoryRouter keyLength={0}>
-        <CompletedTasksTable />
+        <ActivityTable />
       </MemoryRouter>
     );
 
     expect(asFragment()).toMatchSnapshot();
   });
 
+  it('should render empty', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return { data: [] };
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <ActivityTable />
+      </MemoryRouter>
+    );
+
+    await waitFor(() =>
+      expect(screen.getByLabelText('empty-state')).toBeInTheDocument()
+    );
+  });
+
   it('should export', async () => {
     fetchExecutedTasks.mockImplementation(async () => {
-      return completedTasksTableItems;
+      return activityTableItems;
     });
 
     const { asFragment } = render(
       <MemoryRouter keyLength={0}>
         <Provider store={store}>
-          <CompletedTasksTable />
+          <ActivityTable />
         </Provider>
       </MemoryRouter>
     );
@@ -62,15 +78,15 @@ describe('CompletedTasksTable', () => {
     await waitFor(() => userEvent.click(screen.getByText('Export to CSV')));
   });
 
-  it('should add filter', async () => {
+  it('should add name filter', async () => {
     fetchExecutedTasks.mockImplementation(async () => {
-      return completedTasksTableItems;
+      return activityTableItems;
     });
 
     render(
       <MemoryRouter keyLength={0}>
         <Provider store={store}>
-          <CompletedTasksTable />
+          <ActivityTable />
         </Provider>
       </MemoryRouter>
     );
@@ -81,15 +97,15 @@ describe('CompletedTasksTable', () => {
     expect(input.value).toBe('A');
   });
 
-  it('should remove filter', async () => {
+  it('should remove name filter', async () => {
     fetchExecutedTasks.mockImplementation(async () => {
-      return completedTasksTableItems;
+      return activityTableItems;
     });
 
     render(
       <MemoryRouter keyLength={0}>
         <Provider store={store}>
-          <CompletedTasksTable />
+          <ActivityTable />
         </Provider>
       </MemoryRouter>
     );
@@ -102,9 +118,57 @@ describe('CompletedTasksTable', () => {
     expect(input.value).toBe('');
   });
 
+  it('should filter by status completed', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return activityTableItems;
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <ActivityTable />
+        </Provider>
+      </MemoryRouter>
+    );
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalled();
+      userEvent.click(screen.getByLabelText('Conditional filter'));
+      userEvent.click(screen.getAllByText('Status')[0]);
+      userEvent.click(screen.getByLabelText('Options menu'));
+      userEvent.click(screen.getAllByText('Completed')[0]);
+      expect(screen.getByText('taskA')).toBeInTheDocument();
+      expect(screen.queryByText('taskB')).not.toBeInTheDocument();
+    });
+  });
+
+  it('should filter by status running', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return activityTableItems;
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <ActivityTable />
+        </Provider>
+      </MemoryRouter>
+    );
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalled();
+      userEvent.click(screen.getByLabelText('Conditional filter'));
+      userEvent.click(screen.getAllByText('Status')[0]);
+      userEvent.click(screen.getByLabelText('Options menu'));
+      userEvent.click(screen.getAllByText('Running')[0]);
+      expect(screen.getByText('taskB')).toBeInTheDocument();
+      expect(screen.queryByText('taskA')).not.toBeInTheDocument();
+    });
+  });
+
   it('should not fetch task jobs if there are no task details on run this task again', async () => {
     fetchExecutedTasks.mockImplementation(async () => {
-      return completedTasksTableItems;
+      return activityTableItems;
     });
 
     fetchExecutedTask.mockImplementation(async () => {
@@ -114,25 +178,23 @@ describe('CompletedTasksTable', () => {
     render(
       <MemoryRouter keyLength={0}>
         <Provider store={store}>
-          <CompletedTasksTable />
+          <ActivityTable />
         </Provider>
       </MemoryRouter>
     );
 
-    await waitFor(() => expect(fetchExecutedTasks).toHaveBeenCalled());
-    await waitFor(() =>
-      userEvent.click(screen.getAllByLabelText('Actions')[0])
-    );
-    await waitFor(() =>
-      userEvent.click(screen.getByText('Run this task again'))
-    );
-    await waitFor(() => expect(fetchExecutedTask).toHaveBeenCalled());
-    await waitFor(() => expect(fetchExecutedTaskJobs).not.toHaveBeenCalled());
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalled();
+      userEvent.click(screen.getAllByLabelText('Actions')[0]);
+      userEvent.click(screen.getByText('Run this task again'));
+      expect(fetchExecutedTask).toHaveBeenCalled();
+      expect(fetchExecutedTaskJobs).not.toHaveBeenCalled();
+    });
   });
 
   it('should run this task again', async () => {
     fetchExecutedTasks.mockImplementation(async () => {
-      return completedTasksTableItems;
+      return activityTableItems;
     });
 
     fetchExecutedTask.mockImplementation(async () => {
@@ -150,24 +212,20 @@ describe('CompletedTasksTable', () => {
     render(
       <MemoryRouter keyLength={0}>
         <Provider store={store}>
-          <CompletedTasksTable />
+          <ActivityTable />
         </Provider>
       </MemoryRouter>
     );
 
-    await waitFor(() => expect(fetchExecutedTasks).toHaveBeenCalled());
-    await waitFor(() =>
-      userEvent.click(screen.getAllByLabelText('Actions')[0])
-    );
-    await waitFor(() =>
-      userEvent.click(screen.getByText('Run this task again'))
-    );
-    await waitFor(() => expect(fetchExecutedTask).toHaveBeenCalled());
-    await waitFor(() => expect(fetchExecutedTaskJobs).toHaveBeenCalled());
-    await waitFor(() =>
-      userEvent.click(screen.getByLabelText('log4j-submit-task-button'))
-    );
-    await waitFor(() => expect(executeTask).toHaveBeenCalled());
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalled();
+      userEvent.click(screen.getAllByLabelText('Actions')[0]);
+      userEvent.click(screen.getByText('Run this task again'));
+      expect(fetchExecutedTask).toHaveBeenCalled();
+      expect(fetchExecutedTaskJobs).toHaveBeenCalled();
+      userEvent.click(screen.getByLabelText('log4j-submit-task-button'));
+      expect(executeTask).toHaveBeenCalled();
+    });
     expect(fetchExecutedTasks).toHaveBeenCalledTimes(2);
   });
 
@@ -183,7 +241,7 @@ describe('CompletedTasksTable', () => {
     render(
       <MemoryRouter keyLength={0}>
         <Provider store={store}>
-          <CompletedTasksTable />
+          <ActivityTable />
         </Provider>
       </MemoryRouter>
     );
@@ -193,25 +251,23 @@ describe('CompletedTasksTable', () => {
 
   it('should open delete modal', async () => {
     fetchExecutedTasks.mockImplementation(async () => {
-      return completedTasksTableItems;
+      return activityTableItems;
     });
 
     render(
       <MemoryRouter keyLength={0}>
         <Provider store={store}>
-          <CompletedTasksTable />
+          <ActivityTable />
         </Provider>
       </MemoryRouter>
     );
 
-    await waitFor(() => expect(fetchExecutedTasks).toHaveBeenCalled());
-    await waitFor(() =>
-      userEvent.click(screen.getAllByLabelText('Actions')[1])
-    );
-    await waitFor(() => userEvent.click(screen.getByText('Delete')));
-    await waitFor(() =>
-      userEvent.click(screen.getByLabelText('delete-task-button'))
-    );
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalled();
+      userEvent.click(screen.getAllByLabelText('Actions')[1]);
+      userEvent.click(screen.getByText('Delete'));
+      userEvent.click(screen.getByLabelText('delete-task-button'));
+    });
     expect(fetchExecutedTasks).toHaveBeenCalledTimes(2);
   });
 });

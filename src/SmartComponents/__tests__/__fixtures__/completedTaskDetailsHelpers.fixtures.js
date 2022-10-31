@@ -4,6 +4,11 @@ export const log4j_task_jobs_systems = [
   '42438801-c384-491a-943b-f5f621f0c882',
 ];
 
+export const jobs_systems_no_display = [
+  '3262b268-23ed-4c5a-a918-d8c4923fdfbf',
+  '42438801-c384-491a-943b-f5f621f0c882',
+];
+
 export const errorResponse = {
   response: { status: 400 },
 };

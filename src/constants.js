@@ -58,6 +58,8 @@ export const JOB_FAILED_MESSAGE =
 export const JOB_TIMED_OUT_MESSAGE =
   'Task failed to complete due to timing out. Retry this task at a later time.';
 
+export const JOB_RUNNING_MESSAGE = 'No result yet';
+
 /**
  * Flex constants
  */

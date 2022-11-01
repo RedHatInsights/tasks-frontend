@@ -1,7 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { renderColumnComponent } from '../../Utilities/helpers';
-import { JOB_FAILED_MESSAGE, JOB_TIMED_OUT_MESSAGE } from '../../constants';
 import SplitMessages from '../../PresentationalComponents/SplitMessages/SplitMessages';
 
 const SystemNameCell = ({ system, display_name }, index) => {
@@ -52,32 +51,18 @@ export const MessageColumn = {
   props: {
     width: 35,
   },
-  sortByProp: 'results.message',
-  renderExport: (job) => {
-    if (job.results.message) {
-      return job.results.message;
-    } else if (job.status === 'Failure') {
-      return JOB_FAILED_MESSAGE;
-    } else if (job.status === 'Timeout') {
-      return JOB_TIMED_OUT_MESSAGE;
-    }
-  },
-  renderFunc: (_, _empty, job) => {
-    if (job.results.message) {
-      return (
-        <SplitMessages
-          content={job.results.message}
-          alert={job.results.alert}
-        />
-      );
-    } else if (job.status === 'Failure') {
-      return <SplitMessages content={JOB_FAILED_MESSAGE} alert={true} />;
-    } else if (job.status === 'Timeout') {
-      return <SplitMessages content={JOB_TIMED_OUT_MESSAGE} alert={true} />;
-    } else if (job.status === 'Running') {
-      return <span style={{ color: '#72767B' }}>No result yet</span>;
-    }
-  },
+  sortByFunction: (job) => job.results.message,
+  renderExport: (job) => job.results.message,
+  renderFunc: (_, _empty, job) => (
+    <SplitMessages
+      content={job.results.message}
+      alert={
+        job.results.alert ||
+        job.status === 'Failure' ||
+        job.status === 'Timeout'
+      }
+    />
+  ),
 };
 
 export const exportableColumns = [SystemColumn, StatusColumn, MessageColumn];

@@ -8,7 +8,7 @@ import {
 } from '@patternfly/react-icons';
 import EntryRowLabel from './EntryRowLabel';
 
-const EntryRow = ({ entry }) => {
+const EntryDetails = ({ entry }) => {
   const { detail, key, severity, summary, title } = entry;
 
   const getLabelType = () => {
@@ -87,8 +87,8 @@ const EntryRow = ({ entry }) => {
   );
 };
 
-EntryRow.propTypes = {
+EntryDetails.propTypes = {
   entry: propTypes.object,
 };
 
-export default EntryRow;
+export default EntryDetails;

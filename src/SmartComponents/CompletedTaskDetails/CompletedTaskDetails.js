@@ -64,6 +64,8 @@ const CompletedTaskDetails = () => {
 
   const fetchData = async () => {
     setTableLoading(true);
+    await setCompletedTaskDetails(LOADING_INFO_PANEL);
+    await setCompletedTaskJobs(LOADING_JOBS_TABLE);
     const fetchedTaskDetails = await fetchTask(id, setError);
 
     if (Object.keys(fetchedTaskDetails).length) {
@@ -79,7 +81,7 @@ const CompletedTaskDetails = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     setSelectedSystems(getSelectedSystems(completedTaskJobs));

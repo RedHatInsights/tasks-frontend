@@ -42,20 +42,24 @@ export const renderColumnComponent =
     <Component {...entity} {...props} />;
 /*eslint-enable react/display-name*/
 
+const getSortable = (property, item) => {
+  if (typeof property === 'function') {
+    return property(item);
+  } else {
+    return item[property];
+  }
+};
+
 export const orderArrayByProp = (property, objects, direction) =>
   objects.sort((a, b) => {
     if (direction === 'asc') {
-      if (typeof a[property] === 'number') {
-        return a[property] - b[property];
-      } else {
-        return String(a[property]).localeCompare(String(b[property]));
-      }
+      return String(getSortable(property, a)).localeCompare(
+        String(getSortable(property, b))
+      );
     } else {
-      if (typeof a[property] === 'number') {
-        return -a[property] + b[property];
-      } else {
-        return -String(a[property]).localeCompare(String(b[property]));
-      }
+      return -String(getSortable(property, a)).localeCompare(
+        String(getSortable(property, b))
+      );
     }
   });
 

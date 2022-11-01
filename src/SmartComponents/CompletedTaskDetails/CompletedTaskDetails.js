@@ -192,7 +192,7 @@ const CompletedTaskDetails = () => {
                     },
                     detailsComponent: hasAlert(completedTaskJobs)
                       ? JobResultsDetails
-                      : null,
+                      : undefined,
                   }}
                   emptyRows={emptyRows('jobs')}
                   isStickyHeader

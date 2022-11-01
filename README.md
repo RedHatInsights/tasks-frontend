@@ -1,14 +1,6 @@
 [![Build Status](https://travis-ci.org/RedHatInsights/frontend-starter-app.svg?branch=master)](https://travis-ci.org/RedHatInsights/frontend-starter-app)
 [![codecov](https://codecov.io/gh/RedHatInsights/tasks-frontend/branch/master/graph/badge.svg)](https://codecov.io/gh/RedHatInsights/tasks-frontend)
 
-# frontend-starter-app
-
-React.js starter app for Red Hat Insights products that includes Patternfly 4 and shared Red Hat cloud service frontend components.
-
-## Alternative
-
-Before using this template, please check the [create-crc-app](https://github.com/RedHatInsights/frontend-components/blob/master/packages/docs/pages/ui-onboarding/create-crc-app.md). It has some extra setup you may like.
-
 ## Initial etc/hosts setup
 
 In order to access the https://[env].foo.redhat.com in your browser, you have to add entries to your `/etc/hosts` file. This is a **one-time** setup that has to be done only once (unless you modify hosts) on each machine.

@@ -36,7 +36,7 @@ import {
   getSelectedSystems,
   fetchTask,
   fetchTaskJobs,
-  hasAlert,
+  hasDetails,
 } from '../completedTaskDetailsHelpers';
 import { NotAuthorized } from '@redhat-cloud-services/frontend-components/NotAuthorized';
 import { usePermissions } from '@redhat-cloud-services/frontend-components-utilities/RBACHook';
@@ -192,7 +192,7 @@ const CompletedTaskDetails = () => {
                       ...TASKS_TABLE_DEFAULTS.exportable,
                       columns: exportableColumns,
                     },
-                    detailsComponent: hasAlert(completedTaskJobs)
+                    detailsComponent: hasDetails(completedTaskJobs)
                       ? JobResultsDetails
                       : undefined,
                   }}

@@ -53,13 +53,21 @@ const getSortable = (property, item) => {
 export const orderArrayByProp = (property, objects, direction) =>
   objects.sort((a, b) => {
     if (direction === 'asc') {
-      return String(getSortable(property, a)).localeCompare(
-        String(getSortable(property, b))
-      );
+      if (typeof a[property] === 'number') {
+        return getSortable(property, a) - getSortable(property, b);
+      } else {
+        return String(getSortable(property, a)).localeCompare(
+          String(getSortable(property, b))
+        );
+      }
     } else {
-      return -String(getSortable(property, a)).localeCompare(
-        String(getSortable(property, b))
-      );
+      if (typeof a[property] === 'number') {
+        return -getSortable(property, a) + getSortable(property, b);
+      } else {
+        return -String(getSortable(property, a)).localeCompare(
+          String(getSortable(property, b))
+        );
+      }
     }
   });
 

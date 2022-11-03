@@ -18,10 +18,12 @@ import {
   fetchExecutedTaskJobs,
 } from '../../../../api';
 import {
+  leapp_task_jobs,
   log4j_task,
   log4j_task_jobs,
   running_task,
   running_task_jobs,
+  upgrade_leapp_task,
 } from './__fixtures__/completedTasksDetails.fixtures';
 import * as dispatcher from '../../../Utilities/Dispatcher';
 
@@ -67,6 +69,26 @@ describe('CompletedTaskDetails', () => {
       expect(screen.findByText('This was a failure.')).toBeInTheDocument();
       expect(screen.findByText('This timed out. Whoops!')).toBeInTheDocument();
     });
+  });
+
+  it.skip('should render expandable rows correctly', async () => {
+    fetchExecutedTask.mockImplementation(async () => {
+      return upgrade_leapp_task;
+    });
+
+    fetchExecutedTaskJobs.mockImplementation(async () => {
+      return { data: leapp_task_jobs };
+    });
+
+    const { asFragment } = render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <CompletedTaskDetails />
+        </Provider>
+      </MemoryRouter>
+    );
+
+    await waitFor(() => expect(asFragment()).toMatchSnapshot());
   });
 
   it('should render correctly running', async () => {

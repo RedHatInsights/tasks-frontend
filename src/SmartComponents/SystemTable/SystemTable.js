@@ -24,7 +24,7 @@ const SystemTable = ({ bulkSelectIds, selectedIds, selectIds }) => {
 
   useEffect(() => {
     dispatch({
-      type: 'SELECT_ENTITY',
+      type: 'SELECT_ENTITIES',
       payload: {
         selected: selectedIds,
       },

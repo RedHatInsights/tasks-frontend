@@ -41,7 +41,7 @@ export const entitiesReducer = () =>
       page: 1,
       perPage: 10,
     }),
-    ['SELECT_ENTITY']: (state, { payload: { selected } }) => {
+    ['SELECT_ENTITIES']: (state, { payload: { selected } }) => {
       return {
         ...state,
         rows: selectRows(state.rows || [], selected),

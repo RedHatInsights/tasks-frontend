@@ -192,7 +192,9 @@ const CompletedTaskDetails = () => {
                       ...TASKS_TABLE_DEFAULTS.exportable,
                       columns: exportableColumns,
                     },
-                    detailsComponent: hasDetails(completedTaskJobs)
+                    detailsComponent: completedTaskJobs.some((job) =>
+                      hasDetails(job)
+                    )
                       ? JobResultsDetails
                       : undefined,
                   }}

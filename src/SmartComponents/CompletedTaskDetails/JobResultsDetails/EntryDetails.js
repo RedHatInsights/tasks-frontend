@@ -13,12 +13,14 @@ const EntryDetails = ({ entry }) => {
 
   const getLabelType = () => {
     if (severity === 'info') {
-      return <EntryRowLabel color="blue" icon={InfoCircleIcon} text="Info" />;
+      return (
+        <EntryRowLabel color="blue" icon={<InfoCircleIcon />} text="Info" />
+      );
     } else if (severity === 'low') {
       return (
         <EntryRowLabel
           color="orange"
-          icon={ExclamationTriangleIcon}
+          icon={<ExclamationTriangleIcon />}
           text="Low risk"
         />
       );
@@ -26,7 +28,7 @@ const EntryDetails = ({ entry }) => {
       return (
         <EntryRowLabel
           color="red"
-          icon={ExclamationCircleIcon}
+          icon={<ExclamationCircleIcon />}
           text="High risk"
         />
       );

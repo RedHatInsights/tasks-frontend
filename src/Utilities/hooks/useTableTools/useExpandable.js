@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-
-const hasExpandableRow = (item) => {
-  return item.status === 'Success' && item.results.alert ? true : false;
-};
+import { hasDetails } from '../../../SmartComponents/completedTaskDetailsHelpers';
 
 const buildExpandableRows = (
   item,
@@ -15,7 +12,7 @@ const buildExpandableRows = (
 ) => {
   let newRow;
 
-  if (hasExpandableRow(item)) {
+  if (hasDetails(item)) {
     newRow = {
       ...row,
       isOpen,

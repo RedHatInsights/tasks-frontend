@@ -1,4 +1,6 @@
 import { emptyRows } from '../../../PresentationalComponents/NoResultsTable/NoResultsTable';
+import { hasDetails } from '../../../SmartComponents/completedTaskDetailsHelpers';
+
 const columnProp = (column) =>
   column.key ||
   column.original?.toLowerCase() ||
@@ -37,14 +39,15 @@ const useRowsBuilder = (items, columns, options = {}) => {
     ? options?.paginator(filteredItems)
     : sortedItems;
 
-  let parentIndex = 0;
+  let parentIndex = -1;
   let row;
 
   const rows =
     paginatedItems.length > 0
       ? paginatedItems.flatMap((item, index) => {
+          parentIndex += 1;
           row = buildRow(item, columns, rowTransformer, index, parentIndex);
-          if (item.status === 'Success' && item.results.alert) {
+          if (hasDetails(item)) {
             parentIndex += 1;
           }
           return row;

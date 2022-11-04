@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
+exports[`CompletedTaskDetails should render correctly completed 1`] = `
 <DocumentFragment>
   <div>
     <section
@@ -47,6 +47,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                 />
               </svg>
             </span>
+            Log4J Detection
           </li>
         </ol>
       </nav>
@@ -65,11 +66,15 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
               data-ouia-component-type="PF4/Title"
               data-ouia-safe="true"
               widget-type="InsightsPageHeaderTitle"
-            />
+            >
+              Log4J Detection
+            </h1>
           </div>
           <div
             class=""
-          />
+          >
+            Uses the insights-client to determine if systems are affected by the LogShell vulnerability. Resource intensive scan
+          </div>
         </div>
         <div
           class="pf-l-flex"
@@ -79,7 +84,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
           >
             <button
               aria-disabled="false"
-              aria-label="undefined-run-task-button"
+              aria-label="log4j-run-task-button"
               class="pf-c-button pf-m-secondary"
               data-ouia-component-id="OUIA-Generated-Button-secondary-1"
               data-ouia-component-type="PF4/Button"
@@ -156,13 +161,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
             <div
               class=""
             >
-              <div
-                class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-              >
-                <span
-                  class="pf-u-screen-reader"
-                />
-              </div>
+              3
             </div>
           </div>
           <div
@@ -178,13 +177,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
             <div
               class=""
             >
-              <div
-                class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-              >
-                <span
-                  class="pf-u-screen-reader"
-                />
-              </div>
+              21 Apr 2022, 10:10 UTC
             </div>
           </div>
           <div
@@ -200,13 +193,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
             <div
               class=""
             >
-              <div
-                class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-              >
-                <span
-                  class="pf-u-screen-reader"
-                />
-              </div>
+              25 Apr 2022, 10:10 UTC (5760 min)
             </div>
           </div>
           <div
@@ -222,13 +209,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
             <div
               class=""
             >
-              <div
-                class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-              >
-                <span
-                  class="pf-u-screen-reader"
-                />
-              </div>
+              UserX
             </div>
           </div>
           <div
@@ -244,13 +225,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
             <div
               class=""
             >
-              <div
-                class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-              >
-                <span
-                  class="pf-u-screen-reader"
-                />
-              </div>
+              2
             </div>
           </div>
         </div>
@@ -302,7 +277,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                           data-ouia-component-id="ConditionalFilter"
                           data-ouia-component-type="PF4/DropdownToggle"
                           data-ouia-safe="true"
-                          id="pf-dropdown-toggle-id-2"
+                          id="pf-dropdown-toggle-id-8"
                           type="button"
                         >
                           <span
@@ -359,9 +334,9 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                         <button
                           aria-expanded="false"
                           aria-label="Options menu"
-                          aria-labelledby=" pf-select-toggle-id-1"
+                          aria-labelledby=" pf-select-toggle-id-4"
                           class="pf-c-select__toggle"
-                          id="pf-select-toggle-id-1"
+                          id="pf-select-toggle-id-4"
                           type="button"
                         >
                           <div
@@ -413,7 +388,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                     data-ouia-component-id="Export"
                     data-ouia-component-type="PF4/DropdownToggle"
                     data-ouia-safe="true"
-                    id="pf-dropdown-toggle-id-3"
+                    id="pf-dropdown-toggle-id-9"
                     type="button"
                   >
                     <span>
@@ -438,17 +413,144 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                 class="pf-c-toolbar__item ins-c-primary-toolbar__pagination"
               >
                 <div
-                  class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__lg"
+                  class="pf-c-pagination pf-m-compact"
+                  data-ouia-component-id="CompactPagination"
+                  data-ouia-component-type="PF4/Pagination"
+                  data-ouia-safe="true"
+                  id="pagination-options-menu-0"
+                  style="--pf-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
                 >
-                  <span
-                    class="pf-u-screen-reader"
-                  />
+                  <div
+                    class="pf-c-pagination__total-items"
+                  >
+                    <b>
+                      1 - 3
+                    </b>
+                     of 
+                    <b>
+                      3
+                    </b>
+                     
+                  </div>
+                  <div
+                    class="pf-c-options-menu"
+                    data-ouia-component-type="PF4/PaginationOptionsMenu"
+                    data-ouia-safe="true"
+                  >
+                    <div
+                      class="pf-c-options-menu__toggle pf-m-plain pf-m-text"
+                    >
+                      <span
+                        class="pf-c-options-menu__toggle-text"
+                      >
+                        <b>
+                          1 - 3
+                        </b>
+                         of 
+                        <b>
+                          3
+                        </b>
+                         
+                      </span>
+                      <button
+                        aria-expanded="false"
+                        aria-label="Items per page"
+                        class="  pf-c-options-menu__toggle-button"
+                        data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
+                        data-ouia-component-type="PF4/DropdownToggle"
+                        data-ouia-safe="true"
+                        id="pagination-options-menu-toggle-0"
+                        type="button"
+                      >
+                        <span
+                          class="pf-c-options-menu__toggle-button-icon"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            fill="currentColor"
+                            height="1em"
+                            role="img"
+                            style="vertical-align: -0.125em;"
+                            viewBox="0 0 320 512"
+                            width="1em"
+                          >
+                            <path
+                              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                            />
+                          </svg>
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                  <nav
+                    aria-label="Pagination"
+                    class="pf-c-pagination__nav"
+                  >
+                    <div
+                      class="pf-c-pagination__nav-control"
+                    >
+                      <button
+                        aria-disabled="true"
+                        aria-label="Go to previous page"
+                        class="pf-c-button pf-m-plain pf-m-disabled"
+                        data-action="previous"
+                        data-ouia-component-id="OUIA-Generated-Button-plain-1"
+                        data-ouia-component-type="PF4/Button"
+                        data-ouia-safe="true"
+                        disabled=""
+                        type="button"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          fill="currentColor"
+                          height="1em"
+                          role="img"
+                          style="vertical-align: -0.125em;"
+                          viewBox="0 0 256 512"
+                          width="1em"
+                        >
+                          <path
+                            d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                    <div
+                      class="pf-c-pagination__nav-control"
+                    >
+                      <button
+                        aria-disabled="true"
+                        aria-label="Go to next page"
+                        class="pf-c-button pf-m-plain pf-m-disabled"
+                        data-action="next"
+                        data-ouia-component-id="OUIA-Generated-Button-plain-2"
+                        data-ouia-component-type="PF4/Button"
+                        data-ouia-safe="true"
+                        disabled=""
+                        type="button"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          fill="currentColor"
+                          height="1em"
+                          role="img"
+                          style="vertical-align: -0.125em;"
+                          viewBox="0 0 256 512"
+                          width="1em"
+                        >
+                          <path
+                            d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </nav>
                 </div>
               </div>
             </div>
             <div
               class="pf-c-toolbar__expandable-content"
-              id="ins-primary-data-toolbar-expandable-content-1"
+              id="ins-primary-data-toolbar-expandable-content-4"
             >
               <div
                 class="pf-c-toolbar__group"
@@ -465,9 +567,9 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
           </div>
         </div>
         <table
-          aria-label="undefined-completed-jobs"
+          aria-label="42-completed-jobs"
           class="pf-c-table pf-m-grid-md"
-          data-ouia-component-id="undefined-completed-jobs-table"
+          data-ouia-component-id="42-completed-jobs-table"
           data-ouia-component-type="PF4/Table"
           data-ouia-safe="true"
           role="grid"
@@ -616,15 +718,9 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                 data-label="System name"
               >
                 <a
-                  href="/insights/inventory/undefined"
+                  href="/insights/inventory/f1356a99-754d-4219-9g25-fccb2cc6e2f2"
                 >
-                  <div
-                    class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-                  >
-                    <span
-                      class="pf-u-screen-reader"
-                    />
-                  </div>
+                  dl-test-device-2
                 </a>
               </td>
               <td
@@ -632,13 +728,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                 data-key="1"
                 data-label="Status"
               >
-                <div
-                  class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-                >
-                  <span
-                    class="pf-u-screen-reader"
-                  />
-                </div>
+                Success
               </td>
               <td
                 class="pf-m-width-35"
@@ -652,13 +742,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                     class="pf-l-split__item"
                     color="#A30000"
                   >
-                    <div
-                      class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-                    >
-                      <span
-                        class="pf-u-screen-reader"
-                      />
-                    </div>
+                    This was a success.
                   </div>
                 </div>
               </td>
@@ -675,15 +759,9 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                 data-label="System name"
               >
                 <a
-                  href="/insights/inventory/undefined"
+                  href="/insights/inventory/3262b268-23ed-4c5a-a918-d8c4923fdfbf"
                 >
-                  <div
-                    class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-                  >
-                    <span
-                      class="pf-u-screen-reader"
-                    />
-                  </div>
+                  MG-test-device
                 </a>
               </td>
               <td
@@ -691,13 +769,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                 data-key="1"
                 data-label="Status"
               >
-                <div
-                  class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-                >
-                  <span
-                    class="pf-u-screen-reader"
-                  />
-                </div>
+                Failure
               </td>
               <td
                 class="pf-m-width-35"
@@ -709,15 +781,37 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                 >
                   <div
                     class="pf-l-split__item"
+                    style="padding-right: 8px;"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="#C9190B"
+                      height="1em"
+                      role="img"
+                      style="vertical-align: -0.125em;"
+                      viewBox="0 0 512 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="pf-l-split__item"
+                    style="padding-right: 16px;"
+                  >
+                    <span
+                      style="color: rgb(201, 25, 11);"
+                    >
+                      Alert
+                    </span>
+                  </div>
+                  <div
+                    class="pf-l-split__item"
                     color="#A30000"
                   >
-                    <div
-                      class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-                    >
-                      <span
-                        class="pf-u-screen-reader"
-                      />
-                    </div>
+                    Task failed to complete for an unknown reason. Retry this task at a later time.
                   </div>
                 </div>
               </td>
@@ -734,15 +828,9 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                 data-label="System name"
               >
                 <a
-                  href="/insights/inventory/undefined"
+                  href="/insights/inventory/42438801-c384-491a-943b-f5f621f0c882"
                 >
-                  <div
-                    class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-                  >
-                    <span
-                      class="pf-u-screen-reader"
-                    />
-                  </div>
+                  YL-test-device-85
                 </a>
               </td>
               <td
@@ -750,13 +838,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                 data-key="1"
                 data-label="Status"
               >
-                <div
-                  class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-                >
-                  <span
-                    class="pf-u-screen-reader"
-                  />
-                </div>
+                Timeout
               </td>
               <td
                 class="pf-m-width-35"
@@ -768,139 +850,3219 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                 >
                   <div
                     class="pf-l-split__item"
-                    color="#A30000"
+                    style="padding-right: 8px;"
                   >
-                    <div
-                      class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                    <svg
+                      aria-hidden="true"
+                      fill="#C9190B"
+                      height="1em"
+                      role="img"
+                      style="vertical-align: -0.125em;"
+                      viewBox="0 0 512 512"
+                      width="1em"
                     >
-                      <span
-                        class="pf-u-screen-reader"
+                      <path
+                        d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
                       />
-                    </div>
+                    </svg>
                   </div>
-                </div>
-              </td>
-            </tr>
-            <tr
-              class=""
-              data-ouia-component-id="OUIA-Generated-TableRow-5"
-              data-ouia-component-type="PF4/TableRow"
-              data-ouia-safe="true"
-            >
-              <td
-                class="pf-m-width-30"
-                data-key="0"
-                data-label="System name"
-              >
-                <a
-                  href="/insights/inventory/undefined"
-                >
                   <div
-                    class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                    class="pf-l-split__item"
+                    style="padding-right: 16px;"
                   >
                     <span
-                      class="pf-u-screen-reader"
-                    />
+                      style="color: rgb(201, 25, 11);"
+                    >
+                      Alert
+                    </span>
                   </div>
-                </a>
-              </td>
-              <td
-                class="pf-m-width-10"
-                data-key="1"
-                data-label="Status"
-              >
-                <div
-                  class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-                >
-                  <span
-                    class="pf-u-screen-reader"
-                  />
-                </div>
-              </td>
-              <td
-                class="pf-m-width-35"
-                data-key="2"
-                data-label="Message"
-              >
-                <div
-                  class="pf-l-split"
-                >
                   <div
                     class="pf-l-split__item"
                     color="#A30000"
                   >
-                    <div
-                      class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-                    >
-                      <span
-                        class="pf-u-screen-reader"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr
-              class=""
-              data-ouia-component-id="OUIA-Generated-TableRow-6"
-              data-ouia-component-type="PF4/TableRow"
-              data-ouia-safe="true"
-            >
-              <td
-                class="pf-m-width-30"
-                data-key="0"
-                data-label="System name"
-              >
-                <a
-                  href="/insights/inventory/undefined"
-                >
-                  <div
-                    class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-                  >
-                    <span
-                      class="pf-u-screen-reader"
-                    />
-                  </div>
-                </a>
-              </td>
-              <td
-                class="pf-m-width-10"
-                data-key="1"
-                data-label="Status"
-              >
-                <div
-                  class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-                >
-                  <span
-                    class="pf-u-screen-reader"
-                  />
-                </div>
-              </td>
-              <td
-                class="pf-m-width-35"
-                data-key="2"
-                data-label="Message"
-              >
-                <div
-                  class="pf-l-split"
-                >
-                  <div
-                    class="pf-l-split__item"
-                    color="#A30000"
-                  >
-                    <div
-                      class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-                    >
-                      <span
-                        class="pf-u-screen-reader"
-                      />
-                    </div>
+                    Task failed to complete due to timing out. Retry this task at a later time.
                   </div>
                 </div>
               </td>
             </tr>
           </tbody>
         </table>
+        <div
+          class="pf-c-toolbar ins-c-table__toolbar ins-m-footer"
+          data-ouia-component-id="OUIA-Generated-RHI/TableToolbar-true-1"
+          data-ouia-component-type="RHI/TableToolbar"
+          data-ouia-safe="true"
+          id="pf-random-id-1"
+        >
+          <div
+            class="pf-c-pagination pf-m-bottom"
+            data-ouia-component-id="OUIA-Generated-Pagination-bottom-1"
+            data-ouia-component-type="PF4/Pagination"
+            data-ouia-safe="true"
+            id="pagination-options-menu-1"
+            style="--pf-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
+          >
+            <div
+              class="pf-c-options-menu pf-m-top"
+              data-ouia-component-type="PF4/PaginationOptionsMenu"
+              data-ouia-safe="true"
+            >
+              <div
+                class="pf-c-options-menu__toggle pf-m-plain pf-m-text"
+              >
+                <span
+                  class="pf-c-options-menu__toggle-text"
+                >
+                  <b>
+                    1 - 3
+                  </b>
+                   of 
+                  <b>
+                    3
+                  </b>
+                   
+                </span>
+                <button
+                  aria-expanded="false"
+                  aria-label="Items per page"
+                  class="  pf-c-options-menu__toggle-button"
+                  data-ouia-component-id="OUIA-Generated-DropdownToggle-2"
+                  data-ouia-component-type="PF4/DropdownToggle"
+                  data-ouia-safe="true"
+                  id="pagination-options-menu-toggle-1"
+                  type="button"
+                >
+                  <span
+                    class="pf-c-options-menu__toggle-button-icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      style="vertical-align: -0.125em;"
+                      viewBox="0 0 320 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <nav
+              aria-label="Pagination"
+              class="pf-c-pagination__nav"
+            >
+              <div
+                class="pf-c-pagination__nav-control pf-m-first"
+              >
+                <button
+                  aria-disabled="true"
+                  aria-label="Go to first page"
+                  class="pf-c-button pf-m-plain pf-m-disabled"
+                  data-action="first"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-3"
+                  data-ouia-component-type="PF4/Button"
+                  data-ouia-safe="true"
+                  disabled=""
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="currentColor"
+                    height="1em"
+                    role="img"
+                    style="vertical-align: -0.125em;"
+                    viewBox="0 0 448 512"
+                    width="1em"
+                  >
+                    <path
+                      d="M223.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L319.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L393.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34zm-192 34l136 136c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9L127.9 256l96.4-96.4c9.4-9.4 9.4-24.6 0-33.9L201.7 103c-9.4-9.4-24.6-9.4-33.9 0l-136 136c-9.5 9.4-9.5 24.6-.1 34z"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div
+                class="pf-c-pagination__nav-control"
+              >
+                <button
+                  aria-disabled="true"
+                  aria-label="Go to previous page"
+                  class="pf-c-button pf-m-plain pf-m-disabled"
+                  data-action="previous"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-4"
+                  data-ouia-component-type="PF4/Button"
+                  data-ouia-safe="true"
+                  disabled=""
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="currentColor"
+                    height="1em"
+                    role="img"
+                    style="vertical-align: -0.125em;"
+                    viewBox="0 0 256 512"
+                    width="1em"
+                  >
+                    <path
+                      d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div
+                class="pf-c-pagination__nav-page-select"
+              >
+                <input
+                  aria-label="Current page"
+                  class="pf-c-form-control"
+                  disabled=""
+                  max="1"
+                  min="1"
+                  type="number"
+                  value="1"
+                />
+                <span
+                  aria-hidden="true"
+                >
+                  of 1
+                </span>
+              </div>
+              <div
+                class="pf-c-pagination__nav-control"
+              >
+                <button
+                  aria-disabled="true"
+                  aria-label="Go to next page"
+                  class="pf-c-button pf-m-plain pf-m-disabled"
+                  data-action="next"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-5"
+                  data-ouia-component-type="PF4/Button"
+                  data-ouia-safe="true"
+                  disabled=""
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="currentColor"
+                    height="1em"
+                    role="img"
+                    style="vertical-align: -0.125em;"
+                    viewBox="0 0 256 512"
+                    width="1em"
+                  >
+                    <path
+                      d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div
+                class="pf-c-pagination__nav-control pf-m-last"
+              >
+                <button
+                  aria-disabled="true"
+                  aria-label="Go to last page"
+                  class="pf-c-button pf-m-plain pf-m-disabled"
+                  data-action="last"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-6"
+                  data-ouia-component-type="PF4/Button"
+                  data-ouia-safe="true"
+                  disabled=""
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="currentColor"
+                    height="1em"
+                    role="img"
+                    style="vertical-align: -0.125em;"
+                    viewBox="0 0 448 512"
+                    width="1em"
+                  >
+                    <path
+                      d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </nav>
+          </div>
+          <div
+            class="pf-c-toolbar__content pf-m-hidden"
+            hidden=""
+          >
+            <div
+              class="pf-c-toolbar__group"
+            />
+          </div>
+        </div>
+      </article>
+    </section>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
+<DocumentFragment>
+  <div>
+    <section
+      class="pf-l-page-header pf-c-page-header pf-l-page__main-section pf-c-page__main-section pf-m-light"
+      widget-type="InsightsPageHeader"
+    >
+      <nav
+        aria-label="Breadcrumb"
+        class="pf-c-breadcrumb"
+        data-ouia-component-id="completed-tasks-details-breadcrumb"
+        data-ouia-component-type="PF4/Breadcrumb"
+        data-ouia-safe="true"
+      >
+        <ol
+          class="pf-c-breadcrumb__list"
+        >
+          <li
+            class="pf-c-breadcrumb__item"
+          >
+            <a
+              class="pf-c-breadcrumb__link"
+              href="/executed"
+            >
+              Tasks
+            </a>
+          </li>
+          <li
+            class="pf-c-breadcrumb__item"
+          >
+            <span
+              class="pf-c-breadcrumb__item-divider"
+            >
+              <svg
+                aria-hidden="true"
+                fill="currentColor"
+                height="1em"
+                role="img"
+                style="vertical-align: -0.125em;"
+                viewBox="0 0 256 512"
+                width="1em"
+              >
+                <path
+                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                />
+              </svg>
+            </span>
+            Upgrade RHEL version with LEAP tool
+          </li>
+        </ol>
+      </nav>
+      <div
+        class="pf-l-flex pf-m-column pf-m-row-on-md"
+      >
+        <div
+          class="pf-l-flex pf-m-flex-1 pf-m-column"
+        >
+          <div
+            class=""
+          >
+            <h1
+              class="pf-c-title pf-m-2xl"
+              data-ouia-component-id="OUIA-Generated-Title-2"
+              data-ouia-component-type="PF4/Title"
+              data-ouia-safe="true"
+              widget-type="InsightsPageHeaderTitle"
+            >
+              Upgrade RHEL version with LEAP tool
+            </h1>
+          </div>
+          <div
+            class=""
+          >
+            Uses the insights-client to determine if RHEL version can be upgraded with LEAP tool. Resource intensive scan
+          </div>
+        </div>
+        <div
+          class="pf-l-flex"
+        >
+          <div
+            class=""
+          >
+            <button
+              aria-disabled="false"
+              aria-label="leapp-preupgrade-run-task-button"
+              class="pf-c-button pf-m-secondary"
+              data-ouia-component-id="OUIA-Generated-Button-secondary-2"
+              data-ouia-component-type="PF4/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              Run task again
+            </button>
+          </div>
+        </div>
+        <div
+          class="pf-l-flex"
+        >
+          <div
+            class=""
+          >
+            <div
+              class="pf-c-dropdown pf-m-align-right"
+              data-ouia-component-id="OUIA-Generated-Dropdown-2"
+              data-ouia-component-type="PF4/Dropdown"
+              data-ouia-safe="true"
+            >
+              <button
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-label="Actions"
+                class="pf-c-dropdown__toggle pf-m-plain"
+                id="executed-task-kebab"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  style="vertical-align: -0.125em;"
+                  viewBox="0 0 192 512"
+                  width="1em"
+                >
+                  <path
+                    d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="pf-l-page__main-section pf-c-page__main-section"
+      page-type=""
+    >
+      <article
+        class="pf-c-card"
+        data-ouia-component-id="OUIA-Generated-Card-3"
+        data-ouia-component-type="PF4/Card"
+        data-ouia-safe="true"
+        id=""
+      >
+        <div
+          class="pf-l-flex pf-m-column pf-m-row-on-md pf-m-justify-content-space-between completed-task-details-info-border"
+        >
+          <div
+            class="pf-l-flex pf-m-column"
+          >
+            <div
+              class=""
+            >
+              <b>
+                Systems
+              </b>
+            </div>
+            <div
+              class=""
+            >
+              5
+            </div>
+          </div>
+          <div
+            class="pf-l-flex pf-m-column"
+          >
+            <div
+              class=""
+            >
+              <b>
+                Run start
+              </b>
+            </div>
+            <div
+              class=""
+            >
+              21 Apr 2022, 10:10 UTC
+            </div>
+          </div>
+          <div
+            class="pf-l-flex pf-m-column"
+          >
+            <div
+              class=""
+            >
+              <b>
+                Run end
+              </b>
+            </div>
+            <div
+              class=""
+            >
+              -
+            </div>
+          </div>
+          <div
+            class="pf-l-flex pf-m-column"
+          >
+            <div
+              class=""
+            >
+              <b>
+                Initiated by
+              </b>
+            </div>
+            <div
+              class=""
+            >
+              Michael
+            </div>
+          </div>
+          <div
+            class="pf-l-flex pf-m-column"
+          >
+            <div
+              class=""
+            >
+              <b>
+                Systems with alerts
+              </b>
+            </div>
+            <div
+              class=""
+            >
+              4
+            </div>
+          </div>
+        </div>
+      </article>
+      <br />
+      <article
+        class="pf-c-card"
+        data-ouia-component-id="OUIA-Generated-Card-4"
+        data-ouia-component-type="PF4/Card"
+        data-ouia-safe="true"
+        id=""
+      >
+        <div
+          class="pf-c-toolbar  ins-c-primary-toolbar"
+          data-ouia-component-id="PrimaryToolbar"
+          data-ouia-component-type="PF4/Toolbar"
+          data-ouia-safe="true"
+          id="ins-primary-data-toolbar"
+        >
+          <div
+            class="pf-c-toolbar__content"
+          >
+            <div
+              class="pf-c-toolbar__content-section"
+            >
+              <div
+                class="pf-c-toolbar__group pf-m-filter-group ins-c-primary-toolbar__group-filter pf-m-spacer-md pf-m-space-items-lg"
+              >
+                <div
+                  class="pf-c-toolbar__item ins-c-primary-toolbar__filter"
+                >
+                  <div
+                    class="pf-l-split ins-c-conditional-filter"
+                  >
+                    <div
+                      class="pf-l-split__item"
+                    >
+                      <div
+                        class="pf-c-dropdown ins-c-conditional-filter__group"
+                        data-ouia-component-id="ConditionalFilter"
+                        data-ouia-component-type="PF4/Dropdown"
+                        data-ouia-safe="true"
+                      >
+                        <button
+                          aria-expanded="false"
+                          aria-haspopup="true"
+                          aria-label="Conditional filter"
+                          class="pf-c-dropdown__toggle"
+                          data-ouia-component-id="ConditionalFilter"
+                          data-ouia-component-type="PF4/DropdownToggle"
+                          data-ouia-safe="true"
+                          id="pf-dropdown-toggle-id-22"
+                          type="button"
+                        >
+                          <span
+                            class="pf-c-dropdown__toggle-text"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style="vertical-align: -0.125em;"
+                              viewBox="0 0 512 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M487.976 0H24.028C2.71 0-8.047 25.866 7.058 40.971L192 225.941V432c0 7.831 3.821 15.17 10.237 19.662l80 55.98C298.02 518.69 320 507.493 320 487.98V225.941l184.947-184.97C520.021 25.896 509.338 0 487.976 0z"
+                              />
+                            </svg>
+                            <span
+                              class="ins-c-conditional-filter__value-selector"
+                            >
+                              Status
+                            </span>
+                          </span>
+                          <span
+                            class="pf-c-dropdown__toggle-icon"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style="vertical-align: -0.125em;"
+                              viewBox="0 0 320 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                              />
+                            </svg>
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                    <div
+                      class="pf-l-split__item pf-m-fill"
+                    >
+                      <div
+                        class="pf-c-select"
+                        data-ouia-component-id="Filter by status"
+                        data-ouia-component-type="PF4/Select"
+                        data-ouia-safe="true"
+                      >
+                        <button
+                          aria-expanded="false"
+                          aria-label="Options menu"
+                          aria-labelledby=" pf-select-toggle-id-10"
+                          class="pf-c-select__toggle"
+                          id="pf-select-toggle-id-10"
+                          type="button"
+                        >
+                          <div
+                            class="pf-c-select__toggle-wrapper"
+                          >
+                            <span
+                              class="pf-c-select__toggle-text"
+                            >
+                              Filter by status
+                            </span>
+                          </div>
+                          <span
+                            class="pf-c-select__toggle-arrow"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style="vertical-align: -0.125em;"
+                              viewBox="0 0 320 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                              />
+                            </svg>
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="pf-c-toolbar__item pf-m-spacer-sm"
+              >
+                <div
+                  class="pf-c-dropdown"
+                  data-ouia-component-id="Export"
+                  data-ouia-component-type="PF4/Dropdown"
+                  data-ouia-safe="true"
+                >
+                  <button
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                    aria-label="Export"
+                    class="pf-c-dropdown__toggle pf-m-plain"
+                    data-ouia-component-id="Export"
+                    data-ouia-component-type="PF4/DropdownToggle"
+                    data-ouia-safe="true"
+                    id="pf-dropdown-toggle-id-23"
+                    type="button"
+                  >
+                    <span>
+                      <svg
+                        aria-hidden="true"
+                        fill="currentColor"
+                        height="1em"
+                        role="img"
+                        style="vertical-align: -0.125em;"
+                        viewBox="0 0 1024 1024"
+                        width="1em"
+                      >
+                        <path
+                          d="M975.8,636.9 L870.9,741.8 L457.9,328.6 C452.1,322.8 445.4,319.9 437.9,319.9 C430.4,319.9 423.7,322.8 417.9,328.6 L328.8,417.7 C323,423.5 320.1,430.2 320.1,437.7 C320.1,445.2 323,451.9 328.8,457.7 L742,870.7 L636.9,975.8 C610.5,1002.2 619.4,1024 656.8,1024 L956,1024 C1014.5,1024 1024,1013.7 1024,955.9 L1024,656.7 C1023.9,619.4 1002.2,610.5 975.8,636.9 Z M128,128 L896,128 L896,361.7 C896.007942,370.182681 899.389907,378.313788 905.4,384.3 L996.7,475.6 C1006.8,485.7 1024,478.5 1024,464.3 L1024,22.7 C1024,16.1 1021.9,10.7 1017.6,6.4 C1013.3,2.1 1007.9,0 1001.3,0 L22.7,0 C16.1,0 10.7,2.1 6.4,6.4 C2.1,10.7 0,16.1 0,22.7 L0,1001.3 C0,1007.9 2.1,1013.3 6.4,1017.6 C10.7,1021.9 16.1,1024 22.7,1024 L463.4,1024 C469.862884,1023.98894 475.684489,1020.0908 478.156232,1014.11925 C480.627976,1008.14769 479.264428,1001.27548 474.7,996.7 L383.4,905.4 C377.413788,899.389907 369.282681,896.007942 360.8,896 L128,896 L128,128 Z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="pf-c-toolbar__item ins-c-primary-toolbar__pagination"
+              >
+                <div
+                  class="pf-c-pagination pf-m-compact"
+                  data-ouia-component-id="CompactPagination"
+                  data-ouia-component-type="PF4/Pagination"
+                  data-ouia-safe="true"
+                  id="pagination-options-menu-2"
+                  style="--pf-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
+                >
+                  <div
+                    class="pf-c-pagination__total-items"
+                  >
+                    <b>
+                      1 - 5
+                    </b>
+                     of 
+                    <b>
+                      5
+                    </b>
+                     
+                  </div>
+                  <div
+                    class="pf-c-options-menu"
+                    data-ouia-component-type="PF4/PaginationOptionsMenu"
+                    data-ouia-safe="true"
+                  >
+                    <div
+                      class="pf-c-options-menu__toggle pf-m-plain pf-m-text"
+                    >
+                      <span
+                        class="pf-c-options-menu__toggle-text"
+                      >
+                        <b>
+                          1 - 5
+                        </b>
+                         of 
+                        <b>
+                          5
+                        </b>
+                         
+                      </span>
+                      <button
+                        aria-expanded="false"
+                        aria-label="Items per page"
+                        class="  pf-c-options-menu__toggle-button"
+                        data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
+                        data-ouia-component-type="PF4/DropdownToggle"
+                        data-ouia-safe="true"
+                        id="pagination-options-menu-toggle-2"
+                        type="button"
+                      >
+                        <span
+                          class="pf-c-options-menu__toggle-button-icon"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            fill="currentColor"
+                            height="1em"
+                            role="img"
+                            style="vertical-align: -0.125em;"
+                            viewBox="0 0 320 512"
+                            width="1em"
+                          >
+                            <path
+                              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                            />
+                          </svg>
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                  <nav
+                    aria-label="Pagination"
+                    class="pf-c-pagination__nav"
+                  >
+                    <div
+                      class="pf-c-pagination__nav-control"
+                    >
+                      <button
+                        aria-disabled="true"
+                        aria-label="Go to previous page"
+                        class="pf-c-button pf-m-plain pf-m-disabled"
+                        data-action="previous"
+                        data-ouia-component-id="OUIA-Generated-Button-plain-7"
+                        data-ouia-component-type="PF4/Button"
+                        data-ouia-safe="true"
+                        disabled=""
+                        type="button"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          fill="currentColor"
+                          height="1em"
+                          role="img"
+                          style="vertical-align: -0.125em;"
+                          viewBox="0 0 256 512"
+                          width="1em"
+                        >
+                          <path
+                            d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                    <div
+                      class="pf-c-pagination__nav-control"
+                    >
+                      <button
+                        aria-disabled="true"
+                        aria-label="Go to next page"
+                        class="pf-c-button pf-m-plain pf-m-disabled"
+                        data-action="next"
+                        data-ouia-component-id="OUIA-Generated-Button-plain-8"
+                        data-ouia-component-type="PF4/Button"
+                        data-ouia-safe="true"
+                        disabled=""
+                        type="button"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          fill="currentColor"
+                          height="1em"
+                          role="img"
+                          style="vertical-align: -0.125em;"
+                          viewBox="0 0 256 512"
+                          width="1em"
+                        >
+                          <path
+                            d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </nav>
+                </div>
+              </div>
+            </div>
+            <div
+              class="pf-c-toolbar__expandable-content"
+              id="ins-primary-data-toolbar-expandable-content-10"
+            >
+              <div
+                class="pf-c-toolbar__group"
+              />
+            </div>
+          </div>
+          <div
+            class="pf-c-toolbar__content pf-m-hidden"
+            hidden=""
+          >
+            <div
+              class="pf-c-toolbar__group"
+            />
+          </div>
+        </div>
+        <table
+          aria-label="43-completed-jobs"
+          class="pf-c-table pf-m-grid-md"
+          data-ouia-component-id="43-completed-jobs-table"
+          data-ouia-component-type="PF4/Table"
+          data-ouia-safe="true"
+          role="grid"
+        >
+          <thead
+            class=""
+          >
+            <tr
+              class=""
+              data-ouia-component-id="OUIA-Generated-TableRow-7"
+              data-ouia-component-type="PF4/TableRow"
+              data-ouia-safe="true"
+            >
+              <th
+                class=""
+                data-key="0"
+                data-label=""
+              />
+              <th
+                aria-sort="none"
+                class="pf-c-table__sort pf-m-width-30"
+                data-key="1"
+                data-label="System name"
+                scope="col"
+              >
+                <button
+                  class="pf-c-table__button"
+                  type="button"
+                >
+                  <div
+                    class="pf-c-table__button-content"
+                  >
+                    <span
+                      class="pf-c-table__text"
+                    >
+                      System name
+                    </span>
+                    <span
+                      class="pf-c-table__sort-indicator"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="currentColor"
+                        height="1em"
+                        role="img"
+                        style="vertical-align: -0.125em;"
+                        viewBox="0 0 256 512"
+                        width="1em"
+                      >
+                        <path
+                          d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </button>
+              </th>
+              <th
+                aria-sort="none"
+                class="pf-c-table__sort pf-m-width-10"
+                data-key="2"
+                data-label="Status"
+                scope="col"
+              >
+                <button
+                  class="pf-c-table__button"
+                  type="button"
+                >
+                  <div
+                    class="pf-c-table__button-content"
+                  >
+                    <span
+                      class="pf-c-table__text"
+                    >
+                      Status
+                    </span>
+                    <span
+                      class="pf-c-table__sort-indicator"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="currentColor"
+                        height="1em"
+                        role="img"
+                        style="vertical-align: -0.125em;"
+                        viewBox="0 0 256 512"
+                        width="1em"
+                      >
+                        <path
+                          d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </button>
+              </th>
+              <th
+                aria-sort="none"
+                class="pf-c-table__sort pf-m-width-35"
+                data-key="3"
+                data-label="Message"
+                scope="col"
+              >
+                <button
+                  class="pf-c-table__button"
+                  type="button"
+                >
+                  <div
+                    class="pf-c-table__button-content"
+                  >
+                    <span
+                      class="pf-c-table__text"
+                    >
+                      Message
+                    </span>
+                    <span
+                      class="pf-c-table__sort-indicator"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="currentColor"
+                        height="1em"
+                        role="img"
+                        style="vertical-align: -0.125em;"
+                        viewBox="0 0 256 512"
+                        width="1em"
+                      >
+                        <path
+                          d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </button>
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class=""
+            role="rowgroup"
+          >
+            <tr
+              class=""
+              data-ouia-component-id="OUIA-Generated-TableRow-13"
+              data-ouia-component-type="PF4/TableRow"
+              data-ouia-safe="true"
+            >
+              <td
+                class=""
+                data-key="0"
+              />
+              <td
+                class="pf-m-width-30"
+                data-key="1"
+                data-label="System name"
+              >
+                <a
+                  href="/insights/inventory/f1356a99-754d-4219-9g25-fccb2cc6e2f2"
+                >
+                  dl-test-device-2
+                </a>
+              </td>
+              <td
+                class="pf-m-width-10"
+                data-key="2"
+                data-label="Status"
+              >
+                Success
+              </td>
+              <td
+                class="pf-m-width-35"
+                data-key="3"
+                data-label="Message"
+              >
+                <div
+                  class="pf-l-split"
+                >
+                  <div
+                    class="pf-l-split__item"
+                    color="#A30000"
+                  />
+                </div>
+              </td>
+            </tr>
+          </tbody>
+          <tbody
+            class=""
+            role="rowgroup"
+          >
+            <tr
+              class=""
+              data-ouia-component-id="OUIA-Generated-TableRow-14"
+              data-ouia-component-type="PF4/TableRow"
+              data-ouia-safe="true"
+            >
+              <td
+                class="pf-c-table__toggle"
+                data-key="0"
+              >
+                <button
+                  aria-disabled="false"
+                  aria-expanded="false"
+                  aria-label="Details"
+                  aria-labelledby="simple-node1 expandable-toggle1"
+                  class="pf-c-button pf-m-plain"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-1"
+                  data-ouia-component-type="PF4/Button"
+                  data-ouia-safe="true"
+                  id="expandable-toggle1"
+                  type="button"
+                >
+                  <div
+                    class="pf-c-table__toggle-icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      style="vertical-align: -0.125em;"
+                      viewBox="0 0 320 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
+                      />
+                    </svg>
+                  </div>
+                </button>
+              </td>
+              <td
+                class="pf-m-width-30"
+                data-key="1"
+                data-label="System name"
+              >
+                <a
+                  href="/insights/inventory/f1356a99-754d-4219-9g25-fccb2cc53bee"
+                >
+                  dl-test-device-3
+                </a>
+              </td>
+              <td
+                class="pf-m-width-10"
+                data-key="2"
+                data-label="Status"
+              >
+                Success
+              </td>
+              <td
+                class="pf-m-width-35"
+                data-key="3"
+                data-label="Message"
+              >
+                <div
+                  class="pf-l-split"
+                >
+                  <div
+                    class="pf-l-split__item"
+                    style="padding-right: 8px;"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="#C9190B"
+                      height="1em"
+                      role="img"
+                      style="vertical-align: -0.125em;"
+                      viewBox="0 0 512 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="pf-l-split__item"
+                    style="padding-right: 16px;"
+                  >
+                    <span
+                      style="color: rgb(201, 25, 11);"
+                    >
+                      Alert
+                    </span>
+                  </div>
+                  <div
+                    class="pf-l-split__item"
+                    color="#A30000"
+                  >
+                    Your system has 3 inhibitors out of 5 potential problems.
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="pf-c-table__expandable-row"
+              data-ouia-component-id="OUIA-Generated-TableRow-15"
+              data-ouia-component-type="PF4/TableRow"
+              data-ouia-safe="true"
+              hidden=""
+            >
+              <td
+                class=""
+                colspan="4"
+                data-key="0"
+                id="expanded-content2"
+              >
+                <div>
+                  <table
+                    class="pf-c-table pf-m-grid-md pf-m-compact"
+                    data-ouia-component-id="OUIA-Generated-Table-5"
+                    data-ouia-component-type="PF4/Table"
+                    data-ouia-safe="true"
+                    role="grid"
+                    style="margin-bottom: 30px; --pf-c-table__expandable-row--after--border-width--base: 0;"
+                  >
+                    <tbody
+                      class=""
+                      role="rowgroup"
+                    >
+                      <tr
+                        class=""
+                        data-ouia-component-id="OUIA-Generated-TableRow-16"
+                        data-ouia-component-type="PF4/TableRow"
+                        data-ouia-safe="true"
+                      >
+                        <td
+                          class="pf-c-table__toggle"
+                        >
+                          <button
+                            aria-disabled="false"
+                            aria-expanded="false"
+                            aria-label="Details"
+                            aria-labelledby="simple-node0 expand-toggle0"
+                            class="pf-c-button pf-m-plain"
+                            data-ouia-component-id="OUIA-Generated-Button-plain-2"
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe="true"
+                            id="expand-toggle0"
+                            type="button"
+                          >
+                            <div
+                              class="pf-c-table__toggle-icon"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 320 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
+                                />
+                              </svg>
+                            </div>
+                          </button>
+                        </td>
+                        <td
+                          class=""
+                        >
+                          <span>
+                            <span
+                              style="margin-right: 8px;"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                fill="#C9190B"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 512 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              style="color: rgb(163, 0, 0);"
+                            >
+                              <strong>
+                                Leapp could not identify where GRUB core is located
+                              </strong>
+                            </span>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="pf-c-table__expandable-row"
+                        data-ouia-component-id="OUIA-Generated-TableRow-17"
+                        data-ouia-component-type="PF4/TableRow"
+                        data-ouia-safe="true"
+                        hidden=""
+                      >
+                        <td
+                          class=""
+                        />
+                        <td
+                          class=""
+                        >
+                          <div>
+                            <span
+                              class="pf-c-label pf-m-red pf-m-compact"
+                              style="margin-top: 16px; margin-bottom: 4px;"
+                            >
+                              <span
+                                class="pf-c-label__content"
+                              >
+                                <span
+                                  class="pf-c-label__icon"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    fill="currentColor"
+                                    height="1em"
+                                    role="img"
+                                    style="vertical-align: -0.125em;"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                    />
+                                  </svg>
+                                </span>
+                                High risk
+                              </span>
+                            </span>
+                          </div>
+                          <div
+                            class="entry-title"
+                          >
+                            Leapp could not identify where GRUB core is located
+                          </div>
+                          <div>
+                            <div
+                              class="pf-l-grid pf-m-gutter entry-detail-title"
+                            >
+                              <div
+                                class="pf-l-grid__item pf-m-2-col entry-detail-content"
+                              >
+                                Summary
+                              </div>
+                              <div
+                                class="pf-l-grid__item pf-m-8-col-on-sm pf-m-5-col-on-xl pf-m-5-col-on-2xl"
+                                l="6"
+                                m="7"
+                              >
+                                We assume GRUB core is located on the same device as /boot. Leapp needs to update GRUB core as it is not done automatically on legacy (BIOS) systems. 
+                              </div>
+                            </div>
+                            <div
+                              class="pf-l-grid pf-m-gutter entry-detail-title"
+                            >
+                              <div
+                                class="pf-l-grid__item pf-m-2-col entry-detail-content"
+                              >
+                                Remediation
+                              </div>
+                              <div
+                                class="pf-l-grid__item pf-m-8-col-on-sm pf-m-5-col-on-xl pf-m-5-col-on-2xl"
+                                l="6"
+                                m="7"
+                              >
+                                <div>
+                                  <span
+                                    style="font-family: overpass-mono;"
+                                  >
+                                    [hint] Please run "grub2-install &lt;GRUB_DEVICE&gt; command manually after upgrade
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="pf-l-grid pf-m-gutter entry-detail-title"
+                            >
+                              <div
+                                class="pf-l-grid__item pf-m-2-col entry-detail-content"
+                              >
+                                Key
+                              </div>
+                              <div
+                                class="pf-l-grid__item pf-m-8-col-on-sm pf-m-5-col-on-xl pf-m-5-col-on-2xl"
+                                l="6"
+                                m="7"
+                              >
+                                ca7a1a66906a7df3da890aa538562708d3ea6ecd
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr
+                        class=""
+                        data-ouia-component-id="OUIA-Generated-TableRow-18"
+                        data-ouia-component-type="PF4/TableRow"
+                        data-ouia-safe="true"
+                      >
+                        <td
+                          class="pf-c-table__toggle"
+                        >
+                          <button
+                            aria-disabled="false"
+                            aria-expanded="false"
+                            aria-label="Details"
+                            aria-labelledby="simple-node1 expand-toggle1"
+                            class="pf-c-button pf-m-plain"
+                            data-ouia-component-id="OUIA-Generated-Button-plain-3"
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe="true"
+                            id="expand-toggle1"
+                            type="button"
+                          >
+                            <div
+                              class="pf-c-table__toggle-icon"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 320 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
+                                />
+                              </svg>
+                            </div>
+                          </button>
+                        </td>
+                        <td
+                          class=""
+                        >
+                          <span>
+                            <span
+                              style="margin-right: 8px;"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                fill="#C9190B"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 512 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              style="color: rgb(163, 0, 0);"
+                            >
+                              <strong>
+                                Firewalld Configuration AllowZoneDrifting Is Unsupported
+                              </strong>
+                            </span>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="pf-c-table__expandable-row"
+                        data-ouia-component-id="OUIA-Generated-TableRow-19"
+                        data-ouia-component-type="PF4/TableRow"
+                        data-ouia-safe="true"
+                        hidden=""
+                      >
+                        <td
+                          class=""
+                        />
+                        <td
+                          class=""
+                        >
+                          <div>
+                            <span
+                              class="pf-c-label pf-m-red pf-m-compact"
+                              style="margin-top: 16px; margin-bottom: 4px;"
+                            >
+                              <span
+                                class="pf-c-label__content"
+                              >
+                                <span
+                                  class="pf-c-label__icon"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    fill="currentColor"
+                                    height="1em"
+                                    role="img"
+                                    style="vertical-align: -0.125em;"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                    />
+                                  </svg>
+                                </span>
+                                High risk
+                              </span>
+                            </span>
+                          </div>
+                          <div
+                            class="entry-title"
+                          >
+                            Firewalld Configuration AllowZoneDrifting Is Unsupported
+                          </div>
+                          <div>
+                            <div
+                              class="pf-l-grid pf-m-gutter entry-detail-title"
+                            >
+                              <div
+                                class="pf-l-grid__item pf-m-2-col entry-detail-content"
+                              >
+                                Summary
+                              </div>
+                              <div
+                                class="pf-l-grid__item pf-m-8-col-on-sm pf-m-5-col-on-xl pf-m-5-col-on-2xl"
+                                l="6"
+                                m="7"
+                              >
+                                Firewalld has enabled configuration option "AllowZoneDrifiting" which has been removed in RHEL-9. New behavior is as if "AllowZoneDrifiting" was set to "no".
+                              </div>
+                            </div>
+                            <div
+                              class="pf-l-grid pf-m-gutter entry-detail-title"
+                            >
+                              <div
+                                class="pf-l-grid__item pf-m-2-col entry-detail-content"
+                              >
+                                Remediation
+                              </div>
+                              <div
+                                class="pf-l-grid__item pf-m-8-col-on-sm pf-m-5-col-on-xl pf-m-5-col-on-2xl"
+                                l="6"
+                                m="7"
+                              >
+                                <div>
+                                  <span
+                                    style="font-family: overpass-mono;"
+                                  >
+                                    [hint] Set AllowZoneDrifting=no in /etc/firewalld/firewalld.conf
+                                  </span>
+                                </div>
+                                <div>
+                                  <span>
+                                    <br />
+                                  </span>
+                                  <span
+                                    style="font-family: overpass-mono;"
+                                  >
+                                    [command] sed -i "s/^AllowZoneDrifting=.*/AllowZoneDrifting=no/" /etc/firewalld/firewalld.conf
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="pf-l-grid pf-m-gutter entry-detail-title"
+                            >
+                              <div
+                                class="pf-l-grid__item pf-m-2-col entry-detail-content"
+                              >
+                                Key
+                              </div>
+                              <div
+                                class="pf-l-grid__item pf-m-8-col-on-sm pf-m-5-col-on-xl pf-m-5-col-on-2xl"
+                                l="6"
+                                m="7"
+                              >
+                                5b1cf050e1a877b0358b6e8c612277c591d40c13
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr
+                        class=""
+                        data-ouia-component-id="OUIA-Generated-TableRow-20"
+                        data-ouia-component-type="PF4/TableRow"
+                        data-ouia-safe="true"
+                      >
+                        <td
+                          class="pf-c-table__toggle"
+                        >
+                          <button
+                            aria-disabled="false"
+                            aria-expanded="false"
+                            aria-label="Details"
+                            aria-labelledby="simple-node2 expand-toggle2"
+                            class="pf-c-button pf-m-plain"
+                            data-ouia-component-id="OUIA-Generated-Button-plain-4"
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe="true"
+                            id="expand-toggle2"
+                            type="button"
+                          >
+                            <div
+                              class="pf-c-table__toggle-icon"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 320 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
+                                />
+                              </svg>
+                            </div>
+                          </button>
+                        </td>
+                        <td
+                          class=""
+                        >
+                          <span>
+                            <span
+                              style="margin-right: 8px;"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                fill="#C9190B"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 512 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              style="color: rgb(163, 0, 0);"
+                            >
+                              <strong>
+                                VDO devices migration to LVM management
+                              </strong>
+                            </span>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="pf-c-table__expandable-row"
+                        data-ouia-component-id="OUIA-Generated-TableRow-21"
+                        data-ouia-component-type="PF4/TableRow"
+                        data-ouia-safe="true"
+                        hidden=""
+                      >
+                        <td
+                          class=""
+                        />
+                        <td
+                          class=""
+                        >
+                          <div>
+                            <span
+                              class="pf-c-label pf-m-red pf-m-compact"
+                              style="margin-top: 16px; margin-bottom: 4px;"
+                            >
+                              <span
+                                class="pf-c-label__content"
+                              >
+                                <span
+                                  class="pf-c-label__icon"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    fill="currentColor"
+                                    height="1em"
+                                    role="img"
+                                    style="vertical-align: -0.125em;"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                    />
+                                  </svg>
+                                </span>
+                                High risk
+                              </span>
+                            </span>
+                          </div>
+                          <div
+                            class="entry-title"
+                          >
+                            VDO devices migration to LVM management
+                          </div>
+                          <div>
+                            <div
+                              class="pf-l-grid pf-m-gutter entry-detail-title"
+                            >
+                              <div
+                                class="pf-l-grid__item pf-m-2-col entry-detail-content"
+                              >
+                                Summary
+                              </div>
+                              <div
+                                class="pf-l-grid__item pf-m-8-col-on-sm pf-m-5-col-on-xl pf-m-5-col-on-2xl"
+                                l="6"
+                                m="7"
+                              >
+                                VDO devices 'vda, vda1, vda2' require migration to LVM management.After performing the upgrade VDO devices can only be managed via LVM. Any VDO device not currently managed by LVM must be converted to LVM management before upgrading. The data on any VDO device not converted to LVM management will be inaccessible after upgrading.
+                              </div>
+                            </div>
+                            <div
+                              class="pf-l-grid pf-m-gutter entry-detail-title"
+                            >
+                              <div
+                                class="pf-l-grid__item pf-m-2-col entry-detail-content"
+                              >
+                                Remediation
+                              </div>
+                              <div
+                                class="pf-l-grid__item pf-m-8-col-on-sm pf-m-5-col-on-xl pf-m-5-col-on-2xl"
+                                l="6"
+                                m="7"
+                              >
+                                <div>
+                                  <span
+                                    style="font-family: overpass-mono;"
+                                  >
+                                    [hint] Consult the VDO to LVM conversion process documentation for how to perform the conversion.
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="pf-l-grid pf-m-gutter entry-detail-title"
+                            >
+                              <div
+                                class="pf-l-grid__item pf-m-2-col entry-detail-content"
+                              >
+                                Key
+                              </div>
+                              <div
+                                class="pf-l-grid__item pf-m-8-col-on-sm pf-m-5-col-on-xl pf-m-5-col-on-2xl"
+                                l="6"
+                                m="7"
+                              >
+                                f7c335398cc449f5d7baf4e73255d44c34ad2620
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr
+                        class=""
+                        data-ouia-component-id="OUIA-Generated-TableRow-22"
+                        data-ouia-component-type="PF4/TableRow"
+                        data-ouia-safe="true"
+                      >
+                        <td
+                          class="pf-c-table__toggle"
+                        >
+                          <button
+                            aria-disabled="false"
+                            aria-expanded="false"
+                            aria-label="Details"
+                            aria-labelledby="simple-node3 expand-toggle3"
+                            class="pf-c-button pf-m-plain"
+                            data-ouia-component-id="OUIA-Generated-Button-plain-5"
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe="true"
+                            id="expand-toggle3"
+                            type="button"
+                          >
+                            <div
+                              class="pf-c-table__toggle-icon"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 320 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
+                                />
+                              </svg>
+                            </div>
+                          </button>
+                        </td>
+                        <td
+                          class=""
+                        >
+                          <span>
+                            <span
+                              style="margin-right: 8px;"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                fill="#F0AB00"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 576 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              style="color: rgb(121, 80, 0);"
+                            >
+                              <strong>
+                                SElinux will be set to permissive mode
+                              </strong>
+                            </span>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="pf-c-table__expandable-row"
+                        data-ouia-component-id="OUIA-Generated-TableRow-23"
+                        data-ouia-component-type="PF4/TableRow"
+                        data-ouia-safe="true"
+                        hidden=""
+                      >
+                        <td
+                          class=""
+                        />
+                        <td
+                          class=""
+                        >
+                          <div>
+                            <span
+                              class="pf-c-label pf-m-orange pf-m-compact"
+                              style="margin-top: 16px; margin-bottom: 4px;"
+                            >
+                              <span
+                                class="pf-c-label__content"
+                              >
+                                <span
+                                  class="pf-c-label__icon"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    fill="currentColor"
+                                    height="1em"
+                                    role="img"
+                                    style="vertical-align: -0.125em;"
+                                    viewBox="0 0 576 512"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                    />
+                                  </svg>
+                                </span>
+                                Low risk
+                              </span>
+                            </span>
+                          </div>
+                          <div
+                            class="entry-title"
+                          >
+                            SElinux will be set to permissive mode
+                          </div>
+                          <div>
+                            <div
+                              class="pf-l-grid pf-m-gutter entry-detail-title"
+                            >
+                              <div
+                                class="pf-l-grid__item pf-m-2-col entry-detail-content"
+                              >
+                                Summary
+                              </div>
+                              <div
+                                class="pf-l-grid__item pf-m-8-col-on-sm pf-m-5-col-on-xl pf-m-5-col-on-2xl"
+                                l="6"
+                                m="7"
+                              >
+                                SElinux will be set to permissive mode. Current mode: enforcing. This action is required by the upgrade process to make sure the upgraded system can boot without beinig blocked by SElinux rules.
+                              </div>
+                            </div>
+                            <div
+                              class="pf-l-grid pf-m-gutter entry-detail-title"
+                            >
+                              <div
+                                class="pf-l-grid__item pf-m-2-col entry-detail-content"
+                              >
+                                Remediation
+                              </div>
+                              <div
+                                class="pf-l-grid__item pf-m-8-col-on-sm pf-m-5-col-on-xl pf-m-5-col-on-2xl"
+                                l="6"
+                                m="7"
+                              >
+                                <div>
+                                  <span
+                                    style="font-family: overpass-mono;"
+                                  >
+                                    [hint] Make sure there are no SElinux related warnings after the upgrade and enable SElinux manually afterwards. Notice: You can ignore the "/root/tmp_leapp_py3" SElinux warnings.
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="pf-l-grid pf-m-gutter entry-detail-title"
+                            >
+                              <div
+                                class="pf-l-grid__item pf-m-2-col entry-detail-content"
+                              >
+                                Key
+                              </div>
+                              <div
+                                class="pf-l-grid__item pf-m-8-col-on-sm pf-m-5-col-on-xl pf-m-5-col-on-2xl"
+                                l="6"
+                                m="7"
+                              >
+                                39d7183dafba798aa4bbb1e70b0ef2bbe5b1772f
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr
+                        class=""
+                        data-ouia-component-id="OUIA-Generated-TableRow-24"
+                        data-ouia-component-type="PF4/TableRow"
+                        data-ouia-safe="true"
+                      >
+                        <td
+                          class="pf-c-table__toggle"
+                        >
+                          <button
+                            aria-disabled="false"
+                            aria-expanded="false"
+                            aria-label="Details"
+                            aria-labelledby="simple-node4 expand-toggle4"
+                            class="pf-c-button pf-m-plain"
+                            data-ouia-component-id="OUIA-Generated-Button-plain-6"
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe="true"
+                            id="expand-toggle4"
+                            type="button"
+                          >
+                            <div
+                              class="pf-c-table__toggle-icon"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 320 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
+                                />
+                              </svg>
+                            </div>
+                          </button>
+                        </td>
+                        <td
+                          class=""
+                        >
+                          <span>
+                            <span
+                              style="margin-right: 8px;"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                fill="#2B9AF3"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 512 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              style="color: rgb(0, 41, 82);"
+                            >
+                              <strong>
+                                SElinux relabeling will be scheduled
+                              </strong>
+                            </span>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="pf-c-table__expandable-row"
+                        data-ouia-component-id="OUIA-Generated-TableRow-25"
+                        data-ouia-component-type="PF4/TableRow"
+                        data-ouia-safe="true"
+                        hidden=""
+                      >
+                        <td
+                          class=""
+                        />
+                        <td
+                          class=""
+                        >
+                          <div>
+                            <span
+                              class="pf-c-label pf-m-blue pf-m-compact"
+                              style="margin-top: 16px; margin-bottom: 4px;"
+                            >
+                              <span
+                                class="pf-c-label__content"
+                              >
+                                <span
+                                  class="pf-c-label__icon"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    fill="currentColor"
+                                    height="1em"
+                                    role="img"
+                                    style="vertical-align: -0.125em;"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"
+                                    />
+                                  </svg>
+                                </span>
+                                Info
+                              </span>
+                            </span>
+                          </div>
+                          <div
+                            class="entry-title"
+                          >
+                            SElinux relabeling will be scheduled
+                          </div>
+                          <div>
+                            <div
+                              class="pf-l-grid pf-m-gutter entry-detail-title"
+                            >
+                              <div
+                                class="pf-l-grid__item pf-m-2-col entry-detail-content"
+                              >
+                                Summary
+                              </div>
+                              <div
+                                class="pf-l-grid__item pf-m-8-col-on-sm pf-m-5-col-on-xl pf-m-5-col-on-2xl"
+                                l="6"
+                                m="7"
+                              >
+                                SElinux relabeling will be scheduled as the status is permissive/enforcing.
+                              </div>
+                            </div>
+                            <div
+                              class="pf-l-grid pf-m-gutter entry-detail-title"
+                            >
+                              <div
+                                class="pf-l-grid__item pf-m-2-col entry-detail-content"
+                              >
+                                Key
+                              </div>
+                              <div
+                                class="pf-l-grid__item pf-m-8-col-on-sm pf-m-5-col-on-xl pf-m-5-col-on-2xl"
+                                l="6"
+                                m="7"
+                              >
+                                8fb81863f8413bd617c2a55b69b8e10ff03d7c72
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+          <tbody
+            class=""
+            role="rowgroup"
+          >
+            <tr
+              class=""
+              data-ouia-component-id="OUIA-Generated-TableRow-26"
+              data-ouia-component-type="PF4/TableRow"
+              data-ouia-safe="true"
+            >
+              <td
+                class=""
+                data-key="0"
+              />
+              <td
+                class="pf-m-width-30"
+                data-key="1"
+                data-label="System name"
+              >
+                <a
+                  href="/insights/inventory/3262b268-23ed-4c5a-a918-d8c4923fdfbf"
+                >
+                  MG-test-device
+                </a>
+              </td>
+              <td
+                class="pf-m-width-10"
+                data-key="2"
+                data-label="Status"
+              >
+                Failure
+              </td>
+              <td
+                class="pf-m-width-35"
+                data-key="3"
+                data-label="Message"
+              >
+                <div
+                  class="pf-l-split"
+                >
+                  <div
+                    class="pf-l-split__item"
+                    style="padding-right: 8px;"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="#C9190B"
+                      height="1em"
+                      role="img"
+                      style="vertical-align: -0.125em;"
+                      viewBox="0 0 512 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="pf-l-split__item"
+                    style="padding-right: 16px;"
+                  >
+                    <span
+                      style="color: rgb(201, 25, 11);"
+                    >
+                      Alert
+                    </span>
+                  </div>
+                  <div
+                    class="pf-l-split__item"
+                    color="#A30000"
+                  >
+                    Task failed to complete for an unknown reason. Retry this task at a later time.
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+          <tbody
+            class=""
+            role="rowgroup"
+          >
+            <tr
+              class=""
+              data-ouia-component-id="OUIA-Generated-TableRow-27"
+              data-ouia-component-type="PF4/TableRow"
+              data-ouia-safe="true"
+            >
+              <td
+                class=""
+                data-key="0"
+              />
+              <td
+                class="pf-m-width-30"
+                data-key="1"
+                data-label="System name"
+              >
+                <a
+                  href="/insights/inventory/42438801-c384-491a-943b-f5f621f0c882"
+                >
+                  YL-test-device-85
+                </a>
+              </td>
+              <td
+                class="pf-m-width-10"
+                data-key="2"
+                data-label="Status"
+              >
+                Timeout
+              </td>
+              <td
+                class="pf-m-width-35"
+                data-key="3"
+                data-label="Message"
+              >
+                <div
+                  class="pf-l-split"
+                >
+                  <div
+                    class="pf-l-split__item"
+                    style="padding-right: 8px;"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="#C9190B"
+                      height="1em"
+                      role="img"
+                      style="vertical-align: -0.125em;"
+                      viewBox="0 0 512 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="pf-l-split__item"
+                    style="padding-right: 16px;"
+                  >
+                    <span
+                      style="color: rgb(201, 25, 11);"
+                    >
+                      Alert
+                    </span>
+                  </div>
+                  <div
+                    class="pf-l-split__item"
+                    color="#A30000"
+                  >
+                    Task failed to complete due to timing out. Retry this task at a later time.
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+          <tbody
+            class=""
+            role="rowgroup"
+          >
+            <tr
+              class=""
+              data-ouia-component-id="OUIA-Generated-TableRow-28"
+              data-ouia-component-type="PF4/TableRow"
+              data-ouia-safe="true"
+            >
+              <td
+                class="pf-c-table__toggle"
+                data-key="0"
+              >
+                <button
+                  aria-disabled="false"
+                  aria-expanded="false"
+                  aria-label="Details"
+                  aria-labelledby="simple-node5 expandable-toggle5"
+                  class="pf-c-button pf-m-plain"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-7"
+                  data-ouia-component-type="PF4/Button"
+                  data-ouia-safe="true"
+                  id="expandable-toggle5"
+                  type="button"
+                >
+                  <div
+                    class="pf-c-table__toggle-icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      style="vertical-align: -0.125em;"
+                      viewBox="0 0 320 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
+                      />
+                    </svg>
+                  </div>
+                </button>
+              </td>
+              <td
+                class="pf-m-width-30"
+                data-key="1"
+                data-label="System name"
+              >
+                <a
+                  href="/insights/inventory/f1356a99-754d-4219-9g25-fccb2cf29c99"
+                >
+                  dl-test-device-4
+                </a>
+              </td>
+              <td
+                class="pf-m-width-10"
+                data-key="2"
+                data-label="Status"
+              >
+                Success
+              </td>
+              <td
+                class="pf-m-width-35"
+                data-key="3"
+                data-label="Message"
+              >
+                <div
+                  class="pf-l-split"
+                >
+                  <div
+                    class="pf-l-split__item"
+                    style="padding-right: 8px;"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="#C9190B"
+                      height="1em"
+                      role="img"
+                      style="vertical-align: -0.125em;"
+                      viewBox="0 0 512 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="pf-l-split__item"
+                    style="padding-right: 16px;"
+                  >
+                    <span
+                      style="color: rgb(201, 25, 11);"
+                    >
+                      Alert
+                    </span>
+                  </div>
+                  <div
+                    class="pf-l-split__item"
+                    color="#A30000"
+                  >
+                    Your system has 1 inhibitor out of 4 potential problems
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="pf-c-table__expandable-row"
+              data-ouia-component-id="OUIA-Generated-TableRow-29"
+              data-ouia-component-type="PF4/TableRow"
+              data-ouia-safe="true"
+              hidden=""
+            >
+              <td
+                class=""
+                colspan="4"
+                data-key="0"
+                id="expanded-content6"
+              >
+                <div>
+                  <table
+                    class="pf-c-table pf-m-grid-md pf-m-compact"
+                    data-ouia-component-id="OUIA-Generated-Table-6"
+                    data-ouia-component-type="PF4/Table"
+                    data-ouia-safe="true"
+                    role="grid"
+                    style="margin-bottom: 30px; --pf-c-table__expandable-row--after--border-width--base: 0;"
+                  >
+                    <tbody
+                      class=""
+                      role="rowgroup"
+                    >
+                      <tr
+                        class=""
+                        data-ouia-component-id="OUIA-Generated-TableRow-30"
+                        data-ouia-component-type="PF4/TableRow"
+                        data-ouia-safe="true"
+                      >
+                        <td
+                          class="pf-c-table__toggle"
+                        >
+                          <button
+                            aria-disabled="false"
+                            aria-expanded="false"
+                            aria-label="Details"
+                            aria-labelledby="simple-node0 expand-toggle0"
+                            class="pf-c-button pf-m-plain"
+                            data-ouia-component-id="OUIA-Generated-Button-plain-8"
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe="true"
+                            id="expand-toggle0"
+                            type="button"
+                          >
+                            <div
+                              class="pf-c-table__toggle-icon"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 320 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
+                                />
+                              </svg>
+                            </div>
+                          </button>
+                        </td>
+                        <td
+                          class=""
+                        >
+                          <span>
+                            <span
+                              style="margin-right: 8px;"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                fill="#C9190B"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 512 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              style="color: rgb(163, 0, 0);"
+                            >
+                              <strong>
+                                Leapp could not identify where GRUB core is located
+                              </strong>
+                            </span>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="pf-c-table__expandable-row"
+                        data-ouia-component-id="OUIA-Generated-TableRow-31"
+                        data-ouia-component-type="PF4/TableRow"
+                        data-ouia-safe="true"
+                        hidden=""
+                      >
+                        <td
+                          class=""
+                        />
+                        <td
+                          class=""
+                        >
+                          <div>
+                            <span
+                              class="pf-c-label pf-m-red pf-m-compact"
+                              style="margin-top: 16px; margin-bottom: 4px;"
+                            >
+                              <span
+                                class="pf-c-label__content"
+                              >
+                                <span
+                                  class="pf-c-label__icon"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    fill="currentColor"
+                                    height="1em"
+                                    role="img"
+                                    style="vertical-align: -0.125em;"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                    />
+                                  </svg>
+                                </span>
+                                High risk
+                              </span>
+                            </span>
+                          </div>
+                          <div
+                            class="entry-title"
+                          >
+                            Leapp could not identify where GRUB core is located
+                          </div>
+                          <div>
+                            <div
+                              class="pf-l-grid pf-m-gutter entry-detail-title"
+                            >
+                              <div
+                                class="pf-l-grid__item pf-m-2-col entry-detail-content"
+                              >
+                                Summary
+                              </div>
+                              <div
+                                class="pf-l-grid__item pf-m-8-col-on-sm pf-m-5-col-on-xl pf-m-5-col-on-2xl"
+                                l="6"
+                                m="7"
+                              >
+                                We assume GRUB core is located on the same device as /boot. Leapp needs to update GRUB core as it is not done automatically on legacy (BIOS) systems. 
+                              </div>
+                            </div>
+                            <div
+                              class="pf-l-grid pf-m-gutter entry-detail-title"
+                            >
+                              <div
+                                class="pf-l-grid__item pf-m-2-col entry-detail-content"
+                              >
+                                Remediation
+                              </div>
+                              <div
+                                class="pf-l-grid__item pf-m-8-col-on-sm pf-m-5-col-on-xl pf-m-5-col-on-2xl"
+                                l="6"
+                                m="7"
+                              >
+                                <div>
+                                  <span
+                                    style="font-family: overpass-mono;"
+                                  >
+                                    [hint] Please run "grub2-install &lt;GRUB_DEVICE&gt; command manually after upgrade
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="pf-l-grid pf-m-gutter entry-detail-title"
+                            >
+                              <div
+                                class="pf-l-grid__item pf-m-2-col entry-detail-content"
+                              >
+                                Key
+                              </div>
+                              <div
+                                class="pf-l-grid__item pf-m-8-col-on-sm pf-m-5-col-on-xl pf-m-5-col-on-2xl"
+                                l="6"
+                                m="7"
+                              >
+                                ca7a1a66906a7df3da890aa538562708d3ea6ecd
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr
+                        class=""
+                        data-ouia-component-id="OUIA-Generated-TableRow-32"
+                        data-ouia-component-type="PF4/TableRow"
+                        data-ouia-safe="true"
+                      >
+                        <td
+                          class="pf-c-table__toggle"
+                        >
+                          <button
+                            aria-disabled="false"
+                            aria-expanded="false"
+                            aria-label="Details"
+                            aria-labelledby="simple-node1 expand-toggle1"
+                            class="pf-c-button pf-m-plain"
+                            data-ouia-component-id="OUIA-Generated-Button-plain-9"
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe="true"
+                            id="expand-toggle1"
+                            type="button"
+                          >
+                            <div
+                              class="pf-c-table__toggle-icon"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 320 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
+                                />
+                              </svg>
+                            </div>
+                          </button>
+                        </td>
+                        <td
+                          class=""
+                        >
+                          <span>
+                            <span
+                              style="margin-right: 8px;"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                fill="#F0AB00"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 576 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              style="color: rgb(121, 80, 0);"
+                            >
+                              <strong>
+                                SElinux will be set to permissive mode
+                              </strong>
+                            </span>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="pf-c-table__expandable-row"
+                        data-ouia-component-id="OUIA-Generated-TableRow-33"
+                        data-ouia-component-type="PF4/TableRow"
+                        data-ouia-safe="true"
+                        hidden=""
+                      >
+                        <td
+                          class=""
+                        />
+                        <td
+                          class=""
+                        >
+                          <div>
+                            <span
+                              class="pf-c-label pf-m-orange pf-m-compact"
+                              style="margin-top: 16px; margin-bottom: 4px;"
+                            >
+                              <span
+                                class="pf-c-label__content"
+                              >
+                                <span
+                                  class="pf-c-label__icon"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    fill="currentColor"
+                                    height="1em"
+                                    role="img"
+                                    style="vertical-align: -0.125em;"
+                                    viewBox="0 0 576 512"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                    />
+                                  </svg>
+                                </span>
+                                Low risk
+                              </span>
+                            </span>
+                          </div>
+                          <div
+                            class="entry-title"
+                          >
+                            SElinux will be set to permissive mode
+                          </div>
+                          <div>
+                            <div
+                              class="pf-l-grid pf-m-gutter entry-detail-title"
+                            >
+                              <div
+                                class="pf-l-grid__item pf-m-2-col entry-detail-content"
+                              >
+                                Summary
+                              </div>
+                              <div
+                                class="pf-l-grid__item pf-m-8-col-on-sm pf-m-5-col-on-xl pf-m-5-col-on-2xl"
+                                l="6"
+                                m="7"
+                              >
+                                SElinux will be set to permissive mode. Current mode: enforcing. This action is required by the upgrade process to make sure the upgraded system can boot without beinig blocked by SElinux rules.
+                              </div>
+                            </div>
+                            <div
+                              class="pf-l-grid pf-m-gutter entry-detail-title"
+                            >
+                              <div
+                                class="pf-l-grid__item pf-m-2-col entry-detail-content"
+                              >
+                                Remediation
+                              </div>
+                              <div
+                                class="pf-l-grid__item pf-m-8-col-on-sm pf-m-5-col-on-xl pf-m-5-col-on-2xl"
+                                l="6"
+                                m="7"
+                              >
+                                <div>
+                                  <span
+                                    style="font-family: overpass-mono;"
+                                  >
+                                    [hint] Make sure there are no SElinux related warnings after the upgrade and enable SElinux manually afterwards. Notice: You can ignore the "/root/tmp_leapp_py3" SElinux warnings.
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="pf-l-grid pf-m-gutter entry-detail-title"
+                            >
+                              <div
+                                class="pf-l-grid__item pf-m-2-col entry-detail-content"
+                              >
+                                Key
+                              </div>
+                              <div
+                                class="pf-l-grid__item pf-m-8-col-on-sm pf-m-5-col-on-xl pf-m-5-col-on-2xl"
+                                l="6"
+                                m="7"
+                              >
+                                39d7183dafba798aa4bbb1e70b0ef2bbe5b1772f
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr
+                        class=""
+                        data-ouia-component-id="OUIA-Generated-TableRow-34"
+                        data-ouia-component-type="PF4/TableRow"
+                        data-ouia-safe="true"
+                      >
+                        <td
+                          class="pf-c-table__toggle"
+                        >
+                          <button
+                            aria-disabled="false"
+                            aria-expanded="false"
+                            aria-label="Details"
+                            aria-labelledby="simple-node2 expand-toggle2"
+                            class="pf-c-button pf-m-plain"
+                            data-ouia-component-id="OUIA-Generated-Button-plain-10"
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe="true"
+                            id="expand-toggle2"
+                            type="button"
+                          >
+                            <div
+                              class="pf-c-table__toggle-icon"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 320 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
+                                />
+                              </svg>
+                            </div>
+                          </button>
+                        </td>
+                        <td
+                          class=""
+                        >
+                          <span>
+                            <span
+                              style="margin-right: 8px;"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                fill="#F0AB00"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 576 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              style="color: rgb(121, 80, 0);"
+                            >
+                              <strong>
+                                The subscription-manager release is going to be set after the upgrade
+                              </strong>
+                            </span>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="pf-c-table__expandable-row"
+                        data-ouia-component-id="OUIA-Generated-TableRow-35"
+                        data-ouia-component-type="PF4/TableRow"
+                        data-ouia-safe="true"
+                        hidden=""
+                      >
+                        <td
+                          class=""
+                        />
+                        <td
+                          class=""
+                        >
+                          <div>
+                            <span
+                              class="pf-c-label pf-m-orange pf-m-compact"
+                              style="margin-top: 16px; margin-bottom: 4px;"
+                            >
+                              <span
+                                class="pf-c-label__content"
+                              >
+                                <span
+                                  class="pf-c-label__icon"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    fill="currentColor"
+                                    height="1em"
+                                    role="img"
+                                    style="vertical-align: -0.125em;"
+                                    viewBox="0 0 576 512"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                    />
+                                  </svg>
+                                </span>
+                                Low risk
+                              </span>
+                            </span>
+                          </div>
+                          <div
+                            class="entry-title"
+                          >
+                            The subscription-manager release is going to be set after the upgrade
+                          </div>
+                          <div>
+                            <div
+                              class="pf-l-grid pf-m-gutter entry-detail-title"
+                            >
+                              <div
+                                class="pf-l-grid__item pf-m-2-col entry-detail-content"
+                              >
+                                Summary
+                              </div>
+                              <div
+                                class="pf-l-grid__item pf-m-8-col-on-sm pf-m-5-col-on-xl pf-m-5-col-on-2xl"
+                                l="6"
+                                m="7"
+                              >
+                                After the upgrade has completed the release of the subscription-manager will be set to 9.0. This will ensure that you will receive and keep the version you choose to upgrade to.
+                              </div>
+                            </div>
+                            <div
+                              class="pf-l-grid pf-m-gutter entry-detail-title"
+                            >
+                              <div
+                                class="pf-l-grid__item pf-m-2-col entry-detail-content"
+                              >
+                                Remediation
+                              </div>
+                              <div
+                                class="pf-l-grid__item pf-m-8-col-on-sm pf-m-5-col-on-xl pf-m-5-col-on-2xl"
+                                l="6"
+                                m="7"
+                              >
+                                <div>
+                                  <span
+                                    style="font-family: overpass-mono;"
+                                  >
+                                    [hint] If you wish to receive updates for the latest released version of the target system, run \`subscription-manager release --unset\` after the upgrade.
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="pf-l-grid pf-m-gutter entry-detail-title"
+                            >
+                              <div
+                                class="pf-l-grid__item pf-m-2-col entry-detail-content"
+                              >
+                                Key
+                              </div>
+                              <div
+                                class="pf-l-grid__item pf-m-8-col-on-sm pf-m-5-col-on-xl pf-m-5-col-on-2xl"
+                                l="6"
+                                m="7"
+                              >
+                                747a4ca25303eda17d1891bb85eeb226be14f252
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr
+                        class=""
+                        data-ouia-component-id="OUIA-Generated-TableRow-36"
+                        data-ouia-component-type="PF4/TableRow"
+                        data-ouia-safe="true"
+                      >
+                        <td
+                          class="pf-c-table__toggle"
+                        >
+                          <button
+                            aria-disabled="false"
+                            aria-expanded="false"
+                            aria-label="Details"
+                            aria-labelledby="simple-node3 expand-toggle3"
+                            class="pf-c-button pf-m-plain"
+                            data-ouia-component-id="OUIA-Generated-Button-plain-11"
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe="true"
+                            id="expand-toggle3"
+                            type="button"
+                          >
+                            <div
+                              class="pf-c-table__toggle-icon"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 320 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
+                                />
+                              </svg>
+                            </div>
+                          </button>
+                        </td>
+                        <td
+                          class=""
+                        >
+                          <span>
+                            <span
+                              style="margin-right: 8px;"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                fill="#2B9AF3"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 512 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              style="color: rgb(0, 41, 82);"
+                            >
+                              <strong>
+                                SElinux relabeling will be scheduled
+                              </strong>
+                            </span>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr
+                        class="pf-c-table__expandable-row"
+                        data-ouia-component-id="OUIA-Generated-TableRow-37"
+                        data-ouia-component-type="PF4/TableRow"
+                        data-ouia-safe="true"
+                        hidden=""
+                      >
+                        <td
+                          class=""
+                        />
+                        <td
+                          class=""
+                        >
+                          <div>
+                            <span
+                              class="pf-c-label pf-m-blue pf-m-compact"
+                              style="margin-top: 16px; margin-bottom: 4px;"
+                            >
+                              <span
+                                class="pf-c-label__content"
+                              >
+                                <span
+                                  class="pf-c-label__icon"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    fill="currentColor"
+                                    height="1em"
+                                    role="img"
+                                    style="vertical-align: -0.125em;"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"
+                                    />
+                                  </svg>
+                                </span>
+                                Info
+                              </span>
+                            </span>
+                          </div>
+                          <div
+                            class="entry-title"
+                          >
+                            SElinux relabeling will be scheduled
+                          </div>
+                          <div>
+                            <div
+                              class="pf-l-grid pf-m-gutter entry-detail-title"
+                            >
+                              <div
+                                class="pf-l-grid__item pf-m-2-col entry-detail-content"
+                              >
+                                Summary
+                              </div>
+                              <div
+                                class="pf-l-grid__item pf-m-8-col-on-sm pf-m-5-col-on-xl pf-m-5-col-on-2xl"
+                                l="6"
+                                m="7"
+                              >
+                                SElinux relabeling will be scheduled as the status is permissive/enforcing.
+                              </div>
+                            </div>
+                            <div
+                              class="pf-l-grid pf-m-gutter entry-detail-title"
+                            >
+                              <div
+                                class="pf-l-grid__item pf-m-2-col entry-detail-content"
+                              >
+                                Key
+                              </div>
+                              <div
+                                class="pf-l-grid__item pf-m-8-col-on-sm pf-m-5-col-on-xl pf-m-5-col-on-2xl"
+                                l="6"
+                                m="7"
+                              >
+                                8fb81863f8413bd617c2a55b69b8e10ff03d7c72
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div
+          class="pf-c-toolbar ins-c-table__toolbar ins-m-footer"
+          data-ouia-component-id="OUIA-Generated-RHI/TableToolbar-true-2"
+          data-ouia-component-type="RHI/TableToolbar"
+          data-ouia-safe="true"
+          id="pf-random-id-3"
+        >
+          <div
+            class="pf-c-pagination pf-m-bottom"
+            data-ouia-component-id="OUIA-Generated-Pagination-bottom-2"
+            data-ouia-component-type="PF4/Pagination"
+            data-ouia-safe="true"
+            id="pagination-options-menu-3"
+            style="--pf-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
+          >
+            <div
+              class="pf-c-options-menu pf-m-top"
+              data-ouia-component-type="PF4/PaginationOptionsMenu"
+              data-ouia-safe="true"
+            >
+              <div
+                class="pf-c-options-menu__toggle pf-m-plain pf-m-text"
+              >
+                <span
+                  class="pf-c-options-menu__toggle-text"
+                >
+                  <b>
+                    1 - 5
+                  </b>
+                   of 
+                  <b>
+                    5
+                  </b>
+                   
+                </span>
+                <button
+                  aria-expanded="false"
+                  aria-label="Items per page"
+                  class="  pf-c-options-menu__toggle-button"
+                  data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
+                  data-ouia-component-type="PF4/DropdownToggle"
+                  data-ouia-safe="true"
+                  id="pagination-options-menu-toggle-3"
+                  type="button"
+                >
+                  <span
+                    class="pf-c-options-menu__toggle-button-icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      style="vertical-align: -0.125em;"
+                      viewBox="0 0 320 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <nav
+              aria-label="Pagination"
+              class="pf-c-pagination__nav"
+            >
+              <div
+                class="pf-c-pagination__nav-control pf-m-first"
+              >
+                <button
+                  aria-disabled="true"
+                  aria-label="Go to first page"
+                  class="pf-c-button pf-m-plain pf-m-disabled"
+                  data-action="first"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-9"
+                  data-ouia-component-type="PF4/Button"
+                  data-ouia-safe="true"
+                  disabled=""
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="currentColor"
+                    height="1em"
+                    role="img"
+                    style="vertical-align: -0.125em;"
+                    viewBox="0 0 448 512"
+                    width="1em"
+                  >
+                    <path
+                      d="M223.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L319.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L393.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34zm-192 34l136 136c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9L127.9 256l96.4-96.4c9.4-9.4 9.4-24.6 0-33.9L201.7 103c-9.4-9.4-24.6-9.4-33.9 0l-136 136c-9.5 9.4-9.5 24.6-.1 34z"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div
+                class="pf-c-pagination__nav-control"
+              >
+                <button
+                  aria-disabled="true"
+                  aria-label="Go to previous page"
+                  class="pf-c-button pf-m-plain pf-m-disabled"
+                  data-action="previous"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-10"
+                  data-ouia-component-type="PF4/Button"
+                  data-ouia-safe="true"
+                  disabled=""
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="currentColor"
+                    height="1em"
+                    role="img"
+                    style="vertical-align: -0.125em;"
+                    viewBox="0 0 256 512"
+                    width="1em"
+                  >
+                    <path
+                      d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div
+                class="pf-c-pagination__nav-page-select"
+              >
+                <input
+                  aria-label="Current page"
+                  class="pf-c-form-control"
+                  disabled=""
+                  max="1"
+                  min="1"
+                  type="number"
+                  value="1"
+                />
+                <span
+                  aria-hidden="true"
+                >
+                  of 1
+                </span>
+              </div>
+              <div
+                class="pf-c-pagination__nav-control"
+              >
+                <button
+                  aria-disabled="true"
+                  aria-label="Go to next page"
+                  class="pf-c-button pf-m-plain pf-m-disabled"
+                  data-action="next"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-11"
+                  data-ouia-component-type="PF4/Button"
+                  data-ouia-safe="true"
+                  disabled=""
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="currentColor"
+                    height="1em"
+                    role="img"
+                    style="vertical-align: -0.125em;"
+                    viewBox="0 0 256 512"
+                    width="1em"
+                  >
+                    <path
+                      d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div
+                class="pf-c-pagination__nav-control pf-m-last"
+              >
+                <button
+                  aria-disabled="true"
+                  aria-label="Go to last page"
+                  class="pf-c-button pf-m-plain pf-m-disabled"
+                  data-action="last"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-12"
+                  data-ouia-component-type="PF4/Button"
+                  data-ouia-safe="true"
+                  disabled=""
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="currentColor"
+                    height="1em"
+                    role="img"
+                    style="vertical-align: -0.125em;"
+                    viewBox="0 0 448 512"
+                    width="1em"
+                  >
+                    <path
+                      d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </nav>
+          </div>
+          <div
+            class="pf-c-toolbar__content pf-m-hidden"
+            hidden=""
+          >
+            <div
+              class="pf-c-toolbar__group"
+            />
+          </div>
+        </div>
       </article>
     </section>
   </div>

@@ -147,7 +147,7 @@ const CompletedTaskDetails = () => {
                 <FlexItem>
                   <PageHeaderTitle title={completedTaskDetails.task_title} />
                 </FlexItem>
-                <FlexItem>{completedTaskDetails.description}</FlexItem>
+                <FlexItem>{completedTaskDetails.task_description}</FlexItem>
               </Flex>
               <FlexibleFlex
                 data={completedTaskDetails}

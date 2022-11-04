@@ -43,7 +43,7 @@ describe('CompletedTaskDetails', () => {
     jest.clearAllMocks();
   });
 
-  it.skip('should render correctly completed', async () => {
+  it('should render correctly completed', async () => {
     fetchExecutedTask.mockImplementation(async () => {
       return log4j_task;
     });
@@ -52,7 +52,7 @@ describe('CompletedTaskDetails', () => {
       return { data: log4j_task_jobs };
     });
 
-    render(
+    const { asFragment } = render(
       <MemoryRouter keyLength={0}>
         <Provider store={store}>
           <CompletedTaskDetails />
@@ -60,18 +60,12 @@ describe('CompletedTaskDetails', () => {
       </MemoryRouter>
     );
 
-    await waitFor(() =>
-      expect(screen.getByLabelText('42-completed-jobs')).toBeInTheDocument()
-    );
-
-    await waitFor(() => {
-      expect(screen.findByText('This was a success.')).toBeInTheDocument();
-      expect(screen.findByText('This was a failure.')).toBeInTheDocument();
-      expect(screen.findByText('This timed out. Whoops!')).toBeInTheDocument();
-    });
+    await waitFor(() => expect(fetchExecutedTask).toHaveBeenCalled());
+    await waitFor(() => expect(fetchExecutedTaskJobs).toHaveBeenCalled());
+    await waitFor(() => expect(asFragment()).toMatchSnapshot());
   });
 
-  it.skip('should render expandable rows correctly', async () => {
+  it('should render expandable rows correctly', async () => {
     fetchExecutedTask.mockImplementation(async () => {
       return upgrade_leapp_task;
     });
@@ -88,6 +82,8 @@ describe('CompletedTaskDetails', () => {
       </MemoryRouter>
     );
 
+    await waitFor(() => expect(fetchExecutedTask).toHaveBeenCalled());
+    await waitFor(() => expect(fetchExecutedTaskJobs).toHaveBeenCalled());
     await waitFor(() => expect(asFragment()).toMatchSnapshot());
   });
 

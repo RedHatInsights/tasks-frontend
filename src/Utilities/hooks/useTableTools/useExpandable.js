@@ -41,7 +41,7 @@ const calculateColSpan = (columns, options) => {
 };
 
 const childRowForJob = (item, idx, DetailsComponent, colSpan, parentIndex) => ({
-  parent: idx + parentIndex,
+  parent: parentIndex,
   fullWidth: true,
   cells: [
     {

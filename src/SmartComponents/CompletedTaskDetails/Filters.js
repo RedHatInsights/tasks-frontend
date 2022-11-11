@@ -3,7 +3,7 @@ import { conditionalFilterType } from '@redhat-cloud-services/frontend-component
 export const systemFilter = [
   {
     type: conditionalFilterType.text,
-    label: 'System',
+    label: 'Name',
     filter: (jobs, value) =>
       jobs.filter((job) =>
         job.display_name

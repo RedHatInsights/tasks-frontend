@@ -35,6 +35,10 @@ describe('TasksPage', () => {
   });
 
   it('should update tab index', async () => {
+    fetchAvailableTasks.mockImplementation(async () => {
+      return { data: [] };
+    });
+
     fetchExecutedTasks.mockImplementation(async () => {
       return { meta: { count: 0 }, data: [] };
     });
@@ -48,13 +52,11 @@ describe('TasksPage', () => {
       </MemoryRouter>
     );
 
+    await waitFor(() => expect(fetchAvailableTasks).toHaveBeenCalled());
     await userEvent.click(screen.getByText('Activity'));
+    await waitFor(() => expect(fetchExecutedTasks).toHaveBeenCalled());
     await waitFor(() =>
       expect(screen.getByLabelText('activity')).toBeInTheDocument()
-    );
-    await userEvent.click(screen.getByText('Available'));
-    await waitFor(() =>
-      expect(screen.getByLabelText('available-tasks')).toBeInTheDocument()
     );
   });
 });

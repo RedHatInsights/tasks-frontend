@@ -27,14 +27,12 @@ const TasksPage = ({ tab }) => {
   const [error, setError] = useState();
 
   useEffect(() => {
-    if (tab === 0) {
-      history.push('available');
-    }
-  }, []);
+    setTab(tab);
+    setRunTaskModalOpened(false);
+  }, [tab]);
 
   const updateTab = (event, index) => {
     history.push(index ? 'executed' : 'available');
-    setTab(index);
   };
 
   const openTaskModal = async (value, slug) => {

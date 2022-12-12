@@ -131,8 +131,10 @@ describe('CompletedTaskDetails', () => {
     );
 
     await waitFor(async () => {
+      expect(fetchExecutedTask).toHaveBeenCalled();
+      expect(fetchExecutedTaskJobs).toHaveBeenCalled();
       userEvent.click(screen.getByLabelText('Conditional filter'));
-      userEvent.click(screen.getByText('System'));
+      userEvent.click(screen.getByText('Name'));
       const input = screen.getByLabelText('text input');
       await waitFor(() => fireEvent.change(input, { target: { value: 'A' } }));
       expect(input.value).toBe('A');
@@ -140,6 +142,14 @@ describe('CompletedTaskDetails', () => {
   });
 
   it('should remove system name filter', async () => {
+    fetchExecutedTask.mockImplementation(async () => {
+      return log4j_task;
+    });
+
+    fetchExecutedTaskJobs.mockImplementation(async () => {
+      return { data: log4j_task_jobs };
+    });
+
     render(
       <MemoryRouter keyLength={0}>
         <Provider store={store}>
@@ -149,8 +159,10 @@ describe('CompletedTaskDetails', () => {
     );
 
     await waitFor(async () => {
+      expect(fetchExecutedTask).toHaveBeenCalled();
+      expect(fetchExecutedTaskJobs).toHaveBeenCalled();
       userEvent.click(screen.getByLabelText('Conditional filter'));
-      userEvent.click(screen.getByText('System'));
+      userEvent.click(screen.getByText('Name'));
       const input = screen.getByLabelText('text input');
       await waitFor(() => fireEvent.change(input, { target: { value: 'A' } }));
       expect(input.value).toBe('A');
@@ -176,6 +188,10 @@ describe('CompletedTaskDetails', () => {
       </MemoryRouter>
     );
 
+    await waitFor(() => expect(fetchExecutedTask).toHaveBeenCalled());
+    await waitFor(() => expect(fetchExecutedTaskJobs).toHaveBeenCalled());
+    userEvent.click(screen.getByLabelText('Conditional filter'));
+    userEvent.click(screen.getAllByText('Status')[0]);
     await waitFor(() => userEvent.click(screen.getByLabelText('Options menu')));
     await waitFor(() => userEvent.click(screen.getAllByText('Success')[0]));
     await waitFor(() =>

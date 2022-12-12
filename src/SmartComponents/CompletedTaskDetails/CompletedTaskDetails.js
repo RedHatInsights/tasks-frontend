@@ -184,7 +184,7 @@ const CompletedTaskDetails = () => {
                   columns={columns}
                   items={completedTaskJobs}
                   filters={{
-                    filterConfig: [...statusFilters, ...systemFilter],
+                    filterConfig: [...systemFilter, ...statusFilters],
                   }}
                   options={{
                     ...TASKS_TABLE_DEFAULTS,

@@ -14,14 +14,9 @@ const buildFilterString = (filters) => {
     ? `&display_name=${filters.hostnameOrId}`
     : '';
 
-  let osFilter = '';
-  for (const majorVer in filters.osFilter) {
-    for (const majMinVer in filters.osFilter[majorVer]) {
-      if (filters.osFilter[majorVer][majMinVer]) {
-        osFilter += `&os_version=${majMinVer}`;
-      }
-    }
-  }
+  let osFilter = filters.osFilter?.length
+    ? '&os_version=' + filters.osFilter.join(',')
+    : '';
 
   return `${displayNameFilter}${osFilter}`;
 };

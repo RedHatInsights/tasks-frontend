@@ -1,3 +1,4 @@
+import React from 'react';
 import { entitiesReducer } from '../../store/index';
 
 export const systemColumns = [
@@ -6,6 +7,13 @@ export const systemColumns = [
     sortKey: 'display_name',
     props: { width: 20 },
     title: 'Name',
+    renderFunc: (name, id) => {
+      return (
+        <a rel="noreferrer" target="_blank" href={`/insights/inventory/${id}`}>
+          {name}
+        </a>
+      );
+    },
   },
   'tags',
   {

@@ -2,21 +2,11 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { renderColumnComponent } from '../../Utilities/helpers';
 import SplitMessages from '../../PresentationalComponents/SplitMessages/SplitMessages';
+import { createSystemLink } from '../../helpers';
 
 const SystemNameCell = ({ system, display_name }, index) => {
   if (display_name) {
-    return (
-      <a
-        key={`system-title-${index}`}
-        href={
-          insights.chrome.isBeta()
-            ? `/beta/insights/inventory/${system}`
-            : `/insights/inventory/${system}`
-        }
-      >
-        {display_name}
-      </a>
-    );
+    return createSystemLink(system, display_name, `system-title-${index}`);
   } else {
     return <span style={{ color: '#72767B' }}>System deleted</span>;
   }

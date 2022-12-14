@@ -1,5 +1,5 @@
-import React from 'react';
 import { entitiesReducer } from '../../store/index';
+import { createSystemLink } from '../../helpers';
 
 export const systemColumns = [
   {
@@ -8,11 +8,7 @@ export const systemColumns = [
     props: { width: 20 },
     title: 'Name',
     renderFunc: (name, id) => {
-      return (
-        <a rel="noreferrer" target="_blank" href={`/insights/inventory/${id}`}>
-          {name}
-        </a>
-      );
+      return createSystemLink(id, name, `system-name-${id}`);
     },
   },
   'tags',

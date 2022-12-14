@@ -703,6 +703,8 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
               >
                 <a
                   href="/insights/inventory/f1356a99-754d-4219-9g25-fccb2cc6e2f2"
+                  rel="noreferrer"
+                  target="_blank"
                 >
                   dl-test-device-2
                 </a>
@@ -744,6 +746,8 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
               >
                 <a
                   href="/insights/inventory/3262b268-23ed-4c5a-a918-d8c4923fdfbf"
+                  rel="noreferrer"
+                  target="_blank"
                 >
                   MG-test-device
                 </a>
@@ -813,6 +817,8 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
               >
                 <a
                   href="/insights/inventory/42438801-c384-491a-943b-f5f621f0c882"
+                  rel="noreferrer"
+                  target="_blank"
                 >
                   YL-test-device-85
                 </a>
@@ -1803,6 +1809,8 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
               >
                 <a
                   href="/insights/inventory/f1356a99-754d-4219-9g25-fccb2cc6e2f2"
+                  rel="noreferrer"
+                  target="_blank"
                 >
                   dl-test-device-2
                 </a>
@@ -1882,6 +1890,8 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
               >
                 <a
                   href="/insights/inventory/f1356a99-754d-4219-9g25-fccb2cc53bee"
+                  rel="noreferrer"
+                  target="_blank"
                 >
                   dl-test-device-3
                 </a>
@@ -2859,6 +2869,8 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
               >
                 <a
                   href="/insights/inventory/3262b268-23ed-4c5a-a918-d8c4923fdfbf"
+                  rel="noreferrer"
+                  target="_blank"
                 >
                   MG-test-device
                 </a>
@@ -2937,6 +2949,8 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
               >
                 <a
                   href="/insights/inventory/42438801-c384-491a-943b-f5f621f0c882"
+                  rel="noreferrer"
+                  target="_blank"
                 >
                   YL-test-device-85
                 </a>
@@ -3046,6 +3060,8 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
               >
                 <a
                   href="/insights/inventory/f1356a99-754d-4219-9g25-fccb2cf29c99"
+                  rel="noreferrer"
+                  target="_blank"
                 >
                   dl-test-device-4
                 </a>

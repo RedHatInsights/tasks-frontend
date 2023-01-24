@@ -4,8 +4,8 @@ import { MemoryRouter } from 'react-router-dom';
 
 import TasksTables from '../TasksTables';
 import { emptyRows } from '../../../../../PresentationalComponents/NoResultsTable/NoResultsTable';
-import { completedTasksTableItems } from './TasksTable.fixtures';
-import columns from '../../../../../SmartComponents/CompletedTasksTable/Columns';
+import { activityTableItems } from './TasksTable.fixtures';
+import columns from '../../../../../SmartComponents/ActivityTable/Columns';
 
 describe('TasksTables', () => {
   let props;
@@ -14,7 +14,7 @@ describe('TasksTables', () => {
     props = {
       label: 'table',
       ouiaId: 'ouia-table',
-      items: completedTasksTableItems.data,
+      items: activityTableItems.data,
       columns: columns,
     };
   });

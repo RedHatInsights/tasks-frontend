@@ -13,7 +13,7 @@ import {
 } from '../../constants';
 import FlexibleFlex from '../../PresentationalComponents/FlexibleFlex/FlexibleFlex';
 import AvailableTasks from '../AvailableTasks/AvailableTasks';
-import CompletedTasksTable from '../../SmartComponents/CompletedTasksTable/CompletedTasksTable';
+import ActivityTable from '../../SmartComponents/ActivityTable/ActivityTable';
 import { fetchAvailableTask } from '../../../api';
 import { dispatchNotification } from '../../Utilities/Dispatcher';
 
@@ -82,7 +82,7 @@ const TasksPage = ({ tab }) => {
             {tabIndex === 0 ? (
               <AvailableTasks openTaskModal={openTaskModal} />
             ) : (
-              <CompletedTasksTable openTaskModal={openTaskModal} />
+              <ActivityTable openTaskModal={openTaskModal} />
             )}
           </StackItem>
         </Stack>

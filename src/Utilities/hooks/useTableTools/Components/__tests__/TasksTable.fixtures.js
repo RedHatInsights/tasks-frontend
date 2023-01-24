@@ -1,4 +1,4 @@
-export const completedTasksTableItems = {
+export const activityTableItems = {
   meta: { count: 2 },
   data: [
     {

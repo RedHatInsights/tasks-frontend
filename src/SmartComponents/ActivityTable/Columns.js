@@ -2,6 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { renderColumnComponent } from '../../Utilities/helpers';
+import { CheckCircleIcon, InProgressIcon } from '@patternfly/react-icons';
 
 const TaskNameCell = ({ id, task_title }, index) => (
   <Link key={`task-title-${index}`} to={`/executed/${id}`}>
@@ -15,10 +16,30 @@ TaskNameCell.propTypes = {
   index: propTypes.number,
 };
 
+const StatusCell = ({ status }) =>
+  ({
+    Completed: (
+      <span style={{ color: '#3E8635', display: 'flex', alignItems: 'center' }}>
+        <CheckCircleIcon color="#3E8635" style={{ marginRight: '4px' }} />
+        {status}
+      </span>
+    ),
+    Running: (
+      <span style={{ color: '#2B9AF3', display: 'flex', alignItems: 'center' }}>
+        <InProgressIcon color="#2B9AF3" style={{ marginRight: '4px' }} />
+        {status}
+      </span>
+    ),
+  }[status] || status);
+
+StatusCell.propTypes = {
+  status: propTypes.string,
+};
+
 export const TaskColumn = {
   title: 'Task',
   props: {
-    width: 35,
+    width: 25,
   },
   sortByProp: 'task_title',
   renderExport: (task) => task.task_title,
@@ -28,10 +49,20 @@ export const TaskColumn = {
 export const SystemsCountColumn = {
   title: 'Systems',
   props: {
-    width: 20,
+    width: 10,
   },
   sortByProp: 'systems_count',
   renderExport: (task) => task.systems_count,
+};
+
+export const StatusColumn = {
+  title: 'Status',
+  props: {
+    width: 10,
+  },
+  sortByProp: 'status',
+  renderExport: (task) => task.status,
+  renderFunc: renderColumnComponent(StatusCell),
 };
 
 export const RunDateTimeColumn = {
@@ -47,7 +78,13 @@ export const RunDateTimeColumn = {
 export const exportableColumns = [
   TaskColumn,
   SystemsCountColumn,
+  StatusColumn,
   RunDateTimeColumn,
 ];
 
-export default [TaskColumn, SystemsCountColumn, RunDateTimeColumn];
+export default [
+  TaskColumn,
+  SystemsCountColumn,
+  StatusColumn,
+  RunDateTimeColumn,
+];

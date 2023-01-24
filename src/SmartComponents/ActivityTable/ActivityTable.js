@@ -8,7 +8,7 @@ import {
   COMPLETED_TASKS_TABLE_DEFAULTS,
   EMPTY_COMPLETED_TASKS_MESSAGE,
   EMPTY_COMPLETED_TASKS_TITLE,
-  LOADING_COMPLETED_TASKS_TABLE,
+  LOADING_ACTIVITIES_TABLE,
   TASK_LOADING_CONTENT,
   TASKS_TABLE_DEFAULTS,
 } from '../../constants';
@@ -27,12 +27,9 @@ import {
 } from '../completedTaskDetailsHelpers';
 import RunTaskModal from '../RunTaskModal/RunTaskModal';
 
-const CompletedTasksTable = () => {
-  const [completedTasks, setCompletedTasks] = useState(
-    LOADING_COMPLETED_TASKS_TABLE
-  );
-  const [completedTaskDetails, setCompletedTaskDetails] =
-    useState(TASK_LOADING_CONTENT);
+const ActivityTable = () => {
+  const [activities, setActivities] = useState(LOADING_ACTIVITIES_TABLE);
+  const [activityDetails, setActivityDetails] = useState(TASK_LOADING_CONTENT);
   const [tableLoading, setTableLoading] = useState(true);
   const [error, setError] = useState();
   const [taskError, setTaskError] = useState();
@@ -56,13 +53,11 @@ const CompletedTasksTable = () => {
         setTaskError
       );
 
-      if (fetchedTaskJobs.length) {
-        setSelectedSystems(getSelectedSystems(fetchedTaskJobs));
-        await setCompletedTaskDetails(fetchedTaskDetails);
-      }
+      setSelectedSystems(getSelectedSystems(fetchedTaskJobs));
+      await setActivityDetails(fetchedTaskDetails);
     } else {
       setRunTaskModalOpened(false);
-      await setCompletedTaskDetails({});
+      await setActivityDetails({});
     }
   };
 
@@ -94,14 +89,14 @@ const CompletedTasksTable = () => {
           : (task.run_date_time = task.status)
       );
 
-      await setCompletedTasks(result.data);
+      await setActivities(result.data);
       setTableLoading(false);
     }
   };
 
   const refetchData = async () => {
     setTableLoading(true);
-    await setCompletedTasks(LOADING_COMPLETED_TASKS_TABLE);
+    await setActivities(LOADING_ACTIVITIES_TABLE);
     fetchData();
   };
 
@@ -123,14 +118,14 @@ const CompletedTasksTable = () => {
   return (
     <React.Fragment>
       <RunTaskModal
-        description={completedTaskDetails.task_description}
+        description={activityDetails.task_description}
         error={taskError}
         isOpen={runTaskModalOpened}
         selectedSystems={selectedSystems}
         setIsRunTaskAgain={setIsRunTaskAgain}
         setModalOpened={setRunTaskModalOpened}
-        slug={completedTaskDetails.task_slug}
-        title={completedTaskDetails.task_title}
+        slug={activityDetails.task_slug}
+        title={activityDetails.task_title}
       />
       <DeleteCancelTaskModal
         id={taskDetails.id}
@@ -151,7 +146,7 @@ const CompletedTasksTable = () => {
             text={COMPLETED_TASKS_ERROR}
             error={`Error ${error?.response?.status}: ${error?.message}`}
           />
-        ) : completedTasks?.length === 0 ? (
+        ) : activities?.length === 0 ? (
           <EmptyStateDisplay
             icon={WrenchIcon}
             color="#6a6e73"
@@ -163,7 +158,7 @@ const CompletedTasksTable = () => {
             label="activity-table"
             ouiaId="activity-table"
             columns={columns}
-            items={completedTasks}
+            items={activities}
             filters={{
               filterConfig: [...nameFilter, ...statusFilter],
             }}
@@ -186,4 +181,4 @@ const CompletedTasksTable = () => {
   );
 };
 
-export default CompletedTasksTable;
+export default ActivityTable;

@@ -2,10 +2,16 @@ import { fetchSystems } from '../../../api';
 import { buildFilterSortString } from './helpers';
 
 export const useGetEntities = (onComplete, { selectedIds }) => {
-  return async (
-    _items,
-    { page = 1, per_page: perPage, orderBy, orderDirection, filters }
-  ) => {
+  return async (_items, config) => {
+    const {
+      page,
+      per_page: perPage,
+      orderBy,
+      orderDirection,
+      filters,
+      tags,
+      workloadFilters,
+    } = config;
     const limit = perPage;
     const offset = page * perPage - perPage;
     const filterSortString = buildFilterSortString(
@@ -13,7 +19,9 @@ export const useGetEntities = (onComplete, { selectedIds }) => {
       offset,
       orderBy,
       orderDirection,
-      filters
+      filters,
+      tags,
+      workloadFilters
     );
     const fetchedEntities = await fetchSystems(filterSortString);
 

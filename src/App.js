@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import actions from './modules/actions';
 import { Routes } from './Routes';
 import './App.scss';
 
@@ -12,6 +14,7 @@ import pckg from '../package.json';
 const App = (props) => {
   const history = useHistory();
   const chrome = useChrome();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     let unregister;
@@ -25,6 +28,14 @@ const App = (props) => {
       unregister = onChromeEvent('APP_NAVIGATION', (event) =>
         history.push(`/${event.navId}`)
       );
+
+      onChromeEvent('GLOBAL_FILTER_UPDATE', ({ data }) => {
+        const [workloads, SID, tags] =
+          chrome?.mapGlobalFilter?.(data, false, true) || [];
+        dispatch(actions.setGlobalFilterTags(tags));
+        dispatch(actions.setGlobalFilterWorkloads(workloads));
+        dispatch(actions.setGlobalFilterSIDs(SID));
+      });
     }
     return () => {
       unregister();

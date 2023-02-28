@@ -3,6 +3,7 @@ import { applyReducerHash } from '@redhat-cloud-services/frontend-components-uti
 import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/Registry';
 import promiseMiddleware from 'redux-promise-middleware';
 import { notificationsReducer } from '@redhat-cloud-services/frontend-components-notifications/redux';
+import { globalFilterReducer } from '../modules/reducers';
 
 let registry;
 
@@ -16,7 +17,11 @@ export function init(...middleware) {
     ...middleware.filter((item) => typeof item !== 'undefined'),
   ]);
 
-  registry.register({ notifications: notificationsReducer });
+  registry.register({
+    notifications: notificationsReducer,
+    globalFilterState: globalFilterReducer,
+  });
+
   return registry;
 }
 

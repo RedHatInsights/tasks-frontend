@@ -21,17 +21,49 @@ const buildFilterString = (filters) => {
   return `${displayNameFilter}${osFilter}`;
 };
 
+const buildTagsFilterString = (tags, filters) => {
+  let tagsFilterString = tags?.length ? '&tags=' : '';
+  let globalTagsFilterString = '';
+  let tagFiltersString = '';
+  tags?.forEach((tag, index) => {
+    index ? (globalTagsFilterString += ',') : (globalTagsFilterString += '');
+    globalTagsFilterString += `${tag}`;
+  });
+  filters.tagFilters?.forEach((tag, index) => {
+    index === 0 && globalTagsFilterString === ''
+      ? (tagFiltersString += '')
+      : (tagFiltersString += ',');
+    tag.values.forEach(
+      (value) => (tagFiltersString += `${tag.category}/${value.name}`)
+    );
+  });
+  return `${tagsFilterString}${globalTagsFilterString}${tagFiltersString}`;
+};
+
+const buildWorkloadFiltersString = (filters) => {
+  let workloadFilterString = '';
+  for (const [key, value] of Object.entries(filters)) {
+    workloadFilterString += `&${key}=${value}`;
+  }
+
+  return encodeURI(workloadFilterString);
+};
+
 export const buildFilterSortString = (
   limit,
   offset,
   orderBy,
   orderDirection,
-  filters
+  filters,
+  tags,
+  workloadFilters
 ) => {
   let limitOffsetString = `limit=${limit}&offset=${offset}`;
   let sortString = buildSortString(orderBy, orderDirection);
   let filterString = buildFilterString(filters);
-  return `?${limitOffsetString}${sortString}${filterString}`;
+  let tagsFilterString = buildTagsFilterString(tags, filters);
+  let workloadFilterString = buildWorkloadFiltersString(workloadFilters);
+  return `?${limitOffsetString}${sortString}${filterString}${tagsFilterString}${workloadFilterString}`;
 };
 
 export const findCheckedValue = (total, selected) => {

@@ -1,14 +1,14 @@
 import { entitiesReducer } from '../../store/index';
 import { createSystemLink } from '../../helpers';
 
-export const systemColumns = [
+export const systemColumns = (isBeta) => [
   {
     key: 'display_name',
     sortKey: 'display_name',
     props: { width: 20 },
     title: 'Name',
     renderFunc: (name, id) => {
-      return createSystemLink(id, name, `system-name-${id}`);
+      return createSystemLink(id, name, `system-name-${id}`, isBeta);
     },
   },
   'tags',

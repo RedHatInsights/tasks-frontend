@@ -8,6 +8,7 @@ import { InventoryTable } from '@redhat-cloud-services/frontend-components/Inven
 import { Spinner } from '@patternfly/react-core';
 import { RegistryContext } from '../../store';
 import { useDispatch } from 'react-redux';
+import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 
 const SystemTable = ({ bulkSelectIds, selectedIds, selectIds }) => {
   const [items, setItems] = useState([]);
@@ -15,6 +16,7 @@ const SystemTable = ({ bulkSelectIds, selectedIds, selectIds }) => {
   const inventory = useRef(null);
   const { getRegistry } = useContext(RegistryContext);
   const dispatch = useDispatch();
+  const chrome = useChrome();
 
   useEffect(() => {
     dispatch({ type: 'INVENTORY_INIT' });
@@ -41,7 +43,7 @@ const SystemTable = ({ bulkSelectIds, selectedIds, selectIds }) => {
   });
 
   const mergedColumns = (defaultColumns) =>
-    systemColumns.map((column) => {
+    systemColumns(chrome?.isBeta?.()).map((column) => {
       const isStringCol = typeof column === 'string';
       const key = isStringCol ? column : column.key;
       const defaultColumn = defaultColumns.find(
@@ -72,7 +74,7 @@ const SystemTable = ({ bulkSelectIds, selectedIds, selectIds }) => {
       columns={mergedColumns}
       ref={inventory}
       fallback={<Spinner />}
-      onLoad={defaultOnLoad(systemColumns, getRegistry)}
+      onLoad={defaultOnLoad(systemColumns(chrome?.isBeta?.()), getRegistry)}
       getEntities={getEntities}
       bulkSelect={{
         id: 'systems-bulk-select',

@@ -6,7 +6,9 @@ export const createSystemLink = (id, name, keyData, isBetaEnv) => (
     target="_blank"
     key={keyData}
     href={
-      isBetaEnv ? `/beta/insights/inventory/${id}` : `/insights/inventory/${id}`
+      isBetaEnv
+        ? `/preview/insights/inventory/${id}`
+        : `/insights/inventory/${id}`
     }
   >
     {name}

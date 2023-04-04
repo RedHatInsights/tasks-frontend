@@ -36,7 +36,7 @@ exports[`AvailableTasks should render Delete disabled 1`] = `
       role="menu"
     >
       <li
-        role="menuitem"
+        role="none"
       >
         <button
           aria-disabled="true"
@@ -45,6 +45,7 @@ exports[`AvailableTasks should render Delete disabled 1`] = `
           data-ouia-component-id="delete-task-dropdown-item"
           data-ouia-component-type="PF4/DropdownItem"
           data-ouia-safe="true"
+          role="menuitem"
           tabindex="-1"
           type="button"
         >
@@ -92,7 +93,7 @@ exports[`AvailableTasks should render correctly 1`] = `
       role="menu"
     >
       <li
-        role="menuitem"
+        role="none"
       >
         <button
           aria-disabled="false"
@@ -101,6 +102,7 @@ exports[`AvailableTasks should render correctly 1`] = `
           data-ouia-component-id="delete-task-dropdown-item"
           data-ouia-component-type="PF4/DropdownItem"
           data-ouia-safe="true"
+          role="menuitem"
           tabindex="-1"
           type="button"
         >

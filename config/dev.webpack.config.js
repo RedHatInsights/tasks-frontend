@@ -8,7 +8,9 @@ const { config: webpackConfig, plugins } = config({
   useProxy: true,
   useChromeTemplate: true,
   routesPath: process.env.CONFIG_PATH,
-  appUrl: process.env.BETA ? ['/beta/insights/tasks'] : ['/insights/tasks'],
+  appUrl: process.env.BETA
+    ? ['/beta/insights/preview', '/preview/insights/tasks']
+    : ['/insights/tasks'],
   env: process.env.BETA ? 'stage-beta' : 'stage-stable',
   deployment: process.env.BETA ? 'beta/apps' : 'apps',
 });

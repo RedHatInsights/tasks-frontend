@@ -401,7 +401,7 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
                   data-ouia-component-id="CompactPagination"
                   data-ouia-component-type="PF4/Pagination"
                   data-ouia-safe="true"
-                  id="pagination-options-menu-0"
+                  id="options-menu-top-pagination"
                   style="--pf-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
                 >
                   <div
@@ -438,12 +438,13 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
                       </span>
                       <button
                         aria-expanded="false"
+                        aria-haspopup="listbox"
                         aria-label="Items per page"
                         class="  pf-c-options-menu__toggle-button"
-                        data-ouia-component-id="OUIA-Generated-DropdownToggle-1"
+                        data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
                         data-ouia-component-type="PF4/DropdownToggle"
                         data-ouia-safe="true"
-                        id="pagination-options-menu-toggle-0"
+                        id="options-menu-top-toggle"
                         type="button"
                       >
                         <span
@@ -889,7 +890,7 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
             data-ouia-component-id="OUIA-Generated-Pagination-bottom-1"
             data-ouia-component-type="PF4/Pagination"
             data-ouia-safe="true"
-            id="pagination-options-menu-1"
+            id="options-menu-bottom-pagination"
             style="--pf-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
           >
             <div
@@ -914,12 +915,13 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
                 </span>
                 <button
                   aria-expanded="false"
+                  aria-haspopup="listbox"
                   aria-label="Items per page"
                   class="  pf-c-options-menu__toggle-button"
-                  data-ouia-component-id="OUIA-Generated-DropdownToggle-2"
+                  data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
                   data-ouia-component-type="PF4/DropdownToggle"
                   data-ouia-safe="true"
-                  id="pagination-options-menu-toggle-1"
+                  id="options-menu-bottom-toggle"
                   type="button"
                 >
                   <span
@@ -1200,7 +1202,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
           >
             <div
               class="pf-c-dropdown pf-m-align-right"
-              data-ouia-component-id="OUIA-Generated-Dropdown-2"
+              data-ouia-component-id="OUIA-Generated-Dropdown-4"
               data-ouia-component-type="PF4/Dropdown"
               data-ouia-safe="true"
             >
@@ -1498,7 +1500,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                   data-ouia-component-id="CompactPagination"
                   data-ouia-component-type="PF4/Pagination"
                   data-ouia-safe="true"
-                  id="pagination-options-menu-2"
+                  id="options-menu-top-pagination"
                   style="--pf-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
                 >
                   <div
@@ -1535,12 +1537,13 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                       </span>
                       <button
                         aria-expanded="false"
+                        aria-haspopup="listbox"
                         aria-label="Items per page"
                         class="  pf-c-options-menu__toggle-button"
-                        data-ouia-component-id="OUIA-Generated-DropdownToggle-3"
+                        data-ouia-component-id="OUIA-Generated-DropdownToggle-7"
                         data-ouia-component-type="PF4/DropdownToggle"
                         data-ouia-safe="true"
-                        id="pagination-options-menu-toggle-2"
+                        id="options-menu-top-toggle"
                         type="button"
                       >
                         <span
@@ -1575,7 +1578,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                         aria-label="Go to previous page"
                         class="pf-c-button pf-m-plain pf-m-disabled"
                         data-action="previous"
-                        data-ouia-component-id="OUIA-Generated-Button-plain-7"
+                        data-ouia-component-id="OUIA-Generated-Button-plain-18"
                         data-ouia-component-type="PF4/Button"
                         data-ouia-safe="true"
                         disabled=""
@@ -1604,7 +1607,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                         aria-label="Go to next page"
                         class="pf-c-button pf-m-plain pf-m-disabled"
                         data-action="next"
-                        data-ouia-component-id="OUIA-Generated-Button-plain-8"
+                        data-ouia-component-id="OUIA-Generated-Button-plain-19"
                         data-ouia-component-type="PF4/Button"
                         data-ouia-safe="true"
                         disabled=""
@@ -1858,7 +1861,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                   aria-label="Details"
                   aria-labelledby="simple-node1 expandable-toggle1"
                   class="pf-c-button pf-m-plain"
-                  data-ouia-component-id="OUIA-Generated-Button-plain-1"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-7"
                   data-ouia-component-type="PF4/Button"
                   data-ouia-safe="true"
                   id="expandable-toggle1"
@@ -1989,7 +1992,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                             aria-label="Details"
                             aria-labelledby="simple-node0 expand-toggle0"
                             class="pf-c-button pf-m-plain"
-                            data-ouia-component-id="OUIA-Generated-Button-plain-2"
+                            data-ouia-component-id="OUIA-Generated-Button-plain-8"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe="true"
                             id="expand-toggle0"
@@ -2165,7 +2168,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                             aria-label="Details"
                             aria-labelledby="simple-node1 expand-toggle1"
                             class="pf-c-button pf-m-plain"
-                            data-ouia-component-id="OUIA-Generated-Button-plain-3"
+                            data-ouia-component-id="OUIA-Generated-Button-plain-9"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe="true"
                             id="expand-toggle1"
@@ -2351,7 +2354,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                             aria-label="Details"
                             aria-labelledby="simple-node2 expand-toggle2"
                             class="pf-c-button pf-m-plain"
-                            data-ouia-component-id="OUIA-Generated-Button-plain-4"
+                            data-ouia-component-id="OUIA-Generated-Button-plain-10"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe="true"
                             id="expand-toggle2"
@@ -2527,7 +2530,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                             aria-label="Details"
                             aria-labelledby="simple-node3 expand-toggle3"
                             class="pf-c-button pf-m-plain"
-                            data-ouia-component-id="OUIA-Generated-Button-plain-5"
+                            data-ouia-component-id="OUIA-Generated-Button-plain-11"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe="true"
                             id="expand-toggle3"
@@ -2703,7 +2706,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                             aria-label="Details"
                             aria-labelledby="simple-node4 expand-toggle4"
                             class="pf-c-button pf-m-plain"
-                            data-ouia-component-id="OUIA-Generated-Button-plain-6"
+                            data-ouia-component-id="OUIA-Generated-Button-plain-12"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe="true"
                             id="expand-toggle4"
@@ -3028,7 +3031,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                   aria-label="Details"
                   aria-labelledby="simple-node5 expandable-toggle5"
                   class="pf-c-button pf-m-plain"
-                  data-ouia-component-id="OUIA-Generated-Button-plain-7"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-13"
                   data-ouia-component-type="PF4/Button"
                   data-ouia-safe="true"
                   id="expandable-toggle5"
@@ -3159,7 +3162,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                             aria-label="Details"
                             aria-labelledby="simple-node0 expand-toggle0"
                             class="pf-c-button pf-m-plain"
-                            data-ouia-component-id="OUIA-Generated-Button-plain-8"
+                            data-ouia-component-id="OUIA-Generated-Button-plain-14"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe="true"
                             id="expand-toggle0"
@@ -3335,7 +3338,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                             aria-label="Details"
                             aria-labelledby="simple-node1 expand-toggle1"
                             class="pf-c-button pf-m-plain"
-                            data-ouia-component-id="OUIA-Generated-Button-plain-9"
+                            data-ouia-component-id="OUIA-Generated-Button-plain-15"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe="true"
                             id="expand-toggle1"
@@ -3511,7 +3514,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                             aria-label="Details"
                             aria-labelledby="simple-node2 expand-toggle2"
                             class="pf-c-button pf-m-plain"
-                            data-ouia-component-id="OUIA-Generated-Button-plain-10"
+                            data-ouia-component-id="OUIA-Generated-Button-plain-16"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe="true"
                             id="expand-toggle2"
@@ -3687,7 +3690,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                             aria-label="Details"
                             aria-labelledby="simple-node3 expand-toggle3"
                             class="pf-c-button pf-m-plain"
-                            data-ouia-component-id="OUIA-Generated-Button-plain-11"
+                            data-ouia-component-id="OUIA-Generated-Button-plain-17"
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe="true"
                             id="expand-toggle3"
@@ -3845,7 +3848,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
             data-ouia-component-id="OUIA-Generated-Pagination-bottom-2"
             data-ouia-component-type="PF4/Pagination"
             data-ouia-safe="true"
-            id="pagination-options-menu-3"
+            id="options-menu-bottom-pagination"
             style="--pf-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
           >
             <div
@@ -3870,12 +3873,13 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                 </span>
                 <button
                   aria-expanded="false"
+                  aria-haspopup="listbox"
                   aria-label="Items per page"
                   class="  pf-c-options-menu__toggle-button"
-                  data-ouia-component-id="OUIA-Generated-DropdownToggle-4"
+                  data-ouia-component-id="OUIA-Generated-DropdownToggle-8"
                   data-ouia-component-type="PF4/DropdownToggle"
                   data-ouia-safe="true"
-                  id="pagination-options-menu-toggle-3"
+                  id="options-menu-bottom-toggle"
                   type="button"
                 >
                   <span
@@ -3910,7 +3914,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                   aria-label="Go to first page"
                   class="pf-c-button pf-m-plain pf-m-disabled"
                   data-action="first"
-                  data-ouia-component-id="OUIA-Generated-Button-plain-9"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-20"
                   data-ouia-component-type="PF4/Button"
                   data-ouia-safe="true"
                   disabled=""
@@ -3939,7 +3943,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                   aria-label="Go to previous page"
                   class="pf-c-button pf-m-plain pf-m-disabled"
                   data-action="previous"
-                  data-ouia-component-id="OUIA-Generated-Button-plain-10"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-21"
                   data-ouia-component-type="PF4/Button"
                   data-ouia-safe="true"
                   disabled=""
@@ -3986,7 +3990,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                   aria-label="Go to next page"
                   class="pf-c-button pf-m-plain pf-m-disabled"
                   data-action="next"
-                  data-ouia-component-id="OUIA-Generated-Button-plain-11"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-22"
                   data-ouia-component-type="PF4/Button"
                   data-ouia-safe="true"
                   disabled=""
@@ -4015,7 +4019,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                   aria-label="Go to last page"
                   class="pf-c-button pf-m-plain pf-m-disabled"
                   data-action="last"
-                  data-ouia-component-id="OUIA-Generated-Button-plain-12"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-23"
                   data-ouia-component-type="PF4/Button"
                   data-ouia-safe="true"
                   disabled=""

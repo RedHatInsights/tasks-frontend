@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { init, RegistryContext } from './store';
 import App from './App';
+import { getBaseName } from '@redhat-cloud-services/frontend-components-utilities/helpers';
 
 const Tasks = () => {
   const registry = init();
@@ -10,7 +11,7 @@ const Tasks = () => {
   return (
     <RegistryContext.Provider value={{ getRegistry: () => registry }}>
       <Provider store={registry.getStore()}>
-        <Router>
+        <Router basename={getBaseName(window.location.pathname)}>
           <App />
         </Router>
       </Provider>

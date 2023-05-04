@@ -1,8 +1,11 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { Bullseye, Spinner } from '@patternfly/react-core';
 import WithPermission from './PresentationalComponents/WithPermission/WithPermission';
+import axios from 'axios';
+import AsynComponent from '@redhat-cloud-services/frontend-components/AsyncComponent';
+import ErrorState from '@redhat-cloud-services/frontend-components/ErrorState';
 
 const PermissionRouter = (route) => {
   const {
@@ -81,6 +84,8 @@ const tasksRoutes = [
   },
 ];
 
+const INVENTORY_TOTAL_FETCH_URL = '/api/inventory/v1/hosts';
+
 /**
  * the Switch component changes routes depending on the path.
  *
@@ -90,6 +95,19 @@ const tasksRoutes = [
  *      component - component to be rendered when a route has been chosen.
  */
 export const Routes = () => {
+  const [hasSystems, setHasSystems] = useState(true);
+  useEffect(() => {
+    try {
+      axios
+        .get(`${INVENTORY_TOTAL_FETCH_URL}?page=1&per_page=1`)
+        .then(({ data }) => {
+          setHasSystems(data.total > 0);
+        });
+    } catch (e) {
+      console.log(e);
+    }
+  }, [hasSystems]);
+
   return (
     <Suspense
       fallback={
@@ -98,12 +116,22 @@ export const Routes = () => {
         </Bullseye>
       }
     >
-      <Switch>
-        {tasksRoutes.map(PermissionRouter)}
-        <Route>
-          <Redirect to="/" />
-        </Route>
-      </Switch>
+      {!hasSystems ? (
+        <AsynComponent
+          appName="dashboard"
+          module="./AppZeroState"
+          scope="dashboard"
+          ErrorComponent={<ErrorState />}
+          app="Tasks"
+        />
+      ) : (
+        <Switch>
+          {tasksRoutes.map(PermissionRouter)}
+          <Route>
+            <Redirect to="/" />
+          </Route>
+        </Switch>
+      )}
     </Suspense>
   );
 };

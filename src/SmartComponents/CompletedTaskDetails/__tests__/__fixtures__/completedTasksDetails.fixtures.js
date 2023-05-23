@@ -325,6 +325,19 @@ export const leapp_task_jobs = [
     updated_on: '2022-08-08T18:19:50.898540Z',
     display_name: 'dl-test-device-4',
   },
+  {
+    executed_task: 235,
+    system: 'f1356a99-754d-4219-9g25-fccb2cf29c91',
+    status: 'Success',
+    results: {
+      alert: true,
+      message: 'Your system has 1 inhibitor out of 4 potential problems',
+      report:
+        'Risk Factor: high\nTitle: Leapp could not identify where GRUB core is located\nSummary: We assume GRUB core is located on the same device as /boot. Leapp needs to update GRUB core as it is not done automatically on legacy (BIOS) systems. \nRemediation: [hint] Please run "grub2-install <GRUB_DEVICE> command manually after upgrade\nKey: ca7a1a66906a7df3da890aa538562708d3ea6ecd\n----------------------------------------\nRisk Factor: low\nTitle: SElinux will be set to permissive mode\nSummary: SElinux will be set to permissive mode. Current mode: enforcing. This action is required by the upgrade process to make sure the upgraded system can boot without beinig blocked by SElinux rules.\nRemediation: [hint] Make sure there are no SElinux related warnings after the upgrade and enable SElinux manually afterwards. Notice: You can ignore the "/root/tmp_leapp_py3" SElinux warnings.\nKey: 39d7183dafba798aa4bbb1e70b0ef2bbe5b1772f\n----------------------------------------\nRisk Factor: low\nTitle: The subscription-manager release is going to be set after the upgrade\nSummary: After the upgrade has completed the release of the subscription-manager will be set to 9.0. This will ensure that you will receive and keep the version you choose to upgrade to.\nRemediation: [hint] If you wish to receive updates for the latest released version of the target system, run `subscription-manager release --unset` after the upgrade.\nKey: 747a4ca25303eda17d1891bb85eeb226be14f252\n----------------------------------------\nRisk Factor: info\nTitle: SElinux relabeling will be scheduled\nSummary: SElinux relabeling will be scheduled as the status is permissive/enforcing.\nKey: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72\n----------------------------------------\n',
+    },
+    updated_on: '2022-08-08T18:19:50.898540Z',
+    display_name: 'dl-test-device-5',
+  },
 ];
 
 export const running_task = {

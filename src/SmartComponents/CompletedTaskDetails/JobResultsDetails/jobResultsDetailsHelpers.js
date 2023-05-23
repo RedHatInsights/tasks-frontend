@@ -24,15 +24,19 @@ const sortBySeverity = (entries) => {
   return sortedEntries;
 };
 
-export const buildResultsRows = (entries) => {
+export const buildResultsRows = (entries, isReportJson) => {
   let rows = [];
-  let sortedEntries = sortBySeverity(entries);
-  sortedEntries.forEach((entry) => {
-    rows.push({
+  let sortedEntries;
+  if (isReportJson) {
+    sortedEntries = sortBySeverity(entries);
+    rows = sortedEntries.map((entry) => ({
       parent: <EntryRow severity={entry.severity} title={entry.title} />,
       child: <EntryDetails entry={entry} />,
-    });
-  });
+    }));
+  } else {
+    sortedEntries = entries;
+    rows = sortedEntries[0];
+  }
 
   return rows;
 };

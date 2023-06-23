@@ -64,16 +64,16 @@ const CompletedTaskDetails = () => {
 
   const fetchData = async () => {
     setTableLoading(true);
-    await setCompletedTaskDetails(LOADING_INFO_PANEL);
-    await setCompletedTaskJobs(LOADING_JOBS_TABLE);
+    setCompletedTaskDetails(LOADING_INFO_PANEL);
+    setCompletedTaskJobs(LOADING_JOBS_TABLE);
     const fetchedTaskDetails = await fetchTask(id, setError);
 
     if (Object.keys(fetchedTaskDetails).length) {
       const fetchedTaskJobs = await fetchTaskJobs(fetchedTaskDetails, setError);
 
       if (fetchedTaskJobs.length) {
-        await setCompletedTaskDetails(fetchedTaskDetails);
-        await setCompletedTaskJobs(fetchedTaskJobs);
+        setCompletedTaskDetails(fetchedTaskDetails);
+        setCompletedTaskJobs(fetchedTaskJobs);
       }
     }
     setTableLoading(false);
@@ -87,18 +87,22 @@ const CompletedTaskDetails = () => {
     setSelectedSystems(getSelectedSystems(completedTaskJobs));
   }, [completedTaskJobs]);
 
-  useEffect(async () => {
+  const handleModalInteraction = async () => {
     if (isDelete) {
       history.push('/executed');
       setIsDelete(false);
     }
 
     if (isCancel) {
-      await setCompletedTaskDetails(LOADING_INFO_PANEL);
-      await setCompletedTaskJobs(LOADING_JOBS_TABLE);
+      setCompletedTaskDetails(LOADING_INFO_PANEL);
+      setCompletedTaskJobs(LOADING_JOBS_TABLE);
       await fetchData();
       setIsCancel(false);
     }
+  };
+
+  useEffect(() => {
+    handleModalInteraction();
   }, [isCancel, isDelete]);
 
   return (

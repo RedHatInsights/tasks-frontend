@@ -21,15 +21,14 @@ const App = (props) => {
     if (chrome) {
       const registry = getRegistry();
       registry.register({ notifications: notificationsReducer });
-      const { identifyApp, on: onChromeEvent } = chrome.init();
 
       // You can use directly the name of your app
-      identifyApp(pckg.insights.appname);
-      unregister = onChromeEvent('APP_NAVIGATION', (event) =>
+      chrome.identifyApp(pckg.insights.appname);
+      unregister = chrome.on('APP_NAVIGATION', (event) =>
         history.push(`/${event.navId}`)
       );
 
-      onChromeEvent('GLOBAL_FILTER_UPDATE', ({ data }) => {
+      chrome.on('GLOBAL_FILTER_UPDATE', ({ data }) => {
         const [workloads, SID, tags] =
           chrome?.mapGlobalFilter?.(data, false, true) || [];
         dispatch(actions.setGlobalFilterTags(tags));

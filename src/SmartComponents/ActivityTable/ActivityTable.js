@@ -54,10 +54,10 @@ const ActivityTable = () => {
       );
 
       setSelectedSystems(getSelectedSystems(fetchedTaskJobs));
-      await setActivityDetails(fetchedTaskDetails);
+      setActivityDetails(fetchedTaskDetails);
     } else {
       setRunTaskModalOpened(false);
-      await setActivityDetails({});
+      setActivityDetails({});
     }
   };
 
@@ -69,7 +69,7 @@ const ActivityTable = () => {
   };
 
   const handleCancelOrDeleteTask = async (task) => {
-    await setTaskDetails(task);
+    setTaskDetails(task);
     setIsDeleteCancelModalOpened(true);
   };
 
@@ -89,14 +89,14 @@ const ActivityTable = () => {
           : (task.run_date_time = task.status)
       );
 
-      await setActivities(result.data);
+      setActivities(result.data);
       setTableLoading(false);
     }
   };
 
   const refetchData = async () => {
     setTableLoading(true);
-    await setActivities(LOADING_ACTIVITIES_TABLE);
+    setActivities(LOADING_ACTIVITIES_TABLE);
     fetchData();
   };
 
@@ -104,7 +104,7 @@ const ActivityTable = () => {
     fetchData();
   }, []);
 
-  useEffect(async () => {
+  const handleModalInteraction = async () => {
     if (isDelete || isCancel) {
       await refetchData();
       setIsDelete(false);
@@ -113,6 +113,10 @@ const ActivityTable = () => {
       await refetchData();
       setIsRunTaskAgain(false);
     }
+  };
+
+  useEffect(() => {
+    handleModalInteraction();
   }, [isCancel, isDelete, isRunTaskAgain]);
 
   return (

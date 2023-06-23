@@ -34,7 +34,7 @@ const AvailableTasksTable = ({ availableTasks, error, openTaskModal }) => {
       ) : (
         availableTasks?.map((task) => {
           return (
-            <React.Fragment aria-label={task.title} key={task.title}>
+            <React.Fragment key={task.title}>
               <CardBuilder>
                 <CardBuilderContent content={task.title} type="title" />
                 <CardBuilderContent

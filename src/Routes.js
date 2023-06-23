@@ -33,7 +33,7 @@ const PermissionRouter = (route) => {
 };
 
 PermissionRouter.propTypes = {
-  component: PropTypes.node,
+  component: PropTypes.object,
   isExact: PropTypes.bool,
   path: PropTypes.string,
   props: PropTypes.object,
@@ -99,7 +99,9 @@ export const Routes = () => {
       }
     >
       <Switch>
-        {tasksRoutes.map(PermissionRouter)}
+        {tasksRoutes.map((route, index) => (
+          <PermissionRouter {...route} key={index} />
+        ))}
         <Route>
           <Redirect to="/" />
         </Route>

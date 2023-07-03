@@ -12,6 +12,7 @@ import AvailableTasksTable from './AvailableTasksTable';
 import { LOADING_CONTENT } from '../../constants';
 import { dispatchNotification } from '../../Utilities/Dispatcher';
 import { isError } from '../completedTaskDetailsHelpers';
+import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 
 export const LoadingTasks = () => {
   const loadingTasks = LOADING_CONTENT;
@@ -42,6 +43,7 @@ const AvailableTasks = ({ openTaskModal }) => {
   const [availableTasks, setAvailableTasks] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
+  const chrome = useChrome();
 
   const setTasks = (result) => {
     if (isError(result)) {
@@ -70,6 +72,10 @@ const AvailableTasks = ({ openTaskModal }) => {
 
     fetchData();
   }, []);
+
+  useEffect(() => {
+    chrome.updateDocumentTitle('Tasks | Red Hat Insights');
+  }, [chrome]);
 
   return (
     <div aria-label="available-tasks">

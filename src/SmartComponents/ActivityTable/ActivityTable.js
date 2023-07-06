@@ -62,7 +62,7 @@ const ActivityTable = () => {
   };
 
   const fetchData = async () => {
-    const path = `?limit=1000&offset=0`;
+    const path = `?limit=500&offset=0`;
     const result = await fetchExecutedTasks(path);
 
     setTasks(result);

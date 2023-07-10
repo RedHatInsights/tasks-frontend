@@ -41,6 +41,7 @@ import {
 import { NotAuthorized } from '@redhat-cloud-services/frontend-components/NotAuthorized';
 import { usePermissions } from '@redhat-cloud-services/frontend-components-utilities/RBACHook';
 import JobResultsDetails from './JobResultsDetails/JobResultsDetails';
+import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 
 const CompletedTaskDetails = () => {
   const { id } = useParams();
@@ -57,6 +58,7 @@ const CompletedTaskDetails = () => {
   const [isDelete, setIsDelete] = useState(false);
   const [isCancel, setIsCancel] = useState(false);
   const history = useHistory();
+  const chrome = useChrome();
   const { hasAccess, isLoading } = usePermissions('inventory', [
     'inventory:*:*',
     'inventory:*:read',
@@ -82,6 +84,13 @@ const CompletedTaskDetails = () => {
   useEffect(() => {
     fetchData();
   }, [id]);
+
+  useEffect(() => {
+    completedTaskDetails &&
+      chrome.updateDocumentTitle(
+        `${completedTaskDetails.task_title} - Tasks | Red Hat Insights`
+      );
+  }, [chrome, completedTaskDetails]);
 
   useEffect(() => {
     setSelectedSystems(getSelectedSystems(completedTaskJobs));

@@ -36,13 +36,6 @@ jest.mock(
   })
 );
 
-jest.mock('@redhat-cloud-services/frontend-components/useChrome', () => ({
-  __esModule: true,
-  default: () => ({
-    isBeta: jest.fn(),
-  }),
-}));
-
 describe('CompletedTaskDetails', () => {
   const store = init().getStore();
 

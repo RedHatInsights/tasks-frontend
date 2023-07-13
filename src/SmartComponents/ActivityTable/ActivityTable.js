@@ -104,13 +104,13 @@ const ActivityTable = () => {
     fetchData();
   }, []);
 
-  useEffect(async () => {
+  useEffect(() => {
     if (isDelete || isCancel) {
-      await refetchData();
+      refetchData();
       setIsDelete(false);
       setIsCancel(false);
     } else if (isRunTaskAgain) {
-      await refetchData();
+      refetchData();
       setIsRunTaskAgain(false);
     }
   }, [isCancel, isDelete, isRunTaskAgain]);

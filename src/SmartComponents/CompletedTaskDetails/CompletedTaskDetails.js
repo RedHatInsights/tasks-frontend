@@ -96,16 +96,14 @@ const CompletedTaskDetails = () => {
     setSelectedSystems(getSelectedSystems(completedTaskJobs));
   }, [completedTaskJobs]);
 
-  useEffect(async () => {
+  useEffect(() => {
     if (isDelete) {
       history.push('/executed');
       setIsDelete(false);
     }
 
     if (isCancel) {
-      await setCompletedTaskDetails(LOADING_INFO_PANEL);
-      await setCompletedTaskJobs(LOADING_JOBS_TABLE);
-      await fetchData();
+      fetchData();
       setIsCancel(false);
     }
   }, [isCancel, isDelete]);

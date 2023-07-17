@@ -1260,7 +1260,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
             <div
               class=""
             >
-              5
+              6
             </div>
           </div>
           <div
@@ -1324,7 +1324,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
             <div
               class=""
             >
-              4
+              5
             </div>
           </div>
         </div>
@@ -1507,11 +1507,11 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                     class="pf-c-pagination__total-items"
                   >
                     <b>
-                      1 - 5
+                      1 - 6
                     </b>
                      of 
                     <b>
-                      5
+                      6
                     </b>
                      
                   </div>
@@ -1527,11 +1527,11 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                         class="pf-c-options-menu__toggle-text"
                       >
                         <b>
-                          1 - 5
+                          1 - 6
                         </b>
                          of 
                         <b>
-                          5
+                          6
                         </b>
                          
                       </span>
@@ -1578,7 +1578,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                         aria-label="Go to previous page"
                         class="pf-c-button pf-m-plain pf-m-disabled"
                         data-action="previous"
-                        data-ouia-component-id="OUIA-Generated-Button-plain-18"
+                        data-ouia-component-id="OUIA-Generated-Button-plain-19"
                         data-ouia-component-type="PF4/Button"
                         data-ouia-safe="true"
                         disabled=""
@@ -1607,7 +1607,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                         aria-label="Go to next page"
                         class="pf-c-button pf-m-plain pf-m-disabled"
                         data-action="next"
-                        data-ouia-component-id="OUIA-Generated-Button-plain-19"
+                        data-ouia-component-id="OUIA-Generated-Button-plain-20"
                         data-ouia-component-type="PF4/Button"
                         data-ouia-safe="true"
                         disabled=""
@@ -3835,6 +3835,195 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
               </td>
             </tr>
           </tbody>
+          <tbody
+            class=""
+            role="rowgroup"
+          >
+            <tr
+              class=""
+              data-ouia-component-id="OUIA-Generated-TableRow-38"
+              data-ouia-component-type="PF4/TableRow"
+              data-ouia-safe="true"
+            >
+              <td
+                class="pf-c-table__toggle"
+                data-key="0"
+              >
+                <button
+                  aria-disabled="false"
+                  aria-expanded="false"
+                  aria-label="Details"
+                  aria-labelledby="simple-node7 expandable-toggle7"
+                  class="pf-c-button pf-m-plain"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-18"
+                  data-ouia-component-type="PF4/Button"
+                  data-ouia-safe="true"
+                  id="expandable-toggle7"
+                  type="button"
+                >
+                  <div
+                    class="pf-c-table__toggle-icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      style="vertical-align: -0.125em;"
+                      viewBox="0 0 320 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
+                      />
+                    </svg>
+                  </div>
+                </button>
+              </td>
+              <td
+                class="pf-m-width-30"
+                data-key="1"
+                data-label="System name"
+              >
+                <a
+                  href="/insights/inventory/f1356a99-754d-4219-9g25-fccb2cf29c91"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  dl-test-device-5
+                </a>
+              </td>
+              <td
+                class="pf-m-width-10"
+                data-key="2"
+                data-label="Status"
+              >
+                Success
+              </td>
+              <td
+                class="pf-m-width-35"
+                data-key="3"
+                data-label="Message"
+              >
+                <div
+                  class="pf-l-split"
+                >
+                  <div
+                    class="pf-l-split__item"
+                    style="padding-right: 8px;"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="#C9190B"
+                      height="1em"
+                      role="img"
+                      style="vertical-align: -0.125em;"
+                      viewBox="0 0 512 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="pf-l-split__item"
+                    style="padding-right: 16px;"
+                  >
+                    <span
+                      style="color: rgb(201, 25, 11);"
+                    >
+                      Alert
+                    </span>
+                  </div>
+                  <div
+                    class="pf-l-split__item"
+                    color="#A30000"
+                  >
+                    Your system has 1 inhibitor out of 4 potential problems
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="pf-c-table__expandable-row"
+              data-ouia-component-id="OUIA-Generated-TableRow-39"
+              data-ouia-component-type="PF4/TableRow"
+              data-ouia-safe="true"
+              hidden=""
+            >
+              <td
+                class=""
+                colspan="4"
+                data-key="0"
+                id="expanded-content8"
+              >
+                <div>
+                  <div
+                    class="pf-c-code-block"
+                    style="--pf-c-code-block__header--BorderBottomColor: [object Object]; background-color: rgb(255, 255, 255);"
+                  >
+                    <div
+                      class="pf-c-code-block__header"
+                    >
+                      <div
+                        class="pf-c-code-block__actions"
+                      />
+                    </div>
+                    <div
+                      class="pf-c-code-block__content"
+                    >
+                      <pre
+                        class="pf-c-code-block__pre"
+                      >
+                        <code
+                          class="pf-c-code-block__code"
+                        >
+                          Risk Factor: high
+Title: Leapp could not identify where GRUB core is located
+Summary: We assume GRUB core is located on the same device as /boot. Leapp needs to update GRUB core as it is not done automatically on legacy (BIOS) systems. 
+Remediation: [hint] Please run "grub2-install &lt;GRUB_DEVICE&gt; command manually after upgrade
+Key: ca7a1a66906a7df3da890aa538562708d3ea6ecd
+----------------------------------------
+Risk Factor: low
+Title: SElinux will be set to permissive mode
+Summary: SElinux will be set to permissive mode. Current mode: enforcing. This action is required by the upgrade process to make sure the upgraded system can boot without beinig blocked by SElinux rules.
+Remediation: [hint] Make sure there are no SElinux related warnings after the upgrade and enable SElinux manually afterwards. Notice: You can ignore the "/root/tmp_leapp_py3" SElinux warnings.
+Key: 39d7183dafba798aa4bbb1e70b0ef2bbe5b1772f
+----------------------------------------
+Risk Factor: low
+Title: The subscription-manager release is going to be set after the upgrade
+Summary: After the upgrade has completed the release of the subscription-manager will be set to 9.0. This will ensure that you will receive and keep the version you choose to upgrade to.
+Remediation: [hint] If you wish to receive updates for the latest released version of the target system, run \`subscription-manager release --unset\` after the upgrade.
+Key: 747a4ca25303eda17d1891bb85eeb226be14f252
+----------------------------------------
+Risk Factor: info
+Title: SElinux relabeling will be scheduled
+Summary: SElinux relabeling will be scheduled as the status is permissive/enforcing.
+Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
+----------------------------------------
+
+                        </code>
+                      </pre>
+                    </div>
+                  </div>
+                  <table
+                    class="pf-c-table pf-m-grid-md pf-m-compact"
+                    data-ouia-component-id="OUIA-Generated-Table-7"
+                    data-ouia-component-type="PF4/Table"
+                    data-ouia-safe="true"
+                    role="grid"
+                    style="margin-bottom: 30px; --pf-c-table__expandable-row--after--border-width--base: 0;"
+                  >
+                    <tbody
+                      class=""
+                      role="rowgroup"
+                    />
+                  </table>
+                </div>
+              </td>
+            </tr>
+          </tbody>
         </table>
         <div
           class="pf-c-toolbar ins-c-table__toolbar ins-m-footer"
@@ -3863,11 +4052,11 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                   class="pf-c-options-menu__toggle-text"
                 >
                   <b>
-                    1 - 5
+                    1 - 6
                   </b>
                    of 
                   <b>
-                    5
+                    6
                   </b>
                    
                 </span>
@@ -3914,7 +4103,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                   aria-label="Go to first page"
                   class="pf-c-button pf-m-plain pf-m-disabled"
                   data-action="first"
-                  data-ouia-component-id="OUIA-Generated-Button-plain-20"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-21"
                   data-ouia-component-type="PF4/Button"
                   data-ouia-safe="true"
                   disabled=""
@@ -3943,7 +4132,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                   aria-label="Go to previous page"
                   class="pf-c-button pf-m-plain pf-m-disabled"
                   data-action="previous"
-                  data-ouia-component-id="OUIA-Generated-Button-plain-21"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-22"
                   data-ouia-component-type="PF4/Button"
                   data-ouia-safe="true"
                   disabled=""
@@ -3990,7 +4179,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                   aria-label="Go to next page"
                   class="pf-c-button pf-m-plain pf-m-disabled"
                   data-action="next"
-                  data-ouia-component-id="OUIA-Generated-Button-plain-22"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-23"
                   data-ouia-component-type="PF4/Button"
                   data-ouia-safe="true"
                   disabled=""
@@ -4019,7 +4208,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                   aria-label="Go to last page"
                   class="pf-c-button pf-m-plain pf-m-disabled"
                   data-action="last"
-                  data-ouia-component-id="OUIA-Generated-Button-plain-23"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-24"
                   data-ouia-component-type="PF4/Button"
                   data-ouia-safe="true"
                   disabled=""

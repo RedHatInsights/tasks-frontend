@@ -1,58 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import propTypes from 'prop-types';
-import { TableComposable, Tbody, Tr, Td } from '@patternfly/react-table';
+import { TableComposable, Tbody } from '@patternfly/react-table';
 import { buildResultsRows } from './jobResultsDetailsHelpers';
+import ExpandedIssues from './ExpandedIssues';
 
 const JobResultsDetails = ({ item }) => {
-  const rowPairs = buildResultsRows(item.results.report_json.entries);
-  let rowIndex = 0;
+  const isReportJson = item.results.report_json ? true : false;
 
-  const [expanded, setExpanded] = useState(
-    Object.fromEntries(
-      Object.entries(rowPairs).map(([k]) => [k, Boolean(false)])
-    )
-  );
-
-  const handleExpansionToggle = (event, pairIndex) => {
-    setExpanded({
-      ...expanded,
-      [pairIndex]: !expanded[pairIndex],
-    });
-  };
-
-  const renderParentRow = (parent, pairIndex) => {
-    let parentRow = (
-      <Tr key={rowIndex}>
-        <Td
-          expand={{
-            rowIndex: pairIndex,
-            isExpanded: expanded[pairIndex],
-            onToggle: handleExpansionToggle,
-          }}
-        />
-        <Td>{parent}</Td>
-      </Tr>
-    );
-
-    rowIndex += 1;
-    return parentRow;
-  };
-
-  const renderChildRow = (child, pairIndex) => {
-    let childRow = (
-      <Tr
-        className={expanded[pairIndex] === true ? 'pf-m-expanded' : null}
-        key={rowIndex}
-        isExpanded={expanded[pairIndex] === true}
-      >
-        <Td />
-        <Td>{child}</Td>
-      </Tr>
-    );
-
-    rowIndex += 1;
-    return childRow;
-  };
+  const rowPairs = item.results.report_json
+    ? buildResultsRows(item.results.report_json.entries, isReportJson)
+    : buildResultsRows([item.results.report], isReportJson);
 
   return (
     <div>
@@ -64,14 +21,7 @@ const JobResultsDetails = ({ item }) => {
         }}
       >
         <Tbody>
-          {rowPairs.map((row, pairIndex) => {
-            return (
-              <React.Fragment key={pairIndex}>
-                {renderParentRow(row.parent, pairIndex)}
-                {renderChildRow(row.child, pairIndex)}
-              </React.Fragment>
-            );
-          })}
+          <ExpandedIssues rowPairs={rowPairs} isReportJson={isReportJson} />
         </Tbody>
       </TableComposable>
     </div>

@@ -74,9 +74,9 @@ export const fetchTaskJobs = async (taskDetails, setError) => {
   }
 };
 
-export const hasDetails = (completedTaskJobs) => {
-  return completedTaskJobs.status === 'Success' &&
-    completedTaskJobs.results.report_json
+export const hasDetails = (completedTaskJob) => {
+  return completedTaskJob.status === 'Success' &&
+    completedTaskJob.results.report
     ? true
     : false;
 };

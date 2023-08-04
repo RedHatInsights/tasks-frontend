@@ -95,7 +95,7 @@ const INVENTORY_TOTAL_FETCH_URL = '/api/inventory/v1/hosts';
  *      component - component to be rendered when a route has been chosen.
  */
 export const Routes = () => {
-  const [hasSystems, setHasSystems] = useState(false);
+  const [hasSystems, setHasSystems] = useState(true);
   useEffect(() => {
     try {
       axios

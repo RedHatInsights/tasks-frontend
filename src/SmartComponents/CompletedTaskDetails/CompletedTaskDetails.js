@@ -60,8 +60,8 @@ const CompletedTaskDetails = () => {
   const history = useHistory();
   const chrome = useChrome();
   const { hasAccess, isLoading } = usePermissions('inventory', [
-    'inventory:*:*',
-    'inventory:*:read',
+    'inventory:hosts:*',
+    'inventory:hosts:read',
   ]);
 
   const fetchData = async () => {

@@ -16,6 +16,7 @@ import {
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
 import columns, { exportableColumns } from './Columns';
 import { statusFilters, systemFilter } from './Filters';
+import {convert2rhel_task_jobs ,convert2rhel_task_details, upgrade_leapp_task} from '../CompletedTaskDetails/__tests__/__fixtures__/completedTasksDetails.fixtures';
 import {
   COMPLETED_INFO_PANEL,
   COMPLETED_INFO_PANEL_FLEX_PROPS,
@@ -41,6 +42,7 @@ import {
 import { NotAuthorized } from '@redhat-cloud-services/frontend-components/NotAuthorized';
 import { usePermissions } from '@redhat-cloud-services/frontend-components-utilities/RBACHook';
 import JobResultsDetails from './JobResultsDetails/JobResultsDetails';
+
 
 const CompletedTaskDetails = () => {
   const { id } = useParams();

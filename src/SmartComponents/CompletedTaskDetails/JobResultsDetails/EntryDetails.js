@@ -9,7 +9,7 @@ import {
 import EntryRowLabel from './EntryRowLabel';
 
 const EntryDetails = ({ entry }) => {
-  const { detail, key, severity, summary, title } = entry;
+  const { detail, diagnosis, key, severity, summary, title } = entry;
 
   const getLabelType = () => {
     if (severity === 'info') {
@@ -21,7 +21,7 @@ const EntryDetails = ({ entry }) => {
         <EntryRowLabel
           color="orange"
           icon={<ExclamationTriangleIcon />}
-          text="Low risk"
+          text="Warning"
         />
       );
     } else if (severity === 'high') {
@@ -29,11 +29,30 @@ const EntryDetails = ({ entry }) => {
         <EntryRowLabel
           color="red"
           icon={<ExclamationCircleIcon />}
-          text="High risk"
+          text="Error"
         />
       );
     }
   };
+
+  const renderDiagnosisDetails = () => {
+    return detail.diagnosis.map((diagnosis, index) => {
+      let diagnosisKey = `diagnosis-${index}`;
+      return (
+        <div key={diagnosisKey}>
+          {index > 0 ? (
+            <span>
+              <br />
+            </span>
+          ) : null}
+          <span style={{ fontFamily: 'overpass-mono' }}>
+            {diagnosis.context}
+          </span>
+        </div>
+      );
+    });
+  };
+
 
   const renderRemediationsDetails = () => {
     return detail.remediations.map((remediation, index) => {
@@ -53,13 +72,14 @@ const EntryDetails = ({ entry }) => {
     });
   };
 
+
   const createGrid = (itemOneContent, itemTwoContent) => {
     return (
       <Grid hasGutter className="entry-detail-title">
         <GridItem span={2} className="entry-detail-content">
           {itemOneContent}
         </GridItem>
-        <GridItem xl2={5} xl={5} l={6} m={7} sm={8}>
+        <GridItem xl2={5} xl={5} l={6} m={7} sm={8} style={{ whiteSpace: 'pre-line' }}>
           {typeof itemTwoContent === 'function'
             ? itemTwoContent()
             : itemTwoContent}
@@ -72,6 +92,9 @@ const EntryDetails = ({ entry }) => {
     return (
       <React.Fragment>
         {createGrid('Summary', summary)}
+        {detail?.diagnosis
+          ? createGrid('Diagnosis', renderDiagnosisDetails)
+          : null}
         {detail?.remediations
           ? createGrid('Remediation', renderRemediationsDetails)
           : null}

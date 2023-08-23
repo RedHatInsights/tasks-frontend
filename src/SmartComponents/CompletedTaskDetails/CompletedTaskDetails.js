@@ -74,8 +74,10 @@ const CompletedTaskDetails = () => {
       const fetchedTaskJobs = await fetchTaskJobs(fetchedTaskDetails, setError);
 
       if (fetchedTaskJobs.length) {
-        await setCompletedTaskDetails(fetchedTaskDetails);
-        await setCompletedTaskJobs(fetchedTaskJobs);
+        // await setCompletedTaskDetails(fetchedTaskDetails);
+        await setCompletedTaskDetails(convert2rhel_task_details)
+        await setCompletedTaskJobs(convert2rhel_task_jobs)
+        // await setCompletedTaskJobs(fetchedTaskJobs);
       }
     }
     setTableLoading(false);

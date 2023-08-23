@@ -7,32 +7,71 @@ import {
   InfoCircleIcon,
 } from '@patternfly/react-icons';
 import EntryRowLabel from './EntryRowLabel';
+// import {LeappEntryDetails, Convert2RHELEntryDetails} from '../TaskEntries';
 
-const EntryDetails = ({ entry }) => {
+const task_slug = "Convert2RHEL"
+
+const EntryDetails = ({ entry, mapping }) => {
   const { detail, diagnosis, key, severity, summary, title } = entry;
 
+// we have severities that need to be used somehow and need to be mapped here
+  var severity_map = {
+      "Convert2RHEL": {
+          "high": {
+              "text": "Inhibitor",
+              "color": "red",
+              "icon": "<ExclamationCircleIcon/>"
+          },
+          "low": {
+              "text": "Warning",
+              "color": "orange",
+              "icon": "<ExclamationTriangleIcon/>"
+          },
+          "info": {
+              "text": "Info",
+              "color": "blue",
+              "icon": "<InfoCircleIcon/>"
+          },
+          "skip": {
+              "text": "Skipped",
+              "color": "red",
+              "icon": "<ExclamationCircleIcon/>"
+          },
+          "overridable": {
+              "text": "Overridable",
+              "color": "red",
+              "icon": "<ExclamationcCircleIcon/>"
+          }
+      },
+      "Leapp": {
+          "high": {
+              "text": "High risk",
+              "color": "red",
+              "icon": "<ExclamationCircleIcon/>"
+          },
+          "low": {
+              "text": "Low risk",
+              "color": "orange",
+              "icon": "<ExclamationTriangleIcon/>"
+          },
+          "info": {
+              "text": "Info",
+              "color": "blue",
+              "icon": "<InfoCircleIcon/>"
+          }
+      }
+  }
+
+  console.log(severity, "severity_value")
+  console.log(severity_map["Convert2RHEL"][severity], "severity")
+
   const getLabelType = () => {
-    if (severity === 'info') {
-      return (
-        <EntryRowLabel color="blue" icon={<InfoCircleIcon />} text="Info" />
-      );
-    } else if (severity === 'low') {
-      return (
-        <EntryRowLabel
-          color="orange"
-          icon={<ExclamationTriangleIcon />}
-          text="Warning"
-        />
-      );
-    } else if (severity === 'high') {
-      return (
-        <EntryRowLabel
-          color="red"
-          icon={<ExclamationCircleIcon />}
-          text="Error"
-        />
-      );
-    }
+
+
+          return (
+              <EntryRowLabel color={severity_map[task_slug][severity]["color"]} icon={severity_map[task_slug][severity]["icon"]} text={severity_map[task_slug][severity]["text"]}/>)
+
+
   };
 
   const renderDiagnosisDetails = () => {
@@ -111,6 +150,7 @@ const EntryDetails = ({ entry }) => {
     </React.Fragment>
   );
 };
+
 
 EntryDetails.propTypes = {
   entry: propTypes.object,

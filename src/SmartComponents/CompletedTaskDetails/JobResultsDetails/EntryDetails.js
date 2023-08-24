@@ -9,55 +9,55 @@ import {
 import EntryRowLabel from './EntryRowLabel';
 // import {LeappEntryDetails, Convert2RHELEntryDetails} from '../TaskEntries';
 
-const task_slug = "Convert2RHEL"
+const task_slug = "Leapp"
 
 const EntryDetails = ({ entry, mapping }) => {
   const { detail, diagnosis, key, severity, summary, title } = entry;
 
 // we have severities that need to be used somehow and need to be mapped here
-  var severity_map = {
+  const severity_map = {
       "Convert2RHEL": {
           "high": {
               "text": "Inhibitor",
               "color": "red",
-              "icon": "<ExclamationCircleIcon/>"
+              "icon": <ExclamationCircleIcon/>
           },
           "low": {
               "text": "Warning",
               "color": "orange",
-              "icon": "<ExclamationTriangleIcon/>"
+              "icon": <ExclamationTriangleIcon/>
           },
           "info": {
               "text": "Info",
               "color": "blue",
-              "icon": "<InfoCircleIcon/>"
+              "icon": <InfoCircleIcon/>
           },
           "skip": {
               "text": "Skipped",
               "color": "red",
-              "icon": "<ExclamationCircleIcon/>"
+              "icon": <ExclamationCircleIcon/>
           },
           "overridable": {
               "text": "Overridable",
               "color": "red",
-              "icon": "<ExclamationcCircleIcon/>"
+              "icon": <ExclamationCircleIcon/>
           }
       },
       "Leapp": {
           "high": {
               "text": "High risk",
               "color": "red",
-              "icon": "<ExclamationCircleIcon/>"
+              "icon": <ExclamationCircleIcon/>
           },
           "low": {
               "text": "Low risk",
               "color": "orange",
-              "icon": "<ExclamationTriangleIcon/>"
+              "icon": <ExclamationTriangleIcon/>
           },
           "info": {
               "text": "Info",
               "color": "blue",
-              "icon": "<InfoCircleIcon/>"
+              "icon": <InfoCircleIcon/>
           }
       }
   }
@@ -66,12 +66,8 @@ const EntryDetails = ({ entry, mapping }) => {
   console.log(severity_map["Convert2RHEL"][severity], "severity")
 
   const getLabelType = () => {
-
-
           return (
               <EntryRowLabel color={severity_map[task_slug][severity]["color"]} icon={severity_map[task_slug][severity]["icon"]} text={severity_map[task_slug][severity]["text"]}/>)
-
-
   };
 
   const renderDiagnosisDetails = () => {

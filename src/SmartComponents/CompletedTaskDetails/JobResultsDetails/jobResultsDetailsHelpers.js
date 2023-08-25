@@ -5,15 +5,15 @@ import EntryDetails from './EntryDetails';
 const sortBySeverity = (entries) => {
   let sortedEntries = entries.sort((a, b) => {
     if (
-      (a.severity === 'high' && b.severity !== 'high') ||
-      (a.severity === 'low' && b.severity === 'info')
+      (a.severity === 'Error' && b.severity !== 'Error') ||
+      (a.severity === 'Warning' && b.severity === 'Info')
     ) {
       return -1;
     }
 
     if (
-      (b.severity === 'high' && a.severity !== 'high') ||
-      (b.severity === 'low' && a.severity === 'info')
+      (b.severity === 'Error' && a.severity !== 'Error') ||
+      (b.severity === 'Warning' && a.severity === 'Info')
     ) {
       return 1;
     }

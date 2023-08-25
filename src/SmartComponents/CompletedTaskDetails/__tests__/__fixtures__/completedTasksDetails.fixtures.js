@@ -389,7 +389,7 @@ export const convert2rhel_task_jobs = [
               'Skipping the check because we have been asked not to subscribe this system to RHSM',
             audience: 'sysadmin',
             hostname: 'dan-laptop',
-            severity: 'low',
+            severity: 'Warning',
             timeStamp: '2022-10-12T17:16:44.065672Z',
           },
           {
@@ -416,7 +416,7 @@ export const convert2rhel_task_jobs = [
             summary: 'The version of the loaded kernel is different from the latest version in the enabled system repositories.',
             audience: 'sysadmin',
             hostname: 'dan-laptop',
-            severity: 'high',
+            severity: 'Error',
             timeStamp: '2022-10-12T17:16:44.255785Z',
           },
           {
@@ -443,7 +443,7 @@ export const convert2rhel_task_jobs = [
             summary: 'The conversion with secure boot is currently not possible.',
             audience: 'sysadmin',
             hostname: 'dan-laptop',
-            severity: 'high',
+            severity: 'Error',
             timeStamp: '2022-10-12T17:16:47.104093Z',
           },
           {
@@ -456,7 +456,7 @@ export const convert2rhel_task_jobs = [
             summary: 'The following packages were removed: NetworkManager-1.18.8-2.0.1.el7_9, kernel-core-0:4.18.0-240.10.1.el8_3',
             audience: 'sysadmin',
             hostname: 'dan-laptop',
-            severity: 'info',
+            severity: 'Info',
             timeStamp: '2022-10-12T17:16:47.104093Z',
           },
         ],

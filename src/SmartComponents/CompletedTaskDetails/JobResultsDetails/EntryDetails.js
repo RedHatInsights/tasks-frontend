@@ -9,7 +9,8 @@ import {
 import EntryRowLabel from './EntryRowLabel';
 // import {LeappEntryDetails, Convert2RHELEntryDetails} from '../TaskEntries';
 
-const task_slug = "Leapp"
+// const task_slug = "Leapp"
+const task_slug = "Convert2RHEL"
 
 const EntryDetails = ({ entry, mapping }) => {
   const { detail, diagnosis, key, severity, summary, title } = entry;
@@ -17,17 +18,17 @@ const EntryDetails = ({ entry, mapping }) => {
 // we have severities that need to be used somehow and need to be mapped here
   const severity_map = {
       "Convert2RHEL": {
-          "high": {
+          "Error": {
               "text": "Inhibitor",
               "color": "red",
               "icon": <ExclamationCircleIcon/>
           },
-          "low": {
+          "Warning": {
               "text": "Warning",
               "color": "orange",
               "icon": <ExclamationTriangleIcon/>
           },
-          "info": {
+          "Info": {
               "text": "Info",
               "color": "blue",
               "icon": <InfoCircleIcon/>

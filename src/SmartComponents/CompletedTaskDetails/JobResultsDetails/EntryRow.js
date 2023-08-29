@@ -1,55 +1,25 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import {
-  ExclamationCircleIcon,
-  ExclamationTriangleIcon,
-  InfoCircleIcon,
-} from '@patternfly/react-icons';
+import {severity_map} from '../TaskEntries';
 
+// const task_slug = "Leapp"
+const task_slug = "Convert2RHEL"
 const EntryRow = ({ severity, title }) => {
+  console.log(title, "title")
   const renderIcon = () => {
-    if (severity === 'Info') {
-      return (
-        <span style={{ marginRight: '8px' }}>
-          <InfoCircleIcon color="#2B9AF3" />
-        </span>
-      );
-    } else if (severity === 'Warning') {
-      return (
-        <span style={{ marginRight: '8px' }}>
-          <ExclamationTriangleIcon color="#F0AB00" />
-        </span>
-      );
-    } else if (severity === 'Error') {
-      return (
-        <span style={{ marginRight: '8px' }}>
-          <ExclamationCircleIcon color="#C9190B" />
-
-        </span>
-      );
-    }
+    return (
+      <span style={{ marginRight: '8px' }}>
+        {severity_map[task_slug][severity]["icon"]}
+      </span>
+    );
   };
 
   const renderTitle = () => {
-    if (severity === 'Info') {
       return (
-        <span style={{ color: '#002952' }}>
+        <span style={{color: severity_map[task_slug][severity]["color"]}}>
           <strong>{title}</strong>
         </span>
       );
-    } else if (severity === 'Warning') {
-      return (
-        <span style={{ color: '#795000' }}>
-          <strong>{title}</strong>
-        </span>
-      );
-    } else if (severity === 'Error') {
-      return (
-        <span style={{ color: '#A30000' }}>
-          <strong>{title}</strong>
-        </span>
-      );
-    }
   };
 
   return (
@@ -64,5 +34,6 @@ EntryRow.propTypes = {
   severity: propTypes.string,
   title: propTypes.string,
 };
+
 
 export default EntryRow;

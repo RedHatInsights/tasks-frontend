@@ -7,61 +7,13 @@ import {
   InfoCircleIcon,
 } from '@patternfly/react-icons';
 import EntryRowLabel from './EntryRowLabel';
-// import {LeappEntryDetails, Convert2RHELEntryDetails} from '../TaskEntries';
+import {severity_map} from '../TaskEntries';
 
 // const task_slug = "Leapp"
 const task_slug = "Convert2RHEL"
 
 const EntryDetails = ({ entry, mapping }) => {
   const { detail, diagnosis, key, severity, summary, title } = entry;
-
-// we have severities that need to be used somehow and need to be mapped here
-  const severity_map = {
-      "Convert2RHEL": {
-          "Error": {
-              "text": "Inhibitor",
-              "color": "red",
-              "icon": <ExclamationCircleIcon/>
-          },
-          "Warning": {
-              "text": "Warning",
-              "color": "orange",
-              "icon": <ExclamationTriangleIcon/>
-          },
-          "Info": {
-              "text": "Info",
-              "color": "blue",
-              "icon": <InfoCircleIcon/>
-          },
-          "skip": {
-              "text": "Skipped",
-              "color": "red",
-              "icon": <ExclamationCircleIcon/>
-          },
-          "overridable": {
-              "text": "Overridable",
-              "color": "red",
-              "icon": <ExclamationCircleIcon/>
-          }
-      },
-      "Leapp": {
-          "high": {
-              "text": "High risk",
-              "color": "red",
-              "icon": <ExclamationCircleIcon/>
-          },
-          "low": {
-              "text": "Low risk",
-              "color": "orange",
-              "icon": <ExclamationTriangleIcon/>
-          },
-          "info": {
-              "text": "Info",
-              "color": "blue",
-              "icon": <InfoCircleIcon/>
-          }
-      }
-  }
 
   console.log(severity, "severity_value")
   console.log(severity_map["Convert2RHEL"][severity], "severity")

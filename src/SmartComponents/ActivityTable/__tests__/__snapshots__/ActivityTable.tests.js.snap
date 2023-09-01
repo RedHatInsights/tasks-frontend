@@ -552,7 +552,7 @@ exports[`ActivityTable should export 1`] = `
             data-label="Task"
           >
             <a
-              href="/executed/2"
+              href="/insights/tasks/executed/2"
             >
               taskB
             </a>
@@ -643,7 +643,7 @@ exports[`ActivityTable should export 1`] = `
             data-label="Task"
           >
             <a
-              href="/executed/1"
+              href="/insights/tasks/executed/1"
             >
               taskA
             </a>
@@ -1329,7 +1329,7 @@ exports[`ActivityTable should render correctly 1`] = `
             data-label="Task"
           >
             <a
-              href="/executed/undefined"
+              href="/insights/tasks/executed/undefined"
             >
               <div
                 class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
@@ -1427,7 +1427,7 @@ exports[`ActivityTable should render correctly 1`] = `
             data-label="Task"
           >
             <a
-              href="/executed/undefined"
+              href="/insights/tasks/executed/undefined"
             >
               <div
                 class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
@@ -1525,7 +1525,7 @@ exports[`ActivityTable should render correctly 1`] = `
             data-label="Task"
           >
             <a
-              href="/executed/undefined"
+              href="/insights/tasks/executed/undefined"
             >
               <div
                 class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
@@ -1623,7 +1623,7 @@ exports[`ActivityTable should render correctly 1`] = `
             data-label="Task"
           >
             <a
-              href="/executed/undefined"
+              href="/insights/tasks/executed/undefined"
             >
               <div
                 class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"
@@ -1721,7 +1721,7 @@ exports[`ActivityTable should render correctly 1`] = `
             data-label="Task"
           >
             <a
-              href="/executed/undefined"
+              href="/insights/tasks/executed/undefined"
             >
               <div
                 class="pf-c-skeleton ins-c-skeleton ins-c-skeleton__md"

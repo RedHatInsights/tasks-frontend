@@ -99,7 +99,6 @@ exports[`TasksPage should render correctly 1`] = `
   </div>
   <section
     class="pf-l-page__main-section pf-c-page__main-section"
-    page-type=""
   >
     <div
       class="pf-l-stack pf-m-gutter"

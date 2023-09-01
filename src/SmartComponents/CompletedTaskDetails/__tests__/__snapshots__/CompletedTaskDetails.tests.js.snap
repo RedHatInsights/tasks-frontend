@@ -22,7 +22,7 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
           >
             <a
               class="pf-c-breadcrumb__link"
-              href="/executed"
+              href="/insights/tasks/executed"
             >
               Tasks
             </a>
@@ -136,7 +136,6 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
     </section>
     <section
       class="pf-l-page__main-section pf-c-page__main-section"
-      page-type=""
     >
       <article
         class="pf-c-card"
@@ -1121,7 +1120,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
           >
             <a
               class="pf-c-breadcrumb__link"
-              href="/executed"
+              href="/insights/tasks/executed"
             >
               Tasks
             </a>
@@ -1235,7 +1234,6 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
     </section>
     <section
       class="pf-l-page__main-section pf-c-page__main-section"
-      page-type=""
     >
       <article
         class="pf-c-card"

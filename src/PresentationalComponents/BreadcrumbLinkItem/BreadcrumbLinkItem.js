@@ -1,10 +1,10 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { BreadcrumbItem } from '@patternfly/react-core';
+import InsightsLink from '@redhat-cloud-services/frontend-components/InsightsLink';
 
 const RouterLink = ({ href, ...props }) => {
-  return <Link {...props} to={href} />;
+  return <InsightsLink {...props} to={href} />;
 };
 
 RouterLink.propTypes = {

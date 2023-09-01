@@ -2,14 +2,12 @@
 
 exports[`SystemTable should render correctly 1`] = `
 <DocumentFragment>
-  <section
-    class="inventory"
+  <div
+    class="testInventroyComponentChild"
   >
     <div>
-      <h1>
-        Inventory mock
-      </h1>
+      Inventory mock
     </div>
-  </section>
+  </div>
 </DocumentFragment>
 `;

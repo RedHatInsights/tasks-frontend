@@ -66,6 +66,8 @@ jest.mock('@redhat-cloud-services/frontend-components/useChrome', () => ({
     appObjectId: jest.fn(),
     on: jest.fn(),
     isBeta: jest.fn(),
+    getApp: () => 'tasks',
+    getBundle: () => 'insights',
   }),
   useChrome: () => ({
     isBeta: jest.fn(),
@@ -73,3 +75,15 @@ jest.mock('@redhat-cloud-services/frontend-components/useChrome', () => ({
     updateDocumentTitle: jest.fn(),
   }),
 }));
+
+jest.mock('@redhat-cloud-services/frontend-components/Inventory', () => ({
+  InventoryTable: jest.fn(() => (
+    <div className="testInventroyComponentChild">
+      <div>Inventory mock</div>
+    </div>
+  )),
+}));
+
+// jest.mock('@redhat-cloud-services/frontend-components/AsyncComponent', () => (
+//   <div>AsyncComponent</div>
+// ));

@@ -34,6 +34,12 @@ plugins.push(
             singleton: true,
           },
         },
+        {
+          'react-router-dom': {
+            requiredVersion: '*',
+            singleton: true,
+          },
+        },
       ],
     }
   )

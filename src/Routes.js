@@ -1,6 +1,6 @@
 import React, { Suspense, lazy, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { Bullseye, Spinner } from '@patternfly/react-core';
 import WithPermission from './PresentationalComponents/WithPermission/WithPermission';
 import axios from 'axios';
@@ -8,18 +8,7 @@ import AsynComponent from '@redhat-cloud-services/frontend-components/AsyncCompo
 import ErrorState from '@redhat-cloud-services/frontend-components/ErrorState';
 
 const PermissionRouter = (route) => {
-  const {
-    component: Component,
-    isExact,
-    path,
-    props = {},
-    requiredPermissions,
-  } = route;
-
-  const routeProps = {
-    isExact,
-    path,
-  };
+  const { component: Component, props = {}, requiredPermissions } = route;
 
   const componentProps = {
     ...props,
@@ -27,18 +16,14 @@ const PermissionRouter = (route) => {
   };
 
   return (
-    <Route {...routeProps}>
-      <WithPermission requiredPermissions={requiredPermissions}>
-        <Component {...componentProps} />
-      </WithPermission>
-    </Route>
+    <WithPermission requiredPermissions={requiredPermissions}>
+      <Component {...componentProps} />
+    </WithPermission>
   );
 };
 
 PermissionRouter.propTypes = {
-  component: PropTypes.node,
-  isExact: PropTypes.bool,
-  path: PropTypes.string,
+  component: PropTypes.object,
   props: PropTypes.object,
 };
 
@@ -54,7 +39,7 @@ const CompletedTaskDetails = lazy(() =>
   )
 );
 
-const tasksRoutes = [
+const routes = [
   {
     path: '/executed/:id',
     isExact: true,
@@ -94,7 +79,7 @@ const INVENTORY_TOTAL_FETCH_URL = '/api/inventory/v1/hosts';
  *      path - https://prod.foo.redhat.com:1337/insights/advisor/rules
  *      component - component to be rendered when a route has been chosen.
  */
-export const Routes = () => {
+const TasksRoutes = () => {
   const [hasSystems, setHasSystems] = useState(true);
   useEffect(() => {
     try {
@@ -125,13 +110,19 @@ export const Routes = () => {
           app="Tasks"
         />
       ) : (
-        <Switch>
-          {tasksRoutes.map(PermissionRouter)}
-          <Route>
-            <Redirect to="/" />
-          </Route>
-        </Switch>
+        <Routes>
+          {routes.map((route) => (
+            <Route
+              key={route.path}
+              path={route.path}
+              element={<PermissionRouter {...route} />}
+            />
+          ))}
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
       )}
     </Suspense>
   );
 };
+
+export default TasksRoutes;

@@ -3,8 +3,8 @@ import propTypes from 'prop-types';
 import { TableComposable, Tbody, Tr, Td } from '@patternfly/react-table';
 import { buildResultsRows } from './jobResultsDetailsHelpers';
 
-const JobResultsDetails = ({ item }) => {
-  const rowPairs = buildResultsRows(item.results.report_json.entries);
+const JobResultsDetails = ({ taskSlug, item }) => {
+  const rowPairs = buildResultsRows(item.results.report_json.entries, taskSlug);
   let rowIndex = 0;
 
   const [expanded, setExpanded] = useState(
@@ -80,6 +80,7 @@ const JobResultsDetails = ({ item }) => {
 
 JobResultsDetails.propTypes = {
   item: propTypes.object,
+  taskSlug: propTypes.string,
 };
 
 export default JobResultsDetails;

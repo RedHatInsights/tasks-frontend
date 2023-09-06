@@ -1,20 +1,19 @@
 import React from 'react';
 import EntryRow from './EntryRow';
 import EntryDetails from './EntryDetails';
+import severityMap from '../TaskEntries';
 
-const sortBySeverity = (entries) => {
+const sortBySeverity = (entries, taskConstantMapper) => {
   let sortedEntries = entries.sort((a, b) => {
-    if (
-      (a.severity === 'Error' && b.severity !== 'Error') ||
-      (a.severity === 'Warning' && b.severity === 'Info')
-    ) {
+    let aSeverity =
+      severityMap[taskConstantMapper][a.severity.toLowerCase()].severityLevel;
+    let bSeverity =
+      severityMap[taskConstantMapper][b.severity.toLowerCase()].severityLevel;
+    if (aSeverity > bSeverity) {
       return -1;
     }
 
-    if (
-      (b.severity === 'Error' && a.severity !== 'Error') ||
-      (b.severity === 'Warning' && a.severity === 'Info')
-    ) {
+    if (bSeverity > aSeverity) {
       return 1;
     }
 
@@ -24,14 +23,32 @@ const sortBySeverity = (entries) => {
   return sortedEntries;
 };
 
-export const buildResultsRows = (entries) => {
+export const buildResultsRows = (entries, taskSlug) => {
+  let taskConstantMapper = taskSlug.toLowerCase().replace(/-/g, '');
   let rows = [];
-  let sortedEntries = sortBySeverity(entries);
+  let sortedEntries = sortBySeverity(
+    entries,
+    `${taskConstantMapper}SeverityMap`
+  );
   sortedEntries.forEach((entry) => {
-    rows.push({
-      parent: <EntryRow severity={entry.severity} title={entry.title} />,
-      child: <EntryDetails entry={entry} />,
-    });
+    // this line to be removed
+    if (entry.severity.toLowerCase() !== 'success') {
+      rows.push({
+        parent: (
+          <EntryRow
+            severity={entry.severity}
+            title={entry.title}
+            taskConstantMapper={`${taskConstantMapper}SeverityMap`}
+          />
+        ),
+        child: (
+          <EntryDetails
+            entry={entry}
+            taskConstantMapper={`${taskConstantMapper}SeverityMap`}
+          />
+        ),
+      });
+    }
   });
 
   return rows;

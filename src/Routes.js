@@ -24,7 +24,7 @@ const PermissionRouter = (route) => {
   };
 
   return (
-    <Route {...routeProps}>
+    <Route key={path} {...routeProps}>
       <WithPermission requiredPermissions={requiredPermissions}>
         <Component {...componentProps} />
       </WithPermission>

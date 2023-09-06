@@ -59,14 +59,13 @@ export const upgrade_leapp_task = {
   systems_count: 5,
 };
 
-
 export const convert2rhel_task_details = {
   id: 2909,
   alerts_count: 3,
-  task_slug: 'convert2rhel-preconversion',
+  task_slug: 'convert-to-rhel-preanalysis',
   task_title: 'Convert to RHEL Preanalysis',
   task_description:
-      'For connected systems running distributions compatible with RHEL 7 or RHEL 8 (for example, CentOS 7), the RHEL preconversion analysis will predict potential conflicts before you convert. Run this task to understand the impact of a conversion on your fleet and make a remediation plan before your maintenance window begins.',
+    'For connected systems running distributions compatible with RHEL 7 or RHEL 8 (for example, CentOS 7), the RHEL preconversion analysis will predict potential conflicts before you convert. Run this task to understand the impact of a conversion on your fleet and make a remediation plan before your maintenance window begins.',
   start_time: '2023-06-01T19:58:51.330433Z',
   end_time: '2023-07-16T20:30:24.772008Z',
   initiated_by: 'insights-qa',
@@ -74,7 +73,6 @@ export const convert2rhel_task_details = {
   system_count: 2,
   systems_count: 2,
 };
-
 
 export const leapp_task_jobs = [
   {
@@ -350,7 +348,8 @@ export const convert2rhel_task_jobs = [
     system: 'f1356a99-754d-4219-9g25-fccb2cc6e2f2',
     status: 'Success',
     results: {
-      message: 'No inhibtors found, conversion will run smoothly for this system.',
+      message:
+        'No inhibtors found, conversion should run smoothly for this system.',
     },
     updated_on: '2022-08-08T18:19:50.898540Z',
     display_name: 'centos7-test-device-1',
@@ -360,47 +359,35 @@ export const convert2rhel_task_jobs = [
     system: 'f1356a99-754d-4219-9g25-fccb2cc53bee',
     status: 'Success',
     results: {
-
-      alert: true,
+      alert: false,
       report: '',
-      message: 'Your system has 2 inhibitors out of 3 potential problems.',
+      message: 'Your system has 3 inhibitors out of 3 potential problems.',
       report_json: {
         entries: [
-          {
-            id: 'SECURE_BOOT_DETECTED',
-            key: 'DBUS_IS_RUNNING::SECURE_BOOT_DETECTED',
-            tags: [],
-            actor: 'DBUS_IS_RUNNING',
-            title: 'Dbus is running check skip',
-            summary:
-              'Skipping the check because we have been asked not to subscribe this system to RHSM',
-            audience: 'sysadmin',
-            hostname: 'dan-laptop',
-            severity: 'Warning',
-            timeStamp: '2022-10-12T17:16:44.065672Z',
-          },
           {
             id: 'INVALID_KERNEL_VERSION',
             key: 'IS_LOADED_KERNEL_LATEST::INVALID_KERNEL_VERSION',
             tags: [],
             actor: 'IS_LOADED_KERNEL_LATEST',
-            title: 'The version of the loaded kernel is different from the latest version',
-
+            title:
+              'The version of the loaded kernel is different from the latest version',
             detail: {
               diagnosis: [
                 {
-                  context: 'Latest kernel version available in updates: 3.10.0-1160.90.1.el7\n Loaded kernel version: 3.10.0-1160.88.1.el7',
+                  context:
+                    'Latest kernel version available in updates: 3.10.0-1160.90.1.el7\n Loaded kernel version: 3.10.0-1160.88.1.el7',
                 },
               ],
               remediations: [
                 {
                   type: 'hint',
                   context:
-                    "To proceed with the conversion, update the kernel version by executing the following steps:\n\n1. yum install kernel-3.10.0-1160.90.1.el7 -y\n2. reboot",
+                    'To proceed with the conversion, update the kernel version by executing the following steps:\n\n1. yum install kernel-3.10.0-1160.90.1.el7 -y\n2. reboot',
                 },
               ],
             },
-            summary: 'The version of the loaded kernel is different from the latest version in the enabled system repositories.',
+            summary:
+              'The version of the loaded kernel is different from the latest version in the enabled system repositories.',
             audience: 'sysadmin',
             hostname: 'dan-laptop',
             severity: 'Error',
@@ -416,7 +403,8 @@ export const convert2rhel_task_jobs = [
             detail: {
               diagnosis: [
                 {
-                  context: 'In order to continue the conversion, secure boot must be disabled',
+                  context:
+                    'In order to continue the conversion, secure boot must be disabled',
                 },
               ],
               remediations: [
@@ -427,23 +415,40 @@ export const convert2rhel_task_jobs = [
                 },
               ],
             },
-            summary: 'The conversion with secure boot is currently not possible.',
+            summary:
+              'The conversion with secure boot is currently not possible.',
             audience: 'sysadmin',
             hostname: 'dan-laptop',
             severity: 'Error',
             timeStamp: '2022-10-12T17:16:47.104093Z',
           },
           {
-            id: 'REPOSITORY_FILE_PACKAGES_REMOVED',
-            key: 'REMOVE_REPOSITORY_FILES_PACKAGES::REPOSITORY_FILE_PACKAGES_REMOVED',
+            id: 'PACKAGE_UP_TO_DATE_CHECK_FAIL',
+            key: 'PACKAGE_UPDATES::PACKAGE_UP_TO_DATE_CHECK_FAIL',
             tags: [],
-            actor: 'REMOVE_REPOSITORY_FILES_PACKAGES',
-            flags: [],
-            title: 'Repository file package removal',
-            summary: 'The following packages were removed: NetworkManager-1.18.8-2.0.1.el7_9, kernel-core-0:4.18.0-240.10.1.el8_3',
+            actor: 'PACKAGE_UPDATES',
+            flags: ['inhibitor'],
+            title: 'Package up to date check fail',
+            detail: {
+              diagnosis: [
+                {
+                  context:
+                    'There was an error while checking whether the installed packages are up-to-date. Having an updated system is an important prerequisite for a successful conversion.',
+                },
+              ],
+              remediations: [
+                {
+                  type: 'hint',
+                  context:
+                    'Consider verifyng the system is up to date manually before proceeding with the conversion.',
+                },
+              ],
+            },
+            summary:
+              'The conversion with secure boot is currently not possible.',
             audience: 'sysadmin',
             hostname: 'dan-laptop',
-            severity: 'Info',
+            severity: 'Overridable',
             timeStamp: '2022-10-12T17:16:47.104093Z',
           },
         ],
@@ -456,25 +461,46 @@ export const convert2rhel_task_jobs = [
   {
     executed_task: 2909,
     system: 'f1356a99-754d-4219-9g25-fccb2cc6e2f2',
-    status: 'Failure',
+    status: 'Success',
     results: {
-      message: 'There was an error during script execution, the checks could not be run',
+      message:
+        'No inhibtors found, conversion should run smoothly for this system.',
+      report_json: {
+        entries: [
+          {
+            id: 'REPOSITORY_FILE_PACKAGES_REMOVED',
+            key: 'REMOVE_REPOSITORY_FILES_PACKAGES::REPOSITORY_FILE_PACKAGES_REMOVED',
+            tags: [],
+            actor: 'REMOVE_REPOSITORY_FILES_PACKAGES',
+            flags: [],
+            title: 'Repository file package removal',
+            summary:
+              'The following packages were removed: NetworkManager-1.18.8-2.0.1.el7_9, kernel-core-0:4.18.0-240.10.1.el8_3',
+            audience: 'sysadmin',
+            hostname: 'dan-laptop',
+            severity: 'Info',
+            timeStamp: '2022-10-12T17:16:47.104093Z',
+          },
+          {
+            id: 'SECURE_BOOT_DETECTED',
+            key: 'DBUS_IS_RUNNING::SECURE_BOOT_DETECTED',
+            tags: [],
+            actor: 'DBUS_IS_RUNNING',
+            title: 'Dbus is running check skip',
+            summary:
+              'Skipping the check because we have been asked not to subscribe this system to RHSM',
+            audience: 'sysadmin',
+            hostname: 'dan-laptop',
+            severity: 'Warning',
+            timeStamp: '2022-10-12T17:16:44.065672Z',
+          },
+        ],
+      },
     },
     updated_on: '2022-08-08T18:19:50.898540Z',
-    display_name: 'centos7-test-device-1',
+    display_name: 'centos7-test-device-3',
   },
 ];
-
-
-export const convert2rhel_task_main_page = [
-    {
-      slug: "foo",
-      title: "Preconversion analysis utility",
-      description: "For connected systems running distributions compatible with RHEL 7 or RHEL 8 (for example, CentOS 7), the RHEL preconversion analysis will predict potential conflicts before you convert. Run this task to understand the impact of a conversion on your fleet and make a remediation plan before your maintenance window begins.",
-      publish_date: "2022-10-05T00:00:00Z"
-    },
-  ];
-
 
 export const running_task = {
   id: 217,

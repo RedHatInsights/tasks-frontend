@@ -1,46 +1,33 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { Grid, GridItem } from '@patternfly/react-core';
-import {
-  ExclamationCircleIcon,
-  ExclamationTriangleIcon,
-  InfoCircleIcon,
-} from '@patternfly/react-icons';
 import EntryRowLabel from './EntryRowLabel';
-import {severity_map} from '../TaskEntries';
+import severityMap from '../TaskEntries';
 
-// const task_slug = "Leapp"
-const task_slug = "Convert2RHEL"
-
-const EntryDetails = ({ entry, mapping }) => {
-  const { detail, diagnosis, key, severity, summary, title } = entry;
-
-  console.log(severity, "severity_value")
-  console.log(severity_map["Convert2RHEL"][severity], "severity")
+const EntryDetails = ({ entry, taskConstantMapper }) => {
+  const { detail, key, severity, summary, title } = entry;
 
   const getLabelType = () => {
-          return (
-              <EntryRowLabel color={severity_map[task_slug][severity]["color"]} icon={severity_map[task_slug][severity]["icon"]} text={severity_map[task_slug][severity]["text"]}/>)
+    return (
+      <EntryRowLabel
+        color={
+          severityMap[taskConstantMapper][severity.toLowerCase()][
+            'severityColor'
+          ]
+        }
+        icon={severityMap[taskConstantMapper][severity.toLowerCase()]['icon']}
+        text={severityMap[taskConstantMapper][severity.toLowerCase()]['text']}
+      />
+    );
   };
 
   const renderDiagnosisDetails = () => {
-    return detail.diagnosis.map((diagnosis, index) => {
-      let diagnosisKey = `diagnosis-${index}`;
-      return (
-        <div key={diagnosisKey}>
-          {index > 0 ? (
-            <span>
-              <br />
-            </span>
-          ) : null}
-          <span style={{ fontFamily: 'overpass-mono' }}>
-            {diagnosis.context}
-          </span>
-        </div>
-      );
-    });
+    return (
+      <div>
+        <span>{detail.diagnosis.context}</span>
+      </div>
+    );
   };
-
 
   const renderRemediationsDetails = () => {
     return detail.remediations.map((remediation, index) => {
@@ -60,14 +47,20 @@ const EntryDetails = ({ entry, mapping }) => {
     });
   };
 
-
   const createGrid = (itemOneContent, itemTwoContent) => {
     return (
       <Grid hasGutter className="entry-detail-title">
         <GridItem span={2} className="entry-detail-content">
           {itemOneContent}
         </GridItem>
-        <GridItem xl2={5} xl={5} l={6} m={7} sm={8} style={{ whiteSpace: 'pre-line' }}>
+        <GridItem
+          xl2={5}
+          xl={5}
+          l={6}
+          m={7}
+          sm={8}
+          style={{ whiteSpace: 'pre-line' }}
+        >
           {typeof itemTwoContent === 'function'
             ? itemTwoContent()
             : itemTwoContent}
@@ -80,7 +73,7 @@ const EntryDetails = ({ entry, mapping }) => {
     return (
       <React.Fragment>
         {createGrid('Summary', summary)}
-        {detail?.diagnosis
+        {detail?.diagnosis?.context
           ? createGrid('Diagnosis', renderDiagnosisDetails)
           : null}
         {detail?.remediations
@@ -100,9 +93,9 @@ const EntryDetails = ({ entry, mapping }) => {
   );
 };
 
-
 EntryDetails.propTypes = {
   entry: propTypes.object,
+  taskConstantMapper: propTypes.string,
 };
 
 export default EntryDetails;

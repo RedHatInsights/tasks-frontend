@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import TasksTables from '../../Utilities/hooks/useTableTools/Components/TasksTables';
 import { Main } from '@redhat-cloud-services/frontend-components/Main';
@@ -16,7 +16,6 @@ import {
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
 import columns, { exportableColumns } from './Columns';
 import { statusFilters, systemFilter } from './Filters';
-import {convert2rhel_task_jobs ,convert2rhel_task_details, upgrade_leapp_task} from '../CompletedTaskDetails/__tests__/__fixtures__/completedTasksDetails.fixtures';
 import {
   COMPLETED_INFO_PANEL,
   COMPLETED_INFO_PANEL_FLEX_PROPS,
@@ -42,7 +41,6 @@ import {
 import { NotAuthorized } from '@redhat-cloud-services/frontend-components/NotAuthorized';
 import { usePermissions } from '@redhat-cloud-services/frontend-components-utilities/RBACHook';
 import JobResultsDetails from './JobResultsDetails/JobResultsDetails';
-
 
 const CompletedTaskDetails = () => {
   const { id } = useParams();
@@ -74,10 +72,8 @@ const CompletedTaskDetails = () => {
       const fetchedTaskJobs = await fetchTaskJobs(fetchedTaskDetails, setError);
 
       if (fetchedTaskJobs.length) {
-        // await setCompletedTaskDetails(fetchedTaskDetails);
-        await setCompletedTaskDetails(convert2rhel_task_details)
-        await setCompletedTaskJobs(convert2rhel_task_jobs)
-        // await setCompletedTaskJobs(fetchedTaskJobs);
+        await setCompletedTaskDetails(fetchedTaskDetails);
+        await setCompletedTaskJobs(fetchedTaskJobs);
       }
     }
     setTableLoading(false);
@@ -91,19 +87,32 @@ const CompletedTaskDetails = () => {
     setSelectedSystems(getSelectedSystems(completedTaskJobs));
   }, [completedTaskJobs]);
 
-  useEffect(async () => {
+  useEffect(() => {
     if (isDelete) {
       history.push('/executed');
       setIsDelete(false);
     }
 
     if (isCancel) {
-      await setCompletedTaskDetails(LOADING_INFO_PANEL);
-      await setCompletedTaskJobs(LOADING_JOBS_TABLE);
-      await fetchData();
+      setCompletedTaskDetails(LOADING_INFO_PANEL);
+      setCompletedTaskJobs(LOADING_JOBS_TABLE);
+      fetchData();
       setIsCancel(false);
     }
   }, [isCancel, isDelete]);
+
+  const JobResultsRow = useMemo(
+    () =>
+      function Row(props) {
+        return (
+          <JobResultsDetails
+            taskSlug={completedTaskDetails.task_slug}
+            {...props}
+          />
+        );
+      },
+    [completedTaskJobs]
+  );
 
   return (
     <div>
@@ -199,7 +208,7 @@ const CompletedTaskDetails = () => {
                     detailsComponent: completedTaskJobs.some((job) =>
                       hasDetails(job)
                     )
-                      ? JobResultsDetails
+                      ? JobResultsRow
                       : undefined,
                   }}
                   emptyRows={emptyRows('jobs')}

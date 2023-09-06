@@ -49,7 +49,7 @@ const AvailableTasksTable = ({ availableTasks, error, openTaskModal }) => {
                         <a
                           href={`${TASKS_API_ROOT}${AVAILABLE_TASKS_ROOT}/${task.slug}/playbook`}
                         >
-                          Preview of a script to be executed on the host(s)
+                          Download preview of playbook
                         </a>
                       </FlexItem>
                       <FlexItem>

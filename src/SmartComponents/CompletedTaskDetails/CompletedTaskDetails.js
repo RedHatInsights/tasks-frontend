@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import TasksTables from '../../Utilities/hooks/useTableTools/Components/TasksTables';
-import { Main } from '@redhat-cloud-services/frontend-components/Main';
 import {
   PageHeader,
   PageHeaderTitle,
@@ -42,6 +41,7 @@ import { NotAuthorized } from '@redhat-cloud-services/frontend-components/NotAut
 import { usePermissions } from '@redhat-cloud-services/frontend-components-utilities/RBACHook';
 import JobResultsDetails from './JobResultsDetails/JobResultsDetails';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
+import useInsightsNavigate from '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate';
 
 const CompletedTaskDetails = () => {
   const { id } = useParams();
@@ -57,12 +57,12 @@ const CompletedTaskDetails = () => {
     useState(false);
   const [isDelete, setIsDelete] = useState(false);
   const [isCancel, setIsCancel] = useState(false);
-  const history = useHistory();
   const chrome = useChrome();
   const { hasAccess, isLoading } = usePermissions('inventory', [
     'inventory:hosts:*',
     'inventory:hosts:read',
   ]);
+  const navigate = useInsightsNavigate();
 
   const fetchData = async () => {
     setTableLoading(true);
@@ -98,7 +98,7 @@ const CompletedTaskDetails = () => {
 
   useEffect(() => {
     if (isDelete) {
-      history.push('/executed');
+      navigate('/executed');
       setIsDelete(false);
     }
 
@@ -168,7 +168,7 @@ const CompletedTaskDetails = () => {
               />
             </Flex>
           </PageHeader>
-          <Main>
+          <section className="pf-l-page__main-section pf-c-page__main-section">
             <Card>
               <Flex
                 className="completed-task-details-info-border"
@@ -213,7 +213,7 @@ const CompletedTaskDetails = () => {
                 <NotAuthorized serviceName="Inventory" />
               )}
             </Card>
-          </Main>
+          </section>
         </React.Fragment>
       )}
     </div>

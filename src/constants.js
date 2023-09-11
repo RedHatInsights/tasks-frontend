@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import moment from 'moment';
+import InsightsLink from '@redhat-cloud-services/frontend-components/InsightsLink';
 import { PageHeaderTitle } from '@redhat-cloud-services/frontend-components/PageHeader';
 import { dispatchNotification } from './Utilities/Dispatcher';
 import { getTimeDiff, renderRunDateTime } from './Utilities/helpers';
@@ -312,7 +312,7 @@ export const EXECUTE_TASK_NOTIFICATION = (title, ids, task_id) => {
         {ids.length > 1 ? 's' : ''}.
         <br />
         <br />
-        <Link to={`/executed/${task_id}`}>View progress</Link>
+        <InsightsLink to={`/executed/${task_id}`}>View progress</InsightsLink>
       </span>
     ),
     dismissable: true,

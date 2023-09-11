@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import propTypes from 'prop-types';
-import { useHistory } from 'react-router-dom';
 import { StackItem, Stack } from '@patternfly/react-core';
-import { Main } from '@redhat-cloud-services/frontend-components/Main';
 import { PageHeader } from '@redhat-cloud-services/frontend-components/PageHeader';
 import { TasksTabs } from '../../PresentationalComponents';
 import RunTaskModal from '../RunTaskModal/RunTaskModal';
@@ -18,9 +16,9 @@ import { fetchAvailableTask } from '../../../api';
 import { dispatchNotification } from '../../Utilities/Dispatcher';
 
 import './tasks-page.scss';
+import useInsightsNavigate from '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate';
 
 const TasksPage = ({ tab }) => {
-  const history = useHistory();
   const [tabIndex, setTab] = useState(tab);
   const [runTaskModalOpened, setRunTaskModalOpened] = useState(false);
   const [activeTask, setActiveTask] = useState({});
@@ -31,8 +29,10 @@ const TasksPage = ({ tab }) => {
     setRunTaskModalOpened(false);
   }, [tab]);
 
+  const navigate = useInsightsNavigate();
+
   const updateTab = (event, index) => {
-    history.push(index ? 'executed' : 'available');
+    navigate(index ? '/executed' : '/available');
   };
 
   const openTaskModal = async (value, slug) => {
@@ -76,7 +76,7 @@ const TasksPage = ({ tab }) => {
         updateTab={updateTab}
         tabsList={TASKS_PAGE_TABS}
       />
-      <Main>
+      <section className="pf-l-page__main-section pf-c-page__main-section">
         <Stack hasGutter>
           <StackItem>
             {tabIndex === 0 ? (
@@ -86,7 +86,7 @@ const TasksPage = ({ tab }) => {
             )}
           </StackItem>
         </Stack>
-      </Main>
+      </section>
     </React.Fragment>
   );
 };

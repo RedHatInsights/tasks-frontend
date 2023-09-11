@@ -1,13 +1,13 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { renderColumnComponent } from '../../Utilities/helpers';
 import { CheckCircleIcon, InProgressIcon } from '@patternfly/react-icons';
+import InsightsLink from '@redhat-cloud-services/frontend-components/InsightsLink';
 
 const TaskNameCell = ({ id, task_title }, index) => (
-  <Link key={`task-title-${index}`} to={`/executed/${id}`}>
+  <InsightsLink key={`task-title-${index}`} to={`/executed/${id}`}>
     {task_title}
-  </Link>
+  </InsightsLink>
 );
 
 TaskNameCell.propTypes = {
@@ -33,7 +33,7 @@ const StatusCell = ({ status }) =>
   }[status] || status);
 
 StatusCell.propTypes = {
-  status: propTypes.string,
+  status: propTypes.oneOfType([propTypes.string, propTypes.object]),
 };
 
 export const TaskColumn = {

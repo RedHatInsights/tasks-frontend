@@ -23,7 +23,7 @@ const SplitMessages = ({ alert, content }) => {
 
 SplitMessages.propTypes = {
   alert: propTypes.bool,
-  content: propTypes.string,
+  content: propTypes.oneOfType([propTypes.string, propTypes.object]),
 };
 
 export default SplitMessages;

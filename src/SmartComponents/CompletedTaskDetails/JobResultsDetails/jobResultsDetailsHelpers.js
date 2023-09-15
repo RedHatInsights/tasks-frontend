@@ -1,20 +1,19 @@
 import React from 'react';
 import EntryRow from './EntryRow';
 import EntryDetails from './EntryDetails';
+import severityMap from '../TaskEntries';
 
-const sortBySeverity = (entries) => {
+const sortBySeverity = (entries, taskConstantMapper) => {
   let sortedEntries = entries.sort((a, b) => {
-    if (
-      (a.severity === 'high' && b.severity !== 'high') ||
-      (a.severity === 'low' && b.severity === 'info')
-    ) {
+    let aSeverity =
+      severityMap[taskConstantMapper][a.severity.toLowerCase()].severityLevel;
+    let bSeverity =
+      severityMap[taskConstantMapper][b.severity.toLowerCase()].severityLevel;
+    if (aSeverity > bSeverity) {
       return -1;
     }
 
-    if (
-      (b.severity === 'high' && a.severity !== 'high') ||
-      (b.severity === 'low' && a.severity === 'info')
-    ) {
+    if (bSeverity > aSeverity) {
       return 1;
     }
 
@@ -24,15 +23,29 @@ const sortBySeverity = (entries) => {
   return sortedEntries;
 };
 
-export const buildResultsRows = (entries, isReportJson) => {
+export const buildResultsRows = (entries, isReportJson, taskSlug) => {
+  let taskConstantMapper = taskSlug.toLowerCase().replace(/-/g, '');
   let rows = [];
   let sortedEntries;
   if (isReportJson) {
-    sortedEntries = sortBySeverity(entries);
-    rows = sortedEntries.map((entry) => ({
-      parent: <EntryRow severity={entry.severity} title={entry.title} />,
-      child: <EntryDetails entry={entry} />,
-    }));
+    sortedEntries = sortBySeverity(entries, `${taskConstantMapper}SeverityMap`);
+    sortedEntries.forEach((entry) => {
+      rows.push({
+        parent: (
+          <EntryRow
+            severity={entry.severity}
+            title={entry.title}
+            taskConstantMapper={`${taskConstantMapper}SeverityMap`}
+          />
+        ),
+        child: (
+          <EntryDetails
+            entry={entry}
+            taskConstantMapper={`${taskConstantMapper}SeverityMap`}
+          />
+        ),
+      });
+    });
   } else {
     sortedEntries = entries;
     rows = sortedEntries[0];

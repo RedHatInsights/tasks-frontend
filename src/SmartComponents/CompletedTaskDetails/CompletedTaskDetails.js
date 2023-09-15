@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import TasksTables from '../../Utilities/hooks/useTableTools/Components/TasksTables';
 import {
@@ -108,6 +108,19 @@ const CompletedTaskDetails = () => {
     }
   }, [isCancel, isDelete]);
 
+  const JobResultsRow = useMemo(
+    () =>
+      function Row(props) {
+        return (
+          <JobResultsDetails
+            taskSlug={completedTaskDetails.task_slug}
+            {...props}
+          />
+        );
+      },
+    [completedTaskJobs]
+  );
+
   return (
     <div>
       <RunTaskModal
@@ -202,7 +215,7 @@ const CompletedTaskDetails = () => {
                     detailsComponent: completedTaskJobs.some((job) =>
                       hasDetails(job)
                     )
-                      ? JobResultsDetails
+                      ? JobResultsRow
                       : undefined,
                   }}
                   emptyRows={emptyRows('jobs')}

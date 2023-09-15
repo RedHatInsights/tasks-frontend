@@ -1,38 +1,32 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { Grid, GridItem } from '@patternfly/react-core';
-import {
-  ExclamationCircleIcon,
-  ExclamationTriangleIcon,
-  InfoCircleIcon,
-} from '@patternfly/react-icons';
 import EntryRowLabel from './EntryRowLabel';
+import severityMap from '../TaskEntries';
 
-const EntryDetails = ({ entry }) => {
+const EntryDetails = ({ entry, taskConstantMapper }) => {
   const { detail, key, severity, summary, title } = entry;
 
   const getLabelType = () => {
-    if (severity === 'info') {
-      return (
-        <EntryRowLabel color="blue" icon={<InfoCircleIcon />} text="Info" />
-      );
-    } else if (severity === 'low') {
-      return (
-        <EntryRowLabel
-          color="orange"
-          icon={<ExclamationTriangleIcon />}
-          text="Low risk"
-        />
-      );
-    } else if (severity === 'high') {
-      return (
-        <EntryRowLabel
-          color="red"
-          icon={<ExclamationCircleIcon />}
-          text="High risk"
-        />
-      );
-    }
+    return (
+      <EntryRowLabel
+        color={
+          severityMap[taskConstantMapper][severity.toLowerCase()][
+            'severityColor'
+          ]
+        }
+        icon={severityMap[taskConstantMapper][severity.toLowerCase()]['icon']}
+        text={severityMap[taskConstantMapper][severity.toLowerCase()]['text']}
+      />
+    );
+  };
+
+  const renderDiagnosisDetails = () => {
+    return (
+      <div>
+        <span>{detail.diagnosis.context}</span>
+      </div>
+    );
   };
 
   const renderRemediationsDetails = () => {
@@ -59,7 +53,14 @@ const EntryDetails = ({ entry }) => {
         <GridItem span={2} className="entry-detail-content">
           {itemOneContent}
         </GridItem>
-        <GridItem xl2={5} xl={5} l={6} m={7} sm={8}>
+        <GridItem
+          xl2={5}
+          xl={5}
+          l={6}
+          m={7}
+          sm={8}
+          style={{ whiteSpace: 'pre-line' }}
+        >
           {typeof itemTwoContent === 'function'
             ? itemTwoContent()
             : itemTwoContent}
@@ -72,6 +73,9 @@ const EntryDetails = ({ entry }) => {
     return (
       <React.Fragment>
         {createGrid('Summary', summary)}
+        {detail?.diagnosis?.context
+          ? createGrid('Diagnosis', renderDiagnosisDetails)
+          : null}
         {detail?.remediations
           ? createGrid('Remediation', renderRemediationsDetails)
           : null}
@@ -91,6 +95,7 @@ const EntryDetails = ({ entry }) => {
 
 EntryDetails.propTypes = {
   entry: propTypes.object,
+  taskConstantMapper: propTypes.string,
 };
 
 export default EntryDetails;

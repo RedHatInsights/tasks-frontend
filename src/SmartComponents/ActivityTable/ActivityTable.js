@@ -26,6 +26,7 @@ import {
   isError,
 } from '../completedTaskDetailsHelpers';
 import RunTaskModal from '../RunTaskModal/RunTaskModal';
+import usePromiseQueue from '../../Utilities/hooks/usePromiseQueue';
 
 const ActivityTable = () => {
   const [activities, setActivities] = useState(LOADING_ACTIVITIES_TABLE);
@@ -41,6 +42,9 @@ const ActivityTable = () => {
   const [taskDetails, setTaskDetails] = useState({});
   const [runTaskModalOpened, setRunTaskModalOpened] = useState(false);
   const [selectedSystems, setSelectedSystems] = useState([]);
+  const [totalTaskCount, setTotalTaskCount] = useState();
+
+  const { resolve } = usePromiseQueue();
 
   const fetchTaskDetails = async (id) => {
     setTaskError();
@@ -62,10 +66,26 @@ const ActivityTable = () => {
   };
 
   const fetchData = async () => {
-    const path = `?limit=500&offset=0`;
-    const result = await fetchExecutedTasks(path);
+    let results;
+    const batchSize = 200;
+    const pages = Math.ceil(totalTaskCount / batchSize) || 1;
+    const result = await resolve(
+      [...new Array(pages)].map(
+        (_, pageIdx) => () =>
+          fetchExecutedTasks(
+            `?limit=${batchSize}&offset=${batchSize * pageIdx}`
+          )
+      )
+    );
 
-    setTasks(result);
+    if (isError(result[0])) {
+      createNotification(result[0]);
+      setError(result[0]);
+    } else {
+      results = result.map(({ data }) => data).flat();
+    }
+
+    setTasks(results);
   };
 
   const handleCancelOrDeleteTask = async (task) => {
@@ -79,19 +99,14 @@ const ActivityTable = () => {
   );
 
   const setTasks = async (result) => {
-    if (isError(result)) {
-      createNotification(result);
-      setError(result);
-    } else {
-      result?.data?.map((task) =>
-        task.status === 'Completed'
-          ? (task.run_date_time = renderRunDateTime(task.end_time))
-          : (task.run_date_time = task.status)
-      );
+    result?.map((task) =>
+      task.status === 'Completed'
+        ? (task.run_date_time = renderRunDateTime(task.end_time))
+        : (task.run_date_time = task.status)
+    );
 
-      await setActivities(result.data);
-      setTableLoading(false);
-    }
+    await setActivities(result);
+    setTableLoading(false);
   };
 
   const refetchData = async () => {
@@ -101,8 +116,27 @@ const ActivityTable = () => {
   };
 
   useEffect(() => {
-    fetchData();
+    const fetchSingleTask = async () => {
+      const task = await fetchExecutedTasks(`?limit=1&offset=0`);
+      if (isError(task)) {
+        createNotification(task);
+        setError(task);
+        setActivities([]);
+      } else if (task.data.length === 0) {
+        setActivities([]);
+      } else {
+        setTotalTaskCount(task.meta.count);
+      }
+    };
+
+    fetchSingleTask();
   }, []);
+
+  useEffect(() => {
+    if (totalTaskCount) {
+      fetchData();
+    }
+  }, [totalTaskCount]);
 
   useEffect(() => {
     if (isDelete || isCancel) {

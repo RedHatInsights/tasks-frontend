@@ -85,7 +85,7 @@ Object {
         ],
         "sortBy": Object {
           "direction": "asc",
-          "index": 0,
+          "index": 3,
         },
       },
       "toolbarProps": Object {
@@ -180,7 +180,7 @@ Object {
         ],
         "sortBy": Object {
           "direction": "asc",
-          "index": 0,
+          "index": 3,
         },
       },
       "toolbarProps": Object {
@@ -276,7 +276,7 @@ Object {
       ],
       "sortBy": Object {
         "direction": "asc",
-        "index": 0,
+        "index": 3,
       },
     },
     "toolbarProps": Object {

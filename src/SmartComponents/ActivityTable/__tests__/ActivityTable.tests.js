@@ -1,5 +1,11 @@
 import React from 'react';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -133,10 +139,20 @@ describe('ActivityTable', () => {
 
     await waitFor(() => {
       expect(fetchExecutedTasks).toHaveBeenCalled();
+    });
+    act(() => {
       userEvent.click(screen.getByLabelText('Conditional filter'));
+    });
+    act(() => {
       userEvent.click(screen.getAllByText('Status')[0]);
+    });
+    act(() => {
       userEvent.click(screen.getByLabelText('Options menu'));
+    });
+    act(() => {
       userEvent.click(screen.getAllByText('Completed')[0]);
+    });
+    await waitFor(() => {
       expect(screen.getByText('taskA')).toBeInTheDocument();
       expect(screen.queryByText('taskB')).not.toBeInTheDocument();
     });
@@ -157,10 +173,20 @@ describe('ActivityTable', () => {
 
     await waitFor(() => {
       expect(fetchExecutedTasks).toHaveBeenCalled();
+    });
+    act(() => {
       userEvent.click(screen.getByLabelText('Conditional filter'));
+    });
+    act(() => {
       userEvent.click(screen.getAllByText('Status')[0]);
+    });
+    act(() => {
       userEvent.click(screen.getByLabelText('Options menu'));
+    });
+    act(() => {
       userEvent.click(screen.getAllByText('Running')[0]);
+    });
+    await waitFor(() => {
       expect(screen.getByText('taskB')).toBeInTheDocument();
       expect(screen.queryByText('taskA')).not.toBeInTheDocument();
     });
@@ -226,7 +252,7 @@ describe('ActivityTable', () => {
       userEvent.click(screen.getByLabelText('log4j-submit-task-button'));
       expect(executeTask).toHaveBeenCalled();
     });
-    expect(fetchExecutedTasks).toHaveBeenCalledTimes(2);
+    expect(fetchExecutedTasks).toHaveBeenCalledTimes(3);
   });
 
   it('should set errors', async () => {
@@ -268,6 +294,6 @@ describe('ActivityTable', () => {
       userEvent.click(screen.getByText('Delete'));
       userEvent.click(screen.getByLabelText('delete-task-button'));
     });
-    expect(fetchExecutedTasks).toHaveBeenCalledTimes(2);
+    expect(fetchExecutedTasks).toHaveBeenCalledTimes(3);
   });
 });

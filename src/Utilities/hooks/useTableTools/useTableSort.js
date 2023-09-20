@@ -21,7 +21,7 @@ const columnOffset = (options = {}) =>
 const useTableSort = (columns, options = {}) => {
   const [sortBy, setSortBy] = useState(
     options.sortBy || {
-      index: 0,
+      index: 3,
       direction: 'asc',
     }
   );

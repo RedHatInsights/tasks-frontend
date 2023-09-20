@@ -196,7 +196,7 @@ export const TASKS_PAGE_HEADER = [
 
 export const COMPLETED_TASKS_TABLE_DEFAULTS = {
   sortBy: {
-    index: 2,
+    index: 3,
     direction: 'desc',
   },
 };

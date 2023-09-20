@@ -29,7 +29,7 @@ const perpareInitialActiveFilters = (
 };
 
 const useFilterConfig = (options = {}) => {
-  const { filters, /*setPage,*/ selectedFilter, onDeleteFilter } = options;
+  const { filters, setPage, selectedFilter, onDeleteFilter } = options;
   const enableFilters = !!filters;
   const { filterConfig = [], activeFilters: initialActiveFiltersRaw } =
     filters || {};
@@ -45,7 +45,7 @@ const useFilterConfig = (options = {}) => {
       [filter]: value,
     }));
 
-    //setPage && setPage(1);
+    setPage && setPage(1);
   };
 
   const addConfigItem = (item) => {
@@ -63,6 +63,7 @@ const useFilterConfig = (options = {}) => {
   const onFilterDelete = async (_event, chips, clearAll = false) => {
     (await clearAll) ? clearAllFilter() : deleteFilter(chips[0]);
     onDeleteFilter && onDeleteFilter(chips, clearAll);
+    setPage && setPage(1);
   };
 
   const filter = (items) =>

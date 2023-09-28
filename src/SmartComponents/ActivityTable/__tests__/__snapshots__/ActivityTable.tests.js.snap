@@ -593,7 +593,7 @@ exports[`ActivityTable should export 1`] = `
             data-key="3"
             data-label="Run date/time"
           >
-            Running
+            21 Apr 2022, 10:10 UTC
           </td>
           <td
             class="pf-c-table__action"
@@ -684,7 +684,7 @@ exports[`ActivityTable should export 1`] = `
             data-key="3"
             data-label="Run date/time"
           >
-            20 Apr 2022, 11:10 UTC
+            20 Apr 2022, 10:10 UTC
           </td>
           <td
             class="pf-c-table__action"

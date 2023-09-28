@@ -32,7 +32,7 @@ Object {
             "props": Object {
               "width": 20,
             },
-            "sortByProp": "end_time",
+            "sortByProp": "start_time",
             "title": "Run date/time",
             "transforms": Array [
               [Function],
@@ -76,7 +76,7 @@ Object {
           "props": Object {
             "width": 20,
           },
-          "sortByProp": "end_time",
+          "sortByProp": "start_time",
           "title": "Run date/time",
           "transforms": Array [
             [Function],

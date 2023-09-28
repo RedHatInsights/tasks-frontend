@@ -99,10 +99,8 @@ const ActivityTable = () => {
   );
 
   const setTasks = async (result) => {
-    result?.map((task) =>
-      task.status === 'Completed'
-        ? (task.run_date_time = renderRunDateTime(task.end_time))
-        : (task.run_date_time = task.status)
+    result?.map(
+      (task) => (task.run_date_time = renderRunDateTime(task.start_time))
     );
 
     await setActivities(result);

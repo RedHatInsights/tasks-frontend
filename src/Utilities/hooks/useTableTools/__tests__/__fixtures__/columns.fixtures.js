@@ -19,6 +19,6 @@ export default [
     props: {
       width: 20,
     },
-    sortByProp: 'end_time',
+    sortByProp: 'start_time',
   },
 ];

@@ -40,7 +40,9 @@ const EntryDetails = ({ entry, taskConstantMapper }) => {
             </span>
           ) : null}
           <span style={{ fontFamily: 'overpass-mono' }}>
-            [{remediation.type}] {remediation.context}
+            {remediation.type
+              ? `[${remediation.type}] ${remediation.context}`
+              : `${remediation.context}`}
           </span>
         </div>
       );
@@ -76,7 +78,7 @@ const EntryDetails = ({ entry, taskConstantMapper }) => {
         {detail?.diagnosis?.context
           ? createGrid('Diagnosis', renderDiagnosisDetails)
           : null}
-        {detail?.remediations
+        {detail?.remediations && detail?.remediations[0]?.context !== ''
           ? createGrid('Remediation', renderRemediationsDetails)
           : null}
         {createGrid('Key', key)}

@@ -12,6 +12,7 @@ import {
 import { fetchSystems } from '../../../api';
 import EmptyStateDisplay from '../../PresentationalComponents/EmptyStateDisplay/EmptyStateDisplay';
 import ExecuteTaskButton from '../../PresentationalComponents/ExecuteTaskButton/ExecuteTaskButton';
+import ReactMarkdown from 'react-markdown';
 
 const RunTaskModal = ({
   description,
@@ -120,7 +121,9 @@ const RunTaskModal = ({
             </FlexItem>
           </Flex>
           <Flex style={{ paddingBottom: '8px' }}>
-            <FlexItem style={{ width: '100%' }}>{description}</FlexItem>
+            <FlexItem style={{ width: '100%' }}>
+              <ReactMarkdown>{description}</ReactMarkdown>
+            </FlexItem>
           </Flex>
           <Flex>
             <FlexItem>

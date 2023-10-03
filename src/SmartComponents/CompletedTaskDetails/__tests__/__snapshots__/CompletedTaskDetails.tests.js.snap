@@ -73,7 +73,9 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
           <div
             class=""
           >
-            Uses the insights-client to determine if systems are affected by the LogShell vulnerability. Resource intensive scan
+            <p>
+              Uses the insights-client to determine if systems are affected by the LogShell vulnerability. Resource intensive scan
+            </p>
           </div>
         </div>
         <div
@@ -1171,7 +1173,9 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
           <div
             class=""
           >
-            Uses the insights-client to determine if RHEL version can be upgraded with LEAP tool. Resource intensive scan
+            <p>
+              Uses the insights-client to determine if RHEL version can be upgraded with LEAP tool. Resource intensive scan
+            </p>
           </div>
         </div>
         <div

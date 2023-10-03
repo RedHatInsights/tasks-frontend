@@ -42,6 +42,7 @@ import { usePermissions } from '@redhat-cloud-services/frontend-components-utili
 import JobResultsDetails from './JobResultsDetails/JobResultsDetails';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 import useInsightsNavigate from '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate';
+import ReactMarkdown from 'react-markdown';
 
 const CompletedTaskDetails = () => {
   const { id } = useParams();
@@ -167,7 +168,11 @@ const CompletedTaskDetails = () => {
                 <FlexItem>
                   <PageHeaderTitle title={completedTaskDetails.task_title} />
                 </FlexItem>
-                <FlexItem>{completedTaskDetails.task_description}</FlexItem>
+                <FlexItem>
+                  <ReactMarkdown>
+                    {completedTaskDetails.task_description}
+                  </ReactMarkdown>
+                </FlexItem>
               </Flex>
               <FlexibleFlex
                 data={completedTaskDetails}

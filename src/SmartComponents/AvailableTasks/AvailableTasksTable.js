@@ -19,6 +19,17 @@ import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome'
 const AvailableTasksTable = ({ availableTasks, error, openTaskModal }) => {
   const chrome = useChrome();
 
+  const isStageBeta = () => {
+    return chrome.isBeta() && !chrome.isProd();
+  };
+
+  const isPreAnalysisTask = (slug) => {
+    return (
+      slug === 'convert-to-rhel-preanalysis-stage' ||
+      slug === 'convert-to-rhel-preanalysis'
+    );
+  };
+
   return (
     <div aria-label="available-tasks-table">
       {error ? (
@@ -37,10 +48,8 @@ const AvailableTasksTable = ({ availableTasks, error, openTaskModal }) => {
       ) : (
         availableTasks?.map((task) => {
           if (
-            chrome.isBeta() ||
-            (!chrome.isBeta() &&
-              task.slug !== 'convert-to-rhel-preanalysis-stage' &&
-              task.slug !== 'convert-to-rhel-preanalysis')
+            isStageBeta() ||
+            (!isStageBeta() && !isPreAnalysisTask(task.slug))
           ) {
             return (
               <div aria-label={task.title} key={task.title}>

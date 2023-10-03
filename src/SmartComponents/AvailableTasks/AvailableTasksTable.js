@@ -15,6 +15,7 @@ import {
   TASKS_ERROR,
 } from '../../constants';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
+import ReactMarkdown from 'react-markdown';
 
 const AvailableTasksTable = ({ availableTasks, error, openTaskModal }) => {
   const chrome = useChrome();
@@ -57,7 +58,7 @@ const AvailableTasksTable = ({ availableTasks, error, openTaskModal }) => {
                   <CardBuilderContent content={task.title} type="title" />
                   <CardBuilderContent
                     className="card-task-description"
-                    content={task.description}
+                    content={<ReactMarkdown>{task.description}</ReactMarkdown>}
                     type="body"
                   />
                   <CardBuilderContent

@@ -7,11 +7,7 @@ import { init } from '../../../store';
 
 import ExecuteTaskButton from '../ExecuteTaskButton';
 import { executeTask } from '../../../../api';
-import * as dispatcher from '../../../Utilities/Dispatcher';
-import {
-  successResponse,
-  errorResponse,
-} from '../../../SmartComponents/__tests__/__fixtures__/completedTaskDetailsHelpers.fixtures';
+import { successResponse } from '../../../SmartComponents/__tests__/__fixtures__/completedTaskDetailsHelpers.fixtures';
 
 jest.mock('../../../../api');
 
@@ -23,10 +19,9 @@ describe('ExecuteTaskButton', () => {
     props = {
       classname: 'some-class-name',
       ids: ['abcd-1234'],
-      setIsRunTaskAgain: jest.fn(),
-      setModalOpened: jest.fn(),
+      setExecuteTaskResult: jest.fn(),
       slug: 'taska',
-      title: 'TaskA',
+      taskName: 'Task A',
       variant: 'primary',
     };
   });
@@ -38,7 +33,6 @@ describe('ExecuteTaskButton', () => {
   });
 
   it('should execute on click', async () => {
-    props.setIsRunTaskAgain = undefined;
     executeTask.mockImplementation(async () => {
       return {
         successResponse,
@@ -46,9 +40,6 @@ describe('ExecuteTaskButton', () => {
       };
     });
 
-    const notification = jest
-      .spyOn(dispatcher, 'dispatchNotification')
-      .mockImplementation();
     render(
       <MemoryRouter keyLength={0}>
         <Provider store={store}>
@@ -60,54 +51,6 @@ describe('ExecuteTaskButton', () => {
     await waitFor(() =>
       userEvent.click(screen.getByLabelText('taska-submit-task-button'))
     );
-    expect(notification).toHaveBeenCalled();
-  });
-
-  it('should execute on click with run task again', async () => {
-    executeTask.mockImplementation(async () => {
-      return {
-        successResponse,
-        data: { id: '1' },
-      };
-    });
-
-    const notification = jest
-      .spyOn(dispatcher, 'dispatchNotification')
-      .mockImplementation();
-    render(
-      <MemoryRouter keyLength={0}>
-        <Provider store={store}>
-          <ExecuteTaskButton {...props} />
-        </Provider>
-      </MemoryRouter>
-    );
-
-    await waitFor(() =>
-      userEvent.click(screen.getByLabelText('taska-submit-task-button'))
-    );
-    expect(notification).toHaveBeenCalled();
-    expect(props.setIsRunTaskAgain).toHaveBeenCalledWith(true);
-  });
-
-  it('should execute error on click', async () => {
-    executeTask.mockImplementation(async () => {
-      return errorResponse;
-    });
-
-    const notification = jest
-      .spyOn(dispatcher, 'dispatchNotification')
-      .mockImplementation();
-    render(
-      <MemoryRouter keyLength={0}>
-        <Provider store={store}>
-          <ExecuteTaskButton {...props} />
-        </Provider>
-      </MemoryRouter>
-    );
-
-    await waitFor(() =>
-      userEvent.click(screen.getByLabelText('taska-submit-task-button'))
-    );
-    expect(notification).toHaveBeenCalled();
+    expect(props.setExecuteTaskResult).toHaveBeenCalled();
   });
 });

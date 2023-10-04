@@ -4,15 +4,15 @@ import { renderColumnComponent } from '../../Utilities/helpers';
 import { CheckCircleIcon, InProgressIcon } from '@patternfly/react-icons';
 import InsightsLink from '@redhat-cloud-services/frontend-components/InsightsLink';
 
-const TaskNameCell = ({ id, task_title }, index) => (
-  <InsightsLink key={`task-title-${index}`} to={`/executed/${id}`}>
-    {task_title}
+const TaskNameCell = ({ id, name }, index) => (
+  <InsightsLink key={`task-name-${index}`} to={`/executed/${id}`}>
+    {name}
   </InsightsLink>
 );
 
 TaskNameCell.propTypes = {
   id: propTypes.number,
-  task_title: propTypes.any,
+  name: propTypes.any,
   index: propTypes.number,
 };
 
@@ -41,8 +41,8 @@ export const TaskColumn = {
   props: {
     width: 25,
   },
-  sortByProp: 'task_title',
-  renderExport: (task) => task.task_title,
+  sortByProp: 'name',
+  renderExport: (task) => task.name,
   renderFunc: renderColumnComponent(TaskNameCell),
 };
 

@@ -153,8 +153,8 @@ describe('ActivityTable', () => {
       userEvent.click(screen.getAllByText('Completed')[0]);
     });
     await waitFor(() => {
-      expect(screen.getByText('taskA')).toBeInTheDocument();
-      expect(screen.queryByText('taskB')).not.toBeInTheDocument();
+      expect(screen.getByText('Task A')).toBeInTheDocument();
+      expect(screen.queryByText('Task B')).not.toBeInTheDocument();
     });
   });
 
@@ -187,8 +187,8 @@ describe('ActivityTable', () => {
       userEvent.click(screen.getAllByText('Running')[0]);
     });
     await waitFor(() => {
-      expect(screen.getByText('taskB')).toBeInTheDocument();
-      expect(screen.queryByText('taskA')).not.toBeInTheDocument();
+      expect(screen.getByText('Task B')).toBeInTheDocument();
+      expect(screen.queryByText('Task A')).not.toBeInTheDocument();
     });
   });
 

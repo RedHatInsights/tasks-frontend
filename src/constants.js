@@ -229,7 +229,7 @@ export const LOADING_CONTENT = [
 ];
 
 export const TASK_LOADING_CONTENT = {
-  task_title: <Skeleton size={SkeletonSize.sm} />,
+  name: <Skeleton size={SkeletonSize.sm} />,
   task_description: <Skeleton size={SkeletonSize.md} />,
 };
 
@@ -270,31 +270,31 @@ export const LOADING_JOBS_TABLE = [
 
 export const LOADING_ACTIVITIES_TABLE = [
   {
-    task_title: <Skeleton size={SkeletonSize.md} />,
+    name: <Skeleton size={SkeletonSize.md} />,
     systems_count: <Skeleton size={SkeletonSize.md} />,
     status: <Skeleton size={SkeletonSize.md} />,
     run_date_time: <Skeleton size={SkeletonSize.md} />,
   },
   {
-    task_title: <Skeleton size={SkeletonSize.md} />,
+    name: <Skeleton size={SkeletonSize.md} />,
     systems_count: <Skeleton size={SkeletonSize.md} />,
     status: <Skeleton size={SkeletonSize.md} />,
     run_date_time: <Skeleton size={SkeletonSize.md} />,
   },
   {
-    task_title: <Skeleton size={SkeletonSize.md} />,
+    name: <Skeleton size={SkeletonSize.md} />,
     systems_count: <Skeleton size={SkeletonSize.md} />,
     status: <Skeleton size={SkeletonSize.md} />,
     run_date_time: <Skeleton size={SkeletonSize.md} />,
   },
   {
-    task_title: <Skeleton size={SkeletonSize.md} />,
+    name: <Skeleton size={SkeletonSize.md} />,
     systems_count: <Skeleton size={SkeletonSize.md} />,
     status: <Skeleton size={SkeletonSize.md} />,
     run_date_time: <Skeleton size={SkeletonSize.md} />,
   },
   {
-    task_title: <Skeleton size={SkeletonSize.md} />,
+    name: <Skeleton size={SkeletonSize.md} />,
     systems_count: <Skeleton size={SkeletonSize.md} />,
     status: <Skeleton size={SkeletonSize.md} />,
     run_date_time: <Skeleton size={SkeletonSize.md} />,

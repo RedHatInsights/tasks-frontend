@@ -2,44 +2,26 @@ import React from 'react';
 import { Button } from '@patternfly/react-core';
 import propTypes from 'prop-types';
 import { executeTask } from '../../../api';
-import { dispatchNotification } from '../../Utilities/Dispatcher';
-import { EXECUTE_TASK_NOTIFICATION } from '../../constants';
-import { isError } from '../../SmartComponents/completedTaskDetailsHelpers';
 
 const ExecuteTaskButton = ({
   classname,
   ids,
-  setIsRunTaskAgain,
-  setModalOpened,
+  setExecuteTaskResult,
   slug,
-  title,
+  taskName,
   variant,
 }) => {
   const buildApiBody = () => {
     return {
       task: slug,
       hosts: ids,
+      name: taskName,
     };
   };
 
   const submitTask = async () => {
-    setModalOpened(false);
-
     let result = await executeTask(buildApiBody());
-    if (isError(result)) {
-      dispatchNotification({
-        variant: 'danger',
-        title: 'Error',
-        description: result.message,
-        dismissable: true,
-        autoDismiss: false,
-      });
-    } else {
-      if (setIsRunTaskAgain) {
-        setIsRunTaskAgain(true);
-      }
-      EXECUTE_TASK_NOTIFICATION(title, ids, result.data.id);
-    }
+    setExecuteTaskResult(result);
   };
 
   return (
@@ -58,10 +40,9 @@ const ExecuteTaskButton = ({
 ExecuteTaskButton.propTypes = {
   classname: propTypes.string,
   ids: propTypes.array,
-  setIsRunTaskAgain: propTypes.func,
-  setModalOpened: propTypes.func,
+  setExecuteTaskResult: propTypes.func,
   slug: propTypes.string,
-  title: propTypes.oneOfType([propTypes.string, propTypes.node]),
+  taskName: propTypes.string,
   variant: propTypes.string,
 };
 

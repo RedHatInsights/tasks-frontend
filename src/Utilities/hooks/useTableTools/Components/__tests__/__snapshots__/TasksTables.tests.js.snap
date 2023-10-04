@@ -404,7 +404,7 @@ exports[`TasksTables should render correctly 1`] = `
           <a
             href="/insights/tasks/executed/1"
           >
-            taskA
+            Task A
           </a>
         </td>
         <td
@@ -460,7 +460,7 @@ exports[`TasksTables should render correctly 1`] = `
           <a
             href="/insights/tasks/executed/2"
           >
-            taskB
+            Task B
           </a>
         </td>
         <td

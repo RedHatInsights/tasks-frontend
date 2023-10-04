@@ -2,6 +2,7 @@ export const activityTableItems = {
   meta: { count: 2 },
   data: [
     {
+      name: 'Task A',
       task_title: 'taskA',
       task_slug: 'taska',
       id: 1,
@@ -13,6 +14,7 @@ export const activityTableItems = {
       systems_count: 10,
     },
     {
+      name: 'Task B',
       task_title: 'taskB',
       task_slug: 'taskb',
       id: 2,
@@ -39,6 +41,7 @@ export const availableTasksTableItems = {
   },
   data: [
     {
+      name: 'Task A',
       title: 'taskA',
       slug: 'taska',
       description:
@@ -47,6 +50,7 @@ export const availableTasksTableItems = {
       severity: 'critical',
     },
     {
+      name: 'Task B',
       title: 'taskB',
       slug: 'taskb',
       description:

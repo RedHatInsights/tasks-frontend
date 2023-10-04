@@ -554,7 +554,7 @@ exports[`ActivityTable should export 1`] = `
             <a
               href="/insights/tasks/executed/2"
             >
-              taskB
+              Task B
             </a>
           </td>
           <td
@@ -645,7 +645,7 @@ exports[`ActivityTable should export 1`] = `
             <a
               href="/insights/tasks/executed/1"
             >
-              taskA
+              Task A
             </a>
           </td>
           <td

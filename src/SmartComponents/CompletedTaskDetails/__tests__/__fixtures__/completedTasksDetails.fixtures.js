@@ -1,5 +1,6 @@
 export const log4j_task = {
   id: 42,
+  name: 'log4j task',
   task_title: 'Log4J Detection',
   task_slug: 'log4j',
   task_description:
@@ -47,6 +48,7 @@ export const log4j_task_jobs = [
 
 export const upgrade_leapp_task = {
   id: 43,
+  name: 'leapp task',
   task_slug: 'leapp-preupgrade',
   task_title: 'Upgrade RHEL version with LEAP tool',
   task_description:
@@ -61,6 +63,7 @@ export const upgrade_leapp_task = {
 
 export const convert2rhel_task_details = {
   id: 2909,
+  name: 'convert-to-rhel-preanalysis task',
   alerts_count: 3,
   task_slug: 'convert-to-rhel-preanalysis',
   task_title: 'Convert to RHEL Preanalysis',
@@ -517,6 +520,7 @@ export const convert2rhel_task_jobs = [
 
 export const running_task = {
   id: 217,
+  name: 'running task',
   task_title: 'Running task',
   task_slug: 'running_task',
   description:

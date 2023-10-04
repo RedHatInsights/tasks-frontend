@@ -1,5 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Alert, Button, Flex, FlexItem, Modal } from '@patternfly/react-core';
+import {
+  Alert,
+  Button,
+  Flex,
+  FlexItem,
+  Form,
+  FormGroup,
+  Modal,
+  TextInput,
+  ValidatedOptions,
+} from '@patternfly/react-core';
 import propTypes from 'prop-types';
 import SystemTable from '../SystemTable/SystemTable';
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
@@ -13,6 +23,9 @@ import { fetchSystems } from '../../../api';
 import EmptyStateDisplay from '../../PresentationalComponents/EmptyStateDisplay/EmptyStateDisplay';
 import ExecuteTaskButton from '../../PresentationalComponents/ExecuteTaskButton/ExecuteTaskButton';
 import ReactMarkdown from 'react-markdown';
+import { dispatchNotification } from '../../Utilities/Dispatcher';
+import { EXECUTE_TASK_NOTIFICATION } from '../../constants';
+import { isError } from '../completedTaskDetailsHelpers';
 
 const RunTaskModal = ({
   description,
@@ -25,6 +38,9 @@ const RunTaskModal = ({
   title,
 }) => {
   const [selectedIds, setSelectedIds] = useState(selectedSystems);
+  const [taskName, setTaskName] = useState();
+  const [executeTaskResult, setExecuteTaskResult] = useState();
+  const [createTaskError, setCreateTaskError] = useState({});
 
   useEffect(() => {
     if (isOpen) {
@@ -35,6 +51,35 @@ const RunTaskModal = ({
   useEffect(() => {
     setSelectedIds(selectedSystems);
   }, [selectedSystems]);
+
+  useEffect(() => {
+    setTaskName(title);
+  }, [title]);
+
+  useEffect(() => {
+    if (executeTaskResult) {
+      if (isError(executeTaskResult)) {
+        setCreateTaskError(executeTaskResult.response);
+        dispatchNotification({
+          variant: 'danger',
+          title: 'Error',
+          description: executeTaskResult.message,
+          dismissable: true,
+          autoDismiss: false,
+        });
+      } else {
+        if (setIsRunTaskAgain) {
+          setIsRunTaskAgain(true);
+        }
+        EXECUTE_TASK_NOTIFICATION(
+          taskName,
+          selectedIds,
+          executeTaskResult.data.id
+        );
+        setModalOpened(false);
+      }
+    }
+  }, [executeTaskResult]);
 
   const cancelModal = () => {
     setSelectedIds([]);
@@ -90,10 +135,9 @@ const RunTaskModal = ({
         <ExecuteTaskButton
           key="execute-task-button"
           ids={selectedIds}
-          setIsRunTaskAgain={setIsRunTaskAgain}
-          setModalOpened={setModalOpened}
+          setExecuteTaskResult={setExecuteTaskResult}
           slug={slug}
-          title={title}
+          taskName={taskName}
           variant="primary"
         />,
         <Button
@@ -134,6 +178,42 @@ const RunTaskModal = ({
               </a>
             </FlexItem>
           </Flex>
+          <br />
+          <div>
+            <Form>
+              <FormGroup
+                label="Task name"
+                isRequired
+                type="text"
+                helperTextInvalid={
+                  Object.prototype.hasOwnProperty.call(
+                    createTaskError,
+                    'statusText'
+                  ) && createTaskError.statusText
+                }
+                fieldId="name"
+                validated={
+                  Object.prototype.hasOwnProperty.call(
+                    createTaskError,
+                    'status'
+                  ) && 'error'
+                }
+              >
+                <TextInput
+                  value={taskName}
+                  type="text"
+                  onChange={setTaskName}
+                  validated={
+                    Object.prototype.hasOwnProperty.call(
+                      createTaskError,
+                      'status'
+                    ) && ValidatedOptions.error
+                  }
+                  aria-label="task name"
+                />
+              </FormGroup>
+            </Form>
+          </div>
           <br />
           <div style={{ paddingBottom: '8px' }}>
             <b>Systems to run tasks on</b>

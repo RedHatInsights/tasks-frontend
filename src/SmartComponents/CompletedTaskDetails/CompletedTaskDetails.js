@@ -89,7 +89,7 @@ const CompletedTaskDetails = () => {
   useEffect(() => {
     completedTaskDetails &&
       chrome.updateDocumentTitle(
-        `${completedTaskDetails.task_title} - Tasks | Red Hat Insights`
+        `${completedTaskDetails.name} - Tasks | Red Hat Insights`
       );
   }, [chrome, completedTaskDetails]);
 
@@ -131,7 +131,7 @@ const CompletedTaskDetails = () => {
         selectedSystems={selectedSystems}
         setModalOpened={setRunTaskModalOpened}
         slug={completedTaskDetails.task_slug}
-        title={completedTaskDetails.task_title}
+        title={completedTaskDetails.name}
       />
       <DeleteCancelTaskModal
         id={completedTaskDetails.id}
@@ -141,7 +141,7 @@ const CompletedTaskDetails = () => {
         setModalOpened={setIsDeleteCancelModalOpened}
         startTime={completedTaskDetails.start_time}
         status={completedTaskDetails.status}
-        title={completedTaskDetails.task_title}
+        title={completedTaskDetails.name}
       />
       {error ? (
         <EmptyStateDisplay
@@ -157,7 +157,7 @@ const CompletedTaskDetails = () => {
             <Breadcrumb ouiaId="completed-tasks-details-breadcrumb">
               <BreadcrumbLinkItem to="/executed">Tasks</BreadcrumbLinkItem>
               <BreadcrumbItem isActive>
-                {completedTaskDetails.task_title}
+                {completedTaskDetails.name}
               </BreadcrumbItem>
             </Breadcrumb>
             <Flex direction={{ default: 'column', md: 'row' }}>
@@ -166,7 +166,7 @@ const CompletedTaskDetails = () => {
                 flex={{ default: 'flex_1' }}
               >
                 <FlexItem>
-                  <PageHeaderTitle title={completedTaskDetails.task_title} />
+                  <PageHeaderTitle title={completedTaskDetails.name} />
                 </FlexItem>
                 <FlexItem>
                   <ReactMarkdown>

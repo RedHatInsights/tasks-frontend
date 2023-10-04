@@ -47,7 +47,7 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
                 />
               </svg>
             </span>
-            Log4J Detection
+            log4j task
           </li>
         </ol>
       </nav>
@@ -67,7 +67,7 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
               data-ouia-safe="true"
               widget-type="InsightsPageHeaderTitle"
             >
-              Log4J Detection
+              log4j task
             </h1>
           </div>
           <div
@@ -1147,7 +1147,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                 />
               </svg>
             </span>
-            Upgrade RHEL version with LEAP tool
+            leapp task
           </li>
         </ol>
       </nav>
@@ -1167,7 +1167,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
               data-ouia-safe="true"
               widget-type="InsightsPageHeaderTitle"
             >
-              Upgrade RHEL version with LEAP tool
+              leapp task
             </h1>
           </div>
           <div

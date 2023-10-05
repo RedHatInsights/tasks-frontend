@@ -11,6 +11,9 @@ import {
   Card,
   Flex,
   FlexItem,
+  Text,
+  TextContent,
+  TextVariants,
 } from '@patternfly/react-core';
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
 import columns, { exportableColumns } from './Columns';
@@ -132,6 +135,7 @@ const CompletedTaskDetails = () => {
         setModalOpened={setRunTaskModalOpened}
         slug={completedTaskDetails.task_slug}
         title={completedTaskDetails.name}
+        name={completedTaskDetails.name}
       />
       <DeleteCancelTaskModal
         id={completedTaskDetails.id}
@@ -167,6 +171,11 @@ const CompletedTaskDetails = () => {
               >
                 <FlexItem>
                   <PageHeaderTitle title={completedTaskDetails.name} />
+                  <TextContent>
+                    <Text component={TextVariants.small}>
+                      {completedTaskDetails.task_title}
+                    </Text>
+                  </TextContent>
                 </FlexItem>
                 <FlexItem>
                   <ReactMarkdown>

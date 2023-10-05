@@ -69,6 +69,19 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
             >
               log4j task
             </h1>
+            <div
+              class="pf-c-content"
+            >
+              <small
+                class=""
+                data-ouia-component-id="OUIA-Generated-Text-1"
+                data-ouia-component-type="PF4/Text"
+                data-ouia-safe="true"
+                data-pf-content="true"
+              >
+                Log4J Detection
+              </small>
+            </div>
           </div>
           <div
             class=""
@@ -1169,6 +1182,19 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
             >
               leapp task
             </h1>
+            <div
+              class="pf-c-content"
+            >
+              <small
+                class=""
+                data-ouia-component-id="OUIA-Generated-Text-2"
+                data-ouia-component-type="PF4/Text"
+                data-ouia-safe="true"
+                data-pf-content="true"
+              >
+                Upgrade RHEL version with LEAP tool
+              </small>
+            </div>
           </div>
           <div
             class=""

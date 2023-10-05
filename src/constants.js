@@ -4,10 +4,12 @@ import InsightsLink from '@redhat-cloud-services/frontend-components/InsightsLin
 import { PageHeaderTitle } from '@redhat-cloud-services/frontend-components/PageHeader';
 import { dispatchNotification } from './Utilities/Dispatcher';
 import { getTimeDiff, renderRunDateTime } from './Utilities/helpers';
-import { ExternalLinkAltIcon } from '@patternfly/react-icons';
+import {
+  ExternalLinkAltIcon,
+  OutlinedQuestionCircleIcon,
+} from '@patternfly/react-icons';
 import TasksPopover from './PresentationalComponents/TasksPopover/TasksPopover';
 import CompletedTaskDetailsKebab from './SmartComponents/CompletedTaskDetailsKebab/CompletedTaskDetailsKebab';
-import { OutlinedQuestionCircleIcon } from '@patternfly/react-icons';
 import {
   Skeleton,
   SkeletonSize,

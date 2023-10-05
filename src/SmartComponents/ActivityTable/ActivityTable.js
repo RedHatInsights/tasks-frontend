@@ -158,6 +158,7 @@ const ActivityTable = () => {
         setModalOpened={setRunTaskModalOpened}
         slug={activityDetails.task_slug}
         title={activityDetails.task_title}
+        name={activityDetails.name}
       />
       <DeleteCancelTaskModal
         id={taskDetails.id}

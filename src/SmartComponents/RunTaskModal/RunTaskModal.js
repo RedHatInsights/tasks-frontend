@@ -31,6 +31,7 @@ const RunTaskModal = ({
   description,
   error,
   isOpen,
+  name,
   selectedSystems,
   setIsRunTaskAgain,
   setModalOpened,
@@ -83,6 +84,7 @@ const RunTaskModal = ({
 
   const cancelModal = () => {
     setSelectedIds([]);
+    setTaskName(name || title);
     setModalOpened(false);
   };
 
@@ -234,6 +236,7 @@ RunTaskModal.propTypes = {
   description: propTypes.any,
   error: propTypes.object,
   isOpen: propTypes.bool,
+  name: propTypes.string,
   selectedSystems: propTypes.array,
   setIsRunTaskAgain: propTypes.func,
   setModalOpened: propTypes.func,

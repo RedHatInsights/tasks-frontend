@@ -20,10 +20,6 @@ import ReactMarkdown from 'react-markdown';
 const AvailableTasksTable = ({ availableTasks, error, openTaskModal }) => {
   const chrome = useChrome();
 
-  const isStageBeta = () => {
-    return chrome.isBeta() && !chrome.isProd();
-  };
-
   const isPreAnalysisTask = (slug) => {
     return (
       slug === 'convert-to-rhel-preanalysis-stage' ||
@@ -49,8 +45,8 @@ const AvailableTasksTable = ({ availableTasks, error, openTaskModal }) => {
       ) : (
         availableTasks?.map((task) => {
           if (
-            isStageBeta() ||
-            (!isStageBeta() && !isPreAnalysisTask(task.slug))
+            chrome.isBeta() ||
+            (!chrome.isBeta() && !isPreAnalysisTask(task.slug))
           ) {
             return (
               <div aria-label={task.title} key={task.title}>

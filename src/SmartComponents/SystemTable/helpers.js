@@ -10,15 +10,16 @@ const buildSortString = (orderBy, orderDirection) => {
 };
 
 const buildFilterString = (filters) => {
+  let osFiltersString = '';
   let displayNameFilter = filters.hostnameOrId
     ? `&display_name=${filters.hostnameOrId}`
     : '';
 
-  let osFilter = filters.osFilter?.length
-    ? '&os_version=' + filters.osFilter.join(',')
-    : '';
+  filters.osFilter?.forEach(({ osName, value }) => {
+    osFiltersString += `&os_name=${osName}&os_version=${value}`;
+  });
 
-  return `${displayNameFilter}${osFilter}`;
+  return `${displayNameFilter}${osFiltersString}`;
 };
 
 const buildTagsFilterString = (tags, filters) => {
@@ -37,6 +38,7 @@ const buildTagsFilterString = (tags, filters) => {
       (value) => (tagFiltersString += `${tag.category}/${value.name}`)
     );
   });
+
   return `${tagsFilterString}${globalTagsFilterString}${tagFiltersString}`;
 };
 

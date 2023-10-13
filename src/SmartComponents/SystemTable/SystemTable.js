@@ -153,6 +153,7 @@ const SystemTable = ({ bulkSelectIds, selectedIds, selectIds }) => {
         isStickyHeader: true,
         onSelect: items.length ? selectIds : null,
       }}
+      showCentosVersions={true}
     />
   );
 };

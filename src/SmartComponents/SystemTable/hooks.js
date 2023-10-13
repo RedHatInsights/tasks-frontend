@@ -1,7 +1,10 @@
 import { fetchSystems } from '../../../api';
 import { buildFilterSortString } from './helpers';
 
-export const useGetEntities = (onComplete, { selectedIds }) => {
+export const useGetEntities = (
+  onComplete,
+  { selectedIds, setFilterSortString }
+) => {
   return async (_items, config) => {
     const {
       page,
@@ -29,6 +32,12 @@ export const useGetEntities = (onComplete, { selectedIds }) => {
       data,
       meta: { count },
     } = fetchedEntities || {};
+
+    const bulkFilterSortString = filterSortString.replace(
+      /(limit=)[^&]+/,
+      '$1' + count
+    );
+    setFilterSortString(bulkFilterSortString);
 
     onComplete && onComplete(fetchedEntities);
 

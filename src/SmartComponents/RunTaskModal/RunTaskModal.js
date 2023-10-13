@@ -42,6 +42,7 @@ const RunTaskModal = ({
   const [taskName, setTaskName] = useState();
   const [executeTaskResult, setExecuteTaskResult] = useState();
   const [createTaskError, setCreateTaskError] = useState({});
+  const [filterSortString, setFilterSortString] = useState('');
 
   useEffect(() => {
     if (isOpen) {
@@ -109,7 +110,7 @@ const RunTaskModal = ({
       }
 
       case 'all': {
-        let results = await fetchSystems(`?limit=${options.total}&offset=0`);
+        let results = await fetchSystems(filterSortString);
         setSelectedIds(results.data.map(({ id }) => id));
         break;
       }
@@ -225,6 +226,7 @@ const RunTaskModal = ({
             bulkSelectIds={bulkSelectIds}
             selectedIds={selectedIds}
             selectIds={selectIds}
+            setFilterSortString={setFilterSortString}
           />
         </React.Fragment>
       )}

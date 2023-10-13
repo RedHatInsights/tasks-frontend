@@ -12,7 +12,12 @@ import { useDispatch } from 'react-redux';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import { generateFilter } from '@redhat-cloud-services/frontend-components-utilities/helpers';
 
-const SystemTable = ({ bulkSelectIds, selectedIds, selectIds }) => {
+const SystemTable = ({
+  bulkSelectIds,
+  selectedIds,
+  selectIds,
+  setFilterSortString,
+}) => {
   const [items, setItems] = useState([]);
   const [total, setTotal] = useState(0);
   const inventory = useRef(null);
@@ -52,6 +57,7 @@ const SystemTable = ({ bulkSelectIds, selectedIds, selectIds }) => {
 
   const getEntities = useGetEntities(onComplete, {
     selectedIds,
+    setFilterSortString,
   });
 
   const mergedColumns = (defaultColumns) =>
@@ -162,6 +168,7 @@ SystemTable.propTypes = {
   bulkSelectIds: propTypes.func,
   selectedIds: propTypes.array,
   selectIds: propTypes.func,
+  setFilterSortString: propTypes.func,
 };
 
 export default SystemTable;

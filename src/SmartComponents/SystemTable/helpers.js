@@ -16,7 +16,7 @@ const buildFilterString = (filters) => {
     : '';
 
   filters.osFilter?.forEach(({ osName, value }) => {
-    osFiltersString += `&os_name=${osName}&os_version=${value}`;
+    osFiltersString += `&operating_system=${osName}|${value}`;
   });
 
   return `${displayNameFilter}${osFiltersString}`;

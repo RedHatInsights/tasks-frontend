@@ -1,6 +1,11 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import { Pagination, PaginationVariant } from '@patternfly/react-core';
+import {
+  Pagination,
+  PaginationVariant,
+  ToolbarContent,
+  ToolbarItem,
+} from '@patternfly/react-core';
 import { Table, TableBody, TableHeader } from '@patternfly/react-table';
 import PrimaryToolbar from '@redhat-cloud-services/frontend-components/PrimaryToolbar';
 import TableToolbar from '@redhat-cloud-services/frontend-components/TableToolbar';
@@ -40,10 +45,15 @@ const TasksTables = ({
       {/* The -1 are to combat a bug currently in the TableToolbar component */}
       {!isTableLoading ? (
         <TableToolbar isFooter results={-1} selected={-1}>
-          <Pagination
-            variant={PaginationVariant.bottom}
-            {...toolbarProps.pagination}
-          />
+          <ToolbarContent>
+            <ToolbarItem>{tablePropsRest.footerContent}</ToolbarItem>
+            <ToolbarItem variant="pagination" align={{ default: 'alignRight' }}>
+              <Pagination
+                variant={PaginationVariant.bottom}
+                {...toolbarProps.pagination}
+              />
+            </ToolbarItem>
+          </ToolbarContent>
         </TableToolbar>
       ) : null}
       {/*ColumnManager && <ColumnManager />*/}
@@ -69,6 +79,7 @@ TasksTables.propTypes = {
   filters: propTypes.object,
   options: propTypes.object,
   toolbarProps: propTypes.object,
+  footerContent: propTypes.string,
 };
 
 export default TasksTables;

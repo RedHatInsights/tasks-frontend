@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ExclamationCircleIcon, WrenchIcon } from '@patternfly/react-icons';
+import moment from 'moment';
 import columns, { exportableColumns } from './Columns';
 import { nameFilter, statusFilter } from './Filters';
 import { renderRunDateTime } from '../../Utilities/helpers';
@@ -18,6 +19,7 @@ import TasksTables from '../../Utilities/hooks/useTableTools/Components/TasksTab
 import EmptyStateDisplay from '../../PresentationalComponents/EmptyStateDisplay/EmptyStateDisplay';
 import DeleteCancelTaskModal from '../../PresentationalComponents/DeleteCancelTaskModal/DeleteCancelTaskModal';
 import useActionResolver from './hooks/useActionResolvers';
+import { useInterval } from '../../Utilities/hooks/useTableTools/useInterval';
 import {
   createNotification,
   fetchTask,
@@ -26,6 +28,7 @@ import {
   isError,
 } from '../completedTaskDetailsHelpers';
 import RunTaskModal from '../RunTaskModal/RunTaskModal';
+import RefreshFooterContent from '../RefreshFooterContent';
 import usePromiseQueue from '../../Utilities/hooks/usePromiseQueue';
 
 const ActivityTable = () => {
@@ -42,7 +45,8 @@ const ActivityTable = () => {
   const [taskDetails, setTaskDetails] = useState({});
   const [runTaskModalOpened, setRunTaskModalOpened] = useState(false);
   const [selectedSystems, setSelectedSystems] = useState([]);
-  const [totalTaskCount, setTotalTaskCount] = useState();
+  const [lastUpdated, setLastUpdated] = useState();
+  const [isRunning, setIsRunning] = useState(false);
 
   const { resolve } = usePromiseQueue();
 
@@ -65,10 +69,10 @@ const ActivityTable = () => {
     }
   };
 
-  const fetchData = async () => {
+  const fetchData = async (count) => {
     let results;
     const batchSize = 200;
-    const pages = Math.ceil(totalTaskCount / batchSize) || 1;
+    const pages = Math.ceil(count / batchSize) || 1;
     const result = await resolve(
       [...new Array(pages)].map(
         (_, pageIdx) => () =>
@@ -83,6 +87,12 @@ const ActivityTable = () => {
       setError(result[0]);
     } else {
       results = result.map(({ data }) => data).flat();
+    }
+
+    if (results.some((result) => result.status === 'Running')) {
+      setIsRunning(true);
+    } else {
+      setIsRunning(false);
     }
 
     setTasks(results);
@@ -110,31 +120,32 @@ const ActivityTable = () => {
   const refetchData = async () => {
     setTableLoading(true);
     await setActivities(LOADING_ACTIVITIES_TABLE);
-    fetchData();
+    fetchSingleTask();
+  };
+
+  const fetchSingleTask = async () => {
+    setLastUpdated(` ${moment().format('dddd, MMMM Do YYYY, h:mm a')}`);
+    const task = await fetchExecutedTasks(`?limit=1&offset=0`);
+    if (isError(task)) {
+      createNotification(task);
+      setError(task);
+      setActivities([]);
+    } else if (task.data.length === 0) {
+      setActivities([]);
+    } else {
+      fetchData(task.meta.count);
+    }
   };
 
   useEffect(() => {
-    const fetchSingleTask = async () => {
-      const task = await fetchExecutedTasks(`?limit=1&offset=0`);
-      if (isError(task)) {
-        createNotification(task);
-        setError(task);
-        setActivities([]);
-      } else if (task.data.length === 0) {
-        setActivities([]);
-      } else {
-        setTotalTaskCount(task.meta.count);
-      }
-    };
-
     fetchSingleTask();
   }, []);
 
-  useEffect(() => {
-    if (totalTaskCount) {
-      fetchData();
+  useInterval(() => {
+    if (isRunning) {
+      fetchSingleTask();
     }
-  }, [totalTaskCount]);
+  }, 60000);
 
   useEffect(() => {
     if (isDelete || isCancel) {
@@ -207,6 +218,13 @@ const ActivityTable = () => {
             emptyRows={emptyRows('tasks')}
             isStickyHeader
             isTableLoading={tableLoading}
+            footerContent={
+              <RefreshFooterContent
+                footerContent={lastUpdated}
+                isRunning={isRunning}
+                type="tasks"
+              />
+            }
           />
         )}
       </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
+import moment from 'moment';
 import TasksTables from '../../Utilities/hooks/useTableTools/Components/TasksTables';
 import {
   PageHeader,
@@ -34,6 +35,7 @@ import RunTaskModal from '../RunTaskModal/RunTaskModal';
 import DeleteCancelTaskModal from '../../PresentationalComponents/DeleteCancelTaskModal/DeleteCancelTaskModal';
 import { emptyRows } from '../../PresentationalComponents/NoResultsTable/NoResultsTable';
 import BreadcrumbLinkItem from '../../PresentationalComponents/BreadcrumbLinkItem/BreadcrumbLinkItem';
+import RefreshFooterContent from '../RefreshFooterContent';
 import {
   getSelectedSystems,
   fetchTask,
@@ -46,6 +48,7 @@ import JobResultsDetails from './JobResultsDetails/JobResultsDetails';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 import useInsightsNavigate from '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate';
 import ReactMarkdown from 'react-markdown';
+import { useInterval } from '../../Utilities/hooks/useTableTools/useInterval';
 
 const CompletedTaskDetails = () => {
   const { id } = useParams();
@@ -61,6 +64,8 @@ const CompletedTaskDetails = () => {
     useState(false);
   const [isDelete, setIsDelete] = useState(false);
   const [isCancel, setIsCancel] = useState(false);
+  const [lastUpdated, setLastUpdated] = useState();
+  const [isRunning, setIsRunning] = useState(false);
   const chrome = useChrome();
   const { hasAccess, isLoading } = usePermissions('inventory', [
     'inventory:hosts:*',
@@ -69,21 +74,31 @@ const CompletedTaskDetails = () => {
   const navigate = useInsightsNavigate();
 
   const fetchData = async () => {
+    setLastUpdated(` ${moment().format('dddd, MMMM Do YYYY, h:mm a')}`);
     setTableLoading(true);
-    await setCompletedTaskDetails(LOADING_INFO_PANEL);
-    await setCompletedTaskJobs(LOADING_JOBS_TABLE);
     const fetchedTaskDetails = await fetchTask(id, setError);
 
     if (Object.keys(fetchedTaskDetails).length) {
       const fetchedTaskJobs = await fetchTaskJobs(fetchedTaskDetails, setError);
 
       if (fetchedTaskJobs.length) {
+        if (fetchedTaskJobs.some((job) => job.status === 'Running')) {
+          setIsRunning(true);
+        } else {
+          setIsRunning(false);
+        }
         await setCompletedTaskDetails(fetchedTaskDetails);
         await setCompletedTaskJobs(fetchedTaskJobs);
       }
     }
     setTableLoading(false);
   };
+
+  useInterval(() => {
+    if (isRunning) {
+      fetchData();
+    }
+  }, 60000);
 
   useEffect(() => {
     fetchData();
@@ -105,11 +120,11 @@ const CompletedTaskDetails = () => {
       navigate('/executed');
       setIsDelete(false);
     }
-
-    if (isCancel) {
+    // Not currently being used, but may be used later
+    /*if (isCancel) {
       fetchData();
       setIsCancel(false);
-    }
+    }*/
   }, [isCancel, isDelete]);
 
   const JobResultsRow = useMemo(
@@ -235,6 +250,13 @@ const CompletedTaskDetails = () => {
                   emptyRows={emptyRows('jobs')}
                   isStickyHeader
                   isTableLoading={tableLoading}
+                  footerContent={
+                    <RefreshFooterContent
+                      footerContent={lastUpdated}
+                      isRunning={isRunning}
+                      type="jobs"
+                    />
+                  }
                 />
               ) : (
                 <NotAuthorized serviceName="Inventory" />

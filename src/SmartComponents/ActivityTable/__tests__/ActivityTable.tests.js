@@ -71,7 +71,11 @@ describe('ActivityTable', () => {
       return activityTableItems;
     });
 
-    const { asFragment } = render(
+    const notification = jest
+      .spyOn(dispatcher, 'dispatchNotification')
+      .mockImplementation();
+
+    render(
       <MemoryRouter keyLength={0}>
         <Provider store={store}>
           <ActivityTable />
@@ -80,8 +84,8 @@ describe('ActivityTable', () => {
     );
 
     await waitFor(() => userEvent.click(screen.getByLabelText('Export')));
-    await waitFor(() => expect(asFragment()).toMatchSnapshot());
     await waitFor(() => userEvent.click(screen.getByText('Export to CSV')));
+    expect(notification).toHaveBeenCalled();
   });
 
   it('should add name filter', async () => {
@@ -301,6 +305,6 @@ describe('ActivityTable', () => {
       userEvent.click(screen.getByText('Delete'));
       userEvent.click(screen.getByLabelText('delete-task-button'));
     });
-    expect(fetchExecutedTasks).toHaveBeenCalledTimes(3);
+    expect(fetchExecutedTasks).toHaveBeenCalledTimes(4);
   });
 });

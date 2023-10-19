@@ -21,28 +21,18 @@ const EntryDetails = ({ entry, taskConstantMapper }) => {
     );
   };
 
-  const renderDiagnosisDetails = () => {
-    return (
-      <div>
-        <span>{detail.diagnosis.context}</span>
-      </div>
-    );
-  };
-
-  const renderRemediationsDetails = () => {
-    return detail.remediations.map((remediation, index) => {
-      let remediationKey = `remediation-${index}`;
+  const renderResolutionDetails = (content, type, classname) => {
+    return content.map((item, index) => {
+      let key = `${type}-${index}`;
       return (
-        <div key={remediationKey}>
+        <div key={key}>
           {index > 0 ? (
             <span>
               <br />
             </span>
           ) : null}
-          <span style={{ fontFamily: 'overpass-mono' }}>
-            {remediation.type
-              ? `[${remediation.type}] ${remediation.context}`
-              : `${remediation.context}`}
+          <span className={classname}>
+            {item.type ? `[${item.type}] ${item.context}` : `${item.context}`}
           </span>
         </div>
       );
@@ -75,11 +65,21 @@ const EntryDetails = ({ entry, taskConstantMapper }) => {
     return (
       <React.Fragment>
         {createGrid('Summary', summary)}
-        {detail?.diagnosis?.context
-          ? createGrid('Diagnosis', renderDiagnosisDetails)
+        {detail?.diagnosis && detail?.diagnosis?.[0]?.context !== ''
+          ? createGrid(
+              'Diagnosis',
+              renderResolutionDetails(detail.diagnosis, 'diagnosis')
+            )
           : null}
-        {detail?.remediations && detail?.remediations[0]?.context !== ''
-          ? createGrid('Remediation', renderRemediationsDetails)
+        {detail?.remediations && detail?.remediations?.[0]?.context !== ''
+          ? createGrid(
+              'Remediation',
+              renderResolutionDetails(
+                detail.remediations,
+                'remediations',
+                'remediations-font-family'
+              )
+            )
           : null}
         {createGrid('Key', key)}
       </React.Fragment>

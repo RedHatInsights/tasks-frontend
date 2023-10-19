@@ -2357,7 +2357,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                               >
                                 <div>
                                   <span
-                                    style="font-family: overpass-mono;"
+                                    class="remediations-font-family"
                                   >
                                     [hint] Please run "grub2-install &lt;GRUB_DEVICE&gt; command manually after upgrade
                                   </span>
@@ -2536,7 +2536,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                               >
                                 <div>
                                   <span
-                                    style="font-family: overpass-mono;"
+                                    class="remediations-font-family"
                                   >
                                     [hint] Make sure there are no SElinux related warnings after the upgrade and enable SElinux manually afterwards. Notice: You can ignore the "/root/tmp_leapp_py3" SElinux warnings.
                                   </span>
@@ -2715,7 +2715,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                               >
                                 <div>
                                   <span
-                                    style="font-family: overpass-mono;"
+                                    class="remediations-font-family"
                                   >
                                     [hint] If you wish to receive updates for the latest released version of the target system, run \`subscription-manager release --unset\` after the upgrade.
                                   </span>
@@ -3272,7 +3272,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                               >
                                 <div>
                                   <span
-                                    style="font-family: overpass-mono;"
+                                    class="remediations-font-family"
                                   >
                                     [hint] Please run "grub2-install &lt;GRUB_DEVICE&gt; command manually after upgrade
                                   </span>
@@ -3451,7 +3451,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                               >
                                 <div>
                                   <span
-                                    style="font-family: overpass-mono;"
+                                    class="remediations-font-family"
                                   >
                                     [hint] Set AllowZoneDrifting=no in /etc/firewalld/firewalld.conf
                                   </span>
@@ -3461,7 +3461,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                                     <br />
                                   </span>
                                   <span
-                                    style="font-family: overpass-mono;"
+                                    class="remediations-font-family"
                                   >
                                     [command] sed -i "s/^AllowZoneDrifting=.*/AllowZoneDrifting=no/" /etc/firewalld/firewalld.conf
                                   </span>
@@ -3640,7 +3640,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                               >
                                 <div>
                                   <span
-                                    style="font-family: overpass-mono;"
+                                    class="remediations-font-family"
                                   >
                                     [hint] Consult the VDO to LVM conversion process documentation for how to perform the conversion.
                                   </span>
@@ -3819,7 +3819,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                               >
                                 <div>
                                   <span
-                                    style="font-family: overpass-mono;"
+                                    class="remediations-font-family"
                                   >
                                     [hint] Make sure there are no SElinux related warnings after the upgrade and enable SElinux manually afterwards. Notice: You can ignore the "/root/tmp_leapp_py3" SElinux warnings.
                                   </span>

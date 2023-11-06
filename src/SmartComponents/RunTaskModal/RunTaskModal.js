@@ -1,38 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import {
-  Alert,
-  Button,
-  Flex,
-  FlexItem,
-  Form,
-  FormGroup,
-  Modal,
-  TextInput,
-  ValidatedOptions,
-} from '@patternfly/react-core';
+import { Button } from '@patternfly/react-core/dist/js/components/Button';
+import { Modal } from '@patternfly/react-core/dist/js/components/Modal';
 import propTypes from 'prop-types';
-import SystemTable from '../SystemTable/SystemTable';
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
-import {
-  AVAILABLE_TASKS_ROOT,
-  INFO_ALERT_SYSTEMS,
-  TASKS_API_ROOT,
-  TASK_ERROR,
-} from '../../constants';
-import { fetchSystems } from '../../../api';
+import { TASK_ERROR } from '../../constants';
 import EmptyStateDisplay from '../../PresentationalComponents/EmptyStateDisplay/EmptyStateDisplay';
 import ExecuteTaskButton from '../../PresentationalComponents/ExecuteTaskButton/ExecuteTaskButton';
-import ReactMarkdown from 'react-markdown';
 import { dispatchNotification } from '../../Utilities/Dispatcher';
 import { EXECUTE_TASK_NOTIFICATION } from '../../constants';
 import { isError } from '../completedTaskDetailsHelpers';
-import warningConstants from '../warningConstants';
+import SystemsSelect from './SystemsSelect';
+import InputParameters from './InputParameters';
 
 const RunTaskModal = ({
   description,
   error,
   isOpen,
   name,
+  parameters,
   selectedSystems,
   setIsRunTaskAgain,
   setModalOpened,
@@ -40,14 +25,11 @@ const RunTaskModal = ({
   title,
 }) => {
   const [selectedIds, setSelectedIds] = useState(selectedSystems);
-  const [taskName, setTaskName] = useState();
+  const [taskName, setTaskName] = useState(name);
   const [executeTaskResult, setExecuteTaskResult] = useState();
   const [createTaskError, setCreateTaskError] = useState({});
-  const [filterSortString, setFilterSortString] = useState('');
-
-  const warningConstantMapper = `${slug
-    ?.toUpperCase()
-    .replace(/-/g, '_')}_WARNING`;
+  const [areSystemsSelected, setAreSystemsSelected] = useState(false);
+  const [definedParameters, setDefinedParameters] = useState(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -60,8 +42,30 @@ const RunTaskModal = ({
   }, [selectedSystems]);
 
   useEffect(() => {
-    setTaskName(title);
-  }, [title]);
+    if (name) {
+      setTaskName(name);
+    } else {
+      setTaskName(title);
+    }
+  }, [title, name]);
+
+  useEffect(() => {
+    if (parameters) {
+      setDefinedParameters(
+        parameters.map((param) => {
+          let definedParam = {
+            key: param.key,
+            value: param.default || param.value || '',
+          };
+          if (param.required) {
+            definedParam.validated = definedParam.value.length ? true : false;
+          }
+
+          return definedParam;
+        })
+      );
+    }
+  }, [parameters]);
 
   useEffect(() => {
     if (executeTaskResult) {
@@ -94,42 +98,111 @@ const RunTaskModal = ({
     setModalOpened(false);
   };
 
-  const bulkSelectIds = async (type, options) => {
-    let newSelectedIds = [...selectedIds];
-
-    switch (type) {
-      case 'none': {
-        setSelectedIds([]);
-        break;
-      }
-
-      case 'page': {
-        options.items.forEach((item) => {
-          if (!newSelectedIds.includes(item.id)) {
-            newSelectedIds.push(item.id);
-          }
-        });
-
-        setSelectedIds(newSelectedIds);
-        break;
-      }
-
-      case 'all': {
-        let results = await fetchSystems(filterSortString);
-        setSelectedIds(results.data.map(({ id }) => id));
-        break;
-      }
-    }
+  const checkForSystemsAndTaskName = () => {
+    return !selectedIds?.length || !taskName.length;
   };
 
-  const selectIds = (_event, _isSelected, _index, entity) => {
-    let newSelectedIds = [...selectedIds];
+  const setModalButtons = () => {
+    let actions;
+    if (parameters?.length && !areSystemsSelected) {
+      actions = [
+        <Button
+          key="next"
+          aria-label="next-button"
+          variant="primary"
+          isDisabled={checkForSystemsAndTaskName()}
+          onClick={() => setAreSystemsSelected(true)}
+        >
+          Next
+        </Button>,
+        <Button
+          key="cancel-execute-task-button"
+          aria-label="cancel-run-task-modal"
+          variant="link"
+          onClick={() => cancelModal()}
+        >
+          Cancel
+        </Button>,
+      ];
+    } else if (!parameters?.length) {
+      actions = [
+        <ExecuteTaskButton
+          key="execute-task-button"
+          ids={selectedIds}
+          isDisabled={checkForSystemsAndTaskName()}
+          setExecuteTaskResult={setExecuteTaskResult}
+          slug={slug}
+          taskName={taskName}
+          variant="primary"
+        />,
+        <Button
+          key="cancel-execute-task-button"
+          aria-label="cancel-run-task-modal"
+          variant="link"
+          onClick={() => cancelModal()}
+        >
+          Cancel
+        </Button>,
+      ];
+    } else {
+      actions = [
+        <ExecuteTaskButton
+          key="execute-task-button"
+          definedParameters={
+            definedParameters.length ? definedParameters : null
+          }
+          ids={selectedIds}
+          isDisabled={definedParameters.some(
+            (param) => param.validated === false
+          )}
+          setExecuteTaskResult={setExecuteTaskResult}
+          slug={slug}
+          taskName={taskName}
+          variant="primary"
+        />,
+        <Button
+          key="go-back"
+          aria-label="go-back-button"
+          variant="link"
+          onClick={() => setAreSystemsSelected(false)}
+        >
+          Go back
+        </Button>,
+        <Button
+          key="cancel-execute-task-button"
+          variant="link"
+          aria-label="cancel-run-task-modal"
+          onClick={() => cancelModal()}
+        >
+          Cancel
+        </Button>,
+      ];
+    }
 
-    !newSelectedIds.includes(entity.id)
-      ? newSelectedIds.push(entity.id)
-      : newSelectedIds.splice(newSelectedIds.indexOf(entity.id), 1);
+    return actions;
+  };
 
-    setSelectedIds(newSelectedIds);
+  const renderBody = () => {
+    if (!areSystemsSelected) {
+      return (
+        <SystemsSelect
+          createTaskError={createTaskError}
+          description={description}
+          selectedIds={selectedIds}
+          setSelectedIds={setSelectedIds}
+          setTaskName={setTaskName}
+          slug={slug}
+          taskName={taskName}
+        />
+      );
+    } else {
+      return (
+        <InputParameters
+          parameters={parameters}
+          setDefinedParameters={setDefinedParameters}
+        />
+      );
+    }
   };
 
   return (
@@ -139,23 +212,8 @@ const RunTaskModal = ({
       isOpen={isOpen}
       onClose={() => setModalOpened(false)}
       width={'70%'}
-      actions={[
-        <ExecuteTaskButton
-          key="execute-task-button"
-          ids={selectedIds}
-          setExecuteTaskResult={setExecuteTaskResult}
-          slug={slug}
-          taskName={taskName}
-          variant="primary"
-        />,
-        <Button
-          key="cancel-execute-task-button"
-          variant="link"
-          onClick={() => cancelModal()}
-        >
-          Cancel
-        </Button>,
-      ]}
+      actions={setModalButtons()}
+      position="top"
     >
       {error ? (
         <EmptyStateDisplay
@@ -166,75 +224,7 @@ const RunTaskModal = ({
           error={`Error ${error?.response?.status}: ${error?.message}`}
         />
       ) : (
-        <React.Fragment>
-          <Flex>
-            <FlexItem>
-              <b>Task description</b>
-            </FlexItem>
-          </Flex>
-          <Flex style={{ paddingBottom: '8px' }}>
-            <FlexItem style={{ width: '100%' }}>
-              <ReactMarkdown>{description}</ReactMarkdown>
-            </FlexItem>
-          </Flex>
-          <Flex>
-            <FlexItem>
-              <a
-                href={`${TASKS_API_ROOT}${AVAILABLE_TASKS_ROOT}/${slug}/playbook`}
-              >
-                Download preview of playbook
-              </a>
-            </FlexItem>
-          </Flex>
-          <br />
-          <div>
-            <Form>
-              <FormGroup
-                label="Task name"
-                isRequired
-                type="text"
-                helperTextInvalid={
-                  Object.prototype.hasOwnProperty.call(
-                    createTaskError,
-                    'statusText'
-                  ) && createTaskError.statusText
-                }
-                fieldId="name"
-                validated={
-                  Object.prototype.hasOwnProperty.call(
-                    createTaskError,
-                    'status'
-                  ) && 'error'
-                }
-              >
-                <TextInput
-                  value={taskName}
-                  type="text"
-                  onChange={setTaskName}
-                  validated={
-                    Object.prototype.hasOwnProperty.call(
-                      createTaskError,
-                      'status'
-                    ) && ValidatedOptions.error
-                  }
-                  aria-label="task name"
-                />
-              </FormGroup>
-            </Form>
-          </div>
-          <br />
-          <div style={{ paddingBottom: '8px' }}>
-            <b>Systems to run tasks on</b>
-          </div>
-          {warningConstants[warningConstantMapper]}
-          <Alert variant="info" isInline title={INFO_ALERT_SYSTEMS} />
-          <SystemTable
-            bulkSelectIds={bulkSelectIds}
-            selectedIds={selectedIds}
-            selectIds={selectIds}
-            setFilterSortString={setFilterSortString}
-          />
-        </React.Fragment>
+        renderBody()
       )}
     </Modal>
   );
@@ -245,6 +235,7 @@ RunTaskModal.propTypes = {
   error: propTypes.object,
   isOpen: propTypes.bool,
   name: propTypes.string,
+  parameters: propTypes.array,
   selectedSystems: propTypes.array,
   setIsRunTaskAgain: propTypes.func,
   setModalOpened: propTypes.func,

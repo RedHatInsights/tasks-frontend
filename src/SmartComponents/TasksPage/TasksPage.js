@@ -55,15 +55,18 @@ const TasksPage = ({ tab }) => {
 
   return (
     <React.Fragment>
-      <RunTaskModal
-        description={activeTask.description}
-        error={error}
-        isOpen={runTaskModalOpened}
-        selectedSystems={[]}
-        setModalOpened={setRunTaskModalOpened}
-        slug={activeTask.slug}
-        title={activeTask.title}
-      />
+      {runTaskModalOpened ? (
+        <RunTaskModal
+          description={activeTask.description}
+          error={error}
+          isOpen={runTaskModalOpened}
+          parameters={activeTask.parameters}
+          selectedSystems={[]}
+          setModalOpened={setRunTaskModalOpened}
+          slug={activeTask.slug}
+          title={activeTask.title}
+        />
+      ) : null}
       <PageHeader>
         <FlexibleFlex
           flexContents={TASKS_PAGE_HEADER}

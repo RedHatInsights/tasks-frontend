@@ -18,6 +18,26 @@ const CONVERT_TO_RHEL_PREANALYSIS_WARNING = (
   </Alert>
 );
 
+const LEAPP_UPGRADE = (
+  <Alert
+    style={{ marginBottom: '8px' }}
+    isInline
+    variant="warning"
+    title="System backup is recommended."
+  >
+    <p>
+      Ensure you have a full system backup or a virtual machine snapshot. You
+      should be able to get your system to the pre-upgrade state if you follow
+      standard disaster recovery procedures within your environment.
+    </p>
+  </Alert>
+);
+
+const LEAPP_UPGRADE_STAGE_WARNING = LEAPP_UPGRADE;
+const LEAPP_UPGRADE_WARNING = LEAPP_UPGRADE;
+
 export default {
   CONVERT_TO_RHEL_PREANALYSIS_WARNING,
+  LEAPP_UPGRADE_WARNING,
+  LEAPP_UPGRADE_STAGE_WARNING,
 };

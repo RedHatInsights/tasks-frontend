@@ -35,9 +35,10 @@ const useRowsBuilder = (items, columns, options = {}) => {
     ? options.sorter(filteredItems)
     : filteredItems;
 
-  const paginatedItems = options?.paginator
-    ? options?.paginator(filteredItems)
-    : sortedItems;
+  const paginatedItems =
+    options?.paginator && !options?.isTableLoading
+      ? options?.paginator(filteredItems)
+      : sortedItems;
 
   let parentIndex = -1;
   let row;

@@ -65,6 +65,7 @@ const useTableTools = (
     paginator,
     filter,
     sorter,
+    isTableLoading,
   });
 
   const toolbarProps = {

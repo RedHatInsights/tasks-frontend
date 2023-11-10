@@ -64,5 +64,6 @@ export const MessageColumn = {
 };
 
 export const exportableColumns = [SystemColumn, StatusColumn, MessageColumn];
+export const conversionColumns = [SystemColumn, MessageColumn];
 
 export default [SystemColumn, StatusColumn, MessageColumn];

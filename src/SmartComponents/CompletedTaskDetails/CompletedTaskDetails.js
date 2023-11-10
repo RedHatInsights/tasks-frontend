@@ -17,7 +17,7 @@ import {
   TextVariants,
 } from '@patternfly/react-core';
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
-import columns, { exportableColumns } from './Columns';
+import columns, { conversionColumns, exportableColumns } from './Columns';
 import { statusFilters, systemFilter } from './Filters';
 import {
   COMPLETED_INFO_PANEL,
@@ -140,6 +140,25 @@ const CompletedTaskDetails = () => {
     [completedTaskJobs]
   );
 
+  const isConversionTask = () => {
+    if (
+      completedTaskDetails.task_slug === 'convert-to-rhel-conversion-stage' ||
+      completedTaskDetails.task_slug === 'convert-to-rhel-conversion'
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const buildFilterConfig = () => {
+    if (isConversionTask()) {
+      return { filterConfig: [...systemFilter] };
+    } else {
+      return { filterConfig: [...systemFilter, ...statusFilters] };
+    }
+  };
+
   return (
     <div>
       <RunTaskModal
@@ -230,16 +249,16 @@ const CompletedTaskDetails = () => {
                 <TasksTables
                   label={`${completedTaskDetails.id}-completed-jobs`}
                   ouiaId={`${completedTaskDetails.id}-completed-jobs-table`}
-                  columns={columns}
+                  columns={isConversionTask() ? conversionColumns : columns}
                   items={completedTaskJobs}
-                  filters={{
-                    filterConfig: [...systemFilter, ...statusFilters],
-                  }}
+                  filters={buildFilterConfig()}
                   options={{
                     ...TASKS_TABLE_DEFAULTS,
                     exportable: {
                       ...TASKS_TABLE_DEFAULTS.exportable,
-                      columns: exportableColumns,
+                      columns: isConversionTask()
+                        ? conversionColumns
+                        : exportableColumns,
                     },
                     detailsComponent: completedTaskJobs.some((job) =>
                       hasDetails(job)

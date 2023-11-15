@@ -18,6 +18,20 @@ const CONVERT_TO_RHEL_PREANALYSIS_WARNING = (
   </Alert>
 );
 
+const CONVERT_TO_RHEL_CONVERSION_WARNING = (
+  <Alert
+    style={{ marginBottom: '8px' }}
+    isInline
+    variant="warning"
+    title="System backup is recommended."
+  >
+    <p>
+      It is highly recommended that you create a system backup and verify that
+      you can restore your system from the backup before running this task.
+    </p>
+  </Alert>
+);
+
 const LEAPP_UPGRADE = (
   <Alert
     style={{ marginBottom: '8px' }}
@@ -38,6 +52,7 @@ const LEAPP_UPGRADE_WARNING = LEAPP_UPGRADE;
 
 export default {
   CONVERT_TO_RHEL_PREANALYSIS_WARNING,
+  CONVERT_TO_RHEL_CONVERSION_WARNING,
   LEAPP_UPGRADE_WARNING,
   LEAPP_UPGRADE_STAGE_WARNING,
 };

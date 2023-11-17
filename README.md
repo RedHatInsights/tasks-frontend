@@ -10,16 +10,11 @@ To setup the hosts file run following command:
 npm run patch:hosts
 ```
 
-If this command throws an error run it as a `sudo`:
-```bash
-sudo npm run patch:hosts
-```
-
 ## Getting started
 
 1. ```npm install```
 
-2. ```PROXY=true npm run start:beta```
+2. ```npm run start:beta```
 
 3. Open browser in URL listed in the terminal output
 

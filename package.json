@@ -46,6 +46,7 @@
     "lint:js": "eslint config src",
     "lint:js:fix": "eslint config src --fix",
     "lint:sass": "stylelint 'src/**/*.scss' --config .stylelintrc.json",
+    "patch:hosts": "curl -sSL https://raw.githubusercontent.com/RedHatInsights/insights-proxy/master/scripts/patch-etc-hosts.sh -o - | sudo sh -",
     "start": "npm run start:proxy",
     "start:beta": "npm run start:proxy:beta",
     "start:proxy": "NODE_ENV=development webpack serve --config config/dev.webpack.config.js",

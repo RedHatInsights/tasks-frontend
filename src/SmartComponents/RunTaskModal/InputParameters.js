@@ -7,7 +7,7 @@ import {
 import { TextInput } from '@patternfly/react-core/dist/js/components/TextInput';
 import { ValidatedOptions } from '@patternfly/react-core/dist/js/helpers/constants';
 
-const InputParameter = ({ parameter, setDefinedParameters }) => {
+export const InputParameter = ({ parameter, setDefinedParameters }) => {
   const [paramText, setParamText] = useState(
     parameter.default || parameter.value
   );

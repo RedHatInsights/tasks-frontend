@@ -13,24 +13,22 @@ const ExecuteTaskButton = ({
   taskName,
   variant,
 }) => {
-  const buildApiBody = () => {
-    let apiBody = {
-      task: slug,
-      hosts: ids,
-      name: taskName,
-    };
-
-    if (definedParameters) {
-      apiBody.parameters = definedParameters.map((param) => {
-        return { key: param.key, value: param.value };
-      });
-    }
-
-    return apiBody;
+  const apiBody = {
+    task: slug,
+    hosts: ids,
+    name: taskName,
+    ...(definedParameters
+      ? {
+          parameters: definedParameters.map((param) => ({
+            key: param.key,
+            value: param.value,
+          })),
+        }
+      : {}),
   };
 
   const submitTask = async () => {
-    let result = await executeTask(buildApiBody());
+    let result = await executeTask(apiBody);
     setExecuteTaskResult(result);
   };
 

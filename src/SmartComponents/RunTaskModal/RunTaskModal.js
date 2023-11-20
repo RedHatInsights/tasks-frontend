@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Button } from '@patternfly/react-core/dist/js/components/Button';
 import { Modal } from '@patternfly/react-core/dist/js/components/Modal';
 import propTypes from 'prop-types';
-import { ExclamationCircleIcon } from '@patternfly/react-icons';
-import { TASK_ERROR } from '../../constants';
-import EmptyStateDisplay from '../../PresentationalComponents/EmptyStateDisplay/EmptyStateDisplay';
-import ExecuteTaskButton from '../../PresentationalComponents/ExecuteTaskButton/ExecuteTaskButton';
 import { dispatchNotification } from '../../Utilities/Dispatcher';
 import { EXECUTE_TASK_NOTIFICATION } from '../../constants';
 import { isError } from '../completedTaskDetailsHelpers';
-import SystemsSelect from './SystemsSelect';
-import InputParameters from './InputParameters';
+import RunTaskModalBody from './RunTaskModalBody';
+import { useModalActions } from './hooks/useModalActions';
 
 const RunTaskModal = ({
   description,
@@ -98,112 +93,17 @@ const RunTaskModal = ({
     setModalOpened(false);
   };
 
-  const checkForSystemsAndTaskName = () => {
-    return !selectedIds?.length || !taskName.length;
-  };
-
-  const setModalButtons = () => {
-    let actions;
-    if (parameters?.length && !areSystemsSelected) {
-      actions = [
-        <Button
-          key="next"
-          aria-label="next-button"
-          variant="primary"
-          isDisabled={checkForSystemsAndTaskName()}
-          onClick={() => setAreSystemsSelected(true)}
-        >
-          Next
-        </Button>,
-        <Button
-          key="cancel-execute-task-button"
-          aria-label="cancel-run-task-modal"
-          variant="link"
-          onClick={() => cancelModal()}
-        >
-          Cancel
-        </Button>,
-      ];
-    } else if (!parameters?.length) {
-      actions = [
-        <ExecuteTaskButton
-          key="execute-task-button"
-          ids={selectedIds}
-          isDisabled={checkForSystemsAndTaskName()}
-          setExecuteTaskResult={setExecuteTaskResult}
-          slug={slug}
-          taskName={taskName}
-          variant="primary"
-        />,
-        <Button
-          key="cancel-execute-task-button"
-          aria-label="cancel-run-task-modal"
-          variant="link"
-          onClick={() => cancelModal()}
-        >
-          Cancel
-        </Button>,
-      ];
-    } else {
-      actions = [
-        <ExecuteTaskButton
-          key="execute-task-button"
-          definedParameters={
-            definedParameters.length ? definedParameters : null
-          }
-          ids={selectedIds}
-          isDisabled={definedParameters.some(
-            (param) => param.validated === false
-          )}
-          setExecuteTaskResult={setExecuteTaskResult}
-          slug={slug}
-          taskName={taskName}
-          variant="primary"
-        />,
-        <Button
-          key="go-back"
-          aria-label="go-back-button"
-          variant="link"
-          onClick={() => setAreSystemsSelected(false)}
-        >
-          Go back
-        </Button>,
-        <Button
-          key="cancel-execute-task-button"
-          variant="link"
-          aria-label="cancel-run-task-modal"
-          onClick={() => cancelModal()}
-        >
-          Cancel
-        </Button>,
-      ];
-    }
-
-    return actions;
-  };
-
-  const renderBody = () => {
-    if (!areSystemsSelected) {
-      return (
-        <SystemsSelect
-          createTaskError={createTaskError}
-          description={description}
-          selectedIds={selectedIds}
-          setSelectedIds={setSelectedIds}
-          setTaskName={setTaskName}
-          slug={slug}
-          taskName={taskName}
-        />
-      );
-    } else {
-      return (
-        <InputParameters
-          parameters={parameters}
-          setDefinedParameters={setDefinedParameters}
-        />
-      );
-    }
-  };
+  const actions = useModalActions(
+    areSystemsSelected,
+    cancelModal,
+    selectedIds,
+    setExecuteTaskResult,
+    slug,
+    taskName,
+    setAreSystemsSelected,
+    parameters,
+    definedParameters
+  );
 
   return (
     <Modal
@@ -212,20 +112,22 @@ const RunTaskModal = ({
       isOpen={isOpen}
       onClose={() => setModalOpened(false)}
       width={'70%'}
-      actions={setModalButtons()}
+      actions={actions}
       position="top"
     >
-      {error ? (
-        <EmptyStateDisplay
-          icon={ExclamationCircleIcon}
-          color="#c9190b"
-          title={'This task cannot be displayed'}
-          text={TASK_ERROR}
-          error={`Error ${error?.response?.status}: ${error?.message}`}
-        />
-      ) : (
-        renderBody()
-      )}
+      <RunTaskModalBody
+        areSystemsSelected={areSystemsSelected}
+        createTaskError={createTaskError}
+        description={description}
+        error={error}
+        parameters={parameters}
+        selectedIds={selectedIds}
+        setDefinedParameters={setDefinedParameters}
+        setSelectedIds={setSelectedIds}
+        setTaskName={setTaskName}
+        slug={slug}
+        taskName={taskName}
+      />
     </Modal>
   );
 };

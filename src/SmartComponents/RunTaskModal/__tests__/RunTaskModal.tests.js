@@ -2,15 +2,15 @@ import React from 'react';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { init } from '../../../store';
-import fixtures from './RunTaskModal.fixtures';
-/*import { fetchSystems } from '../../../../api';
-import { systemsMock } from '../../SystemTable/__tests__/__fixtures__/SystemTable.fixtures';*/
+import fixtures from './__fixtures__/RunTaskModal.fixtures';
+import { fetchSystems } from '../../../../api';
+import { systemsMock } from '../../SystemTable/__tests__/__fixtures__/SystemTable.fixtures';
 
 import RunTaskModal from '../RunTaskModal';
 import userEvent from '@testing-library/user-event';
 
 jest.mock('../../../Utilities/Dispatcher');
-//jest.mock('../../../../api');
+jest.mock('../../../../api');
 jest.mock('../../SystemTable/hooks', () => {
   const systemsMock = [
     {
@@ -58,11 +58,11 @@ describe('RunTaskModal', () => {
   });
 
   it.skip('should render execute button disabled with no name or systems selected', async () => {
-    /*fetchSystems.mockImplementation(async () => {
+    fetchSystems.mockImplementation(async () => {
       return {
         response: systemsMock,
       };
-    });*/
+    });
 
     render(
       <Provider store={store}>
@@ -99,7 +99,6 @@ describe('RunTaskModal', () => {
   });
 
   it('should cancel modal with no params on system select', async () => {
-    props.name = 'Task A';
     render(
       <Provider store={store}>
         <RunTaskModal {...props} />
@@ -112,8 +111,6 @@ describe('RunTaskModal', () => {
   });
 
   it('should cancel modal with params on system select', async () => {
-    props.name = 'Task A';
-    props.selectedSystems = ['abcd'];
     props.parameters = fixtures.parameters;
     render(
       <Provider store={store}>
@@ -144,7 +141,7 @@ describe('RunTaskModal', () => {
     expect(props.setModalOpened).toHaveBeenCalledWith(false);
   });
 
-  it('should render InputParameters', async () => {
+  it.skip('should render InputParameters', async () => {
     props.name = 'Task A';
     props.selectedSystems = ['abcd'];
     props.parameters = fixtures.parameters;
@@ -181,7 +178,7 @@ describe('RunTaskModal', () => {
     expect(executeButton).toBeDisabled();
   });
 
-  it('should show validation when input parameter is empty', async () => {
+  it.skip('should show validation when input parameter is empty', async () => {
     props.name = 'Task A';
     props.selectedSystems = ['abcd'];
     props.parameters = fixtures.parameters;

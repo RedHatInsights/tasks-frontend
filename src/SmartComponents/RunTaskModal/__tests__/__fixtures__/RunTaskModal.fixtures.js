@@ -33,6 +33,29 @@ const parameters = [
   },
 ];
 
+const pathFilledParameters = [
+  {
+    key: 'path',
+    validated: true,
+    value: 'bogus/path',
+  },
+  {
+    key: 'this-is-your-label',
+    validated: true,
+    value: 'This is the default',
+  },
+  {
+    key: 'Add_Tags',
+  },
+  {
+    key: 'Remove_Tags',
+  },
+  {
+    key: 'blah',
+  },
+];
+
 export default {
   parameters,
+  pathFilledParameters,
 };

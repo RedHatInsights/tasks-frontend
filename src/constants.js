@@ -27,6 +27,11 @@ export const SYSTEMS_ROOT = '/system';
 const ACCESS_REDHAT_DOT_COM =
   'https://access.redhat.com/documentation/en-us/red_hat_insights/';
 const YEAR = `${today.getFullYear()}/html/`;
+const HOST_COMMUNICATION_DOC_PATH =
+  'red_hat_insights_remediations_guide/host-communication-with-insights_red-hat-insights-remediation-guide';
+const RHC_DOC = '#enabling-rhc-client_red-hat-insights-remediation-guide';
+const SATELLITE_DOC =
+  '#configuring-satellite-cloud-connector_red-hat-insights-remediation-guide';
 
 export const TASKS_PAGE_TABS = ['Available', 'Activity'];
 export const TASKS_ERROR = [
@@ -149,7 +154,7 @@ const TASKS_PAGE_POPOVER_BODY = (
 const TASKS_PAGE_POPOVER_FOOTER = (
   <div>
     <a
-      href={`${ACCESS_REDHAT_DOT_COM}${YEAR}red_hat_connector_configuration_guide/index`}
+      href={`${ACCESS_REDHAT_DOT_COM}${YEAR}${HOST_COMMUNICATION_DOC_PATH}${RHC_DOC}`}
     >
       <span>
         Using rhc with systems <ExternalLinkAltIcon />
@@ -157,7 +162,7 @@ const TASKS_PAGE_POPOVER_FOOTER = (
     </a>
     <br />
     <a
-      href={`${ACCESS_REDHAT_DOT_COM}${YEAR}using_cloud_connector_to_remediate_issues_across_your_red_hat_satellite_infrastructure/index`}
+      href={`${ACCESS_REDHAT_DOT_COM}${YEAR}${HOST_COMMUNICATION_DOC_PATH}${SATELLITE_DOC}`}
     >
       <span>
         Configure Cloud Connector and Satellite <ExternalLinkAltIcon />

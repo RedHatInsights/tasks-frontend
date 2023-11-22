@@ -4,12 +4,14 @@ import InsightsLink from '@redhat-cloud-services/frontend-components/InsightsLin
 import { PageHeaderTitle } from '@redhat-cloud-services/frontend-components/PageHeader';
 import { dispatchNotification } from './Utilities/Dispatcher';
 import { getTimeDiff, renderRunDateTime } from './Utilities/helpers';
-import {
-  ExternalLinkAltIcon,
-  OutlinedQuestionCircleIcon,
-} from '@patternfly/react-icons';
 import TasksPopover from './PresentationalComponents/TasksPopover/TasksPopover';
 import CompletedTaskDetailsKebab from './SmartComponents/CompletedTaskDetailsKebab/CompletedTaskDetailsKebab';
+import {
+  TasksPagePopoverHeader,
+  TasksPagePopoverBody,
+  TasksPagePopoverIcon,
+  TasksPagePopoverFooter,
+} from './PresentationalComponents/TasksPopover/TasksPageHeaderPopover';
 import {
   Skeleton,
   SkeletonSize,
@@ -24,13 +26,14 @@ export const TASKS_API_ROOT = '/api/tasks/v1';
 export const AVAILABLE_TASKS_ROOT = '/task';
 export const EXECUTED_TASK_ROOT = '/executed_task';
 export const SYSTEMS_ROOT = '/system';
-const ACCESS_REDHAT_DOT_COM =
+export const ACCESS_REDHAT_DOT_COM =
   'https://access.redhat.com/documentation/en-us/red_hat_insights/';
-const YEAR = `${today.getFullYear()}/html/`;
-const HOST_COMMUNICATION_DOC_PATH =
+export const YEAR = `${today.getFullYear()}/html/`;
+export const HOST_COMMUNICATION_DOC_PATH =
   'red_hat_insights_remediations_guide/host-communication-with-insights_red-hat-insights-remediation-guide';
-const RHC_DOC = '#enabling-rhc-client_red-hat-insights-remediation-guide';
-const SATELLITE_DOC =
+export const RHC_DOC =
+  '#enabling-rhc-client_red-hat-insights-remediation-guide';
+export const SATELLITE_DOC =
   '#configuring-satellite-cloud-connector_red-hat-insights-remediation-guide';
 
 export const TASKS_PAGE_TABS = ['Available', 'Activity'];
@@ -138,42 +141,9 @@ export const COMPLETED_INFO_BUTTONS = (
   ];
 };
 
-const TASKS_PAGE_POPOVER_HEADER = <div>About tasks</div>;
-
-const TASKS_PAGE_POPOVER_BODY = (
-  <div>
-    Tasks allows you to run resource-intensive additional troubleshooting on
-    your connected systems. Ansible Playbooks are written by Red Hat to do the
-    selected tasks.
-    <br /> <br />
-    Eligible systems include systems connected to console.redhat.com with rhc,
-    or Satellite with Cloud Connector.
-  </div>
-);
-
-const TASKS_PAGE_POPOVER_FOOTER = (
-  <div>
-    <a
-      href={`${ACCESS_REDHAT_DOT_COM}${YEAR}${HOST_COMMUNICATION_DOC_PATH}${RHC_DOC}`}
-    >
-      <span>
-        Using rhc with systems <ExternalLinkAltIcon />
-      </span>
-    </a>
-    <br />
-    <a
-      href={`${ACCESS_REDHAT_DOT_COM}${YEAR}${HOST_COMMUNICATION_DOC_PATH}${SATELLITE_DOC}`}
-    >
-      <span>
-        Configure Cloud Connector and Satellite <ExternalLinkAltIcon />
-      </span>
-    </a>
-  </div>
-);
-
 const TASKS_PAGE_HEADER_TITLE = {
-  children: <PageHeaderTitle title="Tasks" />,
-  classname: 'page-header-title',
+  children: <PageHeaderTitle className="pf-u-display-inline" title="Tasks" />,
+  classname: 'pf-u-mr-0',
   key: 'tasks-page-header-title',
 };
 
@@ -181,10 +151,10 @@ const TASKS_PAGE_HEADER_POPOVER = {
   children: (
     <TasksPopover
       label="tasks-header-popover"
-      header={TASKS_PAGE_POPOVER_HEADER}
-      body={TASKS_PAGE_POPOVER_BODY}
-      footer={TASKS_PAGE_POPOVER_FOOTER}
-      content={<OutlinedQuestionCircleIcon />}
+      header={<TasksPagePopoverHeader />}
+      body={<TasksPagePopoverBody />}
+      footer={<TasksPagePopoverFooter />}
+      content={<TasksPagePopoverIcon />}
     />
   ),
   key: 'tasks-page-header-popover',

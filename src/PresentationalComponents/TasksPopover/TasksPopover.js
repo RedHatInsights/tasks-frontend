@@ -7,6 +7,7 @@ const TasksPopover = ({ body, content, footer, header, label }) => {
   return (
     <div>
       <Popover
+        minWidth="35rem"
         aria-label={label}
         headerContent={header}
         bodyContent={body}

@@ -5,9 +5,9 @@ import { buildResultsRows } from './jobResultsDetailsHelpers';
 import ExpandedIssues from './ExpandedIssues';
 
 const JobResultsDetails = ({ taskSlug, item }) => {
-  const isReportJson = item.results.report_json ? true : false;
+  const isReportJson = item.results.report_json?.entries ? true : false;
 
-  const rowPairs = item.results.report_json
+  const rowPairs = isReportJson
     ? buildResultsRows(item.results.report_json.entries, isReportJson, taskSlug)
     : buildResultsRows([item.results.report], isReportJson, taskSlug);
 

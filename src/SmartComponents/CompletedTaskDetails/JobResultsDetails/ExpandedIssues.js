@@ -73,7 +73,13 @@ const ExpandedIssues = ({ rowPairs, isReportJson }) => {
             backgroundColor: '#ffffff',
           }}
         >
-          <CodeBlockCode>{rowPairs}</CodeBlockCode>
+          <CodeBlockCode>
+            {typeof rowPairs === 'object' &&
+            rowPairs !== null &&
+            !Array.isArray(rowPairs)
+              ? JSON.stringify(rowPairs, null, 2)
+              : rowPairs}
+          </CodeBlockCode>
         </CodeBlock>
       );
   };

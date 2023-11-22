@@ -231,8 +231,9 @@ export const LOADING_CONTENT = [
 ];
 
 export const TASK_LOADING_CONTENT = {
-  name: <Skeleton size={SkeletonSize.sm} />,
+  name: '',
   task_description: <Skeleton size={SkeletonSize.md} />,
+  task_title: <Skeleton size={SkeletonSize.md} />,
 };
 
 export const LOADING_INFO_PANEL = {

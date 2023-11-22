@@ -161,16 +161,19 @@ const CompletedTaskDetails = () => {
 
   return (
     <div>
-      <RunTaskModal
-        description={completedTaskDetails.task_description}
-        error={error}
-        isOpen={runTaskModalOpened}
-        selectedSystems={selectedSystems}
-        setModalOpened={setRunTaskModalOpened}
-        slug={completedTaskDetails.task_slug}
-        title={completedTaskDetails.name}
-        name={completedTaskDetails.name}
-      />
+      {runTaskModalOpened && (
+        <RunTaskModal
+          description={completedTaskDetails.task_description}
+          error={error}
+          isOpen={runTaskModalOpened}
+          parameters={completedTaskDetails.parameters}
+          selectedSystems={selectedSystems}
+          setModalOpened={setRunTaskModalOpened}
+          slug={completedTaskDetails.task_slug}
+          title={completedTaskDetails.name}
+          name={completedTaskDetails.name}
+        />
+      )}
       <DeleteCancelTaskModal
         id={completedTaskDetails.id}
         isOpen={isDeleteCancelModalOpened}

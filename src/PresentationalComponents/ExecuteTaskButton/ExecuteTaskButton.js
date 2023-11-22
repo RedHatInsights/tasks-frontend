@@ -5,22 +5,30 @@ import { executeTask } from '../../../api';
 
 const ExecuteTaskButton = ({
   classname,
+  definedParameters,
   ids,
+  isDisabled,
   setExecuteTaskResult,
   slug,
   taskName,
   variant,
 }) => {
-  const buildApiBody = () => {
-    return {
-      task: slug,
-      hosts: ids,
-      name: taskName,
-    };
+  const apiBody = {
+    task: slug,
+    hosts: ids,
+    name: taskName,
+    ...(definedParameters
+      ? {
+          parameters: definedParameters.map((param) => ({
+            key: param.key,
+            value: param.value,
+          })),
+        }
+      : {}),
   };
 
   const submitTask = async () => {
-    let result = await executeTask(buildApiBody());
+    let result = await executeTask(apiBody);
     setExecuteTaskResult(result);
   };
 
@@ -30,7 +38,7 @@ const ExecuteTaskButton = ({
       className={classname}
       variant={variant}
       onClick={() => submitTask()}
-      isDisabled={!ids?.length || taskName.length === 0}
+      isDisabled={isDisabled}
     >
       Execute task
     </Button>
@@ -39,7 +47,9 @@ const ExecuteTaskButton = ({
 
 ExecuteTaskButton.propTypes = {
   classname: propTypes.string,
+  definedParameters: propTypes.array,
   ids: propTypes.array,
+  isDisabled: propTypes.func,
   setExecuteTaskResult: propTypes.func,
   slug: propTypes.string,
   taskName: propTypes.string,

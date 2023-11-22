@@ -160,17 +160,20 @@ const ActivityTable = () => {
 
   return (
     <React.Fragment>
-      <RunTaskModal
-        description={activityDetails.task_description}
-        error={taskError}
-        isOpen={runTaskModalOpened}
-        selectedSystems={selectedSystems}
-        setIsRunTaskAgain={setIsRunTaskAgain}
-        setModalOpened={setRunTaskModalOpened}
-        slug={activityDetails.task_slug}
-        title={activityDetails.task_title}
-        name={activityDetails.name}
-      />
+      {runTaskModalOpened && (
+        <RunTaskModal
+          description={activityDetails.task_description}
+          error={taskError}
+          isOpen={runTaskModalOpened}
+          parameters={activityDetails.parameters}
+          selectedSystems={selectedSystems}
+          setIsRunTaskAgain={setIsRunTaskAgain}
+          setModalOpened={setRunTaskModalOpened}
+          slug={activityDetails.task_slug}
+          title={activityDetails.task_title}
+          name={activityDetails.name}
+        />
+      )}
       <DeleteCancelTaskModal
         id={taskDetails.id}
         isOpen={isDeleteCancelModalOpened}

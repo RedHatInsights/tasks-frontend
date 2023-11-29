@@ -18,6 +18,8 @@ import {
   fetchExecutedTaskJobs,
 } from '../../../../api';
 import {
+  convert2rhel_task_details,
+  convert2rhel_task_jobs,
   leapp_task_jobs,
   log4j_task,
   log4j_task_jobs,
@@ -50,6 +52,28 @@ describe('CompletedTaskDetails', () => {
 
     fetchExecutedTaskJobs.mockImplementation(async () => {
       return { data: log4j_task_jobs };
+    });
+
+    const { asFragment } = render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <CompletedTaskDetails />
+        </Provider>
+      </MemoryRouter>
+    );
+
+    await waitFor(() => expect(fetchExecutedTask).toHaveBeenCalled());
+    await waitFor(() => expect(fetchExecutedTaskJobs).toHaveBeenCalled());
+    await waitFor(() => expect(asFragment()).toMatchSnapshot());
+  });
+
+  it('should render convert2rhel correctly completed', async () => {
+    fetchExecutedTask.mockImplementation(async () => {
+      return convert2rhel_task_details;
+    });
+
+    fetchExecutedTaskJobs.mockImplementation(async () => {
+      return { data: convert2rhel_task_jobs };
     });
 
     const { asFragment } = render(

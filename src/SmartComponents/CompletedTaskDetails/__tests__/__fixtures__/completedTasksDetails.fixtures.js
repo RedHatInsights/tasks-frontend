@@ -510,6 +510,27 @@ export const convert2rhel_task_jobs = [
             severity: 'Warning',
             timeStamp: '2022-10-12T17:16:44.065672Z',
           },
+          {
+            key: 'LIST_THIRD_PARTY_PACKAGES::THIRD_PARTY_PACKAGE_DETECTED',
+            title: 'Third party packages detected',
+            summary:
+              'Third party packages will not be replaced during the conversion.',
+            severity: 'OVERRIDABLE',
+            detail: {
+              diagnosis: [
+                {
+                  context:
+                    "Only packages signed by CentOS Linux are to be replaced. Red Hat support won't be provided for the following third party packages:convert2rhel-1.5.0-2.20231124114206033039.main.14.g938833b.el7.noarch",
+                },
+              ],
+              remediations: [
+                {
+                  context:
+                    "If you wish to ignore this message, set the environment variable 'CONVERT2RHEL_THIRD_PARTY_PACKAGE_CHECK_SKIP' to 1.",
+                },
+              ],
+            },
+          },
         ],
       },
     },

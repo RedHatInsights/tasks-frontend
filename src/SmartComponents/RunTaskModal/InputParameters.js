@@ -19,7 +19,7 @@ export const InputParameter = ({ parameter, setDefinedParameters }) => {
         if (param.key === parameter.key) {
           let newDefinedParam = { key: param.key, value: text };
           if (parameter.required) {
-            newDefinedParam.validated = newDefinedParam.value.length
+            newDefinedParam.validated = newDefinedParam.value.trim().length
               ? true
               : false;
           }

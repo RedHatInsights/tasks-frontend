@@ -14,12 +14,9 @@ import {
   TASKS_API_ROOT,
   TASKS_ERROR,
 } from '../../constants';
-import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 import ReactMarkdown from 'react-markdown';
 
 const AvailableTasksTable = ({ availableTasks, error, openTaskModal }) => {
-  const chrome = useChrome();
-
   return (
     <div aria-label="available-tasks-table">
       {error ? (
@@ -37,46 +34,41 @@ const AvailableTasksTable = ({ availableTasks, error, openTaskModal }) => {
         />
       ) : (
         availableTasks?.map((task) => {
-          if (
-            chrome.isBeta() ||
-            (!chrome.isBeta() && task.slug !== 'convert-to-rhel-conversion')
-          ) {
-            return (
-              <div aria-label={task.title} key={task.title}>
-                <CardBuilder>
-                  <CardBuilderContent content={task.title} type="title" />
-                  <CardBuilderContent
-                    className="card-task-description"
-                    content={<ReactMarkdown>{task.description}</ReactMarkdown>}
-                    type="body"
-                  />
-                  <CardBuilderContent
-                    content={
-                      <Flex direction={{ default: 'column' }}>
-                        <FlexItem>
-                          <a
-                            href={`${TASKS_API_ROOT}${AVAILABLE_TASKS_ROOT}/${task.slug}/playbook`}
-                          >
-                            Download preview of playbook
-                          </a>
-                        </FlexItem>
-                        <FlexItem>
-                          <RunTaskButton
-                            slug={task.slug}
-                            isFirst
-                            variant="primary"
-                            openTaskModal={openTaskModal}
-                          />
-                        </FlexItem>
-                      </Flex>
-                    }
-                    type="footer"
-                  />
-                </CardBuilder>
-                <br />
-              </div>
-            );
-          }
+          return (
+            <div aria-label={task.title} key={task.title}>
+              <CardBuilder>
+                <CardBuilderContent content={task.title} type="title" />
+                <CardBuilderContent
+                  className="card-task-description"
+                  content={<ReactMarkdown>{task.description}</ReactMarkdown>}
+                  type="body"
+                />
+                <CardBuilderContent
+                  content={
+                    <Flex direction={{ default: 'column' }}>
+                      <FlexItem>
+                        <a
+                          href={`${TASKS_API_ROOT}${AVAILABLE_TASKS_ROOT}/${task.slug}/playbook`}
+                        >
+                          Download preview of playbook
+                        </a>
+                      </FlexItem>
+                      <FlexItem>
+                        <RunTaskButton
+                          slug={task.slug}
+                          isFirst
+                          variant="primary"
+                          openTaskModal={openTaskModal}
+                        />
+                      </FlexItem>
+                    </Flex>
+                  }
+                  type="footer"
+                />
+              </CardBuilder>
+              <br />
+            </div>
+          );
         })
       )}
     </div>

@@ -49,6 +49,7 @@ import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome'
 import useInsightsNavigate from '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate';
 import ReactMarkdown from 'react-markdown';
 import { useInterval } from '../../Utilities/hooks/useTableTools/useInterval';
+import ParameterDetails from './ParameterDetails';
 
 const CompletedTaskDetails = () => {
   const { id } = useParams();
@@ -219,6 +220,9 @@ const CompletedTaskDetails = () => {
                     {completedTaskDetails.task_description}
                   </ReactMarkdown>
                 </FlexItem>
+                <ParameterDetails
+                  parameters={completedTaskDetails.parameters}
+                />
               </Flex>
               <FlexibleFlex
                 data={completedTaskDetails}

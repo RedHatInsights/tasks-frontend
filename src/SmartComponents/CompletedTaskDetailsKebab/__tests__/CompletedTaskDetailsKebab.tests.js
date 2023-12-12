@@ -5,7 +5,7 @@ import { MemoryRouter } from 'react-router-dom';
 
 import CompletedTaskDetailsKebab from '../CompletedTaskDetailsKebab';
 
-describe('AvailableTasks', () => {
+describe('CompletedTaskDetailsKebab', () => {
   let props;
 
   beforeEach(() => {
@@ -22,7 +22,9 @@ describe('AvailableTasks', () => {
       </MemoryRouter>
     );
 
-    await waitFor(() => userEvent.click(screen.getByLabelText('Actions')));
+    await waitFor(() =>
+      userEvent.click(screen.getByLabelText('kebab dropdown toggle'))
+    );
     expect(
       screen.getByLabelText('delete-task-kebab-button')
     ).toBeInTheDocument();
@@ -37,7 +39,9 @@ describe('AvailableTasks', () => {
       </MemoryRouter>
     );
 
-    await waitFor(() => userEvent.click(screen.getByLabelText('Actions')));
+    await waitFor(() =>
+      userEvent.click(screen.getByLabelText('kebab dropdown toggle'))
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 
@@ -48,7 +52,9 @@ describe('AvailableTasks', () => {
       </MemoryRouter>
     );
 
-    await waitFor(() => userEvent.click(screen.getByLabelText('Actions')));
+    await waitFor(() =>
+      userEvent.click(screen.getByLabelText('kebab dropdown toggle'))
+    );
     await waitFor(() =>
       userEvent.click(screen.getByLabelText('delete-task-kebab-button'))
     );

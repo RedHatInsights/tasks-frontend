@@ -1,5 +1,5 @@
 import React from 'react';
-import { Split, SplitItem } from '@patternfly/react-core';
+import { Icon, Split, SplitItem } from '@patternfly/react-core';
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
 import propTypes from 'prop-types';
 
@@ -9,7 +9,9 @@ const SplitMessages = ({ alert, content }) => {
       {alert ? (
         <React.Fragment>
           <SplitItem style={{ paddingRight: '8px' }}>
-            <ExclamationCircleIcon color="#C9190B" />
+            <Icon status="danger">
+              <ExclamationCircleIcon />
+            </Icon>
           </SplitItem>
           <SplitItem style={{ paddingRight: '16px' }}>
             <span style={{ color: '#C9190B' }}>Alert</span>

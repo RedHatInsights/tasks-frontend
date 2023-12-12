@@ -45,6 +45,7 @@ const DeleteCancelTaskModal = ({
     return [
       <Button
         aria-label="delete-task-button"
+        data-testid="delete-task-button"
         key="delete-task-button"
         ouiaId="delete-task-modal-button"
         variant="danger"

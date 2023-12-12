@@ -9,6 +9,7 @@ import {
   TASKS_PAGE_POPOVER_FOOTER,
 } from '../../../constants';
 import { OutlinedQuestionCircleIcon } from '@patternfly/react-icons';
+import { Icon } from '@patternfly/react-core';
 
 import TasksPopover from '../TasksPopover';
 
@@ -19,7 +20,11 @@ describe('TasksPopover', () => {
   beforeEach(() => {
     props = {
       body: TASKS_PAGE_POPOVER_BODY,
-      content: <OutlinedQuestionCircleIcon />,
+      content: (
+        <Icon>
+          <OutlinedQuestionCircleIcon />
+        </Icon>
+      ),
       footer: TASKS_PAGE_POPOVER_FOOTER,
       header: TASKS_PAGE_POPOVER_HEADER,
       label: 'test-aria-label',

@@ -79,7 +79,7 @@ const TasksPage = ({ tab }) => {
         updateTab={updateTab}
         tabsList={TASKS_PAGE_TABS}
       />
-      <section className="pf-l-page__main-section pf-c-page__main-section">
+      <section className="pf-v5-l-page__main-section pf-v5-c-page__main-section">
         <Stack hasGutter>
           <StackItem>
             {tabIndex === 0 ? (

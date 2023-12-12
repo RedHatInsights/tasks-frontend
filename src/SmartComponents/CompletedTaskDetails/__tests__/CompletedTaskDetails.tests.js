@@ -157,8 +157,6 @@ describe('CompletedTaskDetails', () => {
     await waitFor(async () => {
       expect(fetchExecutedTask).toHaveBeenCalled();
       expect(fetchExecutedTaskJobs).toHaveBeenCalled();
-      userEvent.click(screen.getByLabelText('Conditional filter'));
-      userEvent.click(screen.getByText('Name'));
       const input = screen.getByLabelText('text input');
       await waitFor(() => fireEvent.change(input, { target: { value: 'A' } }));
       expect(input.value).toBe('A');
@@ -185,8 +183,6 @@ describe('CompletedTaskDetails', () => {
     await waitFor(async () => {
       expect(fetchExecutedTask).toHaveBeenCalled();
       expect(fetchExecutedTaskJobs).toHaveBeenCalled();
-      userEvent.click(screen.getByLabelText('Conditional filter'));
-      userEvent.click(screen.getByText('Name'));
       const input = screen.getByLabelText('text input');
       await waitFor(() => fireEvent.change(input, { target: { value: 'A' } }));
       expect(input.value).toBe('A');
@@ -242,17 +238,27 @@ describe('CompletedTaskDetails', () => {
       )
     );
 
-    await waitFor(() => userEvent.click(screen.getByLabelText('Actions')));
+    await waitFor(() =>
+      userEvent.click(screen.getByLabelText('kebab dropdown toggle'))
+    );
     await waitFor(() =>
       userEvent.click(screen.getByLabelText('delete-task-kebab-button'))
     );
     await waitFor(() =>
-      userEvent.click(screen.getByLabelText('delete-task-button'))
+      userEvent.click(screen.getByTestId('delete-task-button'))
     );
     expect(deleteExecutedTask).toHaveBeenCalled();
   });
 
   it('should export as CSV', async () => {
+    fetchExecutedTask.mockImplementation(async () => {
+      return log4j_task;
+    });
+
+    fetchExecutedTaskJobs.mockImplementation(async () => {
+      return { data: log4j_task_jobs };
+    });
+
     const notification = jest
       .spyOn(dispatcher, 'dispatchNotification')
       .mockImplementation();

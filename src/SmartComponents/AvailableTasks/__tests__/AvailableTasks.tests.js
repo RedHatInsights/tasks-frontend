@@ -44,7 +44,7 @@ describe('AvailableTasks', () => {
       async () => availableTasksTableItems
     );
 
-    act(async () => {
+    await act(async () => {
       render(
         <MemoryRouter keyLength={0}>
           <AvailableTasks {...props} />
@@ -70,7 +70,7 @@ describe('AvailableTasks', () => {
       .spyOn(dispatcher, 'dispatchNotification')
       .mockImplementation();
 
-    act(async () => {
+    await act(async () => {
       render(
         <MemoryRouter keyLength={0}>
           <AvailableTasks {...props} />

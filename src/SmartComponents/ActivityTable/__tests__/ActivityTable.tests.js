@@ -215,7 +215,7 @@ describe('ActivityTable', () => {
 
     await waitFor(() => {
       expect(fetchExecutedTasks).toHaveBeenCalled();
-      userEvent.click(screen.getAllByLabelText('Actions')[0]);
+      userEvent.click(screen.getAllByLabelText('Kebab toggle')[0]);
       userEvent.click(screen.getByText('Run this task again'));
       expect(fetchExecutedTask).toHaveBeenCalled();
       expect(fetchExecutedTaskJobs).not.toHaveBeenCalled();
@@ -251,7 +251,7 @@ describe('ActivityTable', () => {
       expect(fetchExecutedTasks).toHaveBeenCalled();
     });
     await waitFor(() => {
-      userEvent.click(screen.getAllByLabelText('Actions')[0]);
+      userEvent.click(screen.getAllByLabelText('Kebab toggle')[0]);
     });
     await waitFor(() => {
       userEvent.click(screen.getByText('Run this task again'));
@@ -301,7 +301,7 @@ describe('ActivityTable', () => {
 
     await waitFor(() => {
       expect(fetchExecutedTasks).toHaveBeenCalled();
-      userEvent.click(screen.getAllByLabelText('Actions')[1]);
+      userEvent.click(screen.getAllByLabelText('Kebab toggle')[1]);
       userEvent.click(screen.getByText('Delete'));
       userEvent.click(screen.getByLabelText('delete-task-button'));
     });

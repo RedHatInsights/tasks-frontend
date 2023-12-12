@@ -1,6 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { renderColumnComponent } from '../../Utilities/helpers';
+import { Icon } from '@patternfly/react-core/dist/dynamic/components/Icon';
 import { CheckCircleIcon, InProgressIcon } from '@patternfly/react-icons';
 import InsightsLink from '@redhat-cloud-services/frontend-components/InsightsLink';
 
@@ -20,13 +21,17 @@ const StatusCell = ({ status }) =>
   ({
     Completed: (
       <span style={{ color: '#3E8635', display: 'flex', alignItems: 'center' }}>
-        <CheckCircleIcon color="#3E8635" style={{ marginRight: '4px' }} />
+        <Icon status="success" style={{ marginRight: '4px' }}>
+          <CheckCircleIcon />
+        </Icon>
         {status}
       </span>
     ),
     Running: (
       <span style={{ color: '#2B9AF3', display: 'flex', alignItems: 'center' }}>
-        <InProgressIcon color="#2B9AF3" style={{ marginRight: '4px' }} />
+        <Icon status="info" style={{ marginRight: '4px' }}>
+          <InProgressIcon />
+        </Icon>
         {status}
       </span>
     ),

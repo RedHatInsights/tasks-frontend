@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Text, TextContent } from '@patternfly/react-core';
+import { Button, Icon, Text, TextContent } from '@patternfly/react-core';
 import {
   ExternalLinkAltIcon,
   OutlinedQuestionCircleIcon,
@@ -38,7 +38,9 @@ export const TasksPagePopoverIcon = () => {
       aria-label="About Tasks"
       className="pf-u-pl-sm pf-u-pr-0"
     >
-      <OutlinedQuestionCircleIcon />
+      <Icon>
+        <OutlinedQuestionCircleIcon />
+      </Icon>
     </Button>
   );
 };
@@ -50,7 +52,10 @@ export const TasksPagePopoverFooter = () => {
         href={`${ACCESS_REDHAT_DOT_COM}${YEAR}${HOST_COMMUNICATION_DOC_PATH}${RHC_DOC}`}
       >
         <span>
-          Using rhc with systems <ExternalLinkAltIcon />
+          Using rhc with systems{' '}
+          <Icon>
+            <ExternalLinkAltIcon />
+          </Icon>
         </span>
       </a>
       <br />
@@ -58,7 +63,10 @@ export const TasksPagePopoverFooter = () => {
         href={`${ACCESS_REDHAT_DOT_COM}${YEAR}${HOST_COMMUNICATION_DOC_PATH}${SATELLITE_DOC}`}
       >
         <span>
-          Configure Cloud Connector and Satellite <ExternalLinkAltIcon />
+          Configure Cloud Connector and Satellite{' '}
+          <Icon>
+            <ExternalLinkAltIcon />
+          </Icon>
         </span>
       </a>
     </div>

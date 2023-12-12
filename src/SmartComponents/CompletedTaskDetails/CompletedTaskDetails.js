@@ -202,7 +202,10 @@ const CompletedTaskDetails = () => {
                 {completedTaskDetails.name}
               </BreadcrumbItem>
             </Breadcrumb>
-            <Flex direction={{ default: 'column', md: 'row' }}>
+            <Flex
+              columnGap={{ default: 'columnGapSm' }}
+              direction={{ default: 'column', md: 'row' }}
+            >
               <Flex
                 direction={{ default: 'column' }}
                 flex={{ default: 'flex_1' }}
@@ -236,7 +239,7 @@ const CompletedTaskDetails = () => {
               />
             </Flex>
           </PageHeader>
-          <section className="pf-l-page__main-section pf-c-page__main-section">
+          <section className="pf-v5-l-page__main-section pf-v5-c-page__main-section">
             <Card>
               <Flex
                 className="completed-task-details-info-border"

@@ -7,24 +7,29 @@ exports[`NoResultsTable should render correctly 1`] = `
   >
      
     <div
-      class="pf-l-bullseye"
+      class="pf-v5-l-bullseye"
     >
       <div
-        class="pf-c-empty-state"
+        class="pf-v5-c-empty-state"
       >
         <div
-          class="pf-c-empty-state__content"
+          class="pf-v5-c-empty-state__content"
         >
-          <h5
-            class="pf-c-title pf-m-lg"
-            data-ouia-component-id="OUIA-Generated-Title-1"
-            data-ouia-component-type="PF4/Title"
-            data-ouia-safe="true"
-          >
-            No matching undefined found
-          </h5>
           <div
-            class="pf-c-empty-state__body"
+            class="pf-v5-c-empty-state__header"
+          >
+            <div
+              class="pf-v5-c-empty-state__title"
+            >
+              <h5
+                class="pf-v5-c-empty-state__title-text"
+              >
+                No matching undefined found
+              </h5>
+            </div>
+          </div>
+          <div
+            class="pf-v5-c-empty-state__body"
           >
             To continue, edit your filter settings and search again.
           </div>

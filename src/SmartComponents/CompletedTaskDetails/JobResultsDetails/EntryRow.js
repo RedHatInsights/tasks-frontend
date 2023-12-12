@@ -1,13 +1,19 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import severityMap from '../TaskEntries';
+import { Icon } from '@patternfly/react-core';
 
 const EntryRow = ({ severity, taskConstantMapper, title }) => {
+  const mappedSeverity =
+    severityMap[taskConstantMapper][severity.toLowerCase()];
   const renderIcon = () => {
     return (
-      <span style={{ marginRight: '8px' }}>
-        {severityMap[taskConstantMapper][severity.toLowerCase()]['icon']}
-      </span>
+      <Icon
+        status={mappedSeverity['iconSeverityColor']}
+        style={{ marginRight: '8px' }}
+      >
+        {mappedSeverity['icon']}
+      </Icon>
     );
   };
 
@@ -15,10 +21,7 @@ const EntryRow = ({ severity, taskConstantMapper, title }) => {
     return (
       <span
         style={{
-          color:
-            severityMap[taskConstantMapper][severity.toLowerCase()][
-              'titleColor'
-            ],
+          color: mappedSeverity['titleColor'],
         }}
       >
         <strong>{title}</strong>

@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import propTypes from 'prop-types';
-import { Alert } from '@patternfly/react-core/dist/js/components/Alert';
-import { Flex, FlexItem } from '@patternfly/react-core/dist/js/layouts/Flex';
 import {
+  Alert,
+  Flex,
+  FlexItem,
   Form,
   FormGroup,
-} from '@patternfly/react-core/dist/js/components/Form';
-import { TextInput } from '@patternfly/react-core/dist/js/components/TextInput';
-import { ValidatedOptions } from '@patternfly/react-core/dist/js/helpers/constants';
+  FormHelperText,
+  HelperText,
+  HelperTextItem,
+  TextInput,
+} from '@patternfly/react-core';
 import SystemTable from '../SystemTable/SystemTable';
 import {
   AVAILABLE_TASKS_ROOT,
@@ -32,6 +35,19 @@ const SystemsSelect = ({
     .replace(/-/g, '_')}_WARNING`;
 
   const [filterSortString, setFilterSortString] = useState('');
+  const [validated, setValidated] = useState('default');
+  const [helperText, setHelperText] = useState(null);
+
+  const handleSetTaskName = (_event, name) => {
+    setTaskName(name);
+  };
+
+  useState(() => {
+    if (Object.hasOwn(createTaskError, 'status')) {
+      setHelperText(createTaskError.statusText);
+      setValidated('error');
+    }
+  }, [createTaskError.statusText]);
 
   const { bulkSelectIds, selectIds } = useSystemBulkSelect(
     selectedIds,
@@ -61,34 +77,20 @@ const SystemsSelect = ({
       <br />
       <div>
         <Form>
-          <FormGroup
-            label="Task name"
-            isRequired
-            type="text"
-            helperTextInvalid={
-              Object.prototype.hasOwnProperty.call(
-                createTaskError,
-                'statusText'
-              ) && createTaskError.statusText
-            }
-            fieldId="name"
-            validated={
-              Object.prototype.hasOwnProperty.call(createTaskError, 'status') &&
-              'error'
-            }
-          >
+          <FormGroup label="Task name" isRequired type="text" fieldId="name">
             <TextInput
               value={taskName}
               type="text"
-              onChange={setTaskName}
-              validated={
-                Object.prototype.hasOwnProperty.call(
-                  createTaskError,
-                  'status'
-                ) && ValidatedOptions.error
-              }
+              onChange={handleSetTaskName}
               aria-label="task name"
             />
+            <FormHelperText>
+              <HelperText>
+                <HelperTextItem variant={validated}>
+                  {helperText}
+                </HelperTextItem>
+              </HelperText>
+            </FormHelperText>
           </FormGroup>
         </Form>
       </div>

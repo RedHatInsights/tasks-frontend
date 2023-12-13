@@ -9,8 +9,10 @@ import {
 } from '@patternfly/react-core';
 
 const ParameterDetails = ({ parameters }) => {
+  const parametersExist = parameters?.length ? true : false;
+
   return (
-    parameters && (
+    parametersExist && (
       <Flex>
         <FlexItem>
           <TextContent>

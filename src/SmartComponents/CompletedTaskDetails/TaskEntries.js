@@ -221,36 +221,10 @@ const leappupgradeSeverityMap = {
   },
 };
 
-const leappupgradestageSeverityMap = {
-  high: {
-    text: 'High risk',
-    icon: <ExclamationCircleIcon color="#C9190B" />,
-    titleColor: '#A30000',
-    severityColor: 'red',
-    severityLevel: 2000,
-  },
-  medium: {
-    text: 'Medium risk',
-    icon: <ExclamationTriangleIcon color="#F0AB00" />,
-    titleColor: '#795000',
-    severityColor: 'orange',
-    severityLevel: 1500,
-  },
-  low: {
-    text: 'Low risk',
-    icon: <ExclamationTriangleIcon color="#F0AB00" />,
-    titleColor: '#795000',
-    severityColor: 'orange',
-    severityLevel: 1000,
-  },
-  info: {
-    text: 'Info',
-    icon: <InfoCircleIcon color="#2B9AF3" />,
-    titleColor: '#002952',
-    severityColor: 'blue',
-    severityLevel: 500,
-  },
-};
+// constants to be removed
+const leappupgradestageSeverityMap = leappupgradeSeverityMap;
+const leappupgradescriptstageSeverityMap = leappupgradeSeverityMap;
+const leapppreupgradescriptstageSeverityMap = leapppreupgradeSeverityMap;
 
 export default {
   converttorhelconversionSeverityMap,
@@ -258,6 +232,8 @@ export default {
   converttorhelpreanalysisSeverityMap,
   converttorhelpreanalysisstageSeverityMap,
   leapppreupgradeSeverityMap,
+  leapppreupgradescriptstageSeverityMap,
   leappupgradeSeverityMap,
+  leappupgradescriptstageSeverityMap,
   leappupgradestageSeverityMap,
 };

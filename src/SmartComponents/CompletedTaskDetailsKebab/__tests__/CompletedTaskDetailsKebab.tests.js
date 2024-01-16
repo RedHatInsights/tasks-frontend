@@ -23,11 +23,9 @@ describe('CompletedTaskDetailsKebab', () => {
     );
 
     await waitFor(() =>
-      userEvent.click(screen.getByLabelText('kebab dropdown toggle'))
+      userEvent.click(screen.getByLabelText('Task details menu toggle'))
     );
-    expect(
-      screen.getByLabelText('delete-task-kebab-button')
-    ).toBeInTheDocument();
+    expect(screen.getByTestId('delete-task-kebab-button')).toBeInTheDocument();
     expect(asFragment()).toMatchSnapshot();
   });
 
@@ -40,7 +38,7 @@ describe('CompletedTaskDetailsKebab', () => {
     );
 
     await waitFor(() =>
-      userEvent.click(screen.getByLabelText('kebab dropdown toggle'))
+      userEvent.click(screen.getByLabelText('Task details menu toggle'))
     );
     expect(asFragment()).toMatchSnapshot();
   });
@@ -53,10 +51,10 @@ describe('CompletedTaskDetailsKebab', () => {
     );
 
     await waitFor(() =>
-      userEvent.click(screen.getByLabelText('kebab dropdown toggle'))
+      userEvent.click(screen.getByLabelText('Task details menu toggle'))
     );
     await waitFor(() =>
-      userEvent.click(screen.getByLabelText('delete-task-kebab-button'))
+      userEvent.click(screen.getByLabelText('delete task menu item'))
     );
     expect(props.setModalOpened).toHaveBeenCalled();
   });

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import propTypes from 'prop-types';
 import {
   Alert,
@@ -42,12 +42,12 @@ const SystemsSelect = ({
     setTaskName(name);
   };
 
-  useState(() => {
-    if (Object.hasOwn(createTaskError, 'status')) {
+  useEffect(() => {
+    if (createTaskError.status) {
       setHelperText(createTaskError.statusText);
       setValidated('error');
     }
-  }, [createTaskError.statusText]);
+  }, [createTaskError]);
 
   const { bulkSelectIds, selectIds } = useSystemBulkSelect(
     selectedIds,
@@ -82,7 +82,7 @@ const SystemsSelect = ({
               value={taskName}
               type="text"
               onChange={handleSetTaskName}
-              aria-label="task name"
+              aria-label="Edit task name text field"
             />
             <FormHelperText>
               <HelperText>

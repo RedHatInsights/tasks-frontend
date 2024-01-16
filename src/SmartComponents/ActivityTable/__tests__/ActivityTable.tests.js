@@ -303,7 +303,7 @@ describe('ActivityTable', () => {
       expect(fetchExecutedTasks).toHaveBeenCalled();
       userEvent.click(screen.getAllByLabelText('Kebab toggle')[1]);
       userEvent.click(screen.getByText('Delete'));
-      userEvent.click(screen.getByLabelText('delete-task-button'));
+      userEvent.click(screen.getByTestId('delete-task-button'));
     });
     expect(fetchExecutedTasks).toHaveBeenCalledTimes(4);
   });

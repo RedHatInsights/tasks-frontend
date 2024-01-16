@@ -239,10 +239,10 @@ describe('CompletedTaskDetails', () => {
     );
 
     await waitFor(() =>
-      userEvent.click(screen.getByLabelText('kebab dropdown toggle'))
+      userEvent.click(screen.getByLabelText('Task details menu toggle'))
     );
     await waitFor(() =>
-      userEvent.click(screen.getByLabelText('delete-task-kebab-button'))
+      userEvent.click(screen.getByLabelText('delete task menu item'))
     );
     await waitFor(() =>
       userEvent.click(screen.getByTestId('delete-task-button'))

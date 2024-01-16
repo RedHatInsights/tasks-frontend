@@ -1,7 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { renderColumnComponent } from '../../Utilities/helpers';
-import { Icon } from '@patternfly/react-core/dist/dynamic/components/Icon';
+import { Icon } from '@patternfly/react-core';
 import { CheckCircleIcon, InProgressIcon } from '@patternfly/react-icons';
 import InsightsLink from '@redhat-cloud-services/frontend-components/InsightsLink';
 

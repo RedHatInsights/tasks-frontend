@@ -32,9 +32,6 @@ export const InputParameter = ({ parameter, setDefinedParameters }) => {
               setValidated('error');
               setHelperText('This parameter is required');
             }
-            newDefinedParam.validated = newDefinedParam.value.trim().length
-              ? true
-              : false;
           }
 
           return newDefinedParam;
@@ -58,7 +55,7 @@ export const InputParameter = ({ parameter, setDefinedParameters }) => {
           value={paramText}
           type="text"
           onChange={(_event, text) => updateParams(text)}
-          aria-label={`${parameter.key}-input`}
+          aria-label={`Edit parameter ${parameter.key} value field`}
         />
         <FormHelperText>
           <HelperText>

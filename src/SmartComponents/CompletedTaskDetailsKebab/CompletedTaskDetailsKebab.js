@@ -5,7 +5,7 @@ import {
   DropdownItem,
   DropdownList,
   MenuToggle,
-} from '@patternfly/react-core/';
+} from '@patternfly/react-core';
 import { EllipsisVIcon } from '@patternfly/react-icons';
 
 const CompletedTaskDetailsKebabItems = ({ status, setModalOpened }) => {
@@ -14,7 +14,8 @@ const CompletedTaskDetailsKebabItems = ({ status, setModalOpened }) => {
 
   return (
     <DropdownItem
-      aria-label={`${type}-task-kebab-button`}
+      aria-label={`${type} task menu item`}
+      data-testid={`${type}-task-kebab-button`}
       key={`${type}-task`}
       component="button"
       data-ouia-component-id={`${type}-task-dropdown-item`}
@@ -41,7 +42,7 @@ const CompletedTaskDetailsKebab = ({ status, setModalOpened }) => {
         <MenuToggle
           ref={toggleRef}
           id="executed-task-kebab"
-          aria-label="kebab dropdown toggle"
+          aria-label="Task details menu toggle"
           variant="plain"
           onClick={() => setIsOpen(!isOpen)}
           isExpanded={isOpen}

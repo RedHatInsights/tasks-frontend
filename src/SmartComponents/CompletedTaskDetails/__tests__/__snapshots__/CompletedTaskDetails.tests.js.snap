@@ -119,7 +119,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
           >
             <button
               aria-expanded="false"
-              aria-label="kebab dropdown toggle"
+              aria-label="Task details menu toggle"
               class="pf-v5-c-menu-toggle pf-m-plain"
               id="executed-task-kebab"
               type="button"
@@ -2554,7 +2554,7 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
           >
             <button
               aria-expanded="false"
-              aria-label="kebab dropdown toggle"
+              aria-label="Task details menu toggle"
               class="pf-v5-c-menu-toggle pf-m-plain"
               id="executed-task-kebab"
               type="button"
@@ -3710,7 +3710,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
           >
             <button
               aria-expanded="false"
-              aria-label="kebab dropdown toggle"
+              aria-label="Task details menu toggle"
               class="pf-v5-c-menu-toggle pf-m-plain"
               id="executed-task-kebab"
               type="button"

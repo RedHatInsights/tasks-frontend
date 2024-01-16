@@ -4,7 +4,7 @@ exports[`CompletedTaskDetailsKebab should render Delete disabled 1`] = `
 <DocumentFragment>
   <button
     aria-expanded="true"
-    aria-label="kebab dropdown toggle"
+    aria-label="Task details menu toggle"
     class="pf-v5-c-menu-toggle pf-m-expanded pf-m-plain"
     id="executed-task-kebab"
     type="button"
@@ -45,10 +45,11 @@ exports[`CompletedTaskDetailsKebab should render Delete disabled 1`] = `
           data-ouia-component-id="delete-task-dropdown-item"
           data-ouia-component-type="PF5/DropdownItem"
           data-ouia-safe="true"
+          data-testid="delete-task-kebab-button"
           role="none"
         >
           <button
-            aria-label="delete-task-kebab-button"
+            aria-label="delete task menu item"
             class="pf-v5-c-menu__item"
             disabled=""
             role="menuitem"
@@ -76,7 +77,7 @@ exports[`CompletedTaskDetailsKebab should render correctly 1`] = `
 <DocumentFragment>
   <button
     aria-expanded="true"
-    aria-label="kebab dropdown toggle"
+    aria-label="Task details menu toggle"
     class="pf-v5-c-menu-toggle pf-m-expanded pf-m-plain"
     id="executed-task-kebab"
     type="button"
@@ -117,10 +118,11 @@ exports[`CompletedTaskDetailsKebab should render correctly 1`] = `
           data-ouia-component-id="delete-task-dropdown-item"
           data-ouia-component-type="PF5/DropdownItem"
           data-ouia-safe="true"
+          data-testid="delete-task-kebab-button"
           role="none"
         >
           <button
-            aria-label="delete-task-kebab-button"
+            aria-label="delete task menu item"
             class="pf-v5-c-menu__item"
             role="menuitem"
             tabindex="0"

@@ -38,7 +38,7 @@ describe('InputParameters', () => {
       </Provider>
     );
 
-    const input = screen.getByLabelText('path-input');
+    const input = screen.getByLabelText('Edit parameter path value field');
     await waitFor(() =>
       fireEvent.change(input, { target: { value: 'bogus/path' } })
     );
@@ -74,7 +74,7 @@ describe('InputParameter', () => {
       </Provider>
     );
 
-    const input = screen.getByLabelText('path-input');
+    const input = screen.getByLabelText('Edit parameter path value field');
     await waitFor(() =>
       fireEvent.change(input, { target: { value: 'bogus/path' } })
     );

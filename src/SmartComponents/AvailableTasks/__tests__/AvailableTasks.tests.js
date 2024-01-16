@@ -51,6 +51,7 @@ describe('AvailableTasks', () => {
         </MemoryRouter>
       );
     });
+
     await waitFor(() => {
       expect(fetchAvailableTasks).toHaveBeenCalled();
       expect(

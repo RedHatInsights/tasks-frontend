@@ -1,7 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import TasksDev from './DevEntry';
 
-ReactDOM.render(<TasksDev />, document.getElementById('root'));
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+render(<TasksDev />, root, () => root.setAttribute('data-ouia-safe', true));
 
 export default TasksDev;

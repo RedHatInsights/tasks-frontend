@@ -4,7 +4,10 @@ const buildSortString = (orderBy, orderDirection) => {
   if (orderDirection === 'DESC') {
     direction = '-';
   }
-  let order = orderBy === 'updated' ? 'last_seen' : orderBy;
+  let order =
+    (orderBy === 'updated' && 'last_seen') ||
+    (orderBy === 'os_version' && 'os') ||
+    orderBy;
 
   return `${sortString}${direction}${order}`;
 };

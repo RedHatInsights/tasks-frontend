@@ -5,10 +5,8 @@ export const nameFilter = [
     type: conditionalFilterType.text,
     label: 'Task',
     filter: (tasks, value) =>
-      tasks.filter(
-        (task) =>
-          task.task_title.toLowerCase().includes(value.toLowerCase()) ||
-          task.name.toLowerCase().includes(value.toLowerCase())
+      tasks.filter((task) =>
+        task.name.toLowerCase().includes(value.toLowerCase())
       ),
   },
 ];

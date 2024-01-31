@@ -100,7 +100,7 @@ export const leapp_task_jobs = [
           {
             id: 'dd4d85e3bd8dc735c8879db345739fb8559346860dfa3a7a7beb97ff9e87c657',
             key: '8fb81863f8413bd617c2a55b69b8e10ff03d7c72',
-            tags: ['selinux', 'security'],
+            groups: ['selinux', 'security'],
             actor: 'check_se_linux',
             title: 'SElinux relabeling will be scheduled',
             summary:
@@ -113,7 +113,7 @@ export const leapp_task_jobs = [
           {
             id: 'a5ba90e20f218c2a60ea0422111175e27cd539f12c2a218187370bc47dbb3c7a',
             key: '39d7183dafba798aa4bbb1e70b0ef2bbe5b1772f',
-            tags: ['selinux', 'security'],
+            groups: ['selinux', 'security'],
             actor: 'check_se_linux',
             title: 'SElinux will be set to permissive mode',
             detail: {
@@ -135,7 +135,7 @@ export const leapp_task_jobs = [
           {
             id: '82fd5d4d1775d32c4557e79f9e12742f590006c8235b161ef58436d4b987ac0d',
             key: 'ca7a1a66906a7df3da890aa538562708d3ea6ecd',
-            tags: ['boot'],
+            groups: ['boot'],
             actor: 'check_grub_core',
             title: 'Leapp could not identify where GRUB core is located',
             detail: {
@@ -157,9 +157,8 @@ export const leapp_task_jobs = [
           {
             id: '92fd84a5ad754d5fc79948b3340a6fc81ef8530e669fa233b987490ccdf0c29b',
             key: '5b1cf050e1a877b0358b6e8c612277c591d40c13',
-            tags: ['sanity', 'firewall'],
             actor: 'firewalld_check_allow_zone_drifting',
-            flags: ['inhibitor'],
+            groups: ['inhibitor', 'sanity', 'firewall'],
             title: 'Firewalld Configuration AllowZoneDrifting Is Unsupported',
             detail: {
               external: [
@@ -192,9 +191,8 @@ export const leapp_task_jobs = [
           {
             id: 'a154ad76bfe09f583373668b8a795fc7a0e107eceb8c59742a63df8ed72534be',
             key: 'f7c335398cc449f5d7baf4e73255d44c34ad2620',
-            tags: ['services', 'drivers'],
+            groups: ['inhibitor', 'services', 'drivers'],
             actor: 'check_vdo',
-            flags: ['inhibitor'],
             title: 'VDO devices migration to LVM management',
             detail: {
               remediations: [
@@ -253,7 +251,7 @@ export const leapp_task_jobs = [
           {
             id: 'c5a74566244db3b2a9e6570302b4cb61af9c3ad0a60d2433975881f823cb06dd',
             key: 'ca7a1a66906a7df3da890aa538562708d3ea6ecd',
-            tags: ['boot'],
+            groups: ['boot'],
             actor: 'check_grub_core',
             title: 'Leapp could not identify where GRUB core is located',
             detail: {
@@ -275,7 +273,7 @@ export const leapp_task_jobs = [
           {
             id: '2008eeb7882bd0fe8f35b524582a017ba2bac1ac4ffdfa06857a88df78514331',
             key: '8fb81863f8413bd617c2a55b69b8e10ff03d7c72',
-            tags: ['selinux', 'security'],
+            groups: ['selinux', 'security'],
             actor: 'check_se_linux',
             title: 'SElinux relabeling will be scheduled',
             summary:
@@ -288,7 +286,7 @@ export const leapp_task_jobs = [
           {
             id: 'c649d0eb0602a7cf9952236b8a994e6793611eed22513b310e544e14be28fc32',
             key: '39d7183dafba798aa4bbb1e70b0ef2bbe5b1772f',
-            tags: ['selinux', 'security'],
+            groups: ['selinux', 'security'],
             actor: 'check_se_linux',
             title: 'SElinux will be set to permissive mode',
             detail: {
@@ -310,7 +308,7 @@ export const leapp_task_jobs = [
           {
             id: '00563d4e06e3f48d917a2237a97bd45890ed686f5dae6be95e0fef5c8e536282',
             key: '747a4ca25303eda17d1891bb85eeb226be14f252',
-            tags: ['upgrade process'],
+            groups: ['upgrade process'],
             actor: 'report_set_target_release',
             title:
               'The subscription-manager release is going to be set after the upgrade',

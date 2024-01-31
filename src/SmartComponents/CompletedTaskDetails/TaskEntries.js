@@ -223,6 +223,7 @@ const leappupgradeSeverityMap = {
 
 // constants to be removed
 const leappupgradestageSeverityMap = leappupgradeSeverityMap;
+const leapppreupgradestageSeverityMap = leapppreupgradeSeverityMap;
 const leappupgradescriptstageSeverityMap = leappupgradeSeverityMap;
 const leapppreupgradescriptstageSeverityMap = leapppreupgradeSeverityMap;
 
@@ -233,6 +234,7 @@ export default {
   converttorhelpreanalysisstageSeverityMap,
   leapppreupgradeSeverityMap,
   leapppreupgradescriptstageSeverityMap,
+  leapppreupgradestageSeverityMap,
   leappupgradeSeverityMap,
   leappupgradescriptstageSeverityMap,
   leappupgradestageSeverityMap,

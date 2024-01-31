@@ -69,8 +69,12 @@ export const fetchExecutedTaskJobs = (id, path) => {
   return fetchExecutedTask(id, `/jobs${path}`);
 };
 
-export const fetchSystems = (path = '') => {
-  return getTasks(SYSTEMS_ROOT.concat(path));
+export const fetchSystems = (path = '', slug = '') => {
+  if (slug) {
+    return getTasks(AVAILABLE_TASKS_ROOT.concat(`/${slug}/systems${path}`));
+  } else {
+    return getTasks(SYSTEMS_ROOT.concat(path));
+  }
 };
 
 export const executeTask = (body) => {

@@ -18,6 +18,7 @@ const RunTaskModalBody = ({
   setTaskName,
   slug,
   taskName,
+  filterMessage,
 }) => {
   return error ? (
     <EmptyStateDisplay
@@ -36,6 +37,7 @@ const RunTaskModalBody = ({
       setTaskName={setTaskName}
       slug={slug}
       taskName={taskName}
+      filterMessage={filterMessage}
     />
   ) : (
     <InputParameters
@@ -57,6 +59,7 @@ RunTaskModalBody.propTypes = {
   setTaskName: propTypes.func,
   slug: propTypes.string,
   taskName: propTypes.string,
+  filterMessage: propTypes.string,
 };
 
 export default RunTaskModalBody;

@@ -172,6 +172,7 @@ const ActivityTable = () => {
           slug={activityDetails.task_slug}
           title={activityDetails.task_title}
           name={activityDetails.name}
+          filterMessage={activityDetails.task_filter_message}
         />
       )}
       <DeleteCancelTaskModal

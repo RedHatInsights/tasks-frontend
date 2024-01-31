@@ -3,7 +3,8 @@ import { fetchSystems } from '../../../../api';
 export const useSystemBulkSelect = (
   selectedIds,
   setSelectedIds,
-  filterSortString
+  filterSortString,
+  slug
 ) => {
   const bulkSelectIds = async (type, options) => {
     let newSelectedIds = [...selectedIds];
@@ -26,7 +27,7 @@ export const useSystemBulkSelect = (
       }
 
       case 'all': {
-        let results = await fetchSystems(filterSortString);
+        let results = await fetchSystems(filterSortString, slug);
         setSelectedIds(results.data.map(({ id }) => id));
         break;
       }

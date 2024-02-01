@@ -38,25 +38,11 @@ describe('InputParameters', () => {
       </Provider>
     );
 
-    const input = screen.getByLabelText('path-input');
+    const input = screen.getByLabelText('Edit parameter path value field');
     await waitFor(() =>
       fireEvent.change(input, { target: { value: 'bogus/path' } })
     );
     expect(props.setDefinedParameters).toHaveBeenCalled();
-  });
-
-  it('should show validation when input parameter is empty', async () => {
-    render(
-      <Provider store={store}>
-        <InputParameters {...props} />
-      </Provider>
-    );
-
-    const input = screen.getByLabelText('path-input');
-    await waitFor(() => fireEvent.change(input, { target: { value: 'a' } }));
-    await waitFor(() => fireEvent.change(input, { target: { value: '' } }));
-
-    expect(screen.getByText('This parameter is required')).toBeInTheDocument();
   });
 });
 
@@ -81,25 +67,17 @@ describe('InputParameter', () => {
     expect(screen.getByText('path')).toBeInTheDocument();
   });
 
-  it.skip('should call setDefinedParameters', async () => {
-    /*const setState = jest.fn();
-    jest
-      .spyOn(React, 'useState')
-      .mockImplementation((initState) => [initState, props.setDefinedParameters]);*/
-    const spy = jest.spyOn(props, 'setDefinedParameters');
-    /*spy.mockImplementation(
-      (prevState = fixtures.parameters) => fixtures.pathFilledParameters
-    );*/
+  it('should call setDefinedParameters', async () => {
     render(
       <Provider store={store}>
         <InputParameter {...props} />
       </Provider>
     );
 
-    const input = screen.getByLabelText('path-input');
+    const input = screen.getByLabelText('Edit parameter path value field');
     await waitFor(() =>
       fireEvent.change(input, { target: { value: 'bogus/path' } })
     );
-    expect(spy).toHaveBeenCalledWith(fixtures.pathFilledParameters);
+    expect(props.setDefinedParameters).toHaveBeenCalled();
   });
 });

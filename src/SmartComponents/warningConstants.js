@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert } from '@patternfly/react-core/dist/js/components/Alert';
+import { Alert } from '@patternfly/react-core';
 
 const CONVERT_TO_RHEL_PREANALYSIS_WARNING = (
   <Alert

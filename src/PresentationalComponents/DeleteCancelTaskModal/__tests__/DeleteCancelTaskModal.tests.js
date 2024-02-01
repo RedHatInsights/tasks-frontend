@@ -61,7 +61,7 @@ describe('DeleteCancelTaskModal', () => {
     );
 
     await waitFor(() =>
-      userEvent.click(screen.getByLabelText('delete-task-button'))
+      userEvent.click(screen.getByTestId('delete-task-button'))
     );
     expect(props.setIsDelete).toHaveBeenCalled();
   });
@@ -83,7 +83,7 @@ describe('DeleteCancelTaskModal', () => {
     );
 
     await waitFor(() =>
-      userEvent.click(screen.getByLabelText('delete-task-button'))
+      userEvent.click(screen.getByTestId('delete-task-button'))
     );
     expect(notification).toHaveBeenCalled();
   });

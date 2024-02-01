@@ -4,8 +4,8 @@ import {
   Text,
   TextContent,
   TextVariants,
-} from '@patternfly/react-core/dist/js/components/Text';
-import { Tooltip } from '@patternfly/react-core/dist/js/components/Tooltip';
+  Tooltip,
+} from '@patternfly/react-core';
 
 const RefreshFooterContent = ({ footerContent, isRunning, type }) => {
   return (

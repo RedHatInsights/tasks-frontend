@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Modal } from '@patternfly/react-core/dist/js/components/Modal';
+import { Modal } from '@patternfly/react-core';
 import propTypes from 'prop-types';
 import { dispatchNotification } from '../../Utilities/Dispatcher';
 import { EXECUTE_TASK_NOTIFICATION } from '../../constants';

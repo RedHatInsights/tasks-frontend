@@ -40,12 +40,11 @@ const AvailableTasksTable = ({ availableTasks, error, openTaskModal }) => {
                 <CardBuilderContent content={task.title} type="title" />
                 <CardBuilderContent
                   className="card-task-description"
-                  content={<ReactMarkdown>{task.description}</ReactMarkdown>}
-                  type="body"
-                />
-                <CardBuilderContent
                   content={
                     <Flex direction={{ default: 'column' }}>
+                      <FlexItem>
+                        <ReactMarkdown>{task.description}</ReactMarkdown>
+                      </FlexItem>
                       <FlexItem>
                         <a
                           href={`${TASKS_API_ROOT}${AVAILABLE_TASKS_ROOT}/${task.slug}/playbook`}
@@ -53,15 +52,18 @@ const AvailableTasksTable = ({ availableTasks, error, openTaskModal }) => {
                           Download preview of playbook
                         </a>
                       </FlexItem>
-                      <FlexItem>
-                        <RunTaskButton
-                          slug={task.slug}
-                          isFirst
-                          variant="primary"
-                          openTaskModal={openTaskModal}
-                        />
-                      </FlexItem>
                     </Flex>
+                  }
+                  type="body"
+                />
+                <CardBuilderContent
+                  content={
+                    <RunTaskButton
+                      slug={task.slug}
+                      isFirst
+                      variant="primary"
+                      openTaskModal={openTaskModal}
+                    />
                   }
                   type="footer"
                 />

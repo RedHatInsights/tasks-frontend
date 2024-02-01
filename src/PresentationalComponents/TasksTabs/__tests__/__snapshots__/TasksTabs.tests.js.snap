@@ -3,52 +3,52 @@
 exports[`TasksTabs should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="pf-c-tabs tabs-background"
+    class="pf-v5-c-tabs tabs-background"
     data-ouia-component-id="OUIA-Generated-Tabs-1"
-    data-ouia-component-type="PF4/Tabs"
+    data-ouia-component-type="PF5/Tabs"
     data-ouia-safe="true"
   >
     <ul
-      class="pf-c-tabs__list"
+      class="pf-v5-c-tabs__list"
       role="tablist"
     >
       <li
-        class="pf-c-tabs__item pf-m-current"
+        class="pf-v5-c-tabs__item pf-m-current"
         role="presentation"
       >
         <button
           aria-controls="pf-tab-section-0-tabs-page-0"
           aria-selected="true"
-          class="pf-c-tabs__link"
-          data-ouia-component-type="PF4/TabButton"
+          class="pf-v5-c-tabs__link"
+          data-ouia-component-type="PF5/TabButton"
           data-ouia-safe="true"
           id="pf-tab-0-tabs-page-0"
           role="tab"
           type="button"
         >
           <span
-            class="pf-c-tabs__item-text"
+            class="pf-v5-c-tabs__item-text"
           >
             Available
           </span>
         </button>
       </li>
       <li
-        class="pf-c-tabs__item"
+        class="pf-v5-c-tabs__item"
         role="presentation"
       >
         <button
           aria-controls="pf-tab-section-1-tabs-page-1"
           aria-selected="false"
-          class="pf-c-tabs__link"
-          data-ouia-component-type="PF4/TabButton"
+          class="pf-v5-c-tabs__link"
+          data-ouia-component-type="PF5/TabButton"
           data-ouia-safe="true"
           id="pf-tab-1-tabs-page-1"
           role="tab"
           type="button"
         >
           <span
-            class="pf-c-tabs__item-text"
+            class="pf-v5-c-tabs__item-text"
           >
             Activity
           </span>

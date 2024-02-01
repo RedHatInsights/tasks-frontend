@@ -6,7 +6,11 @@ import {
   ToolbarContent,
   ToolbarItem,
 } from '@patternfly/react-core';
-import { Table, TableBody, TableHeader } from '@patternfly/react-table';
+import {
+  Table,
+  TableBody,
+  TableHeader,
+} from '@patternfly/react-table/deprecated';
 import PrimaryToolbar from '@redhat-cloud-services/frontend-components/PrimaryToolbar';
 import TableToolbar from '@redhat-cloud-services/frontend-components/TableToolbar';
 import useTableTools from '../useTableTools';
@@ -46,7 +50,9 @@ const TasksTables = ({
       {!isTableLoading ? (
         <TableToolbar isFooter results={-1} selected={-1}>
           <ToolbarContent>
-            <ToolbarItem>{tablePropsRest.footerContent}</ToolbarItem>
+            <ToolbarItem alignSelf="center">
+              {tablePropsRest.footerContent}
+            </ToolbarItem>
             <ToolbarItem variant="pagination" align={{ default: 'alignRight' }}>
               <Pagination
                 variant={PaginationVariant.bottom}

@@ -2,28 +2,32 @@
 
 exports[`CardBuilder should render correctly 1`] = `
 <DocumentFragment>
-  <article
-    class="pf-c-card"
+  <div
+    class="pf-v5-c-card"
     data-ouia-component-id="OUIA-Generated-Card-1"
-    data-ouia-component-type="PF4/Card"
+    data-ouia-component-type="PF5/Card"
     data-ouia-safe="true"
     id=""
   >
     <div
-      class="pf-c-card__title"
+      class="pf-v5-c-card__title"
     >
-      Task title
+      <div
+        class="pf-v5-c-card__title-text"
+      >
+        Task title
+      </div>
     </div>
     <div
-      class="pf-c-card__body"
+      class="pf-v5-c-card__body"
     >
       Task description
     </div>
     <div
-      class="pf-c-card__footer"
+      class="pf-v5-c-card__footer"
     >
       <div
-        class="pf-l-flex pf-m-column"
+        class="pf-v5-l-flex pf-m-column"
       >
         <div
           class=""
@@ -40,9 +44,9 @@ exports[`CardBuilder should render correctly 1`] = `
           <button
             aria-disabled="false"
             aria-label="undefined-run-task-button"
-            class="pf-c-button pf-m-primary"
+            class="pf-v5-c-button pf-m-primary"
             data-ouia-component-id="OUIA-Generated-Button-primary-1"
-            data-ouia-component-type="PF4/Button"
+            data-ouia-component-type="PF5/Button"
             data-ouia-safe="true"
             type="button"
           >
@@ -51,6 +55,6 @@ exports[`CardBuilder should render correctly 1`] = `
         </div>
       </div>
     </div>
-  </article>
+  </div>
 </DocumentFragment>
 `;

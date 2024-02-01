@@ -5,7 +5,7 @@ import { MemoryRouter } from 'react-router-dom';
 
 import CompletedTaskDetailsKebab from '../CompletedTaskDetailsKebab';
 
-describe('AvailableTasks', () => {
+describe('CompletedTaskDetailsKebab', () => {
   let props;
 
   beforeEach(() => {
@@ -22,10 +22,10 @@ describe('AvailableTasks', () => {
       </MemoryRouter>
     );
 
-    await waitFor(() => userEvent.click(screen.getByLabelText('Actions')));
-    expect(
-      screen.getByLabelText('delete-task-kebab-button')
-    ).toBeInTheDocument();
+    await waitFor(() =>
+      userEvent.click(screen.getByLabelText('Task details menu toggle'))
+    );
+    expect(screen.getByTestId('delete-task-kebab-button')).toBeInTheDocument();
     expect(asFragment()).toMatchSnapshot();
   });
 
@@ -37,7 +37,9 @@ describe('AvailableTasks', () => {
       </MemoryRouter>
     );
 
-    await waitFor(() => userEvent.click(screen.getByLabelText('Actions')));
+    await waitFor(() =>
+      userEvent.click(screen.getByLabelText('Task details menu toggle'))
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 
@@ -48,9 +50,11 @@ describe('AvailableTasks', () => {
       </MemoryRouter>
     );
 
-    await waitFor(() => userEvent.click(screen.getByLabelText('Actions')));
     await waitFor(() =>
-      userEvent.click(screen.getByLabelText('delete-task-kebab-button'))
+      userEvent.click(screen.getByLabelText('Task details menu toggle'))
+    );
+    await waitFor(() =>
+      userEvent.click(screen.getByLabelText('delete task menu item'))
     );
     expect(props.setModalOpened).toHaveBeenCalled();
   });

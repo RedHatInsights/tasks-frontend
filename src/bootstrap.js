@@ -1,9 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import Tasks from './AppEntry';
 
-const root = document.getElementById('root');
+const container = document.getElementById('root');
+const root = createRoot(container);
 
-ReactDOM.render(<Tasks />, root, () =>
-  root.setAttribute('data-ouia-safe', true)
-);
+render(<Tasks />, root, () => root.setAttribute('data-ouia-safe', true));

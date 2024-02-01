@@ -3,14 +3,18 @@ import propTypes from 'prop-types';
 import {
   Form,
   FormGroup,
-} from '@patternfly/react-core/dist/js/components/Form';
-import { TextInput } from '@patternfly/react-core/dist/js/components/TextInput';
-import { ValidatedOptions } from '@patternfly/react-core/dist/js/helpers/constants';
+  FormHelperText,
+  HelperText,
+  HelperTextItem,
+  TextInput,
+} from '@patternfly/react-core';
 
 export const InputParameter = ({ parameter, setDefinedParameters }) => {
   const [paramText, setParamText] = useState(
     parameter.default || parameter.value
   );
+  const [validated, setValidated] = useState('default');
+  const [helperText, setHelperText] = useState(parameter.description);
 
   const updateParams = (text) => {
     setParamText(text);
@@ -19,9 +23,15 @@ export const InputParameter = ({ parameter, setDefinedParameters }) => {
         if (param.key === parameter.key) {
           let newDefinedParam = { key: param.key, value: text };
           if (parameter.required) {
-            newDefinedParam.validated = newDefinedParam.value.trim().length
-              ? true
-              : false;
+            if (newDefinedParam.value.trim().length) {
+              newDefinedParam.validated = true;
+              setValidated('success');
+              setHelperText(parameter.description);
+            } else {
+              newDefinedParam.validated = false;
+              setValidated('error');
+              setHelperText('This parameter is required');
+            }
           }
 
           return newDefinedParam;
@@ -34,31 +44,24 @@ export const InputParameter = ({ parameter, setDefinedParameters }) => {
   };
 
   return (
-    <Form className="pf-u-pb-lg">
+    <Form className="pf-v5-u-pb-lg">
       <FormGroup
         label={parameter.key}
         isRequired={parameter.required}
         type="text"
-        helperText={parameter.description}
-        helperTextInvalid={
-          parameter.required ? 'This parameter is required' : null
-        }
         fieldId="name"
-        validated={
-          parameter.required && paramText === '' ? ValidatedOptions.error : null
-        }
       >
         <TextInput
           value={paramText}
           type="text"
-          onChange={updateParams}
-          validated={
-            parameter.required && paramText === ''
-              ? ValidatedOptions.error
-              : null
-          }
-          aria-label={`${parameter.key}-input`}
+          onChange={(_event, text) => updateParams(text)}
+          aria-label={`Edit parameter ${parameter.key} value field`}
         />
+        <FormHelperText>
+          <HelperText>
+            <HelperTextItem variant={validated}>{helperText}</HelperTextItem>
+          </HelperText>
+        </FormHelperText>
       </FormGroup>
     </Form>
   );

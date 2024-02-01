@@ -5,7 +5,8 @@ import {
   EmptyStateBody,
   EmptyStateIcon,
   EmptyStateVariant,
-  Title,
+  EmptyStateHeader,
+  EmptyStateFooter,
 } from '@patternfly/react-core';
 
 export const EmptyStateDisplay = ({
@@ -19,7 +20,7 @@ export const EmptyStateDisplay = ({
 }) => {
   return (
     <EmptyState
-      variant={isSmall ? EmptyStateVariant.small : EmptyStateVariant.large}
+      variant={isSmall ? EmptyStateVariant.sm : EmptyStateVariant.lg}
       aria-label={error ? 'error-empty-state' : 'empty-state'}
     >
       {icon ? (
@@ -30,9 +31,10 @@ export const EmptyStateDisplay = ({
         />
       ) : null}
       <br></br>
-      <Title headingLevel={isSmall ? 'h5' : 'h1'} size={isSmall ? 'md' : 'lg'}>
-        {title}
-      </Title>
+      <EmptyStateHeader
+        titleText={title}
+        headingLevel={isSmall ? 'h5' : 'h1'}
+      />
       <EmptyStateBody>
         {text
           ? text.map((line, index) => (
@@ -44,7 +46,7 @@ export const EmptyStateDisplay = ({
           : null}
         {error ? error : null}
       </EmptyStateBody>
-      {button}
+      <EmptyStateFooter>{button}</EmptyStateFooter>
     </EmptyState>
   );
 };

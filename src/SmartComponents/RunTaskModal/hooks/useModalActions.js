@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@patternfly/react-core/dist/js/components/Button';
+import { Button } from '@patternfly/react-core';
 import ExecuteTaskButton from '../../../PresentationalComponents/ExecuteTaskButton/ExecuteTaskButton';
 
 export const useModalActions = (

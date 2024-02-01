@@ -176,7 +176,10 @@ export const leapp_task_jobs = [
                 {
                   type: 'command',
                   context: [
-                    'sed -i "s/^AllowZoneDrifting=.*/AllowZoneDrifting=no/" /etc/firewalld/firewalld.conf',
+                    'sed',
+                    '-i',
+                    '"s/^AllowZoneDrifting=.*/AllowZoneDrifting=no/"',
+                    '/etc/firewalld/firewalld.conf',
                   ],
                 },
               ],

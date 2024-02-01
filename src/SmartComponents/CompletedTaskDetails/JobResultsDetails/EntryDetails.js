@@ -32,7 +32,13 @@ const EntryDetails = ({ entry, taskConstantMapper }) => {
             </span>
           ) : null}
           <span className={classname}>
-            {item.type ? `[${item.type}] ${item.context}` : `${item.context}`}
+            {item.type
+              ? `[${item.type}] ${
+                  item.type === 'command' && Array.isArray(item.context)
+                    ? item.context.join(' ')
+                    : item.context
+                }`
+              : `${item.context}`}
           </span>
         </div>
       );

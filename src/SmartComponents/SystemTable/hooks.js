@@ -3,7 +3,7 @@ import { buildFilterSortString } from './helpers';
 
 export const useGetEntities = (
   onComplete,
-  { selectedIds, setFilterSortString }
+  { selectedIds, setFilterSortString, slug }
 ) => {
   return async (_items, config) => {
     const {
@@ -26,7 +26,7 @@ export const useGetEntities = (
       tags,
       workloadFilters
     );
-    const fetchedEntities = await fetchSystems(filterSortString);
+    const fetchedEntities = await fetchSystems(filterSortString, slug);
 
     const {
       data,

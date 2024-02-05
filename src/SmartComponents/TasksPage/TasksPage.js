@@ -65,6 +65,7 @@ const TasksPage = ({ tab }) => {
           setModalOpened={setRunTaskModalOpened}
           slug={activeTask.slug}
           title={activeTask.title}
+          filterMessage={activeTask.filter_message}
         />
       ) : null}
       <PageHeader>

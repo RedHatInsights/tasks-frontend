@@ -23,6 +23,7 @@ describe('RunTaskModalBody', () => {
       setTaskName: jest.fn(),
       slug: 'task-a',
       taskName: 'Task name',
+      filterMessage: 'This is the filter message',
     };
   });
 

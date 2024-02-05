@@ -17,6 +17,7 @@ const SystemTable = ({
   selectedIds,
   selectIds,
   setFilterSortString,
+  slug,
 }) => {
   const [items, setItems] = useState([]);
   const [total, setTotal] = useState(0);
@@ -58,6 +59,7 @@ const SystemTable = ({
   const getEntities = useGetEntities(onComplete, {
     selectedIds,
     setFilterSortString,
+    slug,
   });
 
   const mergedColumns = (defaultColumns) =>
@@ -169,6 +171,7 @@ SystemTable.propTypes = {
   selectedIds: propTypes.array,
   selectIds: propTypes.func,
   setFilterSortString: propTypes.func,
+  slug: propTypes.string,
 };
 
 export default SystemTable;

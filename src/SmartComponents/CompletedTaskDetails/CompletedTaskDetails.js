@@ -173,6 +173,7 @@ const CompletedTaskDetails = () => {
           slug={completedTaskDetails.task_slug}
           title={completedTaskDetails.name}
           name={completedTaskDetails.name}
+          filterMessage={completedTaskDetails.task_filter_message}
         />
       )}
       <DeleteCancelTaskModal

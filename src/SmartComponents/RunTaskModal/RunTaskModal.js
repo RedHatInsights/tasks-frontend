@@ -18,6 +18,7 @@ const RunTaskModal = ({
   setModalOpened,
   slug,
   title,
+  filterMessage = '',
 }) => {
   const [selectedIds, setSelectedIds] = useState(selectedSystems);
   const [taskName, setTaskName] = useState(name);
@@ -127,6 +128,7 @@ const RunTaskModal = ({
         setTaskName={setTaskName}
         slug={slug}
         taskName={taskName}
+        filterMessage={filterMessage}
       />
     </Modal>
   );
@@ -143,6 +145,7 @@ RunTaskModal.propTypes = {
   setModalOpened: propTypes.func,
   slug: propTypes.string,
   title: propTypes.oneOfType([propTypes.string, propTypes.node]),
+  filterMessage: propTypes.string,
 };
 
 export default RunTaskModal;

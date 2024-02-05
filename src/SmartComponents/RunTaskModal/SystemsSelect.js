@@ -29,6 +29,7 @@ const SystemsSelect = ({
   setTaskName,
   slug,
   taskName,
+  filterMessage,
 }) => {
   const warningConstantMapper = `${slug
     ?.toUpperCase()
@@ -52,7 +53,8 @@ const SystemsSelect = ({
   const { bulkSelectIds, selectIds } = useSystemBulkSelect(
     selectedIds,
     setSelectedIds,
-    filterSortString
+    filterSortString,
+    slug
   );
 
   return (
@@ -99,12 +101,17 @@ const SystemsSelect = ({
         <b>Systems to run tasks on</b>
       </div>
       {warningConstants[warningConstantMapper]}
-      <Alert variant="info" isInline title={INFO_ALERT_SYSTEMS} />
+      <Alert
+        variant="info"
+        isInline
+        title={filterMessage || INFO_ALERT_SYSTEMS}
+      />
       <SystemTable
         bulkSelectIds={bulkSelectIds}
         selectedIds={selectedIds}
         selectIds={selectIds}
         setFilterSortString={setFilterSortString}
+        slug={slug}
       />
     </React.Fragment>
   );
@@ -118,6 +125,7 @@ SystemsSelect.propTypes = {
   setTaskName: propTypes.func,
   slug: propTypes.string,
   taskName: propTypes.string,
+  filterMessage: propTypes.string,
 };
 
 export default SystemsSelect;

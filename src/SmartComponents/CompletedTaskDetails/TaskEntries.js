@@ -180,6 +180,14 @@ const converttorhelpreanalysisstageSeverityMap = {
 };
 
 const leapppreupgradeSeverityMap = {
+  inhibitor: {
+    text: 'Inhibitor',
+    icon: <ExclamationCircleIcon />,
+    iconSeverityColor: 'danger',
+    titleColor: '#A30000',
+    severityColor: 'red',
+    severityLevel: 2500,
+  },
   high: {
     text: 'High risk',
     icon: <ExclamationCircleIcon />,
@@ -215,6 +223,14 @@ const leapppreupgradeSeverityMap = {
 };
 
 const leappupgradeSeverityMap = {
+  inhibitor: {
+    text: 'Inhibitor',
+    icon: <ExclamationCircleIcon />,
+    iconSeverityColor: 'danger',
+    titleColor: '#A30000',
+    severityColor: 'red',
+    severityLevel: 2500,
+  },
   high: {
     text: 'High risk',
     icon: <ExclamationCircleIcon />,

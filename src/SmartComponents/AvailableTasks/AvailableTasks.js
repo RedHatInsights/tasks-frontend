@@ -65,7 +65,8 @@ const AvailableTasks = ({ openTaskModal }) => {
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      const result = await fetchAvailableTasks();
+      const taskLimit = '?limit=50&offset=0'; // temp workaround for tasks list > 10, eg in stage
+      const result = await fetchAvailableTasks(taskLimit);
 
       setTasks(result);
     };

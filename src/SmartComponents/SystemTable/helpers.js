@@ -1,3 +1,5 @@
+import { ALL_SYSTEMS } from './constants';
+
 const buildSortString = (orderBy, orderDirection) => {
   let sortString = orderBy ? '&sort=' : '';
   let direction = '';
@@ -54,6 +56,10 @@ const buildWorkloadFiltersString = (filters) => {
   return encodeURI(workloadFilterString);
 };
 
+const buildEligibilityFilterString = ({ filters }) => {
+  return filters[0]?.chips[0]?.value === ALL_SYSTEMS ? '&all_systems=true' : '';
+};
+
 export const buildFilterSortString = (
   limit,
   offset,
@@ -61,14 +67,17 @@ export const buildFilterSortString = (
   orderDirection,
   filters,
   tags,
-  workloadFilters
+  workloadFilters,
+  activeFiltersConfig
 ) => {
   let limitOffsetString = `limit=${limit}&offset=${offset}`;
   let sortString = buildSortString(orderBy, orderDirection);
   let filterString = buildFilterString(filters);
   let tagsFilterString = buildTagsFilterString(tags, filters);
   let workloadFilterString = buildWorkloadFiltersString(workloadFilters);
-  return `?${limitOffsetString}${sortString}${filterString}${tagsFilterString}${workloadFilterString}`;
+  let eligibilityFilterString =
+    buildEligibilityFilterString(activeFiltersConfig);
+  return `?${limitOffsetString}${sortString}${filterString}${tagsFilterString}${workloadFilterString}${eligibilityFilterString}`;
 };
 
 export const findCheckedValue = (total, selected) => {

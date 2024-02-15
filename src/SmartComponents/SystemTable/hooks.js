@@ -14,6 +14,7 @@ export const useGetEntities = (
       filters,
       tags,
       workloadFilters,
+      activeFiltersConfig,
     } = config;
     const limit = perPage;
     const offset = page * perPage - perPage;
@@ -24,7 +25,8 @@ export const useGetEntities = (
       orderDirection,
       filters,
       tags,
-      workloadFilters
+      workloadFilters,
+      activeFiltersConfig
     );
     const fetchedEntities = await fetchSystems(filterSortString, slug);
 
@@ -41,11 +43,20 @@ export const useGetEntities = (
 
     onComplete && onComplete(fetchedEntities);
 
+    const results = data.map((entity) => ({
+      ...entity,
+      selected: (selectedIds || []).map((id) => id).includes(entity.id),
+      // disables the bulkSelect checkbox if the entity/row has any requirements
+      disableSelection: entity.requirements.length,
+      // for populating the eligibility column and the tooltip for ineligible systems
+      eligibility: {
+        title: entity.requirements.length ? 'Not Eligible' : 'Eligible',
+        tooltip: entity.requirements.join('. '), // '' if no requirements
+      },
+    }));
+
     return {
-      results: data.map((entity) => ({
-        ...entity,
-        selected: (selectedIds || []).map((id) => id).includes(entity.id),
-      })),
+      results,
       page,
       perPage,
       orderBy,

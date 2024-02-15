@@ -1,7 +1,13 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import propTypes from 'prop-types';
-import { defaultOnLoad, systemColumns } from './constants';
+import {
+  ELIGIBLE_SYSTEMS,
+  ALL_SYSTEMS,
+  eligibilityFilterItems,
+  defaultOnLoad,
+  systemColumns,
+} from './constants';
 import { useGetEntities } from './hooks';
 import { findCheckedValue } from './helpers';
 
@@ -11,6 +17,7 @@ import { RegistryContext } from '../../store';
 import { useDispatch } from 'react-redux';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import { generateFilter } from '@redhat-cloud-services/frontend-components-utilities/helpers';
+import { conditionalFilterType } from '@redhat-cloud-services/frontend-components/ConditionalFilter';
 
 const SystemTable = ({
   bulkSelectIds,
@@ -21,6 +28,7 @@ const SystemTable = ({
 }) => {
   const [items, setItems] = useState([]);
   const [total, setTotal] = useState(0);
+  const [eligibility, setEligibility] = useState(ELIGIBLE_SYSTEMS);
   const inventory = useRef(null);
   const { getRegistry } = useContext(RegistryContext);
   const dispatch = useDispatch();
@@ -51,6 +59,10 @@ const SystemTable = ({
     });
   }, [selectedIds]);
 
+  useEffect(() => {
+    inventory?.current?.onRefreshData();
+  }, [eligibility]);
+
   const onComplete = (result) => {
     setTotal(result.meta.count);
     setItems(result.data);
@@ -78,6 +90,40 @@ const SystemTable = ({
         },
       };
     });
+
+  const eligibilityFilter = {
+    label: 'Task Eligibility',
+    type: conditionalFilterType.radio,
+    filterValues: {
+      onChange: (event, value) => {
+        setEligibility(value);
+      },
+      items: eligibilityFilterItems,
+      value: eligibility,
+      placeholder: 'Filter Eligible Systems',
+    },
+  };
+
+  const activeFiltersConfig = {
+    filters: [
+      {
+        id: 'Task eligibility',
+        category: 'Task eligibility',
+        chips: [{ name: eligibility, value: eligibility }],
+      },
+    ],
+    onDelete: (event, itemsToRemove, isAll) => {
+      if (isAll) {
+        setEligibility(ELIGIBLE_SYSTEMS);
+      } else {
+        itemsToRemove.map((item) => {
+          item.category === 'Task eligibility' && eligibility === ALL_SYSTEMS
+            ? setEligibility(ELIGIBLE_SYSTEMS)
+            : setEligibility(ALL_SYSTEMS);
+        });
+      }
+    },
+  };
 
   return (
     <InventoryTable
@@ -162,6 +208,8 @@ const SystemTable = ({
         onSelect: items.length ? selectIds : null,
       }}
       showCentosVersions={true}
+      filterConfig={{ items: [eligibilityFilter] }}
+      activeFiltersConfig={activeFiltersConfig}
     />
   );
 };

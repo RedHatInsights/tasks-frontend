@@ -21,14 +21,13 @@ import RunTaskButton from './PresentationalComponents/RunTaskButton/RunTaskButto
 /**
  * String constants
  */
-const today = new Date();
 export const TASKS_API_ROOT = '/api/tasks/v1';
 export const AVAILABLE_TASKS_ROOT = '/task';
 export const EXECUTED_TASK_ROOT = '/executed_task';
 export const SYSTEMS_ROOT = '/system';
-export const ACCESS_REDHAT_DOT_COM =
+export const INSIGHTS_DOCUMENTATION =
   'https://access.redhat.com/documentation/en-us/red_hat_insights/';
-export const YEAR = `${today.getFullYear()}/html/`;
+export const DOC_VERSION = '1-latest/html/';
 export const HOST_COMMUNICATION_DOC_PATH =
   'red_hat_insights_remediations_guide/host-communication-with-insights_red-hat-insights-remediation-guide';
 export const RHC_DOC =

@@ -5,11 +5,11 @@ import {
   OutlinedQuestionCircleIcon,
 } from '@patternfly/react-icons';
 import {
-  ACCESS_REDHAT_DOT_COM,
+  INSIGHTS_DOCUMENTATION,
+  DOC_VERSION,
   HOST_COMMUNICATION_DOC_PATH,
   RHC_DOC,
   SATELLITE_DOC,
-  YEAR,
 } from '../../constants';
 
 export const TasksPagePopoverHeader = () => {
@@ -49,7 +49,9 @@ export const TasksPagePopoverFooter = () => {
   return (
     <div>
       <a
-        href={`${ACCESS_REDHAT_DOT_COM}${YEAR}${HOST_COMMUNICATION_DOC_PATH}${RHC_DOC}`}
+        href={`${INSIGHTS_DOCUMENTATION}${DOC_VERSION}${HOST_COMMUNICATION_DOC_PATH}${RHC_DOC}`}
+        target="_blank"
+        rel="noopener noreferrer"
       >
         <span>
           Using rhc with systems{' '}
@@ -60,7 +62,9 @@ export const TasksPagePopoverFooter = () => {
       </a>
       <br />
       <a
-        href={`${ACCESS_REDHAT_DOT_COM}${YEAR}${HOST_COMMUNICATION_DOC_PATH}${SATELLITE_DOC}`}
+        href={`${INSIGHTS_DOCUMENTATION}${DOC_VERSION}${HOST_COMMUNICATION_DOC_PATH}${SATELLITE_DOC}`}
+        target="_blank"
+        rel="noopener noreferrer"
       >
         <span>
           Configure Cloud Connector and Satellite{' '}

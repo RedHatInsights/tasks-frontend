@@ -1,4 +1,5 @@
 import React from 'react';
+import { Tooltip } from '@patternfly/react-core';
 
 export const createSystemLink = (id, name, keyData, isBetaEnv) => (
   <a
@@ -14,3 +15,13 @@ export const createSystemLink = (id, name, keyData, isBetaEnv) => (
     {name}
   </a>
 );
+
+export const createEligibilityTooltip = (eligibility) => {
+  return eligibility.tooltip ? (
+    <Tooltip content={eligibility.tooltip}>
+      <span>{eligibility.title}</span>
+    </Tooltip>
+  ) : (
+    <span>{eligibility.title}</span>
+  );
+};

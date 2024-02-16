@@ -1,5 +1,5 @@
 import { entitiesReducer } from '../../store/index';
-import { createSystemLink } from '../../helpers';
+import { createEligibilityTooltip, createSystemLink } from '../../helpers';
 
 export const systemColumns = (isBeta) => [
   {
@@ -9,6 +9,14 @@ export const systemColumns = (isBeta) => [
     title: 'Name',
     renderFunc: (name, id) => {
       return createSystemLink(id, name, `system-name-${id}`, isBeta);
+    },
+  },
+  {
+    key: 'eligibility',
+    props: { width: 10, isStatic: true }, // column isn't sortable
+    title: 'Eligibility',
+    renderFunc: (eligibility) => {
+      return createEligibilityTooltip(eligibility);
     },
   },
   'tags',
@@ -34,3 +42,10 @@ export const defaultOnLoad = (columns, getRegistry) => {
       }),
     });
 };
+
+export const ELIGIBLE_SYSTEMS = 'Eligible Systems';
+export const ALL_SYSTEMS = 'All Systems';
+export const eligibilityFilterItems = [
+  { label: ELIGIBLE_SYSTEMS, value: ELIGIBLE_SYSTEMS },
+  { label: ALL_SYSTEMS, value: ALL_SYSTEMS },
+];

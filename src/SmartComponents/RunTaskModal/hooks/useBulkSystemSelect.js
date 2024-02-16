@@ -8,6 +8,8 @@ export const useSystemBulkSelect = (
 ) => {
   const bulkSelectIds = async (type, options) => {
     let newSelectedIds = [...selectedIds];
+    // only bulkSelect items that have no requirements
+    const isEligible = (item) => !item.requirements.length;
 
     switch (type) {
       case 'none': {
@@ -17,7 +19,7 @@ export const useSystemBulkSelect = (
 
       case 'page': {
         options.items.forEach((item) => {
-          if (!newSelectedIds.includes(item.id)) {
+          if (!newSelectedIds.includes(item.id) && isEligible(item)) {
             newSelectedIds.push(item.id);
           }
         });
@@ -27,8 +29,11 @@ export const useSystemBulkSelect = (
       }
 
       case 'all': {
-        let results = await fetchSystems(filterSortString, slug);
-        setSelectedIds(results.data.map(({ id }) => id));
+        const allSystems = await fetchSystems(filterSortString, slug);
+        const eligibleIds = allSystems.data
+          .filter((item) => isEligible(item))
+          .map((item) => item.id);
+        setSelectedIds(eligibleIds);
         break;
       }
     }

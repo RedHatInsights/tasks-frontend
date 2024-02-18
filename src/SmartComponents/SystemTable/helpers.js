@@ -16,6 +16,7 @@ const buildSortString = (orderBy, orderDirection) => {
 
 const buildFilterString = (filters) => {
   let osFiltersString = '';
+  let groupsFilterString = '';
   let displayNameFilter = filters.hostnameOrId
     ? `&display_name=${filters.hostnameOrId}`
     : '';
@@ -24,7 +25,11 @@ const buildFilterString = (filters) => {
     osFiltersString += `&operating_system=${osName}|${value}`;
   });
 
-  return `${displayNameFilter}${osFiltersString}`;
+  filters.hostGroupFilter?.forEach((group) => {
+    groupsFilterString += `&groups=${group}`;
+  });
+
+  return `${displayNameFilter}${osFiltersString}${groupsFilterString}`;
 };
 
 const buildTagsFilterString = (tags, filters) => {

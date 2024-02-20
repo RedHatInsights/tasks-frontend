@@ -16,7 +16,6 @@ const { config: webpackConfig, plugins } = config({
     : process.env.BETA
     ? 'stage-beta'
     : 'stage-stable', // pick chrome env ['stage-beta', 'stage-stable', 'prod-beta', 'prod-stable'],
-  deployment: process.env.BETA ? 'beta/apps' : 'apps',
 });
 
 plugins.push(

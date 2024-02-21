@@ -125,6 +125,34 @@ const SystemTable = ({
     },
   };
 
+  const buildBulkSelectItems = () => {
+    let bulkSelectItems = [
+      {
+        title: `Select none (0)`,
+        onClick: () => {
+          bulkSelectIds('none');
+        },
+      },
+      {
+        title: `Select page (${items?.length || 0})`,
+        onClick: () => {
+          bulkSelectIds('page', { items: items });
+        },
+      },
+    ];
+    // The Tasks API responds with a max of 1000 systems even if the account has more than 1000 systems
+    // and the request params contain something like '/systems?limit=20000&offset=0'.
+    // So don't show the "Select all" option if total > 1000 because we can't select them all anyway
+    total <= 1000 &&
+      bulkSelectItems.push({
+        title: `Select all (${total || 0})`,
+        onClick: () => {
+          bulkSelectIds('all', { total: total });
+        },
+      });
+    return bulkSelectItems;
+  };
+
   return (
     <InventoryTable
       isFullView
@@ -170,26 +198,7 @@ const SystemTable = ({
         id: 'systems-bulk-select',
         isDisabled: !total,
         count: selectedIds.length,
-        items: [
-          {
-            title: `Select none (0)`,
-            onClick: () => {
-              bulkSelectIds('none');
-            },
-          },
-          {
-            title: `Select page (${items?.length || 0})`,
-            onClick: () => {
-              bulkSelectIds('page', { items: items });
-            },
-          },
-          {
-            title: `Select all (${total || 0})`,
-            onClick: () => {
-              bulkSelectIds('all', { total: total });
-            },
-          },
-        ],
+        items: buildBulkSelectItems(),
         onSelect: () => {
           if (selectedIds.length) {
             bulkSelectIds('none');

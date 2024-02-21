@@ -19,6 +19,7 @@ export const systemColumns = (isBeta) => [
       return createEligibilityTooltip(eligibility);
     },
   },
+  'groups',
   'tags',
   {
     key: 'os_version',

@@ -136,6 +136,7 @@ const SystemTable = ({
         name: false,
         tags: false,
         operatingSystem: false,
+        hostGroupFilter: false,
       }}
       columns={mergedColumns}
       ref={inventory}

@@ -24,6 +24,7 @@ import {
   COMPLETED_INFO_PANEL_FLEX_PROPS,
   COMPLETED_INFO_BUTTONS,
   COMPLETED_INFO_BUTTONS_FLEX_PROPS,
+  CONVERSION_SLUG,
   LOADING_INFO_PANEL,
   LOADING_JOBS_TABLE,
   TASK_ERROR,
@@ -143,8 +144,9 @@ const CompletedTaskDetails = () => {
 
   const isConversionTask = () => {
     if (
-      completedTaskDetails.task_slug === 'convert-to-rhel-conversion-stage' ||
-      completedTaskDetails.task_slug === 'convert-to-rhel-conversion'
+      completedTaskDetails.task_slug ===
+        `${CONVERSION_SLUG}-conversion-stage` ||
+      completedTaskDetails.task_slug === `${CONVERSION_SLUG}-conversion`
     ) {
       return true;
     } else {

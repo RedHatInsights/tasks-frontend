@@ -9,6 +9,7 @@ import EmptyStateDisplay from '../../PresentationalComponents/EmptyStateDisplay/
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
 import {
   AVAILABLE_TASKS_ROOT,
+  CONVERSION_SLUG,
   EMPTY_TASKS_MESSAGE,
   EMPTY_TASKS_TITLE,
   TASKS_API_ROOT,
@@ -17,6 +18,10 @@ import {
 import ReactMarkdown from 'react-markdown';
 
 const AvailableTasksTable = ({ availableTasks, error, openTaskModal }) => {
+  const scriptOrPlaybook = (slug) => {
+    return slug.includes(CONVERSION_SLUG) ? 'script' : 'playbook';
+  };
+
   return (
     <div aria-label="available-tasks-table">
       {error ? (
@@ -49,7 +54,7 @@ const AvailableTasksTable = ({ availableTasks, error, openTaskModal }) => {
                         <a
                           href={`${TASKS_API_ROOT}${AVAILABLE_TASKS_ROOT}/${task.slug}/playbook`}
                         >
-                          Download preview of playbook
+                          {`Download preview of ${scriptOrPlaybook(task.slug)}`}
                         </a>
                       </FlexItem>
                     </Flex>

@@ -18,6 +18,7 @@ import { useDispatch } from 'react-redux';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import { generateFilter } from '@redhat-cloud-services/frontend-components-utilities/helpers';
 import { conditionalFilterType } from '@redhat-cloud-services/frontend-components/ConditionalFilter';
+import usePromiseQueue from '../../Utilities/hooks/usePromiseQueue';
 
 const SystemTable = ({
   bulkSelectIds,
@@ -33,6 +34,7 @@ const SystemTable = ({
   const { getRegistry } = useContext(RegistryContext);
   const dispatch = useDispatch();
   const chrome = useChrome();
+  const { resolve } = usePromiseQueue();
 
   const tagsFilter = useSelector(
     ({ globalFilterState }) => globalFilterState?.tagsFilter
@@ -187,7 +189,7 @@ const SystemTable = ({
           {
             title: `Select all (${total || 0})`,
             onClick: () => {
-              bulkSelectIds('all', { total: total });
+              bulkSelectIds('all', { total: total, resolve: resolve });
             },
           },
         ],

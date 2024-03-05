@@ -25,6 +25,8 @@ export const TASKS_API_ROOT = '/api/tasks/v1';
 export const AVAILABLE_TASKS_ROOT = '/task';
 export const EXECUTED_TASK_ROOT = '/executed_task';
 export const SYSTEMS_ROOT = '/system';
+export const JOB_ROOT = '/job';
+export const LOG_ROOT = '/stdout';
 export const INSIGHTS_DOCUMENTATION =
   'https://access.redhat.com/documentation/en-us/red_hat_insights/';
 export const DOC_VERSION = '1-latest/html/';

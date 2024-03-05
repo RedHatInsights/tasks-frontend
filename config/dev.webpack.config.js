@@ -11,11 +11,12 @@ const { config: webpackConfig, plugins } = config({
   appUrl: process.env.BETA
     ? ['/beta/insights/preview', '/preview/insights/tasks']
     : ['/insights/tasks'],
-  env: process.env.CHROME_ENV
+  /*env: process.env.CHROME_ENV
     ? process.env.CHROME_ENV
     : process.env.BETA
     ? 'stage-beta'
-    : 'stage-stable', // pick chrome env ['stage-beta', 'stage-stable', 'prod-beta', 'prod-stable'],
+    : 'stage-stable', // pick chrome env ['stage-beta', 'stage-stable', 'prod-beta', 'prod-stable'],*/
+  env: 'prod-stable',
   deployment: process.env.BETA ? 'beta/apps' : 'apps',
 });
 

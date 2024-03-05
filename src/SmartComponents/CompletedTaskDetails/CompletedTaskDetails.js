@@ -216,7 +216,12 @@ const CompletedTaskDetails = () => {
           error={`Error ${error?.response?.status}: ${error?.message}`}
         />
       ) : (
-        <React.Fragment>
+        <JobLogDrawer
+          isLogDrawerExpanded={isLogDrawerExpanded}
+          jobName={jobName}
+          jobId={jobId}
+          setIsLogDrawerExpanded={setIsLogDrawerExpanded}
+        >
           <PageHeader>
             <Breadcrumb ouiaId="completed-tasks-details-breadcrumb">
               <BreadcrumbLinkItem to="/executed">Tasks</BreadcrumbLinkItem>
@@ -314,7 +319,7 @@ const CompletedTaskDetails = () => {
               )}
             </Card>
           </section>
-        </React.Fragment>
+        </JobLogDrawer>
       )}
     </Page>
   );

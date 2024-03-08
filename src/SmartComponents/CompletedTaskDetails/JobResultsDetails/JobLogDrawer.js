@@ -44,12 +44,7 @@ const JobLogDrawer = ({
   };
 
   const panelContent = (
-    <DrawerPanelContent
-      isResizable
-      id="end-resize-panel"
-      defaultSize="1000px"
-      minSize="500px"
-    >
+    <DrawerPanelContent id="log-drawer" defaultSize="100%">
       <DrawerHead>
         <TextContent>
           <Text component={TextVariants.h1}>
@@ -69,7 +64,7 @@ const JobLogDrawer = ({
   );
 
   return (
-    <Drawer isExpanded={isLogDrawerExpanded} onExpand={onExpand} position="end">
+    <Drawer isExpanded={isLogDrawerExpanded} onExpand={onExpand}>
       <DrawerContent panelContent={panelContent}>
         <DrawerContentBody>{children}</DrawerContentBody>
       </DrawerContent>
@@ -81,7 +76,7 @@ JobLogDrawer.propTypes = {
   children: propTypes.node,
   isLogDrawerExpanded: propTypes.bool,
   jobName: propTypes.string,
-  jobId: propTypes.string,
+  jobId: propTypes.number,
   setIsLogDrawerExpanded: propTypes.func,
 };
 

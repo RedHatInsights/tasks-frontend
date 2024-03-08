@@ -1,11 +1,15 @@
 import React from 'react';
-import { render, fireEvent, act, screen } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import JobLogDrawer from '../JobLogDrawer';
 import { getLogs } from '../../../../../api';
 
 jest.mock('../../../../../api');
 
 describe('JobLogDrawer', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('renders without crashing', () => {
     render(<JobLogDrawer />);
   });
@@ -22,10 +26,6 @@ describe('JobLogDrawer', () => {
       />
     );
 
-    await act(async () => {
-      fireEvent.click(screen.getByRole('button'));
-    });
-
     expect(getLogs).toHaveBeenCalledWith(1);
   });
 
@@ -38,14 +38,14 @@ describe('JobLogDrawer', () => {
   it('closes the drawer when close button is clicked', () => {
     const mockSetIsLogDrawerExpanded = jest.fn();
 
-    const { getByRole } = render(
+    render(
       <JobLogDrawer
         isLogDrawerExpanded={true}
         setIsLogDrawerExpanded={mockSetIsLogDrawerExpanded}
       />
     );
 
-    fireEvent.click(getByRole('button'));
+    fireEvent.click(screen.getByLabelText('Close drawer panel'));
 
     expect(mockSetIsLogDrawerExpanded).toHaveBeenCalledWith(false);
   });

@@ -24,7 +24,8 @@
       "<rootDir>/.+fixtures.+"
     ],
     "setupFilesAfterEnv": [
-      "<rootDir>/config/setupTests.js"
+      "<rootDir>/config/setupTests.js",
+      "jest-canvas-mock"
     ],
     "roots": [
       "<rootDir>/src/"
@@ -59,14 +60,15 @@
   "dependencies": {
     "@patternfly/react-core": "^5.0.0",
     "@patternfly/react-icons": "5.0.0",
+    "@patternfly/react-log-viewer": "^5.1.0",
     "@patternfly/react-table": "^5.0.0",
     "@patternfly/react-tokens": "^5.0.0",
-    "@patternfly/react-log-viewer": "^5.1.0",
     "@redhat-cloud-services/frontend-components": "^4.2.0",
     "@redhat-cloud-services/frontend-components-notifications": "^4.1.0",
     "@redhat-cloud-services/frontend-components-utilities": "^4.0.2",
     "axios": "^0.27.0",
     "classnames": "^2.3.1",
+    "jest-canvas-mock": "^2.5.2",
     "moment": "2.29.4",
     "p-all": "^4.0.0",
     "react": "^18.0.0",

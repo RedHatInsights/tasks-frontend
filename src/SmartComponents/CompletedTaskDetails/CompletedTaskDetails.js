@@ -12,6 +12,7 @@ import {
   Card,
   Flex,
   FlexItem,
+  Page,
   Text,
   TextContent,
   TextVariants,
@@ -168,7 +169,18 @@ const CompletedTaskDetails = () => {
   };
 
   return (
-    <div>
+    <Page
+      notificationDrawer={
+        <JobLogDrawer
+          isLogDrawerExpanded={isLogDrawerExpanded}
+          jobName={jobName}
+          jobId={jobId}
+          setIsLogDrawerExpanded={setIsLogDrawerExpanded}
+        />
+      }
+      isNotificationDrawerExpanded={isLogDrawerExpanded}
+      className="my-app-modified-drawer-width"
+    >
       {runTaskModalOpened && (
         <RunTaskModal
           description={completedTaskDetails.task_description}
@@ -202,12 +214,7 @@ const CompletedTaskDetails = () => {
           error={`Error ${error?.response?.status}: ${error?.message}`}
         />
       ) : (
-        <JobLogDrawer
-          isLogDrawerExpanded={isLogDrawerExpanded}
-          jobName={jobName}
-          jobId={jobId}
-          setIsLogDrawerExpanded={setIsLogDrawerExpanded}
-        >
+        <React.Fragment>
           <PageHeader>
             <Breadcrumb ouiaId="completed-tasks-details-breadcrumb">
               <BreadcrumbLinkItem to="/executed">Tasks</BreadcrumbLinkItem>
@@ -305,9 +312,9 @@ const CompletedTaskDetails = () => {
               )}
             </Card>
           </section>
-        </JobLogDrawer>
+        </React.Fragment>
       )}
-    </div>
+    </Page>
   );
 };
 

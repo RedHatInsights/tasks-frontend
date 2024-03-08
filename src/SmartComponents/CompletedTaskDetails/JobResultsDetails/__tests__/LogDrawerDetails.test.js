@@ -10,14 +10,12 @@ describe('LogDrawerDetails', () => {
     render(<LogDrawerDetails jobName={jobName} logs={logs} />);
 
     // Assert that the LogViewer component is rendered with the correct props
-    expect(screen.getByTestId('log-viewer')).toHaveAttribute('data', logs);
+    expect(screen.getByText('Sample log data')).toBeVisible();
   });
 
   test('calls downloadFile function when download button is clicked', () => {
     render(<LogDrawerDetails jobName={jobName} logs={logs} />);
 
-    // Mock the downloadFile function
-    const mockDownloadFile = jest.fn();
     jest.spyOn(global, 'URL').mockReturnValueOnce({
       createObjectURL: jest.fn(),
     });
@@ -27,7 +25,7 @@ describe('LogDrawerDetails', () => {
     fireEvent.click(screen.getByTestId('download-button'));
 
     // Assert that the downloadFile function is called with the correct arguments
-    expect(mockDownloadFile).toHaveBeenCalledWith(logs, expect.any(String));
+    expect(global.URL.createObjectURL).toHaveBeenCalledWith(expect.any(Blob));
 
     // Restore the mock
     global.URL.createObjectURL.mockRestore();
@@ -36,18 +34,20 @@ describe('LogDrawerDetails', () => {
   test('opens log in new tab when open button is clicked', () => {
     render(<LogDrawerDetails jobName={jobName} logs={logs} />);
 
-    // Mock the openInNewTab function
-    const mockOpenInNewTab = jest.fn();
     jest.spyOn(global, 'URL').mockReturnValueOnce({
       createObjectURL: jest.fn(),
     });
     global.URL.createObjectURL = jest.fn();
 
-    // Click the open button
-    fireEvent.click(screen.getByTestId('open-button'));
+    // Click the open log in new tab button
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: /open log in new tab/i,
+      })
+    );
 
     // Assert that the openInNewTab function is called with the correct arguments
-    expect(mockOpenInNewTab).toHaveBeenCalledWith(logs);
+    expect(global.URL.createObjectURL).toHaveBeenCalledWith(expect.any(Blob));
 
     // Restore the mock
     global.URL.createObjectURL.mockRestore();

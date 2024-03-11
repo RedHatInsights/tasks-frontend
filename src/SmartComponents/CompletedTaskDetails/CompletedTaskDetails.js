@@ -12,6 +12,7 @@ import {
   Card,
   Flex,
   FlexItem,
+  Page,
   Text,
   TextContent,
   TextVariants,
@@ -51,6 +52,7 @@ import useInsightsNavigate from '@redhat-cloud-services/frontend-components-util
 import ReactMarkdown from 'react-markdown';
 import { useInterval } from '../../Utilities/hooks/useTableTools/useInterval';
 import ParameterDetails from './ParameterDetails';
+import JobLogDrawer from './JobResultsDetails/JobLogDrawer';
 
 const CompletedTaskDetails = () => {
   const { id } = useParams();
@@ -68,6 +70,9 @@ const CompletedTaskDetails = () => {
   const [isCancel, setIsCancel] = useState(false);
   const [lastUpdated, setLastUpdated] = useState();
   const [isRunning, setIsRunning] = useState(false);
+  const [isLogDrawerExpanded, setIsLogDrawerExpanded] = useState(false);
+  const [jobId, setJobId] = useState();
+  const [jobName, setJobName] = useState();
   const chrome = useChrome();
   const { hasAccess, isLoading } = usePermissions('inventory', [
     'inventory:hosts:*',
@@ -134,6 +139,9 @@ const CompletedTaskDetails = () => {
       function Row(props) {
         return (
           <JobResultsDetails
+            setIsLogDrawerExpanded={setIsLogDrawerExpanded}
+            setJobName={setJobName}
+            setJobId={setJobId}
             taskSlug={completedTaskDetails.task_slug}
             {...props}
           />
@@ -163,7 +171,18 @@ const CompletedTaskDetails = () => {
   };
 
   return (
-    <div>
+    <Page
+      notificationDrawer={
+        <JobLogDrawer
+          isLogDrawerExpanded={isLogDrawerExpanded}
+          jobName={jobName}
+          jobId={jobId}
+          setIsLogDrawerExpanded={setIsLogDrawerExpanded}
+        />
+      }
+      isNotificationDrawerExpanded={isLogDrawerExpanded}
+      className="my-app-modified-drawer-width"
+    >
       {runTaskModalOpened && (
         <RunTaskModal
           description={completedTaskDetails.task_description}
@@ -297,7 +316,7 @@ const CompletedTaskDetails = () => {
           </section>
         </React.Fragment>
       )}
-    </div>
+    </Page>
   );
 };
 

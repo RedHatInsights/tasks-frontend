@@ -4,6 +4,7 @@ import {
   AVAILABLE_TASKS_ROOT,
   EXECUTED_TASK_ROOT,
   SYSTEMS_ROOT,
+  JOB_ROOT,
 } from './src/constants';
 
 const returnErrOrData = (response) => {
@@ -87,4 +88,8 @@ export const deleteExecutedTask = (id) => {
 
 export const cancelExecutedTask = (id) => {
   return postTask(EXECUTED_TASK_ROOT.concat(`/${id}/cancel`));
+};
+
+export const getLogs = (id) => {
+  return getTasks(JOB_ROOT.concat(`/${id}/stdout`))
 };

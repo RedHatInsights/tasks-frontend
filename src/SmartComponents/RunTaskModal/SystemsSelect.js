@@ -101,11 +101,10 @@ const SystemsSelect = ({
         <b>Systems to run tasks on</b>
       </div>
       {warningConstants[warningConstantMapper]}
-      <Alert
-        variant="info"
-        isInline
-        title={filterMessage || INFO_ALERT_SYSTEMS}
-      />
+      <Alert variant="info" isInline title="Only eligible systems are shown">
+        {filterMessage || INFO_ALERT_SYSTEMS}
+      </Alert>
+
       <SystemTable
         bulkSelectIds={bulkSelectIds}
         selectedIds={selectedIds}

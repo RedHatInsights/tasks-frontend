@@ -18,7 +18,10 @@ Object {
                 "title": "2022-04-20T10:10:00",
               },
             ],
+            "display_name": undefined,
+            "has_stdout": undefined,
             "itemId": undefined,
+            "jobId": 1,
           },
           Object {
             "cells": Array [
@@ -32,7 +35,10 @@ Object {
                 "title": "2022-04-21T10:10:00",
               },
             ],
+            "display_name": undefined,
+            "has_stdout": undefined,
             "itemId": undefined,
+            "jobId": 2,
           },
           Object {
             "cells": Array [
@@ -46,7 +52,10 @@ Object {
                 "title": "2022-04-25T10:10:00",
               },
             ],
+            "display_name": undefined,
+            "has_stdout": undefined,
             "itemId": undefined,
+            "jobId": 3,
           },
         ],
       },
@@ -70,7 +79,10 @@ Object {
               "title": "2022-04-20T10:10:00",
             },
           ],
+          "display_name": undefined,
+          "has_stdout": undefined,
           "itemId": undefined,
+          "jobId": 1,
         },
         Object {
           "cells": Array [
@@ -84,7 +96,10 @@ Object {
               "title": "2022-04-21T10:10:00",
             },
           ],
+          "display_name": undefined,
+          "has_stdout": undefined,
           "itemId": undefined,
+          "jobId": 2,
         },
         Object {
           "cells": Array [
@@ -98,7 +113,10 @@ Object {
               "title": "2022-04-25T10:10:00",
             },
           ],
+          "display_name": undefined,
+          "has_stdout": undefined,
           "itemId": undefined,
+          "jobId": 3,
         },
       ],
     },

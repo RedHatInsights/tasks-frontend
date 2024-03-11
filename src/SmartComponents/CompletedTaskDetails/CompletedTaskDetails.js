@@ -53,6 +53,7 @@ import ReactMarkdown from 'react-markdown';
 import { useInterval } from '../../Utilities/hooks/useTableTools/useInterval';
 import ParameterDetails from './ParameterDetails';
 import JobLogDrawer from './JobResultsDetails/JobLogDrawer';
+import useActionResolver from './hooks/useActionResolver';
 
 const CompletedTaskDetails = () => {
   const { id } = useParams();
@@ -79,6 +80,7 @@ const CompletedTaskDetails = () => {
     'inventory:hosts:read',
   ]);
   const navigate = useInsightsNavigate();
+  const navigateToInventory = useInsightsNavigate('inventory');
 
   const fetchData = async () => {
     setLastUpdated(` ${moment().format('dddd, MMMM Do YYYY, h:mm a')}`);
@@ -133,6 +135,13 @@ const CompletedTaskDetails = () => {
       setIsCancel(false);
     }*/
   }, [isCancel, isDelete]);
+
+  const actionResolver = useActionResolver(
+    setIsLogDrawerExpanded,
+    setJobId,
+    setJobName,
+    navigateToInventory
+  );
 
   const JobResultsRow = useMemo(
     () =>
@@ -297,6 +306,7 @@ const CompletedTaskDetails = () => {
                     )
                       ? JobResultsRow
                       : undefined,
+                    actionResolver,
                   }}
                   emptyRows={emptyRows('jobs')}
                   isStickyHeader

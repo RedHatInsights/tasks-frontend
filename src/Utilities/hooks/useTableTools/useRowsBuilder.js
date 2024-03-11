@@ -9,6 +9,9 @@ const columnProp = (column) =>
 const itemRow = (item, columns, index) => ({
   ...item.rowProps,
   itemId: item.system,
+  has_stdout: item.has_stdout,
+  display_name: item.display_name,
+  jobId: item.id,
   cells: columns.map((column) => ({
     title: column.renderFunc
       ? column.renderFunc(undefined, undefined, item, index)

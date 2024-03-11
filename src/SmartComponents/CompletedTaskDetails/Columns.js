@@ -2,19 +2,10 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { renderColumnComponent } from '../../Utilities/helpers';
 import SplitMessages from '../../PresentationalComponents/SplitMessages/SplitMessages';
-import { createSystemLink } from '../../helpers';
-import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 
-const SystemNameCell = ({ system, display_name }, index) => {
-  const chrome = useChrome();
-
+const SystemNameCell = ({ display_name }) => {
   if (display_name) {
-    return createSystemLink(
-      system,
-      display_name,
-      `system-title-${index}`,
-      chrome?.isBeta?.()
-    );
+    return display_name;
   } else {
     return <span style={{ color: '#72767B' }}>System deleted</span>;
   }

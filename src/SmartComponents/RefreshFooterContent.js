@@ -4,10 +4,12 @@ import {
   Text,
   TextContent,
   TextVariants,
+  Timestamp,
+  TimestampFormat,
   Tooltip,
 } from '@patternfly/react-core';
 
-const RefreshFooterContent = ({ footerContent, isRunning, type }) => {
+const RefreshFooterContent = ({ date, isRunning, type }) => {
   return (
     <div>
       <Tooltip
@@ -17,9 +19,19 @@ const RefreshFooterContent = ({ footerContent, isRunning, type }) => {
       >
         <TextContent>
           <Text component={TextVariants.small}>
-            {`Last updated${
-              isRunning ? footerContent : `: All ${type} completed`
-            }`}
+            Last updated
+            {isRunning ? (
+              <>
+                {' '}
+                <Timestamp
+                  date={date}
+                  dateFormat={TimestampFormat.full}
+                  timeFormat={TimestampFormat.full}
+                />
+              </>
+            ) : (
+              `: All ${type} completed`
+            )}
           </Text>
         </TextContent>
       </Tooltip>
@@ -28,7 +40,7 @@ const RefreshFooterContent = ({ footerContent, isRunning, type }) => {
 };
 
 RefreshFooterContent.propTypes = {
-  footerContent: propTypes.node,
+  date: propTypes.object,
   isRunning: propTypes.bool,
   type: propTypes.string,
 };

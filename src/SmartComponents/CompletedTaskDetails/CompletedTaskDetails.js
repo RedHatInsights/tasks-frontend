@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import moment from 'moment';
 import TasksTables from '../../Utilities/hooks/useTableTools/Components/TasksTables';
 import {
   PageHeader,
@@ -68,7 +67,7 @@ const CompletedTaskDetails = () => {
     useState(false);
   const [isDelete, setIsDelete] = useState(false);
   const [isCancel, setIsCancel] = useState(false);
-  const [lastUpdated, setLastUpdated] = useState();
+  const [lastUpdated, setLastUpdated] = useState(null);
   const [isRunning, setIsRunning] = useState(false);
   const [isLogDrawerExpanded, setIsLogDrawerExpanded] = useState(false);
   const [jobId, setJobId] = useState();
@@ -81,7 +80,7 @@ const CompletedTaskDetails = () => {
   const navigate = useInsightsNavigate();
 
   const fetchData = async () => {
-    setLastUpdated(` ${moment().format('dddd, MMMM Do YYYY, h:mm a')}`);
+    setLastUpdated(new Date());
     setTableLoading(true);
     const fetchedTaskDetails = await fetchTask(id, setError);
 
@@ -303,7 +302,7 @@ const CompletedTaskDetails = () => {
                   isTableLoading={tableLoading}
                   footerContent={
                     <RefreshFooterContent
-                      footerContent={lastUpdated}
+                      date={lastUpdated}
                       isRunning={isRunning}
                       type="jobs"
                     />

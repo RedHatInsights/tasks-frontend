@@ -363,6 +363,7 @@ export const leapp_task_jobs = [
 
 export const convert2rhel_task_jobs = [
   {
+    id: 3101,
     executed_task: 2909,
     system: 'f1356a99-754d-4219-9g25-fccb2cc6e2f2',
     status: 'Success',
@@ -372,8 +373,10 @@ export const convert2rhel_task_jobs = [
     },
     updated_on: '2022-08-08T18:19:50.898540Z',
     display_name: 'centos7-test-device-1',
+    has_stdout: false,
   },
   {
+    id: 3102,
     executed_task: 2909,
     system: 'f1356a99-754d-4219-9g25-fccb2cc53bee',
     status: 'Success',
@@ -476,8 +479,10 @@ export const convert2rhel_task_jobs = [
     },
     updated_on: '2022-08-08T18:19:50.898540Z',
     display_name: 'centos7-test-device-2',
+    has_stdout: true,
   },
   {
+    id: 3103,
     executed_task: 2909,
     system: 'f1356a99-754d-4219-9g25-fccb2cc6e2f2',
     status: 'Success',
@@ -539,6 +544,20 @@ export const convert2rhel_task_jobs = [
     },
     updated_on: '2022-08-08T18:19:50.898540Z',
     display_name: 'centos7-test-device-3',
+    has_stdout: true,
+  },
+  {
+    id: 3104,
+    executed_task: 2909,
+    system: 'f1356a99-754d-4219-9g25-fccb2cc6e2f2',
+    status: 'Success',
+    results: {
+      message:
+        'No inhibtors found, conversion should run smoothly for this system.',
+    },
+    updated_on: '2022-08-08T18:19:50.898540Z',
+    display_name: null,
+    has_stdout: false,
   },
 ];
 

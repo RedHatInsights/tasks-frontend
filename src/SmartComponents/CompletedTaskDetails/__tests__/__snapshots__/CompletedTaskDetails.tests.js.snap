@@ -189,7 +189,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                         <div
                           class=""
                         >
-                          3
+                          4
                         </div>
                       </div>
                       <div
@@ -440,11 +440,11 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                                 class="pf-v5-c-pagination__total-items"
                               >
                                 <b>
-                                  1 - 3
+                                  1 - 4
                                 </b>
                                  of 
                                 <b>
-                                  3
+                                  4
                                 </b>
                                  
                               </div>
@@ -460,11 +460,11 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                                     class="pf-v5-c-menu-toggle__text"
                                   >
                                     <b>
-                                      1 - 3
+                                      1 - 4
                                     </b>
                                      of 
                                     <b>
-                                      3
+                                      4
                                     </b>
                                      
                                   </span>
@@ -710,6 +710,12 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                               </div>
                             </button>
                           </th>
+                          <td
+                            class="pf-v5-c-table__th"
+                            data-key="4"
+                            data-label=""
+                            tabindex="-1"
+                          />
                         </tr>
                       </thead>
                       <tbody
@@ -733,13 +739,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                             data-label="System name"
                             tabindex="-1"
                           >
-                            <a
-                              href="/insights/inventory/f1356a99-754d-4219-9g25-fccb2cc6e2f2"
-                              rel="noreferrer"
-                              target="_blank"
-                            >
-                              centos7-test-device-1
-                            </a>
+                            centos7-test-device-1
                           </td>
                           <td
                             class="pf-v5-c-table__td pf-m-width-10"
@@ -765,6 +765,33 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                                 No inhibtors found, conversion should run smoothly for this system.
                               </div>
                             </div>
+                          </td>
+                          <td
+                            class="pf-v5-c-table__td pf-v5-c-table__action"
+                            data-key="4"
+                            style="padding-right: 0px;"
+                            tabindex="-1"
+                          >
+                            <button
+                              aria-expanded="false"
+                              aria-label="Kebab toggle"
+                              class="pf-v5-c-menu-toggle pf-m-plain"
+                              type="button"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 192 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                />
+                              </svg>
+                            </button>
                           </td>
                         </tr>
                       </tbody>
@@ -820,13 +847,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                             data-label="System name"
                             tabindex="-1"
                           >
-                            <a
-                              href="/insights/inventory/f1356a99-754d-4219-9g25-fccb2cc6e2f2"
-                              rel="noreferrer"
-                              target="_blank"
-                            >
-                              centos7-test-device-3
-                            </a>
+                            centos7-test-device-3
                           </td>
                           <td
                             class="pf-v5-c-table__td pf-m-width-10"
@@ -852,6 +873,33 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                                 No inhibtors found, conversion should run smoothly for this system.
                               </div>
                             </div>
+                          </td>
+                          <td
+                            class="pf-v5-c-table__td pf-v5-c-table__action"
+                            data-key="4"
+                            style="padding-right: 0px;"
+                            tabindex="-1"
+                          >
+                            <button
+                              aria-expanded="false"
+                              aria-label="Kebab toggle"
+                              class="pf-v5-c-menu-toggle pf-m-plain"
+                              type="button"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 192 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                />
+                              </svg>
+                            </button>
                           </td>
                         </tr>
                         <tr
@@ -1436,6 +1484,12 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                               </table>
                             </div>
                           </td>
+                          <td
+                            class="pf-v5-c-table__td pf-v5-c-table__action"
+                            data-key="4"
+                            style="padding-right: 0px;"
+                            tabindex="-1"
+                          />
                         </tr>
                       </tbody>
                       <tbody
@@ -1449,6 +1503,87 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                           data-ouia-safe="true"
                         >
                           <td
+                            class="pf-v5-c-table__td"
+                            data-key="0"
+                            tabindex="-1"
+                          />
+                          <td
+                            class="pf-v5-c-table__td pf-m-width-30"
+                            data-key="1"
+                            data-label="System name"
+                            tabindex="-1"
+                          >
+                            <span
+                              style="color: rgb(114, 118, 123);"
+                            >
+                              System deleted
+                            </span>
+                          </td>
+                          <td
+                            class="pf-v5-c-table__td pf-m-width-10"
+                            data-key="2"
+                            data-label="Status"
+                            tabindex="-1"
+                          >
+                            Success
+                          </td>
+                          <td
+                            class="pf-v5-c-table__td pf-m-width-35"
+                            data-key="3"
+                            data-label="Message"
+                            tabindex="-1"
+                          >
+                            <div
+                              class="pf-v5-l-split"
+                            >
+                              <div
+                                class="pf-v5-l-split__item"
+                                color="#A30000"
+                              >
+                                No inhibtors found, conversion should run smoothly for this system.
+                              </div>
+                            </div>
+                          </td>
+                          <td
+                            class="pf-v5-c-table__td pf-v5-c-table__action"
+                            data-key="4"
+                            style="padding-right: 0px;"
+                            tabindex="-1"
+                          >
+                            <button
+                              aria-expanded="false"
+                              aria-label="Kebab toggle"
+                              class="pf-v5-c-menu-toggle pf-m-plain"
+                              type="button"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 192 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                />
+                              </svg>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                      <tbody
+                        class="pf-v5-c-table__tbody"
+                        role="rowgroup"
+                      >
+                        <tr
+                          class="pf-v5-c-table__tr"
+                          data-ouia-component-id="OUIA-Generated-TableRow-23"
+                          data-ouia-component-type="PF5/TableRow"
+                          data-ouia-safe="true"
+                        >
+                          <td
                             class="pf-v5-c-table__td pf-v5-c-table__toggle"
                             data-key="0"
                             tabindex="-1"
@@ -1457,12 +1592,12 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                               aria-disabled="false"
                               aria-expanded="false"
                               aria-label="Details"
-                              aria-labelledby="simple-node3 expandable-toggle3"
+                              aria-labelledby="simple-node4 expandable-toggle4"
                               class="pf-v5-c-button pf-m-plain"
                               data-ouia-component-id="OUIA-Generated-Button-plain-13"
                               data-ouia-component-type="PF5/Button"
                               data-ouia-safe="true"
-                              id="expandable-toggle3"
+                              id="expandable-toggle4"
                               type="button"
                             >
                               <div
@@ -1490,13 +1625,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                             data-label="System name"
                             tabindex="-1"
                           >
-                            <a
-                              href="/insights/inventory/f1356a99-754d-4219-9g25-fccb2cc53bee"
-                              rel="noreferrer"
-                              target="_blank"
-                            >
-                              centos7-test-device-2
-                            </a>
+                            centos7-test-device-2
                           </td>
                           <td
                             class="pf-v5-c-table__td pf-m-width-10"
@@ -1523,10 +1652,37 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                               </div>
                             </div>
                           </td>
+                          <td
+                            class="pf-v5-c-table__td pf-v5-c-table__action"
+                            data-key="4"
+                            style="padding-right: 0px;"
+                            tabindex="-1"
+                          >
+                            <button
+                              aria-expanded="false"
+                              aria-label="Kebab toggle"
+                              class="pf-v5-c-menu-toggle pf-m-plain"
+                              type="button"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 192 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                />
+                              </svg>
+                            </button>
+                          </td>
                         </tr>
                         <tr
                           class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                          data-ouia-component-id="OUIA-Generated-TableRow-23"
+                          data-ouia-component-id="OUIA-Generated-TableRow-24"
                           data-ouia-component-type="PF5/TableRow"
                           data-ouia-safe="true"
                           hidden=""
@@ -1535,7 +1691,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                             class="pf-v5-c-table__td"
                             colspan="4"
                             data-key="0"
-                            id="expanded-content4"
+                            id="expanded-content5"
                             tabindex="-1"
                           >
                             <div>
@@ -1553,7 +1709,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                                 >
                                   <tr
                                     class="pf-v5-c-table__tr"
-                                    data-ouia-component-id="OUIA-Generated-TableRow-24"
+                                    data-ouia-component-id="OUIA-Generated-TableRow-25"
                                     data-ouia-component-type="PF5/TableRow"
                                     data-ouia-safe="true"
                                   >
@@ -1631,7 +1787,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                                   </tr>
                                   <tr
                                     class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                                    data-ouia-component-id="OUIA-Generated-TableRow-25"
+                                    data-ouia-component-id="OUIA-Generated-TableRow-26"
                                     data-ouia-component-type="PF5/TableRow"
                                     data-ouia-safe="true"
                                     hidden=""
@@ -1770,7 +1926,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                                   </tr>
                                   <tr
                                     class="pf-v5-c-table__tr"
-                                    data-ouia-component-id="OUIA-Generated-TableRow-26"
+                                    data-ouia-component-id="OUIA-Generated-TableRow-27"
                                     data-ouia-component-type="PF5/TableRow"
                                     data-ouia-safe="true"
                                   >
@@ -1848,7 +2004,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                                   </tr>
                                   <tr
                                     class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                                    data-ouia-component-id="OUIA-Generated-TableRow-27"
+                                    data-ouia-component-id="OUIA-Generated-TableRow-28"
                                     data-ouia-component-type="PF5/TableRow"
                                     data-ouia-safe="true"
                                     hidden=""
@@ -1983,7 +2139,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                                   </tr>
                                   <tr
                                     class="pf-v5-c-table__tr"
-                                    data-ouia-component-id="OUIA-Generated-TableRow-28"
+                                    data-ouia-component-id="OUIA-Generated-TableRow-29"
                                     data-ouia-component-type="PF5/TableRow"
                                     data-ouia-safe="true"
                                   >
@@ -2061,7 +2217,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                                   </tr>
                                   <tr
                                     class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                                    data-ouia-component-id="OUIA-Generated-TableRow-29"
+                                    data-ouia-component-id="OUIA-Generated-TableRow-30"
                                     data-ouia-component-type="PF5/TableRow"
                                     data-ouia-safe="true"
                                     hidden=""
@@ -2198,6 +2354,12 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                               </table>
                             </div>
                           </td>
+                          <td
+                            class="pf-v5-c-table__td pf-v5-c-table__action"
+                            data-key="4"
+                            style="padding-right: 0px;"
+                            tabindex="-1"
+                          />
                         </tr>
                       </tbody>
                     </table>
@@ -2260,11 +2422,11 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                                     class="pf-v5-c-menu-toggle__text"
                                   >
                                     <b>
-                                      1 - 3
+                                      1 - 4
                                     </b>
                                      of 
                                     <b>
-                                      3
+                                      4
                                     </b>
                                      
                                   </span>
@@ -3171,6 +3333,12 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
                               </div>
                             </button>
                           </th>
+                          <td
+                            class="pf-v5-c-table__th"
+                            data-key="3"
+                            data-label=""
+                            tabindex="-1"
+                          />
                         </tr>
                       </thead>
                       <tbody
@@ -3189,13 +3357,7 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
                             data-label="System name"
                             tabindex="-1"
                           >
-                            <a
-                              href="/insights/inventory/f1356a99-754d-4219-9g25-fccb2cc6e2f2"
-                              rel="noreferrer"
-                              target="_blank"
-                            >
-                              dl-test-device-2
-                            </a>
+                            dl-test-device-2
                           </td>
                           <td
                             class="pf-v5-c-table__td pf-m-width-10"
@@ -3222,6 +3384,33 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
                               </div>
                             </div>
                           </td>
+                          <td
+                            class="pf-v5-c-table__td pf-v5-c-table__action"
+                            data-key="3"
+                            style="padding-right: 0px;"
+                            tabindex="-1"
+                          >
+                            <button
+                              aria-expanded="false"
+                              aria-label="Kebab toggle"
+                              class="pf-v5-c-menu-toggle pf-m-plain"
+                              type="button"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 192 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                />
+                              </svg>
+                            </button>
+                          </td>
                         </tr>
                         <tr
                           class="pf-v5-c-table__tr"
@@ -3235,13 +3424,7 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
                             data-label="System name"
                             tabindex="-1"
                           >
-                            <a
-                              href="/insights/inventory/3262b268-23ed-4c5a-a918-d8c4923fdfbf"
-                              rel="noreferrer"
-                              target="_blank"
-                            >
-                              MG-test-device
-                            </a>
+                            MG-test-device
                           </td>
                           <td
                             class="pf-v5-c-table__td pf-m-width-10"
@@ -3304,6 +3487,33 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
                               </div>
                             </div>
                           </td>
+                          <td
+                            class="pf-v5-c-table__td pf-v5-c-table__action"
+                            data-key="3"
+                            style="padding-right: 0px;"
+                            tabindex="-1"
+                          >
+                            <button
+                              aria-expanded="false"
+                              aria-label="Kebab toggle"
+                              class="pf-v5-c-menu-toggle pf-m-plain"
+                              type="button"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 192 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                />
+                              </svg>
+                            </button>
+                          </td>
                         </tr>
                         <tr
                           class="pf-v5-c-table__tr"
@@ -3317,13 +3527,7 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
                             data-label="System name"
                             tabindex="-1"
                           >
-                            <a
-                              href="/insights/inventory/42438801-c384-491a-943b-f5f621f0c882"
-                              rel="noreferrer"
-                              target="_blank"
-                            >
-                              YL-test-device-85
-                            </a>
+                            YL-test-device-85
                           </td>
                           <td
                             class="pf-v5-c-table__td pf-m-width-10"
@@ -3385,6 +3589,33 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
                                 Task failed to complete due to timing out. Retry this task at a later time.
                               </div>
                             </div>
+                          </td>
+                          <td
+                            class="pf-v5-c-table__td pf-v5-c-table__action"
+                            data-key="3"
+                            style="padding-right: 0px;"
+                            tabindex="-1"
+                          >
+                            <button
+                              aria-expanded="false"
+                              aria-label="Kebab toggle"
+                              class="pf-v5-c-menu-toggle pf-m-plain"
+                              type="button"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 192 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                />
+                              </svg>
+                            </button>
                           </td>
                         </tr>
                       </tbody>
@@ -4235,7 +4466,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                       >
                         <tr
                           class="pf-v5-c-table__tr"
-                          data-ouia-component-id="OUIA-Generated-TableRow-30"
+                          data-ouia-component-id="OUIA-Generated-TableRow-31"
                           data-ouia-component-type="PF5/TableRow"
                           data-ouia-safe="true"
                         >
@@ -4365,6 +4596,12 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                               </div>
                             </button>
                           </th>
+                          <td
+                            class="pf-v5-c-table__th"
+                            data-key="4"
+                            data-label=""
+                            tabindex="-1"
+                          />
                         </tr>
                       </thead>
                       <tbody
@@ -4372,9 +4609,8 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                         role="rowgroup"
                       >
                         <tr
-                          aria-label=""
                           class="pf-v5-c-table__tr"
-                          data-ouia-component-id="OUIA-Generated-TableRow-36"
+                          data-ouia-component-id="OUIA-Generated-TableRow-37"
                           data-ouia-component-type="PF5/TableRow"
                           data-ouia-safe="true"
                         >
@@ -4389,13 +4625,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                             data-label="System name"
                             tabindex="-1"
                           >
-                            <a
-                              href="/insights/inventory/42438801-c384-491a-943b-f5f621f0c882"
-                              rel="noreferrer"
-                              target="_blank"
-                            >
-                              YL-test-device-85
-                            </a>
+                            YL-test-device-85
                           </td>
                           <td
                             class="pf-v5-c-table__td pf-m-width-10"
@@ -4458,6 +4688,33 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                               </div>
                             </div>
                           </td>
+                          <td
+                            class="pf-v5-c-table__td pf-v5-c-table__action"
+                            data-key="4"
+                            style="padding-right: 0px;"
+                            tabindex="-1"
+                          >
+                            <button
+                              aria-expanded="false"
+                              aria-label="Kebab toggle"
+                              class="pf-v5-c-menu-toggle pf-m-plain"
+                              type="button"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 192 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                />
+                              </svg>
+                            </button>
+                          </td>
                         </tr>
                       </tbody>
                       <tbody
@@ -4465,9 +4722,8 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                         role="rowgroup"
                       >
                         <tr
-                          aria-label=""
                           class="pf-v5-c-table__tr"
-                          data-ouia-component-id="OUIA-Generated-TableRow-37"
+                          data-ouia-component-id="OUIA-Generated-TableRow-38"
                           data-ouia-component-type="PF5/TableRow"
                           data-ouia-safe="true"
                         >
@@ -4482,13 +4738,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                             data-label="System name"
                             tabindex="-1"
                           >
-                            <a
-                              href="/insights/inventory/3262b268-23ed-4c5a-a918-d8c4923fdfbf"
-                              rel="noreferrer"
-                              target="_blank"
-                            >
-                              MG-test-device
-                            </a>
+                            MG-test-device
                           </td>
                           <td
                             class="pf-v5-c-table__td pf-m-width-10"
@@ -4551,6 +4801,33 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                               </div>
                             </div>
                           </td>
+                          <td
+                            class="pf-v5-c-table__td pf-v5-c-table__action"
+                            data-key="4"
+                            style="padding-right: 0px;"
+                            tabindex="-1"
+                          >
+                            <button
+                              aria-expanded="false"
+                              aria-label="Kebab toggle"
+                              class="pf-v5-c-menu-toggle pf-m-plain"
+                              type="button"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 192 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                />
+                              </svg>
+                            </button>
+                          </td>
                         </tr>
                       </tbody>
                       <tbody
@@ -4558,9 +4835,8 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                         role="rowgroup"
                       >
                         <tr
-                          aria-label=""
                           class="pf-v5-c-table__tr"
-                          data-ouia-component-id="OUIA-Generated-TableRow-38"
+                          data-ouia-component-id="OUIA-Generated-TableRow-39"
                           data-ouia-component-type="PF5/TableRow"
                           data-ouia-safe="true"
                         >
@@ -4575,13 +4851,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                             data-label="System name"
                             tabindex="-1"
                           >
-                            <a
-                              href="/insights/inventory/f1356a99-754d-4219-9g25-fccb2cc6e2f2"
-                              rel="noreferrer"
-                              target="_blank"
-                            >
-                              dl-test-device-2
-                            </a>
+                            dl-test-device-2
                           </td>
                           <td
                             class="pf-v5-c-table__td pf-m-width-10"
@@ -4606,6 +4876,33 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                               />
                             </div>
                           </td>
+                          <td
+                            class="pf-v5-c-table__td pf-v5-c-table__action"
+                            data-key="4"
+                            style="padding-right: 0px;"
+                            tabindex="-1"
+                          >
+                            <button
+                              aria-expanded="false"
+                              aria-label="Kebab toggle"
+                              class="pf-v5-c-menu-toggle pf-m-plain"
+                              type="button"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 192 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                />
+                              </svg>
+                            </button>
+                          </td>
                         </tr>
                       </tbody>
                       <tbody
@@ -4613,9 +4910,8 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                         role="rowgroup"
                       >
                         <tr
-                          aria-label=""
                           class="pf-v5-c-table__tr"
-                          data-ouia-component-id="OUIA-Generated-TableRow-39"
+                          data-ouia-component-id="OUIA-Generated-TableRow-40"
                           data-ouia-component-type="PF5/TableRow"
                           data-ouia-safe="true"
                         >
@@ -4661,13 +4957,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                             data-label="System name"
                             tabindex="-1"
                           >
-                            <a
-                              href="/insights/inventory/f1356a99-754d-4219-9g25-fccb2cf29c99"
-                              rel="noreferrer"
-                              target="_blank"
-                            >
-                              dl-test-device-4
-                            </a>
+                            dl-test-device-4
                           </td>
                           <td
                             class="pf-v5-c-table__td pf-m-width-10"
@@ -4730,11 +5020,37 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                               </div>
                             </div>
                           </td>
+                          <td
+                            class="pf-v5-c-table__td pf-v5-c-table__action"
+                            data-key="4"
+                            style="padding-right: 0px;"
+                            tabindex="-1"
+                          >
+                            <button
+                              aria-expanded="false"
+                              aria-label="Kebab toggle"
+                              class="pf-v5-c-menu-toggle pf-m-plain"
+                              type="button"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 192 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                />
+                              </svg>
+                            </button>
+                          </td>
                         </tr>
                         <tr
-                          aria-label=""
                           class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                          data-ouia-component-id="OUIA-Generated-TableRow-40"
+                          data-ouia-component-id="OUIA-Generated-TableRow-41"
                           data-ouia-component-type="PF5/TableRow"
                           data-ouia-safe="true"
                           hidden=""
@@ -4760,9 +5076,8 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                                   role="rowgroup"
                                 >
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr"
-                                    data-ouia-component-id="OUIA-Generated-TableRow-41"
+                                    data-ouia-component-id="OUIA-Generated-TableRow-42"
                                     data-ouia-component-type="PF5/TableRow"
                                     data-ouia-safe="true"
                                   >
@@ -4839,9 +5154,8 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                                    data-ouia-component-id="OUIA-Generated-TableRow-42"
+                                    data-ouia-component-id="OUIA-Generated-TableRow-43"
                                     data-ouia-component-type="PF5/TableRow"
                                     data-ouia-safe="true"
                                     hidden=""
@@ -4954,9 +5268,8 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr"
-                                    data-ouia-component-id="OUIA-Generated-TableRow-43"
+                                    data-ouia-component-id="OUIA-Generated-TableRow-44"
                                     data-ouia-component-type="PF5/TableRow"
                                     data-ouia-safe="true"
                                   >
@@ -5033,9 +5346,8 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                                    data-ouia-component-id="OUIA-Generated-TableRow-44"
+                                    data-ouia-component-id="OUIA-Generated-TableRow-45"
                                     data-ouia-component-type="PF5/TableRow"
                                     data-ouia-safe="true"
                                     hidden=""
@@ -5148,9 +5460,8 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr"
-                                    data-ouia-component-id="OUIA-Generated-TableRow-45"
+                                    data-ouia-component-id="OUIA-Generated-TableRow-46"
                                     data-ouia-component-type="PF5/TableRow"
                                     data-ouia-safe="true"
                                   >
@@ -5227,9 +5538,8 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                                    data-ouia-component-id="OUIA-Generated-TableRow-46"
+                                    data-ouia-component-id="OUIA-Generated-TableRow-47"
                                     data-ouia-component-type="PF5/TableRow"
                                     data-ouia-safe="true"
                                     hidden=""
@@ -5342,9 +5652,8 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr"
-                                    data-ouia-component-id="OUIA-Generated-TableRow-47"
+                                    data-ouia-component-id="OUIA-Generated-TableRow-48"
                                     data-ouia-component-type="PF5/TableRow"
                                     data-ouia-safe="true"
                                   >
@@ -5421,9 +5730,8 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                                    data-ouia-component-id="OUIA-Generated-TableRow-48"
+                                    data-ouia-component-id="OUIA-Generated-TableRow-49"
                                     data-ouia-component-type="PF5/TableRow"
                                     data-ouia-safe="true"
                                     hidden=""
@@ -5516,6 +5824,12 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                               </table>
                             </div>
                           </td>
+                          <td
+                            class="pf-v5-c-table__td pf-v5-c-table__action"
+                            data-key="4"
+                            style="padding-right: 0px;"
+                            tabindex="-1"
+                          />
                         </tr>
                       </tbody>
                       <tbody
@@ -5523,9 +5837,8 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                         role="rowgroup"
                       >
                         <tr
-                          aria-label=""
                           class="pf-v5-c-table__tr"
-                          data-ouia-component-id="OUIA-Generated-TableRow-49"
+                          data-ouia-component-id="OUIA-Generated-TableRow-50"
                           data-ouia-component-type="PF5/TableRow"
                           data-ouia-safe="true"
                         >
@@ -5571,13 +5884,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                             data-label="System name"
                             tabindex="-1"
                           >
-                            <a
-                              href="/insights/inventory/f1356a99-754d-4219-9g25-fccb2cf29c91"
-                              rel="noreferrer"
-                              target="_blank"
-                            >
-                              dl-test-device-5
-                            </a>
+                            dl-test-device-5
                           </td>
                           <td
                             class="pf-v5-c-table__td pf-m-width-10"
@@ -5640,11 +5947,37 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                               </div>
                             </div>
                           </td>
+                          <td
+                            class="pf-v5-c-table__td pf-v5-c-table__action"
+                            data-key="4"
+                            style="padding-right: 0px;"
+                            tabindex="-1"
+                          >
+                            <button
+                              aria-expanded="false"
+                              aria-label="Kebab toggle"
+                              class="pf-v5-c-menu-toggle pf-m-plain"
+                              type="button"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 192 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                />
+                              </svg>
+                            </button>
+                          </td>
                         </tr>
                         <tr
-                          aria-label=""
                           class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                          data-ouia-component-id="OUIA-Generated-TableRow-50"
+                          data-ouia-component-id="OUIA-Generated-TableRow-51"
                           data-ouia-component-type="PF5/TableRow"
                           data-ouia-safe="true"
                           hidden=""
@@ -5713,6 +6046,12 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                               </table>
                             </div>
                           </td>
+                          <td
+                            class="pf-v5-c-table__td pf-v5-c-table__action"
+                            data-key="4"
+                            style="padding-right: 0px;"
+                            tabindex="-1"
+                          />
                         </tr>
                       </tbody>
                       <tbody
@@ -5720,9 +6059,8 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                         role="rowgroup"
                       >
                         <tr
-                          aria-label=""
                           class="pf-v5-c-table__tr"
-                          data-ouia-component-id="OUIA-Generated-TableRow-51"
+                          data-ouia-component-id="OUIA-Generated-TableRow-52"
                           data-ouia-component-type="PF5/TableRow"
                           data-ouia-safe="true"
                         >
@@ -5768,13 +6106,7 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                             data-label="System name"
                             tabindex="-1"
                           >
-                            <a
-                              href="/insights/inventory/f1356a99-754d-4219-9g25-fccb2cc53bee"
-                              rel="noreferrer"
-                              target="_blank"
-                            >
-                              dl-test-device-3
-                            </a>
+                            dl-test-device-3
                           </td>
                           <td
                             class="pf-v5-c-table__td pf-m-width-10"
@@ -5837,11 +6169,37 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                               </div>
                             </div>
                           </td>
+                          <td
+                            class="pf-v5-c-table__td pf-v5-c-table__action"
+                            data-key="4"
+                            style="padding-right: 0px;"
+                            tabindex="-1"
+                          >
+                            <button
+                              aria-expanded="false"
+                              aria-label="Kebab toggle"
+                              class="pf-v5-c-menu-toggle pf-m-plain"
+                              type="button"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 192 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                                />
+                              </svg>
+                            </button>
+                          </td>
                         </tr>
                         <tr
-                          aria-label=""
                           class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                          data-ouia-component-id="OUIA-Generated-TableRow-52"
+                          data-ouia-component-id="OUIA-Generated-TableRow-53"
                           data-ouia-component-type="PF5/TableRow"
                           data-ouia-safe="true"
                           hidden=""
@@ -5867,9 +6225,8 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                   role="rowgroup"
                                 >
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr"
-                                    data-ouia-component-id="OUIA-Generated-TableRow-53"
+                                    data-ouia-component-id="OUIA-Generated-TableRow-54"
                                     data-ouia-component-type="PF5/TableRow"
                                     data-ouia-safe="true"
                                   >
@@ -5946,9 +6303,8 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                                    data-ouia-component-id="OUIA-Generated-TableRow-54"
+                                    data-ouia-component-id="OUIA-Generated-TableRow-55"
                                     data-ouia-component-type="PF5/TableRow"
                                     data-ouia-safe="true"
                                     hidden=""
@@ -6061,9 +6417,8 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr"
-                                    data-ouia-component-id="OUIA-Generated-TableRow-55"
+                                    data-ouia-component-id="OUIA-Generated-TableRow-56"
                                     data-ouia-component-type="PF5/TableRow"
                                     data-ouia-safe="true"
                                   >
@@ -6140,9 +6495,8 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                                    data-ouia-component-id="OUIA-Generated-TableRow-56"
+                                    data-ouia-component-id="OUIA-Generated-TableRow-57"
                                     data-ouia-component-type="PF5/TableRow"
                                     data-ouia-safe="true"
                                     hidden=""
@@ -6265,9 +6619,8 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr"
-                                    data-ouia-component-id="OUIA-Generated-TableRow-57"
+                                    data-ouia-component-id="OUIA-Generated-TableRow-58"
                                     data-ouia-component-type="PF5/TableRow"
                                     data-ouia-safe="true"
                                   >
@@ -6344,9 +6697,8 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                                    data-ouia-component-id="OUIA-Generated-TableRow-58"
+                                    data-ouia-component-id="OUIA-Generated-TableRow-59"
                                     data-ouia-component-type="PF5/TableRow"
                                     data-ouia-safe="true"
                                     hidden=""
@@ -6459,9 +6811,8 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr"
-                                    data-ouia-component-id="OUIA-Generated-TableRow-59"
+                                    data-ouia-component-id="OUIA-Generated-TableRow-60"
                                     data-ouia-component-type="PF5/TableRow"
                                     data-ouia-safe="true"
                                   >
@@ -6538,9 +6889,8 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                                    data-ouia-component-id="OUIA-Generated-TableRow-60"
+                                    data-ouia-component-id="OUIA-Generated-TableRow-61"
                                     data-ouia-component-type="PF5/TableRow"
                                     data-ouia-safe="true"
                                     hidden=""
@@ -6653,9 +7003,8 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr"
-                                    data-ouia-component-id="OUIA-Generated-TableRow-61"
+                                    data-ouia-component-id="OUIA-Generated-TableRow-62"
                                     data-ouia-component-type="PF5/TableRow"
                                     data-ouia-safe="true"
                                   >
@@ -6732,9 +7081,8 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                                    data-ouia-component-id="OUIA-Generated-TableRow-62"
+                                    data-ouia-component-id="OUIA-Generated-TableRow-63"
                                     data-ouia-component-type="PF5/TableRow"
                                     data-ouia-safe="true"
                                     hidden=""
@@ -6827,6 +7175,12 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                               </table>
                             </div>
                           </td>
+                          <td
+                            class="pf-v5-c-table__td pf-v5-c-table__action"
+                            data-key="4"
+                            style="padding-right: 0px;"
+                            tabindex="-1"
+                          />
                         </tr>
                       </tbody>
                     </table>

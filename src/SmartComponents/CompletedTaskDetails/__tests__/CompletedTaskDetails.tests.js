@@ -5,6 +5,7 @@ import {
   render,
   screen,
   waitFor,
+  within,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
@@ -28,6 +29,7 @@ import {
   upgrade_leapp_task,
 } from './__fixtures__/completedTasksDetails.fixtures';
 import * as dispatcher from '../../../Utilities/Dispatcher';
+import useInsightsNavigate from '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate';
 
 jest.mock('../../../../api');
 jest.mock(
@@ -36,6 +38,10 @@ jest.mock(
     esModule: true,
     usePermissions: () => ({ hasAccess: true, isLoading: false }),
   })
+);
+
+jest.mock(
+  '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate'
 );
 
 describe('CompletedTaskDetails', () => {
@@ -220,6 +226,8 @@ describe('CompletedTaskDetails', () => {
   });
 
   it('should delete task', async () => {
+    const navigateMock = jest.fn(() => ({}));
+    useInsightsNavigate.mockImplementation(() => navigateMock);
     fetchExecutedTask.mockImplementation(async () => {
       return log4j_task;
     });
@@ -276,5 +284,124 @@ describe('CompletedTaskDetails', () => {
       await waitFor(() => userEvent.click(screen.getByText('Export to CSV')));
       expect(notification).toHaveBeenCalled();
     });
+  });
+
+  it('should open log drawer', async () => {
+    fetchExecutedTask.mockImplementation(async () => {
+      return convert2rhel_task_details;
+    });
+
+    fetchExecutedTaskJobs.mockImplementation(async () => {
+      return { data: convert2rhel_task_jobs };
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <CompletedTaskDetails />
+        </Provider>
+      </MemoryRouter>
+    );
+
+    await waitFor(() => expect(fetchExecutedTask).toHaveBeenCalled());
+    await waitFor(() => expect(fetchExecutedTaskJobs).toHaveBeenCalled());
+
+    const row = screen.getByRole('row', {
+      name: /details centos7-test-device-3 success no inhibtors found, conversion should run smoothly for this system\./i,
+    });
+
+    fireEvent.click(
+      within(row).getByRole('button', {
+        name: /kebab toggle/i,
+      })
+    );
+
+    userEvent.click(
+      screen.getByRole('menuitem', { name: /View system logs/i })
+    );
+
+    expect(
+      screen.getByRole('heading', {
+        name: /log for: centos7-test-device-3/i,
+      })
+    ).toBeVisible();
+  });
+
+  it('should open system in inventory', async () => {
+    const navigateMock = jest.fn(() => ({}));
+    useInsightsNavigate.mockImplementation(() => navigateMock);
+    fetchExecutedTask.mockImplementation(async () => {
+      return convert2rhel_task_details;
+    });
+
+    fetchExecutedTaskJobs.mockImplementation(async () => {
+      return { data: convert2rhel_task_jobs };
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <CompletedTaskDetails />
+        </Provider>
+      </MemoryRouter>
+    );
+
+    await waitFor(() => expect(fetchExecutedTask).toHaveBeenCalled());
+    await waitFor(() => expect(fetchExecutedTaskJobs).toHaveBeenCalled());
+
+    const row = screen.getByRole('row', {
+      name: /details centos7-test-device-3 success no inhibtors found, conversion should run smoothly for this system\./i,
+    });
+
+    fireEvent.click(
+      within(row).getByRole('button', {
+        name: /kebab toggle/i,
+      })
+    );
+
+    userEvent.click(
+      screen.getByRole('menuitem', { name: /View system in Inventory/i })
+    );
+
+    expect(navigateMock).toHaveBeenCalled();
+  });
+
+  it('should disable system logs and view system in inventory', async () => {
+    fetchExecutedTask.mockImplementation(async () => {
+      return convert2rhel_task_details;
+    });
+
+    fetchExecutedTaskJobs.mockImplementation(async () => {
+      return { data: convert2rhel_task_jobs };
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <CompletedTaskDetails />
+        </Provider>
+      </MemoryRouter>
+    );
+
+    await waitFor(() => expect(fetchExecutedTask).toHaveBeenCalled());
+    await waitFor(() => expect(fetchExecutedTaskJobs).toHaveBeenCalled());
+
+    const row = screen.getByRole('row', {
+      name: /system deleted success no inhibtors found, conversion should run smoothly for this system\./i,
+    });
+
+    fireEvent.click(
+      within(row).getByRole('button', {
+        name: /kebab toggle/i,
+      })
+    );
+
+    expect(
+      screen.getByRole('menuitem', { name: /View system logs/i })
+    ).toBeDisabled();
+
+    expect(
+      screen.getByRole('menuitem', { name: /View system in Inventory/i })
+    ).toBeDisabled();
   });
 });

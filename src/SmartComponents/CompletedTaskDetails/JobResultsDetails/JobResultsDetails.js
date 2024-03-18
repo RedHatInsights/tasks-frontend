@@ -1,6 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import { Button } from '@patternfly/react-core';
+//import { Button } from '@patternfly/react-core';
 import { Table, Tbody } from '@patternfly/react-table';
 import { buildResultsRows } from './jobResultsDetailsHelpers';
 import ExpandedIssues from './ExpandedIssues';
@@ -8,9 +8,9 @@ import ExpandedIssues from './ExpandedIssues';
 const JobResultsDetails = ({
   taskSlug,
   item,
-  setIsLogDrawerExpanded,
+  /*setIsLogDrawerExpanded,
   setJobName,
-  setJobId,
+  setJobId,*/
 }) => {
   const isReportJson = item.results.report_json?.entries ? true : false;
 
@@ -18,11 +18,11 @@ const JobResultsDetails = ({
     ? buildResultsRows(item.results.report_json.entries, isReportJson, taskSlug)
     : buildResultsRows([item.results.report], isReportJson, taskSlug);
 
-  const handleViewLogs = (id, jobName) => {
+  /*const handleViewLogs = (id, jobName) => {
     setIsLogDrawerExpanded(true);
     setJobId(id);
     setJobName(jobName);
-  };
+  };*/
 
   return (
     <div>
@@ -37,7 +37,7 @@ const JobResultsDetails = ({
           <ExpandedIssues rowPairs={rowPairs} isReportJson={isReportJson} />
         </Tbody>
       </Table>
-      {item.has_stdout && (
+      {/*item.has_stdout && (
         <Button
           style={{ paddingLeft: '32px', paddingBottom: '16px' }}
           variant="link"
@@ -46,7 +46,7 @@ const JobResultsDetails = ({
         >
           View logs
         </Button>
-      )}
+      )*/}
     </div>
   );
 };

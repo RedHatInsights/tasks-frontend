@@ -1,9 +1,13 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import { Flex, FlexItem } from '@patternfly/react-core';
-import CardBuilder, {
-  CardBuilderContent,
-} from '../../PresentationalComponents/CardBuilder/CardBuilder';
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  CardTitle,
+  Flex,
+  FlexItem,
+} from '@patternfly/react-core';
 import RunTaskButton from '../../PresentationalComponents/RunTaskButton/RunTaskButton';
 import EmptyStateDisplay from '../../PresentationalComponents/EmptyStateDisplay/EmptyStateDisplay';
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
@@ -41,38 +45,31 @@ const AvailableTasksTable = ({ availableTasks, error, openTaskModal }) => {
         availableTasks?.map((task) => {
           return (
             <div aria-label={task.title} key={task.title}>
-              <CardBuilder>
-                <CardBuilderContent content={task.title} type="title" />
-                <CardBuilderContent
-                  className="card-task-description"
-                  content={
-                    <Flex direction={{ default: 'column' }}>
-                      <FlexItem>
-                        <ReactMarkdown>{task.description}</ReactMarkdown>
-                      </FlexItem>
-                      <FlexItem>
-                        <a
-                          href={`${TASKS_API_ROOT}${AVAILABLE_TASKS_ROOT}/${task.slug}/playbook`}
-                        >
-                          {`Download preview of ${scriptOrPlaybook(task.slug)}`}
-                        </a>
-                      </FlexItem>
-                    </Flex>
-                  }
-                  type="body"
-                />
-                <CardBuilderContent
-                  content={
-                    <RunTaskButton
-                      slug={task.slug}
-                      isFirst
-                      variant="primary"
-                      openTaskModal={openTaskModal}
-                    />
-                  }
-                  type="footer"
-                />
-              </CardBuilder>
+              <Card>
+                <CardTitle>{task.title}</CardTitle>
+                <CardBody className="card-task-description">
+                  <Flex direction={{ default: 'column' }}>
+                    <FlexItem>
+                      <ReactMarkdown>{task.description}</ReactMarkdown>
+                    </FlexItem>
+                    <FlexItem>
+                      <a
+                        href={`${TASKS_API_ROOT}${AVAILABLE_TASKS_ROOT}/${task.slug}/playbook`}
+                      >
+                        {`Download preview of ${scriptOrPlaybook(task.slug)}`}
+                      </a>
+                    </FlexItem>
+                  </Flex>
+                </CardBody>
+                <CardFooter>
+                  <RunTaskButton
+                    slug={task.slug}
+                    isFirst
+                    variant="primary"
+                    openTaskModal={openTaskModal}
+                  />
+                </CardFooter>
+              </Card>
               <br />
             </div>
           );

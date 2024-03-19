@@ -223,6 +223,52 @@ exports[`TasksPage should render correctly 1`] = `
             </div>
           </div>
           <br />
+          <div
+            class="pf-v5-c-card"
+            data-ouia-component-id="OUIA-Generated-Card-3"
+            data-ouia-component-type="PF5/Card"
+            data-ouia-safe="true"
+            id=""
+          >
+            <div
+              class="pf-v5-c-card__title"
+            >
+              <div
+                class="pf-v5-c-card__title-text"
+              >
+                <div
+                  class="pf-v5-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+                >
+                  <span
+                    class="pf-v5-screen-reader"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="pf-v5-c-card__body"
+            >
+              <div
+                class="pf-v5-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+              >
+                <span
+                  class="pf-v5-screen-reader"
+                />
+              </div>
+            </div>
+            <div
+              class="pf-v5-c-card__footer"
+            >
+              <div
+                class="pf-v5-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+              >
+                <span
+                  class="pf-v5-screen-reader"
+                />
+              </div>
+            </div>
+          </div>
+          <br />
         </div>
       </div>
     </div>

@@ -1,42 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import propTypes from 'prop-types';
 import { fetchAvailableTasks } from '../../../api';
-import CardBuilder, {
-  CardBuilderContent,
-} from '../../PresentationalComponents/CardBuilder/CardBuilder';
 import {
   Skeleton,
   SkeletonSize,
 } from '@redhat-cloud-services/frontend-components/Skeleton';
 import AvailableTasksTable from './AvailableTasksTable';
-import { LOADING_CONTENT } from '../../constants';
 import { dispatchNotification } from '../../Utilities/Dispatcher';
 import { isError } from '../completedTaskDetailsHelpers';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
+import { Card, CardBody, CardFooter, CardTitle } from '@patternfly/react-core';
 
 export const LoadingTasks = () => {
-  const loadingTasks = LOADING_CONTENT;
-  return loadingTasks?.map((task, index) => {
-    return (
-      <React.Fragment key={`loading-${index}`}>
-        <CardBuilder>
-          <CardBuilderContent
-            content={<Skeleton size={SkeletonSize.md} />}
-            type="title"
-          />
-          <CardBuilderContent
-            content={<Skeleton size={SkeletonSize.md} />}
-            type="body"
-          />
-          <CardBuilderContent
-            content={<Skeleton size={SkeletonSize.md} />}
-            type="footer"
-          />
-        </CardBuilder>
-        <br />
-      </React.Fragment>
-    );
-  });
+  return Array.from({ length: 3 }).map((task, index) => (
+    <React.Fragment key={index}>
+      <Card key={`loading-${index}`}>
+        <CardTitle>
+          <Skeleton size={SkeletonSize.md} />
+        </CardTitle>
+        <CardBody>
+          <Skeleton size={SkeletonSize.md} />
+        </CardBody>
+        <CardFooter>
+          <Skeleton size={SkeletonSize.md} />
+        </CardFooter>
+      </Card>
+      <br />
+    </React.Fragment>
+  ));
 };
 
 const AvailableTasks = ({ openTaskModal }) => {

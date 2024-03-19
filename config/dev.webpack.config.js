@@ -6,6 +6,7 @@ const { config: webpackConfig, plugins } = config({
   debug: true,
   https: true,
   useProxy: true,
+  proxyVerbose: true,
   useChromeTemplate: true,
   routesPath: process.env.CONFIG_PATH,
   appUrl: process.env.BETA

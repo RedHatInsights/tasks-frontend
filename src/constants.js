@@ -201,12 +201,6 @@ export const TASKS_TABLE_DEFAULTS = {
 /**
  * Loading constants
  */
-
-export const LOADING_CONTENT = [
-  { title: <Skeleton size={SkeletonSize.md} /> },
-  { description: <Skeleton size={SkeletonSize.md} /> },
-];
-
 export const TASK_LOADING_CONTENT = {
   name: '',
   task_description: <Skeleton size={SkeletonSize.md} />,

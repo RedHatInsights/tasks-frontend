@@ -11,6 +11,7 @@ import * as dispatcher from '../../../Utilities/Dispatcher';
 import { fetchAvailableTasks } from '../../../../api';
 
 jest.mock('../../../../api');
+jest.mock('../../../Utilities/useFeatureFlag', () => () => true);
 
 describe('AvailableTasks', () => {
   let props;

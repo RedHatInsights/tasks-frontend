@@ -58,6 +58,14 @@ export const availableTasksTableItems = {
       published_date: '2021-10-13T00:00',
       severity: 'moderate',
     },
+    {
+      name: 'Task C',
+      title: 'taskC',
+      slug: 'convert-to-rhel-conversion',
+      description: 'foobar',
+      published_date: '2022-10-13T00:00',
+      severity: 'moderate',
+    },
   ],
 };
 

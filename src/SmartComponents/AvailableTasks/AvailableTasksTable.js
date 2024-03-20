@@ -20,6 +20,7 @@ import {
   TASKS_ERROR,
 } from '../../constants';
 import ReactMarkdown from 'react-markdown';
+import { QuickstartButton, SLUG_TO_QUICKSTART } from './QuickstartButton';
 
 const AvailableTasksTable = ({ availableTasks, error, openTaskModal }) => {
   const scriptOrPlaybook = (slug) => {
@@ -62,12 +63,17 @@ const AvailableTasksTable = ({ availableTasks, error, openTaskModal }) => {
                   </Flex>
                 </CardBody>
                 <CardFooter>
-                  <RunTaskButton
-                    slug={task.slug}
-                    isFirst
-                    variant="primary"
-                    openTaskModal={openTaskModal}
-                  />
+                  <Flex>
+                    <RunTaskButton
+                      slug={task.slug}
+                      isFirst
+                      variant="primary"
+                      openTaskModal={openTaskModal}
+                    />
+                    {Object.keys(SLUG_TO_QUICKSTART).includes(task.slug) && (
+                      <QuickstartButton slug={task.slug} />
+                    )}
+                  </Flex>
                 </CardFooter>
               </Card>
               <br />

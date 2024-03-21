@@ -1,8 +1,24 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { renderColumnComponent } from '../../Utilities/helpers';
-import { Icon } from '@patternfly/react-core';
-import { CheckCircleIcon, InProgressIcon } from '@patternfly/react-icons';
+import { TASK_STATUS } from '../../constants';
+import {
+  DescriptionList,
+  DescriptionListGroup,
+  DescriptionListTerm,
+  DescriptionListTermHelpText,
+  DescriptionListTermHelpTextButton,
+  Grid,
+  GridItem,
+  Icon,
+  Popover,
+  Text,
+} from '@patternfly/react-core';
+import {
+  CheckCircleIcon,
+  ExclamationCircleIcon,
+  InProgressIcon,
+} from '@patternfly/react-icons';
 import InsightsLink from '@redhat-cloud-services/frontend-components/InsightsLink';
 
 const TaskNameCell = ({ id, name }, index) => (
@@ -17,28 +33,149 @@ TaskNameCell.propTypes = {
   index: propTypes.number,
 };
 
-const StatusCell = ({ status }) =>
-  ({
-    Completed: (
-      <span style={{ color: '#3E8635', display: 'flex', alignItems: 'center' }}>
-        <Icon status="success" style={{ marginRight: '4px' }}>
-          <CheckCircleIcon />
-        </Icon>
-        {status}
-      </span>
-    ),
-    Running: (
-      <span style={{ color: '#2B9AF3', display: 'flex', alignItems: 'center' }}>
-        <Icon status="info" style={{ marginRight: '4px' }}>
-          <InProgressIcon />
-        </Icon>
-        {status}
-      </span>
-    ),
-  }[status] || status);
+const getStatusProps = (task) => {
+  switch (task.status) {
+    case TASK_STATUS.RUNNING:
+      return {
+        badgeColor: '#2B9AF3',
+        iconStatus: 'info',
+        IconType: InProgressIcon,
+        popoverBodyText: [
+          `${task.running_jobs_count || 0} Running`,
+          `${task.completed_jobs_count || 0} Completed`,
+          `${task.failure_jobs_count || 0} Failed`,
+          `${task.timeout_jobs_count || 0} Timeout`,
+        ],
+      };
+    case TASK_STATUS.COMPLETED:
+      return {
+        badgeColor: '#3E8635',
+        iconStatus: 'success',
+        IconType: CheckCircleIcon,
+        popoverBodyText: '',
+      };
+    case TASK_STATUS.COMPLETED_WITH_ERRORS:
+      return {
+        badgeColor: '#a30000',
+        iconStatus: 'danger',
+        IconType: ExclamationCircleIcon,
+        popoverBodyText: [
+          `${task.running_jobs_count || 0} Running`,
+          `${task.completed_jobs_count || 0} Completed`,
+          `${task.failure_jobs_count || 0} Failed`,
+          `${task.timeout_jobs_count || 0} Timeout`,
+        ],
+      };
+    case TASK_STATUS.FAILURE:
+      return {
+        badgeColor: '#a30000',
+        iconStatus: 'danger',
+        IconType: ExclamationCircleIcon,
+        popoverBodyText:
+          'All jobs in this task failed to run on their target systems.',
+      };
+    case TASK_STATUS.CANCELLED:
+      return {
+        badgeColor: '#a30000',
+        iconStatus: 'danger',
+        IconType: ExclamationCircleIcon,
+        popoverBodyText: 'All jobs in this task have been cancelled',
+      };
+  }
+};
+
+const formatPopoverBodyContent = (popoverBodyText) => {
+  if (typeof popoverBodyText === 'string') {
+    return <Text style={{ paddingLeft: '1rem' }}>{popoverBodyText}</Text>;
+  }
+
+  let gridItems = [];
+  popoverBodyText.forEach((item) => {
+    const [count, status] = item.split(' ');
+    if (+count === 0) return; // don't display item when its count === 0
+    const gridItem = (
+      <React.Fragment>
+        <GridItem span={2}>
+          <Text style={{ textAlign: 'right' }}>{count}</Text>
+        </GridItem>
+        <GridItem span={10}>
+          <Text style={{ textAlign: 'left' }}>{status}</Text>
+        </GridItem>
+      </React.Fragment>
+    );
+    gridItems.push(gridItem);
+  });
+  return (
+    <Grid hasGutter style={{ columnGap: '1rem', rowGap: '0' }}>
+      {gridItems}
+    </Grid>
+  );
+};
+
+const StatusCell = (task) => {
+  if (typeof task.status !== 'string') {
+    return;
+  }
+
+  const badgeStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    marginRight: '4px',
+  };
+
+  const { badgeColor, iconStatus, IconType, popoverBodyText } =
+    getStatusProps(task);
+
+  const icon = (
+    <Icon status={iconStatus} style={{ marginRight: '4px' }}>
+      <IconType />
+    </Icon>
+  );
+
+  const coloredBadgeStyle = { ...badgeStyle, color: badgeColor };
+  const statusContent = (
+    <span style={coloredBadgeStyle}>
+      {icon}
+      {task.status}
+    </span>
+  );
+  const popoverHeaderContent =
+    task.status === 'Running' ? (
+      <span style={{ color: 'black' }}>Task Running</span>
+    ) : (
+      statusContent
+    );
+
+  const popoverBodyContent = (
+    <div style={{ fontSize: 'medium', color: 'black' }}>
+      {formatPopoverBodyContent(popoverBodyText)}
+    </div>
+  );
+
+  return (
+    <DescriptionList>
+      <DescriptionListGroup>
+        {popoverBodyText ? (
+          <DescriptionListTermHelpText>
+            <Popover
+              headerContent={popoverHeaderContent}
+              bodyContent={popoverBodyContent}
+            >
+              <DescriptionListTermHelpTextButton>
+                {statusContent}
+              </DescriptionListTermHelpTextButton>
+            </Popover>
+          </DescriptionListTermHelpText>
+        ) : (
+          <DescriptionListTerm>{statusContent}</DescriptionListTerm>
+        )}
+      </DescriptionListGroup>
+    </DescriptionList>
+  );
+};
 
 StatusCell.propTypes = {
-  status: propTypes.oneOfType([propTypes.string, propTypes.object]),
+  task: propTypes.object,
 };
 
 export const TaskColumn = {

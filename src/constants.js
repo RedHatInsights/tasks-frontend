@@ -72,6 +72,14 @@ export const JOB_TIMED_OUT_MESSAGE =
 export const JOB_RUNNING_MESSAGE = 'No result yet';
 export const CONVERSION_SLUG = 'convert-to-rhel';
 
+export const TASK_STATUS = {
+  RUNNING: 'Running',
+  COMPLETED: 'Completed',
+  COMPLETED_WITH_ERRORS: 'Completed With Errors',
+  FAILURE: 'Failure',
+  CANCELLED: 'Cancelled',
+};
+
 /**
  * Flex constants
  */
@@ -85,7 +93,7 @@ export const TASKS_PAGE_HEADER_FLEX_PROPS = {
   flexWrap: { default: 'nowrap' },
 };
 export const COMPLETED_INFO_BUTTONS_FLEX_PROPS = {
-  align: { default: 'alignRigt' },
+  align: { default: 'alignRight' },
 };
 
 export const COMPLETED_INFO_PANEL = [

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { ExclamationCircleIcon, WrenchIcon } from '@patternfly/react-icons';
-import moment from 'moment';
 import columns, { exportableColumns } from './Columns';
 import { nameFilter, statusFilter } from './Filters';
 import { renderRunDateTime } from '../../Utilities/helpers';
@@ -45,7 +44,7 @@ const ActivityTable = () => {
   const [taskDetails, setTaskDetails] = useState({});
   const [runTaskModalOpened, setRunTaskModalOpened] = useState(false);
   const [selectedSystems, setSelectedSystems] = useState([]);
-  const [lastUpdated, setLastUpdated] = useState();
+  const [lastUpdated, setLastUpdated] = useState(null);
   const [isRunning, setIsRunning] = useState(false);
 
   const { resolve } = usePromiseQueue();
@@ -124,7 +123,7 @@ const ActivityTable = () => {
   };
 
   const fetchSingleTask = async () => {
-    setLastUpdated(` ${moment().format('dddd, MMMM Do YYYY, h:mm a')}`);
+    setLastUpdated(new Date());
     const task = await fetchExecutedTasks(`?limit=1&offset=0`);
     if (isError(task)) {
       createNotification(task);
@@ -224,7 +223,7 @@ const ActivityTable = () => {
             isTableLoading={tableLoading}
             footerContent={
               <RefreshFooterContent
-                footerContent={lastUpdated}
+                date={lastUpdated}
                 isRunning={isRunning}
                 type="tasks"
               />

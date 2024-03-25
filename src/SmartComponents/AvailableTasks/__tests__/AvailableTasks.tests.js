@@ -37,7 +37,9 @@ describe('AvailableTasks', () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByLabelText('available-tasks')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByLabelText('available-tasks')).toBeInTheDocument();
+    });
   });
 
   it('should fetch api data and build table', async () => {

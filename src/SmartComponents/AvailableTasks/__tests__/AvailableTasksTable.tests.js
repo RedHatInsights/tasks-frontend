@@ -34,8 +34,8 @@ describe('AvailableTasksTable', () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByLabelText('available-tasks-table')).toBeInTheDocument();
-    expect(screen.getByLabelText('empty-state')).toBeInTheDocument();
+    expect(screen.getByLabelText('available-tasks-table')).toBeVisible();
+    expect(screen.getByLabelText('empty-state')).toBeVisible();
   });
 
   it('should build table', () => {
@@ -47,8 +47,8 @@ describe('AvailableTasksTable', () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByLabelText('available-tasks-table')).toBeInTheDocument();
-    expect(screen.getByLabelText('taska-run-task-button')).toBeInTheDocument();
+    expect(screen.getByLabelText('available-tasks-table')).toBeVisible();
+    expect(screen.getByLabelText('taska-run-task-button')).toBeVisible();
   });
 
   it('should show quickstart button for known slug', () => {
@@ -80,6 +80,6 @@ describe('AvailableTasksTable', () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByLabelText('error-empty-state')).toBeInTheDocument();
+    expect(screen.getByLabelText('error-empty-state')).toBeVisible();
   });
 });

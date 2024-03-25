@@ -27,7 +27,7 @@ exports[`RunTaskButton should render correctly 1`] = `
     data-ouia-safe="true"
     type="button"
   >
-    Run task
+    Select systems
   </button>
 </DocumentFragment>
 `;

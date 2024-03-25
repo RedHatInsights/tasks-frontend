@@ -16,7 +16,7 @@ const RunTaskButton = ({
       variant={variant}
       onClick={() => openTaskModal(true, slug)}
     >
-      {isFirst ? 'Run task' : 'Run task again'}
+      {isFirst ? 'Select systems' : 'Run task again'}
     </Button>
   );
 };

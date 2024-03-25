@@ -11,7 +11,7 @@ exports[`ExecuteTaskButton should render correctly 1`] = `
     data-ouia-safe="true"
     type="button"
   >
-    Execute task
+    Run task
   </button>
 </DocumentFragment>
 `;

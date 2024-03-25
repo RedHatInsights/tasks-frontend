@@ -40,7 +40,7 @@ const ExecuteTaskButton = ({
       onClick={() => submitTask()}
       isDisabled={isDisabled}
     >
-      Execute task
+      Run task
     </Button>
   );
 };

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import propTypes from 'prop-types';
 import {
   Alert,
+  Button,
   Flex,
   Form,
   FormGroup,
@@ -22,6 +23,7 @@ import {
 import ReactMarkdown from 'react-markdown';
 import warningConstants from '../warningConstants';
 import { useSystemBulkSelect } from './hooks/useBulkSystemSelect';
+import { DownloadIcon } from '@patternfly/react-icons';
 
 const SystemsSelect = ({
   createTaskError,
@@ -70,9 +72,16 @@ const SystemsSelect = ({
           <ReactMarkdown>{description}</ReactMarkdown>
         </Text>
         <Text>
-          <a href={`${TASKS_API_ROOT}${AVAILABLE_TASKS_ROOT}/${slug}/playbook`}>
+          <Button
+            variant="link"
+            component="a"
+            href={`${TASKS_API_ROOT}${AVAILABLE_TASKS_ROOT}/${slug}/playbook`}
+            icon={<DownloadIcon />}
+            iconPosition="end"
+            isInline
+          >
             Download preview of playbook
-          </a>
+          </Button>
         </Text>
       </TextContent>
       <Form>

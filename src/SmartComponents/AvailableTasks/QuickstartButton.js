@@ -14,6 +14,13 @@ export const SLUG_TO_QUICKSTART = {
   'leapp-preupgrade': 'leapp-quickstart',
 };
 
+export const CENTOS_CONVERSION_SLUGS = [
+  'convert-to-rhel-preanalysis-stage',
+  'convert-to-rhel-preanalysis',
+  'convert-to-rhel-conversion-stage',
+  'convert-to-rhel-conversion',
+];
+
 export const QUICKSTART_TO_FEATURE_FLAG = {
   'pre-conversion-quickstart':
     'tasks-frontend_pre-conversion-quickstart-active',

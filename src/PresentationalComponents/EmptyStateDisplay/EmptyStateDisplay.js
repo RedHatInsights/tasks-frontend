@@ -17,11 +17,13 @@ export const EmptyStateDisplay = ({
   isSmall,
   text,
   title,
+  ouiaId,
 }) => {
   return (
     <EmptyState
       variant={isSmall ? EmptyStateVariant.sm : EmptyStateVariant.lg}
       aria-label={error ? 'error-empty-state' : 'empty-state'}
+      {...(ouiaId !== undefined ? { 'data-ouia-component-id': ouiaId } : {})}
     >
       {icon ? (
         <EmptyStateIcon
@@ -30,7 +32,6 @@ export const EmptyStateDisplay = ({
           className={isSmall ? 'small-empty-state-icon' : null}
         />
       ) : null}
-      <br></br>
       <EmptyStateHeader
         titleText={title}
         headingLevel={isSmall ? 'h5' : 'h1'}
@@ -59,6 +60,7 @@ EmptyStateDisplay.propTypes = {
   isSmall: PropTypes.bool,
   text: PropTypes.array,
   title: PropTypes.string,
+  ouiaId: PropTypes.string,
 };
 
 export default EmptyStateDisplay;

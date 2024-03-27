@@ -1,10 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 
 import SystemTable from '../SystemTable';
+import { InventoryTable } from '@redhat-cloud-services/frontend-components/Inventory';
 
 jest.mock('../hooks', () => {
   const systemsMock = [
@@ -37,22 +37,63 @@ jest.mock('../hooks', () => {
 
 describe('SystemTable', () => {
   let mockStore = configureStore();
-  let props;
 
   afterEach(() => {
     jest.clearAllMocks();
   });
 
   it('should render correctly', () => {
-    const store = mockStore(props);
     const { asFragment } = render(
-      <MemoryRouter keyLength={0}>
-        <Provider store={store}>
-          <SystemTable selectedIds={[]} />
-        </Provider>
-      </MemoryRouter>
+      <Provider store={mockStore()}>
+        <SystemTable selectedIds={[]} />
+      </Provider>
     );
 
     expect(asFragment()).toMatchSnapshot();
+  });
+
+  it('should replace empty state for conversion task', () => {
+    render(
+      <Provider store={mockStore()}>
+        <SystemTable selectedIds={[]} slug="convert-to-rhel-conversion" />
+      </Provider>
+    );
+
+    expect(InventoryTable).toHaveBeenCalledWith(
+      expect.objectContaining({
+        noSystemsTable: expect.anything(),
+      }),
+      expect.anything() // ref
+    );
+  });
+
+  it('should replace empty state for pre-conversion task', () => {
+    render(
+      <Provider store={mockStore()}>
+        <SystemTable selectedIds={[]} slug="convert-to-rhel-preanalysis" />
+      </Provider>
+    );
+
+    expect(InventoryTable).toHaveBeenCalledWith(
+      expect.objectContaining({
+        noSystemsTable: expect.anything(),
+      }),
+      expect.anything() // ref
+    );
+  });
+
+  it('should render default empty state for other tasks', () => {
+    render(
+      <Provider store={mockStore()}>
+        <SystemTable selectedIds={[]} slug="abc" />
+      </Provider>
+    );
+
+    expect(InventoryTable).toHaveBeenCalledWith(
+      expect.not.objectContaining({
+        noSystemsTable: expect.anything(),
+      }),
+      expect.anything() // ref
+    );
   });
 });

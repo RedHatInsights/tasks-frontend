@@ -1,4 +1,5 @@
 import {
+  Button,
   Card,
   CardBody,
   CardExpandableContent,
@@ -18,6 +19,7 @@ import {
 import RunTaskButton from '../../PresentationalComponents/RunTaskButton/RunTaskButton';
 import { QuickstartButton, SLUG_TO_QUICKSTART } from './QuickstartButton';
 import PropTypes from 'prop-types';
+import { DownloadIcon } from '@patternfly/react-icons';
 
 const scriptOrPlaybook = (slug) => {
   return slug.includes(CONVERSION_SLUG) ? 'script' : 'playbook';
@@ -46,11 +48,16 @@ const TaskCard = ({ task, openTaskModal }) => {
                 <ReactMarkdown>{task.description}</ReactMarkdown>
               </FlexItem>
               <FlexItem>
-                <a
+                <Button
+                  variant="link"
+                  component="a"
+                  isInline
+                  icon={<DownloadIcon />}
+                  iconPosition="end"
                   href={`${TASKS_API_ROOT}${AVAILABLE_TASKS_ROOT}/${task.slug}/playbook`}
                 >
                   {`Download preview of ${scriptOrPlaybook(task.slug)}`}
-                </a>
+                </Button>
               </FlexItem>
             </Flex>
           </CardBody>

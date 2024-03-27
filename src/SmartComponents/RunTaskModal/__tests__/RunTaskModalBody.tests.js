@@ -6,6 +6,8 @@ import fixtures from './__fixtures__/RunTaskModal.fixtures';
 
 import RunTaskModalBody from '../RunTaskModalBody';
 
+jest.mock('../../../Utilities/useFeatureFlag', () => () => true);
+
 describe('RunTaskModalBody', () => {
   let props;
   const store = init().getStore();
@@ -69,5 +71,47 @@ describe('RunTaskModalBody', () => {
     expect(screen.getByText('Add_Tags')).toBeInTheDocument();
     expect(screen.getByText('Remove_Tags')).toBeInTheDocument();
     expect(screen.getByText('blah')).toBeInTheDocument();
+  });
+
+  it('should render quickstart button for pre-conversion tasks', () => {
+    render(
+      <Provider store={store}>
+        <RunTaskModalBody {...props} slug="convert-to-rhel-preanalysis" />
+      </Provider>
+    );
+
+    expect(
+      screen.getByRole('button', {
+        name: /help me get started/i,
+      })
+    ).toBeVisible();
+  });
+
+  it('should render quickstart button for conversion tasks', () => {
+    render(
+      <Provider store={store}>
+        <RunTaskModalBody {...props} slug="convert-to-rhel-conversion" />
+      </Provider>
+    );
+
+    expect(
+      screen.getByRole('button', {
+        name: /help me get started/i,
+      })
+    ).toBeVisible();
+  });
+
+  it('should not render quickstart button for other tasks', () => {
+    render(
+      <Provider store={store}>
+        <RunTaskModalBody {...props} />
+      </Provider>
+    );
+
+    expect(
+      screen.queryByRole('button', {
+        name: /help me get started/i,
+      })
+    ).not.toBeInTheDocument();
   });
 });

@@ -115,6 +115,10 @@ const RunTaskModal = ({
       width={'70%'}
       actions={actions}
       position="top"
+      appendTo={() =>
+        // required to avoid overlaying quickstarts and other secondary panels
+        document.body.querySelector('#chrome-app-render-root') || document.body
+      }
     >
       <RunTaskModalBody
         areSystemsSelected={areSystemsSelected}

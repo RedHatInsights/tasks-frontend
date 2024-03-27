@@ -134,6 +134,10 @@ const DeleteCancelTaskModal = ({
       onClose={() => setModalOpened(false)}
       width={'50%'}
       actions={renderButtons()}
+      appendTo={() =>
+        // required to avoid overlaying quickstarts and other secondary panels
+        document.body.querySelector('#chrome-app-render-root') || document.body
+      }
     >
       {/*status === 'Completed'
         ? DELETE_TASK_BODY(startTime, title)

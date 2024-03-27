@@ -19,6 +19,8 @@ import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import { generateFilter } from '@redhat-cloud-services/frontend-components-utilities/helpers';
 import { conditionalFilterType } from '@redhat-cloud-services/frontend-components/ConditionalFilter';
 import usePromiseQueue from '../../Utilities/hooks/usePromiseQueue';
+import { NoCentOsEmptyState } from './NoCentOsEmptyState';
+import { CENTOS_CONVERSION_SLUGS } from '../AvailableTasks/QuickstartButton';
 
 const SystemTable = ({
   bulkSelectIds,
@@ -213,6 +215,9 @@ const SystemTable = ({
       showCentosVersions={true}
       filterConfig={{ items: [eligibilityFilter] }}
       activeFiltersConfig={activeFiltersConfig}
+      {...(CENTOS_CONVERSION_SLUGS.includes(slug)
+        ? { noSystemsTable: <NoCentOsEmptyState slug={slug} /> }
+        : {})}
     />
   );
 };

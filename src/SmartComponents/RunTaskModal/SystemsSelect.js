@@ -3,13 +3,15 @@ import propTypes from 'prop-types';
 import {
   Alert,
   Flex,
-  FlexItem,
   Form,
   FormGroup,
   FormHelperText,
   HelperText,
   HelperTextItem,
+  Text,
+  TextContent,
   TextInput,
+  Title,
 } from '@patternfly/react-core';
 import SystemTable from '../SystemTable/SystemTable';
 import {
@@ -58,53 +60,43 @@ const SystemsSelect = ({
   );
 
   return (
-    <React.Fragment>
-      <Flex>
-        <FlexItem>
-          <b>Task description</b>
-        </FlexItem>
-      </Flex>
-      <Flex style={{ paddingBottom: '8px' }}>
-        <FlexItem style={{ width: '100%' }}>
+    <Flex
+      direction={{ default: 'column' }}
+      spaceItems={{ default: 'spaceItemsLg' }}
+    >
+      <TextContent>
+        <Text component="h4">Task description</Text>
+        <Text>
           <ReactMarkdown>{description}</ReactMarkdown>
-        </FlexItem>
-      </Flex>
-      <Flex>
-        <FlexItem>
+        </Text>
+        <Text>
           <a href={`${TASKS_API_ROOT}${AVAILABLE_TASKS_ROOT}/${slug}/playbook`}>
             Download preview of playbook
           </a>
-        </FlexItem>
-      </Flex>
-      <br />
-      <div>
-        <Form>
-          <FormGroup label="Task name" isRequired type="text" fieldId="name">
-            <TextInput
-              value={taskName}
-              type="text"
-              onChange={handleSetTaskName}
-              aria-label="Edit task name text field"
-            />
-            <FormHelperText>
-              <HelperText>
-                <HelperTextItem variant={validated}>
-                  {helperText}
-                </HelperTextItem>
-              </HelperText>
-            </FormHelperText>
-          </FormGroup>
-        </Form>
+        </Text>
+      </TextContent>
+      <Form>
+        <FormGroup label="Task name" isRequired type="text" fieldId="name">
+          <TextInput
+            value={taskName}
+            type="text"
+            onChange={handleSetTaskName}
+            aria-label="Edit task name text field"
+          />
+          <FormHelperText>
+            <HelperText>
+              <HelperTextItem variant={validated}>{helperText}</HelperTextItem>
+            </HelperText>
+          </FormHelperText>
+        </FormGroup>
+      </Form>
+      <div id="task-warnings-and-alerts" aria-label="Task warnings and alerts">
+        {warningConstants[warningConstantMapper]}
+        <Alert variant="info" isInline title="Only eligible systems are shown">
+          {filterMessage || INFO_ALERT_SYSTEMS}
+        </Alert>
       </div>
-      <br />
-      <div style={{ paddingBottom: '8px' }}>
-        <b>Systems to run tasks on</b>
-      </div>
-      {warningConstants[warningConstantMapper]}
-      <Alert variant="info" isInline title="Only eligible systems are shown">
-        {filterMessage || INFO_ALERT_SYSTEMS}
-      </Alert>
-
+      <Title headingLevel="h4">Systems to run tasks on</Title>
       <SystemTable
         bulkSelectIds={bulkSelectIds}
         selectedIds={selectedIds}
@@ -112,7 +104,7 @@ const SystemsSelect = ({
         setFilterSortString={setFilterSortString}
         slug={slug}
       />
-    </React.Fragment>
+    </Flex>
   );
 };
 

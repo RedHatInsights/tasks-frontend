@@ -24,6 +24,10 @@ import ReactMarkdown from 'react-markdown';
 import warningConstants from '../warningConstants';
 import { useSystemBulkSelect } from './hooks/useBulkSystemSelect';
 import { DownloadIcon } from '@patternfly/react-icons';
+import {
+  QuickstartButton,
+  SLUG_TO_QUICKSTART,
+} from '../AvailableTasks/QuickstartButton';
 
 const SystemsSelect = ({
   createTaskError,
@@ -82,6 +86,9 @@ const SystemsSelect = ({
           >
             Download preview of playbook
           </Button>
+          {Object.keys(SLUG_TO_QUICKSTART).includes(slug) && (
+            <QuickstartButton slug={slug} />
+          )}
         </Text>
       </TextContent>
       <Form>

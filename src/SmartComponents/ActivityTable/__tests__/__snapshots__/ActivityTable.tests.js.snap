@@ -418,15 +418,7 @@ exports[`ActivityTable should render correctly 1`] = `
             data-key="2"
             data-label="Status"
             tabindex="-1"
-          >
-            <div
-              class="pf-v5-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-            >
-              <span
-                class="pf-v5-screen-reader"
-              />
-            </div>
-          </td>
+          />
           <td
             class="pf-v5-c-table__td pf-m-width-20"
             data-key="3"
@@ -512,15 +504,7 @@ exports[`ActivityTable should render correctly 1`] = `
             data-key="2"
             data-label="Status"
             tabindex="-1"
-          >
-            <div
-              class="pf-v5-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-            >
-              <span
-                class="pf-v5-screen-reader"
-              />
-            </div>
-          </td>
+          />
           <td
             class="pf-v5-c-table__td pf-m-width-20"
             data-key="3"
@@ -606,15 +590,7 @@ exports[`ActivityTable should render correctly 1`] = `
             data-key="2"
             data-label="Status"
             tabindex="-1"
-          >
-            <div
-              class="pf-v5-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-            >
-              <span
-                class="pf-v5-screen-reader"
-              />
-            </div>
-          </td>
+          />
           <td
             class="pf-v5-c-table__td pf-m-width-20"
             data-key="3"
@@ -700,15 +676,7 @@ exports[`ActivityTable should render correctly 1`] = `
             data-key="2"
             data-label="Status"
             tabindex="-1"
-          >
-            <div
-              class="pf-v5-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-            >
-              <span
-                class="pf-v5-screen-reader"
-              />
-            </div>
-          </td>
+          />
           <td
             class="pf-v5-c-table__td pf-m-width-20"
             data-key="3"
@@ -794,15 +762,7 @@ exports[`ActivityTable should render correctly 1`] = `
             data-key="2"
             data-label="Status"
             tabindex="-1"
-          >
-            <div
-              class="pf-v5-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-            >
-              <span
-                class="pf-v5-screen-reader"
-              />
-            </div>
-          </td>
+          />
           <td
             class="pf-v5-c-table__td pf-m-width-20"
             data-key="3"

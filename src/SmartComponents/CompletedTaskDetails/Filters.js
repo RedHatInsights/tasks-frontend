@@ -6,24 +6,26 @@ export const systemFilter = [
     label: 'Name',
     filter: (jobs, value) =>
       jobs.filter((job) =>
-        job.display_name
+        typeof job.display_name === 'string'
           ? job.display_name.toLowerCase().includes(value.toLowerCase())
           : null
       ),
   },
 ];
 
-export const statusFilters = [
-  {
-    type: conditionalFilterType.checkbox,
-    label: 'Status',
-    filter: (jobs, value) =>
-      jobs.filter((job) => value.includes(job.status.toLowerCase())),
-    items: [
-      { label: 'Running', value: 'running' },
-      { label: 'Success', value: 'success' },
-      { label: 'Failure', value: 'failure' },
-      { label: 'Timeout', value: 'timeout' },
-    ],
-  },
-];
+export const buildStatusFilter = (isConversionTask) => {
+  return [
+    {
+      type: conditionalFilterType.checkbox,
+      label: 'Status',
+      filter: (jobs, value) =>
+        jobs.filter((job) => value.includes(job.status.toLowerCase())),
+      items: [
+        { label: 'Running', value: 'running' },
+        { label: isConversionTask ? 'Completed' : 'Success', value: 'success' },
+        { label: 'Failure', value: 'failure' },
+        { label: 'Timeout', value: 'timeout' },
+      ],
+    },
+  ];
+};

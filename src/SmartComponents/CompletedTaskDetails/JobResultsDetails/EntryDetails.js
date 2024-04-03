@@ -22,6 +22,9 @@ const EntryDetails = ({ entry, taskConstantMapper }) => {
   };
 
   const renderResolutionDetails = (content, type, classname) => {
+    if (!Array.isArray(content)) {
+      content = [content];
+    }
     return content.map((item, index) => {
       let key = `${type}-${index}`;
       return (

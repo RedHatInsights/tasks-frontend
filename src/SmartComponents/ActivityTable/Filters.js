@@ -6,7 +6,9 @@ export const nameFilter = [
     label: 'Task',
     filter: (tasks, value) =>
       tasks.filter((task) =>
-        task.name.toLowerCase().includes(value.toLowerCase())
+        typeof task.name === 'string'
+          ? task.name.toLowerCase().includes(value.toLowerCase())
+          : null
       ),
   },
 ];

@@ -35,6 +35,13 @@ export const StatusColumn = {
   renderExport: (job) => job.status,
 };
 
+export const ConversionStatusColumn = {
+  ...StatusColumn,
+  renderExport: (job) => (job.status === 'Success' ? 'Completed' : job.status),
+  renderFunc: (_, _empty, job) =>
+    job.status === 'Success' ? 'Completed' : job.status,
+};
+
 export const MessageColumn = {
   title: 'Message',
   props: {
@@ -55,6 +62,10 @@ export const MessageColumn = {
 };
 
 export const exportableColumns = [SystemColumn, StatusColumn, MessageColumn];
-export const conversionColumns = [SystemColumn, MessageColumn];
+export const conversionColumns = [
+  SystemColumn,
+  ConversionStatusColumn,
+  MessageColumn,
+];
 
 export default [SystemColumn, StatusColumn, MessageColumn];

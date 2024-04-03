@@ -114,7 +114,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                       </div>
                     </div>
                     <div
-                      class="pf-v5-l-flex"
+                      class="pf-v5-l-flex pf-m-align-right"
                     >
                       <div
                         class=""
@@ -133,7 +133,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                       </div>
                     </div>
                     <div
-                      class="pf-v5-l-flex"
+                      class="pf-v5-l-flex pf-m-align-right"
                     >
                       <div
                         class=""
@@ -2743,7 +2743,7 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
                       </div>
                     </div>
                     <div
-                      class="pf-v5-l-flex"
+                      class="pf-v5-l-flex pf-m-align-right"
                     >
                       <div
                         class=""
@@ -2762,7 +2762,7 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
                       </div>
                     </div>
                     <div
-                      class="pf-v5-l-flex"
+                      class="pf-v5-l-flex pf-m-align-right"
                     >
                       <div
                         class=""
@@ -4000,7 +4000,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                       </div>
                     </div>
                     <div
-                      class="pf-v5-l-flex"
+                      class="pf-v5-l-flex pf-m-align-right"
                     >
                       <div
                         class=""
@@ -4019,7 +4019,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                       </div>
                     </div>
                     <div
-                      class="pf-v5-l-flex"
+                      class="pf-v5-l-flex pf-m-align-right"
                     >
                       <div
                         class=""

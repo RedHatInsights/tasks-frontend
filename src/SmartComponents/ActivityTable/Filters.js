@@ -18,8 +18,10 @@ export const statusFilter = [
     filter: (tasks, value) =>
       tasks.filter((task) => value.includes(task.status.toLowerCase())),
     items: [
-      { label: 'Completed', value: 'completed' },
       { label: 'Running', value: 'running' },
+      { label: 'Completed', value: 'completed' },
+      { label: 'Completed with errors', value: 'completed with errors' },
+      { label: 'Failure', value: 'failure' },
     ],
   },
 ];

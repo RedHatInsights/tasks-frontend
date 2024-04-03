@@ -53,10 +53,12 @@ export const fetchTaskJobs = async (taskDetails, setError) => {
   } else {
     taskDetails.alerts_count =
       taskJobs.data.filter((item) => {
-        if (item.status === 'Timeout' || item.status === 'Failure') {
+        if (
+          item.status === 'Timeout' ||
+          item.status === 'Failure' ||
+          item.results.alert === 'true'
+        ) {
           return item;
-        } else {
-          return item.results.alert;
         }
       }).length || '-';
     taskDetails.system_count = taskJobs.data.length;

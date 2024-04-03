@@ -46,7 +46,7 @@ export const MessageColumn = {
     <SplitMessages
       content={job.results.message}
       alert={
-        job.results.alert ||
+        job.results.alert === 'true' ||
         job.status === 'Failure' ||
         job.status === 'Timeout'
       }

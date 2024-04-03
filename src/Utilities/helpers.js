@@ -5,10 +5,6 @@ import {
   SkeletonSize,
 } from '@redhat-cloud-services/frontend-components/Skeleton';
 
-const renderRunning = (status) => {
-  return status === 'Completed' ? false : '-';
-};
-
 export const renderRunDateTime = (time) => {
   if (time === 'loading') {
     return <Skeleton size={SkeletonSize.md} />;
@@ -21,16 +17,15 @@ export const getTimeDiff = ([start, end, status]) => {
   if (start === 'loading') {
     return <Skeleton size={SkeletonSize.md} />;
   } else {
-    return (
-      renderRunning(status) ||
-      `${renderRunDateTime(end)} (${moment
-        .duration(
-          moment(renderRunDateTime(end), 'DD MMM YYYY, HH:mm').diff(
-            moment(renderRunDateTime(start), 'DD MMM YYYY HH:mm')
+    return status === 'Running' || !end
+      ? '-'
+      : `${renderRunDateTime(end)} (${moment
+          .duration(
+            moment(renderRunDateTime(end), 'DD MMM YYYY, HH:mm').diff(
+              moment(renderRunDateTime(start), 'DD MMM YYYY HH:mm')
+            )
           )
-        )
-        .asMinutes()} min)`
-    );
+          .asMinutes()} min)`;
   }
 };
 

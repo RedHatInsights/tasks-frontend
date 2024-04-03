@@ -1,3 +1,4 @@
+import './CompletedTaskDetails.scss';
 import React, { useState, useEffect, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import TasksTables from '../../Utilities/hooks/useTableTools/Components/TasksTables';
@@ -18,7 +19,7 @@ import {
 } from '@patternfly/react-core';
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
 import columns, { conversionColumns, exportableColumns } from './Columns';
-import { statusFilters, systemFilter } from './Filters';
+import { buildStatusFilter, systemFilter } from './Filters';
 import {
   COMPLETED_INFO_PANEL,
   COMPLETED_INFO_PANEL_FLEX_PROPS,
@@ -159,23 +160,17 @@ const CompletedTaskDetails = () => {
   );
 
   const isConversionTask = () => {
-    if (
+    return (
       completedTaskDetails.task_slug ===
         `${CONVERSION_SLUG}-conversion-stage` ||
       completedTaskDetails.task_slug === `${CONVERSION_SLUG}-conversion`
-    ) {
-      return true;
-    } else {
-      return false;
-    }
+    );
   };
 
   const buildFilterConfig = () => {
-    if (isConversionTask()) {
-      return { filterConfig: [...systemFilter] };
-    } else {
-      return { filterConfig: [...systemFilter, ...statusFilters] };
-    }
+    return {
+      filterConfig: [...systemFilter, ...buildStatusFilter(isConversionTask())],
+    };
   };
 
   return (
@@ -242,11 +237,14 @@ const CompletedTaskDetails = () => {
               >
                 <FlexItem>
                   <PageHeaderTitle title={completedTaskDetails.name} />
-                  <TextContent>
-                    <Text component={TextVariants.small}>
-                      {completedTaskDetails.task_title}
-                    </Text>
-                  </TextContent>
+                  {completedTaskDetails.name !==
+                    completedTaskDetails.task_title && (
+                    <TextContent>
+                      <Text component={TextVariants.small}>
+                        {completedTaskDetails.task_title}
+                      </Text>
+                    </TextContent>
+                  )}
                 </FlexItem>
                 <FlexItem>
                   <ReactMarkdown>

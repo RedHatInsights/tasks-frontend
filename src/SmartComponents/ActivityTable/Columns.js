@@ -49,13 +49,14 @@ const getStatusProps = (task) => {
       };
     case TASK_STATUS.COMPLETED:
       return {
+        alertSeverity: 'success',
         badgeColor: '#3E8635',
         iconStatus: 'success',
         IconType: CheckCircleIcon,
-        popoverBodyText: '',
       };
     case TASK_STATUS.COMPLETED_WITH_ERRORS:
       return {
+        alertSeverity: 'danger',
         badgeColor: '#a30000',
         iconStatus: 'danger',
         IconType: ExclamationCircleIcon,
@@ -68,6 +69,7 @@ const getStatusProps = (task) => {
       };
     case TASK_STATUS.FAILURE:
       return {
+        alertSeverity: 'danger',
         badgeColor: '#a30000',
         iconStatus: 'danger',
         IconType: ExclamationCircleIcon,
@@ -76,6 +78,7 @@ const getStatusProps = (task) => {
       };
     case TASK_STATUS.CANCELLED:
       return {
+        alertSeverity: 'danger',
         badgeColor: '#a30000',
         iconStatus: 'danger',
         IconType: ExclamationCircleIcon,
@@ -90,7 +93,7 @@ const formatPopoverBodyContent = (popoverBodyText) => {
   }
 
   let gridItems = [];
-  popoverBodyText.forEach((item) => {
+  popoverBodyText?.forEach((item) => {
     const [count, status] = item.split(' ');
     if (+count === 0) return; // don't display item when its count === 0
     const gridItem = (
@@ -105,6 +108,7 @@ const formatPopoverBodyContent = (popoverBodyText) => {
     );
     gridItems.push(gridItem);
   });
+
   return (
     <Grid hasGutter style={{ columnGap: '1rem', rowGap: '0' }}>
       {gridItems}
@@ -112,7 +116,7 @@ const formatPopoverBodyContent = (popoverBodyText) => {
   );
 };
 
-const StatusCell = (task) => {
+const StatusPopover = ({ task }) => {
   if (typeof task.status !== 'string') {
     return;
   }
@@ -123,7 +127,7 @@ const StatusCell = (task) => {
     marginRight: '4px',
   };
 
-  const { badgeColor, iconStatus, IconType, popoverBodyText } =
+  const { alertSeverity, badgeColor, iconStatus, IconType, popoverBodyText } =
     getStatusProps(task);
 
   const icon = (
@@ -139,12 +143,6 @@ const StatusCell = (task) => {
       {task.status}
     </span>
   );
-  const popoverHeaderContent =
-    task.status === 'Running' ? (
-      <span style={{ color: 'black' }}>Task Running</span>
-    ) : (
-      statusContent
-    );
 
   const popoverBodyContent = (
     <div style={{ fontSize: 'medium', color: 'black' }}>
@@ -158,8 +156,12 @@ const StatusCell = (task) => {
         {popoverBodyText ? (
           <DescriptionListTermHelpText>
             <Popover
-              headerContent={popoverHeaderContent}
+              alertSeverityVariant={alertSeverity}
+              headerContent={
+                task.status === 'Running' ? 'Task running' : task.status
+              }
               bodyContent={popoverBodyContent}
+              headerIcon={task.status === 'Running' ? null : <IconType />}
             >
               <DescriptionListTermHelpTextButton>
                 {statusContent}
@@ -174,8 +176,16 @@ const StatusCell = (task) => {
   );
 };
 
-StatusCell.propTypes = {
+StatusPopover.propTypes = {
   task: propTypes.object,
+};
+
+const StatusCell = (task) => {
+  return typeof task?.status === 'string' ? (
+    <StatusPopover task={task} />
+  ) : (
+    <div>{task.status}</div>
+  );
 };
 
 export const TaskColumn = {

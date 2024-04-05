@@ -30,6 +30,8 @@ import {
   LOADING_JOBS_TABLE,
   TASK_ERROR,
   TASKS_TABLE_DEFAULTS,
+  EMPTY_EXECUTED_TASK_JOBS_TITLE,
+  EMPTY_EXECUTED_TASK_JOBS_MESSAGE,
 } from '../../constants';
 import FlexibleFlex from '../../PresentationalComponents/FlexibleFlex/FlexibleFlex';
 import EmptyStateDisplay from '../../PresentationalComponents/EmptyStateDisplay/EmptyStateDisplay';
@@ -96,9 +98,9 @@ const CompletedTaskDetails = () => {
         } else {
           setIsRunning(false);
         }
-        await setCompletedTaskDetails(fetchedTaskDetails);
-        await setCompletedTaskJobs(fetchedTaskJobs);
       }
+      await setCompletedTaskDetails(fetchedTaskDetails);
+      await setCompletedTaskJobs(fetchedTaskJobs);
     }
     setTableLoading(false);
   };
@@ -284,38 +286,47 @@ const CompletedTaskDetails = () => {
             <br />
             <Card>
               {!isLoading && hasAccess ? (
-                <TasksTables
-                  label={`${completedTaskDetails.id}-completed-jobs`}
-                  ouiaId={`${completedTaskDetails.id}-completed-jobs-table`}
-                  columns={isConversionTask() ? conversionColumns : columns}
-                  items={completedTaskJobs}
-                  filters={buildFilterConfig()}
-                  options={{
-                    ...TASKS_TABLE_DEFAULTS,
-                    exportable: {
-                      ...TASKS_TABLE_DEFAULTS.exportable,
-                      columns: isConversionTask()
-                        ? conversionColumns
-                        : exportableColumns,
-                    },
-                    detailsComponent: completedTaskJobs.some((job) =>
-                      hasDetails(job)
-                    )
-                      ? JobResultsRow
-                      : undefined,
-                    actionResolver,
-                  }}
-                  emptyRows={emptyRows('jobs')}
-                  isStickyHeader
-                  isTableLoading={tableLoading}
-                  footerContent={
-                    <RefreshFooterContent
-                      date={lastUpdated}
-                      isRunning={isRunning}
-                      type="jobs"
-                    />
-                  }
-                />
+                completedTaskJobs?.length === 0 ? (
+                  <EmptyStateDisplay
+                    icon={ExclamationCircleIcon}
+                    color="#a30000"
+                    title={EMPTY_EXECUTED_TASK_JOBS_TITLE}
+                    text={EMPTY_EXECUTED_TASK_JOBS_MESSAGE}
+                  />
+                ) : (
+                  <TasksTables
+                    label={`${completedTaskDetails.id}-completed-jobs`}
+                    ouiaId={`${completedTaskDetails.id}-completed-jobs-table`}
+                    columns={isConversionTask() ? conversionColumns : columns}
+                    items={completedTaskJobs}
+                    filters={buildFilterConfig()}
+                    options={{
+                      ...TASKS_TABLE_DEFAULTS,
+                      exportable: {
+                        ...TASKS_TABLE_DEFAULTS.exportable,
+                        columns: isConversionTask()
+                          ? conversionColumns
+                          : exportableColumns,
+                      },
+                      detailsComponent: completedTaskJobs.some((job) =>
+                        hasDetails(job)
+                      )
+                        ? JobResultsRow
+                        : undefined,
+                      actionResolver,
+                    }}
+                    emptyRows={emptyRows('jobs')}
+                    isStickyHeader
+                    isTableLoading={tableLoading}
+                    footerContent={
+                      <RefreshFooterContent
+                        date={lastUpdated}
+                        isRunning={isRunning}
+                        type="jobs"
+                      />
+                    }
+                  />
+                )
               ) : (
                 <NotAuthorized serviceName="Inventory" />
               )}

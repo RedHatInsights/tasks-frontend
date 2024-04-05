@@ -60,6 +60,13 @@ export const EMPTY_COMPLETED_TASKS_MESSAGE = [
   '',
   'To use a task, navigate to the "Available tasks" tab and choose a task to run.',
 ];
+export const EMPTY_EXECUTED_TASK_JOBS_TITLE =
+  'No Jobs were created for this task';
+export const EMPTY_EXECUTED_TASK_JOBS_MESSAGE = [
+  'No jobs could run on the selected systems because they are no longer connected.',
+  '',
+  'Ensure the systems are connected and try the task again. If the problem persists, please contact Red Hat Support.',
+];
 export const INFO_ALERT_SYSTEMS =
   'Eligible systems include systems connected to console.redhat.com with rhc, or Satellite with Cloud Connector.';
 

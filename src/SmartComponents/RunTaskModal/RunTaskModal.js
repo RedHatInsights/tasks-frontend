@@ -112,9 +112,8 @@ const RunTaskModal = ({
       title={title || 'Error'}
       isOpen={isOpen}
       onClose={() => setModalOpened(false)}
-      width={'70%'}
+      variant={error ? 'small' : 'large'}
       actions={actions}
-      position="top"
       appendTo={() =>
         // required to avoid overlaying quickstarts and other secondary panels
         document.body.querySelector('#chrome-app-render-root') || document.body

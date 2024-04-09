@@ -1,11 +1,12 @@
 import React, { Suspense, lazy, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { Bullseye, Spinner } from '@patternfly/react-core';
 import WithPermission from './PresentationalComponents/WithPermission/WithPermission';
 import axios from 'axios';
 import AsynComponent from '@redhat-cloud-services/frontend-components/AsyncComponent';
 import ErrorState from '@redhat-cloud-services/frontend-components/ErrorState';
+import RunTaskModalRoute from './SmartComponents/RunTaskModal/RunTaskModalRoute';
 
 const PermissionRouter = (route) => {
   const { component: Component, props = {}, requiredPermissions } = route;
@@ -39,36 +40,6 @@ const CompletedTaskDetails = lazy(() =>
   )
 );
 
-const routes = [
-  {
-    path: '/executed/:id',
-    isExact: true,
-    requiredPermissions: ['tasks:*:*'],
-    component: CompletedTaskDetails,
-  },
-  {
-    path: '/available',
-    isExact: true,
-    requiredPermissions: ['tasks:*:*'],
-    component: TasksPage,
-    props: { tab: 0 },
-  },
-  {
-    path: '/executed',
-    isExact: true,
-    requiredPermissions: ['tasks:*:*'],
-    component: TasksPage,
-    props: { tab: 1 },
-  },
-  {
-    path: '/',
-    isExact: true,
-    requiredPermissions: ['tasks:*:*'],
-    component: TasksPage,
-    props: { tab: 0 },
-  },
-];
-
 const INVENTORY_TOTAL_FETCH_URL = '/api/inventory/v1/hosts';
 
 /**
@@ -81,6 +52,7 @@ const INVENTORY_TOTAL_FETCH_URL = '/api/inventory/v1/hosts';
  */
 const TasksRoutes = () => {
   const [hasSystems, setHasSystems] = useState(true);
+
   useEffect(() => {
     try {
       axios
@@ -111,14 +83,41 @@ const TasksRoutes = () => {
         />
       ) : (
         <Routes>
-          {routes.map((route) => (
+          <Route
+            path="/available"
+            element={
+              <PermissionRouter
+                requiredPermissions={['tasks:*:*']}
+                component={TasksPage}
+                props={{ tab: 0 }}
+              />
+            }
+          >
             <Route
-              key={route.path}
-              path={route.path}
-              element={<PermissionRouter {...route} />}
+              path=":slug"
+              element={<RunTaskModalRoute selectedSystems={[]} />}
             />
-          ))}
-          <Route path="*" element={<Navigate to="/" />} />
+          </Route>
+          <Route
+            path="/executed"
+            element={
+              <PermissionRouter
+                requiredPermissions={['tasks:*:*']}
+                component={TasksPage}
+                props={{ tab: 1 }}
+              />
+            }
+          />
+          <Route
+            path="/executed/:id"
+            element={
+              <PermissionRouter
+                requiredPermissions={['tasks:*:*']}
+                component={CompletedTaskDetails}
+              />
+            }
+          />
+          <Route path="*" element={<Navigate to="available" />} />
         </Routes>
       )}
     </Suspense>

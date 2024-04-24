@@ -66,7 +66,7 @@ const AvailableTasks = ({ openTaskModal }) => {
   }, []);
 
   useEffect(() => {
-    chrome.updateDocumentTitle('Tasks | Red Hat Insights');
+    chrome.updateDocumentTitle('Tasks - Automation | RHEL');
   }, [chrome]);
 
   return (

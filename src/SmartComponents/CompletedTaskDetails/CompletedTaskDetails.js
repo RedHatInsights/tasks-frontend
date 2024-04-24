@@ -117,9 +117,7 @@ const CompletedTaskDetails = () => {
 
   useEffect(() => {
     completedTaskDetails &&
-      chrome.updateDocumentTitle(
-        `${completedTaskDetails.name} - Tasks | Red Hat Insights`
-      );
+      chrome.updateDocumentTitle(`${completedTaskDetails.name} - Tasks | RHEL`);
   }, [chrome, completedTaskDetails]);
 
   useEffect(() => {

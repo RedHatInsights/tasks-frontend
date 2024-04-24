@@ -6,12 +6,12 @@ import { ArrowRightIcon } from '@patternfly/react-icons';
 import propTypes from 'prop-types';
 
 export const SLUG_TO_QUICKSTART = {
-  'convert-to-rhel-preanalysis-stage': 'pre-conversion-quickstart',
-  'convert-to-rhel-preanalysis': 'pre-conversion-quickstart',
-  'convert-to-rhel-conversion-stage': 'conversion-quickstart',
-  'convert-to-rhel-conversion': 'conversion-quickstart',
-  'leapp-preupgrade-stage': 'leapp-quickstart',
-  'leapp-preupgrade': 'leapp-quickstart',
+  'convert-to-rhel-preanalysis-stage': 'insights-tasks-pre-conversion',
+  'convert-to-rhel-preanalysis': 'insights-tasks-pre-conversion',
+  'convert-to-rhel-conversion-stage': 'insights-tasks-conversion',
+  'convert-to-rhel-conversion': 'insights-tasks-conversion',
+  'leapp-preupgrade-stage': 'insights-tasks-upgrade8to9',
+  'leapp-preupgrade': 'insights-tasks-upgrade8to9',
 };
 
 export const CENTOS_CONVERSION_SLUGS = [
@@ -22,10 +22,10 @@ export const CENTOS_CONVERSION_SLUGS = [
 ];
 
 export const QUICKSTART_TO_FEATURE_FLAG = {
-  'pre-conversion-quickstart':
+  'insights-tasks-pre-conversion':
     'tasks-frontend_pre-conversion-quickstart-active',
-  'conversion-quickstart': 'tasks-frontend_conversion-quickstart-active',
-  'leapp-quickstart': 'tasks-frontend_leapp-quickstart-active',
+  'insights-tasks-conversion': 'tasks-frontend_conversion-quickstart-active',
+  'insights-tasks-upgrade8to9': 'tasks-frontend_leapp-quickstart-active',
 };
 
 const QuickstartButton = ({ slug }) => {

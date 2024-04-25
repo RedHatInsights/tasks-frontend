@@ -12,11 +12,13 @@ import FlexibleFlex from '../../PresentationalComponents/FlexibleFlex/FlexibleFl
 import AvailableTasks from '../AvailableTasks/AvailableTasks';
 import ActivityTable from '../../SmartComponents/ActivityTable/ActivityTable';
 import { useNavigate, Outlet } from 'react-router-dom';
+import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 
 import './tasks-page.scss';
 
 const TasksPage = ({ tab }) => {
   const [tabIndex, setTab] = useState(tab);
+  const chrome = useChrome();
 
   useEffect(() => {
     setTab(tab);
@@ -30,6 +32,10 @@ const TasksPage = ({ tab }) => {
   const openTaskModal = (value, slug) => {
     navigate(`./${slug}`); // task modal is declared in Routes.js
   };
+
+  useEffect(() => {
+    chrome.updateDocumentTitle('Tasks - Automation | RHEL', true);
+  }, [chrome]);
 
   return (
     <React.Fragment>

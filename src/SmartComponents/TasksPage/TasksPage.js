@@ -34,7 +34,7 @@ const TasksPage = ({ tab }) => {
   };
 
   useEffect(() => {
-    chrome.updateDocumentTitle('Tasks - Automation | RHEL', true);
+    chrome.updateDocumentTitle('Tasks - Automation');
   }, [chrome]);
 
   return (

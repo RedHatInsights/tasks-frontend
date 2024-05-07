@@ -118,8 +118,7 @@ const CompletedTaskDetails = () => {
   useEffect(() => {
     completedTaskDetails &&
       chrome.updateDocumentTitle(
-        `${completedTaskDetails.name} - Tasks - Automation | RHEL`,
-        true
+        `${completedTaskDetails.name} - Tasks - Automation`
       );
   }, [chrome, completedTaskDetails]);
 

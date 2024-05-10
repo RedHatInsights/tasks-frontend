@@ -21,7 +21,7 @@ const RunTaskModal = ({
   filterMessage = '',
 }) => {
   const [selectedIds, setSelectedIds] = useState(selectedSystems);
-  const [taskName, setTaskName] = useState(name);
+  const [taskName, setTaskName] = useState(name ?? title);
   const [executeTaskResult, setExecuteTaskResult] = useState();
   const [createTaskError, setCreateTaskError] = useState({});
   const [areSystemsSelected, setAreSystemsSelected] = useState(false);
@@ -36,14 +36,6 @@ const RunTaskModal = ({
   useEffect(() => {
     setSelectedIds(selectedSystems);
   }, [selectedSystems]);
-
-  useEffect(() => {
-    if (name) {
-      setTaskName(name);
-    } else {
-      setTaskName(title);
-    }
-  }, [title, name]);
 
   useEffect(() => {
     if (parameters) {
@@ -90,7 +82,6 @@ const RunTaskModal = ({
 
   const cancelModal = () => {
     setSelectedIds([]);
-    setTaskName(name || title);
     setModalOpened(false);
   };
 

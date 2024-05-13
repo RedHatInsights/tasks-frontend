@@ -71,7 +71,7 @@ describe('RunTaskModal', () => {
 
     expect(
       screen.getByRole('button', {
-        name: /taska\-submit\-task\-button/i,
+        name: /taska-submit-task-button/i,
       })
     ).toBeDisabled();
   });
@@ -95,7 +95,7 @@ describe('RunTaskModal', () => {
     await userEvent.type(input, 'Task A');
     expect(
       screen.getByRole('button', {
-        name: /taska\-submit\-task\-button/i,
+        name: /taska-submit-task-button/i,
       })
     ).toBeDisabled();
 
@@ -107,7 +107,7 @@ describe('RunTaskModal', () => {
     );
     expect(
       screen.getByRole('button', {
-        name: /taska\-submit\-task\-button/i,
+        name: /taska-submit-task-button/i,
       })
     ).toBeEnabled();
   });

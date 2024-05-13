@@ -57,33 +57,85 @@ describe('RunTaskModal', () => {
     };
   });
 
-  it.skip('should render execute button disabled with no name or systems selected', async () => {
+  it('should render run task button first disabled', () => {
     fetchSystems.mockImplementation(async () => {
       return {
         response: systemsMock,
       };
     });
-
     render(
       <Provider store={store}>
         <RunTaskModal {...props} />
       </Provider>
     );
 
-    const executeButton = screen.getByLabelText('taska-submit-task-button');
-    expect(executeButton).toBeDisabled();
+    expect(
+      screen.getByRole('button', {
+        name: /taska\-submit\-task\-button/i,
+      })
+    ).toBeDisabled();
+  });
+
+  it('should enable run task button', async () => {
+    fetchSystems.mockImplementation(async () => {
+      return {
+        response: systemsMock,
+      };
+    });
+    const { rerender } = render(
+      <Provider store={store}>
+        <RunTaskModal {...props} />
+      </Provider>
+    );
 
     // add name, button should still be disabled
-    const input = screen.getByLabelText('task name');
-    await waitFor(() =>
-      fireEvent.change(input, { target: { value: 'Task A' } })
-    );
-    expect(executeButton).toBeDisabled();
+    const input = screen.getByRole('textbox', {
+      name: /edit task name text field/i,
+    });
+    await userEvent.type(input, 'Task A');
+    expect(
+      screen.getByRole('button', {
+        name: /taska\-submit\-task\-button/i,
+      })
+    ).toBeDisabled();
 
     // add selected Systems, button should be enabled
-    const checkbox = screen.getByLabelText('Select row 0');
-    await waitFor(() => userEvent.click(checkbox));
-    expect(executeButton).toBeEnabled();
+    rerender(
+      <Provider store={store}>
+        <RunTaskModal {...props} selectedSystems={['123']} />
+      </Provider>
+    );
+    expect(
+      screen.getByRole('button', {
+        name: /taska\-submit\-task\-button/i,
+      })
+    ).toBeEnabled();
+  });
+
+  it('should disable task on empty task name', async () => {
+    fetchSystems.mockImplementation(async () => {
+      return {
+        response: systemsMock,
+      };
+    });
+    render(
+      <Provider store={store}>
+        <RunTaskModal {...props} />
+      </Provider>
+    );
+
+    await userEvent.type(
+      screen.getByRole('textbox', {
+        name: /edit task name text field/i,
+      }),
+      ''
+    );
+    screen.getByText(/task name cannot be empty/i);
+    expect(
+      screen.getByRole('textbox', {
+        name: /edit task name text field/i,
+      })
+    ).toBeInvalid();
   });
 
   it('should close modal with "X" button', async () => {

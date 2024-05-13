@@ -23,7 +23,7 @@ import {
 import ReactMarkdown from 'react-markdown';
 import warningConstants from '../warningConstants';
 import { useSystemBulkSelect } from './hooks/useBulkSystemSelect';
-import { DownloadIcon } from '@patternfly/react-icons';
+import { DownloadIcon, ExclamationCircleIcon } from '@patternfly/react-icons';
 import {
   QuickstartButton,
   SLUG_TO_QUICKSTART,
@@ -112,7 +112,14 @@ const SystemsSelect = ({
           />
           <FormHelperText>
             <HelperText>
-              <HelperTextItem variant={validated}>{helperText}</HelperTextItem>
+              <HelperTextItem
+                variant={validated}
+                {...(validated === 'error' && {
+                  icon: <ExclamationCircleIcon />,
+                })}
+              >
+                {helperText}
+              </HelperTextItem>
             </HelperText>
           </FormHelperText>
         </FormGroup>

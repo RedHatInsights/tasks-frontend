@@ -58,6 +58,16 @@ const SystemsSelect = ({
     }
   }, [createTaskError]);
 
+  useEffect(() => {
+    if (taskName.trim().length === 0) {
+      setHelperText('Task name cannot be empty');
+      setValidated('error');
+    } else if (validated === 'error') {
+      setHelperText(null);
+      setValidated('default');
+    }
+  }, [taskName]);
+
   const { bulkSelectIds, selectIds } = useSystemBulkSelect(
     selectedIds,
     setSelectedIds,
@@ -98,6 +108,7 @@ const SystemsSelect = ({
             type="text"
             onChange={handleSetTaskName}
             aria-label="Edit task name text field"
+            validated={validated}
           />
           <FormHelperText>
             <HelperText>

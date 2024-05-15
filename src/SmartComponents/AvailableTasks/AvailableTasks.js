@@ -8,7 +8,6 @@ import {
 import AvailableTasksTable from './AvailableTasksTable';
 import { dispatchNotification } from '../../Utilities/Dispatcher';
 import { isError } from '../completedTaskDetailsHelpers';
-import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 import { Card, CardBody, CardFooter, CardTitle } from '@patternfly/react-core';
 
 export const LoadingTasks = () => {
@@ -34,7 +33,6 @@ const AvailableTasks = ({ openTaskModal }) => {
   const [availableTasks, setAvailableTasks] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
-  const chrome = useChrome();
 
   const setTasks = (result) => {
     if (isError(result)) {
@@ -64,10 +62,6 @@ const AvailableTasks = ({ openTaskModal }) => {
 
     fetchData();
   }, []);
-
-  useEffect(() => {
-    chrome.updateDocumentTitle('Tasks | Red Hat Insights');
-  }, [chrome]);
 
   return (
     <div aria-label="available-tasks">

@@ -14,7 +14,7 @@ export const useModalActions = (
   definedParameters
 ) => {
   const checkForSystemsAndTaskName = () => {
-    return !selectedIds?.length || !taskName.length;
+    return !selectedIds?.length || !taskName.trim().length;
   };
 
   const nextButton = parameters?.length && !areSystemsSelected && (

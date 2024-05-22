@@ -3,8 +3,12 @@ import propTypes from 'prop-types';
 import SystemsSelect from './SystemsSelect';
 import InputParameters from './InputParameters';
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
-import { TASK_ERROR } from '../../constants';
+import { INFO_ALERT_SYSTEMS, TASK_ERROR } from '../../constants';
 import EmptyStateDisplay from '../../PresentationalComponents/EmptyStateDisplay/EmptyStateDisplay';
+import { TaskDescription } from './TaskDescription';
+import { TaskName } from './TaskName';
+import { Alert, Flex } from '@patternfly/react-core';
+import warningConstants from '../warningConstants';
 
 const RunTaskModalBody = ({
   areSystemsSelected,
@@ -20,6 +24,10 @@ const RunTaskModalBody = ({
   taskName,
   filterMessage,
 }) => {
+  const warningConstantMapper = `${slug
+    ?.toUpperCase()
+    .replace(/-/g, '_')}_WARNING`;
+
   return error ? (
     <EmptyStateDisplay
       icon={ExclamationCircleIcon}
@@ -29,16 +37,28 @@ const RunTaskModalBody = ({
       error={`Error ${error?.response?.status}: ${error?.message}`}
     />
   ) : !areSystemsSelected ? (
-    <SystemsSelect
-      createTaskError={createTaskError}
-      description={description}
-      selectedIds={selectedIds}
-      setSelectedIds={setSelectedIds}
-      setTaskName={setTaskName}
-      slug={slug}
-      taskName={taskName}
-      filterMessage={filterMessage}
-    />
+    <Flex
+      direction={{ default: 'column' }}
+      spaceItems={{ default: 'spaceItemsLg' }}
+    >
+      <TaskDescription slug={slug} description={description} />
+      <TaskName
+        taskName={taskName}
+        setTaskName={setTaskName}
+        createTaskError={createTaskError}
+      />
+      <div id="task-warnings-and-alerts" aria-label="Task warnings and alerts">
+        {warningConstants[warningConstantMapper]}
+        <Alert variant="info" isInline title="Only eligible systems are shown">
+          {filterMessage || INFO_ALERT_SYSTEMS}
+        </Alert>
+      </div>
+      <SystemsSelect
+        selectedIds={selectedIds}
+        setSelectedIds={setSelectedIds}
+        slug={slug}
+      />
+    </Flex>
   ) : (
     <InputParameters
       parameters={parameters}

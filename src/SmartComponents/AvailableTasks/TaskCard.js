@@ -1,5 +1,4 @@
 import {
-  Button,
   Card,
   CardBody,
   CardExpandableContent,
@@ -10,20 +9,10 @@ import {
   FlexItem,
 } from '@patternfly/react-core';
 import React, { useState } from 'react';
-import ReactMarkdown from 'react-markdown';
-import {
-  AVAILABLE_TASKS_ROOT,
-  CONVERSION_SLUG,
-  TASKS_API_ROOT,
-} from '../../constants';
 import RunTaskButton from '../../PresentationalComponents/RunTaskButton/RunTaskButton';
 import { QuickstartButton, SLUG_TO_QUICKSTART } from './QuickstartButton';
 import PropTypes from 'prop-types';
-import { DownloadIcon } from '@patternfly/react-icons';
-
-const scriptOrPlaybook = (slug) => {
-  return slug.includes(CONVERSION_SLUG) ? 'script' : 'playbook';
-};
+import { TaskDescription } from '../RunTaskModal/TaskDescription';
 
 const TaskCard = ({ task, openTaskModal }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -45,19 +34,11 @@ const TaskCard = ({ task, openTaskModal }) => {
           <CardBody className="card-task-description">
             <Flex direction={{ default: 'column' }}>
               <FlexItem>
-                <ReactMarkdown>{task.description}</ReactMarkdown>
-              </FlexItem>
-              <FlexItem>
-                <Button
-                  variant="link"
-                  component="a"
-                  isInline
-                  icon={<DownloadIcon />}
-                  iconPosition="end"
-                  href={`${TASKS_API_ROOT}${AVAILABLE_TASKS_ROOT}/${task.slug}/playbook`}
-                >
-                  {`Download preview of ${scriptOrPlaybook(task.slug)}`}
-                </Button>
+                <TaskDescription
+                  description={task.description}
+                  slug={task.slug}
+                  isTaskCard
+                />
               </FlexItem>
             </Flex>
           </CardBody>
@@ -71,7 +52,7 @@ const TaskCard = ({ task, openTaskModal }) => {
               openTaskModal={openTaskModal}
             />
             {Object.keys(SLUG_TO_QUICKSTART).includes(task.slug) && (
-              <QuickstartButton slug={task.slug} />
+              <QuickstartButton slug={task.slug} isTaskCard />
             )}
           </Flex>
         </CardFooter>
@@ -88,6 +69,7 @@ TaskCard.propTypes = {
     title: PropTypes.string.isRequired,
   }).isRequired,
   openTaskModal: PropTypes.func.isRequired,
+  node: PropTypes.object,
 };
 
 export { TaskCard };

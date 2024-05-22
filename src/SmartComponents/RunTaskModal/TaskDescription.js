@@ -2,19 +2,43 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { Button, Text, TextContent } from '@patternfly/react-core';
 import ReactMarkdown from 'react-markdown';
-import { AVAILABLE_TASKS_ROOT, TASKS_API_ROOT } from '../../constants';
+import {
+  AVAILABLE_TASKS_ROOT,
+  CONVERSION_SLUG,
+  TASKS_API_ROOT,
+} from '../../constants';
 import { DownloadIcon } from '@patternfly/react-icons';
 import {
   QuickstartButton,
   SLUG_TO_QUICKSTART,
 } from '../AvailableTasks/QuickstartButton';
 
-const TaskDescription = ({ description, slug }) => {
+const scriptOrPlaybook = (slug) => {
+  return slug?.includes(CONVERSION_SLUG) ? 'script' : 'playbook';
+};
+
+const TaskDescription = ({ description, slug, isTaskCard }) => {
   return (
     <TextContent>
-      <Text component="h4">Task description</Text>
+      {!isTaskCard && <Text component="h4">Task description</Text>}
       <Text>
-        <ReactMarkdown>{description}</ReactMarkdown>
+        <ReactMarkdown
+          components={{
+            a(props) {
+              const { node, ...rest } = props;
+              return (
+                <a
+                  href={node.properties.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  {...rest}
+                />
+              );
+            },
+          }}
+        >
+          {description}
+        </ReactMarkdown>
       </Text>
       <Text>
         <Button
@@ -24,10 +48,11 @@ const TaskDescription = ({ description, slug }) => {
           icon={<DownloadIcon />}
           iconPosition="end"
           isInline
+          style={{ marginRight: '16px' }}
         >
-          Download preview of playbook
+          {`Download preview of ${scriptOrPlaybook(slug)}`}
         </Button>
-        {Object.keys(SLUG_TO_QUICKSTART).includes(slug) && (
+        {!isTaskCard && Object.keys(SLUG_TO_QUICKSTART).includes(slug) && (
           <QuickstartButton slug={slug} />
         )}
       </Text>
@@ -37,6 +62,8 @@ const TaskDescription = ({ description, slug }) => {
 
 TaskDescription.propTypes = {
   description: propTypes.string,
+  isTaskCard: propTypes.bool,
+  node: propTypes.object,
   slug: propTypes.string,
 };
 

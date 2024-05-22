@@ -48,4 +48,20 @@ describe('TaskDescription', () => {
       })
     ).toHaveAttribute('href', '/api/tasks/v1/task/123/playbook');
   });
+
+  it('shows link in description', () => {
+    render(
+      <TaskDescription
+        description="Test description [link](https://www.google.com)"
+        slug="123"
+      />
+    );
+
+    const link = screen.getByRole('link', {
+      name: /link/i,
+    });
+
+    expect(link).toBeInTheDocument();
+    expect(link).toHaveAttribute('href', 'https://www.google.com');
+  });
 });

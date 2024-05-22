@@ -5,6 +5,7 @@ import {
   render,
   screen,
   waitFor,
+  within,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
@@ -215,11 +216,26 @@ describe('ActivityTable', () => {
 
     await waitFor(() => {
       expect(fetchExecutedTasks).toHaveBeenCalled();
-      userEvent.click(screen.getAllByLabelText('Kebab toggle')[0]);
-      userEvent.click(screen.getByText('Run this task again'));
-      expect(fetchExecutedTask).toHaveBeenCalled();
-      expect(fetchExecutedTaskJobs).not.toHaveBeenCalled();
     });
+
+    const row = screen.getByRole('row', {
+      name: /task b 5 running 21 apr 2022, 10:10 utc/i,
+    });
+
+    await userEvent.click(
+      within(row).getByRole('button', {
+        name: /kebab toggle/i,
+      })
+    );
+
+    await userEvent.click(
+      screen.getByRole('menuitem', {
+        name: /run this task again/i,
+      })
+    );
+
+    expect(fetchExecutedTask).toHaveBeenCalled();
+    expect(fetchExecutedTaskJobs).not.toHaveBeenCalled();
   });
 
   it.skip('should run this task again', async () => {

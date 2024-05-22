@@ -2,7 +2,6 @@ import React from 'react';
 import useFeatureFlag from '../../Utilities/useFeatureFlag';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import { Button } from '@patternfly/react-core';
-import { ArrowRightIcon } from '@patternfly/react-icons';
 import propTypes from 'prop-types';
 
 export const SLUG_TO_QUICKSTART = {
@@ -28,7 +27,7 @@ export const QUICKSTART_TO_FEATURE_FLAG = {
   'insights-tasks-upgrade8to9': 'tasks-frontend_leapp-quickstart-active',
 };
 
-const QuickstartButton = ({ slug }) => {
+const QuickstartButton = ({ isTaskCard, slug }) => {
   const quickstartName = SLUG_TO_QUICKSTART[slug];
   const featureFlagName = QUICKSTART_TO_FEATURE_FLAG[quickstartName];
 
@@ -38,8 +37,7 @@ const QuickstartButton = ({ slug }) => {
 
   return enabled ? (
     <Button
-      variant="link"
-      icon={<ArrowRightIcon />}
+      variant={isTaskCard ? 'secondary' : 'link'}
       iconPosition="end"
       onClick={() => quickStarts.activateQuickstart(quickstartName)}
     >
@@ -49,6 +47,7 @@ const QuickstartButton = ({ slug }) => {
 };
 
 QuickstartButton.propTypes = {
+  isTaskCard: propTypes.bool,
   slug: propTypes.string.isRequired,
 };
 

@@ -38,6 +38,10 @@ const RunTaskModal = ({
   }, [selectedSystems]);
 
   useEffect(() => {
+    setTaskName(name ?? title);
+  }, [name, title]);
+
+  useEffect(() => {
     if (parameters) {
       setDefinedParameters(
         parameters.map((param) => {

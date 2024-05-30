@@ -1,54 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`useTableTools returns tableProps 1`] = `
-Object {
-  "all": Array [
-    Object {
-      "tableProps": Object {
-        "cells": Array [
-          Object {
-            "props": Object {
+{
+  "all": [
+    {
+      "tableProps": {
+        "cells": [
+          {
+            "props": {
               "width": 35,
             },
             "sortByProp": "task_title",
             "title": "Task",
-            "transforms": Array [
+            "transforms": [
               [Function],
             ],
           },
-          Object {
-            "props": Object {
+          {
+            "props": {
               "width": 20,
             },
             "renderExport": [Function],
             "sortByProp": "systems_count",
             "title": "Systems",
-            "transforms": Array [
+            "transforms": [
               [Function],
             ],
           },
-          Object {
-            "props": Object {
+          {
+            "props": {
               "width": 20,
             },
             "sortByProp": "start_time",
             "title": "Run date/time",
-            "transforms": Array [
+            "transforms": [
               [Function],
             ],
           },
         ],
         "onSort": [Function],
-        "rows": Array [
-          Object {
-            "cells": Array [
-              Object {
+        "rows": [
+          {
+            "cells": [
+              {
                 "title": "taskA",
               },
-              Object {
+              {
                 "title": 10,
               },
-              Object {
+              {
                 "title": "2022-04-20T10:10:00",
               },
             ],
@@ -57,15 +57,15 @@ Object {
             "itemId": undefined,
             "jobId": 1,
           },
-          Object {
-            "cells": Array [
-              Object {
+          {
+            "cells": [
+              {
                 "title": "taskB",
               },
-              Object {
+              {
                 "title": 5,
               },
-              Object {
+              {
                 "title": "2022-04-21T10:10:00",
               },
             ],
@@ -74,15 +74,15 @@ Object {
             "itemId": undefined,
             "jobId": 2,
           },
-          Object {
-            "cells": Array [
-              Object {
+          {
+            "cells": [
+              {
                 "title": "taskC",
               },
-              Object {
+              {
                 "title": 3,
               },
-              Object {
+              {
                 "title": "2022-04-25T10:10:00",
               },
             ],
@@ -92,13 +92,13 @@ Object {
             "jobId": 3,
           },
         ],
-        "sortBy": Object {
+        "sortBy": {
           "direction": "asc",
           "index": 3,
         },
       },
-      "toolbarProps": Object {
-        "pagination": Object {
+      "toolbarProps": {
+        "pagination": {
           "itemCount": 3,
           "onPerPageSelect": [Function],
           "onSetPage": [Function],
@@ -107,52 +107,52 @@ Object {
         },
       },
     },
-    Object {
-      "tableProps": Object {
-        "cells": Array [
-          Object {
-            "props": Object {
+    {
+      "tableProps": {
+        "cells": [
+          {
+            "props": {
               "width": 35,
             },
             "sortByProp": "task_title",
             "title": "Task",
-            "transforms": Array [
+            "transforms": [
               [Function],
             ],
           },
-          Object {
-            "props": Object {
+          {
+            "props": {
               "width": 20,
             },
             "renderExport": [Function],
             "sortByProp": "systems_count",
             "title": "Systems",
-            "transforms": Array [
+            "transforms": [
               [Function],
             ],
           },
-          Object {
-            "props": Object {
+          {
+            "props": {
               "width": 20,
             },
             "sortByProp": "start_time",
             "title": "Run date/time",
-            "transforms": Array [
+            "transforms": [
               [Function],
             ],
           },
         ],
         "onSort": [Function],
-        "rows": Array [
-          Object {
-            "cells": Array [
-              Object {
+        "rows": [
+          {
+            "cells": [
+              {
                 "title": "taskA",
               },
-              Object {
+              {
                 "title": 10,
               },
-              Object {
+              {
                 "title": "2022-04-20T10:10:00",
               },
             ],
@@ -161,15 +161,15 @@ Object {
             "itemId": undefined,
             "jobId": 1,
           },
-          Object {
-            "cells": Array [
-              Object {
+          {
+            "cells": [
+              {
                 "title": "taskB",
               },
-              Object {
+              {
                 "title": 5,
               },
-              Object {
+              {
                 "title": "2022-04-21T10:10:00",
               },
             ],
@@ -178,15 +178,15 @@ Object {
             "itemId": undefined,
             "jobId": 2,
           },
-          Object {
-            "cells": Array [
-              Object {
+          {
+            "cells": [
+              {
                 "title": "taskC",
               },
-              Object {
+              {
                 "title": 3,
               },
-              Object {
+              {
                 "title": "2022-04-25T10:10:00",
               },
             ],
@@ -196,13 +196,13 @@ Object {
             "jobId": 3,
           },
         ],
-        "sortBy": Object {
+        "sortBy": {
           "direction": "asc",
           "index": 3,
         },
       },
-      "toolbarProps": Object {
-        "pagination": Object {
+      "toolbarProps": {
+        "pagination": {
           "itemCount": 3,
           "onPerPageSelect": [Function],
           "onSetPage": [Function],
@@ -212,52 +212,52 @@ Object {
       },
     },
   ],
-  "current": Object {
-    "tableProps": Object {
-      "cells": Array [
-        Object {
-          "props": Object {
+  "current": {
+    "tableProps": {
+      "cells": [
+        {
+          "props": {
             "width": 35,
           },
           "sortByProp": "task_title",
           "title": "Task",
-          "transforms": Array [
+          "transforms": [
             [Function],
           ],
         },
-        Object {
-          "props": Object {
+        {
+          "props": {
             "width": 20,
           },
           "renderExport": [Function],
           "sortByProp": "systems_count",
           "title": "Systems",
-          "transforms": Array [
+          "transforms": [
             [Function],
           ],
         },
-        Object {
-          "props": Object {
+        {
+          "props": {
             "width": 20,
           },
           "sortByProp": "start_time",
           "title": "Run date/time",
-          "transforms": Array [
+          "transforms": [
             [Function],
           ],
         },
       ],
       "onSort": [Function],
-      "rows": Array [
-        Object {
-          "cells": Array [
-            Object {
+      "rows": [
+        {
+          "cells": [
+            {
               "title": "taskA",
             },
-            Object {
+            {
               "title": 10,
             },
-            Object {
+            {
               "title": "2022-04-20T10:10:00",
             },
           ],
@@ -266,15 +266,15 @@ Object {
           "itemId": undefined,
           "jobId": 1,
         },
-        Object {
-          "cells": Array [
-            Object {
+        {
+          "cells": [
+            {
               "title": "taskB",
             },
-            Object {
+            {
               "title": 5,
             },
-            Object {
+            {
               "title": "2022-04-21T10:10:00",
             },
           ],
@@ -283,15 +283,15 @@ Object {
           "itemId": undefined,
           "jobId": 2,
         },
-        Object {
-          "cells": Array [
-            Object {
+        {
+          "cells": [
+            {
               "title": "taskC",
             },
-            Object {
+            {
               "title": 3,
             },
-            Object {
+            {
               "title": "2022-04-25T10:10:00",
             },
           ],
@@ -301,13 +301,13 @@ Object {
           "jobId": 3,
         },
       ],
-      "sortBy": Object {
+      "sortBy": {
         "direction": "asc",
         "index": 3,
       },
     },
-    "toolbarProps": Object {
-      "pagination": Object {
+    "toolbarProps": {
+      "pagination": {
         "itemCount": 3,
         "onPerPageSelect": [Function],
         "onSetPage": [Function],

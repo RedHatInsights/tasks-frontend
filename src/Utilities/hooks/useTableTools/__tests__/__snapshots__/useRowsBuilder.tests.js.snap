@@ -1,20 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`useRowsBuilder returns a rows configuration 1`] = `
-Object {
-  "all": Array [
-    Object {
-      "tableProps": Object {
-        "rows": Array [
-          Object {
-            "cells": Array [
-              Object {
+{
+  "all": [
+    {
+      "tableProps": {
+        "rows": [
+          {
+            "cells": [
+              {
                 "title": "taskA",
               },
-              Object {
+              {
                 "title": 10,
               },
-              Object {
+              {
                 "title": "2022-04-20T10:10:00",
               },
             ],
@@ -23,15 +23,15 @@ Object {
             "itemId": undefined,
             "jobId": 1,
           },
-          Object {
-            "cells": Array [
-              Object {
+          {
+            "cells": [
+              {
                 "title": "taskB",
               },
-              Object {
+              {
                 "title": 5,
               },
-              Object {
+              {
                 "title": "2022-04-21T10:10:00",
               },
             ],
@@ -40,15 +40,15 @@ Object {
             "itemId": undefined,
             "jobId": 2,
           },
-          Object {
-            "cells": Array [
-              Object {
+          {
+            "cells": [
+              {
                 "title": "taskC",
               },
-              Object {
+              {
                 "title": 3,
               },
-              Object {
+              {
                 "title": "2022-04-25T10:10:00",
               },
             ],
@@ -59,23 +59,23 @@ Object {
           },
         ],
       },
-      "toolbarProps": Object {
+      "toolbarProps": {
         "pagination": undefined,
       },
     },
   ],
-  "current": Object {
-    "tableProps": Object {
-      "rows": Array [
-        Object {
-          "cells": Array [
-            Object {
+  "current": {
+    "tableProps": {
+      "rows": [
+        {
+          "cells": [
+            {
               "title": "taskA",
             },
-            Object {
+            {
               "title": 10,
             },
-            Object {
+            {
               "title": "2022-04-20T10:10:00",
             },
           ],
@@ -84,15 +84,15 @@ Object {
           "itemId": undefined,
           "jobId": 1,
         },
-        Object {
-          "cells": Array [
-            Object {
+        {
+          "cells": [
+            {
               "title": "taskB",
             },
-            Object {
+            {
               "title": 5,
             },
-            Object {
+            {
               "title": "2022-04-21T10:10:00",
             },
           ],
@@ -101,15 +101,15 @@ Object {
           "itemId": undefined,
           "jobId": 2,
         },
-        Object {
-          "cells": Array [
-            Object {
+        {
+          "cells": [
+            {
               "title": "taskC",
             },
-            Object {
+            {
               "title": 3,
             },
-            Object {
+            {
               "title": "2022-04-25T10:10:00",
             },
           ],
@@ -120,7 +120,7 @@ Object {
         },
       ],
     },
-    "toolbarProps": Object {
+    "toolbarProps": {
       "pagination": undefined,
     },
   },

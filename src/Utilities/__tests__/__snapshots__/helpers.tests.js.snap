@@ -7,8 +7,8 @@ exports[`getPropery should return values of keys 2`] = `"value-level-2"`;
 exports[`getPropery should return values of keys 3`] = `[MockFunction]`;
 
 exports[`orderArrayByProp sorts an array by numbers asc 1`] = `
-Array [
-  Object {
+[
+  {
     "end_time": "2022-04-20T11:10:00",
     "id": 1,
     "initiated_by": "Michael",
@@ -19,7 +19,7 @@ Array [
     "task_slug": "taska",
     "task_title": "taskA",
   },
-  Object {
+  {
     "end_time": "null",
     "id": 2,
     "initiated_by": "Michael",
@@ -30,7 +30,7 @@ Array [
     "task_slug": "taskb",
     "task_title": "taskB",
   },
-  Object {
+  {
     "end_time": "2022-04-28T11:10:00",
     "id": 3,
     "initiated_by": "Michael",
@@ -45,8 +45,8 @@ Array [
 `;
 
 exports[`orderArrayByProp sorts an array by numbers desc 1`] = `
-Array [
-  Object {
+[
+  {
     "end_time": "2022-04-20T11:10:00",
     "id": 1,
     "initiated_by": "Michael",
@@ -57,7 +57,7 @@ Array [
     "task_slug": "taska",
     "task_title": "taskA",
   },
-  Object {
+  {
     "end_time": "null",
     "id": 2,
     "initiated_by": "Michael",
@@ -68,7 +68,7 @@ Array [
     "task_slug": "taskb",
     "task_title": "taskB",
   },
-  Object {
+  {
     "end_time": "2022-04-28T11:10:00",
     "id": 3,
     "initiated_by": "Michael",
@@ -83,8 +83,8 @@ Array [
 `;
 
 exports[`orderArrayByProp sorts an array by string asc 1`] = `
-Array [
-  Object {
+[
+  {
     "end_time": "2022-04-20T11:10:00",
     "id": 1,
     "initiated_by": "Michael",
@@ -95,7 +95,7 @@ Array [
     "task_slug": "taska",
     "task_title": "taskA",
   },
-  Object {
+  {
     "end_time": "null",
     "id": 2,
     "initiated_by": "Michael",
@@ -106,7 +106,7 @@ Array [
     "task_slug": "taskb",
     "task_title": "taskB",
   },
-  Object {
+  {
     "end_time": "2022-04-28T11:10:00",
     "id": 3,
     "initiated_by": "Michael",
@@ -121,8 +121,8 @@ Array [
 `;
 
 exports[`orderArrayByProp sorts an array by string desc 1`] = `
-Array [
-  Object {
+[
+  {
     "end_time": "2022-04-20T11:10:00",
     "id": 1,
     "initiated_by": "Michael",
@@ -133,7 +133,7 @@ Array [
     "task_slug": "taska",
     "task_title": "taskA",
   },
-  Object {
+  {
     "end_time": "null",
     "id": 2,
     "initiated_by": "Michael",
@@ -144,7 +144,7 @@ Array [
     "task_slug": "taskb",
     "task_title": "taskB",
   },
-  Object {
+  {
     "end_time": "2022-04-28T11:10:00",
     "id": 3,
     "initiated_by": "Michael",

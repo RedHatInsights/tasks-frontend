@@ -1,90 +1,90 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`useTableSort returns a table sort configuration 1`] = `
-Object {
-  "all": Array [
-    Object {
+{
+  "all": [
+    {
       "sorter": [Function],
-      "tableProps": Object {
-        "cells": Array [
-          Object {
-            "props": Object {
+      "tableProps": {
+        "cells": [
+          {
+            "props": {
               "width": 35,
             },
             "sortByProp": "task_title",
             "title": "Task",
-            "transforms": Array [
+            "transforms": [
               [Function],
             ],
           },
-          Object {
-            "props": Object {
+          {
+            "props": {
               "width": 20,
             },
             "renderExport": [Function],
             "sortByProp": "systems_count",
             "title": "Systems",
-            "transforms": Array [
+            "transforms": [
               [Function],
             ],
           },
-          Object {
-            "props": Object {
+          {
+            "props": {
               "width": 20,
             },
             "sortByProp": "start_time",
             "title": "Run date/time",
-            "transforms": Array [
+            "transforms": [
               [Function],
             ],
           },
         ],
         "onSort": [Function],
-        "sortBy": Object {
+        "sortBy": {
           "direction": "asc",
           "index": 3,
         },
       },
     },
   ],
-  "current": Object {
+  "current": {
     "sorter": [Function],
-    "tableProps": Object {
-      "cells": Array [
-        Object {
-          "props": Object {
+    "tableProps": {
+      "cells": [
+        {
+          "props": {
             "width": 35,
           },
           "sortByProp": "task_title",
           "title": "Task",
-          "transforms": Array [
+          "transforms": [
             [Function],
           ],
         },
-        Object {
-          "props": Object {
+        {
+          "props": {
             "width": 20,
           },
           "renderExport": [Function],
           "sortByProp": "systems_count",
           "title": "Systems",
-          "transforms": Array [
+          "transforms": [
             [Function],
           ],
         },
-        Object {
-          "props": Object {
+        {
+          "props": {
             "width": 20,
           },
           "sortByProp": "start_time",
           "title": "Run date/time",
-          "transforms": Array [
+          "transforms": [
             [Function],
           ],
         },
       ],
       "onSort": [Function],
-      "sortBy": Object {
+      "sortBy": {
         "direction": "asc",
         "index": 3,
       },

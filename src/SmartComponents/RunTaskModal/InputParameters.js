@@ -6,35 +6,19 @@ import {
   FormHelperText,
   HelperText,
   HelperTextItem,
-  TextInput,
+  FormSelect,
+  FormSelectOption,
 } from '@patternfly/react-core';
 
 export const InputParameter = ({ parameter, setDefinedParameters }) => {
-  const [paramText, setParamText] = useState(
-    parameter.default || parameter.value
-  );
-  const [validated, setValidated] = useState('default');
-  const [helperText, setHelperText] = useState(parameter.description);
+  const [paramValue, setParamValue] = useState(parameter.default);
 
-  const updateParams = (text) => {
-    setParamText(text);
+  const updateParams = (value) => {
+    setParamValue(value);
     setDefinedParameters((prevState) => {
       const newState = prevState.map((param) => {
         if (param.key === parameter.key) {
-          let newDefinedParam = { key: param.key, value: text };
-          if (parameter.required) {
-            if (newDefinedParam.value.trim().length) {
-              newDefinedParam.validated = true;
-              setValidated('success');
-              setHelperText(parameter.description);
-            } else {
-              newDefinedParam.validated = false;
-              setValidated('error');
-              setHelperText('This parameter is required');
-            }
-          }
-
-          return newDefinedParam;
+          return { key: param.key, value: value };
         } else {
           return param;
         }
@@ -46,20 +30,23 @@ export const InputParameter = ({ parameter, setDefinedParameters }) => {
   return (
     <Form className="pf-v5-u-pb-lg">
       <FormGroup
-        label={parameter.key}
+        label={parameter.title || parameter.key}
         isRequired={parameter.required}
         type="text"
         fieldId="name"
       >
-        <TextInput
-          value={paramText}
-          type="text"
-          onChange={(_event, text) => updateParams(text)}
+        <FormSelect
+          value={paramValue}
+          onChange={(_event, value) => updateParams(value)}
           aria-label={`Edit parameter ${parameter.key} value field`}
-        />
+        >
+          {parameter.values.map((value, index) => (
+            <FormSelectOption key={index} value={value} label={value} />
+          ))}
+        </FormSelect>
         <FormHelperText>
           <HelperText>
-            <HelperTextItem variant={validated}>{helperText}</HelperTextItem>
+            <HelperTextItem>{parameter.description}</HelperTextItem>
           </HelperText>
         </FormHelperText>
       </FormGroup>

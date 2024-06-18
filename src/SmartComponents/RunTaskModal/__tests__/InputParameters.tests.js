@@ -24,9 +24,9 @@ describe('InputParameters', () => {
       </Provider>
     );
 
-    expect(screen.getByText('path')).toBeInTheDocument();
-    expect(screen.getByText('this-is-your-label')).toBeInTheDocument();
-    expect(screen.getByText('Add_Tags')).toBeInTheDocument();
+    expect(screen.getByText('Playbook Path')).toBeInTheDocument();
+    expect(screen.getByText('Help Text')).toBeInTheDocument();
+    expect(screen.getByText('Add Tags')).toBeInTheDocument();
     expect(screen.getByText('Remove_Tags')).toBeInTheDocument();
     expect(screen.getByText('blah')).toBeInTheDocument();
   });
@@ -64,7 +64,7 @@ describe('InputParameter', () => {
       </Provider>
     );
 
-    expect(screen.getByText('path')).toBeInTheDocument();
+    expect(screen.getByText('Playbook Path')).toBeInTheDocument();
   });
 
   it('should call setDefinedParameters', async () => {

@@ -43,7 +43,7 @@ const NoCentOsEmptyState = ({ slug }) => {
               icon={<ExternalLinkAltIcon />}
               iconPosition="end"
               component="a"
-              href="https://access.redhat.com/documentation/en-us/red_hat_insights/1-latest/html/converting_from_an_rpm-based_linux_distribution_to_rhel_using_red_hat_insights/proc_preparing-for-a-rhel-conversion-using-insights_converting-from-a-linux-distribution-to-rhel-in-insights"
+              href="https://access.redhat.com/documentation/en-us/red_hat_insights/1-latest/html/converting_from_an_rpm-based_linux_distribution_to_rhel_using_red_hat_insights/preparation-for-a-rhel-conversion-using-insights_converting-from-a-linux-distribution-to-rhel-in-insights"
               target="_blank"
             >
               Learn more about connecting CentOS systems to Insights

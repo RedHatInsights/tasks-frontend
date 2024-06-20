@@ -1,7 +1,7 @@
 import React from 'react';
 import { Alert } from '@patternfly/react-core';
 
-const CONVERT_TO_RHEL_PREANALYSIS_WARNING = (
+const CONVERT_TO_RHEL_ANALYSIS_WARNING = (
   <Alert
     style={{ marginBottom: '8px' }}
     isInline
@@ -52,7 +52,7 @@ const LEAPP_UPGRADE_SCRIPT_STAGE_WARNING = LEAPP_UPGRADE;
 const LEAPP_UPGRADE_WARNING = LEAPP_UPGRADE;
 
 export default {
-  CONVERT_TO_RHEL_PREANALYSIS_WARNING,
+  CONVERT_TO_RHEL_ANALYSIS_WARNING,
   CONVERT_TO_RHEL_CONVERSION_WARNING,
   LEAPP_UPGRADE_WARNING,
   LEAPP_UPGRADE_STAGE_WARNING,

@@ -5,8 +5,8 @@ import { Button } from '@patternfly/react-core';
 import propTypes from 'prop-types';
 
 export const SLUG_TO_QUICKSTART = {
-  'convert-to-rhel-preanalysis-stage': 'insights-tasks-pre-conversion',
-  'convert-to-rhel-preanalysis': 'insights-tasks-pre-conversion',
+  'convert-to-rhel-analysis-stage': 'insights-tasks-pre-conversion',
+  'convert-to-rhel-analysis': 'insights-tasks-pre-conversion',
   'convert-to-rhel-conversion-stage': 'insights-tasks-conversion',
   'convert-to-rhel-conversion': 'insights-tasks-conversion',
   'leapp-preupgrade-stage': 'insights-tasks-upgrade8to9',
@@ -14,8 +14,8 @@ export const SLUG_TO_QUICKSTART = {
 };
 
 export const CENTOS_CONVERSION_SLUGS = [
-  'convert-to-rhel-preanalysis-stage',
-  'convert-to-rhel-preanalysis',
+  'convert-to-rhel-analysis-stage',
+  'convert-to-rhel-analysis',
   'convert-to-rhel-conversion-stage',
   'convert-to-rhel-conversion',
 ];

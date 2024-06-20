@@ -69,7 +69,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                             />
                           </svg>
                         </span>
-                        convert-to-rhel-preanalysis task
+                        convert-to-rhel-analysis task
                       </li>
                     </ol>
                   </nav>
@@ -89,7 +89,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                           data-ouia-safe="true"
                           widget-type="InsightsPageHeaderTitle"
                         >
-                          convert-to-rhel-preanalysis task
+                          convert-to-rhel-analysis task
                         </h1>
                         <div
                           class="pf-v5-c-content"
@@ -101,7 +101,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                             data-ouia-safe="true"
                             data-pf-content="true"
                           >
-                            Convert to RHEL Preanalysis
+                            Convert to RHEL Analysis
                           </small>
                         </div>
                       </div>
@@ -121,7 +121,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                       >
                         <button
                           aria-disabled="false"
-                          aria-label="convert-to-rhel-preanalysis-run-task-button"
+                          aria-label="convert-to-rhel-analysis-run-task-button"
                           class="pf-v5-c-button pf-m-secondary"
                           data-ouia-component-id="OUIA-Generated-Button-secondary-2"
                           data-ouia-component-type="PF5/Button"

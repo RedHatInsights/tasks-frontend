@@ -70,7 +70,7 @@ describe('SystemTable', () => {
   it('should replace empty state for pre-conversion task', () => {
     render(
       <Provider store={mockStore()}>
-        <SystemTable selectedIds={[]} slug="convert-to-rhel-preanalysis" />
+        <SystemTable selectedIds={[]} slug="convert-to-rhel-analysis" />
       </Provider>
     );
 

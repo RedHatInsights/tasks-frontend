@@ -92,7 +92,7 @@ const converttorhelconversionstageSeverityMap = {
   },
 };
 
-const converttorhelpreanalysisSeverityMap = {
+const converttorhelanalysisSeverityMap = {
   error: {
     text: 'Inhibitor',
     icon: <ExclamationCircleIcon />,
@@ -136,7 +136,7 @@ const converttorhelpreanalysisSeverityMap = {
 };
 
 // constant to be removed
-const converttorhelpreanalysisstageSeverityMap = {
+const converttorhelanalysisstageSeverityMap = {
   error: {
     text: 'Inhibitor',
     icon: <ExclamationCircleIcon />,
@@ -274,8 +274,8 @@ const leapppreupgradescriptstageSeverityMap = leapppreupgradeSeverityMap;
 export default {
   converttorhelconversionSeverityMap,
   converttorhelconversionstageSeverityMap,
-  converttorhelpreanalysisSeverityMap,
-  converttorhelpreanalysisstageSeverityMap,
+  converttorhelanalysisSeverityMap,
+  converttorhelanalysisstageSeverityMap,
   leapppreupgradeSeverityMap,
   leapppreupgradescriptstageSeverityMap,
   leapppreupgradestageSeverityMap,

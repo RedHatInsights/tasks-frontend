@@ -65,10 +65,10 @@ export const upgrade_leapp_task = {
 
 export const convert2rhel_task_details = {
   id: 2909,
-  name: `${CONVERSION_SLUG}-preanalysis task`,
+  name: `${CONVERSION_SLUG}-analysis task`,
   alerts_count: 3,
-  task_slug: `${CONVERSION_SLUG}-preanalysis`,
-  task_title: 'Convert to RHEL Preanalysis',
+  task_slug: `${CONVERSION_SLUG}-analysis`,
+  task_title: 'Convert to RHEL Analysis',
   task_description:
     'For connected systems running distributions compatible with RHEL 7 or RHEL 8 (for example, CentOS 7), the RHEL preconversion analysis will predict potential conflicts before you convert. Run this task to understand the impact of a conversion on your fleet and make a remediation plan before your maintenance window begins.',
   start_time: '2023-06-01T19:58:51.330433Z',

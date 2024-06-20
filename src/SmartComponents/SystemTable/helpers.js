@@ -14,16 +14,41 @@ const buildSortString = (orderBy, orderDirection) => {
   return `${sortString}${direction}${order}`;
 };
 
-const buildFilterString = (filters) => {
+const buildOsFilterString = (osFilter) =>
+  Object.entries(osFilter)
+    .map(([majorOsVersion, minorOsVersions]) =>
+      Object.entries(minorOsVersions)
+        .map(([minorOsKey, value]) => {
+          if (minorOsKey !== majorOsVersion && value === true) {
+            const osArray = minorOsKey.split('-');
+            const minorVersion = osArray.slice(
+              osArray.length - 1,
+              osArray.length
+            );
+            const osName = osArray.slice(0, osArray.length - 2).join(' ');
+
+            return minorVersion && `${osName}|${minorVersion}`;
+          }
+        })
+        .filter((v) => !!v)
+        .join(',')
+    )
+    .filter((v) => !!v)
+    .join(',');
+
+const buildFilterString = (filters = {}) => {
   let osFiltersString = '';
   let groupsFilterString = '';
   let displayNameFilter = filters.hostnameOrId
     ? `&display_name=${filters.hostnameOrId}`
     : '';
 
-  filters.osFilter?.forEach(({ osName, value }) => {
-    osFiltersString += `&operating_system=${osName}|${value}`;
-  });
+  if (filters.osFilter) {
+    const builtOsFilterString = buildOsFilterString(filters.osFilter);
+    osFiltersString += builtOsFilterString
+      ? '&operating_system=' + builtOsFilterString
+      : '';
+  }
 
   filters.hostGroupFilter?.forEach((group) => {
     groupsFilterString += `&groups=${group}`;
@@ -65,6 +90,7 @@ const buildEligibilityFilterString = ({ filters }) => {
   return filters[0]?.chips[0]?.value === ALL_SYSTEMS ? '&all_systems=true' : '';
 };
 
+// TODO this should be based on a URLSearchParams object and use its toString() function
 export const buildFilterSortString = (
   limit,
   offset,

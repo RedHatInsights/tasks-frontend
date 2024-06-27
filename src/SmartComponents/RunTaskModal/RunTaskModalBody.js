@@ -2,6 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import SystemsSelect from './SystemsSelect';
 import InputParameters from './InputParameters';
+import ConversionTaskInputParameters from './ConversionTaskInputParameters';
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
 import { INFO_ALERT_SYSTEMS, TASK_ERROR } from '../../constants';
 import EmptyStateDisplay from '../../PresentationalComponents/EmptyStateDisplay/EmptyStateDisplay';
@@ -59,6 +60,12 @@ const RunTaskModalBody = ({
         slug={slug}
       />
     </Flex>
+  ) : slug.startsWith('convert-to-rhel') ? (
+    <ConversionTaskInputParameters
+      slug={slug}
+      parameters={parameters}
+      setDefinedParameters={setDefinedParameters}
+    />
   ) : (
     <InputParameters
       parameters={parameters}

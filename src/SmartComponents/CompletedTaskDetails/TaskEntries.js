@@ -179,6 +179,10 @@ const converttorhelanalysisstageSeverityMap = {
   },
 };
 
+const converttorhelpreanalysisSeverityMap = converttorhelanalysisSeverityMap;
+const converttorhelpreanalysisstageSeverityMap =
+  converttorhelanalysisSeverityMap;
+
 const leapppreupgradeSeverityMap = {
   inhibitor: {
     text: 'Inhibitor',
@@ -274,6 +278,8 @@ const leapppreupgradescriptstageSeverityMap = leapppreupgradeSeverityMap;
 export default {
   converttorhelconversionSeverityMap,
   converttorhelconversionstageSeverityMap,
+  converttorhelpreanalysisSeverityMap,
+  converttorhelpreanalysisstageSeverityMap,
   converttorhelanalysisSeverityMap,
   converttorhelanalysisstageSeverityMap,
   leapppreupgradeSeverityMap,

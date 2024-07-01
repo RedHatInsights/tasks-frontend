@@ -92,7 +92,7 @@ const converttorhelconversionstageSeverityMap = {
   },
 };
 
-const converttorhelpreanalysisSeverityMap = {
+const converttorhelanalysisSeverityMap = {
   error: {
     text: 'Inhibitor',
     icon: <ExclamationCircleIcon />,
@@ -136,7 +136,7 @@ const converttorhelpreanalysisSeverityMap = {
 };
 
 // constant to be removed
-const converttorhelpreanalysisstageSeverityMap = {
+const converttorhelanalysisstageSeverityMap = {
   error: {
     text: 'Inhibitor',
     icon: <ExclamationCircleIcon />,
@@ -178,6 +178,10 @@ const converttorhelpreanalysisstageSeverityMap = {
     severityLevel: 500,
   },
 };
+
+const converttorhelpreanalysisSeverityMap = converttorhelanalysisSeverityMap;
+const converttorhelpreanalysisstageSeverityMap =
+  converttorhelanalysisSeverityMap;
 
 const leapppreupgradeSeverityMap = {
   inhibitor: {
@@ -276,6 +280,8 @@ export default {
   converttorhelconversionstageSeverityMap,
   converttorhelpreanalysisSeverityMap,
   converttorhelpreanalysisstageSeverityMap,
+  converttorhelanalysisSeverityMap,
+  converttorhelanalysisstageSeverityMap,
   leapppreupgradeSeverityMap,
   leapppreupgradescriptstageSeverityMap,
   leapppreupgradestageSeverityMap,

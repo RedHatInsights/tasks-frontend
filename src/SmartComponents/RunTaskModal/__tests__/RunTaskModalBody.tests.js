@@ -76,7 +76,7 @@ describe('RunTaskModalBody', () => {
   it('should render quickstart button for pre-conversion tasks', () => {
     render(
       <Provider store={store}>
-        <RunTaskModalBody {...props} slug="convert-to-rhel-preanalysis" />
+        <RunTaskModalBody {...props} slug="convert-to-rhel-analysis" />
       </Provider>
     );
 

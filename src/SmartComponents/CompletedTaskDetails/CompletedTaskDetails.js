@@ -307,6 +307,7 @@ const CompletedTaskDetails = () => {
                         columns: isConversionTask()
                           ? conversionColumns
                           : exportableColumns,
+                        extendWithReport: true,
                       },
                       detailsComponent: completedTaskJobs.some((job) =>
                         hasDetails(job)

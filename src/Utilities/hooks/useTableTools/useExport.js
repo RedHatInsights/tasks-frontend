@@ -1,4 +1,5 @@
 import { camelCase, getProperty } from '../../helpers';
+import { parseJobReport } from './useExportHelpers';
 
 const CSV_FILE_PREFIX = 'tasks-export';
 const CSV_DELIMITER = ',';
@@ -29,17 +30,45 @@ const textForCell = (row, column) => {
   }
 };
 
-export const csvForItems = ({ items, columns }) => {
-  const header = columns
-    .map((column) => column.original || column.title)
-    .join(CSV_DELIMITER);
-  const csvRows = [
-    header,
-    ...items.map((row) =>
-      columns
+export const csvForItems = ({ items, columns, extendWithReport }) => {
+  const header = columns.map((column) => column.original || column.title); // initial columns
+  let csvRows = [];
+
+  if (extendWithReport) {
+    header.push(
+      ...[
+        'Report',
+        'Issue title',
+        'Issue severity',
+        'Issue key',
+        'Issue summary',
+        'Issue diagnosis',
+        'Issue remediation type',
+        'Issue remediation',
+      ]
+    );
+  }
+
+  csvRows = [
+    header.join(CSV_DELIMITER),
+    ...items.map((row) => {
+      if (extendWithReport) {
+        console.log('### parseJobReport', parseJobReport(row));
+        const reportParsed = parseJobReport(row);
+        return reportParsed
+          .map(
+            (reportColumns) =>
+              columns
+                .map((column) => `"${textForCell(row, column)}"`)
+                .concat(reportColumns) // 1:N, job:issues
+          )
+          .join(CSV_DELIMITER);
+      }
+
+      return columns
         .map((column) => `"${textForCell(row, column)}"`)
-        .join(CSV_DELIMITER)
-    ),
+        .join(CSV_DELIMITER);
+    }),
   ];
 
   return encodeURI(`${encoding('csv')},${csvRows.join('\n')}`);
@@ -68,6 +97,7 @@ const useExport = ({
   onStart,
   onComplete,
   onError,
+  extendWithReport,
 }) => {
   const exportableColumns = columns.filter(
     (column) =>
@@ -89,6 +119,7 @@ const useExport = ({
         formater({
           items,
           columns: exportableColumns,
+          extendWithReport,
         }),
         filename(format)
       );
@@ -114,6 +145,7 @@ export const useExportWithItems = (items, columns, options = {}) => {
     columns: exportableColumns,
     onStart,
     onComplete,
+    extendWithReport,
   } = typeof options.exportable === 'object' ? options.exportable : {};
 
   const exportableSelectedColumns = (exportableColumns || columns).filter(
@@ -126,6 +158,7 @@ export const useExportWithItems = (items, columns, options = {}) => {
     isDisabled: items.length === 0,
     onStart,
     onComplete,
+    extendWithReport,
   });
 
   return exportEnabled ? exportProps : {};

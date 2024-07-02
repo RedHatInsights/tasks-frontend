@@ -10,6 +10,7 @@ export const useSystemBulkSelect = (
     let newSelectedIds = [...selectedIds];
     // only bulkSelect items that have no requirements
     const isEligible = (item) => item?.requirements?.length === 0;
+    const isConnected = (item) => item?.connected;
 
     switch (type) {
       case 'none': {
@@ -19,7 +20,11 @@ export const useSystemBulkSelect = (
 
       case 'page': {
         options.items.forEach((item) => {
-          if (!newSelectedIds.includes(item.id) && isEligible(item)) {
+          if (
+            !newSelectedIds.includes(item.id) &&
+            isEligible(item) &&
+            isConnected(item)
+          ) {
             newSelectedIds.push(item.id);
           }
         });
@@ -50,7 +55,7 @@ export const useSystemBulkSelect = (
         const eligibleIds = allSystems
           .map((batch) => batch.data)
           .flat()
-          .filter((item) => isEligible(item))
+          .filter((item) => isEligible(item) && isConnected(item))
           .map((item) => item.id);
         setSelectedIds(eligibleIds);
         break;

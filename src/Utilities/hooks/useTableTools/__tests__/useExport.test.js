@@ -1,7 +1,14 @@
 import { act, renderHook } from '@testing-library/react-hooks';
-import columns from './__fixtures__/columns.fixtures';
 import items from './__fixtures__/items.fixtures';
 import useExport, { jsonForItems, csvForItems } from '../useExport';
+import {
+  fixturesExtendedReport,
+  fixturesPlainReport,
+} from './__fixtures__/jobResultsItems.fixtures';
+import {
+  jobCompleteColumnsFixtures,
+  taskColumnsFixtures,
+} from './__fixtures__/columns.fixtures';
 
 describe('useExport', () => {
   let workingExporter = jest.fn(() => Promise.resolve(items));
@@ -9,7 +16,7 @@ describe('useExport', () => {
 
   beforeEach(() => {
     defaultOptions = {
-      columns,
+      columns: taskColumnsFixtures,
     };
   });
 
@@ -52,7 +59,7 @@ describe('useExport', () => {
 describe('jsonForItems', () => {
   it('returns an json export of items', () => {
     const result = jsonForItems({
-      columns,
+      columns: taskColumnsFixtures,
       items: items,
     });
 
@@ -63,10 +70,29 @@ describe('jsonForItems', () => {
 describe('csvForItems', () => {
   it('returns an csv export of items', () => {
     const result = csvForItems({
-      columns,
+      columns: taskColumnsFixtures,
       items: items,
     });
 
     expect(result).toMatchSnapshot();
+  });
+
+  it('returns an csv export of items for complete job', () => {
+    const result = csvForItems({
+      columns: jobCompleteColumnsFixtures,
+      items: [fixturesPlainReport],
+    });
+
+    expect(result).toMatchSnapshot();
+  });
+
+  it('returns an csv export of items for complete job - with report', () => {
+    const results = csvForItems({
+      columns: jobCompleteColumnsFixtures,
+      items: [fixturesExtendedReport],
+      extendWithReport: true,
+    });
+
+    expect(results).toMatchSnapshot();
   });
 });

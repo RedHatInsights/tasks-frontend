@@ -1,5 +1,9 @@
 import { entitiesReducer } from '../../store/index';
-import { createEligibilityTooltip, createSystemLink } from '../../helpers';
+import {
+  createConnectedIcon,
+  createEligibilityTooltip,
+  createSystemLink,
+} from '../../helpers';
 
 export const systemColumns = (isBeta) => [
   {
@@ -17,6 +21,14 @@ export const systemColumns = (isBeta) => [
     title: 'Eligibility',
     renderFunc: (eligibility) => {
       return createEligibilityTooltip(eligibility);
+    },
+  },
+  {
+    key: 'connected',
+    props: { width: 10, isStatic: true }, // column isn't sortable
+    title: 'Connected',
+    renderFunc: (connected) => {
+      return createConnectedIcon(connected);
     },
   },
   'groups',

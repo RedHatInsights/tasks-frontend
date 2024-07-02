@@ -132,7 +132,7 @@ const DeleteCancelTaskModal = ({
       titleIconVariant="warning"
       isOpen={isOpen}
       onClose={() => setModalOpened(false)}
-      width={'50%'}
+      width={'60%'}
       actions={renderButtons()}
       appendTo={() =>
         // required to avoid overlaying quickstarts and other secondary panels

@@ -1,5 +1,9 @@
 import { entitiesReducer } from '../../store/index';
-import { createEligibilityTooltip, createSystemLink } from '../../helpers';
+import {
+  createConnectedIcon,
+  createEligibilityTooltip,
+  createSystemLink,
+} from '../../helpers';
 
 export const systemColumns = (isBeta) => [
   {
@@ -17,6 +21,14 @@ export const systemColumns = (isBeta) => [
     title: 'Eligibility',
     renderFunc: (eligibility) => {
       return createEligibilityTooltip(eligibility);
+    },
+  },
+  {
+    key: 'connected',
+    props: { width: 10, isStatic: true }, // column isn't sortable
+    title: 'Connection Status',
+    renderFunc: (connected) => {
+      return createConnectedIcon(connected);
     },
   },
   'groups',
@@ -50,3 +62,7 @@ export const eligibilityFilterItems = [
   { label: ELIGIBLE_SYSTEMS, value: ELIGIBLE_SYSTEMS },
   { label: ALL_SYSTEMS, value: ALL_SYSTEMS },
 ];
+
+// Max systems we can ask for from the API, otherwise the connected status
+// may be incorrect, due to limitations of other internal services
+export const API_MAX_SYSTEMS = 100;

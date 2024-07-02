@@ -4,6 +4,7 @@ import propTypes from 'prop-types';
 import {
   ELIGIBLE_SYSTEMS,
   ALL_SYSTEMS,
+  API_MAX_SYSTEMS,
   eligibilityFilterItems,
   defaultOnLoad,
   systemColumns,
@@ -129,6 +130,37 @@ const SystemTable = ({
     },
   };
 
+  const buildBulkSelectItems = () => {
+    const bulkSelectItems = [
+      {
+        title: `Select none (0)`,
+        onClick: () => {
+          bulkSelectIds('none');
+        },
+      },
+      {
+        title: `Select page (${items?.length || 0})`,
+        onClick: () => {
+          bulkSelectIds('page', { items: items });
+        },
+      },
+    ];
+
+    // 'Select all' option removed when more than API_MAX_SYSTEMS due to
+    // performance and accuracy issues in the API when selecting many systems.
+    // It's not fixable in the Tasks API yet either, otherwise we would!
+    if (total <= API_MAX_SYSTEMS) {
+      bulkSelectItems.push({
+        title: `Select all (${total || 0})`,
+        onClick: () => {
+          bulkSelectIds('all', { total: total, resolve: resolve });
+        },
+      });
+    }
+
+    return bulkSelectItems;
+  };
+
   return (
     <InventoryTable
       isFullView
@@ -175,26 +207,7 @@ const SystemTable = ({
         id: 'systems-bulk-select',
         isDisabled: !total,
         count: selectedIds.length,
-        items: [
-          {
-            title: `Select none (0)`,
-            onClick: () => {
-              bulkSelectIds('none');
-            },
-          },
-          {
-            title: `Select page (${items?.length || 0})`,
-            onClick: () => {
-              bulkSelectIds('page', { items: items });
-            },
-          },
-          {
-            title: `Select all (${total || 0})`,
-            onClick: () => {
-              bulkSelectIds('all', { total: total, resolve: resolve });
-            },
-          },
-        ],
+        items: buildBulkSelectItems(),
         onSelect: () => {
           if (selectedIds.length) {
             bulkSelectIds('none');

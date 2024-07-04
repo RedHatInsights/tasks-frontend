@@ -5,7 +5,6 @@ module.exports = {
   debug: true,
   useProxy: process.env.PROXY === 'true',
   proxyVerbose: true,
-  plugins: [],
   ...(process.env.HOT
     ? { hotReload: process.env.HOT === 'true' }
     : { hotReload: true }),

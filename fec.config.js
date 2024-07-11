@@ -5,9 +5,7 @@ module.exports = {
   debug: true,
   useProxy: process.env.PROXY === 'true',
   proxyVerbose: true,
-  ...(process.env.HOT
-    ? { hotReload: process.env.HOT === 'true' }
-    : { hotReload: true }),
+  hotReload: process.env.HOT === 'true',
   ...(process.env.port ? { port: parseInt(process.env.port) } : {}),
   moduleFederation: {
     shared: [

@@ -8,7 +8,5 @@ module.exports = {
   plugins: [
     // Put _extends helpers in their own file
     '@babel/plugin-transform-runtime',
-    // Support for {...props} via Object.assign({}, props)
-    '@babel/plugin-proposal-object-rest-spread',
   ],
 };

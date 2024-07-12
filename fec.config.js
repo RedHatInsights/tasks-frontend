@@ -1,8 +1,8 @@
 const { resolve } = require('path');
+const packageJson = require('./package.json');
 
 module.exports = {
   appUrl: '/insights/tasks',
-  debug: true,
   useProxy: process.env.PROXY === 'true',
   proxyVerbose: true,
   hotReload: process.env.HOT === 'true',
@@ -13,7 +13,7 @@ module.exports = {
         'react-router-dom': {
           singleton: true,
           import: false,
-          version: '^6.8.1',
+          version: packageJson.dependencies['react-router-dom'],
           requiredVersion: '>=6.0.0 <7.0.0',
         },
       },

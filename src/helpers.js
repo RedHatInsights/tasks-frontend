@@ -39,7 +39,8 @@ export const createConnectedIcon = (connected) => {
       triggerAction="hover"
       headerContent={
         <Title headingLevel="h4">
-          <DisconnectedIcon className={xsIcon} /> System not connected via RHC
+          <DisconnectedIcon className={xsIcon} /> System is not connected via
+          RHC
         </Title>
       }
       position="right"
@@ -49,9 +50,9 @@ export const createConnectedIcon = (connected) => {
           spaceItems={{ default: 'spaceItemsNone' }}
         >
           <p>
-            Run <span className={boldText}>rhc status</span> on this system to
-            check its RHC connection to Red Hat Insights. After verifying the
-            connection is active, click on the{' '}
+            Run <span className={boldText}>rhc status</span> to check if this
+            system has an RHC connection to Red Hat Insights. After verifying
+            the connection is active, click the{' '}
             <span className={boldText}>Select systems</span> button again.
           </p>
           <a

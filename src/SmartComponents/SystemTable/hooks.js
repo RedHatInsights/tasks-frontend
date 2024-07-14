@@ -47,7 +47,7 @@ export const useGetEntities = (
       ...entity,
       selected: (selectedIds || []).map((id) => id).includes(entity.id),
       // disables the bulkSelect checkbox if the entity/row has any requirements
-      disableSelection: entity.requirements.length,
+      disableSelection: entity.requirements.length || !entity.connected,
       // for populating the eligibility column and the tooltip for ineligible systems
       eligibility: {
         title: entity.requirements.length ? 'Not Eligible' : 'Eligible',

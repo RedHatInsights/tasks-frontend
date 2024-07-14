@@ -108,6 +108,7 @@ const RunTaskModal = ({
       isOpen={isOpen}
       onClose={() => setModalOpened(false)}
       variant={error ? 'small' : 'large'}
+      width={'60%'}
       actions={actions}
       appendTo={() =>
         // required to avoid overlaying quickstarts and other secondary panels

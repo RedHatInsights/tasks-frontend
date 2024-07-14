@@ -15,6 +15,8 @@ jest.mock('../hooks', () => {
       os_version: 'RHEL 8.4',
       updated: '2022-04-20T12:49:29.389485Z',
       tags: [{ key: 'UZYyIQY', value: 'vMRGEY', namespace: 'kQQgFpq' }],
+      requirements: [],
+      connected: false,
     },
     {
       display_name: 'rhiqe.laptop-44.sanchez-mann.biz',
@@ -28,6 +30,8 @@ jest.mock('../hooks', () => {
         { key: 'fcxDtpYt', value: 'PwOPRFiv', namespace: 'wWZCjhrp' },
       ],
       updated: '2022-05-04T07:08:37.176240Z',
+      requirements: ['System must be connected via RHC or Satellite'],
+      connected: true,
     },
   ];
   return {

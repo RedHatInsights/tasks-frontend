@@ -1050,7 +1050,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                                             <span
                                               class="pf-v5-c-label__text"
                                             >
-                                              Inhibitor
+                                              Overridable
                                             </span>
                                           </span>
                                         </span>
@@ -2258,7 +2258,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                                             <span
                                               class="pf-v5-c-label__text"
                                             >
-                                              Inhibitor
+                                              Overridable
                                             </span>
                                           </span>
                                         </span>

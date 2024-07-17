@@ -15,7 +15,7 @@ const converttorhelconversionSeverityMap = {
     severityLevel: 2500,
   },
   overridable: {
-    text: 'Inhibitor',
+    text: 'Overridable',
     icon: <ExclamationCircleIcon />,
     iconSeverityColor: 'danger',
     titleColor: '#A30000',
@@ -59,7 +59,7 @@ const converttorhelconversionstageSeverityMap = {
     severityLevel: 2500,
   },
   overridable: {
-    text: 'Inhibitor',
+    text: 'Overridable',
     icon: <ExclamationCircleIcon />,
     iconSeverityColor: 'danger',
     titleColor: '#A30000',
@@ -102,7 +102,7 @@ const converttorhelanalysisSeverityMap = {
     severityLevel: 2500,
   },
   overridable: {
-    text: 'Inhibitor',
+    text: 'Overridable',
     icon: <ExclamationCircleIcon />,
     iconSeverityColor: 'danger',
     titleColor: '#A30000',
@@ -146,7 +146,7 @@ const converttorhelanalysisstageSeverityMap = {
     severityLevel: 2500,
   },
   overridable: {
-    text: 'Inhibitor',
+    text: 'Overridable',
     icon: <ExclamationCircleIcon />,
     iconSeverityColor: 'danger',
     titleColor: '#A30000',

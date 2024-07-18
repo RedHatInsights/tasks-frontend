@@ -122,9 +122,11 @@ const SystemTable = ({
         setEligibility(ELIGIBLE_SYSTEMS);
       } else {
         itemsToRemove.map((item) => {
-          item.category === 'Task eligibility' && eligibility === ALL_SYSTEMS
-            ? setEligibility(ELIGIBLE_SYSTEMS)
-            : setEligibility(ALL_SYSTEMS);
+          if (item.category === 'Task eligibility') {
+            eligibility === ALL_SYSTEMS
+              ? setEligibility(ELIGIBLE_SYSTEMS)
+              : setEligibility(ALL_SYSTEMS);
+          }
         });
       }
     },

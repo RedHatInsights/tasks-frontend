@@ -9,7 +9,7 @@ import {
   Button,
 } from '@patternfly/react-core';
 import { ExportIcon } from '@patternfly/react-icons';
-import { ExternalLinkAltIcon } from '@patternfly/react-icons/dist/esm';
+import { ExternalLinkAltIcon } from '@patternfly/react-icons';
 
 const LogDrawerDetails = ({ jobName, logs }) => {
   function downloadFile(

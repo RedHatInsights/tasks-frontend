@@ -42,11 +42,8 @@ const useTableTools = (
   );
 
   const { tableProps: actionResolverTableProps } = useActionResolverWithItems({
-    //items: filteredAndSortedItems(identifiedItems, filter, sorter),
     items: filteredAndSortedItems(items, filter, sorter),
     ...options,
-    //...tablePropsOption,
-    ...tableProps,
   });
 
   const { toolbarProps: exportToolbarProps } = useExportWithItems(

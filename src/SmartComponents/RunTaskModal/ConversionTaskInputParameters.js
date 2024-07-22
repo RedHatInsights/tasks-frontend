@@ -42,6 +42,32 @@ const ConversionTaskInputParameters = ({
     return value.toLowerCase() === 'true' || value === '1' || value === 1;
   };
 
+  const createCheckbox = (
+    parameter,
+    currValue,
+    setValue,
+    customDescription = undefined
+  ) => {
+    return (
+      <Checkbox
+        id={parameter.key}
+        label={parameter.title}
+        description={customDescription || parameter.description}
+        isChecked={toBool(currValue)}
+        onChange={(_event, checkedValue) => {
+          let newValue;
+          if (currValue === '0' || currValue === '1') {
+            newValue = checkedValue ? '1' : '0';
+          } else {
+            newValue = checkedValue ? 'True' : 'False';
+          }
+          setValue(newValue);
+          updateParameters(parameter, newValue);
+        }}
+      />
+    );
+  };
+
   const createLink = (href, text) => (
     <a href={href} target="_blank" rel="noopener noreferrer">
       {text}
@@ -102,17 +128,12 @@ const ConversionTaskInputParameters = ({
     <Form className="pf-v5-u-pb-lg">
       {slug.includes('analysis') ? analysisTitleSection : convertTitleSection}
 
-      <Checkbox
-        id={elsDisabled.key}
-        label={elsDisabled.title}
-        description={elsDisabledDescription}
-        isChecked={toBool(elsDisabledValue)}
-        onChange={(_event, value) => {
-          const newValue = value ? 'True' : 'False';
-          setElsDisabledValue(newValue);
-          updateParameters(elsDisabled, newValue);
-        }}
-      />
+      {createCheckbox(
+        elsDisabled,
+        elsDisabledValue,
+        setElsDisabledValue,
+        elsDisabledDescription
+      )}
 
       <TextContent>
         <Text component={TextVariants.h4}>
@@ -125,39 +146,23 @@ const ConversionTaskInputParameters = ({
         deteriorated system state.
       </Alert>
 
-      <Checkbox
-        id={unavailableKmods.key}
-        label={unavailableKmods.title}
-        description={unavailableKmods.description}
-        isChecked={toBool(unavailableKmodsValue)}
-        onChange={(_event, value) => {
-          const newValue = value ? '1' : '0';
-          setUnavailableKmodsValue(newValue);
-          updateParameters(unavailableKmods, newValue);
-        }}
-      />
-      <Checkbox
-        id={skipKernelCheck.key}
-        label={skipKernelCheck.title}
-        description={skipKernelCheck.description}
-        isChecked={toBool(skipKernelCheckValue)}
-        onChange={(_event, value) => {
-          const newValue = value ? '1' : '0';
-          setSkipKernelCheckValue(newValue);
-          updateParameters(skipKernelCheck, newValue);
-        }}
-      />
-      <Checkbox
-        id={skipPackageCheck.key}
-        label={skipPackageCheck.title}
-        description={skipPackageCheck.description}
-        isChecked={toBool(skipPackageCheckValue)}
-        onChange={(_event, value) => {
-          const newValue = value ? '1' : '0';
-          setSkipPackageCheckValue(newValue);
-          updateParameters(skipPackageCheck, newValue);
-        }}
-      />
+      {createCheckbox(
+        unavailableKmods,
+        unavailableKmodsValue,
+        setUnavailableKmodsValue
+      )}
+
+      {createCheckbox(
+        skipKernelCheck,
+        skipKernelCheckValue,
+        setSkipKernelCheckValue
+      )}
+
+      {createCheckbox(
+        skipPackageCheck,
+        skipPackageCheckValue,
+        setSkipPackageCheckValue
+      )}
     </Form>
   );
 };

@@ -5,14 +5,14 @@ import {
   createSystemLink,
 } from '../../helpers';
 
-export const systemColumns = (isBeta) => [
+export const systemColumns = () => [
   {
     key: 'display_name',
     sortKey: 'display_name',
     props: { width: 20 },
     title: 'Name',
     renderFunc: (name, id) => {
-      return createSystemLink(id, name, `system-name-${id}`, isBeta);
+      return createSystemLink(id, name, `system-name-${id}`);
     },
   },
   {

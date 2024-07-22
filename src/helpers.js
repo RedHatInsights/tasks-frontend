@@ -2,16 +2,12 @@ import React from 'react';
 import { Flex, Popover, Title, Tooltip } from '@patternfly/react-core';
 import { ConnectedIcon, DisconnectedIcon } from '@patternfly/react-icons';
 
-export const createSystemLink = (id, name, keyData, isBetaEnv) => (
+export const createSystemLink = (id, name, keyData) => (
   <a
     rel="noreferrer"
     target="_blank"
     key={keyData}
-    href={
-      isBetaEnv
-        ? `/preview/insights/inventory/${id}`
-        : `/insights/inventory/${id}`
-    }
+    href={`/insights/inventory/${id}`}
   >
     {name}
   </a>

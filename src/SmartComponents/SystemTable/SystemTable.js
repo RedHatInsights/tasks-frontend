@@ -16,7 +16,6 @@ import { InventoryTable } from '@redhat-cloud-services/frontend-components/Inven
 import { Spinner } from '@patternfly/react-core';
 import { RegistryContext } from '../../store';
 import { useDispatch } from 'react-redux';
-import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import { generateFilter } from '@redhat-cloud-services/frontend-components-utilities/helpers';
 import { conditionalFilterType } from '@redhat-cloud-services/frontend-components/ConditionalFilter';
 import usePromiseQueue from '../../Utilities/hooks/usePromiseQueue';
@@ -36,7 +35,6 @@ const SystemTable = ({
   const inventory = useRef(null);
   const { getRegistry } = useContext(RegistryContext);
   const dispatch = useDispatch();
-  const chrome = useChrome();
   const { resolve } = usePromiseQueue();
 
   const tagsFilter = useSelector(
@@ -80,7 +78,7 @@ const SystemTable = ({
   });
 
   const mergedColumns = (defaultColumns) =>
-    systemColumns(chrome?.isBeta?.()).map((column) => {
+    systemColumns().map((column) => {
       const isStringCol = typeof column === 'string';
       const key = isStringCol ? column : column.key;
       const defaultColumn = defaultColumns.find(
@@ -179,7 +177,7 @@ const SystemTable = ({
       columns={mergedColumns}
       ref={inventory}
       fallback={<Spinner />}
-      onLoad={defaultOnLoad(systemColumns(chrome?.isBeta?.()), getRegistry)}
+      onLoad={defaultOnLoad(systemColumns(), getRegistry)}
       customFilters={{
         tags: tagsFilter,
         workloadFilters: generateFilter(

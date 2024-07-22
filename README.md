@@ -14,7 +14,7 @@ npm run patch:hosts
 
 1. ```npm install```
 
-2. ```npm run start:beta```
+2. ```npm run start```
 
 3. Open browser in URL listed in the terminal output
 
@@ -23,12 +23,3 @@ Update `config/dev.webpack.config.js` according to your application URL. [Read m
 ### Testing
 
 `npm run verify` will run `npm run lint` (eslint) and `npm test` (Jest)
-
-## Deploying
-
-| Push to branch in this repo  | Updated branch in build repo  | Environment       | Available at
-| :--------------------------- | :---------------------------- | :---------------- | :-----------
-| master                       | stage-beta                    | stage beta        | https://console.stage.redhat.com/preview
-| stage-stable                 | stage-stable                  | stage stable      | https://console.stage.redhat.com
-| prod-beta                    | prod-beta                     | production beta   | https://console.redhat.com/preview
-| prod-stable                  | prod-stable                   | production stable | https://console.redhat.com

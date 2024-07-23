@@ -1,29 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`csvForItems returns an csv export of items 1`] = `"data:text/csv;charset=utf-8,Task,Systems,Run%20date/time%0A%22%5Bobject%20Object%5D%22,%22undefined%22,%22%5Bobject%20Object%5D%22%0A%22%5Bobject%20Object%5D%22,%22undefined%22,%22%5Bobject%20Object%5D%22%0A%22%5Bobject%20Object%5D%22,%22undefined%22,%22%5Bobject%20Object%5D%22"`;
+exports[`csvForItems returns an csv export of items for complete job 1`] = `"data:text/csv;charset=utf-8,System%20name,Status,Message%0A%22host_abc%22,%22Success%22,%22Completed%22"`;
 
-exports[`jsonForItems returns an json export of items 1`] = `"data:application/json;charset=utf-8,%5B%7B%22Task%22:%7B%22task_title%22:%22taskA%22,%22task_slug%22:%22taska%22,%22id%22:1,%22start_time%22:%222022-04-20T10:10:00%22,%22end_time%22:%222022-04-20T11:10:00%22,%22run_date_time%22:%2220%20Apr%202022,%2011:10%20UTC%22,%22initiated_by%22:%22Michael%22,%22status%22:%22Completed%22,%22systems_count%22:10%7D,%22RunDateTime%22:%7B%22task_title%22:%22taskA%22,%22task_slug%22:%22taska%22,%22id%22:1,%22start_time%22:%222022-04-20T10:10:00%22,%22end_time%22:%222022-04-20T11:10:00%22,%22run_date_time%22:%2220%20Apr%202022,%2011:10%20UTC%22,%22initiated_by%22:%22Michael%22,%22status%22:%22Completed%22,%22systems_count%22:10%7D%7D,%7B%22Task%22:%7B%22task_title%22:%22taskB%22,%22task_slug%22:%22taskb%22,%22id%22:2,%22start_time%22:%222022-04-21T10:10:00%22,%22end_time%22:%22null%22,%22run_date_time%22:%22Running%22,%22initiated_by%22:%22Michael%22,%22status%22:%22Running%22,%22systems_count%22:5%7D,%22RunDateTime%22:%7B%22task_title%22:%22taskB%22,%22task_slug%22:%22taskb%22,%22id%22:2,%22start_time%22:%222022-04-21T10:10:00%22,%22end_time%22:%22null%22,%22run_date_time%22:%22Running%22,%22initiated_by%22:%22Michael%22,%22status%22:%22Running%22,%22systems_count%22:5%7D%7D,%7B%22Task%22:%7B%22task_title%22:%22taskC%22,%22task_slug%22:%22taskc%22,%22id%22:3,%22start_time%22:%222022-04-25T10:10:00%22,%22end_time%22:%222022-04-28T11:10:00%22,%22run_date_time%22:%2225%20Apr%202022,%2011:10%20UTC%22,%22initiated_by%22:%22Michael%22,%22status%22:%22Completed%22,%22systems_count%22:3%7D,%22RunDateTime%22:%7B%22task_title%22:%22taskC%22,%22task_slug%22:%22taskc%22,%22id%22:3,%22start_time%22:%222022-04-25T10:10:00%22,%22end_time%22:%222022-04-28T11:10:00%22,%22run_date_time%22:%2225%20Apr%202022,%2011:10%20UTC%22,%22initiated_by%22:%22Michael%22,%22status%22:%22Completed%22,%22systems_count%22:3%7D%7D%5D"`;
+exports[`csvForItems returns some example csv export of items 1`] = `"data:text/csv;charset=utf-8,Task,Systems,Run%20date/time%0A%22taskA%22,%2210%22,%222022-04-20T10:10:00%22%0A%22taskB%22,%225%22,%222022-04-21T10:10:00%22%0A%22taskC%22,%223%22,%222022-04-25T10:10:00%22"`;
+
+exports[`jsonForItems returns an json export of items 1`] = `"data:application/json;charset=utf-8,%5B%7B%22Task%22:%22taskA%22,%22Systems%22:10,%22RunDateTime%22:%222022-04-20T10:10:00%22%7D,%7B%22Task%22:%22taskB%22,%22Systems%22:5,%22RunDateTime%22:%222022-04-21T10:10:00%22%7D,%7B%22Task%22:%22taskC%22,%22Systems%22:3,%22RunDateTime%22:%222022-04-25T10:10:00%22%7D%5D"`;
 
 exports[`useExport returns an export config toolbar config 1`] = `
 {
-  "all": [
-    {
-      "toolbarProps": {
-        "exportConfig": {
-          "isDisabled": false,
-          "onSelect": [Function],
-        },
-      },
-    },
-  ],
-  "current": {
-    "toolbarProps": {
-      "exportConfig": {
-        "isDisabled": false,
-        "onSelect": [Function],
-      },
+  "toolbarProps": {
+    "exportConfig": {
+      "isDisabled": false,
+      "onSelect": [Function],
     },
   },
-  "error": undefined,
 }
 `;

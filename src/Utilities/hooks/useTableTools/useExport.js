@@ -1,4 +1,6 @@
 import { camelCase, getProperty } from '../../helpers';
+import { encodeCsvString } from './reportParser';
+import { linkAndDownload } from './useExportHelpers';
 
 const CSV_FILE_PREFIX = 'tasks-export';
 const CSV_DELIMITER = ',';
@@ -11,13 +13,6 @@ const filename = (format) =>
   CSV_FILE_PREFIX + '-' + new Date().toISOString() + '.' + format;
 
 const encoding = (format) => `data:${ENCODINGS[format]};charset=utf-8`;
-
-export const linkAndDownload = (data, filename) => {
-  const link = document.createElement('a');
-  link.href = data;
-  link.download = filename;
-  link.click();
-};
 
 const textForCell = (row, column) => {
   const { exportKey, renderExport } = column;
@@ -37,7 +32,7 @@ export const csvForItems = ({ items, columns }) => {
     header,
     ...items.map((row) =>
       columns
-        .map((column) => `"${textForCell(row, column)}"`)
+        .map((column) => encodeCsvString(textForCell(row, column)))
         .join(CSV_DELIMITER)
     ),
   ];
@@ -114,6 +109,8 @@ export const useExportWithItems = (items, columns, options = {}) => {
     columns: exportableColumns,
     onStart,
     onComplete,
+    prepareItems,
+    extraExportColumns = [],
   } = typeof options.exportable === 'object' ? options.exportable : {};
 
   const exportableSelectedColumns = (exportableColumns || columns).filter(
@@ -121,8 +118,8 @@ export const useExportWithItems = (items, columns, options = {}) => {
   );
 
   const exportProps = useExport({
-    exporter: () => Promise.resolve(items),
-    columns: exportableSelectedColumns,
+    exporter: () => Promise.resolve(prepareItems ? prepareItems(items) : items),
+    columns: exportableSelectedColumns.concat(extraExportColumns),
     isDisabled: items.length === 0,
     onStart,
     onComplete,

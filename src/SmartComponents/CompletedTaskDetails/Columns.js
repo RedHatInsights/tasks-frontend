@@ -2,6 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { renderColumnComponent } from '../../Utilities/helpers';
 import SplitMessages from '../../PresentationalComponents/SplitMessages/SplitMessages';
+import get from 'lodash/get';
 
 const SystemNameCell = ({ display_name }) => {
   if (display_name) {
@@ -61,11 +62,61 @@ export const MessageColumn = {
   ),
 };
 
+export const ReportColumn = {
+  title: 'Report',
+  renderExport: (job) => get(job, 'results.report', ''),
+};
+
+export const IssueTitleColumn = {
+  title: 'Issue title',
+  renderExport: (job) => get(job, 'issue_parsed[0]', ''),
+};
+
+export const IssueSeverityColumn = {
+  title: 'Issue severity',
+  renderExport: (job) => get(job, 'issue_parsed[1]', ''),
+};
+
+export const IssueKeyColumn = {
+  title: 'Issue key',
+  renderExport: (job) => get(job, 'issue_parsed[2]', ''),
+};
+
+export const IssueSummaryColumn = {
+  title: 'Issue summary',
+  renderExport: (job) => get(job, 'issue_parsed[3]', ''),
+};
+
+export const IssueDiagnosisColumn = {
+  title: 'Issue diagnosis',
+  renderExport: (job) => get(job, 'issue_parsed[4]', ''),
+};
+
+export const IssueRemediationTypeColumn = {
+  title: 'Issue remediation type',
+  renderExport: (job) => get(job, 'issue_parsed[5]', ''),
+};
+
+export const IssueRemediationColumn = {
+  title: 'Issue remediation',
+  renderExport: (job) => get(job, 'issue_parsed[6]', ''),
+};
+
 export const exportableColumns = [SystemColumn, StatusColumn, MessageColumn];
 export const conversionColumns = [
   SystemColumn,
   ConversionStatusColumn,
   MessageColumn,
+];
+export const reportColumns = [
+  ReportColumn,
+  IssueTitleColumn,
+  IssueSeverityColumn,
+  IssueKeyColumn,
+  IssueSummaryColumn,
+  IssueDiagnosisColumn,
+  IssueRemediationTypeColumn,
+  IssueRemediationColumn,
 ];
 
 export default [SystemColumn, StatusColumn, MessageColumn];

@@ -18,7 +18,11 @@ import {
   TextVariants,
 } from '@patternfly/react-core';
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
-import columns, { conversionColumns, exportableColumns } from './Columns';
+import columns, {
+  conversionColumns,
+  exportableColumns,
+  reportColumns,
+} from './Columns';
 import { buildStatusFilter, systemFilter } from './Filters';
 import {
   COMPLETED_INFO_PANEL,
@@ -56,6 +60,7 @@ import { useInterval } from '../../Utilities/hooks/useTableTools/useInterval';
 import ParameterDetails from './ParameterDetails';
 import JobLogDrawer from './JobResultsDetails/JobLogDrawer';
 import useActionResolver from './hooks/useActionResolver';
+import { prepareItems } from '../../Utilities/hooks/useTableTools/reportParser';
 
 const CompletedTaskDetails = () => {
   const { id } = useParams();
@@ -159,6 +164,15 @@ const CompletedTaskDetails = () => {
         );
       },
     [completedTaskJobs]
+  );
+
+  const hasReportJson = useMemo(
+    () =>
+      !tableLoading &&
+      completedTaskJobs.some(
+        (job) => job.results?.report_json?.entries !== undefined
+      ),
+    [completedTaskJobs, tableLoading]
   );
 
   const isConversionTask = () => {
@@ -307,6 +321,9 @@ const CompletedTaskDetails = () => {
                         columns: isConversionTask()
                           ? conversionColumns
                           : exportableColumns,
+                        ...(hasReportJson
+                          ? { prepareItems, extraExportColumns: reportColumns }
+                          : {}),
                       },
                       detailsComponent: completedTaskJobs.some((job) =>
                         hasDetails(job)

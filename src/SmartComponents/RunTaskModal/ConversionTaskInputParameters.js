@@ -8,14 +8,26 @@ import {
   TextContent,
   TextVariants,
 } from '@patternfly/react-core';
+import { findParameterByKey } from '../../Utilities/helpers';
 
 const ConversionTaskInputParameters = ({
   slug,
   parameters,
   setDefinedParameters,
 }) => {
-  const [elsDisabled, unavailableKmods, skipKernelCheck, skipPackageCheck] =
-    parameters;
+  const elsDisabled = findParameterByKey(parameters, 'ELS_DISABLED');
+  const unavailableKmods = findParameterByKey(
+    parameters,
+    'CONVERT2RHEL_ALLOW_UNAVAILABLE_KMODS'
+  );
+  const skipKernelCheck = findParameterByKey(
+    parameters,
+    'CONVERT2RHEL_SKIP_KERNEL_CURRENCY_CHECK'
+  );
+  const skipPackageCheck = findParameterByKey(
+    parameters,
+    'CONVERT2RHEL_OUTDATED_PACKAGE_CHECK_SKIP'
+  );
   const [elsDisabledValue, setElsDisabledValue] = useState(elsDisabled.default);
   const [unavailableKmodsValue, setUnavailableKmodsValue] = useState(
     unavailableKmods.default

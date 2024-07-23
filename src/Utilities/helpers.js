@@ -85,3 +85,7 @@ export const camelCase = (string) => {
     .map((string) => string[0].toUpperCase() + string.substring(1))
     .join('');
 };
+
+export const findParameterByKey = (parameters, key) => {
+  return parameters.find((param) => param.key === key);
+};

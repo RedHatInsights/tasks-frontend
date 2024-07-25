@@ -69,37 +69,37 @@ export const ReportColumn = {
 
 export const IssueTitleColumn = {
   title: 'Issue title',
-  renderExport: (job) => get(job, 'issue_parsed[0]', ''),
+  renderExport: (job) => get(job, 'issue_parsed.title', ''),
 };
 
 export const IssueSeverityColumn = {
   title: 'Issue severity',
-  renderExport: (job) => get(job, 'issue_parsed[1]', ''),
+  renderExport: (job) => get(job, 'issue_parsed.severity', ''),
 };
 
 export const IssueKeyColumn = {
   title: 'Issue key',
-  renderExport: (job) => get(job, 'issue_parsed[2]', ''),
+  renderExport: (job) => get(job, 'issue_parsed.key', ''),
 };
 
 export const IssueSummaryColumn = {
   title: 'Issue summary',
-  renderExport: (job) => get(job, 'issue_parsed[3]', ''),
+  renderExport: (job) => get(job, 'issue_parsed.summary', ''),
 };
 
 export const IssueDiagnosisColumn = {
   title: 'Issue diagnosis',
-  renderExport: (job) => get(job, 'issue_parsed[4]', ''),
+  renderExport: (job) => get(job, 'issue_parsed.diagnosis', ''),
 };
 
 export const IssueRemediationTypeColumn = {
   title: 'Issue remediation type',
-  renderExport: (job) => get(job, 'issue_parsed[5]', ''),
+  renderExport: (job) => get(job, 'issue_parsed.remediationType', ''),
 };
 
 export const IssueRemediationColumn = {
   title: 'Issue remediation',
-  renderExport: (job) => get(job, 'issue_parsed[6]', ''),
+  renderExport: (job) => get(job, 'issue_parsed.remediationContext', ''),
 };
 
 export const exportableColumns = [SystemColumn, StatusColumn, MessageColumn];

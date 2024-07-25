@@ -12,14 +12,16 @@ const parseReportRemediations = (detail) => {
   const { remediations } = detail || {};
 
   if (Array.isArray(remediations)) {
-    return remediations.map(({ type, context }) => [type, context]);
+    return remediations.map(({ type, context }) => ({ type, context }));
   }
 
   if (typeof remediations === 'object') {
-    return [[remediations?.type ?? '', remediations?.context ?? '']];
+    return [
+      { type: remediations?.type ?? '', context: remediations?.context ?? '' },
+    ];
   }
 
-  return [['', '']];
+  return [{ type: '', context: '' }];
 };
 
 const parseReportJson = (report) => {
@@ -35,16 +37,27 @@ const parseReportJson = (report) => {
       const remediations = parseReportRemediations(detail);
 
       if (remediations.length > 0) {
-        return remediations.map((remediation) => [
+        return remediations.map((remediation) => ({
           title,
           severity,
           key,
           summary,
           diagnosis,
-          ...remediation,
-        ]);
+          remediationType: remediation.type,
+          remediationContext: remediation.context,
+        }));
       } else {
-        return [title, severity, key, summary, diagnosis];
+        return [
+          {
+            title,
+            severity,
+            key,
+            summary,
+            diagnosis,
+            remediationType: '',
+            remediationContext: '',
+          },
+        ];
       }
     })
     .flat();

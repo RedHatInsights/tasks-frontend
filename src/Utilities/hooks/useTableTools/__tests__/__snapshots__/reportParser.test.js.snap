@@ -1,11 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`parseJobReport should parse a job with report_json 1`] = `
-[
-  "Excluded target system repositories",
-  "info",
-  "1b91322362ae7830e48eee7811be9527747de8",
-  "The following repositories are not supported by Red Hat and are excluded from the list of repositories used during the upgrade.
+{
+  "diagnosis": "",
+  "key": "1b91322362ae7830e48eee7811be9527747de8",
+  "remediationContext": "Lorem ipsum dolor sit amet, "consectetuer" adipiscing elit.",
+  "remediationType": "hint",
+  "severity": "info",
+  "summary": "The following repositories are not supported by Red Hat and are excluded from the list of repositories used during the upgrade.
 - codeready-builder-for-rhel-9-x86_64-eus-rpms
 - codeready-builder-for-rhel-9-aarch64-rpms
 - rhui-codeready-builder-for-rhel-9-aarch64-rhui-rpms
@@ -22,98 +24,96 @@ exports[`parseJobReport should parse a job with report_json 1`] = `
 - codeready-builder-beta-for-rhel-9-ppc64le-rpms
 - codeready-builder-for-rhel-9-x86_64-rpms
 - codeready-builder-for-rhel-9-rhui-rpms",
-  "",
-  "hint",
-  "Lorem ipsum dolor sit amet, "consectetuer" adipiscing elit.",
-]
+  "title": "Excluded target system repositories",
+}
 `;
 
 exports[`parseJobReport should parse a job with report_json 2`] = `
-[
-  "The installed OS version is not supported for the in-place upgrade to the target RHEL version",
-  "inhibitor",
-  "1c7a949a747ec9890f04bf4321de7280970715",
-  "The supported OS releases for the upgrade process:
+{
+  "diagnosis": "",
+  "key": "1c7a949a747ec9890f04bf4321de7280970715",
+  "remediationContext": "",
+  "remediationType": "",
+  "severity": "inhibitor",
+  "summary": "The supported OS releases for the upgrade process:
  RHEL 8.8
 RHEL 8.10
 RHEL-SAPHANA 8.8
 RHEL-SAPHANA 8.10",
-  "",
-  "",
-  "",
-]
+  "title": "The installed OS version is not supported for the in-place upgrade to the target RHEL version",
+}
 `;
 
 exports[`parseJobReport should parse a job with report_json 3`] = `
-[
-  "GRUB2 core will be automatically updated during the upgrade",
-  "high",
-  "ac7030e05de248d34f08a9fa040b352bc410a3",
-  "On legacy (BIOS) systems, GRUB2 core (located in the gap between the MBR and the first partition) cannot be updated during the rpm transaction and Leapp has to initiate the update running "grub2-install" after the transaction. No action is needed before the upgrade. After the upgrade, it is recommended to check the GRUB configuration.",
-  "",
-  "",
-  "",
-]
+{
+  "diagnosis": "",
+  "key": "ac7030e05de248d34f08a9fa040b352bc410a3",
+  "remediationContext": "",
+  "remediationType": "",
+  "severity": "high",
+  "summary": "On legacy (BIOS) systems, GRUB2 core (located in the gap between the MBR and the first partition) cannot be updated during the rpm transaction and Leapp has to initiate the update running "grub2-install" after the transaction. No action is needed before the upgrade. After the upgrade, it is recommended to check the GRUB configuration.",
+  "title": "GRUB2 core will be automatically updated during the upgrade",
+}
 `;
 
 exports[`parseJobReport should parse a job with report_json 4`] = `
-[
-  "SElinux relabeling will be scheduled",
-  "info",
-  "8fb818f8413bd617c2a55b69b8e10ff03d7c72",
-  "SElinux relabeling will be scheduled as the status is permissive/enforcing.",
-  "",
-  "",
-  "",
-]
+{
+  "diagnosis": "",
+  "key": "8fb818f8413bd617c2a55b69b8e10ff03d7c72",
+  "remediationContext": "",
+  "remediationType": "",
+  "severity": "info",
+  "summary": "SElinux relabeling will be scheduled as the status is permissive/enforcing.",
+  "title": "SElinux relabeling will be scheduled",
+}
 `;
 
 exports[`parseJobReport should parse a job with report_json 5`] = `
-[
-  "SElinux will be set to permissive mode",
-  "low",
-  "39d7183dafba79a4bbb1e70b0ef2bbe5b1772f",
-  "SElinux will be set to permissive mode. Current mode: enforcing. This action is required by the upgrade process to make sure the upgraded system can boot without beinig blocked by SElinux rules.",
-  "",
-  "hint",
-  "Make sure there are no SElinux related warnings after the upgrade and enable SElinux manually afterwards. Notice: You can ignore the "/root/tmp_leapp_py3" SElinux warnings.",
-]
+{
+  "diagnosis": "",
+  "key": "39d7183dafba79a4bbb1e70b0ef2bbe5b1772f",
+  "remediationContext": "Make sure there are no SElinux related warnings after the upgrade and enable SElinux manually afterwards. Notice: You can ignore the "/root/tmp_leapp_py3" SElinux warnings.",
+  "remediationType": "hint",
+  "severity": "low",
+  "summary": "SElinux will be set to permissive mode. Current mode: enforcing. This action is required by the upgrade process to make sure the upgraded system can boot without beinig blocked by SElinux rules.",
+  "title": "SElinux will be set to permissive mode",
+}
 `;
 
 exports[`parseJobReport should parse a job with report_json 6`] = `
-[
-  "Remote root logins globally allowed using password",
-  "high",
-  "e738f78bc8f3a84414210e3b609057139d1855",
-  "RHEL9 no longer allows remote root logins, but the server configuration explicitly overrides this default. The configuration file will not be updated and root is still going to be allowed to login with password. This is not recommended and considered as a security risk.",
-  "",
-  "hint",
-  "If you depend on remote root logins using passwords, consider setting up a different user for remote administration. Otherwise you can ignore this message.",
-]
+{
+  "diagnosis": "",
+  "key": "e738f78bc8f3a84414210e3b609057139d1855",
+  "remediationContext": "If you depend on remote root logins using passwords, consider setting up a different user for remote administration. Otherwise you can ignore this message.",
+  "remediationType": "hint",
+  "severity": "high",
+  "summary": "RHEL9 no longer allows remote root logins, but the server configuration explicitly overrides this default. The configuration file will not be updated and root is still going to be allowed to login with password. This is not recommended and considered as a security risk.",
+  "title": "Remote root logins globally allowed using password",
+}
 `;
 
 exports[`parseJobReport should parse a job with report_json 7`] = `
-[
-  "The upgrade will prepend the Include directive to OpenSSH sshd_config",
-  "info",
-  "96da6937c25c6492e4f1228e46795989fd3718",
-  "OpenSSH server configuration needs to be modified to contain Include directive for the RHEL9 to work properly and integrate with the other parts of the OS. The following snippet will be added to the /etc/ssh/sshd_config during the ApplicationsPhase: \`Include /etc/ssh/sshd_config.d/*.conf\`",
-  "",
-  "",
-  "",
-]
+{
+  "diagnosis": "",
+  "key": "96da6937c25c6492e4f1228e46795989fd3718",
+  "remediationContext": "",
+  "remediationType": "",
+  "severity": "info",
+  "summary": "OpenSSH server configuration needs to be modified to contain Include directive for the RHEL9 to work properly and integrate with the other parts of the OS. The following snippet will be added to the /etc/ssh/sshd_config during the ApplicationsPhase: \`Include /etc/ssh/sshd_config.d/*.conf\`",
+  "title": "The upgrade will prepend the Include directive to OpenSSH sshd_config",
+}
 `;
 
 exports[`parseJobReport should parse a job with report_json 8`] = `
-[
-  "Automatic registration into Red Hat Insights",
-  "info",
-  "693963253195f41852045b6d630a1f4c7a193d",
-  "After the upgrade, this system will be automatically registered into Red Hat Insights. To skip the automatic registration, use the '--no-insights-register' command line option or set the LEAPP_NO_INSIGHTS_REGISTER environment variable.",
-  "",
-  "",
-  "",
-]
+{
+  "diagnosis": "",
+  "key": "693963253195f41852045b6d630a1f4c7a193d",
+  "remediationContext": "",
+  "remediationType": "",
+  "severity": "info",
+  "summary": "After the upgrade, this system will be automatically registered into Red Hat Insights. To skip the automatic registration, use the '--no-insights-register' command line option or set the LEAPP_NO_INSIGHTS_REGISTER environment variable.",
+  "title": "Automatic registration into Red Hat Insights",
+}
 `;
 
 exports[`parseJobReport should parse a job without report 1`] = `

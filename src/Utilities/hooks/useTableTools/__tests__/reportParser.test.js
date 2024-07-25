@@ -33,7 +33,8 @@ describe('parseJobReport', () => {
     expect(result).toHaveLength(9);
     expect(
       result.some(
-        ({ issue_parsed }) => issue_parsed[6] === 'Some info remediation.'
+        ({ issue_parsed }) =>
+          issue_parsed.remediationContext === 'Some info remediation.'
       )
     ).toBeTruthy();
   });
@@ -53,7 +54,7 @@ describe('parseJobReport', () => {
     expect(result).toHaveLength(9);
     expect(
       result.filter(
-        ({ issue_parsed }) => issue_parsed[4] === 'Test diagnosis text.'
+        ({ issue_parsed }) => issue_parsed.diagnosis === 'Test diagnosis text.'
       )
     ).toHaveLength(2);
   });

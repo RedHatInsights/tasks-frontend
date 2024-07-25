@@ -10,6 +10,7 @@ exports[`useTableTools returns tableProps 1`] = `
             "props": {
               "width": 35,
             },
+            "renderExport": [Function],
             "sortByProp": "task_title",
             "title": "Task",
             "transforms": [
@@ -31,6 +32,7 @@ exports[`useTableTools returns tableProps 1`] = `
             "props": {
               "width": 20,
             },
+            "renderExport": [Function],
             "sortByProp": "start_time",
             "title": "Run date/time",
             "transforms": [
@@ -114,6 +116,7 @@ exports[`useTableTools returns tableProps 1`] = `
             "props": {
               "width": 35,
             },
+            "renderExport": [Function],
             "sortByProp": "task_title",
             "title": "Task",
             "transforms": [
@@ -135,6 +138,7 @@ exports[`useTableTools returns tableProps 1`] = `
             "props": {
               "width": 20,
             },
+            "renderExport": [Function],
             "sortByProp": "start_time",
             "title": "Run date/time",
             "transforms": [
@@ -219,6 +223,7 @@ exports[`useTableTools returns tableProps 1`] = `
           "props": {
             "width": 35,
           },
+          "renderExport": [Function],
           "sortByProp": "task_title",
           "title": "Task",
           "transforms": [
@@ -240,6 +245,7 @@ exports[`useTableTools returns tableProps 1`] = `
           "props": {
             "width": 20,
           },
+          "renderExport": [Function],
           "sortByProp": "start_time",
           "title": "Run date/time",
           "transforms": [

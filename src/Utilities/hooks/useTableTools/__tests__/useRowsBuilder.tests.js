@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
 import items from './__fixtures__/items.fixtures';
-import columns from './__fixtures__/columns.fixtures';
+import { taskColumnsFixtures as columns } from './__fixtures__/columns.fixtures';
 import useRowsBuilder from '../useRowsBuilder';
 
 describe('useRowsBuilder', () => {

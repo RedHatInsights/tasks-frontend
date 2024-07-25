@@ -108,8 +108,7 @@ export const conversionColumns = [
   ConversionStatusColumn,
   MessageColumn,
 ];
-export const reportColumns = [
-  ReportColumn,
+export const extendedReportColumns = [
   IssueTitleColumn,
   IssueSeverityColumn,
   IssueKeyColumn,

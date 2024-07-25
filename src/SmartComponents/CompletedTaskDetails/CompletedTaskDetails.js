@@ -21,7 +21,8 @@ import { ExclamationCircleIcon } from '@patternfly/react-icons';
 import columns, {
   conversionColumns,
   exportableColumns,
-  reportColumns,
+  ReportColumn,
+  extendedReportColumns,
 } from './Columns';
 import { buildStatusFilter, systemFilter } from './Filters';
 import {
@@ -175,6 +176,13 @@ const CompletedTaskDetails = () => {
     [completedTaskJobs, tableLoading]
   );
 
+  const hasPlainReport = useMemo(
+    () =>
+      !tableLoading &&
+      completedTaskJobs.some((job) => job.results?.report !== undefined),
+    [completedTaskJobs, tableLoading]
+  );
+
   const isConversionTask = () => {
     return (
       completedTaskDetails.task_slug ===
@@ -321,9 +329,11 @@ const CompletedTaskDetails = () => {
                         columns: isConversionTask()
                           ? conversionColumns
                           : exportableColumns,
-                        ...(hasReportJson
-                          ? { prepareItems, extraExportColumns: reportColumns }
-                          : {}),
+                        extraExportColumns: [
+                          ...(hasPlainReport ? [ReportColumn] : []),
+                          ...(hasReportJson ? extendedReportColumns : []),
+                        ],
+                        ...(hasReportJson ? { prepareItems } : {}), // report json can generate more records for one item
                       },
                       detailsComponent: completedTaskJobs.some((job) =>
                         hasDetails(job)

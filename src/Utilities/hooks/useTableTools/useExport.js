@@ -1,5 +1,5 @@
 import { camelCase, getProperty } from '../../helpers';
-import { encodeCsvString } from './reportParser';
+import { encodeCsvCell } from './reportParser';
 import { linkAndDownload } from './useExportHelpers';
 
 const CSV_FILE_PREFIX = 'tasks-export';
@@ -32,12 +32,12 @@ export const csvForItems = ({ items, columns }) => {
     header,
     ...items.map((row) =>
       columns
-        .map((column) => encodeCsvString(textForCell(row, column)))
+        .map((column) => encodeCsvCell(textForCell(row, column)))
         .join(CSV_DELIMITER)
     ),
   ];
 
-  return encodeURI(`${encoding('csv')},${csvRows.join('\n')}`);
+  return `${encoding('csv')},${csvRows.join('\n')}`;
 };
 
 export const jsonForItems = ({ items, columns }) => {

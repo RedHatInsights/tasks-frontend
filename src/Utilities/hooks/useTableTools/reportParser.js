@@ -1,6 +1,7 @@
 // extended utilities parse jobs with report_json available
 
-export const encodeCsvString = (str) => `"${encodeURI(str)}"`;
+export const encodeCsvCell = (cell) =>
+  typeof cell === 'string' ? `"${cell.replaceAll('"', '""')}"` : cell;
 
 const parseReportDiagnosis = (detail) => {
   const { diagnosis } = detail || {};

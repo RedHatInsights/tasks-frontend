@@ -121,7 +121,7 @@ describe('useExportWithItems', () => {
     result.current.toolbarProps.exportConfig.onSelect(undefined, 'csv');
     await waitFor(() => {
       expect(linkAndDownload).toBeCalledWith(
-        'data:text/csv;charset=utf-8,System%20name,Status,Message,Test%201,Test%202%0A%22System%2520deleted%22,%22Success%22,%22Completed%22,%22success%22,%22some,array,1%22',
+        'data:text/csv;charset=utf-8,System name,Status,Message,Test 1,Test 2\n"System deleted","Success","Completed","success",some,array,1',
         expect.anything()
       );
     });

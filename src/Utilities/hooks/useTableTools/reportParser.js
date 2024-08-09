@@ -1,7 +1,13 @@
 // extended utilities parse jobs with report_json available
 
-export const encodeCsvCell = (cell) =>
-  typeof cell === 'string' ? `"${cell.replaceAll('"', '""')}"` : cell;
+export const encodeCsvCell = (
+  cell // https://www.ietf.org/rfc/rfc4180.txt
+) =>
+  typeof cell === 'string'
+    ? `"${cell.replaceAll('"', '""')}"`
+    : Array.isArray(cell)
+    ? `"${cell.map(encodeCsvCell)}"`
+    : cell;
 
 const parseReportDiagnosis = (detail) => {
   const { diagnosis } = detail || {};

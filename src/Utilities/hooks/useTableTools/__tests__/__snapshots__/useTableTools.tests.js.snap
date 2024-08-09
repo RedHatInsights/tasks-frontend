@@ -95,6 +95,26 @@ hehe","break!",
             "itemId": undefined,
             "jobId": undefined,
           },
+          {
+            "cells": [
+              {
+                "title": "another one with unexpected array",
+              },
+              {
+                "title": 10,
+              },
+              {
+                "title": [
+                  42,
+                  "abc",
+                ],
+              },
+            ],
+            "display_name": undefined,
+            "has_stdout": undefined,
+            "itemId": undefined,
+            "jobId": undefined,
+          },
         ],
         "sortBy": {
           "direction": "asc",
@@ -103,7 +123,7 @@ hehe","break!",
       },
       "toolbarProps": {
         "pagination": {
-          "itemCount": 3,
+          "itemCount": 4,
           "onPerPageSelect": [Function],
           "onSetPage": [Function],
           "page": 1,
@@ -203,6 +223,26 @@ hehe","break!",
             "itemId": undefined,
             "jobId": undefined,
           },
+          {
+            "cells": [
+              {
+                "title": "another one with unexpected array",
+              },
+              {
+                "title": 10,
+              },
+              {
+                "title": [
+                  42,
+                  "abc",
+                ],
+              },
+            ],
+            "display_name": undefined,
+            "has_stdout": undefined,
+            "itemId": undefined,
+            "jobId": undefined,
+          },
         ],
         "sortBy": {
           "direction": "asc",
@@ -211,7 +251,7 @@ hehe","break!",
       },
       "toolbarProps": {
         "pagination": {
-          "itemCount": 3,
+          "itemCount": 4,
           "onPerPageSelect": [Function],
           "onSetPage": [Function],
           "page": 1,
@@ -312,6 +352,26 @@ hehe","break!",
           "itemId": undefined,
           "jobId": undefined,
         },
+        {
+          "cells": [
+            {
+              "title": "another one with unexpected array",
+            },
+            {
+              "title": 10,
+            },
+            {
+              "title": [
+                42,
+                "abc",
+              ],
+            },
+          ],
+          "display_name": undefined,
+          "has_stdout": undefined,
+          "itemId": undefined,
+          "jobId": undefined,
+        },
       ],
       "sortBy": {
         "direction": "asc",
@@ -320,7 +380,7 @@ hehe","break!",
     },
     "toolbarProps": {
       "pagination": {
-        "itemCount": 3,
+        "itemCount": 4,
         "onPerPageSelect": [Function],
         "onSetPage": [Function],
         "page": 1,

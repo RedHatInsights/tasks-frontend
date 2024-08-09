@@ -13,7 +13,7 @@ describe('useTableTools', () => {
   it('returns tableProps', () => {
     const { result } = renderHook(() => useTableTools(items, columns, options));
     expect(result).toMatchSnapshot();
-    expect(result.current.tableProps.rows.length).toBe(3);
+    expect(result.current.tableProps.rows.length).toBe(4);
     expect(result.current.tableProps.cells.length).toBe(3);
   });
 

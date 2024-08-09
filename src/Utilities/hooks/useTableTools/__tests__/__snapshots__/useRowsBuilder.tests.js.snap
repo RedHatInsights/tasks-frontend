@@ -59,6 +59,26 @@ hehe","break!",
             "itemId": undefined,
             "jobId": undefined,
           },
+          {
+            "cells": [
+              {
+                "title": "another one with unexpected array",
+              },
+              {
+                "title": 10,
+              },
+              {
+                "title": [
+                  42,
+                  "abc",
+                ],
+              },
+            ],
+            "display_name": undefined,
+            "has_stdout": undefined,
+            "itemId": undefined,
+            "jobId": undefined,
+          },
         ],
       },
       "toolbarProps": {
@@ -115,6 +135,26 @@ hehe","break!",
               "title": "2022-04
 57
 hehe","break!",
+            },
+          ],
+          "display_name": undefined,
+          "has_stdout": undefined,
+          "itemId": undefined,
+          "jobId": undefined,
+        },
+        {
+          "cells": [
+            {
+              "title": "another one with unexpected array",
+            },
+            {
+              "title": 10,
+            },
+            {
+              "title": [
+                42,
+                "abc",
+              ],
             },
           ],
           "display_name": undefined,

@@ -42,14 +42,7 @@ export const fixturesExtendedReport = {
           key: '1c7a949a747ec9890f04bf4321de7280970715',
           title:
             'The installed OS version is not supported for the in-place upgrade to the target RHEL version',
-          detail: {
-            related_resources: [
-              {
-                title: '/etc/os-release',
-                scheme: 'file',
-              },
-            ],
-          },
+          detail: {},
           summary:
             'The supported OS releases for the upgrade process:\n RHEL 8.8\nRHEL 8.10\nRHEL-SAPHANA 8.8\nRHEL-SAPHANA 8.10',
           hostname: 'iqe-vm-tasks-d52a0049-d6a3-49ca-a565-9896b79d0df4',
@@ -103,16 +96,6 @@ export const fixturesExtendedReport = {
                   'If you depend on remote root logins using passwords, consider setting up a different user for remote administration. Otherwise you can ignore this message.',
               },
             ],
-            related_resources: [
-              {
-                title: 'openssh-server',
-                scheme: 'package',
-              },
-              {
-                title: '/etc/ssh/sshd_config',
-                scheme: 'file',
-              },
-            ],
           },
           summary:
             'RHEL9 no longer allows remote root logins, but the server configuration explicitly overrides this default. The configuration file will not be updated and root is still going to be allowed to login with password. This is not recommended and considered as a security risk.',
@@ -124,18 +107,7 @@ export const fixturesExtendedReport = {
           key: '96da6937c25c6492e4f1228e46795989fd3718',
           title:
             'The upgrade will prepend the Include directive to OpenSSH sshd_config',
-          detail: {
-            related_resources: [
-              {
-                title: 'openssh-server',
-                scheme: 'package',
-              },
-              {
-                title: '/etc/ssh/sshd_config',
-                scheme: 'file',
-              },
-            ],
-          },
+          detail: {},
           summary:
             'OpenSSH server configuration needs to be modified to contain Include directive for the RHEL9 to work properly and integrate with the other parts of the OS. The following snippet will be added to the /etc/ssh/sshd_config during the ApplicationsPhase: `Include /etc/ssh/sshd_config.d/*.conf`',
           hostname: 'iqe-vm-tasks-d52a0049-d6a3-49ca-a565-9896b79d0df4',

@@ -26,4 +26,9 @@ export default [
     start_time: '2022-04\n57\nhehe","break!',
     systems_count: 42,
   },
+  {
+    task_title: 'another one with unexpected array',
+    start_time: [42, 'abc'],
+    systems_count: 10,
+  },
 ];

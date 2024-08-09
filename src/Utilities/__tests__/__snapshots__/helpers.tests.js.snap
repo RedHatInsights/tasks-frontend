@@ -37,6 +37,14 @@ hehe","break!",
     "systems_count": 42,
     "task_title": "special one",
   },
+  {
+    "start_time": [
+      42,
+      "abc",
+    ],
+    "systems_count": 10,
+    "task_title": "another one with unexpected array",
+  },
 ]
 `;
 
@@ -70,6 +78,14 @@ exports[`orderArrayByProp sorts an array by numbers desc 1`] = `
 hehe","break!",
     "systems_count": 42,
     "task_title": "special one",
+  },
+  {
+    "start_time": [
+      42,
+      "abc",
+    ],
+    "systems_count": 10,
+    "task_title": "another one with unexpected array",
   },
 ]
 `;
@@ -105,6 +121,14 @@ hehe","break!",
     "systems_count": 42,
     "task_title": "special one",
   },
+  {
+    "start_time": [
+      42,
+      "abc",
+    ],
+    "systems_count": 10,
+    "task_title": "another one with unexpected array",
+  },
 ]
 `;
 
@@ -138,6 +162,14 @@ exports[`orderArrayByProp sorts an array by string desc 1`] = `
 hehe","break!",
     "systems_count": 42,
     "task_title": "special one",
+  },
+  {
+    "start_time": [
+      42,
+      "abc",
+    ],
+    "systems_count": 10,
+    "task_title": "another one with unexpected array",
   },
 ]
 `;

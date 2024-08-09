@@ -51,7 +51,7 @@ export const jsonForItems = ({ items, columns }) => {
     }, {})
   );
 
-  return encodeURI(`${encoding('json')},${JSON.stringify(result)}`);
+  return `${encoding('json')},${JSON.stringify(result)}`;
 };
 
 const callCallback = (callback, ...args) => callback && callback(...args);

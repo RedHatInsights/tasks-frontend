@@ -11,10 +11,11 @@ exports[`csvForItems returns some example csv export of items 1`] = `
 "taskB",5,"2022-04-21T10:10:00"
 "special one",42,"2022-04
 57
-hehe"",""break!""
+hehe"",""break!"
+"another one with unexpected array",10,"42,"abc"""
 `;
 
-exports[`jsonForItems returns an json export of items 1`] = `"data:application/json;charset=utf-8,%5B%7B%22Task%22:%22taskA%22,%22Systems%22:10,%22RunDateTime%22:%222022-04-20T10:10:00%22%7D,%7B%22Task%22:%22taskB%22,%22Systems%22:5,%22RunDateTime%22:%222022-04-21T10:10:00%22%7D,%7B%22Task%22:%22special%20one%22,%22Systems%22:42,%22RunDateTime%22:%222022-04%5Cn57%5Cnhehe%5C%22,%5C%22break!%22%7D%5D"`;
+exports[`jsonForItems returns an json export of items 1`] = `"data:application/json;charset=utf-8,[{"Task":"taskA","Systems":10,"RunDateTime":"2022-04-20T10:10:00"},{"Task":"taskB","Systems":5,"RunDateTime":"2022-04-21T10:10:00"},{"Task":"special one","Systems":42,"RunDateTime":"2022-04\\n57\\nhehe\\",\\"break!"},{"Task":"another one with unexpected array","Systems":10,"RunDateTime":[42,"abc"]}]"`;
 
 exports[`useExport returns an export config toolbar config 1`] = `
 {

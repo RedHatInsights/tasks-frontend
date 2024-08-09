@@ -121,7 +121,7 @@ describe('useExportWithItems', () => {
     result.current.toolbarProps.exportConfig.onSelect(undefined, 'csv');
     await waitFor(() => {
       expect(linkAndDownload).toBeCalledWith(
-        'data:text/csv;charset=utf-8,System name,Status,Message,Test 1,Test 2\n"System deleted","Success","Completed","success",some,array,1',
+        'data:text/csv;charset=utf-8,System name,Status,Message,Test 1,Test 2\n"System deleted","Success","Completed","success",""some","array",1"',
         expect.anything()
       );
     });
@@ -154,5 +154,23 @@ describe('csvForItems', () => {
     });
 
     expect(result).toMatchSnapshot();
+  });
+
+  it('adds extra double-quote if contained in cell', () => {
+    const result = csvForItems({
+      columns: taskColumnsFixtures,
+      items: items,
+    });
+
+    expect(result).toContain('hehe"",""break');
+  });
+
+  it('does not escape new line', () => {
+    const result = csvForItems({
+      columns: taskColumnsFixtures,
+      items,
+    });
+
+    expect(result).toContain('2022-04\n57\n');
   });
 });

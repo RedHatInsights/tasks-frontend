@@ -14,10 +14,10 @@ import {
   taskColumnsFixtures,
 } from './__fixtures__/columns.fixtures';
 import get from 'lodash/get';
-import { linkAndDownload } from '../useExportHelpers';
 import { waitFor } from '@testing-library/react';
+import { downloadFile } from '@redhat-cloud-services/frontend-components-utilities/helpers';
 
-jest.mock('../useExportHelpers');
+jest.mock('@redhat-cloud-services/frontend-components-utilities/helpers');
 
 describe('useExport', () => {
   let workingExporter = jest.fn(() => Promise.resolve(items));
@@ -120,24 +120,16 @@ describe('useExportWithItems', () => {
 
     result.current.toolbarProps.exportConfig.onSelect(undefined, 'csv');
     await waitFor(() => {
-      expect(linkAndDownload).toBeCalledWith(
-        'data:text/csv;charset=utf-8,System name,Status,Message,Test 1,Test 2\n"System deleted","Success","Completed","success",""some","array",1"',
-        expect.anything()
+      expect(downloadFile).toBeCalledWith(
+        'System name,Status,Message,Test 1,Test 2\n"System deleted","Success","Completed","success",""some","array",1"',
+        expect.anything(),
+        'csv'
       );
     });
   });
 });
 
 describe('csvForItems', () => {
-  it('contains encoding metadata', () => {
-    const result = csvForItems({
-      columns: taskColumnsFixtures,
-      items: items,
-    });
-
-    expect(result).toContain('data:text/csv;charset=utf-8');
-  });
-
   it('returns some example csv export of items', () => {
     const result = csvForItems({
       columns: taskColumnsFixtures,

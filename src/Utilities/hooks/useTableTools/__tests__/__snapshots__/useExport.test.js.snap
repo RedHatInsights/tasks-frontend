@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`csvForItems returns an csv export of items for complete job 1`] = `
-"data:text/csv;charset=utf-8,System name,Status,Message
+"System name,Status,Message
 "host_abc","Success","Completed""
 `;
 
 exports[`csvForItems returns some example csv export of items 1`] = `
-"data:text/csv;charset=utf-8,Task,Systems,Run date/time
+"Task,Systems,Run date/time
 "taskA",10,"2022-04-20T10:10:00"
 "taskB",5,"2022-04-21T10:10:00"
 "special one",42,"2022-04
@@ -15,7 +15,7 @@ hehe"",""break!"
 "another one with unexpected array",10,"42,"abc"""
 `;
 
-exports[`jsonForItems returns an json export of items 1`] = `"data:application/json;charset=utf-8,[{"Task":"taskA","Systems":10,"RunDateTime":"2022-04-20T10:10:00"},{"Task":"taskB","Systems":5,"RunDateTime":"2022-04-21T10:10:00"},{"Task":"special one","Systems":42,"RunDateTime":"2022-04\\n57\\nhehe\\",\\"break!"},{"Task":"another one with unexpected array","Systems":10,"RunDateTime":[42,"abc"]}]"`;
+exports[`jsonForItems returns an json export of items 1`] = `"[{"Task":"taskA","Systems":10,"RunDateTime":"2022-04-20T10:10:00"},{"Task":"taskB","Systems":5,"RunDateTime":"2022-04-21T10:10:00"},{"Task":"special one","Systems":42,"RunDateTime":"2022-04\\n57\\nhehe\\",\\"break!"},{"Task":"another one with unexpected array","Systems":10,"RunDateTime":[42,"abc"]}]"`;
 
 exports[`useExport returns an export config toolbar config 1`] = `
 {

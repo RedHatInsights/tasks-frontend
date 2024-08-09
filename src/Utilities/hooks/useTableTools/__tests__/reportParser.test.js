@@ -13,13 +13,16 @@ describe('parseJobReport', () => {
     expect(parsed).toMatchSnapshot();
   });
 
-  it('should parse a job with report_json', () => {
+  it('should have correct length of parsed report_json', () => {
     const parsed = parseJobReport(fixturesExtendedReport);
 
     expect(parsed).toHaveLength(8);
-    parsed.forEach(({ issue_parsed }) => {
-      expect(issue_parsed).toMatchSnapshot();
-    });
+  });
+
+  it('should add issue_parsed', () => {
+    const parsed = parseJobReport(fixturesExtendedReport);
+
+    expect(parsed.map(({ issue_parsed }) => issue_parsed)).toMatchSnapshot();
   });
 
   it('parses multiple remediatios for the extended report', () => {

@@ -20,7 +20,7 @@ export const useModalActions = (
   const nextButton = parameters?.length && !areSystemsSelected && (
     <Button
       key="next"
-      aria-label="next-button"
+      aria-label={`${slug}-next-button`}
       variant="primary"
       isDisabled={checkForSystemsAndTaskName()}
       onClick={() => setAreSystemsSelected(true)}

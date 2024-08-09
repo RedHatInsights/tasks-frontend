@@ -185,7 +185,7 @@ describe('RunTaskModal', () => {
       </Provider>
     );
 
-    const nextButton = screen.getByLabelText('next-button');
+    const nextButton = screen.getByLabelText('taska-next-button');
     await waitFor(() => userEvent.click(nextButton));
 
     const cancelButton = screen.getByLabelText('cancel-run-task-modal');
@@ -203,7 +203,7 @@ describe('RunTaskModal', () => {
       </Provider>
     );
 
-    const nextButton = screen.getByLabelText('next-button');
+    const nextButton = screen.getByLabelText('taska-next-button');
     await waitFor(() => userEvent.click(nextButton));
 
     expect(screen.getByText('path')).toBeInTheDocument();
@@ -223,7 +223,7 @@ describe('RunTaskModal', () => {
       </Provider>
     );
 
-    const nextButton = screen.getByLabelText('next-button');
+    const nextButton = screen.getByLabelText('taska-next-button');
     await waitFor(() => userEvent.click(nextButton));
 
     const executeButton = screen.getByLabelText('taska-submit-task-button');
@@ -240,7 +240,7 @@ describe('RunTaskModal', () => {
       </Provider>
     );
 
-    const nextButton = screen.getByLabelText('next-button');
+    const nextButton = screen.getByLabelText('taska-next-button');
     await waitFor(() => userEvent.click(nextButton));
 
     const input = screen.getByLabelText('path-input');

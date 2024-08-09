@@ -4609,7 +4609,6 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                         role="rowgroup"
                       >
                         <tr
-                          aria-label=""
                           class="pf-v5-c-table__tr"
                           data-ouia-component-id="OUIA-Generated-TableRow-37"
                           data-ouia-component-type="PF5/TableRow"
@@ -4723,7 +4722,6 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                         role="rowgroup"
                       >
                         <tr
-                          aria-label=""
                           class="pf-v5-c-table__tr"
                           data-ouia-component-id="OUIA-Generated-TableRow-38"
                           data-ouia-component-type="PF5/TableRow"
@@ -4837,7 +4835,6 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                         role="rowgroup"
                       >
                         <tr
-                          aria-label=""
                           class="pf-v5-c-table__tr"
                           data-ouia-component-id="OUIA-Generated-TableRow-39"
                           data-ouia-component-type="PF5/TableRow"
@@ -4913,7 +4910,6 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                         role="rowgroup"
                       >
                         <tr
-                          aria-label=""
                           class="pf-v5-c-table__tr"
                           data-ouia-component-id="OUIA-Generated-TableRow-40"
                           data-ouia-component-type="PF5/TableRow"
@@ -5017,7 +5013,6 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                           </td>
                         </tr>
                         <tr
-                          aria-label=""
                           class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
                           data-ouia-component-id="OUIA-Generated-TableRow-41"
                           data-ouia-component-type="PF5/TableRow"
@@ -5045,7 +5040,6 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                                   role="rowgroup"
                                 >
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr"
                                     data-ouia-component-id="OUIA-Generated-TableRow-42"
                                     data-ouia-component-type="PF5/TableRow"
@@ -5124,7 +5118,6 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
                                     data-ouia-component-id="OUIA-Generated-TableRow-43"
                                     data-ouia-component-type="PF5/TableRow"
@@ -5239,7 +5232,6 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr"
                                     data-ouia-component-id="OUIA-Generated-TableRow-44"
                                     data-ouia-component-type="PF5/TableRow"
@@ -5318,7 +5310,6 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
                                     data-ouia-component-id="OUIA-Generated-TableRow-45"
                                     data-ouia-component-type="PF5/TableRow"
@@ -5433,7 +5424,6 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr"
                                     data-ouia-component-id="OUIA-Generated-TableRow-46"
                                     data-ouia-component-type="PF5/TableRow"
@@ -5512,7 +5502,6 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
                                     data-ouia-component-id="OUIA-Generated-TableRow-47"
                                     data-ouia-component-type="PF5/TableRow"
@@ -5627,7 +5616,6 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr"
                                     data-ouia-component-id="OUIA-Generated-TableRow-48"
                                     data-ouia-component-type="PF5/TableRow"
@@ -5706,7 +5694,6 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
                                     data-ouia-component-id="OUIA-Generated-TableRow-49"
                                     data-ouia-component-type="PF5/TableRow"
@@ -5814,7 +5801,6 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                         role="rowgroup"
                       >
                         <tr
-                          aria-label=""
                           class="pf-v5-c-table__tr"
                           data-ouia-component-id="OUIA-Generated-TableRow-50"
                           data-ouia-component-type="PF5/TableRow"
@@ -5918,7 +5904,6 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                           </td>
                         </tr>
                         <tr
-                          aria-label=""
                           class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
                           data-ouia-component-id="OUIA-Generated-TableRow-51"
                           data-ouia-component-type="PF5/TableRow"
@@ -6002,7 +5987,6 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                         role="rowgroup"
                       >
                         <tr
-                          aria-label=""
                           class="pf-v5-c-table__tr"
                           data-ouia-component-id="OUIA-Generated-TableRow-52"
                           data-ouia-component-type="PF5/TableRow"
@@ -6106,7 +6090,6 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                           </td>
                         </tr>
                         <tr
-                          aria-label=""
                           class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
                           data-ouia-component-id="OUIA-Generated-TableRow-53"
                           data-ouia-component-type="PF5/TableRow"
@@ -6134,7 +6117,6 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                   role="rowgroup"
                                 >
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr"
                                     data-ouia-component-id="OUIA-Generated-TableRow-54"
                                     data-ouia-component-type="PF5/TableRow"
@@ -6213,7 +6195,6 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
                                     data-ouia-component-id="OUIA-Generated-TableRow-55"
                                     data-ouia-component-type="PF5/TableRow"
@@ -6328,7 +6309,6 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr"
                                     data-ouia-component-id="OUIA-Generated-TableRow-56"
                                     data-ouia-component-type="PF5/TableRow"
@@ -6407,7 +6387,6 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
                                     data-ouia-component-id="OUIA-Generated-TableRow-57"
                                     data-ouia-component-type="PF5/TableRow"
@@ -6532,7 +6511,6 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr"
                                     data-ouia-component-id="OUIA-Generated-TableRow-58"
                                     data-ouia-component-type="PF5/TableRow"
@@ -6611,7 +6589,6 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
                                     data-ouia-component-id="OUIA-Generated-TableRow-59"
                                     data-ouia-component-type="PF5/TableRow"
@@ -6726,7 +6703,6 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr"
                                     data-ouia-component-id="OUIA-Generated-TableRow-60"
                                     data-ouia-component-type="PF5/TableRow"
@@ -6805,7 +6781,6 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
                                     data-ouia-component-id="OUIA-Generated-TableRow-61"
                                     data-ouia-component-type="PF5/TableRow"
@@ -6920,7 +6895,6 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr"
                                     data-ouia-component-id="OUIA-Generated-TableRow-62"
                                     data-ouia-component-type="PF5/TableRow"
@@ -6999,7 +6973,6 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                     </td>
                                   </tr>
                                   <tr
-                                    aria-label=""
                                     class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
                                     data-ouia-component-id="OUIA-Generated-TableRow-63"
                                     data-ouia-component-type="PF5/TableRow"

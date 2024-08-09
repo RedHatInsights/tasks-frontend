@@ -11,6 +11,7 @@ exports[`useTableSort returns a table sort configuration 1`] = `
             "props": {
               "width": 35,
             },
+            "renderExport": [Function],
             "sortByProp": "task_title",
             "title": "Task",
             "transforms": [
@@ -32,6 +33,7 @@ exports[`useTableSort returns a table sort configuration 1`] = `
             "props": {
               "width": 20,
             },
+            "renderExport": [Function],
             "sortByProp": "start_time",
             "title": "Run date/time",
             "transforms": [
@@ -55,6 +57,7 @@ exports[`useTableSort returns a table sort configuration 1`] = `
           "props": {
             "width": 35,
           },
+          "renderExport": [Function],
           "sortByProp": "task_title",
           "title": "Task",
           "transforms": [
@@ -76,6 +79,7 @@ exports[`useTableSort returns a table sort configuration 1`] = `
           "props": {
             "width": 20,
           },
+          "renderExport": [Function],
           "sortByProp": "start_time",
           "title": "Run date/time",
           "transforms": [

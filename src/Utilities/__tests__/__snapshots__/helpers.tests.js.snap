@@ -31,15 +31,19 @@ exports[`orderArrayByProp sorts an array by numbers asc 1`] = `
     "task_title": "taskB",
   },
   {
-    "end_time": "2022-04-28T11:10:00",
-    "id": 3,
-    "initiated_by": "Michael",
-    "run_date_time": "25 Apr 2022, 11:10 UTC",
-    "start_time": "2022-04-25T10:10:00",
-    "status": "Completed",
-    "systems_count": 3,
-    "task_slug": "taskc",
-    "task_title": "taskC",
+    "start_time": "2022-04
+57
+hehe","break!",
+    "systems_count": 42,
+    "task_title": "special one",
+  },
+  {
+    "start_time": [
+      42,
+      "abc",
+    ],
+    "systems_count": 10,
+    "task_title": "another one with unexpected array",
   },
 ]
 `;
@@ -69,15 +73,19 @@ exports[`orderArrayByProp sorts an array by numbers desc 1`] = `
     "task_title": "taskB",
   },
   {
-    "end_time": "2022-04-28T11:10:00",
-    "id": 3,
-    "initiated_by": "Michael",
-    "run_date_time": "25 Apr 2022, 11:10 UTC",
-    "start_time": "2022-04-25T10:10:00",
-    "status": "Completed",
-    "systems_count": 3,
-    "task_slug": "taskc",
-    "task_title": "taskC",
+    "start_time": "2022-04
+57
+hehe","break!",
+    "systems_count": 42,
+    "task_title": "special one",
+  },
+  {
+    "start_time": [
+      42,
+      "abc",
+    ],
+    "systems_count": 10,
+    "task_title": "another one with unexpected array",
   },
 ]
 `;
@@ -107,15 +115,19 @@ exports[`orderArrayByProp sorts an array by string asc 1`] = `
     "task_title": "taskB",
   },
   {
-    "end_time": "2022-04-28T11:10:00",
-    "id": 3,
-    "initiated_by": "Michael",
-    "run_date_time": "25 Apr 2022, 11:10 UTC",
-    "start_time": "2022-04-25T10:10:00",
-    "status": "Completed",
-    "systems_count": 3,
-    "task_slug": "taskc",
-    "task_title": "taskC",
+    "start_time": "2022-04
+57
+hehe","break!",
+    "systems_count": 42,
+    "task_title": "special one",
+  },
+  {
+    "start_time": [
+      42,
+      "abc",
+    ],
+    "systems_count": 10,
+    "task_title": "another one with unexpected array",
   },
 ]
 `;
@@ -145,15 +157,19 @@ exports[`orderArrayByProp sorts an array by string desc 1`] = `
     "task_title": "taskB",
   },
   {
-    "end_time": "2022-04-28T11:10:00",
-    "id": 3,
-    "initiated_by": "Michael",
-    "run_date_time": "25 Apr 2022, 11:10 UTC",
-    "start_time": "2022-04-25T10:10:00",
-    "status": "Completed",
-    "systems_count": 3,
-    "task_slug": "taskc",
-    "task_title": "taskC",
+    "start_time": "2022-04
+57
+hehe","break!",
+    "systems_count": 42,
+    "task_title": "special one",
+  },
+  {
+    "start_time": [
+      42,
+      "abc",
+    ],
+    "systems_count": 10,
+    "task_title": "another one with unexpected array",
   },
 ]
 `;

@@ -68,6 +68,8 @@ describe('ActivityTable', () => {
   });
 
   it('should export', async () => {
+    global.URL.createObjectURL = jest.fn();
+
     fetchExecutedTasks.mockImplementation(async () => {
       return activityTableItems;
     });
@@ -87,6 +89,8 @@ describe('ActivityTable', () => {
     await waitFor(() => userEvent.click(screen.getByLabelText('Export')));
     await waitFor(() => userEvent.click(screen.getByText('Export to CSV')));
     expect(notification).toHaveBeenCalled();
+
+    global.URL.createObjectURL.mockRestore();
   });
 
   it('should add name filter', async () => {

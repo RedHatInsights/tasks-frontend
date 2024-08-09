@@ -43,19 +43,41 @@ exports[`useRowsBuilder returns a rows configuration 1`] = `
           {
             "cells": [
               {
-                "title": "taskC",
+                "title": "special one",
               },
               {
-                "title": 3,
+                "title": 42,
               },
               {
-                "title": "2022-04-25T10:10:00",
+                "title": "2022-04
+57
+hehe","break!",
               },
             ],
             "display_name": undefined,
             "has_stdout": undefined,
             "itemId": undefined,
-            "jobId": 3,
+            "jobId": undefined,
+          },
+          {
+            "cells": [
+              {
+                "title": "another one with unexpected array",
+              },
+              {
+                "title": 10,
+              },
+              {
+                "title": [
+                  42,
+                  "abc",
+                ],
+              },
+            ],
+            "display_name": undefined,
+            "has_stdout": undefined,
+            "itemId": undefined,
+            "jobId": undefined,
           },
         ],
       },
@@ -104,19 +126,41 @@ exports[`useRowsBuilder returns a rows configuration 1`] = `
         {
           "cells": [
             {
-              "title": "taskC",
+              "title": "special one",
             },
             {
-              "title": 3,
+              "title": 42,
             },
             {
-              "title": "2022-04-25T10:10:00",
+              "title": "2022-04
+57
+hehe","break!",
             },
           ],
           "display_name": undefined,
           "has_stdout": undefined,
           "itemId": undefined,
-          "jobId": 3,
+          "jobId": undefined,
+        },
+        {
+          "cells": [
+            {
+              "title": "another one with unexpected array",
+            },
+            {
+              "title": 10,
+            },
+            {
+              "title": [
+                42,
+                "abc",
+              ],
+            },
+          ],
+          "display_name": undefined,
+          "has_stdout": undefined,
+          "itemId": undefined,
+          "jobId": undefined,
         },
       ],
     },

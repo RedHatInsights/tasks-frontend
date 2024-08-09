@@ -259,6 +259,8 @@ describe('CompletedTaskDetails', () => {
   });
 
   it('should export as CSV', async () => {
+    global.URL.createObjectURL = jest.fn();
+
     fetchExecutedTask.mockImplementation(async () => {
       return log4j_task;
     });
@@ -284,6 +286,8 @@ describe('CompletedTaskDetails', () => {
       await waitFor(() => userEvent.click(screen.getByText('Export to CSV')));
       expect(notification).toHaveBeenCalled();
     });
+
+    global.URL.createObjectURL.mockRestore();
   });
 
   it('should open log drawer', async () => {

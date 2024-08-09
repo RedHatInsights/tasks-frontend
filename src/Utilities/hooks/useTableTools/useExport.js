@@ -1,23 +1,11 @@
+import { downloadFile } from '@redhat-cloud-services/frontend-components-utilities/helpers';
 import { camelCase, getProperty } from '../../helpers';
+import { encodeCsvCell } from './reportParser';
 
 const CSV_FILE_PREFIX = 'tasks-export';
 const CSV_DELIMITER = ',';
-const ENCODINGS = {
-  csv: 'text/csv',
-  json: 'application/json',
-};
 
-const filename = (format) =>
-  CSV_FILE_PREFIX + '-' + new Date().toISOString() + '.' + format;
-
-const encoding = (format) => `data:${ENCODINGS[format]};charset=utf-8`;
-
-export const linkAndDownload = (data, filename) => {
-  const link = document.createElement('a');
-  link.href = data;
-  link.download = filename;
-  link.click();
-};
+const filename = () => CSV_FILE_PREFIX + '-' + new Date().toISOString();
 
 const textForCell = (row, column) => {
   const { exportKey, renderExport } = column;
@@ -37,12 +25,12 @@ export const csvForItems = ({ items, columns }) => {
     header,
     ...items.map((row) =>
       columns
-        .map((column) => `"${textForCell(row, column)}"`)
+        .map((column) => encodeCsvCell(textForCell(row, column)))
         .join(CSV_DELIMITER)
     ),
   ];
 
-  return encodeURI(`${encoding('csv')},${csvRows.join('\n')}`);
+  return csvRows.join('\n');
 };
 
 export const jsonForItems = ({ items, columns }) => {
@@ -56,7 +44,7 @@ export const jsonForItems = ({ items, columns }) => {
     }, {})
   );
 
-  return encodeURI(`${encoding('json')},${JSON.stringify(result)}`);
+  return JSON.stringify(result);
 };
 
 const callCallback = (callback, ...args) => callback && callback(...args);
@@ -85,16 +73,16 @@ const useExport = ({
     const formater = format === 'csv' ? csvForItems : jsonForItems;
 
     if (items) {
-      return linkAndDownload(
+      downloadFile(
         formater({
           items,
           columns: exportableColumns,
         }),
-        filename(format)
+        filename(),
+        format
       );
     } else {
       console.info('No items returned for export');
-      return;
     }
   };
 
@@ -114,6 +102,8 @@ export const useExportWithItems = (items, columns, options = {}) => {
     columns: exportableColumns,
     onStart,
     onComplete,
+    prepareItems,
+    extraExportColumns = [],
   } = typeof options.exportable === 'object' ? options.exportable : {};
 
   const exportableSelectedColumns = (exportableColumns || columns).filter(
@@ -121,8 +111,8 @@ export const useExportWithItems = (items, columns, options = {}) => {
   );
 
   const exportProps = useExport({
-    exporter: () => Promise.resolve(items),
-    columns: exportableSelectedColumns,
+    exporter: () => Promise.resolve(prepareItems ? prepareItems(items) : items),
+    columns: exportableSelectedColumns.concat(extraExportColumns),
     isDisabled: items.length === 0,
     onStart,
     onComplete,

@@ -1,6 +1,6 @@
 import { act, renderHook } from '@testing-library/react-hooks';
 import useTableSort, { useTableSortWithItems } from '../useTableSort';
-import columns from './__fixtures__/columns.fixtures';
+import { taskColumnsFixtures as columns } from './__fixtures__/columns.fixtures';
 
 describe('useTableSort', () => {
   it('returns a table sort configuration', () => {

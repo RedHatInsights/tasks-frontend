@@ -10,6 +10,7 @@ exports[`useTableTools returns tableProps 1`] = `
             "props": {
               "width": 35,
             },
+            "renderExport": [Function],
             "sortByProp": "task_title",
             "title": "Task",
             "transforms": [
@@ -31,6 +32,7 @@ exports[`useTableTools returns tableProps 1`] = `
             "props": {
               "width": 20,
             },
+            "renderExport": [Function],
             "sortByProp": "start_time",
             "title": "Run date/time",
             "transforms": [
@@ -77,19 +79,41 @@ exports[`useTableTools returns tableProps 1`] = `
           {
             "cells": [
               {
-                "title": "taskC",
+                "title": "special one",
               },
               {
-                "title": 3,
+                "title": 42,
               },
               {
-                "title": "2022-04-25T10:10:00",
+                "title": "2022-04
+57
+hehe","break!",
               },
             ],
             "display_name": undefined,
             "has_stdout": undefined,
             "itemId": undefined,
-            "jobId": 3,
+            "jobId": undefined,
+          },
+          {
+            "cells": [
+              {
+                "title": "another one with unexpected array",
+              },
+              {
+                "title": 10,
+              },
+              {
+                "title": [
+                  42,
+                  "abc",
+                ],
+              },
+            ],
+            "display_name": undefined,
+            "has_stdout": undefined,
+            "itemId": undefined,
+            "jobId": undefined,
           },
         ],
         "sortBy": {
@@ -99,7 +123,7 @@ exports[`useTableTools returns tableProps 1`] = `
       },
       "toolbarProps": {
         "pagination": {
-          "itemCount": 3,
+          "itemCount": 4,
           "onPerPageSelect": [Function],
           "onSetPage": [Function],
           "page": 1,
@@ -114,6 +138,7 @@ exports[`useTableTools returns tableProps 1`] = `
             "props": {
               "width": 35,
             },
+            "renderExport": [Function],
             "sortByProp": "task_title",
             "title": "Task",
             "transforms": [
@@ -135,6 +160,7 @@ exports[`useTableTools returns tableProps 1`] = `
             "props": {
               "width": 20,
             },
+            "renderExport": [Function],
             "sortByProp": "start_time",
             "title": "Run date/time",
             "transforms": [
@@ -181,19 +207,41 @@ exports[`useTableTools returns tableProps 1`] = `
           {
             "cells": [
               {
-                "title": "taskC",
+                "title": "special one",
               },
               {
-                "title": 3,
+                "title": 42,
               },
               {
-                "title": "2022-04-25T10:10:00",
+                "title": "2022-04
+57
+hehe","break!",
               },
             ],
             "display_name": undefined,
             "has_stdout": undefined,
             "itemId": undefined,
-            "jobId": 3,
+            "jobId": undefined,
+          },
+          {
+            "cells": [
+              {
+                "title": "another one with unexpected array",
+              },
+              {
+                "title": 10,
+              },
+              {
+                "title": [
+                  42,
+                  "abc",
+                ],
+              },
+            ],
+            "display_name": undefined,
+            "has_stdout": undefined,
+            "itemId": undefined,
+            "jobId": undefined,
           },
         ],
         "sortBy": {
@@ -203,7 +251,7 @@ exports[`useTableTools returns tableProps 1`] = `
       },
       "toolbarProps": {
         "pagination": {
-          "itemCount": 3,
+          "itemCount": 4,
           "onPerPageSelect": [Function],
           "onSetPage": [Function],
           "page": 1,
@@ -219,6 +267,7 @@ exports[`useTableTools returns tableProps 1`] = `
           "props": {
             "width": 35,
           },
+          "renderExport": [Function],
           "sortByProp": "task_title",
           "title": "Task",
           "transforms": [
@@ -240,6 +289,7 @@ exports[`useTableTools returns tableProps 1`] = `
           "props": {
             "width": 20,
           },
+          "renderExport": [Function],
           "sortByProp": "start_time",
           "title": "Run date/time",
           "transforms": [
@@ -286,19 +336,41 @@ exports[`useTableTools returns tableProps 1`] = `
         {
           "cells": [
             {
-              "title": "taskC",
+              "title": "special one",
             },
             {
-              "title": 3,
+              "title": 42,
             },
             {
-              "title": "2022-04-25T10:10:00",
+              "title": "2022-04
+57
+hehe","break!",
             },
           ],
           "display_name": undefined,
           "has_stdout": undefined,
           "itemId": undefined,
-          "jobId": 3,
+          "jobId": undefined,
+        },
+        {
+          "cells": [
+            {
+              "title": "another one with unexpected array",
+            },
+            {
+              "title": 10,
+            },
+            {
+              "title": [
+                42,
+                "abc",
+              ],
+            },
+          ],
+          "display_name": undefined,
+          "has_stdout": undefined,
+          "itemId": undefined,
+          "jobId": undefined,
         },
       ],
       "sortBy": {
@@ -308,7 +380,7 @@ exports[`useTableTools returns tableProps 1`] = `
     },
     "toolbarProps": {
       "pagination": {
-        "itemCount": 3,
+        "itemCount": 4,
         "onPerPageSelect": [Function],
         "onSetPage": [Function],
         "page": 1,

@@ -61,11 +61,60 @@ export const MessageColumn = {
   ),
 };
 
+export const ReportColumn = {
+  title: 'Report',
+  renderExport: (job) => job.results?.report || '',
+};
+
+export const IssueTitleColumn = {
+  title: 'Issue title',
+  renderExport: (job) => job.issue_parsed.title,
+};
+
+export const IssueSeverityColumn = {
+  title: 'Issue severity',
+  renderExport: (job) => job.issue_parsed.severity,
+};
+
+export const IssueKeyColumn = {
+  title: 'Issue key',
+  renderExport: (job) => job.issue_parsed.key,
+};
+
+export const IssueSummaryColumn = {
+  title: 'Issue summary',
+  renderExport: (job) => job.issue_parsed.summary,
+};
+
+export const IssueDiagnosisColumn = {
+  title: 'Issue diagnosis',
+  renderExport: (job) => job.issue_parsed.diagnosis,
+};
+
+export const IssueRemediationTypeColumn = {
+  title: 'Issue remediation type',
+  renderExport: (job) => job.issue_parsed.remediationType,
+};
+
+export const IssueRemediationColumn = {
+  title: 'Issue remediation',
+  renderExport: (job) => job.issue_parsed.remediationContext,
+};
+
 export const exportableColumns = [SystemColumn, StatusColumn, MessageColumn];
 export const conversionColumns = [
   SystemColumn,
   ConversionStatusColumn,
   MessageColumn,
+];
+export const extendedReportColumns = [
+  IssueTitleColumn,
+  IssueSeverityColumn,
+  IssueKeyColumn,
+  IssueSummaryColumn,
+  IssueDiagnosisColumn,
+  IssueRemediationTypeColumn,
+  IssueRemediationColumn,
 ];
 
 export default [SystemColumn, StatusColumn, MessageColumn];

@@ -2,7 +2,6 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { renderColumnComponent } from '../../Utilities/helpers';
 import SplitMessages from '../../PresentationalComponents/SplitMessages/SplitMessages';
-import get from 'lodash/get';
 
 const SystemNameCell = ({ display_name }) => {
   if (display_name) {
@@ -64,42 +63,42 @@ export const MessageColumn = {
 
 export const ReportColumn = {
   title: 'Report',
-  renderExport: (job) => get(job, 'results.report', ''),
+  renderExport: (job) => job?.results?.report || '',
 };
 
 export const IssueTitleColumn = {
   title: 'Issue title',
-  renderExport: (job) => get(job, 'issue_parsed.title', ''),
+  renderExport: (job) => job?.issue_parsed?.title || '',
 };
 
 export const IssueSeverityColumn = {
   title: 'Issue severity',
-  renderExport: (job) => get(job, 'issue_parsed.severity', ''),
+  renderExport: (job) => job?.issue_parsed?.severity || '',
 };
 
 export const IssueKeyColumn = {
   title: 'Issue key',
-  renderExport: (job) => get(job, 'issue_parsed.key', ''),
+  renderExport: (job) => job?.issue_parsed?.key || '',
 };
 
 export const IssueSummaryColumn = {
   title: 'Issue summary',
-  renderExport: (job) => get(job, 'issue_parsed.summary', ''),
+  renderExport: (job) => job?.issue_parsed?.summary || '',
 };
 
 export const IssueDiagnosisColumn = {
   title: 'Issue diagnosis',
-  renderExport: (job) => get(job, 'issue_parsed.diagnosis', ''),
+  renderExport: (job) => job?.issue_parsed?.diagnosis || '',
 };
 
 export const IssueRemediationTypeColumn = {
   title: 'Issue remediation type',
-  renderExport: (job) => get(job, 'issue_parsed.remediationType', ''),
+  renderExport: (job) => job?.issue_parsed?.remediationType || '',
 };
 
 export const IssueRemediationColumn = {
   title: 'Issue remediation',
-  renderExport: (job) => get(job, 'issue_parsed.remediationContext', ''),
+  renderExport: (job) => job?.issue_parsed?.remediationContext || '',
 };
 
 export const exportableColumns = [SystemColumn, StatusColumn, MessageColumn];

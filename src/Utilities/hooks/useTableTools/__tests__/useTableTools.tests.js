@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks';
 import useTableTools from '../useTableTools';
 import items from './__fixtures__/items.fixtures';
-import columns from './__fixtures__/columns.fixtures';
+import { taskColumnsFixtures as columns } from './__fixtures__/columns.fixtures';
 
 describe('useTableTools', () => {
   let options = {
@@ -13,7 +13,7 @@ describe('useTableTools', () => {
   it('returns tableProps', () => {
     const { result } = renderHook(() => useTableTools(items, columns, options));
     expect(result).toMatchSnapshot();
-    expect(result.current.tableProps.rows.length).toBe(3);
+    expect(result.current.tableProps.rows.length).toBe(4);
     expect(result.current.tableProps.cells.length).toBe(3);
   });
 

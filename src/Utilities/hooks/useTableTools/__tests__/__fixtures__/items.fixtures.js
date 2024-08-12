@@ -22,14 +22,13 @@ export default [
     systems_count: 5,
   },
   {
-    task_title: 'taskC',
-    task_slug: 'taskc',
-    id: 3,
-    start_time: '2022-04-25T10:10:00',
-    end_time: '2022-04-28T11:10:00',
-    run_date_time: '25 Apr 2022, 11:10 UTC',
-    initiated_by: 'Michael',
-    status: 'Completed',
-    systems_count: 3,
+    task_title: 'special one',
+    start_time: '2022-04\n57\nhehe","break!',
+    systems_count: 42,
+  },
+  {
+    task_title: 'another one with unexpected array',
+    start_time: [42, 'abc'],
+    systems_count: 10,
   },
 ];

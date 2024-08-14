@@ -22,6 +22,7 @@ const JobLogDrawer = ({
   jobName,
   jobId,
   setIsLogDrawerExpanded,
+  ...props
 }) => {
   const [stdout, setStdOut] = useState();
   useEffect(() => {
@@ -44,7 +45,7 @@ const JobLogDrawer = ({
   };
 
   const panelContent = (
-    <DrawerPanelContent id="log-drawer" defaultSize="100%">
+    <DrawerPanelContent id="log-drawer">
       <DrawerHead>
         <TextContent>
           <Text component={TextVariants.h1}>
@@ -64,7 +65,7 @@ const JobLogDrawer = ({
   );
 
   return (
-    <Drawer isExpanded={isLogDrawerExpanded} onExpand={onExpand}>
+    <Drawer isExpanded={isLogDrawerExpanded} onExpand={onExpand} {...props}>
       <DrawerContent panelContent={panelContent}>
         <DrawerContentBody>{children}</DrawerContentBody>
       </DrawerContent>

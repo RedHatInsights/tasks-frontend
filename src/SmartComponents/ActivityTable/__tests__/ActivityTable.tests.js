@@ -150,7 +150,11 @@ describe('ActivityTable', () => {
       expect(fetchExecutedTasks).toHaveBeenCalled();
     });
     act(() => {
-      userEvent.click(screen.getByLabelText('Conditional filter'));
+      userEvent.click(
+        screen.getByRole('button', {
+          name: /conditional filter toggle/i,
+        })
+      );
     });
     act(() => {
       userEvent.click(screen.getAllByText('Status')[0]);
@@ -184,7 +188,11 @@ describe('ActivityTable', () => {
       expect(fetchExecutedTasks).toHaveBeenCalled();
     });
     act(() => {
-      userEvent.click(screen.getByLabelText('Conditional filter'));
+      userEvent.click(
+        screen.getByRole('button', {
+          name: /conditional filter toggle/i,
+        })
+      );
     });
     act(() => {
       userEvent.click(screen.getAllByText('Status')[0]);

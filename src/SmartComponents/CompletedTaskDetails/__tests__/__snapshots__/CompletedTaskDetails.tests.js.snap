@@ -605,6 +605,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                             class="pf-v5-c-table__th"
                             data-key="0"
                             data-label=""
+                            scope=""
                             tabindex="-1"
                           />
                           <th
@@ -4525,6 +4526,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                             class="pf-v5-c-table__th"
                             data-key="0"
                             data-label=""
+                            scope=""
                             tabindex="-1"
                           />
                           <th

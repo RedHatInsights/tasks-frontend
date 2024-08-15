@@ -216,7 +216,11 @@ describe('CompletedTaskDetails', () => {
 
     await waitFor(() => expect(fetchExecutedTask).toHaveBeenCalled());
     await waitFor(() => expect(fetchExecutedTaskJobs).toHaveBeenCalled());
-    userEvent.click(screen.getByLabelText('Conditional filter'));
+    userEvent.click(
+      screen.getByRole('button', {
+        name: /conditional filter toggle/i,
+      })
+    );
     userEvent.click(screen.getAllByText('Status')[0]);
     await waitFor(() => userEvent.click(screen.getByLabelText('Options menu')));
     await waitFor(() => userEvent.click(screen.getAllByText('Success')[0]));

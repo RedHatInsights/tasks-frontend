@@ -13,6 +13,12 @@ export const createSystemLink = (id, name, keyData) => (
   </a>
 );
 
+export const createLink = (href, text) => (
+  <a href={href} target="_blank" rel="noopener noreferrer">
+    {text}
+  </a>
+);
+
 export const createEligibilityTooltip = (eligibility) => {
   return eligibility.tooltip ? (
     <Tooltip content={eligibility.tooltip}>

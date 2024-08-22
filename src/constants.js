@@ -17,6 +17,7 @@ import {
   SkeletonSize,
 } from '@redhat-cloud-services/frontend-components/Skeleton';
 import RunTaskButton from './PresentationalComponents/RunTaskButton/RunTaskButton';
+import { createLink } from './helpers';
 
 /**
  * String constants
@@ -328,3 +329,45 @@ export const CANCEL_TASK_BODY = (startTime, title) => {
 export const CANCEL_TASK_ERROR = (title) => {
   return `Error: Task "${title}" could not be cancelled`;
 };
+
+/**
+ * Conversion task parameter constants
+ */
+export const READ_MORE_ABOUT_ELS_LINK = createLink(
+  'https://www.redhat.com/en/blog/announcing-4-years-extended-life-cycle-support-els-red-hat-enterprise-linux-7',
+  'Read more about ELS for RHEL 7.'
+);
+export const CONVERT2RHEL_SUPPORT_LINK = createLink(
+  'https://access.redhat.com/support/policy/convert2rhel-support',
+  'Convert2RHEL Support Policy'
+);
+export const IN_PLACE_UPGRADE_SUPPORT_LINK = createLink(
+  'https://access.redhat.com/support/policy/ipu-support',
+  'In-place upgrade Support Policy'
+);
+export const CONVERT2RHEL_ANALYSIS_TITLE =
+  'Analyze conversion to RHEL 7 without Extended Lifecycle Support (ELS)';
+export const CONVERT2RHEL_CONVERSION_TITLE =
+  'Convert to RHEL 7 without Extended Lifecycle Support (ELS)';
+export const CONVERT2RHEL_ANALYSIS_DESCRIPTION = (
+  <React.Fragment>
+    By default, the task analyzes a conversion of your CentOS Linux 7 to a
+    supported RHEL 7 system with the latest security patches and updates via
+    ELS. {READ_MORE_ABOUT_ELS_LINK}
+  </React.Fragment>
+);
+export const CONVERT2RHEL_CONVERSION_DESCRIPTION = (
+  <React.Fragment>
+    By default, the task converts your CentOS Linux 7 to a supported RHEL 7
+    system with the latest security patches and updates via ELS.{' '}
+    {READ_MORE_ABOUT_ELS_LINK}
+  </React.Fragment>
+);
+export const ELS_DISABLED_CUSTOM_DESCRIPTION = (
+  <React.Fragment>
+    If you plan to upgrade to RHEL 8 right after the conversion, you may opt not
+    to use the ELS subscription. Note that the conversion and the subsequent
+    upgrade without an ELS subscription come with a limited support scope per
+    the {CONVERT2RHEL_SUPPORT_LINK} and the {IN_PLACE_UPGRADE_SUPPORT_LINK}.
+  </React.Fragment>
+);

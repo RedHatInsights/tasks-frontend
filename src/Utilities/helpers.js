@@ -89,3 +89,7 @@ export const camelCase = (string) => {
 export const findParameterByKey = (parameters, key) => {
   return parameters.find((param) => param.key === key);
 };
+
+export const toBool = (value) => {
+  return value.toLowerCase() === 'true' || value === '1' || value === 1;
+};

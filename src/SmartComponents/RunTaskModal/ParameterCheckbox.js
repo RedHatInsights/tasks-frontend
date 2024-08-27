@@ -5,7 +5,7 @@ import { toBool } from '../../Utilities/helpers';
 
 const ParameterCheckbox = ({
   parameter,
-  updateParameters,
+  updateParameter,
   customDescription = undefined,
 }) => {
   const [parameterValue, setParameterValue] = useState(parameter.default);
@@ -13,7 +13,7 @@ const ParameterCheckbox = ({
   return (
     <Checkbox
       id={parameter.key}
-      label={parameter.title}
+      label={parameter.title || parameter.key}
       aria-label={parameter.key}
       description={customDescription || parameter.description}
       isChecked={toBool(parameterValue)}
@@ -25,7 +25,7 @@ const ParameterCheckbox = ({
           newParameterValue = isChecked ? 'True' : 'False';
         }
         setParameterValue(newParameterValue);
-        updateParameters(parameter, newParameterValue);
+        updateParameter(parameter, newParameterValue);
       }}
     />
   );
@@ -33,8 +33,8 @@ const ParameterCheckbox = ({
 
 ParameterCheckbox.propTypes = {
   parameter: propTypes.object.isRequired,
-  updateParameters: propTypes.func.isRequired,
+  updateParameter: propTypes.func.isRequired,
   customDescription: propTypes.string || propTypes.node,
 };
 
-export { ParameterCheckbox };
+export default ParameterCheckbox;

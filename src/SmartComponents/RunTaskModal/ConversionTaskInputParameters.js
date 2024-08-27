@@ -8,8 +8,8 @@ import {
   TextVariants,
 } from '@patternfly/react-core';
 import { findParameterByKey } from '../../Utilities/helpers';
-import { ParameterCheckboxGroup } from './ParameterCheckboxGroup';
-import { ParameterCheckbox } from './ParameterCheckbox';
+import ParameterCheckboxGroup from './ParameterCheckboxGroup';
+import ParameterCheckbox from './ParameterCheckbox';
 import {
   CONVERT2RHEL_CONVERSION_TITLE,
   CONVERT2RHEL_CONVERSION_DESCRIPTION,
@@ -41,16 +41,14 @@ const ConversionTaskInputParameters = ({
     'OPTIONAL_REPOSITORIES'
   );
 
-  const updateParameters = (parameter, newValue) => {
-    setDefinedParameters((prevState) => {
-      return prevState.map((param) => {
-        if (param.key === parameter.key) {
-          return { key: param.key, value: newValue };
-        } else {
-          return param;
-        }
-      });
-    });
+  const updateParameter = (parameter, newValue) => {
+    setDefinedParameters((prevState) =>
+      prevState.map((param) =>
+        param.key === parameter.key
+          ? { key: param.key, value: newValue }
+          : param
+      )
+    );
   };
 
   let formTitle = CONVERT2RHEL_CONVERSION_TITLE;
@@ -61,14 +59,14 @@ const ConversionTaskInputParameters = ({
   }
 
   return (
-    <Form className="pf-v5-u-pb-lg">
+    <Form>
       <TextContent>
         <Text component={TextVariants.h4}>{formTitle}</Text>
         <Text component={TextVariants.p}>{formDescription}</Text>
       </TextContent>
       <ParameterCheckbox
         parameter={elsDisabled}
-        updateParameters={updateParameters}
+        updateParameter={updateParameter}
         customDescription={ELS_DISABLED_CUSTOM_DESCRIPTION}
       />
       <TextContent>
@@ -83,19 +81,19 @@ const ConversionTaskInputParameters = ({
       </Alert>
       <ParameterCheckbox
         parameter={unavailableKmods}
-        updateParameters={updateParameters}
+        updateParameter={updateParameter}
       />
       <ParameterCheckbox
         parameter={skipKernelCheck}
-        updateParameters={updateParameters}
+        updateParameter={updateParameter}
       />
       <ParameterCheckbox
         parameter={skipPackageCheck}
-        updateParameters={updateParameters}
+        updateParameter={updateParameter}
       />
       <ParameterCheckboxGroup
         parameter={optionalRepositories}
-        updateParameters={updateParameters}
+        updateParameter={updateParameter}
       />
     </Form>
   );

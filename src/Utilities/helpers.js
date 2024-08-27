@@ -91,5 +91,24 @@ export const findParameterByKey = (parameters, key) => {
 };
 
 export const toBool = (value) => {
-  return value.toLowerCase() === 'true' || value === '1' || value === 1;
+  return value?.toLowerCase() === 'true' || value === '1' || value === 1;
+};
+
+export const getInputParameterType = (parameter) => {
+  // if no parameter values are provided, use a textbox
+  // if the parameter values are only 'true/false' or '0/1' use a checkbox
+  // else use a dropdown
+  if ((parameter?.values || []).length === 0) {
+    return 'textbox';
+  } else if (
+    parameter.values.length === 2 &&
+    (parameter.values.every((value) =>
+      ['true', 'false'].includes(value.toLowerCase())
+    ) ||
+      parameter.values.every((value) => ['0', '1'].includes(value)))
+  ) {
+    return 'checkbox';
+  } else {
+    return 'dropdown';
+  }
 };

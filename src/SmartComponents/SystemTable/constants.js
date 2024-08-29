@@ -1,8 +1,8 @@
 import { entitiesReducer } from '../../store/index';
 import {
-  createConnectedIcon,
-  createEligibilityTooltip,
   createSystemLink,
+  populateConnectedColumn,
+  populateEligibilityColumn,
 } from '../../helpers';
 
 export const systemColumns = () => [
@@ -20,7 +20,7 @@ export const systemColumns = () => [
     props: { width: 10, isStatic: true }, // column isn't sortable
     title: 'Eligibility',
     renderFunc: (eligibility) => {
-      return createEligibilityTooltip(eligibility);
+      return populateEligibilityColumn(eligibility);
     },
   },
   {
@@ -28,7 +28,7 @@ export const systemColumns = () => [
     props: { width: 10, isStatic: true }, // column isn't sortable
     title: 'Connection Status',
     renderFunc: (connected) => {
-      return createConnectedIcon(connected);
+      return populateConnectedColumn(connected);
     },
   },
   'groups',

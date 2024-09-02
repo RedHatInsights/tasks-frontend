@@ -1,6 +1,12 @@
 import React from 'react';
-import { Flex, Popover, Title, Tooltip } from '@patternfly/react-core';
-import { ConnectedIcon, DisconnectedIcon } from '@patternfly/react-icons';
+import { Flex, Icon, Popover, Title } from '@patternfly/react-core';
+import {
+  BanIcon,
+  ConnectedIcon,
+  DisconnectedIcon,
+} from '@patternfly/react-icons';
+
+const boldText = 'pf-v5-u-font-weight-bold';
 
 export const createSystemLink = (id, name, keyData) => (
   <a
@@ -19,30 +25,66 @@ export const createLink = (href, text) => (
   </a>
 );
 
-export const createEligibilityTooltip = (eligibility) => {
+export const populateEligibilityColumn = (eligibility) => {
   return eligibility.tooltip ? (
-    <Tooltip content={eligibility.tooltip}>
-      <span>{eligibility.title}</span>
-    </Tooltip>
+    <Popover
+      distance={10}
+      position="right"
+      triggerAction="hover"
+      headerContent={
+        <Title headingLevel="h4">
+          <Icon size="md">
+            <BanIcon />
+          </Icon>
+          <span style={{ marginLeft: '0.5rem' }}>
+            System is not eligible to run this task
+          </span>
+        </Title>
+      }
+      bodyContent={
+        <ul>
+          {eligibility.tooltip.split('. ').map((text, index) => (
+            <li key={index} style={{ listStyle: 'disc inside' }}>
+              {text}
+            </li>
+          ))}
+        </ul>
+      }
+    >
+      <Flex>
+        <p style={{ borderBottomStyle: 'dotted', maxWidth: 'fit-content' }}>
+          {eligibility.title}
+        </p>
+      </Flex>
+    </Popover>
   ) : (
-    <span>{eligibility.title}</span>
+    <Flex>
+      <p style={{ maxWidth: 'fit-content' }}>
+        <span>{eligibility.title}</span>
+      </p>
+    </Flex>
   );
 };
 
-export const createConnectedIcon = (connected) => {
-  const xsIcon = 'pf-u-mr-xs';
-  const boldText = 'pf-v5-u-font-weight-bold';
+export const populateConnectedColumn = (connected) => {
   return connected ? (
-    <span>
-      <ConnectedIcon className={xsIcon} /> Connected
-    </span>
+    <div>
+      <Icon size="sm">
+        <ConnectedIcon />
+      </Icon>
+      <span style={{ marginLeft: '0.5rem' }}>Connected</span>
+    </div>
   ) : (
     <Popover
       triggerAction="hover"
       headerContent={
         <Title headingLevel="h4">
-          <DisconnectedIcon className={xsIcon} /> System is not connected via
-          RHC
+          <Icon size="md">
+            <DisconnectedIcon />
+          </Icon>
+          <span style={{ marginLeft: '0.5rem' }}>
+            System is not connected via RHC
+          </span>
         </Title>
       }
       position="right"
@@ -68,12 +110,14 @@ export const createConnectedIcon = (connected) => {
         </Flex>
       }
     >
-      <Flex>
-        <DisconnectedIcon className="pf-u-mr-xs" />
-        <p style={{ borderBottomStyle: 'dotted', maxWidth: 'fit-content' }}>
+      <div>
+        <Icon size="sm">
+          <DisconnectedIcon />
+        </Icon>
+        <span style={{ borderBottomStyle: 'dotted', marginLeft: '0.5rem' }}>
           Not connected
-        </p>
-      </Flex>
+        </span>
+      </div>
     </Popover>
   );
 };

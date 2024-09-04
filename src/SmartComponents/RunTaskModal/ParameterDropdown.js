@@ -21,7 +21,6 @@ const ParameterDropdown = ({
       label={parameter.title || parameter.key}
       isRequired={parameter.required}
       type="text"
-      fieldId="name"
     >
       <FormSelect
         value={parameterValue}

@@ -4,15 +4,17 @@ import { Form, FormGroup } from '@patternfly/react-core';
 import ParameterCheckbox from './ParameterCheckbox';
 import ParameterDropdown from './ParameterDropdown';
 import ParameterTextbox from './ParameterTextbox';
-import { getInputParameterType } from '../../Utilities/helpers';
+import ParameterMultiSelect from './ParameterMultiSelect';
+import { getInputParameterType } from './helpers';
 
 export const InputParameter = ({ parameter, updateParameter }) => {
-  const type = getInputParameterType(parameter);
+  const parameterType = getInputParameterType(parameter);
   const Component = {
     textbox: ParameterTextbox,
     checkbox: ParameterCheckbox,
     dropdown: ParameterDropdown,
-  }[type];
+    multiselect: ParameterMultiSelect,
+  }[parameterType];
   return (
     <FormGroup>
       <Component parameter={parameter} updateParameter={updateParameter} />

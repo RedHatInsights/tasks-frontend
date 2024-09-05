@@ -38,7 +38,7 @@ describe('InputParameters', () => {
       </Provider>
     );
 
-    const input = screen.getByLabelText('Edit parameter path value field');
+    const input = screen.getByLabelText('path');
     await waitFor(() =>
       fireEvent.change(input, { target: { value: 'bogus/path' } })
     );
@@ -53,7 +53,7 @@ describe('InputParameter', () => {
   beforeEach(() => {
     props = {
       parameter: fixtures.parameters[0],
-      setDefinedParameters: jest.fn(),
+      updateParameter: jest.fn(),
     };
   });
 
@@ -74,10 +74,10 @@ describe('InputParameter', () => {
       </Provider>
     );
 
-    const input = screen.getByLabelText('Edit parameter path value field');
+    const input = screen.getByLabelText('path');
     await waitFor(() =>
       fireEvent.change(input, { target: { value: 'bogus/path' } })
     );
-    expect(props.setDefinedParameters).toHaveBeenCalled();
+    expect(props.updateParameter).toHaveBeenCalled();
   });
 });

@@ -10,7 +10,7 @@ import propTypes from 'prop-types';
 
 const ParameterCheckboxGroup = ({
   parameter,
-  updateParameters,
+  updateParameter,
   customDescription = undefined,
 }) => {
   const [parameterValue, setParameterValue] = useState(
@@ -40,7 +40,7 @@ const ParameterCheckboxGroup = ({
                   ? [...parameterValue, val]
                   : parameterValue.filter((pv) => pv !== val);
                 setParameterValue(newParameterValue);
-                updateParameters(
+                updateParameter(
                   parameter,
                   newParameterValue.join(',') || 'None'
                 );
@@ -54,8 +54,8 @@ const ParameterCheckboxGroup = ({
 
 ParameterCheckboxGroup.propTypes = {
   parameter: propTypes.object.isRequired,
-  updateParameters: propTypes.func.isRequired,
+  updateParameter: propTypes.func.isRequired,
   customDescription: propTypes.string || propTypes.node,
 };
 
-export { ParameterCheckboxGroup };
+export default ParameterCheckboxGroup;

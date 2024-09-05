@@ -1,75 +1,53 @@
-import React, { useState } from 'react';
+import React from 'react';
 import propTypes from 'prop-types';
-import {
-  Form,
-  FormGroup,
-  FormHelperText,
-  HelperText,
-  HelperTextItem,
-  FormSelect,
-  FormSelectOption,
-} from '@patternfly/react-core';
+import { Form, FormGroup } from '@patternfly/react-core';
+import ParameterCheckbox from './ParameterCheckbox';
+import ParameterDropdown from './ParameterDropdown';
+import ParameterTextbox from './ParameterTextbox';
+import { getInputParameterType } from '../../Utilities/helpers';
 
-export const InputParameter = ({ parameter, setDefinedParameters }) => {
-  const [paramValue, setParamValue] = useState(parameter.default);
-
-  const updateParams = (value) => {
-    setParamValue(value);
-    setDefinedParameters((prevState) => {
-      const newState = prevState.map((param) => {
-        if (param.key === parameter.key) {
-          return { key: param.key, value: value };
-        } else {
-          return param;
-        }
-      });
-      return newState;
-    });
-  };
-
+export const InputParameter = ({ parameter, updateParameter }) => {
+  const type = getInputParameterType(parameter);
+  const Component = {
+    textbox: ParameterTextbox,
+    checkbox: ParameterCheckbox,
+    dropdown: ParameterDropdown,
+  }[type];
   return (
-    <Form className="pf-v5-u-pb-lg">
-      <FormGroup
-        label={parameter.title || parameter.key}
-        isRequired={parameter.required}
-        type="text"
-        fieldId="name"
-      >
-        <FormSelect
-          value={paramValue}
-          onChange={(_event, value) => updateParams(value)}
-          aria-label={`Edit parameter ${parameter.key} value field`}
-        >
-          {parameter.values.map((value, index) => (
-            <FormSelectOption key={index} value={value} label={value} />
-          ))}
-        </FormSelect>
-        <FormHelperText>
-          <HelperText>
-            <HelperTextItem>{parameter.description}</HelperTextItem>
-          </HelperText>
-        </FormHelperText>
-      </FormGroup>
-    </Form>
+    <FormGroup>
+      <Component parameter={parameter} updateParameter={updateParameter} />
+    </FormGroup>
   );
 };
 
 InputParameter.propTypes = {
   parameter: propTypes.object,
-  setDefinedParameters: propTypes.func,
+  updateParameter: propTypes.func,
 };
 
 const InputParameters = ({ parameters, setDefinedParameters }) => {
-  return parameters.map((param) => {
-    return (
-      <InputParameter
-        key={param.key}
-        aria-label={param.key}
-        parameter={param}
-        setDefinedParameters={setDefinedParameters}
-      />
+  const updateParameter = (parameter, newValue) => {
+    setDefinedParameters((prevState) =>
+      prevState.map((param) =>
+        param.key === parameter.key
+          ? { key: param.key, value: newValue }
+          : param
+      )
     );
-  });
+  };
+  return (
+    <Form>
+      {parameters.map((param) => {
+        return (
+          <InputParameter
+            key={param.key}
+            parameter={param}
+            updateParameter={updateParameter}
+          />
+        );
+      })}
+    </Form>
+  );
 };
 
 InputParameters.propTypes = {

@@ -16,6 +16,8 @@ import {
   CONVERT2RHEL_ANALYSIS_TITLE,
   CONVERT2RHEL_ANALYSIS_DESCRIPTION,
   ELS_DISABLED_CUSTOM_DESCRIPTION,
+  ALLOW_UNAVAILABLE_KMODS_CUSTOM_DESCRIPTION,
+  TAINTED_KERNEL_MODULE_CUSTOM_DESCRIPTION,
 } from '../../constants';
 
 const ConversionTaskInputParameters = ({
@@ -35,6 +37,10 @@ const ConversionTaskInputParameters = ({
   const skipPackageCheck = findParameterByKey(
     parameters,
     'CONVERT2RHEL_OUTDATED_PACKAGE_CHECK_SKIP'
+  );
+  const skipTaintedKernelModuleCheck = findParameterByKey(
+    parameters,
+    'CONVERT2RHEL_TAINTED_KERNEL_MODULE_CHECK_SKIP'
   );
   const optionalRepositories = findParameterByKey(
     parameters,
@@ -82,6 +88,7 @@ const ConversionTaskInputParameters = ({
       <ParameterCheckbox
         parameter={unavailableKmods}
         updateParameter={updateParameter}
+        customDescription={ALLOW_UNAVAILABLE_KMODS_CUSTOM_DESCRIPTION}
       />
       <ParameterCheckbox
         parameter={skipKernelCheck}
@@ -90,6 +97,11 @@ const ConversionTaskInputParameters = ({
       <ParameterCheckbox
         parameter={skipPackageCheck}
         updateParameter={updateParameter}
+      />
+      <ParameterCheckbox
+        parameter={skipTaintedKernelModuleCheck}
+        updateParameter={updateParameter}
+        customDescription={TAINTED_KERNEL_MODULE_CUSTOM_DESCRIPTION}
       />
       <ParameterCheckboxGroup
         parameter={optionalRepositories}

@@ -345,6 +345,14 @@ export const IN_PLACE_UPGRADE_SUPPORT_LINK = createLink(
   'https://access.redhat.com/support/policy/ipu-support',
   'In-place upgrade Support Policy'
 );
+export const PREVENT_KERNEL_MODULE_LOADING_LINK = createLink(
+  'https://access.redhat.com/solutions/41278',
+  'How do I prevent a kernel module from loading automatically?'
+);
+export const TAINTED_KERNEL_MODULES_LINK = createLink(
+  'https://www.kernel.org/doc/html/v6.9/admin-guide/tainted-kernels.html',
+  'Tainted kernel modules'
+);
 export const CONVERT2RHEL_ANALYSIS_TITLE =
   'Analyze conversion to RHEL 7 without Extended Lifecycle Support (ELS)';
 export const CONVERT2RHEL_CONVERSION_TITLE =
@@ -369,5 +377,27 @@ export const ELS_DISABLED_CUSTOM_DESCRIPTION = (
     to use the ELS subscription. Note that the conversion and the subsequent
     upgrade without an ELS subscription come with a limited support scope per
     the {CONVERT2RHEL_SUPPORT_LINK} and the {IN_PLACE_UPGRADE_SUPPORT_LINK}.
+  </React.Fragment>
+);
+export const ALLOW_UNAVAILABLE_KMODS_CUSTOM_DESCRIPTION = (
+  <React.Fragment>
+    We cannot guarantee that the loaded kernel modules reported by the
+    pre-conversion analysis as not available in RHEL repositories will function
+    properly with a RHEL kernel after the conversion. We recommend you to unload
+    the modules by following {PREVENT_KERNEL_MODULE_LOADING_LINK}, perform the
+    conversion without the modules loaded and verify they work upon loading them
+    after the conversion. Using this option is equivalent to setting the
+    CONVERT2RHEL_ALLOW_UNAVAILABLE_KMODS environment variable on the command
+    line.
+  </React.Fragment>
+);
+export const TAINTED_KERNEL_MODULE_CUSTOM_DESCRIPTION = (
+  <React.Fragment>
+    {TAINTED_KERNEL_MODULES_LINK} present a potential source of conversion
+    issues. We recommend you to unload the modules by following{' '}
+    {PREVENT_KERNEL_MODULE_LOADING_LINK} Use this option if you cannot do so.
+    Using this option is equivalent to setting the
+    CONVERT2RHEL_TAINTED_KERNEL_MODULE_CHECK_SKIP environment variable on the
+    command line.
   </React.Fragment>
 );

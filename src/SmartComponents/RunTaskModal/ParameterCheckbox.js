@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import propTypes from 'prop-types';
 import { Checkbox } from '@patternfly/react-core';
-import { toBool } from '../../Utilities/helpers';
+import { toBool } from './helpers';
 
 const ParameterCheckbox = ({
   parameter,

@@ -7,7 +7,7 @@ import {
   TextContent,
   TextVariants,
 } from '@patternfly/react-core';
-import { findParameterByKey } from '../../Utilities/helpers';
+import { findParameterByKey } from './helpers';
 import ParameterCheckboxGroup from './ParameterCheckboxGroup';
 import ParameterCheckbox from './ParameterCheckbox';
 import {

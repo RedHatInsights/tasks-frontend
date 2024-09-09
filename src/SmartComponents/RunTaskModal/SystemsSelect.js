@@ -4,7 +4,12 @@ import React, { useState } from 'react';
 import SystemTable from '../SystemTable/SystemTable';
 import { useSystemBulkSelect } from './hooks/useBulkSystemSelect';
 
-const SystemsSelect = ({ selectedIds, setSelectedIds, slug }) => {
+const SystemsSelect = ({
+  selectedIds,
+  setSelectedIds,
+  setShowEligibilityAlert,
+  slug,
+}) => {
   const [filterSortString, setFilterSortString] = useState('');
 
   const { bulkSelectIds, selectIds } = useSystemBulkSelect(
@@ -22,6 +27,7 @@ const SystemsSelect = ({ selectedIds, setSelectedIds, slug }) => {
         selectedIds={selectedIds}
         selectIds={selectIds}
         setFilterSortString={setFilterSortString}
+        setShowEligibilityAlert={setShowEligibilityAlert}
         slug={slug}
       />
     </>
@@ -31,6 +37,7 @@ const SystemsSelect = ({ selectedIds, setSelectedIds, slug }) => {
 SystemsSelect.propTypes = {
   selectedIds: propTypes.array,
   setSelectedIds: propTypes.func,
+  setShowEligibilityAlert: propTypes.func,
   slug: propTypes.string,
 };
 

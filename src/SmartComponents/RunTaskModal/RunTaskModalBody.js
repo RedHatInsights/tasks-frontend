@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import propTypes from 'prop-types';
 import SystemsSelect from './SystemsSelect';
 import InputParameters from './InputParameters';
@@ -25,6 +25,8 @@ const RunTaskModalBody = ({
   taskName,
   filterMessage,
 }) => {
+  const [showEligibilityAlert, setShowEligibilityAlert] = useState(true);
+
   const warningConstantMapper = `${slug
     ?.toUpperCase()
     .replace(/-/g, '_')}_WARNING`;
@@ -50,13 +52,20 @@ const RunTaskModalBody = ({
       />
       <div id="task-warnings-and-alerts" aria-label="Task warnings and alerts">
         {warningConstants[warningConstantMapper]}
-        <Alert variant="info" isInline title="Only eligible systems are shown">
-          {filterMessage || INFO_ALERT_SYSTEMS}
-        </Alert>
+        {showEligibilityAlert && (
+          <Alert
+            variant="info"
+            isInline
+            title="Only eligible systems are shown"
+          >
+            {filterMessage || INFO_ALERT_SYSTEMS}
+          </Alert>
+        )}
       </div>
       <SystemsSelect
         selectedIds={selectedIds}
         setSelectedIds={setSelectedIds}
+        setShowEligibilityAlert={setShowEligibilityAlert}
         slug={slug}
       />
     </Flex>

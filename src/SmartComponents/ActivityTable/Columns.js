@@ -37,7 +37,6 @@ const getStatusProps = (task) => {
   switch (task.status) {
     case TASK_STATUS.RUNNING:
       return {
-        badgeColor: '#2B9AF3',
         iconStatus: 'info',
         IconType: InProgressIcon,
         popoverBodyText: [
@@ -50,14 +49,12 @@ const getStatusProps = (task) => {
     case TASK_STATUS.COMPLETED:
       return {
         alertSeverity: 'success',
-        badgeColor: '#3E8635',
         iconStatus: 'success',
         IconType: CheckCircleIcon,
       };
     case TASK_STATUS.COMPLETED_WITH_ERRORS:
       return {
         alertSeverity: 'danger',
-        badgeColor: '#a30000',
         iconStatus: 'danger',
         IconType: ExclamationCircleIcon,
         popoverBodyText: [
@@ -70,7 +67,6 @@ const getStatusProps = (task) => {
     case TASK_STATUS.FAILURE:
       return {
         alertSeverity: 'danger',
-        badgeColor: '#a30000',
         iconStatus: 'danger',
         IconType: ExclamationCircleIcon,
         popoverBodyText:
@@ -79,7 +75,6 @@ const getStatusProps = (task) => {
     case TASK_STATUS.CANCELLED:
       return {
         alertSeverity: 'danger',
-        badgeColor: '#a30000',
         iconStatus: 'danger',
         IconType: ExclamationCircleIcon,
         popoverBodyText: 'All jobs in this task have been cancelled',
@@ -124,21 +119,20 @@ const StatusPopover = ({ task }) => {
   const badgeStyle = {
     display: 'flex',
     alignItems: 'center',
-    marginRight: '4px',
+    marginRight: '0.25rem',
   };
 
-  const { alertSeverity, badgeColor, iconStatus, IconType, popoverBodyText } =
+  const { alertSeverity, iconStatus, IconType, popoverBodyText } =
     getStatusProps(task);
 
   const icon = (
-    <Icon status={iconStatus} style={{ marginRight: '4px' }}>
+    <Icon status={iconStatus} style={{ marginRight: '0.25rem' }}>
       <IconType />
     </Icon>
   );
 
-  const coloredBadgeStyle = { ...badgeStyle, color: badgeColor };
   const statusContent = (
-    <span style={coloredBadgeStyle}>
+    <span style={badgeStyle}>
       {icon}
       {task.status}
     </span>

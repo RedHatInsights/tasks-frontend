@@ -27,6 +27,7 @@ const SystemTable = ({
   selectedIds,
   selectIds,
   setFilterSortString,
+  setShowEligibilityAlert,
   slug,
 }) => {
   const [items, setItems] = useState([]);
@@ -100,6 +101,7 @@ const SystemTable = ({
     filterValues: {
       onChange: (event, value) => {
         setEligibility(value);
+        setShowEligibilityAlert(value === ELIGIBLE_SYSTEMS);
       },
       items: eligibilityFilterItems,
       value: eligibility,
@@ -118,12 +120,17 @@ const SystemTable = ({
     onDelete: (event, itemsToRemove, isAll) => {
       if (isAll) {
         setEligibility(ELIGIBLE_SYSTEMS);
+        setShowEligibilityAlert(true);
       } else {
         itemsToRemove.map((item) => {
           if (item.category === 'Task eligibility') {
-            eligibility === ALL_SYSTEMS
-              ? setEligibility(ELIGIBLE_SYSTEMS)
-              : setEligibility(ALL_SYSTEMS);
+            if (eligibility === ALL_SYSTEMS) {
+              setEligibility(ELIGIBLE_SYSTEMS);
+              setShowEligibilityAlert(true);
+            } else {
+              setEligibility(ALL_SYSTEMS);
+              setShowEligibilityAlert(false);
+            }
           }
         });
       }
@@ -240,6 +247,7 @@ SystemTable.propTypes = {
   selectedIds: propTypes.array,
   selectIds: propTypes.func,
   setFilterSortString: propTypes.func,
+  setShowEligibilityAlert: propTypes.func,
   slug: propTypes.string,
 };
 

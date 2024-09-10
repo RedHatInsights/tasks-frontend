@@ -441,11 +441,11 @@ exports[`TasksTables should render correctly 1`] = `
                   class="pf-v5-c-description-list__text"
                 >
                   <span
-                    style="display: flex; align-items: center; margin-right: 4px; color: rgb(62, 134, 53);"
+                    style="display: flex; align-items: center; margin-right: 0.25rem;"
                   >
                     <span
                       class="pf-v5-c-icon"
-                      style="margin-right: 4px;"
+                      style="margin-right: 0.25rem;"
                     >
                       <span
                         class="pf-v5-c-icon__content pf-m-success"
@@ -532,11 +532,11 @@ exports[`TasksTables should render correctly 1`] = `
                     type="button"
                   >
                     <span
-                      style="display: flex; align-items: center; margin-right: 4px; color: rgb(43, 154, 243);"
+                      style="display: flex; align-items: center; margin-right: 0.25rem;"
                     >
                       <span
                         class="pf-v5-c-icon"
-                        style="margin-right: 4px;"
+                        style="margin-right: 0.25rem;"
                       >
                         <span
                           class="pf-v5-c-icon__content pf-m-info"

@@ -1,25 +1,9 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { Grid, GridItem } from '@patternfly/react-core';
-import EntryRowLabel from './EntryRowLabel';
-import severityMap from '../TaskEntries';
 
-const EntryDetails = ({ entry, taskConstantMapper }) => {
-  const { detail, key, severity, summary, title } = entry;
-
-  const getLabelType = () => {
-    return (
-      <EntryRowLabel
-        color={
-          severityMap[taskConstantMapper][severity.toLowerCase()][
-            'severityColor'
-          ]
-        }
-        icon={severityMap[taskConstantMapper][severity.toLowerCase()]['icon']}
-        text={severityMap[taskConstantMapper][severity.toLowerCase()]['text']}
-      />
-    );
-  };
+const EntryDetails = ({ entry }) => {
+  const { detail, key, summary } = entry;
 
   const renderResolutionDetails = (content, type, classname) => {
     if (!Array.isArray(content)) {
@@ -95,13 +79,7 @@ const EntryDetails = ({ entry, taskConstantMapper }) => {
     );
   };
 
-  return (
-    <React.Fragment>
-      <div>{getLabelType()}</div>
-      <div className="entry-title">{title}</div>
-      <div>{renderDetails()}</div>
-    </React.Fragment>
-  );
+  return <div>{renderDetails()}</div>;
 };
 
 EntryDetails.propTypes = {

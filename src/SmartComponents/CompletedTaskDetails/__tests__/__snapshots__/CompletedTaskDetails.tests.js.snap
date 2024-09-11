@@ -942,6 +942,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                               data-ouia-component-id="OUIA-Generated-TableRow-16"
                               data-ouia-component-type="PF5/TableRow"
                               data-ouia-safe="true"
+                              style="border-bottom-color: #d2d2d2;"
                             >
                               <td
                                 class="pf-v5-c-table__td pf-v5-c-table__toggle"
@@ -982,58 +983,16 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                                 class="pf-v5-c-table__td"
                                 tabindex="-1"
                               >
-                                <span>
-                                  <span
-                                    class="pf-v5-c-icon"
-                                    style="margin-right: 8px;"
-                                  >
-                                    <span
-                                      class="pf-v5-c-icon__content pf-m-danger"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        class="pf-v5-svg"
-                                        fill="currentColor"
-                                        height="1em"
-                                        role="img"
-                                        viewBox="0 0 512 512"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </span>
-                                  <span
-                                    style="color: rgb(163, 0, 0);"
-                                  >
-                                    <strong>
-                                      Third party packages detected
-                                    </strong>
-                                  </span>
+                                <span
+                                  style="color: rgb(163, 0, 0); font-weight: bold;"
+                                >
+                                  Third party packages detected
                                 </span>
-                              </td>
-                            </tr>
-                            <tr
-                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                              data-ouia-component-id="OUIA-Generated-TableRow-17"
-                              data-ouia-component-type="PF5/TableRow"
-                              data-ouia-safe="true"
-                              hidden=""
-                            >
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              />
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              >
-                                <div>
+                                <div
+                                  style="margin-top: 0.25rem; margin-bottom: 0.25rem;"
+                                >
                                   <span
                                     class="pf-v5-c-label pf-m-red pf-m-compact"
-                                    style="margin-top: 16px; margin-bottom: 4px;"
                                   >
                                     <span
                                       class="pf-v5-c-label__content"
@@ -1063,11 +1022,23 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                                     </span>
                                   </span>
                                 </div>
-                                <div
-                                  class="entry-title"
-                                >
-                                  Third party packages detected
-                                </div>
+                              </td>
+                            </tr>
+                            <tr
+                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
+                              data-ouia-component-id="OUIA-Generated-TableRow-17"
+                              data-ouia-component-type="PF5/TableRow"
+                              data-ouia-safe="true"
+                              hidden=""
+                            >
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              />
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              >
                                 <div>
                                   <div
                                     class="pf-v5-l-grid pf-m-gutter entry-detail-title"
@@ -1155,6 +1126,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                               data-ouia-component-id="OUIA-Generated-TableRow-18"
                               data-ouia-component-type="PF5/TableRow"
                               data-ouia-safe="true"
+                              style="border-bottom-color: #d2d2d2;"
                             >
                               <td
                                 class="pf-v5-c-table__td pf-v5-c-table__toggle"
@@ -1195,58 +1167,16 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                                 class="pf-v5-c-table__td"
                                 tabindex="-1"
                               >
-                                <span>
-                                  <span
-                                    class="pf-v5-c-icon"
-                                    style="margin-right: 8px;"
-                                  >
-                                    <span
-                                      class="pf-v5-c-icon__content pf-m-warning"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        class="pf-v5-svg"
-                                        fill="currentColor"
-                                        height="1em"
-                                        role="img"
-                                        viewBox="0 0 576 512"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </span>
-                                  <span
-                                    style="color: rgb(121, 80, 0);"
-                                  >
-                                    <strong>
-                                      Dbus is running check skip
-                                    </strong>
-                                  </span>
+                                <span
+                                  style="color: rgb(121, 80, 0); font-weight: bold;"
+                                >
+                                  Dbus is running check skip
                                 </span>
-                              </td>
-                            </tr>
-                            <tr
-                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                              data-ouia-component-id="OUIA-Generated-TableRow-19"
-                              data-ouia-component-type="PF5/TableRow"
-                              data-ouia-safe="true"
-                              hidden=""
-                            >
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              />
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              >
-                                <div>
+                                <div
+                                  style="margin-top: 0.25rem; margin-bottom: 0.25rem;"
+                                >
                                   <span
                                     class="pf-v5-c-label pf-m-orange pf-m-compact"
-                                    style="margin-top: 16px; margin-bottom: 4px;"
                                   >
                                     <span
                                       class="pf-v5-c-label__content"
@@ -1276,11 +1206,23 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                                     </span>
                                   </span>
                                 </div>
-                                <div
-                                  class="entry-title"
-                                >
-                                  Dbus is running check skip
-                                </div>
+                              </td>
+                            </tr>
+                            <tr
+                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
+                              data-ouia-component-id="OUIA-Generated-TableRow-19"
+                              data-ouia-component-type="PF5/TableRow"
+                              data-ouia-safe="true"
+                              hidden=""
+                            >
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              />
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              >
                                 <div>
                                   <div
                                     class="pf-v5-l-grid pf-m-gutter entry-detail-title"
@@ -1324,6 +1266,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                               data-ouia-component-id="OUIA-Generated-TableRow-20"
                               data-ouia-component-type="PF5/TableRow"
                               data-ouia-safe="true"
+                              style="border-bottom-color: #d2d2d2;"
                             >
                               <td
                                 class="pf-v5-c-table__td pf-v5-c-table__toggle"
@@ -1364,58 +1307,16 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                                 class="pf-v5-c-table__td"
                                 tabindex="-1"
                               >
-                                <span>
-                                  <span
-                                    class="pf-v5-c-icon"
-                                    style="margin-right: 8px;"
-                                  >
-                                    <span
-                                      class="pf-v5-c-icon__content pf-m-info"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        class="pf-v5-svg"
-                                        fill="currentColor"
-                                        height="1em"
-                                        role="img"
-                                        viewBox="0 0 512 512"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </span>
-                                  <span
-                                    style="color: rgb(0, 41, 82);"
-                                  >
-                                    <strong>
-                                      Repository file package removal
-                                    </strong>
-                                  </span>
+                                <span
+                                  style="color: rgb(0, 41, 82); font-weight: bold;"
+                                >
+                                  Repository file package removal
                                 </span>
-                              </td>
-                            </tr>
-                            <tr
-                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                              data-ouia-component-id="OUIA-Generated-TableRow-21"
-                              data-ouia-component-type="PF5/TableRow"
-                              data-ouia-safe="true"
-                              hidden=""
-                            >
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              />
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              >
-                                <div>
+                                <div
+                                  style="margin-top: 0.25rem; margin-bottom: 0.25rem;"
+                                >
                                   <span
                                     class="pf-v5-c-label pf-m-blue pf-m-compact"
-                                    style="margin-top: 16px; margin-bottom: 4px;"
                                   >
                                     <span
                                       class="pf-v5-c-label__content"
@@ -1445,11 +1346,23 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                                     </span>
                                   </span>
                                 </div>
-                                <div
-                                  class="entry-title"
-                                >
-                                  Repository file package removal
-                                </div>
+                              </td>
+                            </tr>
+                            <tr
+                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
+                              data-ouia-component-id="OUIA-Generated-TableRow-21"
+                              data-ouia-component-type="PF5/TableRow"
+                              data-ouia-safe="true"
+                              hidden=""
+                            >
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              />
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              >
                                 <div>
                                   <div
                                     class="pf-v5-l-grid pf-m-gutter entry-detail-title"
@@ -1720,6 +1633,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                               data-ouia-component-id="OUIA-Generated-TableRow-25"
                               data-ouia-component-type="PF5/TableRow"
                               data-ouia-safe="true"
+                              style="border-bottom-color: #d2d2d2;"
                             >
                               <td
                                 class="pf-v5-c-table__td pf-v5-c-table__toggle"
@@ -1760,58 +1674,16 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                                 class="pf-v5-c-table__td"
                                 tabindex="-1"
                               >
-                                <span>
-                                  <span
-                                    class="pf-v5-c-icon"
-                                    style="margin-right: 8px;"
-                                  >
-                                    <span
-                                      class="pf-v5-c-icon__content pf-m-danger"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        class="pf-v5-svg"
-                                        fill="currentColor"
-                                        height="1em"
-                                        role="img"
-                                        viewBox="0 0 512 512"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </span>
-                                  <span
-                                    style="color: rgb(163, 0, 0);"
-                                  >
-                                    <strong>
-                                      The version of the loaded kernel is different from the latest version
-                                    </strong>
-                                  </span>
+                                <span
+                                  style="color: rgb(163, 0, 0); font-weight: bold;"
+                                >
+                                  The version of the loaded kernel is different from the latest version
                                 </span>
-                              </td>
-                            </tr>
-                            <tr
-                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                              data-ouia-component-id="OUIA-Generated-TableRow-26"
-                              data-ouia-component-type="PF5/TableRow"
-                              data-ouia-safe="true"
-                              hidden=""
-                            >
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              />
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              >
-                                <div>
+                                <div
+                                  style="margin-top: 0.25rem; margin-bottom: 0.25rem;"
+                                >
                                   <span
                                     class="pf-v5-c-label pf-m-red pf-m-compact"
-                                    style="margin-top: 16px; margin-bottom: 4px;"
                                   >
                                     <span
                                       class="pf-v5-c-label__content"
@@ -1841,11 +1713,23 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                                     </span>
                                   </span>
                                 </div>
-                                <div
-                                  class="entry-title"
-                                >
-                                  The version of the loaded kernel is different from the latest version
-                                </div>
+                              </td>
+                            </tr>
+                            <tr
+                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
+                              data-ouia-component-id="OUIA-Generated-TableRow-26"
+                              data-ouia-component-type="PF5/TableRow"
+                              data-ouia-safe="true"
+                              hidden=""
+                            >
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              />
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              >
                                 <div>
                                   <div
                                     class="pf-v5-l-grid pf-m-gutter entry-detail-title"
@@ -1937,6 +1821,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                               data-ouia-component-id="OUIA-Generated-TableRow-27"
                               data-ouia-component-type="PF5/TableRow"
                               data-ouia-safe="true"
+                              style="border-bottom-color: #d2d2d2;"
                             >
                               <td
                                 class="pf-v5-c-table__td pf-v5-c-table__toggle"
@@ -1977,58 +1862,16 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                                 class="pf-v5-c-table__td"
                                 tabindex="-1"
                               >
-                                <span>
-                                  <span
-                                    class="pf-v5-c-icon"
-                                    style="margin-right: 8px;"
-                                  >
-                                    <span
-                                      class="pf-v5-c-icon__content pf-m-danger"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        class="pf-v5-svg"
-                                        fill="currentColor"
-                                        height="1em"
-                                        role="img"
-                                        viewBox="0 0 512 512"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </span>
-                                  <span
-                                    style="color: rgb(163, 0, 0);"
-                                  >
-                                    <strong>
-                                      Secure boot detected
-                                    </strong>
-                                  </span>
+                                <span
+                                  style="color: rgb(163, 0, 0); font-weight: bold;"
+                                >
+                                  Secure boot detected
                                 </span>
-                              </td>
-                            </tr>
-                            <tr
-                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                              data-ouia-component-id="OUIA-Generated-TableRow-28"
-                              data-ouia-component-type="PF5/TableRow"
-                              data-ouia-safe="true"
-                              hidden=""
-                            >
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              />
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              >
-                                <div>
+                                <div
+                                  style="margin-top: 0.25rem; margin-bottom: 0.25rem;"
+                                >
                                   <span
                                     class="pf-v5-c-label pf-m-red pf-m-compact"
-                                    style="margin-top: 16px; margin-bottom: 4px;"
                                   >
                                     <span
                                       class="pf-v5-c-label__content"
@@ -2058,11 +1901,23 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                                     </span>
                                   </span>
                                 </div>
-                                <div
-                                  class="entry-title"
-                                >
-                                  Secure boot detected
-                                </div>
+                              </td>
+                            </tr>
+                            <tr
+                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
+                              data-ouia-component-id="OUIA-Generated-TableRow-28"
+                              data-ouia-component-type="PF5/TableRow"
+                              data-ouia-safe="true"
+                              hidden=""
+                            >
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              />
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              >
                                 <div>
                                   <div
                                     class="pf-v5-l-grid pf-m-gutter entry-detail-title"
@@ -2150,6 +2005,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                               data-ouia-component-id="OUIA-Generated-TableRow-29"
                               data-ouia-component-type="PF5/TableRow"
                               data-ouia-safe="true"
+                              style="border-bottom-color: #d2d2d2;"
                             >
                               <td
                                 class="pf-v5-c-table__td pf-v5-c-table__toggle"
@@ -2190,58 +2046,16 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                                 class="pf-v5-c-table__td"
                                 tabindex="-1"
                               >
-                                <span>
-                                  <span
-                                    class="pf-v5-c-icon"
-                                    style="margin-right: 8px;"
-                                  >
-                                    <span
-                                      class="pf-v5-c-icon__content pf-m-danger"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        class="pf-v5-svg"
-                                        fill="currentColor"
-                                        height="1em"
-                                        role="img"
-                                        viewBox="0 0 512 512"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </span>
-                                  <span
-                                    style="color: rgb(163, 0, 0);"
-                                  >
-                                    <strong>
-                                      Package up to date check fail
-                                    </strong>
-                                  </span>
+                                <span
+                                  style="color: rgb(163, 0, 0); font-weight: bold;"
+                                >
+                                  Package up to date check fail
                                 </span>
-                              </td>
-                            </tr>
-                            <tr
-                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                              data-ouia-component-id="OUIA-Generated-TableRow-30"
-                              data-ouia-component-type="PF5/TableRow"
-                              data-ouia-safe="true"
-                              hidden=""
-                            >
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              />
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              >
-                                <div>
+                                <div
+                                  style="margin-top: 0.25rem; margin-bottom: 0.25rem;"
+                                >
                                   <span
                                     class="pf-v5-c-label pf-m-red pf-m-compact"
-                                    style="margin-top: 16px; margin-bottom: 4px;"
                                   >
                                     <span
                                       class="pf-v5-c-label__content"
@@ -2271,11 +2085,23 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                                     </span>
                                   </span>
                                 </div>
-                                <div
-                                  class="entry-title"
-                                >
-                                  Package up to date check fail
-                                </div>
+                              </td>
+                            </tr>
+                            <tr
+                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
+                              data-ouia-component-id="OUIA-Generated-TableRow-30"
+                              data-ouia-component-type="PF5/TableRow"
+                              data-ouia-safe="true"
+                              hidden=""
+                            >
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              />
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              >
                                 <div>
                                   <div
                                     class="pf-v5-l-grid pf-m-gutter entry-detail-title"
@@ -5061,6 +4887,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                               data-ouia-component-id="OUIA-Generated-TableRow-42"
                               data-ouia-component-type="PF5/TableRow"
                               data-ouia-safe="true"
+                              style="border-bottom-color: #d2d2d2;"
                             >
                               <td
                                 class="pf-v5-c-table__td pf-v5-c-table__toggle"
@@ -5101,58 +4928,16 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                                 class="pf-v5-c-table__td"
                                 tabindex="-1"
                               >
-                                <span>
-                                  <span
-                                    class="pf-v5-c-icon"
-                                    style="margin-right: 8px;"
-                                  >
-                                    <span
-                                      class="pf-v5-c-icon__content pf-m-danger"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        class="pf-v5-svg"
-                                        fill="currentColor"
-                                        height="1em"
-                                        role="img"
-                                        viewBox="0 0 512 512"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </span>
-                                  <span
-                                    style="color: rgb(163, 0, 0);"
-                                  >
-                                    <strong>
-                                      Leapp could not identify where GRUB core is located
-                                    </strong>
-                                  </span>
+                                <span
+                                  style="color: rgb(163, 0, 0); font-weight: bold;"
+                                >
+                                  Leapp could not identify where GRUB core is located
                                 </span>
-                              </td>
-                            </tr>
-                            <tr
-                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                              data-ouia-component-id="OUIA-Generated-TableRow-43"
-                              data-ouia-component-type="PF5/TableRow"
-                              data-ouia-safe="true"
-                              hidden=""
-                            >
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              />
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              >
-                                <div>
+                                <div
+                                  style="margin-top: 0.25rem; margin-bottom: 0.25rem;"
+                                >
                                   <span
                                     class="pf-v5-c-label pf-m-red pf-m-compact"
-                                    style="margin-top: 16px; margin-bottom: 4px;"
                                   >
                                     <span
                                       class="pf-v5-c-label__content"
@@ -5182,11 +4967,23 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                                     </span>
                                   </span>
                                 </div>
-                                <div
-                                  class="entry-title"
-                                >
-                                  Leapp could not identify where GRUB core is located
-                                </div>
+                              </td>
+                            </tr>
+                            <tr
+                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
+                              data-ouia-component-id="OUIA-Generated-TableRow-43"
+                              data-ouia-component-type="PF5/TableRow"
+                              data-ouia-safe="true"
+                              hidden=""
+                            >
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              />
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              >
                                 <div>
                                   <div
                                     class="pf-v5-l-grid pf-m-gutter entry-detail-title"
@@ -5253,6 +5050,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                               data-ouia-component-id="OUIA-Generated-TableRow-44"
                               data-ouia-component-type="PF5/TableRow"
                               data-ouia-safe="true"
+                              style="border-bottom-color: #d2d2d2;"
                             >
                               <td
                                 class="pf-v5-c-table__td pf-v5-c-table__toggle"
@@ -5293,58 +5091,16 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                                 class="pf-v5-c-table__td"
                                 tabindex="-1"
                               >
-                                <span>
-                                  <span
-                                    class="pf-v5-c-icon"
-                                    style="margin-right: 8px;"
-                                  >
-                                    <span
-                                      class="pf-v5-c-icon__content pf-m-warning"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        class="pf-v5-svg"
-                                        fill="currentColor"
-                                        height="1em"
-                                        role="img"
-                                        viewBox="0 0 576 512"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </span>
-                                  <span
-                                    style="color: rgb(121, 80, 0);"
-                                  >
-                                    <strong>
-                                      SElinux will be set to permissive mode
-                                    </strong>
-                                  </span>
+                                <span
+                                  style="color: rgb(121, 80, 0); font-weight: bold;"
+                                >
+                                  SElinux will be set to permissive mode
                                 </span>
-                              </td>
-                            </tr>
-                            <tr
-                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                              data-ouia-component-id="OUIA-Generated-TableRow-45"
-                              data-ouia-component-type="PF5/TableRow"
-                              data-ouia-safe="true"
-                              hidden=""
-                            >
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              />
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              >
-                                <div>
+                                <div
+                                  style="margin-top: 0.25rem; margin-bottom: 0.25rem;"
+                                >
                                   <span
                                     class="pf-v5-c-label pf-m-orange pf-m-compact"
-                                    style="margin-top: 16px; margin-bottom: 4px;"
                                   >
                                     <span
                                       class="pf-v5-c-label__content"
@@ -5374,11 +5130,23 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                                     </span>
                                   </span>
                                 </div>
-                                <div
-                                  class="entry-title"
-                                >
-                                  SElinux will be set to permissive mode
-                                </div>
+                              </td>
+                            </tr>
+                            <tr
+                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
+                              data-ouia-component-id="OUIA-Generated-TableRow-45"
+                              data-ouia-component-type="PF5/TableRow"
+                              data-ouia-safe="true"
+                              hidden=""
+                            >
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              />
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              >
                                 <div>
                                   <div
                                     class="pf-v5-l-grid pf-m-gutter entry-detail-title"
@@ -5445,6 +5213,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                               data-ouia-component-id="OUIA-Generated-TableRow-46"
                               data-ouia-component-type="PF5/TableRow"
                               data-ouia-safe="true"
+                              style="border-bottom-color: #d2d2d2;"
                             >
                               <td
                                 class="pf-v5-c-table__td pf-v5-c-table__toggle"
@@ -5485,58 +5254,16 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                                 class="pf-v5-c-table__td"
                                 tabindex="-1"
                               >
-                                <span>
-                                  <span
-                                    class="pf-v5-c-icon"
-                                    style="margin-right: 8px;"
-                                  >
-                                    <span
-                                      class="pf-v5-c-icon__content pf-m-warning"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        class="pf-v5-svg"
-                                        fill="currentColor"
-                                        height="1em"
-                                        role="img"
-                                        viewBox="0 0 576 512"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </span>
-                                  <span
-                                    style="color: rgb(121, 80, 0);"
-                                  >
-                                    <strong>
-                                      The subscription-manager release is going to be set after the upgrade
-                                    </strong>
-                                  </span>
+                                <span
+                                  style="color: rgb(121, 80, 0); font-weight: bold;"
+                                >
+                                  The subscription-manager release is going to be set after the upgrade
                                 </span>
-                              </td>
-                            </tr>
-                            <tr
-                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                              data-ouia-component-id="OUIA-Generated-TableRow-47"
-                              data-ouia-component-type="PF5/TableRow"
-                              data-ouia-safe="true"
-                              hidden=""
-                            >
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              />
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              >
-                                <div>
+                                <div
+                                  style="margin-top: 0.25rem; margin-bottom: 0.25rem;"
+                                >
                                   <span
                                     class="pf-v5-c-label pf-m-orange pf-m-compact"
-                                    style="margin-top: 16px; margin-bottom: 4px;"
                                   >
                                     <span
                                       class="pf-v5-c-label__content"
@@ -5566,11 +5293,23 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                                     </span>
                                   </span>
                                 </div>
-                                <div
-                                  class="entry-title"
-                                >
-                                  The subscription-manager release is going to be set after the upgrade
-                                </div>
+                              </td>
+                            </tr>
+                            <tr
+                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
+                              data-ouia-component-id="OUIA-Generated-TableRow-47"
+                              data-ouia-component-type="PF5/TableRow"
+                              data-ouia-safe="true"
+                              hidden=""
+                            >
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              />
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              >
                                 <div>
                                   <div
                                     class="pf-v5-l-grid pf-m-gutter entry-detail-title"
@@ -5637,6 +5376,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                               data-ouia-component-id="OUIA-Generated-TableRow-48"
                               data-ouia-component-type="PF5/TableRow"
                               data-ouia-safe="true"
+                              style="border-bottom-color: #d2d2d2;"
                             >
                               <td
                                 class="pf-v5-c-table__td pf-v5-c-table__toggle"
@@ -5677,58 +5417,16 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                                 class="pf-v5-c-table__td"
                                 tabindex="-1"
                               >
-                                <span>
-                                  <span
-                                    class="pf-v5-c-icon"
-                                    style="margin-right: 8px;"
-                                  >
-                                    <span
-                                      class="pf-v5-c-icon__content pf-m-info"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        class="pf-v5-svg"
-                                        fill="currentColor"
-                                        height="1em"
-                                        role="img"
-                                        viewBox="0 0 512 512"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </span>
-                                  <span
-                                    style="color: rgb(0, 41, 82);"
-                                  >
-                                    <strong>
-                                      SElinux relabeling will be scheduled
-                                    </strong>
-                                  </span>
+                                <span
+                                  style="color: rgb(0, 41, 82); font-weight: bold;"
+                                >
+                                  SElinux relabeling will be scheduled
                                 </span>
-                              </td>
-                            </tr>
-                            <tr
-                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                              data-ouia-component-id="OUIA-Generated-TableRow-49"
-                              data-ouia-component-type="PF5/TableRow"
-                              data-ouia-safe="true"
-                              hidden=""
-                            >
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              />
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              >
-                                <div>
+                                <div
+                                  style="margin-top: 0.25rem; margin-bottom: 0.25rem;"
+                                >
                                   <span
                                     class="pf-v5-c-label pf-m-blue pf-m-compact"
-                                    style="margin-top: 16px; margin-bottom: 4px;"
                                   >
                                     <span
                                       class="pf-v5-c-label__content"
@@ -5758,11 +5456,23 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                                     </span>
                                   </span>
                                 </div>
-                                <div
-                                  class="entry-title"
-                                >
-                                  SElinux relabeling will be scheduled
-                                </div>
+                              </td>
+                            </tr>
+                            <tr
+                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
+                              data-ouia-component-id="OUIA-Generated-TableRow-49"
+                              data-ouia-component-type="PF5/TableRow"
+                              data-ouia-safe="true"
+                              hidden=""
+                            >
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              />
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              >
                                 <div>
                                   <div
                                     class="pf-v5-l-grid pf-m-gutter entry-detail-title"
@@ -6138,6 +5848,7 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                               data-ouia-component-id="OUIA-Generated-TableRow-54"
                               data-ouia-component-type="PF5/TableRow"
                               data-ouia-safe="true"
+                              style="border-bottom-color: #d2d2d2;"
                             >
                               <td
                                 class="pf-v5-c-table__td pf-v5-c-table__toggle"
@@ -6178,58 +5889,16 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                 class="pf-v5-c-table__td"
                                 tabindex="-1"
                               >
-                                <span>
-                                  <span
-                                    class="pf-v5-c-icon"
-                                    style="margin-right: 8px;"
-                                  >
-                                    <span
-                                      class="pf-v5-c-icon__content pf-m-danger"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        class="pf-v5-svg"
-                                        fill="currentColor"
-                                        height="1em"
-                                        role="img"
-                                        viewBox="0 0 512 512"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </span>
-                                  <span
-                                    style="color: rgb(163, 0, 0);"
-                                  >
-                                    <strong>
-                                      Leapp could not identify where GRUB core is located
-                                    </strong>
-                                  </span>
+                                <span
+                                  style="color: rgb(163, 0, 0); font-weight: bold;"
+                                >
+                                  Leapp could not identify where GRUB core is located
                                 </span>
-                              </td>
-                            </tr>
-                            <tr
-                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                              data-ouia-component-id="OUIA-Generated-TableRow-55"
-                              data-ouia-component-type="PF5/TableRow"
-                              data-ouia-safe="true"
-                              hidden=""
-                            >
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              />
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              >
-                                <div>
+                                <div
+                                  style="margin-top: 0.25rem; margin-bottom: 0.25rem;"
+                                >
                                   <span
                                     class="pf-v5-c-label pf-m-red pf-m-compact"
-                                    style="margin-top: 16px; margin-bottom: 4px;"
                                   >
                                     <span
                                       class="pf-v5-c-label__content"
@@ -6259,11 +5928,23 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                     </span>
                                   </span>
                                 </div>
-                                <div
-                                  class="entry-title"
-                                >
-                                  Leapp could not identify where GRUB core is located
-                                </div>
+                              </td>
+                            </tr>
+                            <tr
+                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
+                              data-ouia-component-id="OUIA-Generated-TableRow-55"
+                              data-ouia-component-type="PF5/TableRow"
+                              data-ouia-safe="true"
+                              hidden=""
+                            >
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              />
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              >
                                 <div>
                                   <div
                                     class="pf-v5-l-grid pf-m-gutter entry-detail-title"
@@ -6330,6 +6011,7 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                               data-ouia-component-id="OUIA-Generated-TableRow-56"
                               data-ouia-component-type="PF5/TableRow"
                               data-ouia-safe="true"
+                              style="border-bottom-color: #d2d2d2;"
                             >
                               <td
                                 class="pf-v5-c-table__td pf-v5-c-table__toggle"
@@ -6370,58 +6052,16 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                 class="pf-v5-c-table__td"
                                 tabindex="-1"
                               >
-                                <span>
-                                  <span
-                                    class="pf-v5-c-icon"
-                                    style="margin-right: 8px;"
-                                  >
-                                    <span
-                                      class="pf-v5-c-icon__content pf-m-danger"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        class="pf-v5-svg"
-                                        fill="currentColor"
-                                        height="1em"
-                                        role="img"
-                                        viewBox="0 0 512 512"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </span>
-                                  <span
-                                    style="color: rgb(163, 0, 0);"
-                                  >
-                                    <strong>
-                                      Firewalld Configuration AllowZoneDrifting Is Unsupported
-                                    </strong>
-                                  </span>
+                                <span
+                                  style="color: rgb(163, 0, 0); font-weight: bold;"
+                                >
+                                  Firewalld Configuration AllowZoneDrifting Is Unsupported
                                 </span>
-                              </td>
-                            </tr>
-                            <tr
-                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                              data-ouia-component-id="OUIA-Generated-TableRow-57"
-                              data-ouia-component-type="PF5/TableRow"
-                              data-ouia-safe="true"
-                              hidden=""
-                            >
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              />
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              >
-                                <div>
+                                <div
+                                  style="margin-top: 0.25rem; margin-bottom: 0.25rem;"
+                                >
                                   <span
                                     class="pf-v5-c-label pf-m-red pf-m-compact"
-                                    style="margin-top: 16px; margin-bottom: 4px;"
                                   >
                                     <span
                                       class="pf-v5-c-label__content"
@@ -6451,11 +6091,23 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                     </span>
                                   </span>
                                 </div>
-                                <div
-                                  class="entry-title"
-                                >
-                                  Firewalld Configuration AllowZoneDrifting Is Unsupported
-                                </div>
+                              </td>
+                            </tr>
+                            <tr
+                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
+                              data-ouia-component-id="OUIA-Generated-TableRow-57"
+                              data-ouia-component-type="PF5/TableRow"
+                              data-ouia-safe="true"
+                              hidden=""
+                            >
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              />
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              >
                                 <div>
                                   <div
                                     class="pf-v5-l-grid pf-m-gutter entry-detail-title"
@@ -6532,6 +6184,7 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                               data-ouia-component-id="OUIA-Generated-TableRow-58"
                               data-ouia-component-type="PF5/TableRow"
                               data-ouia-safe="true"
+                              style="border-bottom-color: #d2d2d2;"
                             >
                               <td
                                 class="pf-v5-c-table__td pf-v5-c-table__toggle"
@@ -6572,58 +6225,16 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                 class="pf-v5-c-table__td"
                                 tabindex="-1"
                               >
-                                <span>
-                                  <span
-                                    class="pf-v5-c-icon"
-                                    style="margin-right: 8px;"
-                                  >
-                                    <span
-                                      class="pf-v5-c-icon__content pf-m-danger"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        class="pf-v5-svg"
-                                        fill="currentColor"
-                                        height="1em"
-                                        role="img"
-                                        viewBox="0 0 512 512"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </span>
-                                  <span
-                                    style="color: rgb(163, 0, 0);"
-                                  >
-                                    <strong>
-                                      VDO devices migration to LVM management
-                                    </strong>
-                                  </span>
+                                <span
+                                  style="color: rgb(163, 0, 0); font-weight: bold;"
+                                >
+                                  VDO devices migration to LVM management
                                 </span>
-                              </td>
-                            </tr>
-                            <tr
-                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                              data-ouia-component-id="OUIA-Generated-TableRow-59"
-                              data-ouia-component-type="PF5/TableRow"
-                              data-ouia-safe="true"
-                              hidden=""
-                            >
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              />
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              >
-                                <div>
+                                <div
+                                  style="margin-top: 0.25rem; margin-bottom: 0.25rem;"
+                                >
                                   <span
                                     class="pf-v5-c-label pf-m-red pf-m-compact"
-                                    style="margin-top: 16px; margin-bottom: 4px;"
                                   >
                                     <span
                                       class="pf-v5-c-label__content"
@@ -6653,11 +6264,23 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                     </span>
                                   </span>
                                 </div>
-                                <div
-                                  class="entry-title"
-                                >
-                                  VDO devices migration to LVM management
-                                </div>
+                              </td>
+                            </tr>
+                            <tr
+                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
+                              data-ouia-component-id="OUIA-Generated-TableRow-59"
+                              data-ouia-component-type="PF5/TableRow"
+                              data-ouia-safe="true"
+                              hidden=""
+                            >
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              />
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              >
                                 <div>
                                   <div
                                     class="pf-v5-l-grid pf-m-gutter entry-detail-title"
@@ -6724,6 +6347,7 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                               data-ouia-component-id="OUIA-Generated-TableRow-60"
                               data-ouia-component-type="PF5/TableRow"
                               data-ouia-safe="true"
+                              style="border-bottom-color: #d2d2d2;"
                             >
                               <td
                                 class="pf-v5-c-table__td pf-v5-c-table__toggle"
@@ -6764,58 +6388,16 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                 class="pf-v5-c-table__td"
                                 tabindex="-1"
                               >
-                                <span>
-                                  <span
-                                    class="pf-v5-c-icon"
-                                    style="margin-right: 8px;"
-                                  >
-                                    <span
-                                      class="pf-v5-c-icon__content pf-m-warning"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        class="pf-v5-svg"
-                                        fill="currentColor"
-                                        height="1em"
-                                        role="img"
-                                        viewBox="0 0 576 512"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </span>
-                                  <span
-                                    style="color: rgb(121, 80, 0);"
-                                  >
-                                    <strong>
-                                      SElinux will be set to permissive mode
-                                    </strong>
-                                  </span>
+                                <span
+                                  style="color: rgb(121, 80, 0); font-weight: bold;"
+                                >
+                                  SElinux will be set to permissive mode
                                 </span>
-                              </td>
-                            </tr>
-                            <tr
-                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                              data-ouia-component-id="OUIA-Generated-TableRow-61"
-                              data-ouia-component-type="PF5/TableRow"
-                              data-ouia-safe="true"
-                              hidden=""
-                            >
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              />
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              >
-                                <div>
+                                <div
+                                  style="margin-top: 0.25rem; margin-bottom: 0.25rem;"
+                                >
                                   <span
                                     class="pf-v5-c-label pf-m-orange pf-m-compact"
-                                    style="margin-top: 16px; margin-bottom: 4px;"
                                   >
                                     <span
                                       class="pf-v5-c-label__content"
@@ -6845,11 +6427,23 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                     </span>
                                   </span>
                                 </div>
-                                <div
-                                  class="entry-title"
-                                >
-                                  SElinux will be set to permissive mode
-                                </div>
+                              </td>
+                            </tr>
+                            <tr
+                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
+                              data-ouia-component-id="OUIA-Generated-TableRow-61"
+                              data-ouia-component-type="PF5/TableRow"
+                              data-ouia-safe="true"
+                              hidden=""
+                            >
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              />
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              >
                                 <div>
                                   <div
                                     class="pf-v5-l-grid pf-m-gutter entry-detail-title"
@@ -6916,6 +6510,7 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                               data-ouia-component-id="OUIA-Generated-TableRow-62"
                               data-ouia-component-type="PF5/TableRow"
                               data-ouia-safe="true"
+                              style="border-bottom-color: #d2d2d2;"
                             >
                               <td
                                 class="pf-v5-c-table__td pf-v5-c-table__toggle"
@@ -6956,58 +6551,16 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                 class="pf-v5-c-table__td"
                                 tabindex="-1"
                               >
-                                <span>
-                                  <span
-                                    class="pf-v5-c-icon"
-                                    style="margin-right: 8px;"
-                                  >
-                                    <span
-                                      class="pf-v5-c-icon__content pf-m-info"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        class="pf-v5-svg"
-                                        fill="currentColor"
-                                        height="1em"
-                                        role="img"
-                                        viewBox="0 0 512 512"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </span>
-                                  <span
-                                    style="color: rgb(0, 41, 82);"
-                                  >
-                                    <strong>
-                                      SElinux relabeling will be scheduled
-                                    </strong>
-                                  </span>
+                                <span
+                                  style="color: rgb(0, 41, 82); font-weight: bold;"
+                                >
+                                  SElinux relabeling will be scheduled
                                 </span>
-                              </td>
-                            </tr>
-                            <tr
-                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
-                              data-ouia-component-id="OUIA-Generated-TableRow-63"
-                              data-ouia-component-type="PF5/TableRow"
-                              data-ouia-safe="true"
-                              hidden=""
-                            >
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              />
-                              <td
-                                class="pf-v5-c-table__td"
-                                tabindex="-1"
-                              >
-                                <div>
+                                <div
+                                  style="margin-top: 0.25rem; margin-bottom: 0.25rem;"
+                                >
                                   <span
                                     class="pf-v5-c-label pf-m-blue pf-m-compact"
-                                    style="margin-top: 16px; margin-bottom: 4px;"
                                   >
                                     <span
                                       class="pf-v5-c-label__content"
@@ -7037,11 +6590,23 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                                     </span>
                                   </span>
                                 </div>
-                                <div
-                                  class="entry-title"
-                                >
-                                  SElinux relabeling will be scheduled
-                                </div>
+                              </td>
+                            </tr>
+                            <tr
+                              class="pf-v5-c-table__tr pf-v5-c-table__expandable-row"
+                              data-ouia-component-id="OUIA-Generated-TableRow-63"
+                              data-ouia-component-type="PF5/TableRow"
+                              data-ouia-safe="true"
+                              hidden=""
+                            >
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              />
+                              <td
+                                class="pf-v5-c-table__td"
+                                tabindex="-1"
+                              >
                                 <div>
                                   <div
                                     class="pf-v5-l-grid pf-m-gutter entry-detail-title"

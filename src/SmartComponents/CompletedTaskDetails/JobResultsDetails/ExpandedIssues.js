@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import propTypes from 'prop-types';
 import { Tr, Td } from '@patternfly/react-table';
 import { CodeBlock, CodeBlockCode } from '@patternfly/react-core';
-import { c_code_block__header_BorderBottomColor } from '@patternfly/react-tokens';
-import { global_palette_white } from '@patternfly/react-tokens';
+import {
+  c_code_block__header_BorderBottomColor,
+  c_table__expandable_row_m_expanded_BorderBottomColor,
+  global_palette_white,
+} from '@patternfly/react-tokens';
 
 const ExpandedIssues = ({ rowPairs, isReportJson }) => {
   let rowIndex = 0;
@@ -23,7 +26,15 @@ const ExpandedIssues = ({ rowPairs, isReportJson }) => {
 
   const renderParentRow = (parent, pairIndex) => {
     let parentRow = (
-      <Tr key={rowIndex}>
+      <Tr
+        key={rowIndex}
+        style={{
+          // 'Hide' the bottom border when expanded by making it white
+          borderBottomColor: expanded[pairIndex]
+            ? global_palette_white.value
+            : c_table__expandable_row_m_expanded_BorderBottomColor.value,
+        }}
+      >
         <Td
           expand={{
             rowIndex: pairIndex,

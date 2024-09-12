@@ -4,12 +4,7 @@ import { Label } from '@patternfly/react-core';
 
 const EntryRowLabel = ({ color, icon, text }) => {
   return (
-    <Label
-      color={color}
-      icon={icon}
-      style={{ marginTop: '16px', marginBottom: '4px' }}
-      className="pf-m-compact"
-    >
+    <Label color={color} icon={icon} className="pf-m-compact">
       {text}
     </Label>
   );

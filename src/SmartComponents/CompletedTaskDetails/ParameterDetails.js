@@ -1,34 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import propTypes from 'prop-types';
-import {
-  Flex,
-  FlexItem,
-  Text,
-  TextContent,
-  TextVariants,
-} from '@patternfly/react-core';
+import { ExpandableSection } from '@patternfly/react-core';
+import './ParameterDetails.scss';
 
 const ParameterDetails = ({ parameters }) => {
-  const parametersExist = parameters?.length ? true : false;
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const onToggle = (_event, isExpanded) => {
+    setIsExpanded(isExpanded);
+  };
 
   return (
-    parametersExist && (
-      <Flex>
-        <FlexItem>
-          <TextContent>
-            <Text component={TextVariants.h4}>Parameter details</Text>
-            {parameters.map((parameter) => (
-              <Text
-                key={`parameter-${parameter.key}`}
-                component={TextVariants.p}
-                className="pf-u-mb-sm"
-              >
-                {parameter.key}: <b>{parameter.value}</b>
-              </Text>
-            ))}
-          </TextContent>
-        </FlexItem>
-      </Flex>
+    parameters?.length > 0 && (
+      <ExpandableSection
+        isExpanded={isExpanded}
+        onToggle={onToggle}
+        toggleText={isExpanded ? 'Task parameters' : 'Show task parameters'}
+        isIndented
+      >
+        <ul>
+          {parameters.map((parameter, index) => (
+            <li key={index}>
+              {parameter.key}: <b>{parameter.value}</b>
+            </li>
+          ))}
+        </ul>
+      </ExpandableSection>
     )
   );
 };

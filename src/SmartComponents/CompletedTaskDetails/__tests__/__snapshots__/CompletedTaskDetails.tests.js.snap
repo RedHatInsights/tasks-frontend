@@ -755,7 +755,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                       data-label="Status"
                       tabindex="-1"
                     >
-                      Success
+                      Completed
                     </td>
                     <td
                       class="pf-v5-c-table__td pf-m-width-35"
@@ -863,7 +863,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                       data-label="Status"
                       tabindex="-1"
                     >
-                      Success
+                      Completed
                     </td>
                     <td
                       class="pf-v5-c-table__td pf-m-width-35"
@@ -1446,7 +1446,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                       data-label="Status"
                       tabindex="-1"
                     >
-                      Success
+                      Completed
                     </td>
                     <td
                       class="pf-v5-c-table__td pf-m-width-35"
@@ -1554,7 +1554,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                       data-label="Status"
                       tabindex="-1"
                     >
-                      Success
+                      Completed
                     </td>
                     <td
                       class="pf-v5-c-table__td pf-m-width-35"
@@ -3203,7 +3203,7 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
                       data-label="Status"
                       tabindex="-1"
                     >
-                      Success
+                      Completed
                     </td>
                     <td
                       class="pf-v5-c-table__td pf-m-width-35"
@@ -4702,7 +4702,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                       data-label="Status"
                       tabindex="-1"
                     >
-                      Success
+                      Completed
                     </td>
                     <td
                       class="pf-v5-c-table__td pf-m-width-35"
@@ -4808,7 +4808,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                       data-label="Status"
                       tabindex="-1"
                     >
-                      Success
+                      Completed
                     </td>
                     <td
                       class="pf-v5-c-table__td pf-m-width-35"
@@ -5583,7 +5583,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                       data-label="Status"
                       tabindex="-1"
                     >
-                      Success
+                      Completed
                     </td>
                     <td
                       class="pf-v5-c-table__td pf-m-width-35"
@@ -5769,7 +5769,7 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                       data-label="Status"
                       tabindex="-1"
                     >
-                      Success
+                      Completed
                     </td>
                     <td
                       class="pf-v5-c-table__td pf-m-width-35"

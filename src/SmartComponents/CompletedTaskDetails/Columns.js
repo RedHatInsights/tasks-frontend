@@ -32,11 +32,6 @@ export const StatusColumn = {
     width: 10,
   },
   sortByProp: 'status',
-  renderExport: (job) => job.status,
-};
-
-export const ConversionStatusColumn = {
-  ...StatusColumn,
   renderExport: (job) => (job.status === 'Success' ? 'Completed' : job.status),
   renderFunc: (_, _empty, job) =>
     job.status === 'Success' ? 'Completed' : job.status,
@@ -102,11 +97,6 @@ export const IssueRemediationColumn = {
 };
 
 export const exportableColumns = [SystemColumn, StatusColumn, MessageColumn];
-export const conversionColumns = [
-  SystemColumn,
-  ConversionStatusColumn,
-  MessageColumn,
-];
 export const extendedReportColumns = [
   IssueTitleColumn,
   IssueSeverityColumn,

@@ -223,7 +223,7 @@ describe('CompletedTaskDetails', () => {
     );
     userEvent.click(screen.getAllByText('Status')[0]);
     await waitFor(() => userEvent.click(screen.getByLabelText('Options menu')));
-    await waitFor(() => userEvent.click(screen.getAllByText('Success')[0]));
+    await waitFor(() => userEvent.click(screen.getAllByText('Completed')[0]));
     await waitFor(() =>
       expect(screen.getByText('dl-test-device-2')).toBeInTheDocument()
     );
@@ -315,7 +315,7 @@ describe('CompletedTaskDetails', () => {
     await waitFor(() => expect(fetchExecutedTaskJobs).toHaveBeenCalled());
 
     const row = screen.getByRole('row', {
-      name: /details centos7-test-device-3 success no inhibtors found, conversion should run smoothly for this system\./i,
+      name: /details centos7-test-device-3 Completed no inhibtors found, conversion should run smoothly for this system\./i,
     });
 
     fireEvent.click(
@@ -358,7 +358,7 @@ describe('CompletedTaskDetails', () => {
     await waitFor(() => expect(fetchExecutedTaskJobs).toHaveBeenCalled());
 
     const row = screen.getByRole('row', {
-      name: /details centos7-test-device-3 success no inhibtors found, conversion should run smoothly for this system\./i,
+      name: /details centos7-test-device-3 Completed no inhibtors found, conversion should run smoothly for this system\./i,
     });
 
     fireEvent.click(
@@ -395,7 +395,7 @@ describe('CompletedTaskDetails', () => {
     await waitFor(() => expect(fetchExecutedTaskJobs).toHaveBeenCalled());
 
     const row = screen.getByRole('row', {
-      name: /system deleted success no inhibtors found, conversion should run smoothly for this system\./i,
+      name: /system deleted Completed no inhibtors found, conversion should run smoothly for this system\./i,
     });
 
     fireEvent.click(

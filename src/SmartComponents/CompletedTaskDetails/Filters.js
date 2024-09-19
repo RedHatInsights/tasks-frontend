@@ -13,7 +13,7 @@ export const systemFilter = [
   },
 ];
 
-export const buildStatusFilter = (isConversionTask) => {
+export const buildStatusFilter = () => {
   return [
     {
       type: conditionalFilterType.checkbox,
@@ -22,7 +22,7 @@ export const buildStatusFilter = (isConversionTask) => {
         jobs.filter((job) => value.includes(job.status.toLowerCase())),
       items: [
         { label: 'Running', value: 'running' },
-        { label: isConversionTask ? 'Completed' : 'Success', value: 'success' },
+        { label: 'Completed', value: 'success' },
         { label: 'Failure', value: 'failure' },
         { label: 'Timeout', value: 'timeout' },
       ],

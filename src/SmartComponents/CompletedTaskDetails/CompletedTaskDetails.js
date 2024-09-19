@@ -18,7 +18,6 @@ import {
 } from '@patternfly/react-core';
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
 import columns, {
-  conversionColumns,
   exportableColumns,
   ReportColumn,
   extendedReportColumns,
@@ -29,7 +28,6 @@ import {
   COMPLETED_INFO_PANEL_FLEX_PROPS,
   COMPLETED_INFO_BUTTONS,
   COMPLETED_INFO_BUTTONS_FLEX_PROPS,
-  CONVERSION_SLUG,
   LOADING_INFO_PANEL,
   LOADING_JOBS_TABLE,
   TASK_ERROR,
@@ -182,17 +180,9 @@ const CompletedTaskDetails = () => {
     [completedTaskJobs, tableLoading]
   );
 
-  const isConversionTask = () => {
-    return (
-      completedTaskDetails.task_slug ===
-        `${CONVERSION_SLUG}-conversion-stage` ||
-      completedTaskDetails.task_slug === `${CONVERSION_SLUG}-conversion`
-    );
-  };
-
   const buildFilterConfig = () => {
     return {
-      filterConfig: [...systemFilter, ...buildStatusFilter(isConversionTask())],
+      filterConfig: [...systemFilter, ...buildStatusFilter()],
     };
   };
 
@@ -313,16 +303,14 @@ const CompletedTaskDetails = () => {
                   <TasksTables
                     label={`${completedTaskDetails.id}-completed-jobs`}
                     ouiaId={`${completedTaskDetails.id}-completed-jobs-table`}
-                    columns={isConversionTask() ? conversionColumns : columns}
+                    columns={columns}
                     items={completedTaskJobs}
                     filters={buildFilterConfig()}
                     options={{
                       ...TASKS_TABLE_DEFAULTS,
                       exportable: {
                         ...TASKS_TABLE_DEFAULTS.exportable,
-                        columns: isConversionTask()
-                          ? conversionColumns
-                          : exportableColumns,
+                        columns: exportableColumns,
                         extraExportColumns: [
                           ...(hasPlainReport ? [ReportColumn] : []),
                           ...(hasReportJson ? extendedReportColumns : []),

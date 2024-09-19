@@ -98,15 +98,19 @@ const ConversionTaskInputParameters = ({
         parameter={skipPackageCheck}
         updateParameter={updateParameter}
       />
-      <ParameterCheckbox
-        parameter={skipTaintedKernelModuleCheck}
-        updateParameter={updateParameter}
-        customDescription={TAINTED_KERNEL_MODULE_CUSTOM_DESCRIPTION}
-      />
-      <ParameterCheckboxGroup
-        parameter={optionalRepositories}
-        updateParameter={updateParameter}
-      />
+      {skipTaintedKernelModuleCheck && (
+        <ParameterCheckbox
+          parameter={skipTaintedKernelModuleCheck}
+          updateParameter={updateParameter}
+          customDescription={TAINTED_KERNEL_MODULE_CUSTOM_DESCRIPTION}
+        />
+      )}
+      {optionalRepositories && (
+        <ParameterCheckboxGroup
+          parameter={optionalRepositories}
+          updateParameter={updateParameter}
+        />
+      )}
     </Form>
   );
 };

@@ -40,4 +40,4 @@ parameters:
   - name: IMAGE_TAG
     required: true
   - name: IMAGE
-    value: quay.io/cloudservices/tasks-frontend
+    value: quay.io/redhat-services-prod/insights-management-tenant/insights-advisor/tasks-frontend

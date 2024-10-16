@@ -34,7 +34,9 @@ exports[`ActivityTable should render correctly 1`] = `
                     aria-expanded="false"
                     aria-label="Conditional filter toggle"
                     class="pf-v5-c-menu-toggle ins-c-conditional-filter__group"
-                    data-ouia-component-id="ConditionalFilterToggle"
+                    data-ouia-component-id="OUIA-Generated-MenuToggle-1"
+                    data-ouia-component-type="PF5/MenuToggle"
+                    data-ouia-safe="true"
                     type="button"
                   >
                     <span
@@ -152,6 +154,9 @@ exports[`ActivityTable should render correctly 1`] = `
                 aria-expanded="false"
                 aria-label="Export"
                 class="pf-v5-c-menu-toggle pf-m-plain"
+                data-ouia-component-id="OUIA-Generated-MenuToggle-plain-1"
+                data-ouia-component-type="PF5/MenuToggle"
+                data-ouia-safe="true"
                 type="button"
               >
                 <svg
@@ -459,6 +464,9 @@ exports[`ActivityTable should render correctly 1`] = `
               aria-expanded="false"
               aria-label="Kebab toggle"
               class="pf-v5-c-menu-toggle pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-MenuToggle-plain-7"
+              data-ouia-component-type="PF5/MenuToggle"
+              data-ouia-safe="true"
               type="button"
             >
               <svg
@@ -555,6 +563,9 @@ exports[`ActivityTable should render correctly 1`] = `
               aria-expanded="false"
               aria-label="Kebab toggle"
               class="pf-v5-c-menu-toggle pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-MenuToggle-plain-8"
+              data-ouia-component-type="PF5/MenuToggle"
+              data-ouia-safe="true"
               type="button"
             >
               <svg
@@ -651,6 +662,9 @@ exports[`ActivityTable should render correctly 1`] = `
               aria-expanded="false"
               aria-label="Kebab toggle"
               class="pf-v5-c-menu-toggle pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-MenuToggle-plain-9"
+              data-ouia-component-type="PF5/MenuToggle"
+              data-ouia-safe="true"
               type="button"
             >
               <svg
@@ -747,6 +761,9 @@ exports[`ActivityTable should render correctly 1`] = `
               aria-expanded="false"
               aria-label="Kebab toggle"
               class="pf-v5-c-menu-toggle pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-MenuToggle-plain-10"
+              data-ouia-component-type="PF5/MenuToggle"
+              data-ouia-safe="true"
               type="button"
             >
               <svg
@@ -843,6 +860,9 @@ exports[`ActivityTable should render correctly 1`] = `
               aria-expanded="false"
               aria-label="Kebab toggle"
               class="pf-v5-c-menu-toggle pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-MenuToggle-plain-11"
+              data-ouia-component-type="PF5/MenuToggle"
+              data-ouia-safe="true"
               type="button"
             >
               <svg

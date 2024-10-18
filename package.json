@@ -66,7 +66,7 @@
     "@redhat-cloud-services/frontend-components-utilities": "^4.0.17",
     "@unleash/proxy-client-react": "^4.2.2",
     "axios": "^0.27.0",
-    "classnames": "^2.3.1",
+    "classnames": "^2.5.1",
     "jest-canvas-mock": "^2.5.2",
     "moment": "2.29.4",
     "p-all": "^4.0.0",

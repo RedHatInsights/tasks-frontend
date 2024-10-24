@@ -35,17 +35,4 @@ global.window.__scalprum__ = {
     inventory: {},
     remediations: {},
   },
-  factories: {
-    inventory: {},
-    remediations: {
-      expiration: new Date('01-01-3000'),
-      modules: {
-        './RemediationButton': {
-          __esModule: true,
-          // eslint-disable-next-line react/display-name
-          default: () => 'Remediations',
-        },
-      },
-    },
-  },
 };

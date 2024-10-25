@@ -17,7 +17,8 @@ yarn-debug.log*
 yarn-error.log*
 
 .DS_Store
-coverage
+*coverage
+.nyc_output
 
 .cache/
 

@@ -18,8 +18,6 @@ npm run patch:hosts
 
 3. Open browser in URL listed in the terminal output - make sure to use `https` instead of `http`
 
-Update `config/dev.webpack.config.js` according to your application URL. [Read more](https://github.com/RedHatInsights/frontend-components/tree/master/packages/config#useproxy).
-
 ### Testing
 
 `npm run verify` will run `npm run lint` (eslint) and `npm test` (Jest)

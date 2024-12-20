@@ -1,4 +1,4 @@
-import { ALL_SYSTEMS } from './constants';
+import { ALL_SYSTEMS_VALUE } from './constants';
 
 const buildSortString = (orderBy, orderDirection) => {
   let sortString = orderBy ? '&sort=' : '';
@@ -87,7 +87,9 @@ const buildWorkloadFiltersString = (filters) => {
 };
 
 const buildEligibilityFilterString = ({ filters }) => {
-  return filters[0]?.chips[0]?.value === ALL_SYSTEMS ? '&all_systems=true' : '';
+  return filters[0]?.chips[0]?.value === ALL_SYSTEMS_VALUE
+    ? '&all_systems=true'
+    : '';
 };
 
 // TODO this should be based on a URLSearchParams object and use its toString() function
@@ -119,4 +121,8 @@ export const findCheckedValue = (total, selected) => {
   } else {
     return false;
   }
+};
+
+export const findFilterData = (optionName, options) => {
+  return options.find((item) => item.label === optionName);
 };

@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import propTypes from 'prop-types';
 import {
-  ELIGIBLE_SYSTEMS,
-  ALL_SYSTEMS,
+  ELIGIBLE_SYSTEMS_VALUE,
+  ALL_SYSTEMS_VALUE,
   API_MAX_SYSTEMS,
   eligibilityFilterItems,
   defaultOnLoad,
@@ -21,6 +21,7 @@ import { conditionalFilterType } from '@redhat-cloud-services/frontend-component
 import usePromiseQueue from '../../Utilities/hooks/usePromiseQueue';
 import { NoCentOsEmptyState } from './NoCentOsEmptyState';
 import { CENTOS_CONVERSION_SLUGS } from '../AvailableTasks/QuickstartButton';
+import SelectCustomFilter from './SelectCustomFilter';
 
 const SystemTable = ({
   bulkSelectIds,
@@ -32,7 +33,7 @@ const SystemTable = ({
 }) => {
   const [items, setItems] = useState([]);
   const [total, setTotal] = useState(0);
-  const [eligibility, setEligibility] = useState(ELIGIBLE_SYSTEMS);
+  const [eligibility, setEligibility] = useState(eligibilityFilterItems[0]);
   const inventory = useRef(null);
   const { getRegistry } = useContext(RegistryContext);
   const dispatch = useDispatch();
@@ -95,17 +96,23 @@ const SystemTable = ({
       };
     });
 
+  const setEligibilityData = (value) => {
+    setEligibility(value);
+    setShowEligibilityAlert(value === ELIGIBLE_SYSTEMS_VALUE);
+  };
+
   const eligibilityFilter = {
     label: 'Task Eligibility',
-    type: conditionalFilterType.radio,
+    type: conditionalFilterType.custom,
     filterValues: {
-      onChange: (event, value) => {
-        setEligibility(value);
-        setShowEligibilityAlert(value === ELIGIBLE_SYSTEMS);
-      },
-      items: eligibilityFilterItems,
-      value: eligibility,
-      placeholder: 'Filter Eligible Systems',
+      children: (
+        <SelectCustomFilter
+          filterId="task-eligibility"
+          options={eligibilityFilterItems}
+          selectedValue={eligibility}
+          setFilterData={setEligibilityData}
+        />
+      ),
     },
   };
 
@@ -114,21 +121,21 @@ const SystemTable = ({
       {
         id: 'Task eligibility',
         category: 'Task eligibility',
-        chips: [{ name: eligibility, value: eligibility }],
+        chips: [{ name: eligibility.label, value: eligibility.value }],
       },
     ],
     onDelete: (event, itemsToRemove, isAll) => {
       if (isAll) {
-        setEligibility(ELIGIBLE_SYSTEMS);
+        setEligibility(eligibilityFilterItems[0]);
         setShowEligibilityAlert(true);
       } else {
         itemsToRemove.map((item) => {
           if (item.category === 'Task eligibility') {
-            if (eligibility === ALL_SYSTEMS) {
-              setEligibility(ELIGIBLE_SYSTEMS);
+            if (eligibility.value === ALL_SYSTEMS_VALUE) {
+              setEligibility(eligibilityFilterItems[0]);
               setShowEligibilityAlert(true);
             } else {
-              setEligibility(ALL_SYSTEMS);
+              setEligibility(eligibilityFilterItems[1]);
               setShowEligibilityAlert(false);
             }
           }

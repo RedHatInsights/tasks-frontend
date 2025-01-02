@@ -56,11 +56,13 @@ export const defaultOnLoad = (columns, getRegistry) => {
     });
 };
 
-export const ELIGIBLE_SYSTEMS = 'Eligible Systems';
-export const ALL_SYSTEMS = 'All Systems';
+const ELIGIBLE_SYSTEMS = 'Eligible Systems';
+export const ELIGIBLE_SYSTEMS_VALUE = 'eligible-systems';
+const ALL_SYSTEMS = 'All Systems';
+export const ALL_SYSTEMS_VALUE = 'all-systems';
 export const eligibilityFilterItems = [
-  { label: ELIGIBLE_SYSTEMS, value: ELIGIBLE_SYSTEMS },
-  { label: ALL_SYSTEMS, value: ALL_SYSTEMS },
+  { label: ELIGIBLE_SYSTEMS, value: ELIGIBLE_SYSTEMS_VALUE },
+  { label: ALL_SYSTEMS, value: ALL_SYSTEMS_VALUE },
 ];
 
 // Max systems we can ask for from the API, otherwise the connected status

@@ -1,4 +1,4 @@
-import { ALL_SYSTEMS_VALUE } from './constants';
+import { ELIGIBLE_SYSTEMS_VALUE } from './constants';
 
 const buildSortString = (orderBy, orderDirection) => {
   let sortString = orderBy ? '&sort=' : '';
@@ -87,9 +87,10 @@ const buildWorkloadFiltersString = (filters) => {
 };
 
 const buildEligibilityFilterString = ({ filters }) => {
-  return filters[0]?.chips[0]?.value === ALL_SYSTEMS_VALUE
-    ? '&all_systems=true'
-    : '';
+  return filters[0]?.chips &&
+    filters[0]?.chips[0]?.value === ELIGIBLE_SYSTEMS_VALUE
+    ? ''
+    : '&all_systems=true';
 };
 
 // TODO this should be based on a URLSearchParams object and use its toString() function

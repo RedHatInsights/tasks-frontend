@@ -9,7 +9,7 @@ describe('buildFilterSortString', () => {
   const workloadFilters = [];
   const activeFiltersConfig = { filters: {} };
 
-  it('should return an default filterstring when no filters given', () => {
+  it('should return a default filterstring when no filters given', () => {
     expect(
       buildFilterSortString(
         limit,
@@ -20,6 +20,30 @@ describe('buildFilterSortString', () => {
         tags,
         workloadFilters,
         activeFiltersConfig
+      )
+    ).toEqual('?limit=25&offset=0&sort=name&all_systems=true');
+  });
+
+  it('should not return all_systems=true when eligible systems filter applied', () => {
+    let activefilters = {
+      filters: [
+        {
+          id: 'Task eligibility',
+          category: 'Task eligibility',
+          chips: [{ name: 'Eligible Systems', value: 'eligible-systems' }],
+        },
+      ],
+    };
+    expect(
+      buildFilterSortString(
+        limit,
+        offset,
+        orderBy,
+        orderDirection,
+        {},
+        tags,
+        workloadFilters,
+        activefilters
       )
     ).toEqual('?limit=25&offset=0&sort=name');
   });
@@ -44,7 +68,9 @@ describe('buildFilterSortString', () => {
         workloadFilters,
         activeFiltersConfig
       )
-    ).toEqual('?limit=25&offset=0&sort=name&operating_system=RHEL|9.4');
+    ).toEqual(
+      '?limit=25&offset=0&sort=name&operating_system=RHEL|9.4&all_systems=true'
+    );
 
     filters = {
       osFilter: {
@@ -66,7 +92,9 @@ describe('buildFilterSortString', () => {
         workloadFilters,
         activeFiltersConfig
       )
-    ).toEqual('?limit=25&offset=0&sort=name&operating_system=RHEL|9.3');
+    ).toEqual(
+      '?limit=25&offset=0&sort=name&operating_system=RHEL|9.3&all_systems=true'
+    );
 
     filters = {
       osFilter: {
@@ -99,7 +127,7 @@ describe('buildFilterSortString', () => {
         activeFiltersConfig
       )
     ).toEqual(
-      '?limit=25&offset=0&sort=name&operating_system=RHEL|9.4,RHEL|9.3,RHEL|9.9,RHEL|8.4,AlmaLinux|8.4,AlmaLinux|8.5'
+      '?limit=25&offset=0&sort=name&operating_system=RHEL|9.4,RHEL|9.3,RHEL|9.9,RHEL|8.4,AlmaLinux|8.4,AlmaLinux|8.5&all_systems=true'
     );
 
     filters = {
@@ -132,7 +160,7 @@ describe('buildFilterSortString', () => {
         activeFiltersConfig
       )
     ).toEqual(
-      '?limit=25&offset=0&sort=name&operating_system=RHEL|9.5,RHEL|9.4,RHEL|9.3,RHEL|9.2,RHEL|9.1,RHEL|9.0,Cent Os Linux|8.4,Cent Os Linux|8.5'
+      '?limit=25&offset=0&sort=name&operating_system=RHEL|9.5,RHEL|9.4,RHEL|9.3,RHEL|9.2,RHEL|9.1,RHEL|9.0,Cent Os Linux|8.4,Cent Os Linux|8.5&all_systems=true'
     );
 
     filters = {
@@ -176,7 +204,7 @@ describe('buildFilterSortString', () => {
         activeFiltersConfig
       )
     ).toEqual(
-      '?limit=25&offset=0&sort=name&operating_system=RHEL|9.4,RHEL|9.3,RHEL|9.9,RHEL|8.4,Alma Linux|8.4,Alma Linux|8.5,Cent Os|8.4,Cent Os|8.5,Cent Os|30.99,Cent Os|30.88'
+      '?limit=25&offset=0&sort=name&operating_system=RHEL|9.4,RHEL|9.3,RHEL|9.9,RHEL|8.4,Alma Linux|8.4,Alma Linux|8.5,Cent Os|8.4,Cent Os|8.5,Cent Os|30.99,Cent Os|30.88&all_systems=true'
     );
 
     filters = {
@@ -209,7 +237,7 @@ describe('buildFilterSortString', () => {
         activeFiltersConfig
       )
     ).toEqual(
-      '?limit=25&offset=0&sort=name&operating_system=RHEL|9.4,RHEL|9.3,RHEL|9.9,AlmaLinux|8.4,AlmaLinux|8.5'
+      '?limit=25&offset=0&sort=name&operating_system=RHEL|9.4,RHEL|9.3,RHEL|9.9,AlmaLinux|8.4,AlmaLinux|8.5&all_systems=true'
     );
   });
 });

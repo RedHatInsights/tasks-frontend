@@ -17,7 +17,7 @@ describe('SelectCustomFilter component', () => {
 
     render(
       <SelectCustomFilter
-        selectedValue={selectedValue}
+        selectedValue={selectedValue.value}
         setFilterData={setFilterData}
         options={options}
         filterId={filterId}

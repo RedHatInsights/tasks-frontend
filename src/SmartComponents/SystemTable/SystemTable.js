@@ -109,7 +109,7 @@ const SystemTable = ({
         <SelectCustomFilter
           filterId="task-eligibility"
           options={eligibilityFilterItems}
-          selectedValue={eligibility}
+          selectedValue={eligibility.value}
           setFilterData={setEligibilityData}
         />
       ),
@@ -117,13 +117,16 @@ const SystemTable = ({
   };
 
   const activeFiltersConfig = {
-    filters: [
-      {
-        id: 'Task eligibility',
-        category: 'Task eligibility',
-        chips: [{ name: eligibility.label, value: eligibility.value }],
-      },
-    ],
+    filters:
+      eligibility.value === ELIGIBLE_SYSTEMS_VALUE
+        ? [
+            {
+              id: 'Task eligibility',
+              category: 'Task eligibility',
+              chips: [{ name: eligibility.label, value: eligibility.value }],
+            },
+          ]
+        : [],
     onDelete: (event, itemsToRemove, isAll) => {
       if (isAll) {
         setEligibility(eligibilityFilterItems[0]);

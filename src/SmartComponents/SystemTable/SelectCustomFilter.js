@@ -18,6 +18,7 @@ const SelectCustomFilter = ({
 
   const handleSelectChange = (value) => {
     setFilterData(findFilterData(value, options));
+    setOpen(false);
   };
 
   const toggle = (toggleRef) => (
@@ -29,7 +30,7 @@ const SelectCustomFilter = ({
         width: 'auto',
       }}
     >
-      {options.find((item) => item.value === selectedValue.value)?.label}
+      {options.find((item) => item.value === selectedValue)?.label}
     </MenuToggle>
   );
 
@@ -44,7 +45,7 @@ const SelectCustomFilter = ({
         key={filterId}
         onSelect={(event, optionName) => handleSelectChange(optionName)}
         onOpenChange={(isOpen) => setOpen(isOpen)}
-        selected={selectedValue.label}
+        selected={options.find((item) => item.value === selectedValue)?.label}
         toggle={toggle}
         shouldFocusToggleOnSelect
       >

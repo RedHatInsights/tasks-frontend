@@ -65,6 +65,20 @@ class FilterConfigBuilder {
     },
   });
 
+  toSingleSelectFilterConfig = (item, handler, value) => ({
+    type: conditionalFilterType.singleSelect,
+    label: item.label,
+    placeholder: defaultPlaceholder(item.label),
+    id: stringToId(item.label),
+    filterValues: {
+      value,
+      items: item.items,
+      onChange: (_event, selectedValues) => {
+        handler(stringToId(item.label), selectedValues);
+      },
+    },
+  });
+
   toRadioFilterConfig = (item, handler, value) => ({
     type: conditionalFilterType.radio,
     label: item.label,
@@ -108,6 +122,9 @@ class FilterConfigBuilder {
       case conditionalFilterType.checkbox:
         return this.toCheckboxFilterConfig(item, handler, value);
 
+      case conditionalFilterType.singleSelect:
+        return this.toCheckboxFilterConfig(item, handler, value);
+
       case conditionalFilterType.radio:
         return this.toRadioFilterConfig(item, handler, value);
 
@@ -133,6 +150,8 @@ class FilterConfigBuilder {
       case conditionalFilterType.text:
         return '';
       case conditionalFilterType.checkbox:
+        return [];
+      case conditionalFilterType.singleSelect:
         return [];
       case 'hidden':
         return filter.default || false;

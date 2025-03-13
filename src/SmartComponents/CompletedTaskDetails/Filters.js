@@ -16,7 +16,7 @@ export const systemFilter = [
 export const buildStatusFilter = () => {
   return [
     {
-      type: conditionalFilterType.checkbox,
+      type: conditionalFilterType.singleSelect,
       label: 'Status',
       filter: (jobs, value) =>
         jobs.filter((job) => value.includes(job.status.toLowerCase())),

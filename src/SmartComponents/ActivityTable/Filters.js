@@ -15,7 +15,7 @@ export const nameFilter = [
 
 export const statusFilter = [
   {
-    type: conditionalFilterType.checkbox,
+    type: conditionalFilterType.singleSelect,
     label: 'Status',
     filter: (tasks, value) =>
       tasks.filter((task) => value.includes(task.status.toLowerCase())),

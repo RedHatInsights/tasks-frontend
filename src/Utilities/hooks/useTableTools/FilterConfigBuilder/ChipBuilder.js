@@ -78,7 +78,7 @@ class ChipBuilder {
       case conditionalFilterType.text:
         return this.textFilterChip(label, currentValue);
 
-      case conditionalFilterType.checkbox:
+      case conditionalFilterType.singleSelect:
         return this.checkboxFilterChip(label, currentValue);
 
       case conditionalFilterType.radio:

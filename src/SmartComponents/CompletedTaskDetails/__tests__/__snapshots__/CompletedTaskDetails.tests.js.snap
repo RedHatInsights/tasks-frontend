@@ -79,7 +79,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                     class="pf-v5-l-flex pf-m-justify-content-space-between"
                   >
                     <div
-                      class=""
+                      class="pf-v5-u-flex-grow-1"
                     >
                       <h1
                         class="pf-v5-c-title pf-m-2xl"
@@ -299,7 +299,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                               aria-expanded="false"
                               aria-label="Conditional filter toggle"
                               class="pf-v5-c-menu-toggle ins-c-conditional-filter__group"
-                              data-ouia-component-id="OUIA-Generated-MenuToggle-2"
+                              data-ouia-component-id="ConditionalFilterToggle"
                               data-ouia-component-type="PF5/MenuToggle"
                               data-ouia-safe="true"
                               type="button"
@@ -607,7 +607,6 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                       tabindex="-1"
                     />
                     <th
-                      aria-sort="none"
                       class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-30"
                       data-key="1"
                       data-label="System name"
@@ -647,7 +646,6 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                       </button>
                     </th>
                     <th
-                      aria-sort="none"
                       class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-10"
                       data-key="2"
                       data-label="Status"
@@ -2560,7 +2558,7 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
                     class="pf-v5-l-flex pf-m-justify-content-space-between"
                   >
                     <div
-                      class=""
+                      class="pf-v5-u-flex-grow-1"
                     >
                       <h1
                         class="pf-v5-c-title pf-m-2xl"
@@ -2780,7 +2778,7 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
                               aria-expanded="false"
                               aria-label="Conditional filter toggle"
                               class="pf-v5-c-menu-toggle ins-c-conditional-filter__group"
-                              data-ouia-component-id="OUIA-Generated-MenuToggle-1"
+                              data-ouia-component-id="ConditionalFilterToggle"
                               data-ouia-component-type="PF5/MenuToggle"
                               data-ouia-safe="true"
                               type="button"
@@ -3082,7 +3080,6 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
                     data-ouia-safe="true"
                   >
                     <th
-                      aria-sort="none"
                       class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-30"
                       data-key="0"
                       data-label="System name"
@@ -3122,7 +3119,6 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
                       </button>
                     </th>
                     <th
-                      aria-sort="none"
                       class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-10"
                       data-key="1"
                       data-label="Status"
@@ -3162,7 +3158,6 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
                       </button>
                     </th>
                     <th
-                      aria-sort="none"
                       class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-35"
                       data-key="2"
                       data-label="Message"
@@ -3840,7 +3835,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                     class="pf-v5-l-flex pf-m-justify-content-space-between"
                   >
                     <div
-                      class=""
+                      class="pf-v5-u-flex-grow-1"
                     >
                       <h1
                         class="pf-v5-c-title pf-m-2xl"
@@ -4060,7 +4055,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                               aria-expanded="false"
                               aria-label="Conditional filter toggle"
                               class="pf-v5-c-menu-toggle ins-c-conditional-filter__group"
-                              data-ouia-component-id="OUIA-Generated-MenuToggle-3"
+                              data-ouia-component-id="ConditionalFilterToggle"
                               data-ouia-component-type="PF5/MenuToggle"
                               data-ouia-safe="true"
                               type="button"
@@ -4368,7 +4363,6 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                       tabindex="-1"
                     />
                     <th
-                      aria-sort="none"
                       class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-30"
                       data-key="1"
                       data-label="System name"
@@ -4408,7 +4402,6 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                       </button>
                     </th>
                     <th
-                      aria-sort="none"
                       class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-10"
                       data-key="2"
                       data-label="Status"

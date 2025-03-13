@@ -252,6 +252,7 @@ exports[`useFilterConfig returns a filter config configuration 1`] = `
     "toFilterConfigItem": [Function],
     "toGroupedFilterConfig": [Function],
     "toRadioFilterConfig": [Function],
+    "toSingleSelectFilterConfig": [Function],
     "toTextFilterConfig": [Function],
     "valueForLabel": [Function],
   },

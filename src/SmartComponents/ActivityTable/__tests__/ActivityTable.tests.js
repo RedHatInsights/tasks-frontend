@@ -149,6 +149,7 @@ describe('ActivityTable', () => {
     await waitFor(() => {
       expect(fetchExecutedTasks).toHaveBeenCalled();
     });
+    screen.logTestingPlaygroundURL();
     act(() => {
       userEvent.click(
         screen.getByRole('button', {

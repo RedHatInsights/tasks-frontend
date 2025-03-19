@@ -53,6 +53,7 @@ export const useGetEntities = (
         title: entity.requirements.length ? 'Not Eligible' : 'Eligible',
         tooltip: entity.requirements.join('. '), // '' if no requirements
       },
+      updated: entity.last_check_in,
     }));
 
     return {

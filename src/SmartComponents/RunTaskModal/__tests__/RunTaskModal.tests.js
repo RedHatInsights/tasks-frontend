@@ -19,6 +19,7 @@ jest.mock('../../SystemTable/hooks', () => {
       id: '1d2a2d8b-8bb1-48f3-a367-c8ba2f4d8fc3',
       os_version: 'RHEL 8.4',
       updated: '2022-04-20T12:49:29.389485Z',
+      last_check_in: '2022-04-20T12:49:29.389485Z',
       tags: [{ key: 'UZYyIQY', value: 'vMRGEY', namespace: 'kQQgFpq' }],
     },
     {
@@ -33,6 +34,7 @@ jest.mock('../../SystemTable/hooks', () => {
         { key: 'fcxDtpYt', value: 'PwOPRFiv', namespace: 'wWZCjhrp' },
       ],
       updated: '2022-05-04T07:08:37.176240Z',
+      last_check_in: '2022-05-04T07:08:37.176240Z',
     },
   ];
   return {

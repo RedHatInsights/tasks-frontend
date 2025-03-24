@@ -17,11 +17,9 @@ import { Spinner } from '@patternfly/react-core';
 import { RegistryContext } from '../../store';
 import { useDispatch } from 'react-redux';
 import { generateFilter } from '@redhat-cloud-services/frontend-components-utilities/helpers';
-import { conditionalFilterType } from '@redhat-cloud-services/frontend-components/ConditionalFilter';
 import usePromiseQueue from '../../Utilities/hooks/usePromiseQueue';
 import { NoCentOsEmptyState } from './NoCentOsEmptyState';
 import { CENTOS_CONVERSION_SLUGS } from '../AvailableTasks/QuickstartButton';
-import SelectCustomFilter from './SelectCustomFilter';
 
 const SystemTable = ({
   bulkSelectIds,
@@ -103,16 +101,15 @@ const SystemTable = ({
 
   const eligibilityFilter = {
     label: 'Task Eligibility',
-    type: conditionalFilterType.custom,
+    type: 'singleSelect',
     filterValues: {
-      children: (
-        <SelectCustomFilter
-          filterId="task-eligibility"
-          options={eligibilityFilterItems}
-          selectedValue={eligibility.value}
-          setFilterData={setEligibilityData}
-        />
-      ),
+      value: eligibility.value,
+      items: eligibilityFilterItems,
+      onChange: (_event, selectedValues) => {
+        setEligibilityData(
+          eligibilityFilterItems.find(({ value }) => value === selectedValues)
+        );
+      },
     },
   };
 
@@ -134,7 +131,7 @@ const SystemTable = ({
       } else {
         itemsToRemove.map((item) => {
           if (item.category === 'Task eligibility') {
-            if (eligibility.value === ALL_SYSTEMS_VALUE) {
+            if (eligibility === ALL_SYSTEMS_VALUE) {
               setEligibility(eligibilityFilterItems[0]);
               setShowEligibilityAlert(true);
             } else {

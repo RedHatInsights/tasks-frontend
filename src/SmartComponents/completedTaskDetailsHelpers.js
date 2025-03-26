@@ -63,7 +63,7 @@ export const fetchTaskJobs = async (taskDetails, setError) => {
       }).length || '-';
     taskDetails.system_count = taskJobs.data.length;
     taskJobs.data.forEach((job) => {
-      if (job.status === 'Failure') {
+      if (job.status === 'Failure' && !job.results.message) {
         job.results.message = JOB_FAILED_MESSAGE;
       } else if (job.status === 'Timeout') {
         job.results.message = JOB_TIMED_OUT_MESSAGE;

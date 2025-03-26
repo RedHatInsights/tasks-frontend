@@ -3354,7 +3354,7 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
                           class="pf-v5-l-split__item"
                           color="#A30000"
                         >
-                          Task failed to complete for an unknown reason. Retry this task at a later time.
+                          This was a failure.
                         </div>
                       </div>
                     </td>
@@ -4691,7 +4691,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                           class="pf-v5-l-split__item"
                           color="#A30000"
                         >
-                          Task failed to complete for an unknown reason. Retry this task at a later time.
+                          This was a failure.
                         </div>
                       </div>
                     </td>

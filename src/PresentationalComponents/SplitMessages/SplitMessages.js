@@ -1,6 +1,7 @@
 import React from 'react';
 import { Icon, Split, SplitItem } from '@patternfly/react-core';
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
+import Truncate from '@redhat-cloud-services/frontend-components/Truncate';
 import propTypes from 'prop-types';
 
 const SplitMessages = ({ alert, content }) => {
@@ -18,7 +19,9 @@ const SplitMessages = ({ alert, content }) => {
           </SplitItem>
         </React.Fragment>
       ) : null}
-      <SplitItem color="#A30000">{content}</SplitItem>
+      <SplitItem color="#A30000">
+        <Truncate text={content} length={150} inline />
+      </SplitItem>
     </Split>
   );
 };

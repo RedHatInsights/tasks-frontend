@@ -2,6 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { renderColumnComponent } from '../../Utilities/helpers';
 import SplitMessages from '../../PresentationalComponents/SplitMessages/SplitMessages';
+import { Skeleton } from '@patternfly/react-core';
 
 const SystemNameCell = ({ display_name }) => {
   if (display_name) {
@@ -44,16 +45,19 @@ export const MessageColumn = {
   },
   sortByFunction: (job) => job.results.message,
   renderExport: (job) => job.results.message,
-  renderFunc: (_, _empty, job) => (
-    <SplitMessages
-      content={job.results.message}
-      alert={
-        job.results.alert === 'true' ||
-        job.status === 'Failure' ||
-        job.status === 'Timeout'
-      }
-    />
-  ),
+  renderFunc: (_, _empty, job) =>
+    job.results.message?.length ? (
+      <SplitMessages
+        content={job.results.message}
+        alert={
+          job.results.alert === 'true' ||
+          job.status === 'Failure' ||
+          job.status === 'Timeout'
+        }
+      />
+    ) : (
+      <Skeleton width="100%" />
+    ),
 };
 
 export const ReportColumn = {

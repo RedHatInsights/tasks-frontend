@@ -44,7 +44,7 @@ export const TASKS_ERROR = [
   '',
 ];
 export const COMPLETED_TASKS_ERROR = [
-  'Activities connot be displayed at this time. Please return and if the problem persists contact your system administrator.',
+  'Activities cannot be displayed at this time. Please return and if the problem persists contact your system administrator.',
   '',
 ];
 export const TASK_ERROR = [
@@ -57,7 +57,7 @@ export const EMPTY_TASKS_MESSAGE = [
 ];
 export const EMPTY_COMPLETED_TASKS_TITLE = 'No completed tasks';
 export const EMPTY_COMPLETED_TASKS_MESSAGE = [
-  'Tasks allows you to run resource -intesive additional troubleshooting on your connected systems. Ansible Playbooks are written by Red Hat to do the selected tasks.',
+  'Tasks allows you to run resource-intensive additional troubleshooting on your connected systems. Ansible Playbooks are written by Red Hat to do the selected tasks.',
   '',
   'To use a task, navigate to the "Available tasks" tab and choose a task to run.',
 ];

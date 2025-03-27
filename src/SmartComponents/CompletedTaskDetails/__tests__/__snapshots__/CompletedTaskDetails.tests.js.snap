@@ -778,7 +778,12 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                           class="pf-v5-l-split__item"
                           color="#A30000"
                         >
-                          No inhibtors found, conversion should run smoothly for this system.
+                          <span
+                            class="ins-c-truncate is-inline"
+                            widget-type="InsightsTruncateInline"
+                          >
+                            No inhibtors found, conversion should run smoothly for this system.
+                          </span>
                         </div>
                       </div>
                     </td>
@@ -889,7 +894,12 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                           class="pf-v5-l-split__item"
                           color="#A30000"
                         >
-                          No inhibtors found, conversion should run smoothly for this system.
+                          <span
+                            class="ins-c-truncate is-inline"
+                            widget-type="InsightsTruncateInline"
+                          >
+                            No inhibtors found, conversion should run smoothly for this system.
+                          </span>
                         </div>
                       </div>
                     </td>
@@ -1475,7 +1485,12 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                           class="pf-v5-l-split__item"
                           color="#A30000"
                         >
-                          No inhibtors found, conversion should run smoothly for this system.
+                          <span
+                            class="ins-c-truncate is-inline"
+                            widget-type="InsightsTruncateInline"
+                          >
+                            No inhibtors found, conversion should run smoothly for this system.
+                          </span>
                         </div>
                       </div>
                     </td>
@@ -1586,7 +1601,12 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                           class="pf-v5-l-split__item"
                           color="#A30000"
                         >
-                          Your system has 3 inhibitors out of 3 potential problems.
+                          <span
+                            class="ins-c-truncate is-inline"
+                            widget-type="InsightsTruncateInline"
+                          >
+                            Your system has 3 inhibitors out of 3 potential problems.
+                          </span>
                         </div>
                       </div>
                     </td>
@@ -3248,7 +3268,12 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
                           class="pf-v5-l-split__item"
                           color="#A30000"
                         >
-                          This was a success.
+                          <span
+                            class="ins-c-truncate is-inline"
+                            widget-type="InsightsTruncateInline"
+                          >
+                            This was a success.
+                          </span>
                         </div>
                       </div>
                     </td>
@@ -3354,7 +3379,12 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
                           class="pf-v5-l-split__item"
                           color="#A30000"
                         >
-                          This was a failure.
+                          <span
+                            class="ins-c-truncate is-inline"
+                            widget-type="InsightsTruncateInline"
+                          >
+                            This was a failure.
+                          </span>
                         </div>
                       </div>
                     </td>
@@ -3460,7 +3490,12 @@ exports[`CompletedTaskDetails should render correctly completed 1`] = `
                           class="pf-v5-l-split__item"
                           color="#A30000"
                         >
-                          Task failed to complete due to timing out. Retry this task at a later time.
+                          <span
+                            class="ins-c-truncate is-inline"
+                            widget-type="InsightsTruncateInline"
+                          >
+                            Task failed to complete due to timing out. Retry this task at a later time.
+                          </span>
                         </div>
                       </div>
                     </td>
@@ -4575,7 +4610,12 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                           class="pf-v5-l-split__item"
                           color="#A30000"
                         >
-                          Task failed to complete due to timing out. Retry this task at a later time.
+                          <span
+                            class="ins-c-truncate is-inline"
+                            widget-type="InsightsTruncateInline"
+                          >
+                            Task failed to complete due to timing out. Retry this task at a later time.
+                          </span>
                         </div>
                       </div>
                     </td>
@@ -4691,7 +4731,12 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                           class="pf-v5-l-split__item"
                           color="#A30000"
                         >
-                          This was a failure.
+                          <span
+                            class="ins-c-truncate is-inline"
+                            widget-type="InsightsTruncateInline"
+                          >
+                            This was a failure.
+                          </span>
                         </div>
                       </div>
                     </td>
@@ -4765,11 +4810,11 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                       tabindex="-1"
                     >
                       <div
-                        class="pf-v5-l-split"
+                        class="pf-v5-c-skeleton"
+                        style="--pf-v5-c-skeleton--Width: 100%;"
                       >
-                        <div
-                          class="pf-v5-l-split__item"
-                          color="#A30000"
+                        <span
+                          class="pf-v5-screen-reader"
                         />
                       </div>
                     </td>
@@ -4880,7 +4925,12 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                           class="pf-v5-l-split__item"
                           color="#A30000"
                         >
-                          Your system has 1 inhibitor out of 4 potential problems
+                          <span
+                            class="ins-c-truncate is-inline"
+                            widget-type="InsightsTruncateInline"
+                          >
+                            Your system has 1 inhibitor out of 4 potential problems
+                          </span>
                         </div>
                       </div>
                     </td>
@@ -5658,7 +5708,12 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                           class="pf-v5-l-split__item"
                           color="#A30000"
                         >
-                          Your system has 1 inhibitor out of 4 potential problems
+                          <span
+                            class="ins-c-truncate is-inline"
+                            widget-type="InsightsTruncateInline"
+                          >
+                            Your system has 1 inhibitor out of 4 potential problems
+                          </span>
                         </div>
                       </div>
                     </td>
@@ -5847,7 +5902,12 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                           class="pf-v5-l-split__item"
                           color="#A30000"
                         >
-                          Your system has 3 inhibitors out of 5 potential problems.
+                          <span
+                            class="ins-c-truncate is-inline"
+                            widget-type="InsightsTruncateInline"
+                          >
+                            Your system has 3 inhibitors out of 5 potential problems.
+                          </span>
                         </div>
                       </div>
                     </td>

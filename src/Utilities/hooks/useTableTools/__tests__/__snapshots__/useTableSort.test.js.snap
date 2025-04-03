@@ -2,53 +2,6 @@
 
 exports[`useTableSort returns a table sort configuration 1`] = `
 {
-  "all": [
-    {
-      "sorter": [Function],
-      "tableProps": {
-        "cells": [
-          {
-            "props": {
-              "width": 35,
-            },
-            "renderExport": [Function],
-            "sortByProp": "task_title",
-            "title": "Task",
-            "transforms": [
-              [Function],
-            ],
-          },
-          {
-            "props": {
-              "width": 20,
-            },
-            "renderExport": [Function],
-            "sortByProp": "systems_count",
-            "title": "Systems",
-            "transforms": [
-              [Function],
-            ],
-          },
-          {
-            "props": {
-              "width": 20,
-            },
-            "renderExport": [Function],
-            "sortByProp": "start_time",
-            "title": "Run date/time",
-            "transforms": [
-              [Function],
-            ],
-          },
-        ],
-        "onSort": [Function],
-        "sortBy": {
-          "direction": "asc",
-          "index": 3,
-        },
-      },
-    },
-  ],
   "current": {
     "sorter": [Function],
     "tableProps": {
@@ -94,6 +47,5 @@ exports[`useTableSort returns a table sort configuration 1`] = `
       },
     },
   },
-  "error": undefined,
 }
 `;

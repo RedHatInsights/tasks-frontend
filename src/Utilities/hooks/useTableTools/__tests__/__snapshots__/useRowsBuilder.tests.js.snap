@@ -2,90 +2,6 @@
 
 exports[`useRowsBuilder returns a rows configuration 1`] = `
 {
-  "all": [
-    {
-      "tableProps": {
-        "rows": [
-          {
-            "cells": [
-              {
-                "title": "taskA",
-              },
-              {
-                "title": 10,
-              },
-              {
-                "title": "2022-04-20T10:10:00",
-              },
-            ],
-            "display_name": undefined,
-            "has_stdout": undefined,
-            "itemId": undefined,
-            "jobId": 1,
-          },
-          {
-            "cells": [
-              {
-                "title": "taskB",
-              },
-              {
-                "title": 5,
-              },
-              {
-                "title": "2022-04-21T10:10:00",
-              },
-            ],
-            "display_name": undefined,
-            "has_stdout": undefined,
-            "itemId": undefined,
-            "jobId": 2,
-          },
-          {
-            "cells": [
-              {
-                "title": "special one",
-              },
-              {
-                "title": 42,
-              },
-              {
-                "title": "2022-04
-57
-hehe","break!",
-              },
-            ],
-            "display_name": undefined,
-            "has_stdout": undefined,
-            "itemId": undefined,
-            "jobId": undefined,
-          },
-          {
-            "cells": [
-              {
-                "title": "another one with unexpected array",
-              },
-              {
-                "title": 10,
-              },
-              {
-                "title": [
-                  42,
-                  "abc",
-                ],
-              },
-            ],
-            "display_name": undefined,
-            "has_stdout": undefined,
-            "itemId": undefined,
-            "jobId": undefined,
-          },
-        ],
-      },
-      "toolbarProps": {
-        "pagination": undefined,
-      },
-    },
-  ],
   "current": {
     "tableProps": {
       "rows": [
@@ -168,6 +84,5 @@ hehe","break!",
       "pagination": undefined,
     },
   },
-  "error": undefined,
 }
 `;

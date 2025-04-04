@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react';
 import useTableTools from '../useTableTools';
 import items from './__fixtures__/items.fixtures';
 import { taskColumnsFixtures as columns } from './__fixtures__/columns.fixtures';

@@ -1,4 +1,4 @@
-import { act, renderHook } from '@testing-library/react-hooks';
+import { act, renderHook } from '@testing-library/react';
 import useTableSort, { useTableSortWithItems } from '../useTableSort';
 import { taskColumnsFixtures as columns } from './__fixtures__/columns.fixtures';
 

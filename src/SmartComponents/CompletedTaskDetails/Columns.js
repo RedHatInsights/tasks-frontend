@@ -51,6 +51,7 @@ export const MessageColumn = {
         content={job.results.message}
         alert={
           job.results.alert === 'true' ||
+          job.results.alert === true ||
           job.status === 'Failure' ||
           job.status === 'Timeout'
         }

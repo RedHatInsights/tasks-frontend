@@ -56,7 +56,8 @@ export const fetchTaskJobs = async (taskDetails, setError) => {
         if (
           item.status === 'Timeout' ||
           item.status === 'Failure' ||
-          item.results.alert === 'true'
+          item.results.alert === 'true' ||
+          item.results.alert === true
         ) {
           return item;
         }
@@ -78,9 +79,7 @@ export const fetchTaskJobs = async (taskDetails, setError) => {
 
 export const hasDetails = (completedTaskJob) => {
   return (
-    (completedTaskJob.status === 'Success' ||
-      completedTaskJob.status === 'Failure') &&
-    (completedTaskJob.results?.report_json?.entries?.length ||
-      completedTaskJob.results?.report)
+    completedTaskJob.results?.report_json?.entries?.length ||
+    completedTaskJob.results?.report
   );
 };

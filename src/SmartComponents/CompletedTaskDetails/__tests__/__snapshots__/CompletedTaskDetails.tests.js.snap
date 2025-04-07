@@ -4053,7 +4053,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                   <div
                     class=""
                   >
-                    2
+                    5
                   </div>
                 </div>
               </div>
@@ -4923,6 +4923,42 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                       >
                         <div
                           class="pf-v5-l-split__item"
+                          style="padding-right: 8px;"
+                        >
+                          <span
+                            class="pf-v5-c-icon"
+                          >
+                            <span
+                              class="pf-v5-c-icon__content pf-m-danger"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 512 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </div>
+                        <div
+                          class="pf-v5-l-split__item"
+                          style="padding-right: 16px;"
+                        >
+                          <span
+                            style="color: rgb(201, 25, 11);"
+                          >
+                            Alert
+                          </span>
+                        </div>
+                        <div
+                          class="pf-v5-l-split__item"
                           color="#A30000"
                         >
                           <span
@@ -5706,6 +5742,42 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                       >
                         <div
                           class="pf-v5-l-split__item"
+                          style="padding-right: 8px;"
+                        >
+                          <span
+                            class="pf-v5-c-icon"
+                          >
+                            <span
+                              class="pf-v5-c-icon__content pf-m-danger"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 512 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </div>
+                        <div
+                          class="pf-v5-l-split__item"
+                          style="padding-right: 16px;"
+                        >
+                          <span
+                            style="color: rgb(201, 25, 11);"
+                          >
+                            Alert
+                          </span>
+                        </div>
+                        <div
+                          class="pf-v5-l-split__item"
                           color="#A30000"
                         >
                           <span
@@ -5898,6 +5970,42 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                       <div
                         class="pf-v5-l-split"
                       >
+                        <div
+                          class="pf-v5-l-split__item"
+                          style="padding-right: 8px;"
+                        >
+                          <span
+                            class="pf-v5-c-icon"
+                          >
+                            <span
+                              class="pf-v5-c-icon__content pf-m-danger"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-v5-svg"
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                viewBox="0 0 512 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </div>
+                        <div
+                          class="pf-v5-l-split__item"
+                          style="padding-right: 16px;"
+                        >
+                          <span
+                            style="color: rgb(201, 25, 11);"
+                          >
+                            Alert
+                          </span>
+                        </div>
                         <div
                           class="pf-v5-l-split__item"
                           color="#A30000"

@@ -216,17 +216,16 @@ describe('CompletedTaskDetails', () => {
 
     await waitFor(() => expect(fetchExecutedTask).toHaveBeenCalled());
     await waitFor(() => expect(fetchExecutedTaskJobs).toHaveBeenCalled());
-    userEvent.click(
+    await userEvent.click(
       screen.getByRole('button', {
         name: /conditional filter toggle/i,
       })
     );
-    userEvent.click(screen.getAllByText('Status')[0]);
-    await waitFor(() => userEvent.click(screen.getByLabelText('Options menu')));
-    await waitFor(() => userEvent.click(screen.getAllByText('Completed')[0]));
-    await waitFor(() =>
-      expect(screen.getByText('dl-test-device-2')).toBeInTheDocument()
-    );
+    await userEvent.click(screen.getAllByText('Status')[0]);
+    await userEvent.click(screen.getByLabelText('Options menu'));
+    await userEvent.click(screen.getAllByText('Completed')[0]);
+
+    expect(screen.getByText('dl-test-device-2')).toBeInTheDocument();
   });
 
   it('should delete task', async () => {
@@ -311,9 +310,11 @@ describe('CompletedTaskDetails', () => {
       </MemoryRouter>
     );
 
-    await waitFor(() => expect(fetchExecutedTask).toHaveBeenCalled());
-    await waitFor(() => expect(fetchExecutedTaskJobs).toHaveBeenCalled());
-
+    await waitFor(() =>
+      screen.findByRole('row', {
+        name: /details centos7-test-device-3 Completed no inhibtors found, conversion should run smoothly for this system\./i,
+      })
+    );
     const row = screen.getByRole('row', {
       name: /details centos7-test-device-3 Completed no inhibtors found, conversion should run smoothly for this system\./i,
     });
@@ -324,7 +325,7 @@ describe('CompletedTaskDetails', () => {
       })
     );
 
-    userEvent.click(
+    await userEvent.click(
       screen.getByRole('menuitem', { name: /View system logs/i })
     );
 
@@ -354,8 +355,11 @@ describe('CompletedTaskDetails', () => {
       </MemoryRouter>
     );
 
-    await waitFor(() => expect(fetchExecutedTask).toHaveBeenCalled());
-    await waitFor(() => expect(fetchExecutedTaskJobs).toHaveBeenCalled());
+    await waitFor(() =>
+      screen.findByRole('row', {
+        name: /details centos7-test-device-3 Completed no inhibtors found, conversion should run smoothly for this system\./i,
+      })
+    );
 
     const row = screen.getByRole('row', {
       name: /details centos7-test-device-3 Completed no inhibtors found, conversion should run smoothly for this system\./i,
@@ -367,7 +371,7 @@ describe('CompletedTaskDetails', () => {
       })
     );
 
-    userEvent.click(
+    await userEvent.click(
       screen.getByRole('menuitem', { name: /View system in Inventory/i })
     );
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  act,
   fireEvent,
   render,
   screen,
@@ -149,22 +148,19 @@ describe('ActivityTable', () => {
     await waitFor(() => {
       expect(fetchExecutedTasks).toHaveBeenCalled();
     });
-    act(() => {
-      userEvent.click(
-        screen.getByRole('button', {
-          name: /conditional filter toggle/i,
-        })
-      );
-    });
-    act(() => {
-      userEvent.click(screen.getAllByText('Status')[0]);
-    });
-    act(() => {
-      userEvent.click(screen.getByLabelText('Options menu'));
-    });
-    act(() => {
-      userEvent.click(screen.getAllByText('Completed')[0]);
-    });
+
+    await userEvent.click(
+      screen.getByRole('button', {
+        name: /conditional filter toggle/i,
+      })
+    );
+
+    await userEvent.click(screen.getAllByText('Status')[0]);
+
+    await userEvent.click(screen.getByLabelText('Options menu'));
+
+    await userEvent.click(screen.getAllByText('Completed')[0]);
+
     await waitFor(() => {
       expect(screen.getByText('Task A')).toBeInTheDocument();
       expect(screen.queryByText('Task B')).not.toBeInTheDocument();
@@ -187,22 +183,17 @@ describe('ActivityTable', () => {
     await waitFor(() => {
       expect(fetchExecutedTasks).toHaveBeenCalled();
     });
-    act(() => {
-      userEvent.click(
-        screen.getByRole('button', {
-          name: /conditional filter toggle/i,
-        })
-      );
-    });
-    act(() => {
-      userEvent.click(screen.getAllByText('Status')[0]);
-    });
-    act(() => {
-      userEvent.click(screen.getByLabelText('Options menu'));
-    });
-    act(() => {
-      userEvent.click(screen.getAllByText('Running')[0]);
-    });
+
+    await userEvent.click(
+      screen.getByRole('button', {
+        name: /conditional filter toggle/i,
+      })
+    );
+
+    await userEvent.click(screen.getAllByText('Status')[0]);
+    await userEvent.click(screen.getByLabelText('Options menu'));
+    await userEvent.click(screen.getAllByText('Running')[0]);
+
     await waitFor(() => {
       expect(screen.getByText('Task B')).toBeInTheDocument();
       expect(screen.queryByText('Task A')).not.toBeInTheDocument();
@@ -226,10 +217,11 @@ describe('ActivityTable', () => {
       </MemoryRouter>
     );
 
-    await waitFor(() => {
-      expect(fetchExecutedTasks).toHaveBeenCalled();
-    });
-
+    await waitFor(() =>
+      screen.findByRole('row', {
+        name: /task b 5 running 21 apr 2022, 10:10 utc/i,
+      })
+    );
     const row = screen.getByRole('row', {
       name: /task b 5 running 21 apr 2022, 10:10 utc/i,
     });
@@ -333,6 +325,6 @@ describe('ActivityTable', () => {
       userEvent.click(screen.getByText('Delete'));
       userEvent.click(screen.getByTestId('delete-task-button'));
     });
-    expect(fetchExecutedTasks).toHaveBeenCalledTimes(4);
+    expect(fetchExecutedTasks).toHaveBeenCalledTimes(2);
   });
 });

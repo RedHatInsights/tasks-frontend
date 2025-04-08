@@ -130,7 +130,7 @@ describe('RunTaskModal', () => {
       screen.getByRole('textbox', {
         name: /edit task name text field/i,
       }),
-      ''
+      '{Space}'
     );
     screen.getByText(/task name cannot be empty/i);
     expect(

@@ -232,7 +232,6 @@ exports[`TasksTables should render correctly 1`] = `
         data-ouia-safe="true"
       >
         <th
-          aria-sort="none"
           class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-25"
           data-key="0"
           data-label="Task"
@@ -272,7 +271,6 @@ exports[`TasksTables should render correctly 1`] = `
           </button>
         </th>
         <th
-          aria-sort="none"
           class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-10"
           data-key="1"
           data-label="Systems"
@@ -312,7 +310,6 @@ exports[`TasksTables should render correctly 1`] = `
           </button>
         </th>
         <th
-          aria-sort="none"
           class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-10"
           data-key="2"
           data-label="Status"
@@ -1041,7 +1038,6 @@ exports[`TasksTables should render empty 1`] = `
         data-ouia-safe="true"
       >
         <th
-          aria-sort="none"
           class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-25"
           data-key="0"
           data-label="Task"
@@ -1081,7 +1077,6 @@ exports[`TasksTables should render empty 1`] = `
           </button>
         </th>
         <th
-          aria-sort="none"
           class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-10"
           data-key="1"
           data-label="Systems"
@@ -1121,7 +1116,6 @@ exports[`TasksTables should render empty 1`] = `
           </button>
         </th>
         <th
-          aria-sort="none"
           class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-10"
           data-key="2"
           data-label="Status"
@@ -1161,7 +1155,6 @@ exports[`TasksTables should render empty 1`] = `
           </button>
         </th>
         <th
-          aria-sort="none"
           class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-20"
           data-key="3"
           data-label="Run date/time"

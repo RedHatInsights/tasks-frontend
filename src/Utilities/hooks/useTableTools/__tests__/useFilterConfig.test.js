@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react';
 import filters from '../FilterConfigBuilder/__tests__/__fixtures__/filters';
 import useFilterConfig from '../useFilterConfig';
 

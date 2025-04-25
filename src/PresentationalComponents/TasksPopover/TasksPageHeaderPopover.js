@@ -33,11 +33,7 @@ export const TasksPagePopoverBody = () => {
 
 export const TasksPagePopoverIcon = () => {
   return (
-    <Button
-      variant="plain"
-      aria-label="About Tasks"
-      className="pf-u-pl-sm pf-u-pr-0"
-    >
+    <Button variant="plain" aria-label="About Tasks" className="pf-v5-u-p-0">
       <Icon>
         <OutlinedQuestionCircleIcon />
       </Icon>

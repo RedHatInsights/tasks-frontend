@@ -10,7 +10,7 @@ exports[`TasksPage should render correctly 1`] = `
     widget-type="InsightsPageHeader"
   >
     <div
-      class="pf-v5-l-flex pf-m-flex-1 pf-m-align-items-center pf-m-nowrap"
+      class="pf-v5-l-flex pf-m-flex-1 pf-m-align-items-center pf-m-nowrap pf-m-column-gap-sm"
     >
       <div
         class="pf-u-mr-0"
@@ -43,7 +43,7 @@ exports[`TasksPage should render correctly 1`] = `
             <button
               aria-disabled="false"
               aria-label="About Tasks"
-              class="pf-v5-c-button pf-m-plain pf-u-pl-sm pf-u-pr-0"
+              class="pf-v5-c-button pf-m-plain pf-v5-u-p-0"
               data-ouia-component-id="OUIA-Generated-Button-plain-1"
               data-ouia-component-type="PF5/Button"
               data-ouia-safe="true"

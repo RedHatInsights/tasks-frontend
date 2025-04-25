@@ -99,6 +99,7 @@ export const TASKS_PAGE_HEADER_FLEX_PROPS = {
   flex: { default: 'flex_1' },
   alignItems: { default: 'alignItemsCenter' },
   flexWrap: { default: 'nowrap' },
+  columnGap: { default: 'columnGapSm' },
 };
 export const COMPLETED_INFO_BUTTONS_FLEX_PROPS = {
   align: { default: 'alignRight' },

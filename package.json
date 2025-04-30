@@ -78,7 +78,8 @@
     "react-router-dom": "^6.26.1",
     "redux": "^4.2.0",
     "redux-logger": "^3.0.6",
-    "redux-promise-middleware": "^6.2.0"
+    "redux-promise-middleware": "^6.2.0",
+    "semver": "^7.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",

@@ -1,9 +1,11 @@
 import React from 'react';
-import { Flex, Icon, Popover, Title } from '@patternfly/react-core';
+import semver from 'semver';
+import { Flex, Icon, Popover, Title, Tooltip } from '@patternfly/react-core';
 import {
   BanIcon,
   ConnectedIcon,
   DisconnectedIcon,
+  ExclamationTriangleIcon,
 } from '@patternfly/react-icons';
 
 const boldText = 'pf-v5-u-font-weight-bold';
@@ -119,5 +121,35 @@ export const populateConnectedColumn = (connected) => {
         </span>
       </div>
     </Popover>
+  );
+};
+
+const MAX_RHELAI_VERSION = '1.5.0'; // TODO: How to get this dynamically?
+export const populateRHELAIColumn = (system_profile) => {
+  const bootcImage = system_profile?.bootc_status?.booted?.image;
+  if (!bootcImage || !bootcImage.includes('/rhelai')) {
+    return 'N/A';
+  }
+  const rhelaiVersionMatch = bootcImage.match(/:([0-9.-]+)$/);
+  if (!rhelaiVersionMatch) {
+    return 'Unknown';
+  }
+  const rhelaiVersion = rhelaiVersionMatch[1];
+  return semver.lt(semver.coerce(rhelaiVersion), MAX_RHELAI_VERSION) ? (
+    <Tooltip
+      position="top-start"
+      content={
+        <div>A later version of this system&#39;s image is available</div>
+      }
+    >
+      <div>
+        <Icon size="sm" status="warning">
+          <ExclamationTriangleIcon />
+        </Icon>
+        <span style={{ marginLeft: '0.5rem' }}>{rhelaiVersion}</span>
+      </div>
+    </Tooltip>
+  ) : (
+    <span>{rhelaiVersion}</span>
   );
 };

@@ -78,7 +78,7 @@ const SystemTable = ({
   });
 
   const mergedColumns = (defaultColumns) =>
-    systemColumns().map((column) => {
+    systemColumns(slug).map((column) => {
       const isStringCol = typeof column === 'string';
       const key = isStringCol ? column : column.key;
       const defaultColumn = defaultColumns.find(
@@ -191,7 +191,7 @@ const SystemTable = ({
       columns={mergedColumns}
       ref={inventory}
       fallback={<Spinner />}
-      onLoad={defaultOnLoad(systemColumns(), getRegistry)}
+      onLoad={defaultOnLoad(systemColumns(slug), getRegistry)}
       customFilters={{
         tags: tagsFilter,
         workloadFilters: generateFilter(

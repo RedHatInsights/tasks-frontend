@@ -3,44 +3,64 @@ import {
   createSystemLink,
   populateConnectedColumn,
   populateEligibilityColumn,
+  populateRHELAIColumn,
 } from '../../helpers';
 
-export const systemColumns = () => [
-  {
-    key: 'display_name',
-    sortKey: 'display_name',
-    props: { width: 20 },
-    title: 'Name',
-    renderFunc: (name, id) => {
-      return createSystemLink(id, name, `system-name-${id}`);
+export const systemColumns = (slug) => {
+  let columns = [
+    {
+      key: 'display_name',
+      sortKey: 'display_name',
+      props: { width: 20 },
+      title: 'Name',
+      renderFunc: (name, id) => {
+        return createSystemLink(id, name, `system-name-${id}`);
+      },
     },
-  },
-  {
-    key: 'eligibility',
-    props: { width: 10, isStatic: true }, // column isn't sortable
-    title: 'Eligibility',
-    renderFunc: (eligibility) => {
-      return populateEligibilityColumn(eligibility);
+  ];
+  if (slug === 'rhel-ai-update') {
+    columns = [
+      ...columns,
+      {
+        key: 'system_profile',
+        props: { width: 10, isStatic: true },
+        title: 'RHEL AI Version',
+        renderFunc: (system_profile) => {
+          return populateRHELAIColumn(system_profile);
+        },
+      },
+    ];
+  }
+  columns = [
+    ...columns,
+    {
+      key: 'eligibility',
+      props: { width: 10, isStatic: true }, // column isn't sortable
+      title: 'Eligibility',
+      renderFunc: (eligibility) => {
+        return populateEligibilityColumn(eligibility);
+      },
     },
-  },
-  {
-    key: 'connected',
-    props: { width: 10, isStatic: true }, // column isn't sortable
-    title: 'Connection Status',
-    renderFunc: (connected) => {
-      return populateConnectedColumn(connected);
+    {
+      key: 'connected',
+      props: { width: 15, isStatic: true }, // column isn't sortable
+      title: 'Connection Status',
+      renderFunc: (connected) => {
+        return populateConnectedColumn(connected);
+      },
     },
-  },
-  'groups',
-  'tags',
-  {
-    key: 'os_version',
-    sortKey: 'os_version',
-    props: { width: 10 },
-    title: 'OS',
-  },
-  'updated',
-];
+    'groups',
+    'tags',
+    {
+      key: 'os_version',
+      sortKey: 'os_version',
+      props: { width: 10 },
+      title: 'OS',
+    },
+    'updated',
+  ];
+  return columns;
+};
 
 export const defaultOnLoad = (columns, getRegistry) => {
   return ({ INVENTORY_ACTION_TYPES, mergeWithEntities }) =>

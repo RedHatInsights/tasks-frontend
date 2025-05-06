@@ -395,17 +395,14 @@ exports[`ActivityTable should render correctly 1`] = `
             data-label="Task"
             tabindex="-1"
           >
-            <a
-              href="/insights/tasks/executed/undefined"
+            <div
+              class="pf-v5-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+              style="--pf-v5-c-skeleton--Width: 100%;"
             >
-              <div
-                class="pf-v5-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-              >
-                <span
-                  class="pf-v5-screen-reader"
-                />
-              </div>
-            </a>
+              <span
+                class="pf-v5-screen-reader"
+              />
+            </div>
           </td>
           <td
             class="pf-v5-c-table__td pf-m-width-10"
@@ -494,17 +491,14 @@ exports[`ActivityTable should render correctly 1`] = `
             data-label="Task"
             tabindex="-1"
           >
-            <a
-              href="/insights/tasks/executed/undefined"
+            <div
+              class="pf-v5-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+              style="--pf-v5-c-skeleton--Width: 100%;"
             >
-              <div
-                class="pf-v5-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-              >
-                <span
-                  class="pf-v5-screen-reader"
-                />
-              </div>
-            </a>
+              <span
+                class="pf-v5-screen-reader"
+              />
+            </div>
           </td>
           <td
             class="pf-v5-c-table__td pf-m-width-10"
@@ -593,17 +587,14 @@ exports[`ActivityTable should render correctly 1`] = `
             data-label="Task"
             tabindex="-1"
           >
-            <a
-              href="/insights/tasks/executed/undefined"
+            <div
+              class="pf-v5-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+              style="--pf-v5-c-skeleton--Width: 100%;"
             >
-              <div
-                class="pf-v5-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-              >
-                <span
-                  class="pf-v5-screen-reader"
-                />
-              </div>
-            </a>
+              <span
+                class="pf-v5-screen-reader"
+              />
+            </div>
           </td>
           <td
             class="pf-v5-c-table__td pf-m-width-10"
@@ -692,17 +683,14 @@ exports[`ActivityTable should render correctly 1`] = `
             data-label="Task"
             tabindex="-1"
           >
-            <a
-              href="/insights/tasks/executed/undefined"
+            <div
+              class="pf-v5-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+              style="--pf-v5-c-skeleton--Width: 100%;"
             >
-              <div
-                class="pf-v5-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-              >
-                <span
-                  class="pf-v5-screen-reader"
-                />
-              </div>
-            </a>
+              <span
+                class="pf-v5-screen-reader"
+              />
+            </div>
           </td>
           <td
             class="pf-v5-c-table__td pf-m-width-10"
@@ -791,17 +779,14 @@ exports[`ActivityTable should render correctly 1`] = `
             data-label="Task"
             tabindex="-1"
           >
-            <a
-              href="/insights/tasks/executed/undefined"
+            <div
+              class="pf-v5-c-skeleton ins-c-skeleton ins-c-skeleton__md"
+              style="--pf-v5-c-skeleton--Width: 100%;"
             >
-              <div
-                class="pf-v5-c-skeleton ins-c-skeleton ins-c-skeleton__md"
-              >
-                <span
-                  class="pf-v5-screen-reader"
-                />
-              </div>
-            </a>
+              <span
+                class="pf-v5-screen-reader"
+              />
+            </div>
           </td>
           <td
             class="pf-v5-c-table__td pf-m-width-10"

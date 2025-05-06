@@ -20,12 +20,17 @@ import {
   InProgressIcon,
 } from '@patternfly/react-icons';
 import InsightsLink from '@redhat-cloud-services/frontend-components/InsightsLink';
+import { Skeleton } from '@redhat-cloud-services/frontend-components/Skeleton';
 
-const TaskNameCell = ({ id, name }, index) => (
-  <InsightsLink key={`task-name-${index}`} to={`/executed/${id}`}>
-    {name}
-  </InsightsLink>
-);
+const TaskNameCell = ({ id, name }, index) => {
+  return id ? (
+    <InsightsLink key={`task-name-${index}`} to={`/executed/${id}`}>
+      {name}
+    </InsightsLink>
+  ) : (
+    <Skeleton width="100%" />
+  );
+};
 
 TaskNameCell.propTypes = {
   id: propTypes.number,

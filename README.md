@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/RedHatInsights/frontend-starter-app.svg?branch=master)](https://travis-ci.org/RedHatInsights/frontend-starter-app)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/RedhatInsights/tasks-frontend/test.yml?branch=master)](https://github.com/RedHatInsights/tasks-frontend/actions/workflows/test.yml)
 [![codecov](https://codecov.io/gh/RedHatInsights/tasks-frontend/branch/master/graph/badge.svg)](https://codecov.io/gh/RedHatInsights/tasks-frontend)
 
 ## Initial etc/hosts setup

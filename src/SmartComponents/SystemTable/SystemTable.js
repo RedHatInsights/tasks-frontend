@@ -100,7 +100,7 @@ const SystemTable = ({
   };
 
   const eligibilityFilter = {
-    label: 'Task Eligibility',
+    label: 'Task eligibility',
     type: 'singleSelect',
     filterValues: {
       value: eligibility.value,

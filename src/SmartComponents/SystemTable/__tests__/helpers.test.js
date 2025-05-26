@@ -30,7 +30,7 @@ describe('buildFilterSortString', () => {
         {
           id: 'Task eligibility',
           category: 'Task eligibility',
-          chips: [{ name: 'Eligible Systems', value: 'eligible-systems' }],
+          chips: [{ name: 'Eligible systems', value: 'eligible-systems' }],
         },
       ],
     };

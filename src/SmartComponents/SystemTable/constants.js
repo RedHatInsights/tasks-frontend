@@ -24,7 +24,7 @@ export const systemColumns = (slug) => {
       {
         key: 'system_profile',
         props: { width: 10, isStatic: true },
-        title: 'RHEL AI Version',
+        title: 'RHEL AI version',
         renderFunc: (system_profile) => {
           return populateRHELAIColumn(system_profile);
         },
@@ -44,7 +44,7 @@ export const systemColumns = (slug) => {
     {
       key: 'connected',
       props: { width: 15, isStatic: true }, // column isn't sortable
-      title: 'Connection Status',
+      title: 'Connection status',
       renderFunc: (connected) => {
         return populateConnectedColumn(connected);
       },
@@ -76,9 +76,9 @@ export const defaultOnLoad = (columns, getRegistry) => {
     });
 };
 
-const ELIGIBLE_SYSTEMS = 'Eligible Systems';
+const ELIGIBLE_SYSTEMS = 'Eligible systems';
 export const ELIGIBLE_SYSTEMS_VALUE = 'eligible-systems';
-const ALL_SYSTEMS = 'All Systems';
+const ALL_SYSTEMS = 'All systems';
 export const ALL_SYSTEMS_VALUE = 'all-systems';
 export const eligibilityFilterItems = [
   { label: ELIGIBLE_SYSTEMS, value: ELIGIBLE_SYSTEMS_VALUE },

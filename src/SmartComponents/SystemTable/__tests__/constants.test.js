@@ -6,17 +6,17 @@ describe('systemColumns', () => {
     expect(result).not.toContainEqual({
       key: 'system_profile',
       props: { width: 10, isStatic: true },
-      title: 'RHEL AI Version',
+      title: 'RHEL AI version',
       renderFunc: expect.any(Function),
     });
   });
 
-  it('should return additional "RHEL AI Version" column when slug is "rhel-ai-update"', () => {
+  it('should return additional "RHEL AI version" column when slug is "rhel-ai-update"', () => {
     const result = systemColumns('rhel-ai-update');
     expect(result).toContainEqual({
       key: 'system_profile',
       props: { width: 10, isStatic: true },
-      title: 'RHEL AI Version',
+      title: 'RHEL AI version',
       renderFunc: expect.any(Function),
     });
   });

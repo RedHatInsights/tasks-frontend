@@ -50,7 +50,7 @@ export const useGetEntities = (
       disableSelection: entity.requirements.length || !entity.connected,
       // for populating the eligibility column and the tooltip for ineligible systems
       eligibility: {
-        title: entity.requirements.length ? 'Not Eligible' : 'Eligible',
+        title: entity.requirements.length ? 'Not eligible' : 'Eligible',
         tooltip: entity.requirements.join('. '), // '' if no requirements
       },
       updated: entity.last_check_in,

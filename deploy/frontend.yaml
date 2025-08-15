@@ -1,0 +1,148 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/RedHatInsights/frontend-components/refs/heads/master/packages/config-utils/src/feo/spec/frontend-crd.schema.json
+---
+apiVersion: v1
+kind: Template
+metadata:
+  name: tasks-frontend
+objects:
+  - apiVersion: cloud.redhat.com/v1alpha1
+    kind: Frontend
+    metadata:
+      name: tasks
+    spec:
+      feoConfigEnabled: true
+      envName: ${ENV_NAME}
+      title: Tasks
+      deploymentRepo: https://github.com/RedHatInsights/tasks-frontend
+      API:
+        versions:
+          - v1
+      frontend:
+        paths:
+          - /apps/tasks
+      image: ${IMAGE}:${IMAGE_TAG}
+      module:
+        analytics:
+          APIKey: apRCg9V6oMXCcnTingqRYW6m1er4hkCW
+          APIKeyDev: aMINBssUhXV1okzk7ZBaqwdTgtA0ySpg
+        manifestLocation: /apps/tasks/fed-mods.json
+        config:
+          supportCaseData:
+            product: Red Hat Insights,
+            version: Tasks
+        modules:
+          - id: tasks
+            module: ./RootApp
+            routes:
+              - pathname: /insights/tasks
+              - pathname: /ansible/tasks
+
+      bundleSegments:
+        - segmentId: tasks-insights-automation
+          bundleId: insights
+          position: 1500
+          navItems:
+            - title: Automation Toolkit
+              id: automation
+              expandable: true
+              routes:
+                - title: Tasks
+                  id: tasks
+                  href: /insights/tasks
+                  product: Red Hat Insights
+        - segmentId: tasks-ansible
+          bundleId: ansible
+          position: 1000
+          navItems:
+            - title: Tasks
+              id: tasks
+              href: /ansible/tasks
+              product: Red Hat Insights
+
+      serviceTiles:
+        - id: tasks-rhel-automation
+          title: Tasks
+          description: "Perform Red Hat-recommended analysis across your Red Hat Enterprise Linux fleet, like upgrade and conversion readiness."
+          href: /insights/tasks
+          group: rhel
+          section: automation
+          icon: InsightsIcon
+        - id: tasks-ansible-automation
+          title: Tasks
+          description: "Perform Red Hat-recommended analysis for your Ansible Automation Platform, like upgrade and conversion readiness."
+          href: /ansible/tasks
+          group: ansible
+          section: automation
+          icon: AnsibleIcon
+
+      searchEntries:
+        - id: tasks-rhel
+          title: Tasks - Automation
+          description: "Perform Red Hat-recommended analysis across your Red Hat Enterprise Linux fleet, like upgrade and conversion readiness."
+          href: /insights/tasks
+          alt_title:
+            - tasks,
+            - task,
+            - centos conversion,
+            - pre conversion analysis,
+            - pre-conversion analysis,
+            - convert to rhel,
+            - c2r,
+            - convert,
+            - conversion,
+            - migration
+            - centos,
+            - upgrade,
+            - update,
+            - insights,
+            - automation,
+            - leapp,
+            - migrate,
+            - version,
+            - 9.0,
+            - 8.0,
+            - bootc
+            - bootc image
+            - rhelai
+            - rhelai image
+            - rhel ai
+            - rhel ai image
+        - id: tasks-ansible
+          title: Tasks - Automation
+          description: "Perform Red Hat-recommended analysis for your Ansible Automation Platform, like upgrade and conversion readiness."
+          href: /ansible/tasks
+          alt_title:
+            - tasks,
+            - task,
+            - centos conversion,
+            - pre conversion analysis,
+            - pre-conversion analysis,
+            - convert to rhel,
+            - c2r,
+            - convert,
+            - conversion,
+            - migration
+            - centos,
+            - upgrade,
+            - update,
+            - insights,
+            - automation,
+            - leapp,
+            - migrate,
+            - version,
+            - 9.0,
+            - 8.0,
+            - bootc
+            - bootc image
+            - rhelai
+            - rhelai image
+            - rhel ai
+            - rhel ai image
+
+parameters:
+  - name: ENV_NAME
+    required: true
+  - name: IMAGE_TAG
+    required: true
+  - name: IMAGE
+    value: quay.io/redhat-services-prod/insights-management-tenant/insights-advisor/tasks-frontend

@@ -4,6 +4,8 @@ const packageJson = require('./package.json');
 
 module.exports = {
   appUrl: '/insights/tasks',
+  publicPath: 'auto',
+  debug: true,
   useProxy: process.env.PROXY === 'true',
   proxyVerbose: true,
   hotReload: process.env.HOT === 'true',

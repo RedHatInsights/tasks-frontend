@@ -46,4 +46,5 @@ module.exports = {
       './RootApp': resolve(__dirname, './src/AppEntry'),
     },
   },
+  frontendCRDPath: resolve(__dirname, './deploy/frontend.yml'),
 };

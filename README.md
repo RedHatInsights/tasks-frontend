@@ -14,11 +14,9 @@ npm run patch:hosts
 
 1. ```npm install```
 
-2. ```npm run start```
+2. ```npm run start:proxy```
 
-3. Open browser in URL listed in the terminal output
-
-Update `config/dev.webpack.config.js` according to your application URL. [Read more](https://github.com/RedHatInsights/frontend-components/tree/master/packages/config#useproxy).
+3. Open browser in URL listed in the terminal output - make sure to use `https` instead of `http`
 
 ### Testing
 

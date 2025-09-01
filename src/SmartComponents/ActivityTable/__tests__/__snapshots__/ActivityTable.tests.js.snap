@@ -34,7 +34,7 @@ exports[`ActivityTable should render correctly 1`] = `
                     aria-expanded="false"
                     aria-label="Conditional filter toggle"
                     class="pf-v5-c-menu-toggle ins-c-conditional-filter__group"
-                    data-ouia-component-id="ConditionalFilterToggle"
+                    data-ouia-component-id="OUIA-Generated-MenuToggle-1"
                     data-ouia-component-type="PF5/MenuToggle"
                     data-ouia-safe="true"
                     type="button"
@@ -215,6 +215,7 @@ exports[`ActivityTable should render correctly 1`] = `
           data-ouia-safe="true"
         >
           <th
+            aria-sort="none"
             class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-25"
             data-key="0"
             data-label="Task"
@@ -254,6 +255,7 @@ exports[`ActivityTable should render correctly 1`] = `
             </button>
           </th>
           <th
+            aria-sort="none"
             class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-10"
             data-key="1"
             data-label="Systems"
@@ -293,6 +295,7 @@ exports[`ActivityTable should render correctly 1`] = `
             </button>
           </th>
           <th
+            aria-sort="none"
             class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-10"
             data-key="2"
             data-label="Status"

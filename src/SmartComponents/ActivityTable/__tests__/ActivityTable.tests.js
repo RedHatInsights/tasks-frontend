@@ -325,6 +325,6 @@ describe('ActivityTable', () => {
       userEvent.click(screen.getByText('Delete'));
       userEvent.click(screen.getByTestId('delete-task-button'));
     });
-    expect(fetchExecutedTasks).toHaveBeenCalledTimes(2);
+    expect(fetchExecutedTasks).toHaveBeenCalledTimes(4);
   });
 });

@@ -7,6 +7,7 @@ import {
   DisconnectedIcon,
   ExclamationTriangleIcon,
 } from '@patternfly/react-icons';
+import useFeatureFlag from './Utilities/useFeatureFlag';
 
 const boldText = 'pf-v5-u-font-weight-bold';
 
@@ -69,6 +70,10 @@ export const populateEligibilityColumn = (eligibility) => {
 };
 
 export const populateConnectedColumn = (connected) => {
+  const productName = useFeatureFlag('platform.lightspeed-rebrand')
+    ? 'Lightspeed'
+    : 'Insights';
+
   return connected ? (
     <div>
       <Icon size="sm">
@@ -97,8 +102,8 @@ export const populateConnectedColumn = (connected) => {
         >
           <p>
             Run <span className={boldText}>rhc status</span> to check if this
-            system has an RHC connection to Red Hat Insights. After verifying
-            the connection is active, click the{' '}
+            system has an RHC connection to Red Hat {productName}. After
+            verifying the connection is active, click the{' '}
             <span className={boldText}>Select systems</span> button again.
           </p>
           <a

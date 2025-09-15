@@ -116,9 +116,9 @@ export const fixturesExtendedReport = {
         {
           id: 'c42b5edcf36969727cee80a66dc5239fe4d69d4d324e7e6e698cb58b9d1a0',
           key: '693963253195f41852045b6d630a1f4c7a193d',
-          title: 'Automatic registration into Red Hat Insights',
+          title: 'Automatic registration into Red Hat Lightspeed',
           summary:
-            "After the upgrade, this system will be automatically registered into Red Hat Insights. To skip the automatic registration, use the '--no-insights-register' command line option or set the LEAPP_NO_INSIGHTS_REGISTER environment variable.",
+            "After the upgrade, this system will be automatically registered into Red Hat Lightspeed. To skip the automatic registration, use the '--no-insights-register' command line option or set the LEAPP_NO_INSIGHTS_REGISTER environment variable.",
           hostname: 'iqe-vm-tasks-d52a49-d6a3-49ca-a565-9896b79d0df4',
           severity: 'info',
         },

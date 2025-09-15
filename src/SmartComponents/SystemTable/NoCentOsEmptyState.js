@@ -16,6 +16,9 @@ const NoCentOsEmptyState = ({ slug }) => {
 
   const { quickStarts } = useChrome();
   const quickStartEnabled = useFeatureFlag(featureFlagName);
+  const productName = useFeatureFlag('platform.lightspeed-rebrand')
+    ? 'Lightspeed'
+    : 'Insights';
 
   return (
     <EmptyStateDisplay
@@ -23,7 +26,7 @@ const NoCentOsEmptyState = ({ slug }) => {
       title="No CentOS systems found"
       ouiaId="NoCentOSEmptyState"
       text={[
-        'You currently have no CentOS systems registered to this account. Get started by installing the client tools on your CentOS machines to view them in Insights',
+        `You currently have no CentOS systems registered to this account. Get started by installing the client tools on your CentOS machines to view them in Red Hat ${productName}.`,
       ]}
       button={
         <>
@@ -46,7 +49,8 @@ const NoCentOsEmptyState = ({ slug }) => {
               href="https://docs.redhat.com/en/documentation/red_hat_insights/1-latest/html/converting_from_a_linux_distribution_to_rhel_using_the_convert2rhel_utility_in_red_hat_insights/proc_converting-to-a-rhel-system-using-insights_converting-from-a-linux-distribution-to-rhel-in-insights"
               target="_blank"
             >
-              Learn more about connecting CentOS systems to Insights
+              Learn more about connecting CentOS systems to Red Hat{' '}
+              {productName}
             </Button>
           </EmptyStateActions>
         </>

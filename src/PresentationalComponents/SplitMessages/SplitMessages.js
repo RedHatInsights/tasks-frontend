@@ -5,6 +5,9 @@ import Truncate from '@redhat-cloud-services/frontend-components/Truncate';
 import propTypes from 'prop-types';
 
 const SplitMessages = ({ alert, content }) => {
+  if (typeof content !== 'string') {
+    content = 'Expand row for more details';
+  }
   return (
     <Split>
       {alert ? (

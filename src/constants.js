@@ -32,11 +32,11 @@ export const INSIGHTS_DOCUMENTATION =
   'https://access.redhat.com/documentation/en-us/red_hat_insights/';
 export const DOC_VERSION = '1-latest/html/';
 export const HOST_COMMUNICATION_DOC_PATH =
-  'red_hat_insights_remediations_guide/host-communication-with-insights_red-hat-insights-remediation-guide';
+  'red_hat_lightspeed_remediations_guide/index#enabling-rhc-client_host-communication-with-red-hat-lightspeed';
 export const RHC_DOC =
   '#enabling-rhc-client_red-hat-insights-remediation-guide';
 export const SATELLITE_DOC =
-  '#configuring-satellite-cloud-connector_red-hat-insights-remediation-guide';
+  '#configuring-satellite-cloud-connector_red-hat-lightspeed-remediation-guide';
 
 export const TASKS_PAGE_TABS = ['Available', 'Activity'];
 export const TASKS_ERROR = [

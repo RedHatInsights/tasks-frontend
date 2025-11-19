@@ -103,7 +103,7 @@ export const populateConnectedColumn = (connected) => {
           </p>
           <a
             target="_blank"
-            href="https://docs.redhat.com/en/documentation/red_hat_insights/1-latest/html/red_hat_insights_remediations_guide/host-communication-with-insights_red-hat-insights-remediation-guide"
+            href="https://docs.redhat.com/en/documentation/red_hat_lightspeed/1-latest/html-single/red_hat_lightspeed_remediations_guide/index#host-communication-with-red-hat-lightspeed_red-hat-lightspeed-remediation-guide"
             style={{ textDecoration: 'underline' }}
             rel="noreferrer"
           >

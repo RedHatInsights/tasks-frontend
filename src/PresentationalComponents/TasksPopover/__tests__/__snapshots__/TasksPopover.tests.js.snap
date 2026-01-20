@@ -7,14 +7,14 @@ exports[`TasksPopover should render correctly 1`] = `
       style="display: contents;"
     >
       <span
-        class="pf-v5-c-icon"
+        class="pf-v6-c-icon"
       >
         <span
-          class="pf-v5-c-icon__content"
+          class="pf-v6-c-icon__content"
         >
           <svg
             aria-hidden="true"
-            class="pf-v5-svg"
+            class="pf-v6-svg"
             fill="currentColor"
             height="1em"
             role="img"

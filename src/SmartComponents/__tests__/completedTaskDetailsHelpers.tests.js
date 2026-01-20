@@ -16,7 +16,6 @@ import {
   taskJobsSuccess,
 } from './__fixtures__/completedTaskDetailsHelpers.fixtures';
 import { fetchExecutedTask, fetchExecutedTaskJobs } from '../../../api';
-import * as dispatcher from '../../Utilities/Dispatcher';
 
 jest.mock('../../../api');
 
@@ -49,13 +48,14 @@ describe('isError', () => {
 
 describe('fetchTask', () => {
   const setError = jest.fn();
+  const addNotification = jest.fn();
 
   it('should return fetched data', async () => {
     fetchExecutedTask.mockImplementation(async () => {
       return successResponse;
     });
 
-    let taskDetails = await fetchTask('abcd1234', setError);
+    let taskDetails = await fetchTask('abcd1234', setError, addNotification);
 
     expect(taskDetails).toEqual(successResponse);
   });
@@ -64,26 +64,24 @@ describe('fetchTask', () => {
     fetchExecutedTask.mockImplementation(async () => {
       return errorResponse;
     });
-    const notification = jest
-      .spyOn(dispatcher, 'dispatchNotification')
-      .mockImplementation();
 
-    await fetchTask('abcd1234', setError);
+    await fetchTask('abcd1234', setError, addNotification);
 
     expect(setError).toHaveBeenCalled();
-    expect(notification).toHaveBeenCalled();
+    expect(addNotification).toHaveBeenCalled();
   });
 });
 
 describe('fetchTaskJobs', () => {
   const setError = jest.fn();
+  const addNotification = jest.fn();
 
   it('should return fetched data', async () => {
     fetchExecutedTaskJobs.mockImplementation(async () => {
       return taskJobsSuccess;
     });
 
-    let taskJobs = await fetchTaskJobs({ id: 'abcd1234' }, setError);
+    let taskJobs = await fetchTaskJobs({ id: 'abcd1234' }, setError, addNotification);
     expect(taskJobs).toBe(taskJobsSuccess.data);
   });
 
@@ -91,12 +89,9 @@ describe('fetchTaskJobs', () => {
     fetchExecutedTaskJobs.mockImplementation(async () => {
       return errorResponse;
     });
-    const notification = jest
-      .spyOn(dispatcher, 'dispatchNotification')
-      .mockImplementation();
 
-    await fetchTaskJobs({ id: 'abcd1234' }, setError);
+    await fetchTaskJobs({ id: 'abcd1234' }, setError, addNotification);
     expect(setError).toHaveBeenCalled();
-    expect(notification).toHaveBeenCalled();
+    expect(addNotification).toHaveBeenCalled();
   });
 });

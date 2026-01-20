@@ -10,9 +10,13 @@ import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { init } from '../../../store';
-import * as dispatcher from '../../../Utilities/Dispatcher';
 
 import ActivityTable from '../ActivityTable';
+import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
+
+jest.mock('@redhat-cloud-services/frontend-components-notifications', () => ({
+  useAddNotification: jest.fn(),
+}));
 import {
   availableTasksTableError,
   activityTableItems,
@@ -32,6 +36,12 @@ jest.mock('../../../../api');
 
 describe('ActivityTable', () => {
   const store = init().getStore();
+  const mockAddNotification = jest.fn();
+
+  beforeEach(() => {
+    useAddNotification.mockReturnValue(mockAddNotification);
+  });
+
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -73,10 +83,6 @@ describe('ActivityTable', () => {
       return activityTableItems;
     });
 
-    const notification = jest
-      .spyOn(dispatcher, 'dispatchNotification')
-      .mockImplementation();
-
     render(
       <MemoryRouter keyLength={0}>
         <Provider store={store}>
@@ -87,7 +93,7 @@ describe('ActivityTable', () => {
 
     await waitFor(() => userEvent.click(screen.getByLabelText('Export')));
     await waitFor(() => userEvent.click(screen.getByText('Export to CSV')));
-    expect(notification).toHaveBeenCalled();
+    expect(mockAddNotification).toHaveBeenCalled();
 
     global.URL.createObjectURL.mockRestore();
   });
@@ -128,7 +134,7 @@ describe('ActivityTable', () => {
     const input = screen.getByLabelText('text input');
     fireEvent.change(input, { target: { value: 'A' } });
     expect(input.value).toBe('A');
-    await waitFor(() => userEvent.click(screen.getByLabelText('close')));
+    fireEvent.change(input, { target: { value: '' } });
     expect(input.value).toBe('');
   });
 
@@ -149,16 +155,25 @@ describe('ActivityTable', () => {
       expect(fetchExecutedTasks).toHaveBeenCalled();
     });
 
+    // Click the conditional filter toggle
     await userEvent.click(
       screen.getByRole('button', {
         name: /conditional filter toggle/i,
       })
     );
 
-    await userEvent.click(screen.getAllByText('Status')[0]);
+    // Click the "Status" menuitem from the dropdown
+    await userEvent.click(screen.getByRole('menuitem', { name: 'Status' }));
 
-    await userEvent.click(screen.getByLabelText('Options menu'));
+    // After selecting Status filter, wait for the Options menu button to appear
+    await waitFor(() => {
+      expect(screen.getByRole('button', { name: 'Options menu' })).toBeInTheDocument();
+    });
 
+    // Click the Options menu button to open the checkboxes
+    await userEvent.click(screen.getByRole('button', { name: 'Options menu' }));
+
+    // Now click the Completed checkbox
     await userEvent.click(screen.getAllByText('Completed')[0]);
 
     await waitFor(() => {
@@ -184,14 +199,25 @@ describe('ActivityTable', () => {
       expect(fetchExecutedTasks).toHaveBeenCalled();
     });
 
+    // Click the conditional filter toggle
     await userEvent.click(
       screen.getByRole('button', {
         name: /conditional filter toggle/i,
       })
     );
 
-    await userEvent.click(screen.getAllByText('Status')[0]);
-    await userEvent.click(screen.getByLabelText('Options menu'));
+    // Click the "Status" menuitem from the dropdown
+    await userEvent.click(screen.getByRole('menuitem', { name: 'Status' }));
+
+    // After selecting Status filter, wait for the Options menu button to appear
+    await waitFor(() => {
+      expect(screen.getByRole('button', { name: 'Options menu' })).toBeInTheDocument();
+    });
+
+    // Click the Options menu button to open the checkboxes
+    await userEvent.click(screen.getByRole('button', { name: 'Options menu' }));
+
+    // Now click the Running checkbox
     await userEvent.click(screen.getAllByText('Running')[0]);
 
     await waitFor(() => {
@@ -291,10 +317,6 @@ describe('ActivityTable', () => {
       return availableTasksTableError;
     });
 
-    const notification = jest
-      .spyOn(dispatcher, 'dispatchNotification')
-      .mockImplementation();
-
     render(
       <MemoryRouter keyLength={0}>
         <Provider store={store}>
@@ -303,7 +325,7 @@ describe('ActivityTable', () => {
       </MemoryRouter>
     );
 
-    await waitFor(() => expect(notification).toHaveBeenCalled());
+    await waitFor(() => expect(mockAddNotification).toHaveBeenCalled());
   });
 
   it('should open delete modal', async () => {

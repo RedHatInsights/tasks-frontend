@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import propTypes from 'prop-types';
+import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 import { fetchAvailableTasks } from '../../../api';
 import {
   Skeleton,
   SkeletonSize,
 } from '@redhat-cloud-services/frontend-components/Skeleton';
 import AvailableTasksTable from './AvailableTasksTable';
-import { dispatchNotification } from '../../Utilities/Dispatcher';
 import { isError } from '../completedTaskDetailsHelpers';
 import { Card, CardBody, CardFooter, CardTitle } from '@patternfly/react-core';
 
@@ -30,6 +30,7 @@ export const LoadingTasks = () => {
 };
 
 const AvailableTasks = ({ openTaskModal }) => {
+  const addNotification = useAddNotification();
   const [availableTasks, setAvailableTasks] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
@@ -37,12 +38,11 @@ const AvailableTasks = ({ openTaskModal }) => {
   const setTasks = (result) => {
     if (isError(result)) {
       setError(result);
-      dispatchNotification({
+      addNotification({
         variant: 'danger',
         title: 'Error',
         description: result.message,
         dismissable: true,
-        autoDismiss: false,
       });
     } else {
       setAvailableTasks(result.data);

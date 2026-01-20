@@ -3,9 +3,8 @@ import propTypes from 'prop-types';
 import { Tr, Td } from '@patternfly/react-table';
 import { CodeBlock, CodeBlockCode } from '@patternfly/react-core';
 import {
-  c_code_block__header_BorderBottomColor,
-  c_table__expandable_row_m_expanded_BorderBottomColor,
-  global_palette_white,
+  t_color_white,
+  t_global_border_color_default,
 } from '@patternfly/react-tokens';
 
 const ExpandedIssues = ({ rowPairs, isReportJson }) => {
@@ -31,8 +30,8 @@ const ExpandedIssues = ({ rowPairs, isReportJson }) => {
         style={{
           // 'Hide' the bottom border when expanded by making it white
           borderBottomColor: expanded[pairIndex]
-            ? global_palette_white.value
-            : c_table__expandable_row_m_expanded_BorderBottomColor.value,
+            ? t_color_white.value
+            : t_global_border_color_default.value,
         }}
       >
         <Td
@@ -80,7 +79,7 @@ const ExpandedIssues = ({ rowPairs, isReportJson }) => {
       return (
         <CodeBlock
           style={{
-            [c_code_block__header_BorderBottomColor.name]: global_palette_white,
+            borderBottomColor: t_color_white.value,
             backgroundColor: '#ffffff',
           }}
         >

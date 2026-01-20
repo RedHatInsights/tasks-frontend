@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Backdrop, Spinner, Bullseye } from '@patternfly/react-core';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 import { fetchAvailableTask } from '../../../api';
-import { dispatchNotification } from '../../Utilities/Dispatcher';
 import RunTaskModal from './RunTaskModal';
 
 const RunTaskModalRoute = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
+  const addNotification = useAddNotification();
 
   const [taskData, setTaskData] = useState(null);
   const [isFetchingData, setIsFetchingData] = useState(true);
@@ -19,12 +20,11 @@ const RunTaskModalRoute = () => {
 
       if (task?.response?.status && task.response.status !== 200) {
         setError(task);
-        dispatchNotification({
+        addNotification({
           variant: 'danger',
           title: 'Error',
           description: task.message,
           dismissable: true,
-          autoDismiss: false,
         });
       } else {
         setTaskData(task);

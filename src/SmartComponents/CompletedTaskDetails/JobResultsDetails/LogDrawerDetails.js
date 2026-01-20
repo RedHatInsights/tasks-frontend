@@ -49,15 +49,13 @@ const LogDrawerDetails = ({ jobName, logs }) => {
               />
             </ToolbarItem>
             <ToolbarItem style={{ marginRight: '0px' }}>
-              <Button
+              <Button icon={<Icon>
+                  <ExportIcon />
+                </Icon>}
                 data-testid="download-button"
                 variant="plain"
                 onClick={onDownloadLogClick}
-              >
-                <Icon>
-                  <ExportIcon />
-                </Icon>
-              </Button>
+               />
             </ToolbarItem>
             <ToolbarItem>
               <Button

@@ -3,9 +3,8 @@ import propTypes from 'prop-types';
 import {
   Alert,
   Form,
-  Text,
-  TextContent,
-  TextVariants,
+  Content,
+  ContentVariants,
 } from '@patternfly/react-core';
 import { findParameterByKey } from './helpers';
 import ParameterCheckboxGroup from './ParameterCheckboxGroup';
@@ -66,20 +65,20 @@ const ConversionTaskInputParameters = ({
 
   return (
     <Form>
-      <TextContent>
-        <Text component={TextVariants.h4}>{formTitle}</Text>
-        <Text component={TextVariants.p}>{formDescription}</Text>
-      </TextContent>
+      <Content>
+        <Content component={ContentVariants.h4}>{formTitle}</Content>
+        <Content component={ContentVariants.p}>{formDescription}</Content>
+      </Content>
       <ParameterCheckbox
         parameter={elsDisabled}
         updateParameter={updateParameter}
         customDescription={ELS_DISABLED_CUSTOM_DESCRIPTION}
       />
-      <TextContent>
-        <Text component={TextVariants.h4}>
+      <Content>
+        <Content component={ContentVariants.h4}>
           Ignore specific pre-conversion analysis check results.
-        </Text>
-      </TextContent>
+        </Content>
+      </Content>
       <Alert variant="warning" isInline title="Resolve issues if possible">
         Use these at your discretion and resolve the issues if possible.
         Overriding issues can cause the conversion to fail, resulting in a

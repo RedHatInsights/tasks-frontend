@@ -2,6 +2,7 @@ import React from 'react';
 import RunTaskModalRoute from '../RunTaskModalRoute';
 import { fetchAvailableTask } from '../../../../api';
 import { render, screen, waitFor } from '@testing-library/react';
+// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
 import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 
 // eslint-disable-next-line react/display-name

@@ -1,6 +1,7 @@
 import './CompletedTaskDetails.scss';
 import React, { useState, useEffect, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
+// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
 import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 import TasksTables from '../../Utilities/hooks/useTableTools/Components/TasksTables';
 import {
@@ -94,7 +95,11 @@ const CompletedTaskDetails = () => {
     const fetchedTaskDetails = await fetchTask(id, setError, addNotification);
 
     if (Object.keys(fetchedTaskDetails).length) {
-      const fetchedTaskJobs = await fetchTaskJobs(fetchedTaskDetails, setError, addNotification);
+      const fetchedTaskJobs = await fetchTaskJobs(
+        fetchedTaskDetails,
+        setError,
+        addNotification
+      );
 
       if (fetchedTaskJobs.length) {
         if (fetchedTaskJobs.some((job) => job.status === 'Running')) {

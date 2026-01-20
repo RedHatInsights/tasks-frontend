@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Backdrop, Spinner, Bullseye } from '@patternfly/react-core';
 import { useNavigate, useParams } from 'react-router-dom';
+// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
 import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 import { fetchAvailableTask } from '../../../api';
 import RunTaskModal from './RunTaskModal';

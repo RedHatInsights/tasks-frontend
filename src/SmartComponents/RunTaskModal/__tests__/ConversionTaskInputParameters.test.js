@@ -10,10 +10,34 @@ describe('ConversionTaskInputParameters', () => {
   beforeEach(() => {
     mockSetDefinedParameters = jest.fn();
     defaultParameters = [
-      { key: 'ELS_DISABLED', title: 'ELS Disabled', description: 'Enable ELS', values: ['True', 'False'], default: 'False' },
-      { key: 'CONVERT2RHEL_ALLOW_UNAVAILABLE_KMODS', title: 'Allow unavailable kmods', description: 'Allow unavailable kernel modules', values: ['True', 'False'], default: 'False' },
-      { key: 'CONVERT2RHEL_SKIP_KERNEL_CURRENCY_CHECK', title: 'Skip kernel currency check', description: 'Skip checking kernel', values: ['True', 'False'], default: 'False' },
-      { key: 'CONVERT2RHEL_OUTDATED_PACKAGE_CHECK_SKIP', title: 'Skip outdated package check', description: 'Skip outdated packages', values: ['True', 'False'], default: 'False' },
+      {
+        key: 'ELS_DISABLED',
+        title: 'ELS Disabled',
+        description: 'Enable ELS',
+        values: ['True', 'False'],
+        default: 'False',
+      },
+      {
+        key: 'CONVERT2RHEL_ALLOW_UNAVAILABLE_KMODS',
+        title: 'Allow unavailable kmods',
+        description: 'Allow unavailable kernel modules',
+        values: ['True', 'False'],
+        default: 'False',
+      },
+      {
+        key: 'CONVERT2RHEL_SKIP_KERNEL_CURRENCY_CHECK',
+        title: 'Skip kernel currency check',
+        description: 'Skip checking kernel',
+        values: ['True', 'False'],
+        default: 'False',
+      },
+      {
+        key: 'CONVERT2RHEL_OUTDATED_PACKAGE_CHECK_SKIP',
+        title: 'Skip outdated package check',
+        description: 'Skip outdated packages',
+        values: ['True', 'False'],
+        default: 'False',
+      },
     ];
   });
 
@@ -30,8 +54,14 @@ describe('ConversionTaskInputParameters', () => {
       />
     );
 
-    expect(screen.getByText('Convert to RHEL 7 without Extended Lifecycle Support (ELS)')).toBeInTheDocument();
-    expect(screen.getByText(/By default, the task converts your CentOS Linux 7/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'Convert to RHEL 7 without Extended Lifecycle Support (ELS)'
+      )
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/By default, the task converts your CentOS Linux 7/i)
+    ).toBeInTheDocument();
   });
 
   it('should render with analysis title and description when slug contains analysis', () => {
@@ -43,8 +73,16 @@ describe('ConversionTaskInputParameters', () => {
       />
     );
 
-    expect(screen.getByText('Analyze conversion to RHEL 7 without Extended Lifecycle Support (ELS)')).toBeInTheDocument();
-    expect(screen.getByText(/By default, the task analyzes a conversion of your CentOS Linux 7/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'Analyze conversion to RHEL 7 without Extended Lifecycle Support (ELS)'
+      )
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        /By default, the task analyzes a conversion of your CentOS Linux 7/i
+      )
+    ).toBeInTheDocument();
   });
 
   it('should render all required checkboxes', () => {
@@ -60,13 +98,19 @@ describe('ConversionTaskInputParameters', () => {
     expect(screen.getByLabelText('ELS_DISABLED')).toBeInTheDocument();
 
     // CONVERT2RHEL_ALLOW_UNAVAILABLE_KMODS checkbox
-    expect(screen.getByLabelText('CONVERT2RHEL_ALLOW_UNAVAILABLE_KMODS')).toBeInTheDocument();
+    expect(
+      screen.getByLabelText('CONVERT2RHEL_ALLOW_UNAVAILABLE_KMODS')
+    ).toBeInTheDocument();
 
     // CONVERT2RHEL_SKIP_KERNEL_CURRENCY_CHECK checkbox
-    expect(screen.getByLabelText('CONVERT2RHEL_SKIP_KERNEL_CURRENCY_CHECK')).toBeInTheDocument();
+    expect(
+      screen.getByLabelText('CONVERT2RHEL_SKIP_KERNEL_CURRENCY_CHECK')
+    ).toBeInTheDocument();
 
     // CONVERT2RHEL_OUTDATED_PACKAGE_CHECK_SKIP checkbox
-    expect(screen.getByLabelText('CONVERT2RHEL_OUTDATED_PACKAGE_CHECK_SKIP')).toBeInTheDocument();
+    expect(
+      screen.getByLabelText('CONVERT2RHEL_OUTDATED_PACKAGE_CHECK_SKIP')
+    ).toBeInTheDocument();
   });
 
   it('should render warning alert', () => {
@@ -79,13 +123,23 @@ describe('ConversionTaskInputParameters', () => {
     );
 
     expect(screen.getByText('Resolve issues if possible')).toBeInTheDocument();
-    expect(screen.getByText(/Use these at your discretion and resolve the issues if possible/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        /Use these at your discretion and resolve the issues if possible/i
+      )
+    ).toBeInTheDocument();
   });
 
   it('should render optional skipTaintedKernelModuleCheck when present', () => {
     const parametersWithTainted = [
       ...defaultParameters,
-      { key: 'CONVERT2RHEL_TAINTED_KERNEL_MODULE_CHECK_SKIP', title: 'Skip tainted kernel module check', description: 'Skip tainted modules', values: ['True', 'False'], default: 'False' },
+      {
+        key: 'CONVERT2RHEL_TAINTED_KERNEL_MODULE_CHECK_SKIP',
+        title: 'Skip tainted kernel module check',
+        description: 'Skip tainted modules',
+        values: ['True', 'False'],
+        default: 'False',
+      },
     ];
 
     render(
@@ -96,7 +150,9 @@ describe('ConversionTaskInputParameters', () => {
       />
     );
 
-    expect(screen.getByLabelText('CONVERT2RHEL_TAINTED_KERNEL_MODULE_CHECK_SKIP')).toBeInTheDocument();
+    expect(
+      screen.getByLabelText('CONVERT2RHEL_TAINTED_KERNEL_MODULE_CHECK_SKIP')
+    ).toBeInTheDocument();
   });
 
   it('should not render skipTaintedKernelModuleCheck when not present', () => {
@@ -108,13 +164,21 @@ describe('ConversionTaskInputParameters', () => {
       />
     );
 
-    expect(screen.queryByLabelText('CONVERT2RHEL_TAINTED_KERNEL_MODULE_CHECK_SKIP')).not.toBeInTheDocument();
+    expect(
+      screen.queryByLabelText('CONVERT2RHEL_TAINTED_KERNEL_MODULE_CHECK_SKIP')
+    ).not.toBeInTheDocument();
   });
 
   it('should render optional optionalRepositories when present', () => {
     const parametersWithRepos = [
       ...defaultParameters,
-      { key: 'OPTIONAL_REPOSITORIES', title: 'Optional Repositories', description: 'Select repositories', values: ['Repo1', 'Repo2', 'Repo3'], default: 'None' },
+      {
+        key: 'OPTIONAL_REPOSITORIES',
+        title: 'Optional Repositories',
+        description: 'Select repositories',
+        values: ['Repo1', 'Repo2', 'Repo3'],
+        default: 'None',
+      },
     ];
 
     render(
@@ -177,7 +241,9 @@ describe('ConversionTaskInputParameters', () => {
       />
     );
 
-    expect(screen.getByText('Ignore specific pre-conversion analysis check results.')).toBeInTheDocument();
+    expect(
+      screen.getByText('Ignore specific pre-conversion analysis check results.')
+    ).toBeInTheDocument();
   });
 
   it('should use custom descriptions for specific parameters', () => {
@@ -190,10 +256,16 @@ describe('ConversionTaskInputParameters', () => {
     );
 
     // ELS_DISABLED should have custom description
-    expect(screen.getByText(/If you plan to upgrade to RHEL 8 right after the conversion/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        /If you plan to upgrade to RHEL 8 right after the conversion/i
+      )
+    ).toBeInTheDocument();
 
     // CONVERT2RHEL_ALLOW_UNAVAILABLE_KMODS should have custom description
-    expect(screen.getByText(/We cannot guarantee that the loaded kernel modules/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/We cannot guarantee that the loaded kernel modules/i)
+    ).toBeInTheDocument();
   });
 
   it('should have correct PatternFly v6 structure', () => {
@@ -207,6 +279,8 @@ describe('ConversionTaskInputParameters', () => {
 
     expect(container.querySelector('.pf-v6-c-form')).toBeInTheDocument();
     expect(container.querySelector('.pf-v6-c-alert')).toBeInTheDocument();
-    expect(container.querySelector('.pf-v6-c-alert.pf-m-warning')).toBeInTheDocument();
+    expect(
+      container.querySelector('.pf-v6-c-alert.pf-m-warning')
+    ).toBeInTheDocument();
   });
 });

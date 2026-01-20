@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import {
-	Modal
-} from '@patternfly/react-core/deprecated';
+import { Modal } from '@patternfly/react-core/deprecated';
 import propTypes from 'prop-types';
+// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
 import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 import { EXECUTE_TASK_NOTIFICATION } from '../../constants';
 import { isError } from '../completedTaskDetailsHelpers';

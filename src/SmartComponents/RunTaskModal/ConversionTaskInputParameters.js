@@ -1,11 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import {
-  Alert,
-  Form,
-  Content,
-  ContentVariants,
-} from '@patternfly/react-core';
+import { Alert, Form, Content, ContentVariants } from '@patternfly/react-core';
 import { findParameterByKey } from './helpers';
 import ParameterCheckboxGroup from './ParameterCheckboxGroup';
 import ParameterCheckbox from './ParameterCheckbox';

@@ -32,7 +32,9 @@ describe('ParameterMultiSelect', () => {
 
     expect(screen.getByText('Test Multi Select')).toBeInTheDocument();
     expect(screen.getByText('Select one or more options')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /Select Test Multi Select/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: /Select Test Multi Select/i })
+    ).toBeInTheDocument();
   });
 
   it('should render with custom description', () => {
@@ -47,7 +49,9 @@ describe('ParameterMultiSelect', () => {
     );
 
     expect(screen.getByText(customDescription)).toBeInTheDocument();
-    expect(screen.queryByText('Select one or more options')).not.toBeInTheDocument();
+    expect(
+      screen.queryByText('Select one or more options')
+    ).not.toBeInTheDocument();
   });
 
   it('should render with parameter.key when title is not provided', () => {
@@ -64,7 +68,9 @@ describe('ParameterMultiSelect', () => {
     );
 
     expect(screen.getByText('test-multiselect')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /Select test-multiselect/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: /Select test-multiselect/i })
+    ).toBeInTheDocument();
   });
 
   it('should open and close dropdown on toggle click', async () => {
@@ -75,20 +81,30 @@ describe('ParameterMultiSelect', () => {
       />
     );
 
-    const toggle = screen.getByRole('button', { name: /Select Test Multi Select/i });
+    const toggle = screen.getByRole('button', {
+      name: /Select Test Multi Select/i,
+    });
 
     // Open dropdown
     await userEvent.click(toggle);
     await waitFor(() => {
-      expect(screen.getByRole('menuitem', { name: 'Option1' })).toBeInTheDocument();
-      expect(screen.getByRole('menuitem', { name: 'Option2' })).toBeInTheDocument();
-      expect(screen.getByRole('menuitem', { name: 'Option3' })).toBeInTheDocument();
+      expect(
+        screen.getByRole('menuitem', { name: 'Option1' })
+      ).toBeInTheDocument();
+      expect(
+        screen.getByRole('menuitem', { name: 'Option2' })
+      ).toBeInTheDocument();
+      expect(
+        screen.getByRole('menuitem', { name: 'Option3' })
+      ).toBeInTheDocument();
     });
 
     // Close dropdown
     await userEvent.click(toggle);
     await waitFor(() => {
-      expect(screen.queryByRole('menuitem', { name: 'Option1' })).not.toBeInTheDocument();
+      expect(
+        screen.queryByRole('menuitem', { name: 'Option1' })
+      ).not.toBeInTheDocument();
     });
   });
 
@@ -100,15 +116,22 @@ describe('ParameterMultiSelect', () => {
       />
     );
 
-    const toggle = screen.getByRole('button', { name: /Select Test Multi Select/i });
+    const toggle = screen.getByRole('button', {
+      name: /Select Test Multi Select/i,
+    });
     await userEvent.click(toggle);
 
     // Find the menuitem and click the checkbox inside it
-    const option1Menuitem = await screen.findByRole('menuitem', { name: 'Option1' });
+    const option1Menuitem = await screen.findByRole('menuitem', {
+      name: 'Option1',
+    });
     const checkbox = within(option1Menuitem).getByRole('checkbox');
     await userEvent.click(checkbox);
 
-    expect(mockUpdateParameter).toHaveBeenCalledWith(defaultParameter, 'Option1');
+    expect(mockUpdateParameter).toHaveBeenCalledWith(
+      defaultParameter,
+      'Option1'
+    );
   });
 
   it('should select multiple options and call updateParameter with comma-separated values', async () => {
@@ -119,26 +142,43 @@ describe('ParameterMultiSelect', () => {
       />
     );
 
-    const toggle = screen.getByRole('button', { name: /Select Test Multi Select/i });
+    const toggle = screen.getByRole('button', {
+      name: /Select Test Multi Select/i,
+    });
 
     // Select first option
     await userEvent.click(toggle);
-    const option1Menuitem = await screen.findByRole('menuitem', { name: 'Option1' });
+    const option1Menuitem = await screen.findByRole('menuitem', {
+      name: 'Option1',
+    });
     const checkbox1 = within(option1Menuitem).getByRole('checkbox');
     await userEvent.click(checkbox1);
-    expect(mockUpdateParameter).toHaveBeenCalledWith(defaultParameter, 'Option1');
+    expect(mockUpdateParameter).toHaveBeenCalledWith(
+      defaultParameter,
+      'Option1'
+    );
 
     // Select second option
-    const option2Menuitem = await screen.findByRole('menuitem', { name: 'Option2' });
+    const option2Menuitem = await screen.findByRole('menuitem', {
+      name: 'Option2',
+    });
     const checkbox2 = within(option2Menuitem).getByRole('checkbox');
     await userEvent.click(checkbox2);
-    expect(mockUpdateParameter).toHaveBeenCalledWith(defaultParameter, 'Option1,Option2');
+    expect(mockUpdateParameter).toHaveBeenCalledWith(
+      defaultParameter,
+      'Option1,Option2'
+    );
 
     // Select third option
-    const option3Menuitem = await screen.findByRole('menuitem', { name: 'Option3' });
+    const option3Menuitem = await screen.findByRole('menuitem', {
+      name: 'Option3',
+    });
     const checkbox3 = within(option3Menuitem).getByRole('checkbox');
     await userEvent.click(checkbox3);
-    expect(mockUpdateParameter).toHaveBeenCalledWith(defaultParameter, 'Option1,Option2,Option3');
+    expect(mockUpdateParameter).toHaveBeenCalledWith(
+      defaultParameter,
+      'Option1,Option2,Option3'
+    );
   });
 
   it('should deselect an option', async () => {
@@ -149,22 +189,34 @@ describe('ParameterMultiSelect', () => {
       />
     );
 
-    const toggle = screen.getByRole('button', { name: /Select Test Multi Select/i });
+    const toggle = screen.getByRole('button', {
+      name: /Select Test Multi Select/i,
+    });
 
     // Select two options
     await userEvent.click(toggle);
-    const option1Menuitem = await screen.findByRole('menuitem', { name: 'Option1' });
+    const option1Menuitem = await screen.findByRole('menuitem', {
+      name: 'Option1',
+    });
     const checkbox1 = within(option1Menuitem).getByRole('checkbox');
     await userEvent.click(checkbox1);
 
-    const option2Menuitem = await screen.findByRole('menuitem', { name: 'Option2' });
+    const option2Menuitem = await screen.findByRole('menuitem', {
+      name: 'Option2',
+    });
     const checkbox2 = within(option2Menuitem).getByRole('checkbox');
     await userEvent.click(checkbox2);
-    expect(mockUpdateParameter).toHaveBeenCalledWith(defaultParameter, 'Option1,Option2');
+    expect(mockUpdateParameter).toHaveBeenCalledWith(
+      defaultParameter,
+      'Option1,Option2'
+    );
 
     // Deselect first option
     await userEvent.click(checkbox1);
-    expect(mockUpdateParameter).toHaveBeenCalledWith(defaultParameter, 'Option2');
+    expect(mockUpdateParameter).toHaveBeenCalledWith(
+      defaultParameter,
+      'Option2'
+    );
   });
 
   it('should call updateParameter with "None" when all options are deselected', async () => {
@@ -175,14 +227,21 @@ describe('ParameterMultiSelect', () => {
       />
     );
 
-    const toggle = screen.getByRole('button', { name: /Select Test Multi Select/i });
+    const toggle = screen.getByRole('button', {
+      name: /Select Test Multi Select/i,
+    });
 
     // Select one option
     await userEvent.click(toggle);
-    const option1Menuitem = await screen.findByRole('menuitem', { name: 'Option1' });
+    const option1Menuitem = await screen.findByRole('menuitem', {
+      name: 'Option1',
+    });
     const checkbox1 = within(option1Menuitem).getByRole('checkbox');
     await userEvent.click(checkbox1);
-    expect(mockUpdateParameter).toHaveBeenCalledWith(defaultParameter, 'Option1');
+    expect(mockUpdateParameter).toHaveBeenCalledWith(
+      defaultParameter,
+      'Option1'
+    );
 
     // Deselect it
     await userEvent.click(checkbox1);
@@ -197,14 +256,18 @@ describe('ParameterMultiSelect', () => {
       />
     );
 
-    const toggle = screen.getByRole('button', { name: /Select Test Multi Select/i });
+    const toggle = screen.getByRole('button', {
+      name: /Select Test Multi Select/i,
+    });
 
     // Initially no badge
     expect(container.querySelector('.pf-v6-c-badge')).not.toBeInTheDocument();
 
     // Select one option
     await userEvent.click(toggle);
-    const option1Menuitem = await screen.findByRole('menuitem', { name: 'Option1' });
+    const option1Menuitem = await screen.findByRole('menuitem', {
+      name: 'Option1',
+    });
     const checkbox1 = within(option1Menuitem).getByRole('checkbox');
     await userEvent.click(checkbox1);
 
@@ -216,7 +279,9 @@ describe('ParameterMultiSelect', () => {
     });
 
     // Select another option
-    const option2Menuitem = await screen.findByRole('menuitem', { name: 'Option2' });
+    const option2Menuitem = await screen.findByRole('menuitem', {
+      name: 'Option2',
+    });
     const checkbox2 = within(option2Menuitem).getByRole('checkbox');
     await userEvent.click(checkbox2);
 
@@ -240,13 +305,21 @@ describe('ParameterMultiSelect', () => {
       />
     );
 
-    const toggle = screen.getByRole('button', { name: /Select Test Multi Select/i });
+    const toggle = screen.getByRole('button', {
+      name: /Select Test Multi Select/i,
+    });
     await userEvent.click(toggle);
 
     await waitFor(() => {
-      expect(screen.getByRole('menuitem', { name: 'Option1' })).toBeInTheDocument();
-      expect(screen.getByRole('menuitem', { name: 'Option2' })).toBeInTheDocument();
-      expect(screen.queryByRole('menuitem', { name: 'None' })).not.toBeInTheDocument();
+      expect(
+        screen.getByRole('menuitem', { name: 'Option1' })
+      ).toBeInTheDocument();
+      expect(
+        screen.getByRole('menuitem', { name: 'Option2' })
+      ).toBeInTheDocument();
+      expect(
+        screen.queryByRole('menuitem', { name: 'None' })
+      ).not.toBeInTheDocument();
     });
   });
 
@@ -266,7 +339,9 @@ describe('ParameterMultiSelect', () => {
     const formGroup = container.querySelector('.pf-v6-c-form__group');
     expect(formGroup).toBeInTheDocument();
 
-    const requiredIndicator = container.querySelector('.pf-v6-c-form__label-required');
+    const requiredIndicator = container.querySelector(
+      '.pf-v6-c-form__label-required'
+    );
     expect(requiredIndicator).toBeInTheDocument();
   });
 

@@ -62,7 +62,9 @@ describe('ParameterCheckbox', () => {
     );
 
     expect(screen.getByText(customDescription)).toBeInTheDocument();
-    expect(screen.queryByText('This is a test checkbox')).not.toBeInTheDocument();
+    expect(
+      screen.queryByText('This is a test checkbox')
+    ).not.toBeInTheDocument();
   });
 
   it('should be unchecked when default is False', () => {

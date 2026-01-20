@@ -8,6 +8,7 @@ import {
   DELETE_TASK_ERROR,
 } from '../../constants';
 import { /*cancelExecutedTask,*/ deleteExecutedTask } from '../../../api';
+// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
 import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 import { isError } from '../../SmartComponents/completedTaskDetailsHelpers';
 import { Modal } from '@patternfly/react-core/deprecated';

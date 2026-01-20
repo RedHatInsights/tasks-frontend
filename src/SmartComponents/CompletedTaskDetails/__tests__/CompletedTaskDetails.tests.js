@@ -29,6 +29,7 @@ import {
   upgrade_leapp_task,
 } from './__fixtures__/completedTasksDetails.fixtures';
 import useInsightsNavigate from '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate';
+// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
 import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 
 jest.mock('../../../../api');

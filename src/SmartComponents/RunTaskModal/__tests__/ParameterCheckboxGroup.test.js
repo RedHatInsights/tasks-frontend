@@ -32,9 +32,15 @@ describe('ParameterCheckboxGroup', () => {
 
     expect(screen.getByText('Test Checkbox Group')).toBeInTheDocument();
     expect(screen.getByText('Select one or more options')).toBeInTheDocument();
-    expect(screen.getByLabelText('test-checkbox-group.Option1')).toBeInTheDocument();
-    expect(screen.getByLabelText('test-checkbox-group.Option2')).toBeInTheDocument();
-    expect(screen.getByLabelText('test-checkbox-group.Option3')).toBeInTheDocument();
+    expect(
+      screen.getByLabelText('test-checkbox-group.Option1')
+    ).toBeInTheDocument();
+    expect(
+      screen.getByLabelText('test-checkbox-group.Option2')
+    ).toBeInTheDocument();
+    expect(
+      screen.getByLabelText('test-checkbox-group.Option3')
+    ).toBeInTheDocument();
   });
 
   it('should render with custom description', () => {
@@ -49,7 +55,9 @@ describe('ParameterCheckboxGroup', () => {
     );
 
     expect(screen.getByText(customDescription)).toBeInTheDocument();
-    expect(screen.queryByText('Select one or more options')).not.toBeInTheDocument();
+    expect(
+      screen.queryByText('Select one or more options')
+    ).not.toBeInTheDocument();
   });
 
   it('should have no checkboxes checked when default is "None"', () => {
@@ -60,9 +68,15 @@ describe('ParameterCheckboxGroup', () => {
       />
     );
 
-    expect(screen.getByLabelText('test-checkbox-group.Option1')).not.toBeChecked();
-    expect(screen.getByLabelText('test-checkbox-group.Option2')).not.toBeChecked();
-    expect(screen.getByLabelText('test-checkbox-group.Option3')).not.toBeChecked();
+    expect(
+      screen.getByLabelText('test-checkbox-group.Option1')
+    ).not.toBeChecked();
+    expect(
+      screen.getByLabelText('test-checkbox-group.Option2')
+    ).not.toBeChecked();
+    expect(
+      screen.getByLabelText('test-checkbox-group.Option3')
+    ).not.toBeChecked();
   });
 
   it('should have no checkboxes checked when default is empty string', () => {
@@ -78,9 +92,15 @@ describe('ParameterCheckboxGroup', () => {
       />
     );
 
-    expect(screen.getByLabelText('test-checkbox-group.Option1')).not.toBeChecked();
-    expect(screen.getByLabelText('test-checkbox-group.Option2')).not.toBeChecked();
-    expect(screen.getByLabelText('test-checkbox-group.Option3')).not.toBeChecked();
+    expect(
+      screen.getByLabelText('test-checkbox-group.Option1')
+    ).not.toBeChecked();
+    expect(
+      screen.getByLabelText('test-checkbox-group.Option2')
+    ).not.toBeChecked();
+    expect(
+      screen.getByLabelText('test-checkbox-group.Option3')
+    ).not.toBeChecked();
   });
 
   it('should have correct checkboxes checked when default has values', () => {
@@ -97,7 +117,9 @@ describe('ParameterCheckboxGroup', () => {
     );
 
     expect(screen.getByLabelText('test-checkbox-group.Option1')).toBeChecked();
-    expect(screen.getByLabelText('test-checkbox-group.Option2')).not.toBeChecked();
+    expect(
+      screen.getByLabelText('test-checkbox-group.Option2')
+    ).not.toBeChecked();
     expect(screen.getByLabelText('test-checkbox-group.Option3')).toBeChecked();
   });
 
@@ -112,7 +134,10 @@ describe('ParameterCheckboxGroup', () => {
     const checkbox1 = screen.getByLabelText('test-checkbox-group.Option1');
     await userEvent.click(checkbox1);
 
-    expect(mockUpdateParameter).toHaveBeenCalledWith(defaultParameter, 'Option1');
+    expect(mockUpdateParameter).toHaveBeenCalledWith(
+      defaultParameter,
+      'Option1'
+    );
     expect(checkbox1).toBeChecked();
   });
 
@@ -128,10 +153,16 @@ describe('ParameterCheckboxGroup', () => {
     const checkbox2 = screen.getByLabelText('test-checkbox-group.Option2');
 
     await userEvent.click(checkbox1);
-    expect(mockUpdateParameter).toHaveBeenCalledWith(defaultParameter, 'Option1');
+    expect(mockUpdateParameter).toHaveBeenCalledWith(
+      defaultParameter,
+      'Option1'
+    );
 
     await userEvent.click(checkbox2);
-    expect(mockUpdateParameter).toHaveBeenCalledWith(defaultParameter, 'Option1,Option2');
+    expect(mockUpdateParameter).toHaveBeenCalledWith(
+      defaultParameter,
+      'Option1,Option2'
+    );
 
     expect(checkbox1).toBeChecked();
     expect(checkbox2).toBeChecked();
@@ -154,7 +185,10 @@ describe('ParameterCheckboxGroup', () => {
     expect(checkbox1).toBeChecked();
 
     await userEvent.click(checkbox1);
-    expect(mockUpdateParameter).toHaveBeenCalledWith(parameterWithOneChecked, 'None');
+    expect(mockUpdateParameter).toHaveBeenCalledWith(
+      parameterWithOneChecked,
+      'None'
+    );
     expect(checkbox1).not.toBeChecked();
   });
 
@@ -171,10 +205,18 @@ describe('ParameterCheckboxGroup', () => {
       />
     );
 
-    expect(screen.getByLabelText('test-checkbox-group.Option1')).toBeInTheDocument();
-    expect(screen.getByLabelText('test-checkbox-group.Option2')).toBeInTheDocument();
-    expect(screen.queryByLabelText('test-checkbox-group.None')).not.toBeInTheDocument();
-    expect(screen.queryByLabelText('test-checkbox-group.')).not.toBeInTheDocument();
+    expect(
+      screen.getByLabelText('test-checkbox-group.Option1')
+    ).toBeInTheDocument();
+    expect(
+      screen.getByLabelText('test-checkbox-group.Option2')
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByLabelText('test-checkbox-group.None')
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByLabelText('test-checkbox-group.')
+    ).not.toBeInTheDocument();
   });
 
   it('should have correct ARIA attributes and PatternFly v6 structure', () => {
@@ -209,7 +251,10 @@ describe('ParameterCheckboxGroup', () => {
     expect(checkbox2).toBeChecked();
 
     await userEvent.click(checkbox2);
-    expect(mockUpdateParameter).toHaveBeenCalledWith(parameterWithMultipleChecked, 'Option1,Option3');
+    expect(mockUpdateParameter).toHaveBeenCalledWith(
+      parameterWithMultipleChecked,
+      'Option1,Option3'
+    );
     expect(checkbox2).not.toBeChecked();
   });
 });

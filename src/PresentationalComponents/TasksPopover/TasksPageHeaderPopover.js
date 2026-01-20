@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Icon, Content,  } from '@patternfly/react-core';
+import { Button, Icon, Content } from '@patternfly/react-core';
 import {
   ExternalLinkAltIcon,
   OutlinedQuestionCircleIcon,
@@ -33,9 +33,16 @@ export const TasksPagePopoverBody = () => {
 
 export const TasksPagePopoverIcon = () => {
   return (
-    <Button icon={<Icon>
-        <OutlinedQuestionCircleIcon />
-      </Icon>} variant="plain" aria-label="About Tasks" className="pf-v6-u-p-0" />
+    <Button
+      icon={
+        <Icon>
+          <OutlinedQuestionCircleIcon />
+        </Icon>
+      }
+      variant="plain"
+      aria-label="About Tasks"
+      className="pf-v6-u-p-0"
+    />
   );
 };
 

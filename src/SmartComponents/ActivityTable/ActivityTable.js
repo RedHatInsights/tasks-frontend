@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
 import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 import { ExclamationCircleIcon, WrenchIcon } from '@patternfly/react-icons';
 import columns, { exportableColumns } from './Columns';
@@ -54,7 +55,11 @@ const ActivityTable = () => {
   const fetchTaskDetails = async (id) => {
     setTaskError();
     setRunTaskModalOpened(true);
-    const fetchedTaskDetails = await fetchTask(id, setTaskError, addNotification);
+    const fetchedTaskDetails = await fetchTask(
+      id,
+      setTaskError,
+      addNotification
+    );
 
     if (Object.keys(fetchedTaskDetails).length > 0) {
       const fetchedTaskJobs = await fetchTaskJobs(

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import propTypes from 'prop-types';
+// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
 import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 import { fetchAvailableTasks } from '../../../api';
 import {

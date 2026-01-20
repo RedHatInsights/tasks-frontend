@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import actions from './modules/actions';
 import Routes from './Routes';
@@ -28,11 +28,7 @@ const App = () => {
     }
   }, [chrome]);
 
-  return (
-    <Fragment>
-      <Routes />
-    </Fragment>
-  );
+  return <Routes />;
 };
 
 export default App;

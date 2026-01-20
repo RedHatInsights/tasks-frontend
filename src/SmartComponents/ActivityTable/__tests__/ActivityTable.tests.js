@@ -12,6 +12,7 @@ import { Provider } from 'react-redux';
 import { init } from '../../../store';
 
 import ActivityTable from '../ActivityTable';
+// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
 import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 
 jest.mock('@redhat-cloud-services/frontend-components-notifications', () => ({
@@ -167,7 +168,9 @@ describe('ActivityTable', () => {
 
     // After selecting Status filter, wait for the Options menu button to appear
     await waitFor(() => {
-      expect(screen.getByRole('button', { name: 'Options menu' })).toBeInTheDocument();
+      expect(
+        screen.getByRole('button', { name: 'Options menu' })
+      ).toBeInTheDocument();
     });
 
     // Click the Options menu button to open the checkboxes
@@ -211,7 +214,9 @@ describe('ActivityTable', () => {
 
     // After selecting Status filter, wait for the Options menu button to appear
     await waitFor(() => {
-      expect(screen.getByRole('button', { name: 'Options menu' })).toBeInTheDocument();
+      expect(
+        screen.getByRole('button', { name: 'Options menu' })
+      ).toBeInTheDocument();
     });
 
     // Click the Options menu button to open the checkboxes

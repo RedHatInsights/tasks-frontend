@@ -89,7 +89,11 @@ const getStatusProps = (task) => {
 
 const formatPopoverBodyContent = (popoverBodyText) => {
   if (typeof popoverBodyText === 'string') {
-    return <Content component="p" style={{ paddingLeft: '1rem' }}>{popoverBodyText}</Content>;
+    return (
+      <Content component="p" style={{ paddingLeft: '1rem' }}>
+        {popoverBodyText}
+      </Content>
+    );
   }
 
   let gridItems = [];
@@ -99,10 +103,14 @@ const formatPopoverBodyContent = (popoverBodyText) => {
     const gridItem = (
       <React.Fragment>
         <GridItem span={2}>
-          <Content component="p" style={{ textAlign: 'right' }}>{count}</Content>
+          <Content component="p" style={{ textAlign: 'right' }}>
+            {count}
+          </Content>
         </GridItem>
         <GridItem span={10}>
-          <Content component="p" style={{ textAlign: 'left' }}>{status}</Content>
+          <Content component="p" style={{ textAlign: 'left' }}>
+            {status}
+          </Content>
         </GridItem>
       </React.Fragment>
     );

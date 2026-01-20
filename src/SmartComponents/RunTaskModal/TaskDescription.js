@@ -1,6 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import { Button, Content,  } from '@patternfly/react-core';
+import { Button, Content } from '@patternfly/react-core';
 import ReactMarkdown from 'react-markdown';
 import {
   AVAILABLE_TASKS_ROOT,

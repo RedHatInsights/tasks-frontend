@@ -9,7 +9,6 @@ import {
 
 export const EmptyStateDisplay = ({
   button,
-  color,
   error,
   icon,
   isSmall,

@@ -30,7 +30,7 @@ const JobResultsDetails = ({
         variant="compact"
         style={{
           marginBottom: '16px',
-          '--pf-v5-c-table__expandable-row--after--border-width--base': '0',
+          '--pf-v6-c-table__expandable-row-content--BorderWidth': '0',
         }}
       >
         <Tbody>

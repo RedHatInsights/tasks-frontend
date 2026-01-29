@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Icon, Text, TextContent } from '@patternfly/react-core';
+import { Button, Icon, Content } from '@patternfly/react-core';
 import {
   ExternalLinkAltIcon,
   OutlinedQuestionCircleIcon,
@@ -18,26 +18,31 @@ export const TasksPagePopoverHeader = () => {
 
 export const TasksPagePopoverBody = () => {
   return (
-    <TextContent>
-      <Text>
+    <Content>
+      <Content component="p">
         Tasks allows you to run resource-intensive additional troubleshooting on
         your connected systems. Ansible Playbooks are written by Red Hat to do
         the selected tasks.
         <br /> <br />
         Eligible systems include systems connected to console.redhat.com with
         rhc, or Satellite with Cloud Connector.
-      </Text>
-    </TextContent>
+      </Content>
+    </Content>
   );
 };
 
 export const TasksPagePopoverIcon = () => {
   return (
-    <Button variant="plain" aria-label="About Tasks" className="pf-v5-u-p-0">
-      <Icon>
-        <OutlinedQuestionCircleIcon />
-      </Icon>
-    </Button>
+    <Button
+      icon={
+        <Icon>
+          <OutlinedQuestionCircleIcon />
+        </Icon>
+      }
+      variant="plain"
+      aria-label="About Tasks"
+      className="pf-v6-u-p-0"
+    />
   );
 };
 

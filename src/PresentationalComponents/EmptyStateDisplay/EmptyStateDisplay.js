@@ -3,15 +3,12 @@ import PropTypes from 'prop-types';
 import {
   EmptyState,
   EmptyStateBody,
-  EmptyStateIcon,
   EmptyStateVariant,
-  EmptyStateHeader,
   EmptyStateFooter,
 } from '@patternfly/react-core';
 
 export const EmptyStateDisplay = ({
   button,
-  color,
   error,
   icon,
   isSmall,
@@ -21,21 +18,14 @@ export const EmptyStateDisplay = ({
 }) => {
   return (
     <EmptyState
+      headingLevel={isSmall ? 'h5' : 'h1'}
+      titleText={title}
       variant={isSmall ? EmptyStateVariant.sm : EmptyStateVariant.lg}
       aria-label={error ? 'error-empty-state' : 'empty-state'}
+      icon={icon}
+      iconClassName={isSmall ? 'small-empty-state-icon' : null}
       {...(ouiaId !== undefined ? { 'data-ouia-component-id': ouiaId } : {})}
     >
-      {icon ? (
-        <EmptyStateIcon
-          icon={icon}
-          color={color ? color : null}
-          className={isSmall ? 'small-empty-state-icon' : null}
-        />
-      ) : null}
-      <EmptyStateHeader
-        titleText={title}
-        headingLevel={isSmall ? 'h5' : 'h1'}
-      />
       <EmptyStateBody>
         {text
           ? text.map((line, index) => (

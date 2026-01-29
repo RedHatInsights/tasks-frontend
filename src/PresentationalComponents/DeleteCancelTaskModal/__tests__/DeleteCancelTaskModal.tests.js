@@ -3,16 +3,22 @@ import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import { deleteExecutedTask } from '../../../../api';
-import * as dispatcher from '../../../Utilities/Dispatcher';
 
 import DeleteCancelTaskModal from '../DeleteCancelTaskModal';
+// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
+import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 
 jest.mock('../../../../api');
+jest.mock('@redhat-cloud-services/frontend-components-notifications', () => ({
+  useAddNotification: jest.fn(),
+}));
 
 describe('DeleteCancelTaskModal', () => {
   let props;
+  const mockAddNotification = jest.fn();
 
   beforeEach(() => {
+    useAddNotification.mockReturnValue(mockAddNotification);
     props = {
       id: ['abcd-1234'],
       isOpen: true,
@@ -73,9 +79,6 @@ describe('DeleteCancelTaskModal', () => {
       };
     });
 
-    const notification = jest
-      .spyOn(dispatcher, 'dispatchNotification')
-      .mockImplementation();
     render(
       <MemoryRouter>
         <DeleteCancelTaskModal {...props} />
@@ -85,7 +88,7 @@ describe('DeleteCancelTaskModal', () => {
     await waitFor(() =>
       userEvent.click(screen.getByTestId('delete-task-button'))
     );
-    expect(notification).toHaveBeenCalled();
+    expect(mockAddNotification).toHaveBeenCalled();
   });
 
   it('should close modal on X click', async () => {

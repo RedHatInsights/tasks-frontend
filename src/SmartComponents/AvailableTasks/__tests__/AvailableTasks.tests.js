@@ -7,16 +7,22 @@ import {
   availableTasksTableError,
   availableTasksTableItems,
 } from '../../../Utilities/hooks/useTableTools/Components/__tests__/TasksTable.fixtures';
-import * as dispatcher from '../../../Utilities/Dispatcher';
 import { fetchAvailableTasks } from '../../../../api';
+// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
+import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 
 jest.mock('../../../../api');
+jest.mock('@redhat-cloud-services/frontend-components-notifications', () => ({
+  useAddNotification: jest.fn(),
+}));
 jest.mock('../../../Utilities/useFeatureFlag', () => () => true);
 
 describe('AvailableTasks', () => {
   let props;
+  const mockAddNotification = jest.fn();
 
   beforeEach(() => {
+    useAddNotification.mockReturnValue(mockAddNotification);
     props = {
       openTaskModal: jest.fn(),
     };
@@ -70,9 +76,6 @@ describe('AvailableTasks', () => {
     fetchAvailableTasks.mockImplementation(
       async () => availableTasksTableError
     );
-    const notification = jest
-      .spyOn(dispatcher, 'dispatchNotification')
-      .mockImplementation();
 
     await act(async () => {
       render(
@@ -83,7 +86,7 @@ describe('AvailableTasks', () => {
     });
 
     await waitFor(() => {
-      expect(notification).toHaveBeenCalled();
+      expect(mockAddNotification).toHaveBeenCalled();
       expect(screen.getByLabelText('error-empty-state')).toBeInTheDocument();
     });
   });

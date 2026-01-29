@@ -9,9 +9,8 @@ import {
   DrawerActions,
   DrawerCloseButton,
   DrawerPanelBody,
-  Text,
-  TextContent,
-  TextVariants,
+  Content,
+  ContentVariants,
 } from '@patternfly/react-core';
 import { getLogs } from '../../../../api';
 import LogDrawerDetails from './LogDrawerDetails';
@@ -47,13 +46,13 @@ const JobLogDrawer = ({
   const panelContent = (
     <DrawerPanelContent id="log-drawer">
       <DrawerHead>
-        <TextContent>
-          <Text component={TextVariants.h1}>
+        <Content>
+          <Content component={ContentVariants.h1}>
             <span tabIndex={isLogDrawerExpanded ? 0 : -1} ref={drawerRef}>
               {`Log for: ${jobName || 'System deleted'}`}
             </span>
-          </Text>
-        </TextContent>
+          </Content>
+        </Content>
         <DrawerActions>
           <DrawerCloseButton onClick={onCloseClick} />
         </DrawerActions>

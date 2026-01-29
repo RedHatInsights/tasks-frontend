@@ -87,3 +87,13 @@ jest.mock('@redhat-cloud-services/frontend-components/Inventory', () => ({
 // jest.mock('@redhat-cloud-services/frontend-components/AsyncComponent', () => (
 //   <div>AsyncComponent</div>
 // ));
+
+// Mock react-jss for PatternFly v6 notification components
+jest.mock('react-jss', () => ({
+  createUseStyles: jest.fn(() => jest.fn(() => ({}))),
+  useTheme: jest.fn(() => ({})),
+  ThemeProvider: ({ children }) => children,
+  JssProvider: ({ children }) => children,
+  SheetsRegistry: jest.fn(),
+  createGenerateId: jest.fn(),
+}));

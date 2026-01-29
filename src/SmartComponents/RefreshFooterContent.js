@@ -1,9 +1,8 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import {
-  Text,
-  TextContent,
-  TextVariants,
+  Content,
+  ContentVariants,
   Timestamp,
   TimestampFormat,
   Tooltip,
@@ -17,8 +16,8 @@ const RefreshFooterContent = ({ date, isRunning, type }) => {
           'Updates every minute automatically when there is a running task'
         }
       >
-        <TextContent>
-          <Text component={TextVariants.small}>
+        <Content>
+          <Content component={ContentVariants.small}>
             Last updated
             {isRunning ? (
               <>
@@ -32,8 +31,8 @@ const RefreshFooterContent = ({ date, isRunning, type }) => {
             ) : (
               `: All ${type} completed`
             )}
-          </Text>
-        </TextContent>
+          </Content>
+        </Content>
       </Tooltip>
     </div>
   );

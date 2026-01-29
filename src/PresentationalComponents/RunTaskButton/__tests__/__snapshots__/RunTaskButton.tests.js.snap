@@ -3,15 +3,18 @@
 exports[`RunTaskButton should render Run task again 1`] = `
 <DocumentFragment>
   <button
-    aria-disabled="false"
     aria-label="taska-run-task-button"
-    class="pf-v5-c-button pf-m-primary"
+    class="pf-v6-c-button pf-m-primary"
     data-ouia-component-id="OUIA-Generated-Button-primary-2"
-    data-ouia-component-type="PF5/Button"
+    data-ouia-component-type="PF6/Button"
     data-ouia-safe="true"
     type="button"
   >
-    Run task again
+    <span
+      class="pf-v6-c-button__text"
+    >
+      Run task again
+    </span>
   </button>
 </DocumentFragment>
 `;
@@ -19,15 +22,18 @@ exports[`RunTaskButton should render Run task again 1`] = `
 exports[`RunTaskButton should render correctly 1`] = `
 <DocumentFragment>
   <button
-    aria-disabled="false"
     aria-label="taska-run-task-button"
-    class="pf-v5-c-button pf-m-primary"
+    class="pf-v6-c-button pf-m-primary"
     data-ouia-component-id="OUIA-Generated-Button-primary-1"
-    data-ouia-component-type="PF5/Button"
+    data-ouia-component-type="PF6/Button"
     data-ouia-safe="true"
     type="button"
   >
-    Select systems
+    <span
+      class="pf-v6-c-button__text"
+    >
+      Select systems
+    </span>
   </button>
 </DocumentFragment>
 `;

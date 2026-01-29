@@ -12,7 +12,7 @@ import {
   GridItem,
   Icon,
   Popover,
-  Text,
+  Content,
 } from '@patternfly/react-core';
 import {
   CheckCircleIcon,
@@ -89,7 +89,11 @@ const getStatusProps = (task) => {
 
 const formatPopoverBodyContent = (popoverBodyText) => {
   if (typeof popoverBodyText === 'string') {
-    return <Text style={{ paddingLeft: '1rem' }}>{popoverBodyText}</Text>;
+    return (
+      <Content component="p" style={{ paddingLeft: '1rem' }}>
+        {popoverBodyText}
+      </Content>
+    );
   }
 
   let gridItems = [];
@@ -99,10 +103,14 @@ const formatPopoverBodyContent = (popoverBodyText) => {
     const gridItem = (
       <React.Fragment>
         <GridItem span={2}>
-          <Text style={{ textAlign: 'right' }}>{count}</Text>
+          <Content component="p" style={{ textAlign: 'right' }}>
+            {count}
+          </Content>
         </GridItem>
         <GridItem span={10}>
-          <Text style={{ textAlign: 'left' }}>{status}</Text>
+          <Content component="p" style={{ textAlign: 'left' }}>
+            {status}
+          </Content>
         </GridItem>
       </React.Fragment>
     );

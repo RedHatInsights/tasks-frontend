@@ -8,7 +8,7 @@ import {
   ExclamationTriangleIcon,
 } from '@patternfly/react-icons';
 
-const boldText = 'pf-v5-u-font-weight-bold';
+const boldText = 'pf-v6-u-font-weight-bold';
 
 export const createSystemLink = (id, name, keyData) => (
   <a

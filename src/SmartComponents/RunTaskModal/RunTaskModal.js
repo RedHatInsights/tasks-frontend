@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Modal } from '@patternfly/react-core';
+import { Modal } from '@patternfly/react-core/deprecated';
 import propTypes from 'prop-types';
-import { dispatchNotification } from '../../Utilities/Dispatcher';
+// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
+import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 import { EXECUTE_TASK_NOTIFICATION } from '../../constants';
 import { isError } from '../completedTaskDetailsHelpers';
 import RunTaskModalBody from './RunTaskModalBody';
@@ -20,6 +21,7 @@ const RunTaskModal = ({
   title,
   filterMessage = '',
 }) => {
+  const addNotification = useAddNotification();
   const [selectedIds, setSelectedIds] = useState(selectedSystems);
   const [taskName, setTaskName] = useState(name ?? title);
   const [executeTaskResult, setExecuteTaskResult] = useState();
@@ -63,21 +65,22 @@ const RunTaskModal = ({
     if (executeTaskResult) {
       if (isError(executeTaskResult)) {
         setCreateTaskError(executeTaskResult.response);
-        dispatchNotification({
+        addNotification({
           variant: 'danger',
           title: 'Error',
           description: executeTaskResult.message,
           dismissable: true,
-          autoDismiss: false,
         });
       } else {
         if (setIsRunTaskAgain) {
           setIsRunTaskAgain(true);
         }
-        EXECUTE_TASK_NOTIFICATION(
-          taskName,
-          selectedIds,
-          executeTaskResult.data.id
+        addNotification(
+          EXECUTE_TASK_NOTIFICATION(
+            taskName,
+            selectedIds,
+            executeTaskResult.data.id
+          )
         );
         setModalOpened(false);
       }

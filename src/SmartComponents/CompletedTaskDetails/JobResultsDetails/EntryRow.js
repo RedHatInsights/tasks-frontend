@@ -2,7 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import severityMap from '../TaskEntries';
 import EntryRowLabel from './EntryRowLabel';
-import { global_spacer_xs } from '@patternfly/react-tokens';
+import { t_global_spacer_xs } from '@patternfly/react-tokens';
 
 const EntryRow = ({ severity, taskConstantMapper, title }) => {
   const mappedSeverity =
@@ -15,8 +15,8 @@ const EntryRow = ({ severity, taskConstantMapper, title }) => {
       </span>
       <div
         style={{
-          marginTop: global_spacer_xs.value,
-          marginBottom: global_spacer_xs.value,
+          marginTop: t_global_spacer_xs.value,
+          marginBottom: t_global_spacer_xs.value,
         }}
       >
         <EntryRowLabel

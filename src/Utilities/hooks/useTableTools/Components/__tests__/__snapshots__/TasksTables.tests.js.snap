@@ -3,35 +3,35 @@
 exports[`TasksTables should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="pf-v5-c-toolbar  ins-c-primary-toolbar"
+    class="pf-v6-c-toolbar  ins-c-primary-toolbar"
     data-ouia-component-id="PrimaryToolbar"
-    data-ouia-component-type="PF5/Toolbar"
+    data-ouia-component-type="PF6/Toolbar"
     data-ouia-safe="true"
     id="ins-primary-data-toolbar"
   >
     <div
-      class="pf-v5-c-toolbar__content"
+      class="pf-v6-c-toolbar__content"
     >
       <div
-        class="pf-v5-c-toolbar__content-section"
+        class="pf-v6-c-toolbar__content-section"
       >
         <div
-          class="pf-v5-c-toolbar__group pf-m-filter-group ins-c-primary-toolbar__group-filter pf-m-spacer-md pf-m-space-items-lg"
+          class="pf-v6-c-toolbar__group pf-m-filter-group ins-c-primary-toolbar__group-filter pf-m-spacer-md pf-m-space-items-lg"
         >
           <div
-            class="pf-v5-c-toolbar__item ins-c-primary-toolbar__filter"
+            class="pf-v6-c-toolbar__item ins-c-primary-toolbar__filter"
           >
             <div
               class="ins-c-conditional-filter"
             >
               <span
-                class="pf-v5-c-form-control pf-m-icon ins-c-conditional-filter"
+                class="pf-v6-c-form-control pf-m-icon ins-c-conditional-filter"
               >
                 <input
                   aria-invalid="false"
                   aria-label="text input"
                   data-ouia-component-id="ConditionalFilter"
-                  data-ouia-component-type="PF5/TextInput"
+                  data-ouia-component-type="PF6/TextInput"
                   data-ouia-safe="true"
                   id="default-input"
                   type="text"
@@ -39,20 +39,20 @@ exports[`TasksTables should render correctly 1`] = `
                   widget-type="InsightsInput"
                 />
                 <span
-                  class="pf-v5-c-form-control__utilities"
+                  class="pf-v6-c-form-control__utilities"
                 >
                   <span
-                    class="pf-v5-c-form-control__icon"
+                    class="pf-v6-c-form-control__icon"
                   >
                     <span
-                      class="pf-v5-c-icon pf-m-md ins-c-search-icon"
+                      class="pf-v6-c-icon pf-m-md ins-c-search-icon"
                     >
                       <span
-                        class="pf-v5-c-icon__content"
+                        class="pf-v6-c-icon__content"
                       >
                         <svg
                           aria-hidden="true"
-                          class="pf-v5-svg"
+                          class="pf-v6-svg"
                           fill="currentColor"
                           height="1em"
                           role="img"
@@ -72,18 +72,18 @@ exports[`TasksTables should render correctly 1`] = `
           </div>
         </div>
         <div
-          class="pf-v5-c-toolbar__item ins-c-primary-toolbar__pagination"
+          class="pf-v6-c-toolbar__item ins-c-primary-toolbar__pagination"
         >
           <div
-            class="pf-v5-c-pagination pf-m-compact"
+            class="pf-v6-c-pagination"
             data-ouia-component-id="CompactPagination"
-            data-ouia-component-type="PF5/Pagination"
+            data-ouia-component-type="PF6/Pagination"
             data-ouia-safe="true"
             id="options-menu-top-pagination"
-            style="--pf-v5-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
+            style="--pf-v6-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
           >
             <div
-              class="pf-v5-c-pagination__total-items"
+              class="pf-v6-c-pagination__total-items"
             >
               <b>
                 1 - 2
@@ -94,110 +94,120 @@ exports[`TasksTables should render correctly 1`] = `
               </b>
                
             </div>
-            <button
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              class="pf-v5-c-menu-toggle pf-m-plain pf-m-text"
-              data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-1"
-              data-ouia-component-type="PF5/MenuToggle"
-              data-ouia-safe="true"
-              id="options-menu-top-toggle"
-              type="button"
+            <div
+              class="pf-v6-c-pagination__page-menu"
             >
-              <span
-                class="pf-v5-c-menu-toggle__text"
-              >
-                <b>
-                  1 - 2
-                </b>
-                 of 
-                <b>
-                  2
-                </b>
-                 
-              </span>
-              <span
-                class="pf-v5-c-menu-toggle__controls"
+              <button
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                class="pf-v6-c-menu-toggle pf-m-plain pf-m-text"
+                data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-1"
+                data-ouia-component-type="PF6/MenuToggle"
+                data-ouia-safe="true"
+                id="options-menu-top-toggle"
+                type="button"
               >
                 <span
-                  class="pf-v5-c-menu-toggle__toggle-icon"
+                  class="pf-v6-c-menu-toggle__text"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="pf-v5-svg"
-                    fill="currentColor"
-                    height="1em"
-                    role="img"
-                    viewBox="0 0 320 512"
-                    width="1em"
-                  >
-                    <path
-                      d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-                    />
-                  </svg>
+                  <b>
+                    1 - 2
+                  </b>
+                   of 
+                  <b>
+                    2
+                  </b>
+                   
                 </span>
-              </span>
-            </button>
+                <span
+                  class="pf-v6-c-menu-toggle__controls"
+                >
+                  <span
+                    class="pf-v6-c-menu-toggle__toggle-icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="pf-v6-svg"
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      viewBox="0 0 320 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </button>
+            </div>
             <nav
               aria-label="Pagination"
-              class="pf-v5-c-pagination__nav"
+              class="pf-v6-c-pagination__nav"
             >
               <div
-                class="pf-v5-c-pagination__nav-control"
+                class="pf-v6-c-pagination__nav-control"
               >
                 <button
-                  aria-disabled="true"
                   aria-label="Go to previous page"
-                  class="pf-v5-c-button pf-m-plain pf-m-disabled"
+                  class="pf-v6-c-button pf-m-plain"
                   data-action="previous"
                   data-ouia-component-id="OUIA-Generated-Button-plain-1"
-                  data-ouia-component-type="PF5/Button"
+                  data-ouia-component-type="PF6/Button"
                   data-ouia-safe="true"
                   disabled=""
                   type="button"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="pf-v5-svg"
-                    fill="currentColor"
-                    height="1em"
-                    role="img"
-                    viewBox="0 0 256 512"
-                    width="1em"
+                  <span
+                    class="pf-v6-c-button__icon"
                   >
-                    <path
-                      d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="pf-v6-svg"
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      viewBox="0 0 256 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                      />
+                    </svg>
+                  </span>
                 </button>
               </div>
               <div
-                class="pf-v5-c-pagination__nav-control"
+                class="pf-v6-c-pagination__nav-control"
               >
                 <button
-                  aria-disabled="true"
                   aria-label="Go to next page"
-                  class="pf-v5-c-button pf-m-plain pf-m-disabled"
+                  class="pf-v6-c-button pf-m-plain"
                   data-action="next"
                   data-ouia-component-id="OUIA-Generated-Button-plain-2"
-                  data-ouia-component-type="PF5/Button"
+                  data-ouia-component-type="PF6/Button"
                   data-ouia-safe="true"
                   disabled=""
                   type="button"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="pf-v5-svg"
-                    fill="currentColor"
-                    height="1em"
-                    role="img"
-                    viewBox="0 0 256 512"
-                    width="1em"
+                  <span
+                    class="pf-v6-c-button__icon"
                   >
-                    <path
-                      d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="pf-v6-svg"
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      viewBox="0 0 256 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                      />
+                    </svg>
+                  </span>
                 </button>
               </div>
             </nav>
@@ -206,56 +216,56 @@ exports[`TasksTables should render correctly 1`] = `
       </div>
     </div>
     <div
-      class="pf-v5-c-toolbar__content pf-m-hidden"
+      class="pf-v6-c-toolbar__content pf-m-hidden"
       hidden=""
     >
       <div
-        class="pf-v5-c-toolbar__group"
+        class="pf-v6-c-toolbar__group"
       />
     </div>
   </div>
   <table
     aria-label="table"
-    class="pf-v5-c-table pf-m-grid-md"
+    class="pf-v6-c-table pf-m-grid-md"
     data-ouia-component-id="ouia-table"
-    data-ouia-component-type="PF5/Table"
+    data-ouia-component-type="PF6/Table"
     data-ouia-safe="true"
     role="grid"
   >
     <thead
-      class="pf-v5-c-table__thead"
+      class="pf-v6-c-table__thead"
     >
       <tr
-        class="pf-v5-c-table__tr"
+        class="pf-v6-c-table__tr"
         data-ouia-component-id="OUIA-Generated-TableRow-1"
-        data-ouia-component-type="PF5/TableRow"
+        data-ouia-component-type="PF6/TableRow"
         data-ouia-safe="true"
       >
         <th
-          class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-25"
+          class="pf-v6-c-table__th pf-v6-c-table__sort pf-m-width-25"
           data-key="0"
           data-label="Task"
           scope="col"
           tabindex="-1"
         >
           <button
-            class="pf-v5-c-table__button"
+            class="pf-v6-c-table__button"
             type="button"
           >
             <div
-              class="pf-v5-c-table__button-content"
+              class="pf-v6-c-table__button-content"
             >
               <span
-                class="pf-v5-c-table__text"
+                class="pf-v6-c-table__text"
               >
                 Task
               </span>
               <span
-                class="pf-v5-c-table__sort-indicator"
+                class="pf-v6-c-table__sort-indicator"
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-v5-svg"
+                  class="pf-v6-svg"
                   fill="currentColor"
                   height="1em"
                   role="img"
@@ -271,30 +281,30 @@ exports[`TasksTables should render correctly 1`] = `
           </button>
         </th>
         <th
-          class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-10"
+          class="pf-v6-c-table__th pf-v6-c-table__sort pf-m-width-10"
           data-key="1"
           data-label="Systems"
           scope="col"
           tabindex="-1"
         >
           <button
-            class="pf-v5-c-table__button"
+            class="pf-v6-c-table__button"
             type="button"
           >
             <div
-              class="pf-v5-c-table__button-content"
+              class="pf-v6-c-table__button-content"
             >
               <span
-                class="pf-v5-c-table__text"
+                class="pf-v6-c-table__text"
               >
                 Systems
               </span>
               <span
-                class="pf-v5-c-table__sort-indicator"
+                class="pf-v6-c-table__sort-indicator"
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-v5-svg"
+                  class="pf-v6-svg"
                   fill="currentColor"
                   height="1em"
                   role="img"
@@ -310,30 +320,30 @@ exports[`TasksTables should render correctly 1`] = `
           </button>
         </th>
         <th
-          class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-10"
+          class="pf-v6-c-table__th pf-v6-c-table__sort pf-m-width-10"
           data-key="2"
           data-label="Status"
           scope="col"
           tabindex="-1"
         >
           <button
-            class="pf-v5-c-table__button"
+            class="pf-v6-c-table__button"
             type="button"
           >
             <div
-              class="pf-v5-c-table__button-content"
+              class="pf-v6-c-table__button-content"
             >
               <span
-                class="pf-v5-c-table__text"
+                class="pf-v6-c-table__text"
               >
                 Status
               </span>
               <span
-                class="pf-v5-c-table__sort-indicator"
+                class="pf-v6-c-table__sort-indicator"
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-v5-svg"
+                  class="pf-v6-svg"
                   fill="currentColor"
                   height="1em"
                   role="img"
@@ -350,30 +360,30 @@ exports[`TasksTables should render correctly 1`] = `
         </th>
         <th
           aria-sort="ascending"
-          class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-selected pf-m-width-20"
+          class="pf-v6-c-table__th pf-v6-c-table__sort pf-m-selected pf-m-width-20"
           data-key="3"
           data-label="Run date/time"
           scope="col"
           tabindex="-1"
         >
           <button
-            class="pf-v5-c-table__button"
+            class="pf-v6-c-table__button"
             type="button"
           >
             <div
-              class="pf-v5-c-table__button-content"
+              class="pf-v6-c-table__button-content"
             >
               <span
-                class="pf-v5-c-table__text"
+                class="pf-v6-c-table__text"
               >
                 Run date/time
               </span>
               <span
-                class="pf-v5-c-table__sort-indicator"
+                class="pf-v6-c-table__sort-indicator"
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-v5-svg"
+                  class="pf-v6-svg"
                   fill="currentColor"
                   height="1em"
                   role="img"
@@ -391,17 +401,17 @@ exports[`TasksTables should render correctly 1`] = `
       </tr>
     </thead>
     <tbody
-      class="pf-v5-c-table__tbody"
+      class="pf-v6-c-table__tbody"
       role="rowgroup"
     >
       <tr
-        class="pf-v5-c-table__tr"
+        class="pf-v6-c-table__tr"
         data-ouia-component-id="OUIA-Generated-TableRow-2"
-        data-ouia-component-type="PF5/TableRow"
+        data-ouia-component-type="PF6/TableRow"
         data-ouia-safe="true"
       >
         <td
-          class="pf-v5-c-table__td pf-m-width-25"
+          class="pf-v6-c-table__td pf-m-width-25"
           data-key="0"
           data-label="Task"
           tabindex="-1"
@@ -413,7 +423,7 @@ exports[`TasksTables should render correctly 1`] = `
           </a>
         </td>
         <td
-          class="pf-v5-c-table__td pf-m-width-10"
+          class="pf-v6-c-table__td pf-m-width-10"
           data-key="1"
           data-label="Systems"
           tabindex="-1"
@@ -421,36 +431,36 @@ exports[`TasksTables should render correctly 1`] = `
           10
         </td>
         <td
-          class="pf-v5-c-table__td pf-m-width-10"
+          class="pf-v6-c-table__td pf-m-width-10"
           data-key="2"
           data-label="Status"
           tabindex="-1"
         >
           <dl
-            class="pf-v5-c-description-list"
+            class="pf-v6-c-description-list"
           >
             <div
-              class="pf-v5-c-description-list__group"
+              class="pf-v6-c-description-list__group"
             >
               <dt
-                class="pf-v5-c-description-list__term"
+                class="pf-v6-c-description-list__term"
               >
                 <span
-                  class="pf-v5-c-description-list__text"
+                  class="pf-v6-c-description-list__text"
                 >
                   <span
                     style="display: flex; align-items: center; margin-right: 0.25rem;"
                   >
                     <span
-                      class="pf-v5-c-icon"
+                      class="pf-v6-c-icon"
                       style="margin-right: 0.25rem;"
                     >
                       <span
-                        class="pf-v5-c-icon__content pf-m-success"
+                        class="pf-v6-c-icon__content pf-m-success"
                       >
                         <svg
                           aria-hidden="true"
-                          class="pf-v5-svg"
+                          class="pf-v6-svg"
                           fill="currentColor"
                           height="1em"
                           role="img"
@@ -471,7 +481,7 @@ exports[`TasksTables should render correctly 1`] = `
           </dl>
         </td>
         <td
-          class="pf-v5-c-table__td pf-m-width-20"
+          class="pf-v6-c-table__td pf-m-width-20"
           data-key="3"
           data-label="Run date/time"
           tabindex="-1"
@@ -480,13 +490,13 @@ exports[`TasksTables should render correctly 1`] = `
         </td>
       </tr>
       <tr
-        class="pf-v5-c-table__tr"
+        class="pf-v6-c-table__tr"
         data-ouia-component-id="OUIA-Generated-TableRow-3"
-        data-ouia-component-type="PF5/TableRow"
+        data-ouia-component-type="PF6/TableRow"
         data-ouia-safe="true"
       >
         <td
-          class="pf-v5-c-table__td pf-m-width-25"
+          class="pf-v6-c-table__td pf-m-width-25"
           data-key="0"
           data-label="Task"
           tabindex="-1"
@@ -498,7 +508,7 @@ exports[`TasksTables should render correctly 1`] = `
           </a>
         </td>
         <td
-          class="pf-v5-c-table__td pf-m-width-10"
+          class="pf-v6-c-table__td pf-m-width-10"
           data-key="1"
           data-label="Systems"
           tabindex="-1"
@@ -506,25 +516,25 @@ exports[`TasksTables should render correctly 1`] = `
           5
         </td>
         <td
-          class="pf-v5-c-table__td pf-m-width-10"
+          class="pf-v6-c-table__td pf-m-width-10"
           data-key="2"
           data-label="Status"
           tabindex="-1"
         >
           <dl
-            class="pf-v5-c-description-list"
+            class="pf-v6-c-description-list"
           >
             <div
-              class="pf-v5-c-description-list__group"
+              class="pf-v6-c-description-list__group"
             >
               <dt
-                class="pf-v5-c-description-list__term"
+                class="pf-v6-c-description-list__term"
               >
                 <div
                   style="display: contents;"
                 >
                   <span
-                    class="pf-v5-c-description-list__text pf-m-help-text"
+                    class="pf-v6-c-description-list__text pf-m-help-text"
                     role="button"
                     tabindex="0"
                     type="button"
@@ -533,15 +543,15 @@ exports[`TasksTables should render correctly 1`] = `
                       style="display: flex; align-items: center; margin-right: 0.25rem;"
                     >
                       <span
-                        class="pf-v5-c-icon"
+                        class="pf-v6-c-icon"
                         style="margin-right: 0.25rem;"
                       >
                         <span
-                          class="pf-v5-c-icon__content pf-m-info"
+                          class="pf-v6-c-icon__content pf-m-info"
                         >
                           <svg
                             aria-hidden="true"
-                            class="pf-v5-svg"
+                            class="pf-v6-svg"
                             fill="currentColor"
                             height="1em"
                             role="img"
@@ -563,7 +573,7 @@ exports[`TasksTables should render correctly 1`] = `
           </dl>
         </td>
         <td
-          class="pf-v5-c-table__td pf-m-width-20"
+          class="pf-v6-c-table__td pf-m-width-20"
           data-key="3"
           data-label="Run date/time"
           tabindex="-1"
@@ -574,149 +584,159 @@ exports[`TasksTables should render correctly 1`] = `
     </tbody>
   </table>
   <div
-    class="pf-v5-c-toolbar ins-c-table__toolbar ins-m-footer"
+    class="pf-v6-c-toolbar ins-c-table__toolbar ins-m-footer"
     data-ouia-component-id="OUIA-Generated-RHI/TableToolbar-true-1"
     data-ouia-component-type="RHI/TableToolbar"
     data-ouia-safe="true"
     id="pf-random-id-0"
   >
     <div
-      class="pf-v5-c-toolbar__content"
+      class="pf-v6-c-toolbar__content"
     >
       <div
-        class="pf-v5-c-toolbar__content-section"
+        class="pf-v6-c-toolbar__content-section"
       >
         <div
-          class="pf-v5-c-toolbar__item pf-m-align-self-center"
+          class="pf-v6-c-toolbar__item pf-m-align-self-center"
         />
         <div
-          class="pf-v5-c-toolbar__item pf-m-pagination pf-m-align-right"
+          class="pf-v6-c-toolbar__item pf-m-pagination pf-m-align-end"
         >
           <div
-            class="pf-v5-c-pagination pf-m-bottom"
+            class="pf-v6-c-pagination pf-m-bottom"
             data-ouia-component-id="OUIA-Generated-Pagination-bottom-1"
-            data-ouia-component-type="PF5/Pagination"
+            data-ouia-component-type="PF6/Pagination"
             data-ouia-safe="true"
             id="options-menu-bottom-pagination"
-            style="--pf-v5-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
+            style="--pf-v6-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
           >
-            <button
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              class="pf-v5-c-menu-toggle pf-m-plain pf-m-text"
-              data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-2"
-              data-ouia-component-type="PF5/MenuToggle"
-              data-ouia-safe="true"
-              id="options-menu-bottom-toggle"
-              type="button"
+            <div
+              class="pf-v6-c-pagination__page-menu"
             >
-              <span
-                class="pf-v5-c-menu-toggle__text"
-              >
-                <b>
-                  1 - 2
-                </b>
-                 of 
-                <b>
-                  2
-                </b>
-                 
-              </span>
-              <span
-                class="pf-v5-c-menu-toggle__controls"
+              <button
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                class="pf-v6-c-menu-toggle pf-m-plain pf-m-text"
+                data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-2"
+                data-ouia-component-type="PF6/MenuToggle"
+                data-ouia-safe="true"
+                id="options-menu-bottom-toggle"
+                type="button"
               >
                 <span
-                  class="pf-v5-c-menu-toggle__toggle-icon"
+                  class="pf-v6-c-menu-toggle__text"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="pf-v5-svg"
-                    fill="currentColor"
-                    height="1em"
-                    role="img"
-                    viewBox="0 0 320 512"
-                    width="1em"
-                  >
-                    <path
-                      d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-                    />
-                  </svg>
+                  <b>
+                    1 - 2
+                  </b>
+                   of 
+                  <b>
+                    2
+                  </b>
+                   
                 </span>
-              </span>
-            </button>
+                <span
+                  class="pf-v6-c-menu-toggle__controls"
+                >
+                  <span
+                    class="pf-v6-c-menu-toggle__toggle-icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="pf-v6-svg"
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      viewBox="0 0 320 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </button>
+            </div>
             <nav
               aria-label="Pagination"
-              class="pf-v5-c-pagination__nav"
+              class="pf-v6-c-pagination__nav"
             >
               <div
-                class="pf-v5-c-pagination__nav-control pf-m-first"
+                class="pf-v6-c-pagination__nav-control pf-m-first"
               >
                 <button
-                  aria-disabled="true"
                   aria-label="Go to first page"
-                  class="pf-v5-c-button pf-m-plain pf-m-disabled"
+                  class="pf-v6-c-button pf-m-plain"
                   data-action="first"
                   data-ouia-component-id="OUIA-Generated-Button-plain-3"
-                  data-ouia-component-type="PF5/Button"
+                  data-ouia-component-type="PF6/Button"
                   data-ouia-safe="true"
                   disabled=""
                   type="button"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="pf-v5-svg"
-                    fill="currentColor"
-                    height="1em"
-                    role="img"
-                    viewBox="0 0 448 512"
-                    width="1em"
+                  <span
+                    class="pf-v6-c-button__icon"
                   >
-                    <path
-                      d="M223.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L319.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L393.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34zm-192 34l136 136c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9L127.9 256l96.4-96.4c9.4-9.4 9.4-24.6 0-33.9L201.7 103c-9.4-9.4-24.6-9.4-33.9 0l-136 136c-9.5 9.4-9.5 24.6-.1 34z"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="pf-v6-svg"
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      viewBox="0 0 448 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M223.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L319.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L393.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34zm-192 34l136 136c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9L127.9 256l96.4-96.4c9.4-9.4 9.4-24.6 0-33.9L201.7 103c-9.4-9.4-24.6-9.4-33.9 0l-136 136c-9.5 9.4-9.5 24.6-.1 34z"
+                      />
+                    </svg>
+                  </span>
                 </button>
               </div>
               <div
-                class="pf-v5-c-pagination__nav-control"
+                class="pf-v6-c-pagination__nav-control"
               >
                 <button
-                  aria-disabled="true"
                   aria-label="Go to previous page"
-                  class="pf-v5-c-button pf-m-plain pf-m-disabled"
+                  class="pf-v6-c-button pf-m-plain"
                   data-action="previous"
                   data-ouia-component-id="OUIA-Generated-Button-plain-4"
-                  data-ouia-component-type="PF5/Button"
+                  data-ouia-component-type="PF6/Button"
                   data-ouia-safe="true"
                   disabled=""
                   type="button"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="pf-v5-svg"
-                    fill="currentColor"
-                    height="1em"
-                    role="img"
-                    viewBox="0 0 256 512"
-                    width="1em"
+                  <span
+                    class="pf-v6-c-button__icon"
                   >
-                    <path
-                      d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="pf-v6-svg"
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      viewBox="0 0 256 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                      />
+                    </svg>
+                  </span>
                 </button>
               </div>
               <div
-                class="pf-v5-c-pagination__nav-page-select"
+                class="pf-v6-c-pagination__nav-page-select"
               >
                 <span
-                  class="pf-v5-c-form-control pf-m-disabled"
+                  class="pf-v6-c-form-control pf-m-disabled"
                 >
                   <input
                     aria-invalid="false"
                     aria-label="Current page"
                     data-ouia-component-id="OUIA-Generated-TextInputBase-2"
-                    data-ouia-component-type="PF5/TextInput"
+                    data-ouia-component-type="PF6/TextInput"
                     data-ouia-safe="true"
                     disabled=""
                     max="1"
@@ -732,61 +752,67 @@ exports[`TasksTables should render correctly 1`] = `
                 </span>
               </div>
               <div
-                class="pf-v5-c-pagination__nav-control"
+                class="pf-v6-c-pagination__nav-control"
               >
                 <button
-                  aria-disabled="true"
                   aria-label="Go to next page"
-                  class="pf-v5-c-button pf-m-plain pf-m-disabled"
+                  class="pf-v6-c-button pf-m-plain"
                   data-action="next"
                   data-ouia-component-id="OUIA-Generated-Button-plain-5"
-                  data-ouia-component-type="PF5/Button"
+                  data-ouia-component-type="PF6/Button"
                   data-ouia-safe="true"
                   disabled=""
                   type="button"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="pf-v5-svg"
-                    fill="currentColor"
-                    height="1em"
-                    role="img"
-                    viewBox="0 0 256 512"
-                    width="1em"
+                  <span
+                    class="pf-v6-c-button__icon"
                   >
-                    <path
-                      d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="pf-v6-svg"
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      viewBox="0 0 256 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                      />
+                    </svg>
+                  </span>
                 </button>
               </div>
               <div
-                class="pf-v5-c-pagination__nav-control pf-m-last"
+                class="pf-v6-c-pagination__nav-control pf-m-last"
               >
                 <button
-                  aria-disabled="true"
                   aria-label="Go to last page"
-                  class="pf-v5-c-button pf-m-plain pf-m-disabled"
+                  class="pf-v6-c-button pf-m-plain"
                   data-action="last"
                   data-ouia-component-id="OUIA-Generated-Button-plain-6"
-                  data-ouia-component-type="PF5/Button"
+                  data-ouia-component-type="PF6/Button"
                   data-ouia-safe="true"
                   disabled=""
                   type="button"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="pf-v5-svg"
-                    fill="currentColor"
-                    height="1em"
-                    role="img"
-                    viewBox="0 0 448 512"
-                    width="1em"
+                  <span
+                    class="pf-v6-c-button__icon"
                   >
-                    <path
-                      d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="pf-v6-svg"
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      viewBox="0 0 448 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"
+                      />
+                    </svg>
+                  </span>
                 </button>
               </div>
             </nav>
@@ -795,11 +821,11 @@ exports[`TasksTables should render correctly 1`] = `
       </div>
     </div>
     <div
-      class="pf-v5-c-toolbar__content pf-m-hidden"
+      class="pf-v6-c-toolbar__content pf-m-hidden"
       hidden=""
     >
       <div
-        class="pf-v5-c-toolbar__group"
+        class="pf-v6-c-toolbar__group"
       />
     </div>
   </div>
@@ -809,35 +835,35 @@ exports[`TasksTables should render correctly 1`] = `
 exports[`TasksTables should render empty 1`] = `
 <DocumentFragment>
   <div
-    class="pf-v5-c-toolbar  ins-c-primary-toolbar"
+    class="pf-v6-c-toolbar  ins-c-primary-toolbar"
     data-ouia-component-id="PrimaryToolbar"
-    data-ouia-component-type="PF5/Toolbar"
+    data-ouia-component-type="PF6/Toolbar"
     data-ouia-safe="true"
     id="ins-primary-data-toolbar"
   >
     <div
-      class="pf-v5-c-toolbar__content"
+      class="pf-v6-c-toolbar__content"
     >
       <div
-        class="pf-v5-c-toolbar__content-section"
+        class="pf-v6-c-toolbar__content-section"
       >
         <div
-          class="pf-v5-c-toolbar__group pf-m-filter-group ins-c-primary-toolbar__group-filter pf-m-spacer-md pf-m-space-items-lg"
+          class="pf-v6-c-toolbar__group pf-m-filter-group ins-c-primary-toolbar__group-filter pf-m-spacer-md pf-m-space-items-lg"
         >
           <div
-            class="pf-v5-c-toolbar__item ins-c-primary-toolbar__filter"
+            class="pf-v6-c-toolbar__item ins-c-primary-toolbar__filter"
           >
             <div
               class="ins-c-conditional-filter"
             >
               <span
-                class="pf-v5-c-form-control pf-m-icon ins-c-conditional-filter"
+                class="pf-v6-c-form-control pf-m-icon ins-c-conditional-filter"
               >
                 <input
                   aria-invalid="false"
                   aria-label="text input"
                   data-ouia-component-id="ConditionalFilter"
-                  data-ouia-component-type="PF5/TextInput"
+                  data-ouia-component-type="PF6/TextInput"
                   data-ouia-safe="true"
                   id="default-input"
                   type="text"
@@ -845,20 +871,20 @@ exports[`TasksTables should render empty 1`] = `
                   widget-type="InsightsInput"
                 />
                 <span
-                  class="pf-v5-c-form-control__utilities"
+                  class="pf-v6-c-form-control__utilities"
                 >
                   <span
-                    class="pf-v5-c-form-control__icon"
+                    class="pf-v6-c-form-control__icon"
                   >
                     <span
-                      class="pf-v5-c-icon pf-m-md ins-c-search-icon"
+                      class="pf-v6-c-icon pf-m-md ins-c-search-icon"
                     >
                       <span
-                        class="pf-v5-c-icon__content"
+                        class="pf-v6-c-icon__content"
                       >
                         <svg
                           aria-hidden="true"
-                          class="pf-v5-svg"
+                          class="pf-v6-svg"
                           fill="currentColor"
                           height="1em"
                           role="img"
@@ -878,18 +904,18 @@ exports[`TasksTables should render empty 1`] = `
           </div>
         </div>
         <div
-          class="pf-v5-c-toolbar__item ins-c-primary-toolbar__pagination"
+          class="pf-v6-c-toolbar__item ins-c-primary-toolbar__pagination"
         >
           <div
-            class="pf-v5-c-pagination pf-m-compact"
+            class="pf-v6-c-pagination"
             data-ouia-component-id="CompactPagination"
-            data-ouia-component-type="PF5/Pagination"
+            data-ouia-component-type="PF6/Pagination"
             data-ouia-safe="true"
             id="options-menu-top-pagination"
-            style="--pf-v5-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
+            style="--pf-v6-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
           >
             <div
-              class="pf-v5-c-pagination__total-items"
+              class="pf-v6-c-pagination__total-items"
             >
               <b>
                 0 - 0
@@ -900,110 +926,120 @@ exports[`TasksTables should render empty 1`] = `
               </b>
                
             </div>
-            <button
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              class="pf-v5-c-menu-toggle pf-m-plain pf-m-text"
-              data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-3"
-              data-ouia-component-type="PF5/MenuToggle"
-              data-ouia-safe="true"
-              id="options-menu-top-toggle"
-              type="button"
+            <div
+              class="pf-v6-c-pagination__page-menu"
             >
-              <span
-                class="pf-v5-c-menu-toggle__text"
-              >
-                <b>
-                  0 - 0
-                </b>
-                 of 
-                <b>
-                  0
-                </b>
-                 
-              </span>
-              <span
-                class="pf-v5-c-menu-toggle__controls"
+              <button
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                class="pf-v6-c-menu-toggle pf-m-plain pf-m-text"
+                data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-3"
+                data-ouia-component-type="PF6/MenuToggle"
+                data-ouia-safe="true"
+                id="options-menu-top-toggle"
+                type="button"
               >
                 <span
-                  class="pf-v5-c-menu-toggle__toggle-icon"
+                  class="pf-v6-c-menu-toggle__text"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="pf-v5-svg"
-                    fill="currentColor"
-                    height="1em"
-                    role="img"
-                    viewBox="0 0 320 512"
-                    width="1em"
-                  >
-                    <path
-                      d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-                    />
-                  </svg>
+                  <b>
+                    0 - 0
+                  </b>
+                   of 
+                  <b>
+                    0
+                  </b>
+                   
                 </span>
-              </span>
-            </button>
+                <span
+                  class="pf-v6-c-menu-toggle__controls"
+                >
+                  <span
+                    class="pf-v6-c-menu-toggle__toggle-icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="pf-v6-svg"
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      viewBox="0 0 320 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </button>
+            </div>
             <nav
               aria-label="Pagination"
-              class="pf-v5-c-pagination__nav"
+              class="pf-v6-c-pagination__nav"
             >
               <div
-                class="pf-v5-c-pagination__nav-control"
+                class="pf-v6-c-pagination__nav-control"
               >
                 <button
-                  aria-disabled="true"
                   aria-label="Go to previous page"
-                  class="pf-v5-c-button pf-m-plain pf-m-disabled"
+                  class="pf-v6-c-button pf-m-plain"
                   data-action="previous"
                   data-ouia-component-id="OUIA-Generated-Button-plain-7"
-                  data-ouia-component-type="PF5/Button"
+                  data-ouia-component-type="PF6/Button"
                   data-ouia-safe="true"
                   disabled=""
                   type="button"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="pf-v5-svg"
-                    fill="currentColor"
-                    height="1em"
-                    role="img"
-                    viewBox="0 0 256 512"
-                    width="1em"
+                  <span
+                    class="pf-v6-c-button__icon"
                   >
-                    <path
-                      d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="pf-v6-svg"
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      viewBox="0 0 256 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                      />
+                    </svg>
+                  </span>
                 </button>
               </div>
               <div
-                class="pf-v5-c-pagination__nav-control"
+                class="pf-v6-c-pagination__nav-control"
               >
                 <button
-                  aria-disabled="true"
                   aria-label="Go to next page"
-                  class="pf-v5-c-button pf-m-plain pf-m-disabled"
+                  class="pf-v6-c-button pf-m-plain"
                   data-action="next"
                   data-ouia-component-id="OUIA-Generated-Button-plain-8"
-                  data-ouia-component-type="PF5/Button"
+                  data-ouia-component-type="PF6/Button"
                   data-ouia-safe="true"
                   disabled=""
                   type="button"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="pf-v5-svg"
-                    fill="currentColor"
-                    height="1em"
-                    role="img"
-                    viewBox="0 0 256 512"
-                    width="1em"
+                  <span
+                    class="pf-v6-c-button__icon"
                   >
-                    <path
-                      d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="pf-v6-svg"
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      viewBox="0 0 256 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                      />
+                    </svg>
+                  </span>
                 </button>
               </div>
             </nav>
@@ -1012,56 +1048,56 @@ exports[`TasksTables should render empty 1`] = `
       </div>
     </div>
     <div
-      class="pf-v5-c-toolbar__content pf-m-hidden"
+      class="pf-v6-c-toolbar__content pf-m-hidden"
       hidden=""
     >
       <div
-        class="pf-v5-c-toolbar__group"
+        class="pf-v6-c-toolbar__group"
       />
     </div>
   </div>
   <table
     aria-label="table"
-    class="pf-v5-c-table pf-m-grid-md"
+    class="pf-v6-c-table pf-m-grid-md"
     data-ouia-component-id="ouia-table"
-    data-ouia-component-type="PF5/Table"
+    data-ouia-component-type="PF6/Table"
     data-ouia-safe="true"
     role="grid"
   >
     <thead
-      class="pf-v5-c-table__thead"
+      class="pf-v6-c-table__thead"
     >
       <tr
-        class="pf-v5-c-table__tr"
+        class="pf-v6-c-table__tr"
         data-ouia-component-id="OUIA-Generated-TableRow-4"
-        data-ouia-component-type="PF5/TableRow"
+        data-ouia-component-type="PF6/TableRow"
         data-ouia-safe="true"
       >
         <th
-          class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-25"
+          class="pf-v6-c-table__th pf-v6-c-table__sort pf-m-width-25"
           data-key="0"
           data-label="Task"
           scope="col"
           tabindex="-1"
         >
           <button
-            class="pf-v5-c-table__button"
+            class="pf-v6-c-table__button"
             type="button"
           >
             <div
-              class="pf-v5-c-table__button-content"
+              class="pf-v6-c-table__button-content"
             >
               <span
-                class="pf-v5-c-table__text"
+                class="pf-v6-c-table__text"
               >
                 Task
               </span>
               <span
-                class="pf-v5-c-table__sort-indicator"
+                class="pf-v6-c-table__sort-indicator"
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-v5-svg"
+                  class="pf-v6-svg"
                   fill="currentColor"
                   height="1em"
                   role="img"
@@ -1077,30 +1113,30 @@ exports[`TasksTables should render empty 1`] = `
           </button>
         </th>
         <th
-          class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-10"
+          class="pf-v6-c-table__th pf-v6-c-table__sort pf-m-width-10"
           data-key="1"
           data-label="Systems"
           scope="col"
           tabindex="-1"
         >
           <button
-            class="pf-v5-c-table__button"
+            class="pf-v6-c-table__button"
             type="button"
           >
             <div
-              class="pf-v5-c-table__button-content"
+              class="pf-v6-c-table__button-content"
             >
               <span
-                class="pf-v5-c-table__text"
+                class="pf-v6-c-table__text"
               >
                 Systems
               </span>
               <span
-                class="pf-v5-c-table__sort-indicator"
+                class="pf-v6-c-table__sort-indicator"
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-v5-svg"
+                  class="pf-v6-svg"
                   fill="currentColor"
                   height="1em"
                   role="img"
@@ -1116,30 +1152,30 @@ exports[`TasksTables should render empty 1`] = `
           </button>
         </th>
         <th
-          class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-10"
+          class="pf-v6-c-table__th pf-v6-c-table__sort pf-m-width-10"
           data-key="2"
           data-label="Status"
           scope="col"
           tabindex="-1"
         >
           <button
-            class="pf-v5-c-table__button"
+            class="pf-v6-c-table__button"
             type="button"
           >
             <div
-              class="pf-v5-c-table__button-content"
+              class="pf-v6-c-table__button-content"
             >
               <span
-                class="pf-v5-c-table__text"
+                class="pf-v6-c-table__text"
               >
                 Status
               </span>
               <span
-                class="pf-v5-c-table__sort-indicator"
+                class="pf-v6-c-table__sort-indicator"
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-v5-svg"
+                  class="pf-v6-svg"
                   fill="currentColor"
                   height="1em"
                   role="img"
@@ -1155,30 +1191,30 @@ exports[`TasksTables should render empty 1`] = `
           </button>
         </th>
         <th
-          class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-20"
+          class="pf-v6-c-table__th pf-v6-c-table__sort pf-m-width-20"
           data-key="3"
           data-label="Run date/time"
           scope="col"
           tabindex="-1"
         >
           <button
-            class="pf-v5-c-table__button"
+            class="pf-v6-c-table__button"
             type="button"
           >
             <div
-              class="pf-v5-c-table__button-content"
+              class="pf-v6-c-table__button-content"
             >
               <span
-                class="pf-v5-c-table__text"
+                class="pf-v6-c-table__text"
               >
                 Run date/time
               </span>
               <span
-                class="pf-v5-c-table__sort-indicator"
+                class="pf-v6-c-table__sort-indicator"
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-v5-svg"
+                  class="pf-v6-svg"
                   fill="currentColor"
                   height="1em"
                   role="img"
@@ -1196,17 +1232,17 @@ exports[`TasksTables should render empty 1`] = `
       </tr>
     </thead>
     <tbody
-      class="pf-v5-c-table__tbody"
+      class="pf-v6-c-table__tbody"
       role="rowgroup"
     >
       <tr
-        class="pf-v5-c-table__tr"
+        class="pf-v6-c-table__tr"
         data-ouia-component-id="OUIA-Generated-TableRow-5"
-        data-ouia-component-type="PF5/TableRow"
+        data-ouia-component-type="PF6/TableRow"
         data-ouia-safe="true"
       >
         <td
-          class="pf-v5-c-table__td pf-m-width-25"
+          class="pf-v6-c-table__td pf-m-width-25"
           colspan="100"
           data-key="0"
           data-label="Task"
@@ -1217,29 +1253,29 @@ exports[`TasksTables should render empty 1`] = `
           >
              
             <div
-              class="pf-v5-l-bullseye"
+              class="pf-v6-l-bullseye"
             >
               <div
-                class="pf-v5-c-empty-state"
+                class="pf-v6-c-empty-state"
               >
                 <div
-                  class="pf-v5-c-empty-state__content"
+                  class="pf-v6-c-empty-state__content"
                 >
                   <div
-                    class="pf-v5-c-empty-state__header"
+                    class="pf-v6-c-empty-state__header"
                   >
                     <div
-                      class="pf-v5-c-empty-state__title"
+                      class="pf-v6-c-empty-state__title"
                     >
                       <h5
-                        class="pf-v5-c-empty-state__title-text"
+                        class="pf-v6-c-empty-state__title-text"
                       >
                         No matching items found
                       </h5>
                     </div>
                   </div>
                   <div
-                    class="pf-v5-c-empty-state__body"
+                    class="pf-v6-c-empty-state__body"
                   >
                     To continue, edit your filter settings and search again.
                   </div>
@@ -1252,149 +1288,159 @@ exports[`TasksTables should render empty 1`] = `
     </tbody>
   </table>
   <div
-    class="pf-v5-c-toolbar ins-c-table__toolbar ins-m-footer"
+    class="pf-v6-c-toolbar ins-c-table__toolbar ins-m-footer"
     data-ouia-component-id="OUIA-Generated-RHI/TableToolbar-true-2"
     data-ouia-component-type="RHI/TableToolbar"
     data-ouia-safe="true"
     id="pf-random-id-1"
   >
     <div
-      class="pf-v5-c-toolbar__content"
+      class="pf-v6-c-toolbar__content"
     >
       <div
-        class="pf-v5-c-toolbar__content-section"
+        class="pf-v6-c-toolbar__content-section"
       >
         <div
-          class="pf-v5-c-toolbar__item pf-m-align-self-center"
+          class="pf-v6-c-toolbar__item pf-m-align-self-center"
         />
         <div
-          class="pf-v5-c-toolbar__item pf-m-pagination pf-m-align-right"
+          class="pf-v6-c-toolbar__item pf-m-pagination pf-m-align-end"
         >
           <div
-            class="pf-v5-c-pagination pf-m-bottom"
+            class="pf-v6-c-pagination pf-m-bottom"
             data-ouia-component-id="OUIA-Generated-Pagination-bottom-2"
-            data-ouia-component-type="PF5/Pagination"
+            data-ouia-component-type="PF6/Pagination"
             data-ouia-safe="true"
             id="options-menu-bottom-pagination"
-            style="--pf-v5-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
+            style="--pf-v6-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
           >
-            <button
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              class="pf-v5-c-menu-toggle pf-m-plain pf-m-text"
-              data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-4"
-              data-ouia-component-type="PF5/MenuToggle"
-              data-ouia-safe="true"
-              id="options-menu-bottom-toggle"
-              type="button"
+            <div
+              class="pf-v6-c-pagination__page-menu"
             >
-              <span
-                class="pf-v5-c-menu-toggle__text"
-              >
-                <b>
-                  0 - 0
-                </b>
-                 of 
-                <b>
-                  0
-                </b>
-                 
-              </span>
-              <span
-                class="pf-v5-c-menu-toggle__controls"
+              <button
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                class="pf-v6-c-menu-toggle pf-m-plain pf-m-text"
+                data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-4"
+                data-ouia-component-type="PF6/MenuToggle"
+                data-ouia-safe="true"
+                id="options-menu-bottom-toggle"
+                type="button"
               >
                 <span
-                  class="pf-v5-c-menu-toggle__toggle-icon"
+                  class="pf-v6-c-menu-toggle__text"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="pf-v5-svg"
-                    fill="currentColor"
-                    height="1em"
-                    role="img"
-                    viewBox="0 0 320 512"
-                    width="1em"
-                  >
-                    <path
-                      d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-                    />
-                  </svg>
+                  <b>
+                    0 - 0
+                  </b>
+                   of 
+                  <b>
+                    0
+                  </b>
+                   
                 </span>
-              </span>
-            </button>
+                <span
+                  class="pf-v6-c-menu-toggle__controls"
+                >
+                  <span
+                    class="pf-v6-c-menu-toggle__toggle-icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="pf-v6-svg"
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      viewBox="0 0 320 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </button>
+            </div>
             <nav
               aria-label="Pagination"
-              class="pf-v5-c-pagination__nav"
+              class="pf-v6-c-pagination__nav"
             >
               <div
-                class="pf-v5-c-pagination__nav-control pf-m-first"
+                class="pf-v6-c-pagination__nav-control pf-m-first"
               >
                 <button
-                  aria-disabled="true"
                   aria-label="Go to first page"
-                  class="pf-v5-c-button pf-m-plain pf-m-disabled"
+                  class="pf-v6-c-button pf-m-plain"
                   data-action="first"
                   data-ouia-component-id="OUIA-Generated-Button-plain-9"
-                  data-ouia-component-type="PF5/Button"
+                  data-ouia-component-type="PF6/Button"
                   data-ouia-safe="true"
                   disabled=""
                   type="button"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="pf-v5-svg"
-                    fill="currentColor"
-                    height="1em"
-                    role="img"
-                    viewBox="0 0 448 512"
-                    width="1em"
+                  <span
+                    class="pf-v6-c-button__icon"
                   >
-                    <path
-                      d="M223.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L319.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L393.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34zm-192 34l136 136c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9L127.9 256l96.4-96.4c9.4-9.4 9.4-24.6 0-33.9L201.7 103c-9.4-9.4-24.6-9.4-33.9 0l-136 136c-9.5 9.4-9.5 24.6-.1 34z"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="pf-v6-svg"
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      viewBox="0 0 448 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M223.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L319.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L393.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34zm-192 34l136 136c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9L127.9 256l96.4-96.4c9.4-9.4 9.4-24.6 0-33.9L201.7 103c-9.4-9.4-24.6-9.4-33.9 0l-136 136c-9.5 9.4-9.5 24.6-.1 34z"
+                      />
+                    </svg>
+                  </span>
                 </button>
               </div>
               <div
-                class="pf-v5-c-pagination__nav-control"
+                class="pf-v6-c-pagination__nav-control"
               >
                 <button
-                  aria-disabled="true"
                   aria-label="Go to previous page"
-                  class="pf-v5-c-button pf-m-plain pf-m-disabled"
+                  class="pf-v6-c-button pf-m-plain"
                   data-action="previous"
                   data-ouia-component-id="OUIA-Generated-Button-plain-10"
-                  data-ouia-component-type="PF5/Button"
+                  data-ouia-component-type="PF6/Button"
                   data-ouia-safe="true"
                   disabled=""
                   type="button"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="pf-v5-svg"
-                    fill="currentColor"
-                    height="1em"
-                    role="img"
-                    viewBox="0 0 256 512"
-                    width="1em"
+                  <span
+                    class="pf-v6-c-button__icon"
                   >
-                    <path
-                      d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="pf-v6-svg"
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      viewBox="0 0 256 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                      />
+                    </svg>
+                  </span>
                 </button>
               </div>
               <div
-                class="pf-v5-c-pagination__nav-page-select"
+                class="pf-v6-c-pagination__nav-page-select"
               >
                 <span
-                  class="pf-v5-c-form-control pf-m-disabled"
+                  class="pf-v6-c-form-control pf-m-disabled"
                 >
                   <input
                     aria-invalid="false"
                     aria-label="Current page"
                     data-ouia-component-id="OUIA-Generated-TextInputBase-4"
-                    data-ouia-component-type="PF5/TextInput"
+                    data-ouia-component-type="PF6/TextInput"
                     data-ouia-safe="true"
                     disabled=""
                     max="0"
@@ -1410,61 +1456,67 @@ exports[`TasksTables should render empty 1`] = `
                 </span>
               </div>
               <div
-                class="pf-v5-c-pagination__nav-control"
+                class="pf-v6-c-pagination__nav-control"
               >
                 <button
-                  aria-disabled="true"
                   aria-label="Go to next page"
-                  class="pf-v5-c-button pf-m-plain pf-m-disabled"
+                  class="pf-v6-c-button pf-m-plain"
                   data-action="next"
                   data-ouia-component-id="OUIA-Generated-Button-plain-11"
-                  data-ouia-component-type="PF5/Button"
+                  data-ouia-component-type="PF6/Button"
                   data-ouia-safe="true"
                   disabled=""
                   type="button"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="pf-v5-svg"
-                    fill="currentColor"
-                    height="1em"
-                    role="img"
-                    viewBox="0 0 256 512"
-                    width="1em"
+                  <span
+                    class="pf-v6-c-button__icon"
                   >
-                    <path
-                      d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="pf-v6-svg"
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      viewBox="0 0 256 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                      />
+                    </svg>
+                  </span>
                 </button>
               </div>
               <div
-                class="pf-v5-c-pagination__nav-control pf-m-last"
+                class="pf-v6-c-pagination__nav-control pf-m-last"
               >
                 <button
-                  aria-disabled="true"
                   aria-label="Go to last page"
-                  class="pf-v5-c-button pf-m-plain pf-m-disabled"
+                  class="pf-v6-c-button pf-m-plain"
                   data-action="last"
                   data-ouia-component-id="OUIA-Generated-Button-plain-12"
-                  data-ouia-component-type="PF5/Button"
+                  data-ouia-component-type="PF6/Button"
                   data-ouia-safe="true"
                   disabled=""
                   type="button"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="pf-v5-svg"
-                    fill="currentColor"
-                    height="1em"
-                    role="img"
-                    viewBox="0 0 448 512"
-                    width="1em"
+                  <span
+                    class="pf-v6-c-button__icon"
                   >
-                    <path
-                      d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="pf-v6-svg"
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      viewBox="0 0 448 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"
+                      />
+                    </svg>
+                  </span>
                 </button>
               </div>
             </nav>
@@ -1473,11 +1525,11 @@ exports[`TasksTables should render empty 1`] = `
       </div>
     </div>
     <div
-      class="pf-v5-c-toolbar__content pf-m-hidden"
+      class="pf-v6-c-toolbar__content pf-m-hidden"
       hidden=""
     >
       <div
-        class="pf-v5-c-toolbar__group"
+        class="pf-v6-c-toolbar__group"
       />
     </div>
   </div>

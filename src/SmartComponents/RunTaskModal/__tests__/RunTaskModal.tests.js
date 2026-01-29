@@ -9,7 +9,6 @@ import { systemsMock } from '../../SystemTable/__tests__/__fixtures__/SystemTabl
 import RunTaskModal from '../RunTaskModal';
 import userEvent from '@testing-library/user-event';
 
-jest.mock('../../../Utilities/Dispatcher');
 jest.mock('../../../../api');
 jest.mock('../../SystemTable/hooks', () => {
   const systemsMock = [

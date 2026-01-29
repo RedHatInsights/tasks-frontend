@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
+import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 import { ExclamationCircleIcon, WrenchIcon } from '@patternfly/react-icons';
 import columns, { exportableColumns } from './Columns';
 import { nameFilter, statusFilter } from './Filters';
@@ -31,6 +33,7 @@ import RefreshFooterContent from '../RefreshFooterContent';
 import usePromiseQueue from '../../Utilities/hooks/usePromiseQueue';
 
 const ActivityTable = () => {
+  const addNotification = useAddNotification();
   const [activities, setActivities] = useState(LOADING_ACTIVITIES_TABLE);
   const [activityDetails, setActivityDetails] = useState(TASK_LOADING_CONTENT);
   const [tableLoading, setTableLoading] = useState(true);
@@ -52,12 +55,17 @@ const ActivityTable = () => {
   const fetchTaskDetails = async (id) => {
     setTaskError();
     setRunTaskModalOpened(true);
-    const fetchedTaskDetails = await fetchTask(id, setTaskError);
+    const fetchedTaskDetails = await fetchTask(
+      id,
+      setTaskError,
+      addNotification
+    );
 
     if (Object.keys(fetchedTaskDetails).length > 0) {
       const fetchedTaskJobs = await fetchTaskJobs(
         fetchedTaskDetails,
-        setTaskError
+        setTaskError,
+        addNotification
       );
 
       setSelectedSystems(getSelectedSystems(fetchedTaskJobs));
@@ -82,7 +90,7 @@ const ActivityTable = () => {
     );
 
     if (isError(result[0])) {
-      createNotification(result[0]);
+      createNotification(result[0], addNotification);
       setError(result[0]);
     } else {
       results = result.map(({ data }) => data).flat();
@@ -126,7 +134,7 @@ const ActivityTable = () => {
     setLastUpdated(new Date());
     const task = await fetchExecutedTasks(`?limit=1&offset=0`);
     if (isError(task)) {
-      createNotification(task);
+      createNotification(task, addNotification);
       setError(task);
       setActivities([]);
     } else if (task.data.length === 0) {
@@ -210,11 +218,11 @@ const ActivityTable = () => {
               filterConfig: [...nameFilter, ...statusFilter],
             }}
             options={{
-              ...TASKS_TABLE_DEFAULTS,
+              ...TASKS_TABLE_DEFAULTS(addNotification),
               ...COMPLETED_TASKS_TABLE_DEFAULTS,
               actionResolver,
               exportable: {
-                ...TASKS_TABLE_DEFAULTS.exportable,
+                ...TASKS_TABLE_DEFAULTS(addNotification).exportable,
                 columns: exportableColumns,
               },
             }}

@@ -1,6 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import { Button, Text, TextContent } from '@patternfly/react-core';
+import { Button, Content } from '@patternfly/react-core';
 import ReactMarkdown from 'react-markdown';
 import {
   AVAILABLE_TASKS_ROOT,
@@ -19,9 +19,9 @@ const scriptOrPlaybook = (slug) => {
 
 const TaskDescription = ({ description, slug, isTaskCard }) => {
   return (
-    <TextContent>
-      {!isTaskCard && <Text component="h4">Task description</Text>}
-      <Text>
+    <Content>
+      {!isTaskCard && <Content component="h4">Task description</Content>}
+      <Content component="p">
         <ReactMarkdown
           components={{
             a(props) {
@@ -39,8 +39,8 @@ const TaskDescription = ({ description, slug, isTaskCard }) => {
         >
           {description}
         </ReactMarkdown>
-      </Text>
-      <Text>
+      </Content>
+      <Content component="p">
         <Button
           variant="link"
           component="a"
@@ -55,8 +55,8 @@ const TaskDescription = ({ description, slug, isTaskCard }) => {
         {!isTaskCard && Object.keys(SLUG_TO_QUICKSTART).includes(slug) && (
           <QuickstartButton slug={slug} />
         )}
-      </Text>
-    </TextContent>
+      </Content>
+    </Content>
   );
 };
 

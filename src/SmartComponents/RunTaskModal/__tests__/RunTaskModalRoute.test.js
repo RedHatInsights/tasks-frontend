@@ -2,7 +2,8 @@ import React from 'react';
 import RunTaskModalRoute from '../RunTaskModalRoute';
 import { fetchAvailableTask } from '../../../../api';
 import { render, screen, waitFor } from '@testing-library/react';
-import { dispatchNotification } from '../../../Utilities/Dispatcher';
+// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
+import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 
 // eslint-disable-next-line react/display-name
 jest.mock('../RunTaskModal', () => () => <span>RunTaskModal</span>);
@@ -13,9 +14,17 @@ jest.mock('react-router-dom', () => ({
     slug: 'test-slug',
   }),
 }));
-jest.mock('../../../Utilities/Dispatcher');
+jest.mock('@redhat-cloud-services/frontend-components-notifications', () => ({
+  useAddNotification: jest.fn(),
+}));
 
 describe('RunTaskModalRoute', () => {
+  const mockAddNotification = jest.fn();
+
+  beforeEach(() => {
+    useAddNotification.mockReturnValue(mockAddNotification);
+  });
+
   it('requests api and renders the modal', async () => {
     render(<RunTaskModalRoute />);
 
@@ -35,7 +44,7 @@ describe('RunTaskModalRoute', () => {
     render(<RunTaskModalRoute />);
 
     await waitFor(() => {
-      expect(dispatchNotification).toBeCalledWith(
+      expect(mockAddNotification).toBeCalledWith(
         expect.objectContaining({ description: 'Test error' })
       );
     });

@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { init, RegistryContext } from './store';
 import App from './App';
+import NotificationsProvider from '@redhat-cloud-services/frontend-components-notifications/NotificationsProvider';
 
 const Tasks = () => {
   const registry = init();
@@ -9,7 +10,9 @@ const Tasks = () => {
   return (
     <RegistryContext.Provider value={{ getRegistry: () => registry }}>
       <Provider store={registry.getStore()}>
-        <App />
+        <NotificationsProvider>
+          <App />
+        </NotificationsProvider>
       </Provider>
     </RegistryContext.Provider>
   );

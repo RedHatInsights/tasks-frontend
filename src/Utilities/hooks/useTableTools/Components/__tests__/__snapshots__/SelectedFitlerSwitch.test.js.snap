@@ -3,31 +3,26 @@
 exports[`SelectedFilterSwitch expect to render without error 1`] = `
 <DocumentFragment>
   <label
-    class="pf-v5-c-switch"
+    class="pf-v6-c-switch"
     data-ouia-component-id="OUIA-Generated-Switch-1"
-    data-ouia-component-type="PF5/Switch"
+    data-ouia-component-type="PF6/Switch"
     data-ouia-safe="true"
     for="selected-filter-swtich"
   >
     <input
       aria-label="selected-filter-swtich"
       checked=""
-      class="pf-v5-c-switch__input"
+      class="pf-v6-c-switch__input"
       id="selected-filter-swtich"
+      role="switch"
       type="checkbox"
     />
     <span
-      class="pf-v5-c-switch__toggle"
+      class="pf-v6-c-switch__toggle"
     />
     <span
       aria-hidden="true"
-      class="pf-v5-c-switch__label pf-m-on"
-    >
-      Selected only
-    </span>
-    <span
-      aria-hidden="true"
-      class="pf-v5-c-switch__label pf-m-off"
+      class="pf-v6-c-switch__label"
     >
       Selected only
     </span>
@@ -38,30 +33,25 @@ exports[`SelectedFilterSwitch expect to render without error 1`] = `
 exports[`SelectedFilterSwitch expect to render without error when isChecked is false 1`] = `
 <DocumentFragment>
   <label
-    class="pf-v5-c-switch"
+    class="pf-v6-c-switch"
     data-ouia-component-id="OUIA-Generated-Switch-2"
-    data-ouia-component-type="PF5/Switch"
+    data-ouia-component-type="PF6/Switch"
     data-ouia-safe="true"
     for="selected-filter-swtich"
   >
     <input
       aria-label="selected-filter-swtich"
-      class="pf-v5-c-switch__input"
+      class="pf-v6-c-switch__input"
       id="selected-filter-swtich"
+      role="switch"
       type="checkbox"
     />
     <span
-      class="pf-v5-c-switch__toggle"
+      class="pf-v6-c-switch__toggle"
     />
     <span
       aria-hidden="true"
-      class="pf-v5-c-switch__label pf-m-on"
-    >
-      Selected only
-    </span>
-    <span
-      aria-hidden="true"
-      class="pf-v5-c-switch__label pf-m-off"
+      class="pf-v6-c-switch__label"
     >
       Selected only
     </span>

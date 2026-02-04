@@ -1,4 +1,3 @@
-import { dispatchNotification } from '../Utilities/Dispatcher';
 import { fetchExecutedTask, fetchExecutedTaskJobs } from '../../api';
 import {
   JOB_FAILED_MESSAGE,
@@ -22,33 +21,32 @@ export const isError = (result) => {
   return result?.response?.status && statusString[0] !== '2';
 };
 
-export const createNotification = (result) => {
-  dispatchNotification({
+export const createNotification = (result, addNotification) => {
+  addNotification({
     variant: 'danger',
     title: 'Error',
     description: result.message,
     dismissable: true,
-    autoDismiss: false,
   });
 };
 
-export const fetchTask = async (id, setError) => {
+export const fetchTask = async (id, setError, addNotification) => {
   let taskDetails = await fetchExecutedTask(id);
 
   if (isError(taskDetails)) {
-    createNotification(taskDetails);
+    createNotification(taskDetails, addNotification);
     setError(taskDetails);
   } else {
     return taskDetails;
   }
 };
 
-export const fetchTaskJobs = async (taskDetails, setError) => {
+export const fetchTaskJobs = async (taskDetails, setError, addNotification) => {
   let path = `?limit=1000&offset=0`;
   const taskJobs = await fetchExecutedTaskJobs(taskDetails.id, path);
 
   if (isError(taskJobs)) {
-    createNotification(taskJobs);
+    createNotification(taskJobs, addNotification);
     setError(taskJobs);
   } else {
     taskDetails.alerts_count =

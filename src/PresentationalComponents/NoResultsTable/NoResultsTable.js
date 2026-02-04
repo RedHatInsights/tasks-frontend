@@ -5,18 +5,17 @@ import {
   EmptyState,
   EmptyStateBody,
   EmptyStateVariant,
-  EmptyStateHeader,
 } from '@patternfly/react-core';
 import EmptyTable from '@redhat-cloud-services/frontend-components/EmptyTable';
 
 const NoResultsTable = ({ type }) => (
   <EmptyTable>
     <Bullseye>
-      <EmptyState variant={EmptyStateVariant.full}>
-        <EmptyStateHeader
-          titleText={`No matching ${type} found`}
-          headingLevel="h5"
-        />
+      <EmptyState
+        headingLevel="h5"
+        titleText={`No matching ${type} found`}
+        variant={EmptyStateVariant.full}
+      >
         <EmptyStateBody>
           To continue, edit your filter settings and search again.
         </EmptyStateBody>

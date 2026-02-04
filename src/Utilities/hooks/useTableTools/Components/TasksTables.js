@@ -53,7 +53,7 @@ const TasksTables = ({
             <ToolbarItem alignSelf="center">
               {tablePropsRest.footerContent}
             </ToolbarItem>
-            <ToolbarItem variant="pagination" align={{ default: 'alignRight' }}>
+            <ToolbarItem variant="pagination" align={{ default: 'alignEnd' }}>
               <Pagination
                 variant={PaginationVariant.bottom}
                 {...toolbarProps.pagination}

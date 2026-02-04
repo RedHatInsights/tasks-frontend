@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal } from '@patternfly/react-core';
+import { Button } from '@patternfly/react-core';
 import propTypes from 'prop-types';
 import {
   //CANCEL_TASK_BODY,
@@ -8,8 +8,10 @@ import {
   DELETE_TASK_ERROR,
 } from '../../constants';
 import { /*cancelExecutedTask,*/ deleteExecutedTask } from '../../../api';
-import { dispatchNotification } from '../../Utilities/Dispatcher';
+// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
+import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 import { isError } from '../../SmartComponents/completedTaskDetailsHelpers';
+import { Modal } from '@patternfly/react-core/deprecated';
 
 const DeleteCancelTaskModal = ({
   id,
@@ -21,13 +23,14 @@ const DeleteCancelTaskModal = ({
   //status,
   title,
 }) => {
+  const addNotification = useAddNotification();
+
   const createNotification = (message) => {
-    dispatchNotification({
+    addNotification({
       variant: 'danger',
       title: message(title),
       description: 'Please try again',
       dismissable: true,
-      autoDismiss: false,
     });
   };
 

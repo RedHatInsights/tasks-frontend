@@ -1,6 +1,8 @@
 import './CompletedTaskDetails.scss';
 import React, { useState, useEffect, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
+// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
+import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 import TasksTables from '../../Utilities/hooks/useTableTools/Components/TasksTables';
 import {
   PageHeader,
@@ -12,9 +14,8 @@ import {
   Card,
   Flex,
   FlexItem,
-  Text,
-  TextContent,
-  TextVariants,
+  Content,
+  ContentVariants,
 } from '@patternfly/react-core';
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
 import columns, {
@@ -62,6 +63,7 @@ import { prepareItems } from '../../Utilities/hooks/useTableTools/reportParser';
 
 const CompletedTaskDetails = () => {
   const { id } = useParams();
+  const addNotification = useAddNotification();
   const [completedTaskDetails, setCompletedTaskDetails] =
     useState(LOADING_INFO_PANEL);
   const [completedTaskJobs, setCompletedTaskJobs] =
@@ -90,10 +92,14 @@ const CompletedTaskDetails = () => {
   const fetchData = async () => {
     setLastUpdated(new Date());
     setTableLoading(true);
-    const fetchedTaskDetails = await fetchTask(id, setError);
+    const fetchedTaskDetails = await fetchTask(id, setError, addNotification);
 
     if (Object.keys(fetchedTaskDetails).length) {
-      const fetchedTaskJobs = await fetchTaskJobs(fetchedTaskDetails, setError);
+      const fetchedTaskJobs = await fetchTaskJobs(
+        fetchedTaskDetails,
+        setError,
+        addNotification
+      );
 
       if (fetchedTaskJobs.length) {
         if (fetchedTaskJobs.some((job) => job.status === 'Running')) {
@@ -247,11 +253,11 @@ const CompletedTaskDetails = () => {
                   <PageHeaderTitle title={completedTaskDetails.name} />
                   {completedTaskDetails.name !==
                     completedTaskDetails.task_title && (
-                    <TextContent>
-                      <Text component={TextVariants.small}>
+                    <Content>
+                      <Content component={ContentVariants.small}>
                         {completedTaskDetails.task_title}
-                      </Text>
-                    </TextContent>
+                      </Content>
+                    </Content>
                   )}
                 </FlexItem>
                 <FlexItem>
@@ -275,7 +281,7 @@ const CompletedTaskDetails = () => {
               />
             </Flex>
           </PageHeader>
-          <section className="pf-v5-l-page__main-section pf-v5-c-page__main-section">
+          <section className="pf-v6-l-page__main-section pf-v6-c-page__main-section">
             <Card>
               <Flex
                 className="completed-task-details-info-border"
@@ -307,9 +313,9 @@ const CompletedTaskDetails = () => {
                     items={completedTaskJobs}
                     filters={buildFilterConfig()}
                     options={{
-                      ...TASKS_TABLE_DEFAULTS,
+                      ...TASKS_TABLE_DEFAULTS(addNotification),
                       exportable: {
-                        ...TASKS_TABLE_DEFAULTS.exportable,
+                        ...TASKS_TABLE_DEFAULTS(addNotification).exportable,
                         columns: exportableColumns,
                         extraExportColumns: [
                           ...(hasPlainReport ? [ReportColumn] : []),

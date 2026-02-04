@@ -2,7 +2,6 @@ import React from 'react';
 import moment from 'moment';
 import InsightsLink from '@redhat-cloud-services/frontend-components/InsightsLink';
 import { PageHeaderTitle } from '@redhat-cloud-services/frontend-components/PageHeader';
-import { dispatchNotification } from './Utilities/Dispatcher';
 import { getTimeDiff, renderRunDateTime } from './Utilities/helpers';
 import TasksPopover from './PresentationalComponents/TasksPopover/TasksPopover';
 import CompletedTaskDetailsKebab from './SmartComponents/CompletedTaskDetailsKebab/CompletedTaskDetailsKebab';
@@ -197,23 +196,23 @@ export const COMPLETED_TASKS_TABLE_DEFAULTS = {
   },
 };
 
-export const TASKS_TABLE_DEFAULTS = {
+export const TASKS_TABLE_DEFAULTS = (addNotification) => ({
   exportable: {
     onStart: () => {
-      dispatchNotification({
+      addNotification({
         variant: 'info',
         title: 'Preparing export',
         description: 'Once complete, your download will start automatically.',
       });
     },
     onComplete: () => {
-      dispatchNotification({
+      addNotification({
         variant: 'success',
         title: 'Downloading export',
       });
     },
   },
-};
+});
 
 /**
  * Loading constants
@@ -293,22 +292,20 @@ export const LOADING_ACTIVITIES_TABLE = [
 ];
 
 /*eslint-disable react/no-unescaped-entities*/
-export const EXECUTE_TASK_NOTIFICATION = (title, ids, task_id) => {
-  dispatchNotification({
-    variant: 'info',
-    title: 'Task running',
-    description: (
-      <span>
-        Your task "{title}" is running on {ids.length} system
-        {ids.length > 1 ? 's' : ''}.
-        <br />
-        <br />
-        <InsightsLink to={`/executed/${task_id}`}>View progress</InsightsLink>
-      </span>
-    ),
-    dismissable: true,
-  });
-};
+export const EXECUTE_TASK_NOTIFICATION = (title, ids, task_id) => ({
+  variant: 'info',
+  title: 'Task running',
+  description: (
+    <span>
+      Your task "{title}" is running on {ids.length} system
+      {ids.length > 1 ? 's' : ''}.
+      <br />
+      <br />
+      <InsightsLink to={`/executed/${task_id}`}>View progress</InsightsLink>
+    </span>
+  ),
+  dismissable: true,
+});
 /*eslint-enable react/no-unescaped-entities*/
 
 export const DELETE_TASK_BODY = (startTime, title) => {

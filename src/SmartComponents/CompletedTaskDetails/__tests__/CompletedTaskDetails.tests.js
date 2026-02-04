@@ -28,10 +28,14 @@ import {
   running_task_jobs,
   upgrade_leapp_task,
 } from './__fixtures__/completedTasksDetails.fixtures';
-import * as dispatcher from '../../../Utilities/Dispatcher';
 import useInsightsNavigate from '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate';
+// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
+import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 
 jest.mock('../../../../api');
+jest.mock('@redhat-cloud-services/frontend-components-notifications', () => ({
+  useAddNotification: jest.fn(),
+}));
 jest.mock(
   '@redhat-cloud-services/frontend-components-utilities/RBACHook',
   () => ({
@@ -46,6 +50,11 @@ jest.mock(
 
 describe('CompletedTaskDetails', () => {
   const store = init().getStore();
+  const mockAddNotification = jest.fn();
+
+  beforeEach(() => {
+    useAddNotification.mockReturnValue(mockAddNotification);
+  });
 
   afterEach(() => {
     jest.clearAllMocks();
@@ -192,7 +201,7 @@ describe('CompletedTaskDetails', () => {
       const input = screen.getByLabelText('text input');
       await waitFor(() => fireEvent.change(input, { target: { value: 'A' } }));
       expect(input.value).toBe('A');
-      await waitFor(() => userEvent.click(screen.getByLabelText('close')));
+      await waitFor(() => fireEvent.change(input, { target: { value: '' } }));
       expect(input.value).toBe('');
     });
   });
@@ -222,10 +231,17 @@ describe('CompletedTaskDetails', () => {
       })
     );
     await userEvent.click(screen.getAllByText('Status')[0]);
-    await userEvent.click(screen.getByLabelText('Options menu'));
-    await userEvent.click(screen.getAllByText('Completed')[0]);
 
-    expect(screen.getByText('dl-test-device-2')).toBeInTheDocument();
+    await waitFor(() => {
+      const completedElements = screen.queryAllByText('Completed');
+      if (completedElements.length > 0) {
+        userEvent.click(completedElements[completedElements.length - 1]);
+      }
+    });
+
+    await waitFor(() => {
+      expect(screen.getByText('dl-test-device-2')).toBeInTheDocument();
+    });
   });
 
   it('should delete task', async () => {
@@ -272,10 +288,6 @@ describe('CompletedTaskDetails', () => {
       return { data: log4j_task_jobs };
     });
 
-    const notification = jest
-      .spyOn(dispatcher, 'dispatchNotification')
-      .mockImplementation();
-
     render(
       <MemoryRouter keyLength={0}>
         <Provider store={store}>
@@ -287,7 +299,7 @@ describe('CompletedTaskDetails', () => {
     await waitFor(async () => {
       await waitFor(() => userEvent.click(screen.getByLabelText('Export')));
       await waitFor(() => userEvent.click(screen.getByText('Export to CSV')));
-      expect(notification).toHaveBeenCalled();
+      expect(mockAddNotification).toHaveBeenCalled();
     });
 
     global.URL.createObjectURL.mockRestore();

@@ -1,9 +1,8 @@
 import {
   Checkbox,
   FormGroup,
-  Text,
-  TextContent,
-  TextVariants,
+  Content,
+  ContentVariants,
 } from '@patternfly/react-core';
 import React, { useState } from 'react';
 import propTypes from 'prop-types';
@@ -19,12 +18,12 @@ const ParameterCheckboxGroup = ({
 
   return (
     <FormGroup role="group" fieldId={parameter.key}>
-      <TextContent>
-        <Text component={TextVariants.h4}>{parameter.title}</Text>
-        <Text component={TextVariants.p}>
+      <Content>
+        <Content component={ContentVariants.h4}>{parameter.title}</Content>
+        <Content component={ContentVariants.p}>
           {customDescription || parameter.description}
-        </Text>
-      </TextContent>
+        </Content>
+      </Content>
       <div style={{ paddingTop: '0.5rem', paddingLeft: '1rem' }}>
         {parameter.values
           .filter((val) => !['None', ''].includes(val)) // remove vals that indicate nothing was selected

@@ -3,7 +3,14 @@ import { buildFilterSortString } from './helpers';
 
 export const useGetEntities = (
   onComplete,
-  { selectedIds, setFilterSortString, slug }
+  {
+    selectedIds,
+    setFilterSortString,
+    slug,
+    onError,
+    setFetchError,
+    addNotification,
+  }
 ) => {
   return async (_items, config) => {
     const {
@@ -30,6 +37,23 @@ export const useGetEntities = (
     );
     const fetchedEntities = await fetchSystems(filterSortString, slug);
 
+    // Handle 400 error response
+    if (fetchedEntities?.response?.status === 400) {
+      addNotification &&
+        addNotification({
+          variant: 'danger',
+          title: 'There was an error fetching systems',
+          description: fetchedEntities.message || 'Failed to fetch systems',
+          dismissable: true,
+        });
+      fetchedEntities.data = [];
+      fetchedEntities.meta = { count: 0 };
+      onError && onError('Error fetching systems with given filters');
+      setFetchError && setFetchError(true);
+    } else {
+      onError && onError(null);
+      setFetchError && setFetchError(false);
+    }
     const {
       data,
       meta: { count },

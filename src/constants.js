@@ -17,6 +17,7 @@ import {
 } from '@redhat-cloud-services/frontend-components/Skeleton';
 import RunTaskButton from './PresentationalComponents/RunTaskButton/RunTaskButton';
 import { createLink } from './helpers';
+import { SearchIcon, ExclamationCircleIcon } from '@patternfly/react-icons';
 
 /**
  * String constants
@@ -85,6 +86,24 @@ export const TASK_STATUS = {
   COMPLETED_WITH_ERRORS: 'Completed With Errors',
   FAILURE: 'Failure',
   CANCELLED: 'Cancelled',
+};
+
+export const NO_RESULTS_REASONS = {
+  NO_MATCH: 'no_match',
+  ERROR: 'error',
+};
+
+export const NO_RESULTS_MAP = {
+  [NO_RESULTS_REASONS.NO_MATCH]: {
+    icon: SearchIcon,
+    titleText: 'No matching systems found',
+    bodyText: 'To continue, edit your filter settings and search again.',
+  },
+  [NO_RESULTS_REASONS.ERROR]: {
+    icon: ExclamationCircleIcon,
+    titleText: 'Error encountered when fetching systems.',
+    bodyText: 'To continue, try resetting the filters and search again.',
+  },
 };
 
 /**

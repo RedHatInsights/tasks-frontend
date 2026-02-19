@@ -102,4 +102,25 @@ describe('SystemTable', () => {
       expect.anything() // ref
     );
   });
+
+  it('should pass onError and setFetchError callbacks to useGetEntities', () => {
+    const mockUseGetEntities = require('../hooks').useGetEntities;
+
+    render(
+      <Provider store={mockStore()}>
+        <SystemTable selectedIds={[]} slug="test-task" />
+      </Provider>
+    );
+
+    // Verify that useGetEntities was called with callbacks
+    expect(mockUseGetEntities).toHaveBeenCalled();
+    const callArgs =
+      mockUseGetEntities.mock.calls[mockUseGetEntities.mock.calls.length - 1];
+    const callbacks = callArgs[1];
+
+    expect(callbacks).toHaveProperty('onError');
+    expect(callbacks).toHaveProperty('setFetchError');
+    expect(typeof callbacks.onError).toBe('function');
+    expect(typeof callbacks.setFetchError).toBe('function');
+  });
 });

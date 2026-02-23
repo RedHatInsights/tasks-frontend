@@ -7,7 +7,7 @@ import {
 import {
   INSIGHTS_DOCUMENTATION,
   DOC_VERSION,
-  HOST_COMMUNICATION_DOC_PATH,
+  REMEDIATIONS_GUIDE,
   RHC_DOC,
   SATELLITE_DOC,
 } from '../../constants';
@@ -50,7 +50,7 @@ export const TasksPagePopoverFooter = () => {
   return (
     <div>
       <a
-        href={`${INSIGHTS_DOCUMENTATION}${DOC_VERSION}${HOST_COMMUNICATION_DOC_PATH}${RHC_DOC}`}
+        href={`${INSIGHTS_DOCUMENTATION}${DOC_VERSION}${REMEDIATIONS_GUIDE}${RHC_DOC}`}
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -63,7 +63,7 @@ export const TasksPagePopoverFooter = () => {
       </a>
       <br />
       <a
-        href={`${INSIGHTS_DOCUMENTATION}${DOC_VERSION}${HOST_COMMUNICATION_DOC_PATH}${SATELLITE_DOC}`}
+        href={`${INSIGHTS_DOCUMENTATION}${DOC_VERSION}${REMEDIATIONS_GUIDE}${SATELLITE_DOC}`}
         target="_blank"
         rel="noopener noreferrer"
       >

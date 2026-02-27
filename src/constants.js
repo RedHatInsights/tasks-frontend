@@ -398,3 +398,18 @@ export const TAINTED_KERNEL_MODULE_CUSTOM_DESCRIPTION = (
     command line.
   </React.Fragment>
 );
+
+/**
+ * Permission constants for RBAC and Kessel
+ */
+export const PERMISSIONS = {
+  tasks: 'tasks:*:*',
+  inventoryAll: 'inventory:hosts:*',
+  inventoryRead: 'inventory:hosts:read',
+};
+
+export const KESSEL_RELATIONS = {
+  tasks: 'view',
+  inventoryAll: 'view',
+  inventoryRead: 'view',
+};

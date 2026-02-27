@@ -1,4 +1,4 @@
-import { renderHook, waitFor } from '@testing-library/react';
+import { renderHook } from '@testing-library/react';
 import {
   useRbacV1Permissions,
   useKesselPermissions,
@@ -257,11 +257,7 @@ describe('useKesselPermissions', () => {
     });
 
     useSelfAccessCheck.mockReturnValue({
-      data: [
-        { allowed: false },
-        { allowed: true },
-        { allowed: false },
-      ],
+      data: [{ allowed: false }, { allowed: true }, { allowed: false }],
       loading: false,
       error: null,
     });

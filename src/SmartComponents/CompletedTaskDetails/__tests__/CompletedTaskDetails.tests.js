@@ -433,5 +433,4 @@ describe('CompletedTaskDetails', () => {
       screen.getByRole('menuitem', { name: /View system in Inventory/i })
     ).toBeDisabled();
   });
-
 });

@@ -5,11 +5,11 @@ import { Provider } from 'react-redux';
 import { init } from '../../../store';
 
 import CompletedTaskDetails from '../CompletedTaskDetails';
+import { fetchExecutedTask, fetchExecutedTaskJobs } from '../../../../api';
 import {
-  fetchExecutedTask,
-  fetchExecutedTaskJobs,
-} from '../../../../api';
-import { log4j_task, log4j_task_jobs } from './__fixtures__/completedTasksDetails.fixtures';
+  log4j_task,
+  log4j_task_jobs,
+} from './__fixtures__/completedTasksDetails.fixtures';
 import useInsightsNavigate from '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate';
 // eslint-disable-next-line rulesdir/disallow-fec-relative-imports
 import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';

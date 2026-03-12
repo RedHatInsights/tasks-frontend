@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import propTypes from 'prop-types';
 import {
@@ -20,6 +20,10 @@ import { generateFilter } from '@redhat-cloud-services/frontend-components-utili
 import usePromiseQueue from '../../Utilities/hooks/usePromiseQueue';
 import { NoCentOsEmptyState } from './NoCentOsEmptyState';
 import { CENTOS_CONVERSION_SLUGS } from '../AvailableTasks/QuickstartButton';
+import NoResultsTable from '../../PresentationalComponents/NoResultsTable/NoResultsTable';
+import { NO_RESULTS_REASONS } from '../../constants';
+// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
+import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 
 const SystemTable = ({
   bulkSelectIds,
@@ -32,10 +36,13 @@ const SystemTable = ({
   const [items, setItems] = useState([]);
   const [total, setTotal] = useState(0);
   const [eligibility, setEligibility] = useState(eligibilityFilterItems[0]);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [fetchError, setFetchError] = useState(false);
   const inventory = useRef(null);
   const { getRegistry } = useContext(RegistryContext);
   const dispatch = useDispatch();
   const { resolve } = usePromiseQueue();
+  const addNotification = useAddNotification();
 
   const tagsFilter = useSelector(
     ({ globalFilterState }) => globalFilterState?.tagsFilter
@@ -75,6 +82,9 @@ const SystemTable = ({
     selectedIds,
     setFilterSortString,
     slug,
+    onError: setErrorMessage,
+    setFetchError,
+    addNotification,
   });
 
   const mergedColumns = (defaultColumns) =>
@@ -175,6 +185,24 @@ const SystemTable = ({
     return bulkSelectItems;
   };
 
+  const noResultsTable = useMemo(() => {
+    if (errorMessage) {
+      return (
+        <NoResultsTable
+          type="systems"
+          titleText={errorMessage}
+          reason={
+            fetchError ? NO_RESULTS_REASONS.ERROR : NO_RESULTS_REASONS.NO_MATCH
+          }
+        />
+      );
+    }
+    if (CENTOS_CONVERSION_SLUGS.includes(slug)) {
+      return <NoCentOsEmptyState slug={slug} />;
+    }
+    return undefined;
+  }, [errorMessage, fetchError, slug]);
+
   return (
     <InventoryTable
       isFullView
@@ -242,9 +270,7 @@ const SystemTable = ({
       showCentosVersions={true}
       filterConfig={{ items: [eligibilityFilter] }}
       activeFiltersConfig={activeFiltersConfig}
-      {...(CENTOS_CONVERSION_SLUGS.includes(slug)
-        ? { noSystemsTable: <NoCentOsEmptyState slug={slug} /> }
-        : {})}
+      {...(noResultsTable && { noSystemsTable: noResultsTable })}
     />
   );
 };

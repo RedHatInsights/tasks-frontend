@@ -398,3 +398,24 @@ export const TAINTED_KERNEL_MODULE_CUSTOM_DESCRIPTION = (
     command line.
   </React.Fragment>
 );
+
+/**
+ * Permission constants for RBAC and Kessel
+ *
+ * RBAC uses format: application:resource:action
+ * Kessel uses format: application_resource_action (underscore-delimited)
+ *
+ * Pattern based on insights-advisor-frontend implementation:
+ * - RBAC: advisor:exports:read → Kessel: advisor_exports_view
+ */
+export const PERMISSIONS = {
+  tasks: 'tasks:*:*',
+  inventoryAll: 'inventory:hosts:*',
+  inventoryRead: 'inventory:hosts:read',
+};
+
+export const KESSEL_RELATIONS = {
+  tasks: 'tasks_all_execute',
+  inventoryAll: 'inventory_hosts_all',
+  inventoryRead: 'inventory_hosts_view',
+};

@@ -50,7 +50,12 @@ import {
   hasDetails,
 } from '../completedTaskDetailsHelpers';
 import { NotAuthorized } from '@redhat-cloud-services/frontend-components/NotAuthorized';
-import { usePermissions } from '@redhat-cloud-services/frontend-components-utilities/RBACHook';
+import {
+  useRbacV1Permissions,
+  useKesselPermissions,
+} from '../../Utilities/usePermissionCheck';
+import { KESSEL_RELATIONS } from '../../constants';
+import useFeatureFlag from '../../Utilities/useFeatureFlag';
 import JobResultsDetails from './JobResultsDetails/JobResultsDetails';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 import useInsightsNavigate from '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate';
@@ -82,10 +87,19 @@ const CompletedTaskDetails = () => {
   const [jobId, setJobId] = useState();
   const [jobName, setJobName] = useState();
   const chrome = useChrome();
-  const { hasAccess, isLoading } = usePermissions('inventory', [
+  const isKesselEnabled = useFeatureFlag('tasks.kessel_enabled');
+
+  const rbacResult = useRbacV1Permissions('inventory', [
     'inventory:hosts:*',
     'inventory:hosts:read',
   ]);
+  const kesselResult = useKesselPermissions([
+    KESSEL_RELATIONS.inventoryAll,
+    KESSEL_RELATIONS.inventoryRead,
+  ]);
+
+  const { hasAccess, isLoading } = isKesselEnabled ? kesselResult : rbacResult;
+
   const navigate = useInsightsNavigate();
   const navigateToInventory = useInsightsNavigate('inventory');
 

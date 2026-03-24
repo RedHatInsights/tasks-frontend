@@ -1,37 +1,34 @@
 import { useState, useEffect } from 'react';
-import { useAxiosWithPlatformInterceptors } from '@redhat-cloud-services/frontend-components-utilities/interceptors';
+import { fetchDefaultWorkspace } from '@project-kessel/react-kessel-access-check';
+
+let defaultWorkspacePromise = null;
+
+export const resetWorkspaceCache = () => {
+  defaultWorkspacePromise = null;
+};
 
 export const useDefaultWorkspace = () => {
-  const axios = useAxiosWithPlatformInterceptors();
-  const [workspaceId, setWorkspaceId] = useState(null);
+  const [defaultWorkspace, setDefaultWorkspace] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const baseUrl = window.location.origin;
 
   useEffect(() => {
-    const fetchDefaultWorkspaceId = async () => {
-      try {
-        setIsLoading(true);
-        const data = await axios.get('/api/rbac/v2/workspaces/', {
-          params: {
-            limit: 1,
-            type: 'default',
-          },
-        });
-
-        const defaultWorkspaceId = data?.data?.[0]?.id || null;
-        setWorkspaceId(defaultWorkspaceId);
-        setError(null);
-      } catch (err) {
-        console.error('Failed to fetch default workspace:', err);
+    if (!defaultWorkspacePromise) {
+      defaultWorkspacePromise = fetchDefaultWorkspace(baseUrl);
+    }
+    defaultWorkspacePromise
+      .then(setDefaultWorkspace)
+      .catch((err) => {
+        defaultWorkspacePromise = null;
         setError(err);
-        setWorkspaceId(null);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+      })
+      .finally(() => setIsLoading(false));
+  }, [baseUrl]);
 
-    fetchDefaultWorkspaceId();
-  }, [axios]);
-
-  return { workspaceId, isLoading, error };
+  return {
+    workspaceId: defaultWorkspace?.id,
+    isLoading,
+    error,
+  };
 };

@@ -1,33 +1,30 @@
 import { renderHook, waitFor } from '@testing-library/react';
-import { useDefaultWorkspace } from '../useDefaultWorkspace';
-import { useAxiosWithPlatformInterceptors } from '@redhat-cloud-services/frontend-components-utilities/interceptors';
+import {
+  useDefaultWorkspace,
+  resetWorkspaceCache,
+} from '../useDefaultWorkspace';
+import { fetchDefaultWorkspace } from '@project-kessel/react-kessel-access-check';
 
-jest.mock(
-  '@redhat-cloud-services/frontend-components-utilities/interceptors',
-  () => ({
-    useAxiosWithPlatformInterceptors: jest.fn(),
-  })
-);
+jest.mock('@project-kessel/react-kessel-access-check', () => ({
+  fetchDefaultWorkspace: jest.fn(),
+}));
 
 describe('useDefaultWorkspace', () => {
-  let mockAxios;
-
   beforeEach(() => {
-    mockAxios = {
-      get: jest.fn(),
-    };
-    useAxiosWithPlatformInterceptors.mockReturnValue(mockAxios);
-  });
-
-  afterEach(() => {
+    resetWorkspaceCache();
     jest.clearAllMocks();
   });
 
   it('should fetch default workspace successfully', async () => {
     const mockWorkspaceId = 'workspace-123';
-    mockAxios.get.mockResolvedValue({
-      data: [{ id: mockWorkspaceId, type: 'default' }],
-    });
+    const mockWorkspace = {
+      id: mockWorkspaceId,
+      type: 'default',
+      name: 'Default Workspace',
+      created: '2024-01-01',
+      modified: '2024-01-01',
+    };
+    fetchDefaultWorkspace.mockResolvedValue(mockWorkspace);
 
     const { result } = renderHook(() => useDefaultWorkspace());
 
@@ -39,18 +36,11 @@ describe('useDefaultWorkspace', () => {
 
     expect(result.current.workspaceId).toBe(mockWorkspaceId);
     expect(result.current.error).toBe(null);
-    expect(mockAxios.get).toHaveBeenCalledWith('/api/rbac/v2/workspaces/', {
-      params: {
-        limit: 1,
-        type: 'default',
-      },
-    });
+    expect(fetchDefaultWorkspace).toHaveBeenCalledWith(window.location.origin);
   });
 
-  it('should handle empty workspace response', async () => {
-    mockAxios.get.mockResolvedValue({
-      data: [],
-    });
+  it('should handle null workspace response', async () => {
+    fetchDefaultWorkspace.mockResolvedValue(null);
 
     const { result } = renderHook(() => useDefaultWorkspace());
 
@@ -58,17 +48,13 @@ describe('useDefaultWorkspace', () => {
       expect(result.current.isLoading).toBe(false);
     });
 
-    expect(result.current.workspaceId).toBe(null);
+    expect(result.current.workspaceId).toBeUndefined();
     expect(result.current.error).toBe(null);
   });
 
   it('should handle workspace fetch error', async () => {
     const mockError = new Error('Network error');
-    mockAxios.get.mockRejectedValue(mockError);
-
-    const consoleErrorSpy = jest
-      .spyOn(console, 'error')
-      .mockImplementation(() => {});
+    fetchDefaultWorkspace.mockRejectedValue(mockError);
 
     const { result } = renderHook(() => useDefaultWorkspace());
 
@@ -76,20 +62,12 @@ describe('useDefaultWorkspace', () => {
       expect(result.current.isLoading).toBe(false);
     });
 
-    expect(result.current.workspaceId).toBe(null);
+    expect(result.current.workspaceId).toBeUndefined();
     expect(result.current.error).toBe(mockError);
-    expect(consoleErrorSpy).toHaveBeenCalledWith(
-      'Failed to fetch default workspace:',
-      mockError
-    );
-
-    consoleErrorSpy.mockRestore();
   });
 
   it('should handle undefined workspace data', async () => {
-    mockAxios.get.mockResolvedValue({
-      data: undefined,
-    });
+    fetchDefaultWorkspace.mockResolvedValue(undefined);
 
     const { result } = renderHook(() => useDefaultWorkspace());
 
@@ -97,14 +75,13 @@ describe('useDefaultWorkspace', () => {
       expect(result.current.isLoading).toBe(false);
     });
 
-    expect(result.current.workspaceId).toBe(null);
+    expect(result.current.workspaceId).toBeUndefined();
     expect(result.current.error).toBe(null);
   });
 
   it('should handle malformed workspace response', async () => {
-    mockAxios.get.mockResolvedValue({
-      data: [{ name: 'test' }], // missing id
-    });
+    const malformedWorkspace = { name: 'test' };
+    fetchDefaultWorkspace.mockResolvedValue(malformedWorkspace);
 
     const { result } = renderHook(() => useDefaultWorkspace());
 
@@ -112,7 +89,33 @@ describe('useDefaultWorkspace', () => {
       expect(result.current.isLoading).toBe(false);
     });
 
-    expect(result.current.workspaceId).toBe(null);
+    expect(result.current.workspaceId).toBeUndefined();
     expect(result.current.error).toBe(null);
+  });
+
+  it('should cache the workspace promise to prevent duplicate API calls', async () => {
+    const mockWorkspace = {
+      id: 'workspace-123',
+      type: 'default',
+      name: 'Default Workspace',
+      created: '2024-01-01',
+      modified: '2024-01-01',
+    };
+    fetchDefaultWorkspace.mockResolvedValue(mockWorkspace);
+
+    const { result: result1 } = renderHook(() => useDefaultWorkspace());
+    const { result: result2 } = renderHook(() => useDefaultWorkspace());
+
+    await waitFor(() => {
+      expect(result1.current.isLoading).toBe(false);
+    });
+
+    await waitFor(() => {
+      expect(result2.current.isLoading).toBe(false);
+    });
+
+    expect(fetchDefaultWorkspace).toHaveBeenCalledTimes(1);
+    expect(result1.current.workspaceId).toBe('workspace-123');
+    expect(result2.current.workspaceId).toBe('workspace-123');
   });
 });

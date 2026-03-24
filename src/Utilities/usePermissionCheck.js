@@ -26,16 +26,14 @@ export const useRbacV1Permissions = (appName, requiredPermissions) => {
 export const useKesselPermissions = (kesselRelations) => {
   const { workspaceId, isLoading: workspaceLoading } = useDefaultWorkspace();
 
-  const params = workspaceId
-    ? getKesselAccessCheckParams({
-        requiredPermissions: kesselRelations,
-        resourceIdOrIds: workspaceId,
-        options: {
-          resourceType: 'workspace',
-          reporter: { type: 'rbac' },
-        },
-      })
-    : { resources: [] };
+  const params = getKesselAccessCheckParams({
+    requiredPermissions: kesselRelations,
+    resourceIdOrIds: workspaceId,
+    options: {
+      resourceType: 'workspace',
+      reporter: { type: 'rbac' },
+    },
+  });
 
   const { data, loading, error } = useSelfAccessCheck(params);
 
@@ -47,7 +45,6 @@ export const useKesselPermissions = (kesselRelations) => {
     return { hasAccess: false, isLoading: false };
   }
 
-  // Check if any of the permissions are allowed
   const hasAccess = data?.some((result) => result?.allowed === true) ?? false;
 
   return { hasAccess, isLoading: loading };

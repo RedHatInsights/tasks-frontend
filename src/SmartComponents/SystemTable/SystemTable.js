@@ -226,7 +226,7 @@ const SystemTable = ({
           if (selectedIds.length) {
             bulkSelectIds('none');
           } else {
-            bulkSelectIds('all', { total: total });
+            bulkSelectIds('all', { total, resolve });
           }
         },
         checked:

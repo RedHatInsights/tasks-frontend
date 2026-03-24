@@ -22,6 +22,7 @@ import { createLink } from './helpers';
  * String constants
  */
 export const TASKS_API_ROOT = '/api/tasks/v1';
+export const KESSEL_API_BASE_URL = '/api/kessel/v1beta2';
 export const AVAILABLE_TASKS_ROOT = '/task';
 export const EXECUTED_TASK_ROOT = '/executed_task';
 export const SYSTEMS_ROOT = '/system';
@@ -398,3 +399,24 @@ export const TAINTED_KERNEL_MODULE_CUSTOM_DESCRIPTION = (
     command line.
   </React.Fragment>
 );
+
+/**
+ * Permission constants for RBAC and Kessel
+ *
+ * RBAC uses format: application:resource:action
+ * Kessel uses format: application_resource_action (underscore-delimited)
+ *
+ * Pattern based on insights-advisor-frontend implementation:
+ * - RBAC: advisor:exports:read → Kessel: advisor_exports_view
+ */
+export const PERMISSIONS = {
+  tasks: 'tasks:*:*',
+  inventoryAll: 'inventory:hosts:*',
+  inventoryRead: 'inventory:hosts:read',
+};
+
+export const KESSEL_RELATIONS = {
+  tasksView: 'tasks_task_view',
+  tasksEdit: 'tasks_task_edit',
+  inventoryView: 'inventory_host_view',
+};

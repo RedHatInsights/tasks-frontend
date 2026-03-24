@@ -1,5 +1,6 @@
 import './CompletedTaskDetails.scss';
 import React, { useState, useEffect, useMemo } from 'react';
+import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 // eslint-disable-next-line rulesdir/disallow-fec-relative-imports
 import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
@@ -50,7 +51,12 @@ import {
   hasDetails,
 } from '../completedTaskDetailsHelpers';
 import { NotAuthorized } from '@redhat-cloud-services/frontend-components/NotAuthorized';
-import { usePermissions } from '@redhat-cloud-services/frontend-components-utilities/RBACHook';
+import {
+  useRbacV1Permissions,
+  useKesselPermissions,
+} from '../../Utilities/usePermissionCheck';
+import { KESSEL_RELATIONS } from '../../constants';
+import useFeatureFlag from '../../Utilities/useFeatureFlag';
 import JobResultsDetails from './JobResultsDetails/JobResultsDetails';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 import useInsightsNavigate from '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate';
@@ -61,7 +67,7 @@ import JobLogDrawer from './JobResultsDetails/JobLogDrawer';
 import useActionResolver from './hooks/useActionResolver';
 import { prepareItems } from '../../Utilities/hooks/useTableTools/reportParser';
 
-const CompletedTaskDetails = () => {
+const CompletedTaskDetailsContent = ({ hasAccess, isLoading }) => {
   const { id } = useParams();
   const addNotification = useAddNotification();
   const [completedTaskDetails, setCompletedTaskDetails] =
@@ -82,10 +88,7 @@ const CompletedTaskDetails = () => {
   const [jobId, setJobId] = useState();
   const [jobName, setJobName] = useState();
   const chrome = useChrome();
-  const { hasAccess, isLoading } = usePermissions('inventory', [
-    'inventory:hosts:*',
-    'inventory:hosts:read',
-  ]);
+
   const navigate = useInsightsNavigate();
   const navigateToInventory = useInsightsNavigate('inventory');
 
@@ -350,6 +353,47 @@ const CompletedTaskDetails = () => {
         </React.Fragment>
       )}
     </JobLogDrawer>
+  );
+};
+
+CompletedTaskDetailsContent.propTypes = {
+  hasAccess: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+};
+
+const CompletedTaskDetailsWithRbac = () => {
+  const { hasAccess, isLoading } = useRbacV1Permissions('inventory', [
+    'inventory:hosts:*',
+    'inventory:hosts:read',
+  ]);
+
+  return (
+    <CompletedTaskDetailsContent hasAccess={hasAccess} isLoading={isLoading} />
+  );
+};
+
+const CompletedTaskDetailsWithKessel = () => {
+  const inventoryKesselRelations = useMemo(
+    () => [KESSEL_RELATIONS.inventoryView],
+    []
+  );
+
+  const { hasAccess, isLoading } = useKesselPermissions(
+    inventoryKesselRelations
+  );
+
+  return (
+    <CompletedTaskDetailsContent hasAccess={hasAccess} isLoading={isLoading} />
+  );
+};
+
+const CompletedTaskDetails = () => {
+  const isKesselEnabled = useFeatureFlag('tasks.kessel_enabled');
+
+  return isKesselEnabled ? (
+    <CompletedTaskDetailsWithKessel />
+  ) : (
+    <CompletedTaskDetailsWithRbac />
   );
 };
 

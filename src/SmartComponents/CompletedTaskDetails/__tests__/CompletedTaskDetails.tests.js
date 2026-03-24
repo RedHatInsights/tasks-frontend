@@ -36,13 +36,18 @@ jest.mock('../../../../api');
 jest.mock('@redhat-cloud-services/frontend-components-notifications', () => ({
   useAddNotification: jest.fn(),
 }));
-jest.mock(
-  '@redhat-cloud-services/frontend-components-utilities/RBACHook',
-  () => ({
-    esModule: true,
-    usePermissions: () => ({ hasAccess: true, isLoading: false }),
-  })
-);
+jest.mock('../../../Utilities/usePermissionCheck', () => ({
+  useRbacV1Permissions: jest.fn(() => ({
+    hasAccess: true,
+    isLoading: false,
+  })),
+  useKesselPermissions: jest.fn(() => ({
+    hasAccess: true,
+    isLoading: false,
+  })),
+}));
+
+jest.mock('../../../Utilities/useFeatureFlag', () => jest.fn(() => false));
 
 jest.mock(
   '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate'

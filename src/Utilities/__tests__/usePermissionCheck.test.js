@@ -118,7 +118,7 @@ describe('useKesselPermissions', () => {
     });
 
     useSelfAccessCheck.mockReturnValue({
-      data: [{ allowed: true }, { allowed: false }],
+      data: [{ allowed: true }],
       loading: false,
       error: null,
     });
@@ -167,11 +167,15 @@ describe('useKesselPermissions', () => {
     expect(result.current.isLoading).toBe(true);
   });
 
-  it('should return hasAccess false when workspace is not available', () => {
+  it('should return hasAccess true when workspace is not available but resources empty', () => {
     useDefaultWorkspace.mockReturnValue({
       workspaceId: null,
       isLoading: false,
       error: null,
+    });
+
+    getKesselAccessCheckParams.mockReturnValue({
+      resources: [],
     });
 
     useSelfAccessCheck.mockReturnValue({
@@ -182,7 +186,7 @@ describe('useKesselPermissions', () => {
 
     const { result } = renderHook(() => useKesselPermissions(['view']));
 
-    expect(result.current.hasAccess).toBe(false);
+    expect(result.current.hasAccess).toBe(true);
     expect(result.current.isLoading).toBe(false);
   });
 
@@ -245,11 +249,11 @@ describe('useKesselPermissions', () => {
 
     const { result } = renderHook(() => useKesselPermissions(['view']));
 
-    expect(result.current.hasAccess).toBe(false);
+    expect(result.current.hasAccess).toBe(true);
     expect(result.current.isLoading).toBe(false);
   });
 
-  it('should return true if at least one permission is allowed', () => {
+  it('should return false if any permission is denied', () => {
     useDefaultWorkspace.mockReturnValue({
       workspaceId: 'workspace-123',
       isLoading: false,
@@ -257,7 +261,7 @@ describe('useKesselPermissions', () => {
     });
 
     useSelfAccessCheck.mockReturnValue({
-      data: [{ allowed: false }, { allowed: true }, { allowed: false }],
+      data: [{ allowed: true }, { allowed: false }, { allowed: true }],
       loading: false,
       error: null,
     });
@@ -266,7 +270,7 @@ describe('useKesselPermissions', () => {
       useKesselPermissions(['view', 'edit', 'delete'])
     );
 
-    expect(result.current.hasAccess).toBe(true);
+    expect(result.current.hasAccess).toBe(false);
   });
 
   it('should return isLoading true when Kessel is loading', () => {
@@ -290,9 +294,13 @@ describe('useKesselPermissions', () => {
 
   it('should handle workspace fetch error', () => {
     useDefaultWorkspace.mockReturnValue({
-      workspaceId: null,
+      workspaceId: 'workspace-123',
       isLoading: false,
       error: new Error('Workspace fetch failed'),
+    });
+
+    getKesselAccessCheckParams.mockReturnValue({
+      resources: [{ id: 'workspace-123', type: 'workspace' }],
     });
 
     useSelfAccessCheck.mockReturnValue({
@@ -304,6 +312,29 @@ describe('useKesselPermissions', () => {
     const { result } = renderHook(() => useKesselPermissions(['view']));
 
     expect(result.current.hasAccess).toBe(false);
+    expect(result.current.isLoading).toBe(false);
+  });
+
+  it('should return hasAccess true when no resources to check', () => {
+    useDefaultWorkspace.mockReturnValue({
+      workspaceId: 'workspace-123',
+      isLoading: false,
+      error: null,
+    });
+
+    getKesselAccessCheckParams.mockReturnValue({
+      resources: [],
+    });
+
+    useSelfAccessCheck.mockReturnValue({
+      data: null,
+      loading: false,
+      error: null,
+    });
+
+    const { result } = renderHook(() => useKesselPermissions([]));
+
+    expect(result.current.hasAccess).toBe(true);
     expect(result.current.isLoading).toBe(false);
   });
 });

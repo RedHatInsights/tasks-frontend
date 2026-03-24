@@ -22,6 +22,7 @@ import { createLink } from './helpers';
  * String constants
  */
 export const TASKS_API_ROOT = '/api/tasks/v1';
+export const KESSEL_API_BASE_URL = '/api/kessel/v1beta2';
 export const AVAILABLE_TASKS_ROOT = '/task';
 export const EXECUTED_TASK_ROOT = '/executed_task';
 export const SYSTEMS_ROOT = '/system';

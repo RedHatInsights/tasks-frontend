@@ -1,34 +1,55 @@
 import { useState, useEffect } from 'react';
-import { fetchDefaultWorkspace } from '@project-kessel/react-kessel-access-check';
+import { useAxiosWithPlatformInterceptors } from '@redhat-cloud-services/frontend-components-utilities/interceptors';
 
-let defaultWorkspacePromise = null;
-
-export const resetWorkspaceCache = () => {
-  defaultWorkspacePromise = null;
-};
-
+/**
+ * Hook to fetch the default workspace ID from RBAC API.
+ * Fetches the workspace once on mount and caches the result.
+ *
+ * @returns {{workspaceId: string|null, isLoading: boolean, error: Error|null}} Workspace fetch result
+ */
 export const useDefaultWorkspace = () => {
-  const [defaultWorkspace, setDefaultWorkspace] = useState(null);
+  const axios = useAxiosWithPlatformInterceptors();
+  const [workspaceId, setWorkspaceId] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const baseUrl = window.location.origin;
 
   useEffect(() => {
-    if (!defaultWorkspacePromise) {
-      defaultWorkspacePromise = fetchDefaultWorkspace(baseUrl);
-    }
-    defaultWorkspacePromise
-      .then(setDefaultWorkspace)
-      .catch((err) => {
-        defaultWorkspacePromise = null;
-        setError(err);
-      })
-      .finally(() => setIsLoading(false));
-  }, [baseUrl]);
+    let isCancelled = false;
 
-  return {
-    workspaceId: defaultWorkspace?.id,
-    isLoading,
-    error,
-  };
+    const fetchDefaultWorkspaceId = async () => {
+      try {
+        setIsLoading(true);
+        const { data } = await axios.get('/api/rbac/v2/workspaces/', {
+          params: {
+            limit: 1,
+            type: 'default',
+          },
+        });
+
+        if (!isCancelled) {
+          const defaultWorkspaceId = data?.data?.[0]?.id || null;
+          setWorkspaceId(defaultWorkspaceId);
+          setError(null);
+        }
+      } catch (err) {
+        if (!isCancelled) {
+          console.error('Failed to fetch default workspace:', err);
+          setError(err);
+          setWorkspaceId(null);
+        }
+      } finally {
+        if (!isCancelled) {
+          setIsLoading(false);
+        }
+      }
+    };
+
+    fetchDefaultWorkspaceId();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, []);
+
+  return { workspaceId, isLoading, error };
 };

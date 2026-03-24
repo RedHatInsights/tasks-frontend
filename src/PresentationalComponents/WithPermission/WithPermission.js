@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import propTypes from 'prop-types';
 import {
   useRbacV1Permissions,
@@ -12,9 +12,13 @@ const WithPermission = ({ children, requiredPermissions = [] }) => {
   const isKesselEnabled = useFeatureFlag('tasks.kessel_enabled');
 
   const rbacResult = useRbacV1Permissions('tasks', requiredPermissions);
-  const kesselResult = useKesselPermissions(
-    requiredPermissions.map(() => KESSEL_RELATIONS.tasks)
+
+  const kesselRelations = useMemo(
+    () => requiredPermissions.map(() => KESSEL_RELATIONS.tasks),
+    [requiredPermissions.length]
   );
+
+  const kesselResult = useKesselPermissions(kesselRelations);
 
   const { hasAccess, isLoading } = isKesselEnabled ? kesselResult : rbacResult;
 

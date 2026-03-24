@@ -5,6 +5,8 @@ import Routes from './Routes';
 import './App.scss';
 
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
+import { AccessCheck } from '@project-kessel/react-kessel-access-check';
+import { KESSEL_API_BASE_URL } from './constants';
 import pckg from '../package.json';
 
 const App = () => {
@@ -15,7 +17,6 @@ const App = () => {
     if (chrome) {
       const { identifyApp, on: onChromeEvent } = chrome;
 
-      // You can use directly the name of your app
       identifyApp(pckg.insights.appname);
 
       onChromeEvent('GLOBAL_FILTER_UPDATE', ({ data }) => {
@@ -28,7 +29,14 @@ const App = () => {
     }
   }, [chrome]);
 
-  return <Routes />;
+  return (
+    <AccessCheck.Provider
+      baseUrl={window.location.origin}
+      apiPath={KESSEL_API_BASE_URL}
+    >
+      <Routes />
+    </AccessCheck.Provider>
+  );
 };
 
 export default App;

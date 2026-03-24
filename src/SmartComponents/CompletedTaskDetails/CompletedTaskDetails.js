@@ -93,10 +93,13 @@ const CompletedTaskDetails = () => {
     'inventory:hosts:*',
     'inventory:hosts:read',
   ]);
-  const kesselResult = useKesselPermissions([
-    KESSEL_RELATIONS.inventoryAll,
-    KESSEL_RELATIONS.inventoryRead,
-  ]);
+
+  const inventoryKesselRelations = useMemo(
+    () => [KESSEL_RELATIONS.inventoryAll, KESSEL_RELATIONS.inventoryRead],
+    []
+  );
+
+  const kesselResult = useKesselPermissions(inventoryKesselRelations);
 
   const { hasAccess, isLoading } = isKesselEnabled ? kesselResult : rbacResult;
 

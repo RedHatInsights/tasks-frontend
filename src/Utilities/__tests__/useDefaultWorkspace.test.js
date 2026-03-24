@@ -21,17 +21,15 @@ describe('useDefaultWorkspace', () => {
   it('should fetch default workspace successfully', async () => {
     const mockWorkspaceId = 'workspace-123';
     const mockResponse = {
-      data: {
-        data: [
-          {
-            id: mockWorkspaceId,
-            type: 'default',
-            name: 'Default Workspace',
-            created: '2024-01-01',
-            modified: '2024-01-01',
-          },
-        ],
-      },
+      data: [
+        {
+          id: mockWorkspaceId,
+          type: 'default',
+          name: 'Default Workspace',
+          created: '2024-01-01',
+          modified: '2024-01-01',
+        },
+      ],
     };
     mockAxiosGet.mockResolvedValue(mockResponse);
 

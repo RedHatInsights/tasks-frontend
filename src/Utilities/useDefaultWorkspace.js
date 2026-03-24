@@ -27,7 +27,7 @@ export const useDefaultWorkspace = () => {
         });
 
         if (!isCancelled) {
-          const defaultWorkspaceId = data?.data?.[0]?.id || null;
+          const defaultWorkspaceId = data?.[0]?.id || null;
           setWorkspaceId(defaultWorkspaceId);
           setError(null);
         }

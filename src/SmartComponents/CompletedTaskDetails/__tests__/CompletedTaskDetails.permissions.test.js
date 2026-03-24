@@ -80,8 +80,8 @@ describe('CompletedTaskDetails - Permission Checking with Feature Flag', () => {
       'inventory:hosts:read',
     ]);
 
-    // Both hooks should be called (React Rules of Hooks)
-    expect(useKesselPermissions).toHaveBeenCalled();
+    // Only RBAC hook should be called when feature flag is disabled
+    expect(useKesselPermissions).not.toHaveBeenCalled();
   });
 
   it('should use Kessel permissions when enabled', async () => {
@@ -105,9 +105,9 @@ describe('CompletedTaskDetails - Permission Checking with Feature Flag', () => {
 
     await waitFor(() => expect(fetchExecutedTask).toHaveBeenCalled());
 
-    // Both hooks should be called (React Rules of Hooks)
-    expect(useRbacV1Permissions).toHaveBeenCalled();
+    // Only Kessel hook should be called when feature flag is enabled
     expect(useKesselPermissions).toHaveBeenCalled();
+    expect(useRbacV1Permissions).not.toHaveBeenCalled();
 
     // Feature flag should be checked
     expect(useFeatureFlag).toHaveBeenCalledWith('tasks.kessel_enabled');
@@ -171,7 +171,7 @@ describe('CompletedTaskDetails - Permission Checking with Feature Flag', () => {
     });
   });
 
-  it('should call both permission hooks regardless of feature flag', async () => {
+  it('should only call the appropriate hook based on feature flag', async () => {
     useFeatureFlag.mockReturnValue(false);
     useRbacV1Permissions.mockReturnValue({
       hasAccess: true,
@@ -192,16 +192,16 @@ describe('CompletedTaskDetails - Permission Checking with Feature Flag', () => {
 
     await waitFor(() => expect(fetchExecutedTask).toHaveBeenCalled());
 
-    // Both hooks should always be called (React Rules of Hooks)
+    // Only RBAC hook should be called when feature flag is disabled
     expect(useRbacV1Permissions).toHaveBeenCalled();
-    expect(useKesselPermissions).toHaveBeenCalled();
+    expect(useKesselPermissions).not.toHaveBeenCalled();
   });
 
   it('should handle loading state from permissions', async () => {
     useFeatureFlag.mockReturnValue(false);
     useRbacV1Permissions.mockReturnValue({
       hasAccess: false,
-      isLoading: true, // Still loading
+      isLoading: true,
     });
     useKesselPermissions.mockReturnValue({
       hasAccess: false,

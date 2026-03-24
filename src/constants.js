@@ -416,7 +416,7 @@ export const PERMISSIONS = {
 };
 
 export const KESSEL_RELATIONS = {
-  tasks: 'tasks_all_execute',
-  inventoryAll: 'inventory_hosts_all',
-  inventoryRead: 'inventory_hosts_view',
+  tasksView: 'tasks_task_view',
+  tasksEdit: 'tasks_task_edit',
+  inventoryView: 'inventory_host_view',
 };

@@ -9,6 +9,13 @@ jest.mock('../../../Utilities/usePermissionCheck', () => ({
 
 jest.mock('../../../Utilities/useFeatureFlag', () => jest.fn());
 
+jest.mock('../../../constants', () => ({
+  KESSEL_RELATIONS: {
+    tasksView: 'tasks_task_view',
+    tasksEdit: 'tasks_task_edit',
+  },
+}));
+
 const {
   useRbacV1Permissions,
   useKesselPermissions,
@@ -170,7 +177,7 @@ describe('WithPermission', () => {
     expect(screen.queryByLabelText('child')).not.toBeInTheDocument();
   });
 
-  it('should call both hooks regardless of feature flag', () => {
+  it('should only call the appropriate hook based on feature flag', () => {
     useFeatureFlag.mockReturnValue(false);
     useRbacV1Permissions.mockReturnValue({
       hasAccess: true,
@@ -187,9 +194,9 @@ describe('WithPermission', () => {
       </WithPermission>
     );
 
-    // Both hooks should be called (React Rules of Hooks)
+    // Only RBAC hook should be called when feature flag is disabled
     expect(useRbacV1Permissions).toHaveBeenCalledWith('tasks', ['tasks:*:*']);
-    expect(useKesselPermissions).toHaveBeenCalled();
+    expect(useKesselPermissions).not.toHaveBeenCalled();
   });
 
   it('should use RBAC result when feature flag is disabled', () => {
@@ -232,5 +239,95 @@ describe('WithPermission', () => {
 
     // Should NOT render because Kessel denies access (flag is enabled)
     expect(screen.queryByLabelText('child')).not.toBeInTheDocument();
+  });
+
+  it('should call useKesselPermissions with correct relations when Kessel enabled', () => {
+    useFeatureFlag.mockReturnValue(true);
+    useKesselPermissions.mockReturnValue({
+      hasAccess: true,
+      isLoading: false,
+    });
+
+    render(
+      <WithPermission {...props}>
+        <div aria-label="child"></div>
+      </WithPermission>
+    );
+
+    // Should call with both tasksView and tasksEdit relations
+    expect(useKesselPermissions).toHaveBeenCalledWith([
+      'tasks_task_view',
+      'tasks_task_edit',
+    ]);
+  });
+
+  it('should render empty string while RBAC is loading', () => {
+    useFeatureFlag.mockReturnValue(false);
+    useRbacV1Permissions.mockReturnValue({
+      hasAccess: false,
+      isLoading: true,
+    });
+
+    const { container } = render(
+      <WithPermission {...props}>
+        <div aria-label="child"></div>
+      </WithPermission>
+    );
+
+    expect(container.firstChild).toBeNull();
+  });
+
+  it('should render empty string while Kessel is loading', () => {
+    useFeatureFlag.mockReturnValue(true);
+    useKesselPermissions.mockReturnValue({
+      hasAccess: false,
+      isLoading: true,
+    });
+
+    const { container } = render(
+      <WithPermission {...props}>
+        <div aria-label="child"></div>
+      </WithPermission>
+    );
+
+    expect(container.firstChild).toBeNull();
+  });
+
+  it('should render NotAuthorized when RBAC denies access', () => {
+    useFeatureFlag.mockReturnValue(false);
+    useRbacV1Permissions.mockReturnValue({
+      hasAccess: false,
+      isLoading: false,
+    });
+
+    render(
+      <WithPermission {...props}>
+        <div aria-label="child"></div>
+      </WithPermission>
+    );
+
+    expect(screen.queryByLabelText('child')).not.toBeInTheDocument();
+    expect(
+      screen.getByText(/Contact your organization administrator/i)
+    ).toBeInTheDocument();
+  });
+
+  it('should render NotAuthorized when Kessel denies access', () => {
+    useFeatureFlag.mockReturnValue(true);
+    useKesselPermissions.mockReturnValue({
+      hasAccess: false,
+      isLoading: false,
+    });
+
+    render(
+      <WithPermission {...props}>
+        <div aria-label="child"></div>
+      </WithPermission>
+    );
+
+    expect(screen.queryByLabelText('child')).not.toBeInTheDocument();
+    expect(
+      screen.getByText(/Contact your organization administrator/i)
+    ).toBeInTheDocument();
   });
 });

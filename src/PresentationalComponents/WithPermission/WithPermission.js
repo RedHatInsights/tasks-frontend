@@ -8,25 +8,56 @@ import { NotAuthorized } from '@redhat-cloud-services/frontend-components/NotAut
 import { KESSEL_RELATIONS } from '../../constants';
 import useFeatureFlag from '../../Utilities/useFeatureFlag';
 
+const WithRbacV1Permission = ({ requiredPermissions, children }) => {
+  const { hasAccess, isLoading } = useRbacV1Permissions(
+    'tasks',
+    requiredPermissions
+  );
+
+  if (isLoading) {
+    return '';
+  }
+
+  return hasAccess ? children : <NotAuthorized serviceName="Tasks" />;
+};
+
+WithRbacV1Permission.propTypes = {
+  requiredPermissions: propTypes.array,
+  children: propTypes.node,
+};
+
+const WithKesselPermission = ({ requiredPermissions, children }) => {
+  const kesselRelations = useMemo(
+    () => [KESSEL_RELATIONS.tasksView, KESSEL_RELATIONS.tasksEdit],
+    [requiredPermissions?.length]
+  );
+
+  const { hasAccess, isLoading } = useKesselPermissions(kesselRelations);
+
+  if (isLoading) {
+    return '';
+  }
+
+  return hasAccess ? children : <NotAuthorized serviceName="Tasks" />;
+};
+
+WithKesselPermission.propTypes = {
+  requiredPermissions: propTypes.array,
+  children: propTypes.node,
+};
+
 const WithPermission = ({ children, requiredPermissions = [] }) => {
   const isKesselEnabled = useFeatureFlag('tasks.kessel_enabled');
 
-  const rbacResult = useRbacV1Permissions('tasks', requiredPermissions);
-
-  const kesselRelations = useMemo(
-    () => requiredPermissions.map(() => KESSEL_RELATIONS.tasks),
-    [requiredPermissions.length]
+  return isKesselEnabled ? (
+    <WithKesselPermission requiredPermissions={requiredPermissions}>
+      {children}
+    </WithKesselPermission>
+  ) : (
+    <WithRbacV1Permission requiredPermissions={requiredPermissions}>
+      {children}
+    </WithRbacV1Permission>
   );
-
-  const kesselResult = useKesselPermissions(kesselRelations);
-
-  const { hasAccess, isLoading } = isKesselEnabled ? kesselResult : rbacResult;
-
-  if (!isLoading) {
-    return hasAccess ? children : <NotAuthorized serviceName="Tasks" />;
-  } else {
-    return '';
-  }
 };
 
 WithPermission.propTypes = {

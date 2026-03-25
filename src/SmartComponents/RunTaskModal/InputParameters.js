@@ -33,8 +33,8 @@ const InputParameters = ({ parameters, setDefinedParameters }) => {
       prevState.map((param) =>
         param.key === parameter.key
           ? { key: param.key, value: newValue }
-          : param
-      )
+          : param,
+      ),
     );
   };
   return (

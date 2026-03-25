@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { init } from '../../../store';
 import fixtures from './__fixtures__/RunTaskModal.fixtures';
@@ -67,13 +67,13 @@ describe('RunTaskModal', () => {
     render(
       <Provider store={store}>
         <RunTaskModal {...props} />
-      </Provider>
+      </Provider>,
     );
 
     expect(
       screen.getByRole('button', {
         name: /taska-submit-task-button/i,
-      })
+      }),
     ).toBeDisabled();
   });
 
@@ -86,7 +86,7 @@ describe('RunTaskModal', () => {
     const { rerender } = render(
       <Provider store={store}>
         <RunTaskModal {...props} />
-      </Provider>
+      </Provider>,
     );
 
     // add name, button should still be disabled
@@ -97,19 +97,19 @@ describe('RunTaskModal', () => {
     expect(
       screen.getByRole('button', {
         name: /taska-submit-task-button/i,
-      })
+      }),
     ).toBeDisabled();
 
     // add selected Systems, button should be enabled
     rerender(
       <Provider store={store}>
         <RunTaskModal {...props} selectedSystems={['123']} />
-      </Provider>
+      </Provider>,
     );
     expect(
       screen.getByRole('button', {
         name: /taska-submit-task-button/i,
-      })
+      }),
     ).toBeEnabled();
   });
 
@@ -122,20 +122,20 @@ describe('RunTaskModal', () => {
     render(
       <Provider store={store}>
         <RunTaskModal {...props} />
-      </Provider>
+      </Provider>,
     );
 
     await userEvent.type(
       screen.getByRole('textbox', {
         name: /edit task name text field/i,
       }),
-      '{Space}'
+      '{Space}',
     );
     screen.getByText(/task name cannot be empty/i);
     expect(
       screen.getByRole('textbox', {
         name: /edit task name text field/i,
-      })
+      }),
     ).toBeInvalid();
   });
 
@@ -143,11 +143,11 @@ describe('RunTaskModal', () => {
     render(
       <Provider store={store}>
         <RunTaskModal {...props} />
-      </Provider>
+      </Provider>,
     );
 
     const closeButton = screen.getByLabelText('Close');
-    await waitFor(() => userEvent.click(closeButton));
+    await userEvent.click(closeButton);
     expect(props.setModalOpened).toHaveBeenCalledWith(false);
   });
 
@@ -155,11 +155,11 @@ describe('RunTaskModal', () => {
     render(
       <Provider store={store}>
         <RunTaskModal {...props} />
-      </Provider>
+      </Provider>,
     );
 
     const cancelButton = screen.getByLabelText('cancel-run-task-modal');
-    await waitFor(() => userEvent.click(cancelButton));
+    await userEvent.click(cancelButton);
     expect(props.setModalOpened).toHaveBeenCalledWith(false);
   });
 
@@ -168,11 +168,11 @@ describe('RunTaskModal', () => {
     render(
       <Provider store={store}>
         <RunTaskModal {...props} />
-      </Provider>
+      </Provider>,
     );
 
     const cancelButton = screen.getByLabelText('cancel-run-task-modal');
-    await waitFor(() => userEvent.click(cancelButton));
+    await userEvent.click(cancelButton);
     expect(props.setModalOpened).toHaveBeenCalledWith(false);
   });
 
@@ -183,33 +183,33 @@ describe('RunTaskModal', () => {
     render(
       <Provider store={store}>
         <RunTaskModal {...props} />
-      </Provider>
+      </Provider>,
     );
 
     const nextButton = screen.getByLabelText('taska-next-button');
-    await waitFor(() => userEvent.click(nextButton));
+    await userEvent.click(nextButton);
 
     const cancelButton = screen.getByLabelText('cancel-run-task-modal');
-    await waitFor(() => userEvent.click(cancelButton));
+    await userEvent.click(cancelButton);
     expect(props.setModalOpened).toHaveBeenCalledWith(false);
   });
 
-  it.skip('should render InputParameters', async () => {
+  it('should render InputParameters', async () => {
     props.name = 'Task A';
     props.selectedSystems = ['abcd'];
     props.parameters = fixtures.parameters;
     render(
       <Provider store={store}>
         <RunTaskModal {...props} />
-      </Provider>
+      </Provider>,
     );
 
     const nextButton = screen.getByLabelText('taska-next-button');
-    await waitFor(() => userEvent.click(nextButton));
+    await userEvent.click(nextButton);
 
-    expect(screen.getByText('path')).toBeInTheDocument();
-    expect(screen.getByText('this-is-your-label')).toBeInTheDocument();
-    expect(screen.getByText('Add_Tags')).toBeInTheDocument();
+    expect(screen.getByText('Playbook Path')).toBeInTheDocument();
+    expect(screen.getByText('Help Text')).toBeInTheDocument();
+    expect(screen.getByText('Add Tags')).toBeInTheDocument();
     expect(screen.getByText('Remove_Tags')).toBeInTheDocument();
     expect(screen.getByText('blah')).toBeInTheDocument();
   });
@@ -221,32 +221,33 @@ describe('RunTaskModal', () => {
     render(
       <Provider store={store}>
         <RunTaskModal {...props} />
-      </Provider>
+      </Provider>,
     );
 
     const nextButton = screen.getByLabelText('taska-next-button');
-    await waitFor(() => userEvent.click(nextButton));
+    await userEvent.click(nextButton);
 
     const executeButton = screen.getByLabelText('taska-submit-task-button');
     expect(executeButton).toBeDisabled();
   });
 
-  it.skip('should show validation when input parameter is empty', async () => {
+  it('should show validation when input parameter is empty', async () => {
     props.name = 'Task A';
     props.selectedSystems = ['abcd'];
     props.parameters = fixtures.parameters;
     render(
       <Provider store={store}>
         <RunTaskModal {...props} />
-      </Provider>
+      </Provider>,
     );
 
     const nextButton = screen.getByLabelText('taska-next-button');
-    await waitFor(() => userEvent.click(nextButton));
+    await userEvent.click(nextButton);
 
-    const input = screen.getByLabelText('path-input');
-    await waitFor(() => fireEvent.change(input, { target: { value: 'a' } }));
-    await waitFor(() => fireEvent.change(input, { target: { value: '' } }));
+    const input = screen.getByLabelText('path');
+    await userEvent.clear(input);
+    await userEvent.type(input, 'a');
+    await userEvent.clear(input);
 
     expect(screen.getByText('This parameter is required')).toBeInTheDocument();
   });

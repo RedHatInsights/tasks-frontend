@@ -45,7 +45,7 @@ describe('WithPermission', () => {
     const { asFragment } = render(
       <WithPermission {...props}>
         <div aria-label="child"></div>
-      </WithPermission>
+      </WithPermission>,
     );
 
     expect(asFragment()).toMatchSnapshot();
@@ -66,7 +66,7 @@ describe('WithPermission', () => {
     const { asFragment } = render(
       <WithPermission {...props}>
         <div aria-label="child"></div>
-      </WithPermission>
+      </WithPermission>,
     );
 
     expect(asFragment()).toMatchSnapshot();
@@ -86,7 +86,7 @@ describe('WithPermission', () => {
     const { asFragment } = render(
       <WithPermission {...props}>
         <div aria-label="child"></div>
-      </WithPermission>
+      </WithPermission>,
     );
 
     expect(asFragment()).toMatchSnapshot();
@@ -107,7 +107,7 @@ describe('WithPermission', () => {
     const { asFragment } = render(
       <WithPermission {...props}>
         <div aria-label="child"></div>
-      </WithPermission>
+      </WithPermission>,
     );
 
     expect(asFragment()).toMatchSnapshot();
@@ -128,7 +128,7 @@ describe('WithPermission', () => {
     const { asFragment } = render(
       <WithPermission {...props}>
         <div aria-label="child"></div>
-      </WithPermission>
+      </WithPermission>,
     );
 
     expect(asFragment()).toMatchSnapshot();
@@ -149,7 +149,7 @@ describe('WithPermission', () => {
     const { asFragment } = render(
       <WithPermission {...props}>
         <div aria-label="child"></div>
-      </WithPermission>
+      </WithPermission>,
     );
 
     expect(asFragment()).toMatchSnapshot();
@@ -170,7 +170,7 @@ describe('WithPermission', () => {
     const { asFragment } = render(
       <WithPermission {...props}>
         <div aria-label="child"></div>
-      </WithPermission>
+      </WithPermission>,
     );
 
     expect(asFragment()).toMatchSnapshot();
@@ -191,7 +191,7 @@ describe('WithPermission', () => {
     render(
       <WithPermission {...props}>
         <div aria-label="child"></div>
-      </WithPermission>
+      </WithPermission>,
     );
 
     // Only RBAC hook should be called when feature flag is disabled
@@ -213,7 +213,7 @@ describe('WithPermission', () => {
     render(
       <WithPermission {...props}>
         <div aria-label="child"></div>
-      </WithPermission>
+      </WithPermission>,
     );
 
     // Should render because RBAC grants access (flag is disabled)
@@ -234,7 +234,7 @@ describe('WithPermission', () => {
     render(
       <WithPermission {...props}>
         <div aria-label="child"></div>
-      </WithPermission>
+      </WithPermission>,
     );
 
     // Should NOT render because Kessel denies access (flag is enabled)
@@ -251,7 +251,7 @@ describe('WithPermission', () => {
     render(
       <WithPermission {...props}>
         <div aria-label="child"></div>
-      </WithPermission>
+      </WithPermission>,
     );
 
     // Should call with both tasksView and tasksEdit relations
@@ -271,10 +271,10 @@ describe('WithPermission', () => {
     const { container } = render(
       <WithPermission {...props}>
         <div aria-label="child"></div>
-      </WithPermission>
+      </WithPermission>,
     );
 
-    expect(container.firstChild).toBeNull();
+    expect(container).toBeEmptyDOMElement();
   });
 
   it('should render empty string while Kessel is loading', () => {
@@ -287,10 +287,10 @@ describe('WithPermission', () => {
     const { container } = render(
       <WithPermission {...props}>
         <div aria-label="child"></div>
-      </WithPermission>
+      </WithPermission>,
     );
 
-    expect(container.firstChild).toBeNull();
+    expect(container).toBeEmptyDOMElement();
   });
 
   it('should render NotAuthorized when RBAC denies access', () => {
@@ -303,12 +303,12 @@ describe('WithPermission', () => {
     render(
       <WithPermission {...props}>
         <div aria-label="child"></div>
-      </WithPermission>
+      </WithPermission>,
     );
 
     expect(screen.queryByLabelText('child')).not.toBeInTheDocument();
     expect(
-      screen.getByText(/Contact your organization administrator/i)
+      screen.getByText(/Contact your organization administrator/i),
     ).toBeInTheDocument();
   });
 
@@ -322,12 +322,12 @@ describe('WithPermission', () => {
     render(
       <WithPermission {...props}>
         <div aria-label="child"></div>
-      </WithPermission>
+      </WithPermission>,
     );
 
     expect(screen.queryByLabelText('child')).not.toBeInTheDocument();
     expect(
-      screen.getByText(/Contact your organization administrator/i)
+      screen.getByText(/Contact your organization administrator/i),
     ).toBeInTheDocument();
   });
 });

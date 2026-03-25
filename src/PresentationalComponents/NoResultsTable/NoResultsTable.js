@@ -29,7 +29,7 @@ export const emptyRows = (type) => {
     {
       cells: [
         {
-          title: () => <NoResultsTable type={type} />, // eslint-disable-line
+          title: () => <NoResultsTable type={type} />,
           props: {
             colSpan: 100,
           },

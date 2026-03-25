@@ -134,7 +134,7 @@ export const COMPLETED_INFO_BUTTONS = (
   slug,
   openTaskModal,
   status,
-  setModalOpened
+  setModalOpened,
 ) => {
   return [
     {
@@ -312,7 +312,7 @@ export const DELETE_TASK_BODY = (startTime, title) => {
   return `Deleting the ${moment
     .utc(startTime)
     .format(
-      'MMM DD YYYY'
+      'MMM DD YYYY',
     )} run of "${title}" will remove all data about this task. The report will no longer be accessible.`;
 };
 
@@ -333,23 +333,23 @@ export const CANCEL_TASK_ERROR = (title) => {
  */
 export const READ_MORE_ABOUT_ELS_LINK = createLink(
   'https://www.redhat.com/en/blog/announcing-4-years-extended-life-cycle-support-els-red-hat-enterprise-linux-7',
-  'Read more about ELS for RHEL 7.'
+  'Read more about ELS for RHEL 7.',
 );
 export const CONVERT2RHEL_SUPPORT_LINK = createLink(
   'https://access.redhat.com/support/policy/convert2rhel-support',
-  'Convert2RHEL Support Policy'
+  'Convert2RHEL Support Policy',
 );
 export const IN_PLACE_UPGRADE_SUPPORT_LINK = createLink(
   'https://access.redhat.com/support/policy/ipu-support',
-  'In-place upgrade Support Policy'
+  'In-place upgrade Support Policy',
 );
 export const PREVENT_KERNEL_MODULE_LOADING_LINK = createLink(
   'https://access.redhat.com/solutions/41278',
-  'How do I prevent a kernel module from loading automatically?'
+  'How do I prevent a kernel module from loading automatically?',
 );
 export const TAINTED_KERNEL_MODULES_LINK = createLink(
   'https://www.kernel.org/doc/html/v6.9/admin-guide/tainted-kernels.html',
-  'Tainted kernel modules'
+  'Tainted kernel modules',
 );
 export const CONVERT2RHEL_ANALYSIS_TITLE =
   'Analyze conversion to RHEL 7 without Extended Lifecycle Support (ELS)';

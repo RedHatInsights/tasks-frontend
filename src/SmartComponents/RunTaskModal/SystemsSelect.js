@@ -16,7 +16,7 @@ const SystemsSelect = ({
     selectedIds,
     setSelectedIds,
     filterSortString,
-    slug
+    slug,
   );
 
   return (

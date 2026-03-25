@@ -34,7 +34,7 @@ const TasksTables = ({
       tableProps: tablePropsRest,
       ...options,
     },
-    isTableLoading
+    isTableLoading,
   );
 
   return (

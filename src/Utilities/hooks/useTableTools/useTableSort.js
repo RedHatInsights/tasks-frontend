@@ -23,7 +23,7 @@ const useTableSort = (columns, options = {}) => {
     options.sortBy || {
       index: 3,
       direction: 'asc',
-    }
+    },
   );
   const onSort = (_, index, direction) => {
     setSortBy({
@@ -37,7 +37,7 @@ const useTableSort = (columns, options = {}) => {
       currentSortableColumn?.sortByProp ||
         currentSortableColumn?.sortByFunction,
       items,
-      sortBy.direction
+      sortBy.direction,
     );
   return {
     sorter,

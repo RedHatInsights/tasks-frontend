@@ -22,23 +22,23 @@ const ConversionTaskInputParameters = ({
   const elsDisabled = findParameterByKey(parameters, 'ELS_DISABLED');
   const unavailableKmods = findParameterByKey(
     parameters,
-    'CONVERT2RHEL_ALLOW_UNAVAILABLE_KMODS'
+    'CONVERT2RHEL_ALLOW_UNAVAILABLE_KMODS',
   );
   const skipKernelCheck = findParameterByKey(
     parameters,
-    'CONVERT2RHEL_SKIP_KERNEL_CURRENCY_CHECK'
+    'CONVERT2RHEL_SKIP_KERNEL_CURRENCY_CHECK',
   );
   const skipPackageCheck = findParameterByKey(
     parameters,
-    'CONVERT2RHEL_OUTDATED_PACKAGE_CHECK_SKIP'
+    'CONVERT2RHEL_OUTDATED_PACKAGE_CHECK_SKIP',
   );
   const skipTaintedKernelModuleCheck = findParameterByKey(
     parameters,
-    'CONVERT2RHEL_TAINTED_KERNEL_MODULE_CHECK_SKIP'
+    'CONVERT2RHEL_TAINTED_KERNEL_MODULE_CHECK_SKIP',
   );
   const optionalRepositories = findParameterByKey(
     parameters,
-    'OPTIONAL_REPOSITORIES'
+    'OPTIONAL_REPOSITORIES',
   );
 
   const updateParameter = (parameter, newValue) => {
@@ -46,8 +46,8 @@ const ConversionTaskInputParameters = ({
       prevState.map((param) =>
         param.key === parameter.key
           ? { key: param.key, value: newValue }
-          : param
-      )
+          : param,
+      ),
     );
   };
 

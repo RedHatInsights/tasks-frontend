@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 
@@ -23,7 +23,7 @@ describe('RunTaskButton', () => {
     const { asFragment } = render(
       <MemoryRouter keyLength={0}>
         <RunTaskButton {...props} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(asFragment()).toMatchSnapshot();
@@ -35,7 +35,7 @@ describe('RunTaskButton', () => {
     const { asFragment } = render(
       <MemoryRouter keyLength={0}>
         <RunTaskButton {...props} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(asFragment()).toMatchSnapshot();
@@ -45,12 +45,10 @@ describe('RunTaskButton', () => {
     render(
       <MemoryRouter keyLength={0}>
         <RunTaskButton {...props} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
-    await waitFor(() =>
-      userEvent.click(screen.getByLabelText('taska-run-task-button'))
-    );
+    await userEvent.click(screen.getByLabelText('taska-run-task-button'));
     expect(props.openTaskModal).toHaveBeenCalledWith(true, 'taska');
   });
 });

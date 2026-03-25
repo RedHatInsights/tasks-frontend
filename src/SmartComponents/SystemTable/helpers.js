@@ -23,7 +23,7 @@ const buildOsFilterString = (osFilter) =>
             const osArray = minorOsKey.split('-');
             const minorVersion = osArray.slice(
               osArray.length - 1,
-              osArray.length
+              osArray.length,
             );
             const osName = osArray.slice(0, osArray.length - 2).join(' ');
 
@@ -31,7 +31,7 @@ const buildOsFilterString = (osFilter) =>
           }
         })
         .filter((v) => !!v)
-        .join(',')
+        .join(','),
     )
     .filter((v) => !!v)
     .join(',');
@@ -70,7 +70,7 @@ const buildTagsFilterString = (tags, filters) => {
       ? (tagFiltersString += '')
       : (tagFiltersString += ',');
     tag.values.forEach(
-      (value) => (tagFiltersString += `${tag.category}/${value.name}`)
+      (value) => (tagFiltersString += `${tag.category}/${value.name}`),
     );
   });
 
@@ -102,7 +102,7 @@ export const buildFilterSortString = (
   filters,
   tags,
   workloadFilters,
-  activeFiltersConfig
+  activeFiltersConfig,
 ) => {
   let limitOffsetString = `limit=${limit}&offset=${offset}`;
   let sortString = buildSortString(orderBy, orderDirection);

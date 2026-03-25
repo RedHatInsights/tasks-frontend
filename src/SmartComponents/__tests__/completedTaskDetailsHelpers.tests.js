@@ -84,7 +84,7 @@ describe('fetchTaskJobs', () => {
     let taskJobs = await fetchTaskJobs(
       { id: 'abcd1234' },
       setError,
-      addNotification
+      addNotification,
     );
     expect(taskJobs).toBe(taskJobsSuccess.data);
   });

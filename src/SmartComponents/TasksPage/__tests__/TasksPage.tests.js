@@ -25,13 +25,11 @@ describe('TasksPage', () => {
         <Provider store={store}>
           <TasksPage tab={0} />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
-    await waitFor(() => expect(asFragment()).toMatchSnapshot());
-    await waitFor(() =>
-      expect(screen.getByLabelText('available-tasks')).toBeInTheDocument()
-    );
+    expect(await screen.findByLabelText('available-tasks')).toBeInTheDocument();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('should update tab index', async () => {
@@ -49,14 +47,12 @@ describe('TasksPage', () => {
         <Provider store={store}>
           <TasksPage {...props} />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     await waitFor(() => expect(fetchAvailableTasks).toHaveBeenCalled());
     await userEvent.click(screen.getByText('Activity'));
     await waitFor(() => expect(fetchExecutedTasks).toHaveBeenCalled());
-    await waitFor(() =>
-      expect(screen.getByLabelText('activity')).toBeInTheDocument()
-    );
+    expect(await screen.findByLabelText('activity')).toBeInTheDocument();
   });
 });

@@ -18,13 +18,13 @@ describe('TaskCard', () => {
     expect(
       screen.getByRole('button', {
         name: /foo-bar-task-run-task-button/i,
-      })
+      }),
     ).toBeVisible();
     expect(screen.queryByText(/task description/i)).not.toBeInTheDocument();
     expect(
       screen.queryByRole('link', {
         name: /download preview of playbook/i,
-      })
+      }),
     ).not.toBeInTheDocument();
   });
 
@@ -34,14 +34,14 @@ describe('TaskCard', () => {
     await userEvent.click(
       screen.getByRole('button', {
         name: /expand task title description/i,
-      })
+      }),
     );
 
     expect(screen.getByText(/task description/i)).toBeVisible();
     expect(
       screen.getByRole('link', {
         name: /download preview of playbook/i,
-      })
+      }),
     ).toBeVisible();
   });
 
@@ -51,7 +51,7 @@ describe('TaskCard', () => {
     await userEvent.click(
       screen.getByRole('button', {
         name: /foo-bar-task-run-task-button/i,
-      })
+      }),
     );
 
     await waitFor(() => {

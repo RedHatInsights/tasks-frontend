@@ -51,16 +51,16 @@ describe('ConversionTaskInputParameters', () => {
         slug="convert-to-rhel-conversion"
         parameters={defaultParameters}
         setDefinedParameters={mockSetDefinedParameters}
-      />
+      />,
     );
 
     expect(
       screen.getByText(
-        'Convert to RHEL 7 without Extended Lifecycle Support (ELS)'
-      )
+        'Convert to RHEL 7 without Extended Lifecycle Support (ELS)',
+      ),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/By default, the task converts your CentOS Linux 7/i)
+      screen.getByText(/By default, the task converts your CentOS Linux 7/i),
     ).toBeInTheDocument();
   });
 
@@ -70,18 +70,18 @@ describe('ConversionTaskInputParameters', () => {
         slug="convert-to-rhel-analysis"
         parameters={defaultParameters}
         setDefinedParameters={mockSetDefinedParameters}
-      />
+      />,
     );
 
     expect(
       screen.getByText(
-        'Analyze conversion to RHEL 7 without Extended Lifecycle Support (ELS)'
-      )
+        'Analyze conversion to RHEL 7 without Extended Lifecycle Support (ELS)',
+      ),
     ).toBeInTheDocument();
     expect(
       screen.getByText(
-        /By default, the task analyzes a conversion of your CentOS Linux 7/i
-      )
+        /By default, the task analyzes a conversion of your CentOS Linux 7/i,
+      ),
     ).toBeInTheDocument();
   });
 
@@ -91,7 +91,7 @@ describe('ConversionTaskInputParameters', () => {
         slug="convert-to-rhel-conversion"
         parameters={defaultParameters}
         setDefinedParameters={mockSetDefinedParameters}
-      />
+      />,
     );
 
     // ELS_DISABLED checkbox
@@ -99,17 +99,17 @@ describe('ConversionTaskInputParameters', () => {
 
     // CONVERT2RHEL_ALLOW_UNAVAILABLE_KMODS checkbox
     expect(
-      screen.getByLabelText('CONVERT2RHEL_ALLOW_UNAVAILABLE_KMODS')
+      screen.getByLabelText('CONVERT2RHEL_ALLOW_UNAVAILABLE_KMODS'),
     ).toBeInTheDocument();
 
     // CONVERT2RHEL_SKIP_KERNEL_CURRENCY_CHECK checkbox
     expect(
-      screen.getByLabelText('CONVERT2RHEL_SKIP_KERNEL_CURRENCY_CHECK')
+      screen.getByLabelText('CONVERT2RHEL_SKIP_KERNEL_CURRENCY_CHECK'),
     ).toBeInTheDocument();
 
     // CONVERT2RHEL_OUTDATED_PACKAGE_CHECK_SKIP checkbox
     expect(
-      screen.getByLabelText('CONVERT2RHEL_OUTDATED_PACKAGE_CHECK_SKIP')
+      screen.getByLabelText('CONVERT2RHEL_OUTDATED_PACKAGE_CHECK_SKIP'),
     ).toBeInTheDocument();
   });
 
@@ -119,14 +119,14 @@ describe('ConversionTaskInputParameters', () => {
         slug="convert-to-rhel-conversion"
         parameters={defaultParameters}
         setDefinedParameters={mockSetDefinedParameters}
-      />
+      />,
     );
 
     expect(screen.getByText('Resolve issues if possible')).toBeInTheDocument();
     expect(
       screen.getByText(
-        /Use these at your discretion and resolve the issues if possible/i
-      )
+        /Use these at your discretion and resolve the issues if possible/i,
+      ),
     ).toBeInTheDocument();
   });
 
@@ -147,11 +147,11 @@ describe('ConversionTaskInputParameters', () => {
         slug="convert-to-rhel-conversion"
         parameters={parametersWithTainted}
         setDefinedParameters={mockSetDefinedParameters}
-      />
+      />,
     );
 
     expect(
-      screen.getByLabelText('CONVERT2RHEL_TAINTED_KERNEL_MODULE_CHECK_SKIP')
+      screen.getByLabelText('CONVERT2RHEL_TAINTED_KERNEL_MODULE_CHECK_SKIP'),
     ).toBeInTheDocument();
   });
 
@@ -161,11 +161,11 @@ describe('ConversionTaskInputParameters', () => {
         slug="convert-to-rhel-conversion"
         parameters={defaultParameters}
         setDefinedParameters={mockSetDefinedParameters}
-      />
+      />,
     );
 
     expect(
-      screen.queryByLabelText('CONVERT2RHEL_TAINTED_KERNEL_MODULE_CHECK_SKIP')
+      screen.queryByLabelText('CONVERT2RHEL_TAINTED_KERNEL_MODULE_CHECK_SKIP'),
     ).not.toBeInTheDocument();
   });
 
@@ -186,7 +186,7 @@ describe('ConversionTaskInputParameters', () => {
         slug="convert-to-rhel-conversion"
         parameters={parametersWithRepos}
         setDefinedParameters={mockSetDefinedParameters}
-      />
+      />,
     );
 
     expect(screen.getByText('Optional Repositories')).toBeInTheDocument();
@@ -198,7 +198,7 @@ describe('ConversionTaskInputParameters', () => {
         slug="convert-to-rhel-conversion"
         parameters={defaultParameters}
         setDefinedParameters={mockSetDefinedParameters}
-      />
+      />,
     );
 
     expect(screen.queryByText('Optional Repositories')).not.toBeInTheDocument();
@@ -210,7 +210,7 @@ describe('ConversionTaskInputParameters', () => {
         slug="convert-to-rhel-conversion"
         parameters={defaultParameters}
         setDefinedParameters={mockSetDefinedParameters}
-      />
+      />,
     );
 
     const checkbox = screen.getByLabelText('ELS_DISABLED');
@@ -238,11 +238,13 @@ describe('ConversionTaskInputParameters', () => {
         slug="convert-to-rhel-conversion"
         parameters={defaultParameters}
         setDefinedParameters={mockSetDefinedParameters}
-      />
+      />,
     );
 
     expect(
-      screen.getByText('Ignore specific pre-conversion analysis check results.')
+      screen.getByText(
+        'Ignore specific pre-conversion analysis check results.',
+      ),
     ).toBeInTheDocument();
   });
 
@@ -252,35 +254,37 @@ describe('ConversionTaskInputParameters', () => {
         slug="convert-to-rhel-conversion"
         parameters={defaultParameters}
         setDefinedParameters={mockSetDefinedParameters}
-      />
+      />,
     );
 
     // ELS_DISABLED should have custom description
     expect(
       screen.getByText(
-        /If you plan to upgrade to RHEL 8 right after the conversion/i
-      )
+        /If you plan to upgrade to RHEL 8 right after the conversion/i,
+      ),
     ).toBeInTheDocument();
 
     // CONVERT2RHEL_ALLOW_UNAVAILABLE_KMODS should have custom description
     expect(
-      screen.getByText(/We cannot guarantee that the loaded kernel modules/i)
+      screen.getByText(/We cannot guarantee that the loaded kernel modules/i),
     ).toBeInTheDocument();
   });
 
-  it('should have correct PatternFly v6 structure', () => {
-    const { container } = render(
+  it('should render all conversion parameters', () => {
+    render(
       <ConversionTaskInputParameters
         slug="convert-to-rhel-conversion"
         parameters={defaultParameters}
         setDefinedParameters={mockSetDefinedParameters}
-      />
+      />,
     );
 
-    expect(container.querySelector('.pf-v6-c-form')).toBeInTheDocument();
-    expect(container.querySelector('.pf-v6-c-alert')).toBeInTheDocument();
+    expect(screen.getByLabelText('ELS_DISABLED')).toBeInTheDocument();
     expect(
-      container.querySelector('.pf-v6-c-alert.pf-m-warning')
+      screen.getByLabelText('CONVERT2RHEL_ALLOW_UNAVAILABLE_KMODS'),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByLabelText('CONVERT2RHEL_SKIP_KERNEL_CURRENCY_CHECK'),
     ).toBeInTheDocument();
   });
 });

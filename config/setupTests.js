@@ -11,17 +11,15 @@ global.window.insights = {
         new Promise((res) =>
           res({
             identity: {
-              // eslint-disable-next-line camelcase
               account_number: '0',
               type: 'User',
             },
             entitlements: {
               insights: {
-                // eslint-disable-next-line camelcase
                 is_entitled: true,
               },
             },
-          })
+          }),
         ),
     },
     isBeta: jest.fn(),

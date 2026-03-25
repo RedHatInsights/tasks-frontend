@@ -12,7 +12,7 @@ jest.mock(
   '@redhat-cloud-services/frontend-components-utilities/RBACHook',
   () => ({
     usePermissions: jest.fn(),
-  })
+  }),
 );
 
 jest.mock('@project-kessel/react-kessel-access-check', () => ({
@@ -23,7 +23,7 @@ jest.mock(
   '@redhat-cloud-services/frontend-components-utilities/kesselPermissions',
   () => ({
     getKesselAccessCheckParams: jest.fn(),
-  })
+  }),
 );
 
 jest.mock('../useDefaultWorkspace', () => ({
@@ -42,7 +42,7 @@ describe('useRbacV1Permissions', () => {
     });
 
     const { result } = renderHook(() =>
-      useRbacV1Permissions('tasks', ['tasks:*:*'])
+      useRbacV1Permissions('tasks', ['tasks:*:*']),
     );
 
     expect(result.current.hasAccess).toBe(true);
@@ -57,7 +57,7 @@ describe('useRbacV1Permissions', () => {
     });
 
     const { result } = renderHook(() =>
-      useRbacV1Permissions('tasks', ['tasks:*:*'])
+      useRbacV1Permissions('tasks', ['tasks:*:*']),
     );
 
     expect(result.current.hasAccess).toBe(false);
@@ -71,7 +71,7 @@ describe('useRbacV1Permissions', () => {
     });
 
     const { result } = renderHook(() =>
-      useRbacV1Permissions('tasks', ['tasks:*:*'])
+      useRbacV1Permissions('tasks', ['tasks:*:*']),
     );
 
     expect(result.current.hasAccess).toBe(false);
@@ -88,7 +88,7 @@ describe('useRbacV1Permissions', () => {
       useRbacV1Permissions('inventory', [
         'inventory:hosts:*',
         'inventory:hosts:read',
-      ])
+      ]),
     );
 
     expect(result.current.hasAccess).toBe(true);
@@ -267,7 +267,7 @@ describe('useKesselPermissions', () => {
     });
 
     const { result } = renderHook(() =>
-      useKesselPermissions(['view', 'edit', 'delete'])
+      useKesselPermissions(['view', 'edit', 'delete']),
     );
 
     expect(result.current.hasAccess).toBe(false);

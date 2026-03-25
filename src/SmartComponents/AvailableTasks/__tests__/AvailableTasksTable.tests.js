@@ -11,7 +11,7 @@ jest.mock('../../../Utilities/useFeatureFlag', () => () => true);
 describe('test data', () => {
   it('task C has a real slug', () => {
     expect(
-      availableTasksTableItems.data.find(({ name }) => name === 'Task C').slug
+      availableTasksTableItems.data.find(({ name }) => name === 'Task C').slug,
     ).toBe('convert-to-rhel-conversion');
   });
 });
@@ -31,7 +31,7 @@ describe('AvailableTasksTable', () => {
     render(
       <MemoryRouter keyLength={0}>
         <AvailableTasksTable {...props} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(screen.getByLabelText('available-tasks-table')).toBeVisible();
@@ -44,7 +44,7 @@ describe('AvailableTasksTable', () => {
     render(
       <MemoryRouter keyLength={0}>
         <AvailableTasksTable {...props} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(screen.getByLabelText('available-tasks-table')).toBeVisible();
@@ -57,7 +57,7 @@ describe('AvailableTasksTable', () => {
     render(
       <MemoryRouter keyLength={0}>
         <AvailableTasksTable {...props} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     const taskC = screen.getByLabelText('taskC');
@@ -66,7 +66,7 @@ describe('AvailableTasksTable', () => {
       expect(
         screen.getByRole('button', {
           name: /help me get started/i,
-        })
+        }),
       ).toBeVisible();
     });
   });
@@ -77,7 +77,7 @@ describe('AvailableTasksTable', () => {
     render(
       <MemoryRouter keyLength={0}>
         <AvailableTasksTable {...props} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(screen.getByLabelText('error-empty-state')).toBeVisible();

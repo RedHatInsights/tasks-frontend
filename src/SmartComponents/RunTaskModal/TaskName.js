@@ -33,6 +33,7 @@ const TaskName = ({ taskName, setTaskName, createTaskError }) => {
       setValidated('default');
       setHelperText(null);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- validated is intentionally excluded
   }, [taskName]);
 
   return (

@@ -8,7 +8,7 @@ export const nameFilter = [
       tasks.filter((task) =>
         typeof task.name === 'string'
           ? task.name.toLowerCase().includes(value.toLowerCase())
-          : null
+          : null,
       ),
   },
 ];

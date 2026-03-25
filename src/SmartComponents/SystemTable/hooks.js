@@ -3,7 +3,7 @@ import { buildFilterSortString } from './helpers';
 
 export const useGetEntities = (
   onComplete,
-  { selectedIds, setFilterSortString, slug }
+  { selectedIds, setFilterSortString, slug },
 ) => {
   return async (_items, config) => {
     const {
@@ -26,7 +26,7 @@ export const useGetEntities = (
       filters,
       tags,
       workloadFilters,
-      activeFiltersConfig
+      activeFiltersConfig,
     );
     const fetchedEntities = await fetchSystems(filterSortString, slug);
 
@@ -37,7 +37,7 @@ export const useGetEntities = (
 
     const bulkFilterSortString = filterSortString.replace(
       /(limit=)[^&]+/,
-      '$1' + count
+      '$1' + count,
     );
     setFilterSortString(bulkFilterSortString);
 

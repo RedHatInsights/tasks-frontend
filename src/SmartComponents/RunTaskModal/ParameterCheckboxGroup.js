@@ -13,7 +13,9 @@ const ParameterCheckboxGroup = ({
   customDescription = undefined,
 }) => {
   const [parameterValue, setParameterValue] = useState(
-    ['None', ''].includes(parameter.default) ? [] : parameter.default.split(',')
+    ['None', ''].includes(parameter.default)
+      ? []
+      : parameter.default.split(','),
   );
 
   return (
@@ -41,7 +43,7 @@ const ParameterCheckboxGroup = ({
                 setParameterValue(newParameterValue);
                 updateParameter(
                   parameter,
-                  newParameterValue.join(',') || 'None'
+                  newParameterValue.join(',') || 'None',
                 );
               }}
             />

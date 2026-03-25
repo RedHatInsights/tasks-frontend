@@ -42,7 +42,7 @@ describe('useExport', () => {
       useExport({
         ...defaultOptions,
         isDisabled: true,
-      })
+      }),
     );
     expect(result.current.toolbarProps.exportConfig.isDisabled).toBe(true);
   });
@@ -82,7 +82,7 @@ describe('useExportWithItems', () => {
     const { result } = renderHook(() =>
       useExportWithItems([], [], {
         exportable: { prepareItems: prepareItemsMock },
-      })
+      }),
     );
 
     expect(prepareItemsMock).not.toBeCalled();
@@ -114,8 +114,8 @@ describe('useExportWithItems', () => {
               },
             ],
           },
-        }
-      )
+        },
+      ),
     );
 
     result.current.toolbarProps.exportConfig.onSelect(undefined, 'csv');
@@ -123,7 +123,7 @@ describe('useExportWithItems', () => {
       expect(downloadFile).toBeCalledWith(
         'System name,Status,Message,Test 1,Test 2\n"System deleted","Success","Completed","success",""some","array",1"',
         expect.anything(),
-        'csv'
+        'csv',
       );
     });
   });

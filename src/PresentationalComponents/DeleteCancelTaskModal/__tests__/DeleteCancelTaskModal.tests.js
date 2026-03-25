@@ -1,11 +1,11 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import { deleteExecutedTask } from '../../../../api';
 
 import DeleteCancelTaskModal from '../DeleteCancelTaskModal';
-// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
+
 import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 
 jest.mock('../../../../api');
@@ -33,10 +33,10 @@ describe('DeleteCancelTaskModal', () => {
     render(
       <MemoryRouter>
         <DeleteCancelTaskModal {...props} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
     expect(
-      screen.getByLabelText('cancel-delete-task-modal')
+      screen.getByLabelText('cancel-delete-task-modal'),
     ).toBeInTheDocument();
   });
 
@@ -44,12 +44,10 @@ describe('DeleteCancelTaskModal', () => {
     render(
       <MemoryRouter>
         <DeleteCancelTaskModal {...props} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
-    await waitFor(() =>
-      userEvent.click(screen.getByLabelText('cancel-delete-modal-button'))
-    );
+    await userEvent.click(screen.getByLabelText('cancel-delete-modal-button'));
     expect(props.setModalOpened).toHaveBeenCalled();
   });
 
@@ -63,12 +61,10 @@ describe('DeleteCancelTaskModal', () => {
     render(
       <MemoryRouter>
         <DeleteCancelTaskModal {...props} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
-    await waitFor(() =>
-      userEvent.click(screen.getByTestId('delete-task-button'))
-    );
+    await userEvent.click(screen.getByTestId('delete-task-button'));
     expect(props.setIsDelete).toHaveBeenCalled();
   });
 
@@ -82,12 +78,10 @@ describe('DeleteCancelTaskModal', () => {
     render(
       <MemoryRouter>
         <DeleteCancelTaskModal {...props} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
-    await waitFor(() =>
-      userEvent.click(screen.getByTestId('delete-task-button'))
-    );
+    await userEvent.click(screen.getByTestId('delete-task-button'));
     expect(mockAddNotification).toHaveBeenCalled();
   });
 
@@ -95,10 +89,10 @@ describe('DeleteCancelTaskModal', () => {
     render(
       <MemoryRouter>
         <DeleteCancelTaskModal {...props} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
-    await waitFor(() => userEvent.click(screen.getByLabelText('Close')));
+    await userEvent.click(screen.getByLabelText('Close'));
     expect(props.setModalOpened).toHaveBeenCalledWith(false);
   });
 });

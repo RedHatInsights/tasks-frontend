@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  act,
   fireEvent,
   render,
   screen,
@@ -29,7 +28,7 @@ import {
   upgrade_leapp_task,
 } from './__fixtures__/completedTasksDetails.fixtures';
 import useInsightsNavigate from '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate';
-// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
+
 import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 
 jest.mock('../../../../api');
@@ -50,7 +49,7 @@ jest.mock('../../../Utilities/usePermissionCheck', () => ({
 jest.mock('../../../Utilities/useFeatureFlag', () => jest.fn(() => false));
 
 jest.mock(
-  '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate'
+  '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate',
 );
 
 describe('CompletedTaskDetails', () => {
@@ -79,12 +78,12 @@ describe('CompletedTaskDetails', () => {
         <Provider store={store}>
           <CompletedTaskDetails />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     await waitFor(() => expect(fetchExecutedTask).toHaveBeenCalled());
     await waitFor(() => expect(fetchExecutedTaskJobs).toHaveBeenCalled());
-    await waitFor(() => expect(asFragment()).toMatchSnapshot());
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('should render convert2rhel correctly completed', async () => {
@@ -101,12 +100,12 @@ describe('CompletedTaskDetails', () => {
         <Provider store={store}>
           <CompletedTaskDetails />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     await waitFor(() => expect(fetchExecutedTask).toHaveBeenCalled());
     await waitFor(() => expect(fetchExecutedTaskJobs).toHaveBeenCalled());
-    await waitFor(() => expect(asFragment()).toMatchSnapshot());
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('should render expandable rows correctly', async () => {
@@ -123,12 +122,12 @@ describe('CompletedTaskDetails', () => {
         <Provider store={store}>
           <CompletedTaskDetails />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     await waitFor(() => expect(fetchExecutedTask).toHaveBeenCalled());
     await waitFor(() => expect(fetchExecutedTaskJobs).toHaveBeenCalled());
-    await waitFor(() => expect(asFragment()).toMatchSnapshot());
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('should render correctly running', async () => {
@@ -145,12 +144,12 @@ describe('CompletedTaskDetails', () => {
         <Provider store={store}>
           <CompletedTaskDetails />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
-    await waitFor(() =>
-      expect(screen.getByLabelText('217-completed-jobs')).toBeInTheDocument()
-    );
+    expect(
+      await screen.findByLabelText('217-completed-jobs'),
+    ).toBeInTheDocument();
     await waitFor(() => {
       const noResultCells = screen.getAllByText('No result yet');
       expect(noResultCells).toHaveLength(3);
@@ -171,14 +170,14 @@ describe('CompletedTaskDetails', () => {
         <Provider store={store}>
           <CompletedTaskDetails />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
+    const input = screen.getByLabelText('text input');
+    fireEvent.change(input, { target: { value: 'A' } });
     await waitFor(async () => {
       expect(fetchExecutedTask).toHaveBeenCalled();
       expect(fetchExecutedTaskJobs).toHaveBeenCalled();
-      const input = screen.getByLabelText('text input');
-      await waitFor(() => fireEvent.change(input, { target: { value: 'A' } }));
       expect(input.value).toBe('A');
     });
   });
@@ -197,18 +196,18 @@ describe('CompletedTaskDetails', () => {
         <Provider store={store}>
           <CompletedTaskDetails />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
+    const input = screen.getByLabelText('text input');
+    fireEvent.change(input, { target: { value: 'A' } });
     await waitFor(async () => {
       expect(fetchExecutedTask).toHaveBeenCalled();
       expect(fetchExecutedTaskJobs).toHaveBeenCalled();
-      const input = screen.getByLabelText('text input');
-      await waitFor(() => fireEvent.change(input, { target: { value: 'A' } }));
       expect(input.value).toBe('A');
-      await waitFor(() => fireEvent.change(input, { target: { value: '' } }));
-      expect(input.value).toBe('');
     });
+    fireEvent.change(input, { target: { value: '' } });
+    expect(input.value).toBe('');
   });
 
   it('should filter by status', async () => {
@@ -225,7 +224,7 @@ describe('CompletedTaskDetails', () => {
         <Provider store={store}>
           <CompletedTaskDetails />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     await waitFor(() => expect(fetchExecutedTask).toHaveBeenCalled());
@@ -233,14 +232,14 @@ describe('CompletedTaskDetails', () => {
     await userEvent.click(
       screen.getByRole('button', {
         name: /conditional filter toggle/i,
-      })
+      }),
     );
     await userEvent.click(screen.getAllByText('Status')[0]);
 
-    await waitFor(() => {
+    await waitFor(async () => {
       const completedElements = screen.queryAllByText('Completed');
       if (completedElements.length > 0) {
-        userEvent.click(completedElements[completedElements.length - 1]);
+        await userEvent.click(completedElements[completedElements.length - 1]);
       }
     });
 
@@ -260,25 +259,17 @@ describe('CompletedTaskDetails', () => {
       return { data: log4j_task_jobs };
     });
 
-    act(() =>
-      render(
-        <MemoryRouter keyLength={0}>
-          <Provider store={store}>
-            <CompletedTaskDetails />
-          </Provider>
-        </MemoryRouter>
-      )
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <CompletedTaskDetails />
+        </Provider>
+      </MemoryRouter>,
     );
 
-    await waitFor(() =>
-      userEvent.click(screen.getByLabelText('Task details menu toggle'))
-    );
-    await waitFor(() =>
-      userEvent.click(screen.getByLabelText('delete task menu item'))
-    );
-    await waitFor(() =>
-      userEvent.click(screen.getByTestId('delete-task-button'))
-    );
+    await userEvent.click(screen.getByLabelText('Task details menu toggle'));
+    await userEvent.click(screen.getByLabelText('delete task menu item'));
+    await userEvent.click(screen.getByTestId('delete-task-button'));
     expect(deleteExecutedTask).toHaveBeenCalled();
   });
 
@@ -298,12 +289,12 @@ describe('CompletedTaskDetails', () => {
         <Provider store={store}>
           <CompletedTaskDetails />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
+    await userEvent.click(screen.getByLabelText('Export'));
+    await userEvent.click(screen.getByText('Export to CSV'));
     await waitFor(async () => {
-      await waitFor(() => userEvent.click(screen.getByLabelText('Export')));
-      await waitFor(() => userEvent.click(screen.getByText('Export to CSV')));
       expect(mockAddNotification).toHaveBeenCalled();
     });
 
@@ -324,13 +315,13 @@ describe('CompletedTaskDetails', () => {
         <Provider store={store}>
           <CompletedTaskDetails />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     await waitFor(() =>
       screen.findByRole('row', {
         name: /details centos7-test-device-3 Completed no inhibtors found, conversion should run smoothly for this system\./i,
-      })
+      }),
     );
     const row = screen.getByRole('row', {
       name: /details centos7-test-device-3 Completed no inhibtors found, conversion should run smoothly for this system\./i,
@@ -339,17 +330,17 @@ describe('CompletedTaskDetails', () => {
     fireEvent.click(
       within(row).getByRole('button', {
         name: /kebab toggle/i,
-      })
+      }),
     );
 
     await userEvent.click(
-      screen.getByRole('menuitem', { name: /View system logs/i })
+      screen.getByRole('menuitem', { name: /View system logs/i }),
     );
 
     expect(
       screen.getByRole('heading', {
         name: /log for: centos7-test-device-3/i,
-      })
+      }),
     ).toBeVisible();
   });
 
@@ -369,13 +360,13 @@ describe('CompletedTaskDetails', () => {
         <Provider store={store}>
           <CompletedTaskDetails />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     await waitFor(() =>
       screen.findByRole('row', {
         name: /details centos7-test-device-3 Completed no inhibtors found, conversion should run smoothly for this system\./i,
-      })
+      }),
     );
 
     const row = screen.getByRole('row', {
@@ -385,11 +376,11 @@ describe('CompletedTaskDetails', () => {
     fireEvent.click(
       within(row).getByRole('button', {
         name: /kebab toggle/i,
-      })
+      }),
     );
 
     await userEvent.click(
-      screen.getByRole('menuitem', { name: /View system in Inventory/i })
+      screen.getByRole('menuitem', { name: /View system in Inventory/i }),
     );
 
     expect(navigateMock).toHaveBeenCalled();
@@ -409,7 +400,7 @@ describe('CompletedTaskDetails', () => {
         <Provider store={store}>
           <CompletedTaskDetails />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     await waitFor(() => expect(fetchExecutedTask).toHaveBeenCalled());
@@ -422,15 +413,15 @@ describe('CompletedTaskDetails', () => {
     fireEvent.click(
       within(row).getByRole('button', {
         name: /kebab toggle/i,
-      })
+      }),
     );
 
     expect(
-      screen.getByRole('menuitem', { name: /View system logs/i })
+      screen.getByRole('menuitem', { name: /View system logs/i }),
     ).toBeDisabled();
 
     expect(
-      screen.getByRole('menuitem', { name: /View system in Inventory/i })
+      screen.getByRole('menuitem', { name: /View system in Inventory/i }),
     ).toBeDisabled();
   });
 });

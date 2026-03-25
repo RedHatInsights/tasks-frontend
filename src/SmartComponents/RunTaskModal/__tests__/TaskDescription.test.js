@@ -10,7 +10,7 @@ describe('TaskDescription', () => {
       <TaskDescription
         description="Test description"
         slug="convert-to-rhel-conversion"
-      />
+      />,
     );
 
     screen.getByText(/test description/i);
@@ -21,7 +21,7 @@ describe('TaskDescription', () => {
       <TaskDescription
         description="Test description"
         slug="convert-to-rhel-conversion"
-      />
+      />,
     );
 
     screen.getByRole('button', {
@@ -35,7 +35,7 @@ describe('TaskDescription', () => {
     expect(
       screen.queryByRole('button', {
         name: /help me get started/i,
-      })
+      }),
     ).not.toBeInTheDocument();
   });
 
@@ -45,7 +45,7 @@ describe('TaskDescription', () => {
     expect(
       screen.getByRole('link', {
         name: /download preview of playbook/i,
-      })
+      }),
     ).toHaveAttribute('href', '/api/tasks/v1/task/123/playbook');
   });
 
@@ -54,7 +54,7 @@ describe('TaskDescription', () => {
       <TaskDescription
         description="Test description [link](https://www.google.com)"
         slug="123"
-      />
+      />,
     );
 
     const link = screen.getByRole('link', {

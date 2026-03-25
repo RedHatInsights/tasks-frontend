@@ -15,7 +15,7 @@ const useTableTools = (
   items = [],
   columns = [],
   options = {},
-  isTableLoading
+  isTableLoading,
 ) => {
   const {
     toolbarProps: paginationToolbarProps,
@@ -38,7 +38,7 @@ const useTableTools = (
   const { tableProps: sortableTableProps, sorter } = useTableSortWithItems(
     items,
     columns,
-    options
+    options,
   );
 
   const { tableProps: actionResolverTableProps } = useActionResolverWithItems({
@@ -49,7 +49,7 @@ const useTableTools = (
   const { toolbarProps: exportToolbarProps } = useExportWithItems(
     filteredAndSortedItems(items, filter, sorter),
     columns,
-    options
+    options,
   );
 
   const {

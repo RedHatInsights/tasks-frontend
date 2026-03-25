@@ -10,7 +10,7 @@ describe('TaskName', () => {
     expect(
       screen.getByRole('textbox', {
         name: /edit task name text field/i,
-      })
+      }),
     ).toHaveValue('Initial task name');
   });
 
@@ -22,14 +22,14 @@ describe('TaskName', () => {
         taskName="Initial task name"
         setTaskName={setTaskNameMock}
         createTaskError={{}}
-      />
+      />,
     );
 
     await userEvent.type(
       screen.getByRole('textbox', {
         name: /edit task name text field/i,
       }),
-      'A'
+      'A',
     );
 
     expect(setTaskNameMock).toBeCalledWith('Initial task nameA');

@@ -30,6 +30,7 @@ const App = () => {
         dispatch(actions.setGlobalFilterSIDs(SID));
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- dispatch is stable
   }, [chrome]);
 
   return isKesselEnabled ? (

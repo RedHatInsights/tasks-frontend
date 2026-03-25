@@ -11,7 +11,7 @@ const isTextbox = (parameter) => (parameter?.values || []).length === 0;
 const isCheckbox = (parameter) =>
   parameter.values.length === 2 &&
   (parameter.values.every((value) =>
-    ['true', 'false'].includes(value.toLowerCase())
+    ['true', 'false'].includes(value.toLowerCase()),
   ) ||
     parameter.values.every((value) => ['0', '1'].includes(value)));
 

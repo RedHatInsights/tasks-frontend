@@ -22,8 +22,8 @@ export const getTimeDiff = ([start, end, status]) => {
       : `${renderRunDateTime(end)} (${moment
           .duration(
             moment(renderRunDateTime(end), 'DD MMM YYYY, HH:mm').diff(
-              moment(renderRunDateTime(start), 'DD MMM YYYY HH:mm')
-            )
+              moment(renderRunDateTime(start), 'DD MMM YYYY HH:mm'),
+            ),
           )
           .asMinutes()} min)`;
   }
@@ -33,8 +33,9 @@ export const uniq = (collection) => [...new Set(collection)];
 
 /*eslint-disable react/display-name*/
 export const renderColumnComponent =
-  (Component, props) => (_data, _id, entity) =>
-    <Component {...entity} {...props} />;
+  (Component, props) => (_data, _id, entity) => (
+    <Component {...entity} {...props} />
+  );
 /*eslint-enable react/display-name*/
 
 const getSortable = (property, item) => {
@@ -52,7 +53,7 @@ export const orderArrayByProp = (property, objects, direction) =>
         return getSortable(property, a) - getSortable(property, b);
       } else {
         return String(getSortable(property, a)).localeCompare(
-          String(getSortable(property, b))
+          String(getSortable(property, b)),
         );
       }
     } else {
@@ -60,7 +61,7 @@ export const orderArrayByProp = (property, objects, direction) =>
         return -getSortable(property, a) + getSortable(property, b);
       } else {
         return -String(getSortable(property, a)).localeCompare(
-          String(getSortable(property, b))
+          String(getSortable(property, b)),
         );
       }
     }

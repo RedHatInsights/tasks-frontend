@@ -9,7 +9,7 @@ jest.mock(
     useAxiosWithPlatformInterceptors: () => ({
       get: mockAxiosGet,
     }),
-  })
+  }),
 );
 
 describe('useDefaultWorkspace', () => {

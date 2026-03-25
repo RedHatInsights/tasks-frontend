@@ -14,11 +14,11 @@ const ParameterTextbox = ({
   customDescription = undefined,
 }) => {
   const [parameterText, setParameterText] = useState(
-    parameter.default || parameter.value
+    parameter.default || parameter.value,
   );
   const [validated, setValidated] = useState('default');
   const [helperText, setHelperText] = useState(
-    customDescription || parameter.description
+    customDescription || parameter.description,
   );
 
   return (

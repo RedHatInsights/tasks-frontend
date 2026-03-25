@@ -38,7 +38,7 @@ describe('TasksPopover', () => {
         <Provider store={store}>
           <TasksPopover {...props} />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(asFragment()).toMatchSnapshot();

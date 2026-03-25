@@ -19,8 +19,8 @@ describe('buildFilterSortString', () => {
         {},
         tags,
         workloadFilters,
-        activeFiltersConfig
-      )
+        activeFiltersConfig,
+      ),
     ).toEqual('?limit=25&offset=0&sort=name&all_systems=true');
   });
 
@@ -43,8 +43,8 @@ describe('buildFilterSortString', () => {
         {},
         tags,
         workloadFilters,
-        activefilters
-      )
+        activefilters,
+      ),
     ).toEqual('?limit=25&offset=0&sort=name');
   });
 
@@ -66,10 +66,10 @@ describe('buildFilterSortString', () => {
         filters,
         tags,
         workloadFilters,
-        activeFiltersConfig
-      )
+        activeFiltersConfig,
+      ),
     ).toEqual(
-      '?limit=25&offset=0&sort=name&operating_system=RHEL|9.4&all_systems=true'
+      '?limit=25&offset=0&sort=name&operating_system=RHEL|9.4&all_systems=true',
     );
 
     filters = {
@@ -90,10 +90,10 @@ describe('buildFilterSortString', () => {
         filters,
         tags,
         workloadFilters,
-        activeFiltersConfig
-      )
+        activeFiltersConfig,
+      ),
     ).toEqual(
-      '?limit=25&offset=0&sort=name&operating_system=RHEL|9.3&all_systems=true'
+      '?limit=25&offset=0&sort=name&operating_system=RHEL|9.3&all_systems=true',
     );
 
     filters = {
@@ -124,10 +124,10 @@ describe('buildFilterSortString', () => {
         filters,
         tags,
         workloadFilters,
-        activeFiltersConfig
-      )
+        activeFiltersConfig,
+      ),
     ).toEqual(
-      '?limit=25&offset=0&sort=name&operating_system=RHEL|9.4,RHEL|9.3,RHEL|9.9,RHEL|8.4,AlmaLinux|8.4,AlmaLinux|8.5&all_systems=true'
+      '?limit=25&offset=0&sort=name&operating_system=RHEL|9.4,RHEL|9.3,RHEL|9.9,RHEL|8.4,AlmaLinux|8.4,AlmaLinux|8.5&all_systems=true',
     );
 
     filters = {
@@ -157,10 +157,10 @@ describe('buildFilterSortString', () => {
         filters,
         tags,
         workloadFilters,
-        activeFiltersConfig
-      )
+        activeFiltersConfig,
+      ),
     ).toEqual(
-      '?limit=25&offset=0&sort=name&operating_system=RHEL|9.5,RHEL|9.4,RHEL|9.3,RHEL|9.2,RHEL|9.1,RHEL|9.0,Cent Os Linux|8.4,Cent Os Linux|8.5&all_systems=true'
+      '?limit=25&offset=0&sort=name&operating_system=RHEL|9.5,RHEL|9.4,RHEL|9.3,RHEL|9.2,RHEL|9.1,RHEL|9.0,Cent Os Linux|8.4,Cent Os Linux|8.5&all_systems=true',
     );
 
     filters = {
@@ -201,10 +201,10 @@ describe('buildFilterSortString', () => {
         filters,
         tags,
         workloadFilters,
-        activeFiltersConfig
-      )
+        activeFiltersConfig,
+      ),
     ).toEqual(
-      '?limit=25&offset=0&sort=name&operating_system=RHEL|9.4,RHEL|9.3,RHEL|9.9,RHEL|8.4,Alma Linux|8.4,Alma Linux|8.5,Cent Os|8.4,Cent Os|8.5,Cent Os|30.99,Cent Os|30.88&all_systems=true'
+      '?limit=25&offset=0&sort=name&operating_system=RHEL|9.4,RHEL|9.3,RHEL|9.9,RHEL|8.4,Alma Linux|8.4,Alma Linux|8.5,Cent Os|8.4,Cent Os|8.5,Cent Os|30.99,Cent Os|30.88&all_systems=true',
     );
 
     filters = {
@@ -234,10 +234,10 @@ describe('buildFilterSortString', () => {
         filters,
         tags,
         workloadFilters,
-        activeFiltersConfig
-      )
+        activeFiltersConfig,
+      ),
     ).toEqual(
-      '?limit=25&offset=0&sort=name&operating_system=RHEL|9.4,RHEL|9.3,RHEL|9.9,AlmaLinux|8.4,AlmaLinux|8.5&all_systems=true'
+      '?limit=25&offset=0&sort=name&operating_system=RHEL|9.4,RHEL|9.3,RHEL|9.9,AlmaLinux|8.4,AlmaLinux|8.5&all_systems=true',
     );
   });
 });

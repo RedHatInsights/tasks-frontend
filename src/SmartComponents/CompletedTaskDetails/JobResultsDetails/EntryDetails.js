@@ -61,7 +61,7 @@ const EntryDetails = ({ entry }) => {
         {detail?.diagnosis && detail?.diagnosis?.[0]?.context !== ''
           ? createGrid(
               'Diagnosis',
-              renderResolutionDetails(detail.diagnosis, 'diagnosis')
+              renderResolutionDetails(detail.diagnosis, 'diagnosis'),
             )
           : null}
         {detail?.remediations && detail?.remediations?.[0]?.context !== ''
@@ -70,8 +70,8 @@ const EntryDetails = ({ entry }) => {
               renderResolutionDetails(
                 detail.remediations,
                 'remediations',
-                'remediations-font-family'
-              )
+                'remediations-font-family',
+              ),
             )
           : null}
         {createGrid('Key', key)}

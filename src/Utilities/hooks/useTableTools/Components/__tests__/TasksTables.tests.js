@@ -27,7 +27,7 @@ describe('TasksTables', () => {
     const { asFragment } = render(
       <MemoryRouter>
         <TasksTables {...props} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(asFragment()).toMatchSnapshot();
@@ -40,7 +40,7 @@ describe('TasksTables', () => {
     const { asFragment } = render(
       <MemoryRouter>
         <TasksTables {...props} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(asFragment()).toMatchSnapshot();

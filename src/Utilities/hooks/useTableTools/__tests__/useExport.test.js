@@ -85,9 +85,9 @@ describe('useExportWithItems', () => {
       }),
     );
 
-    expect(prepareItemsMock).not.toBeCalled();
+    expect(prepareItemsMock).not.toHaveBeenCalled();
     result.current.toolbarProps.exportConfig.onSelect();
-    expect(prepareItemsMock).toBeCalled();
+    expect(prepareItemsMock).toHaveBeenCalled();
   });
 
   it('should add extra columns to the report', async () => {
@@ -120,7 +120,7 @@ describe('useExportWithItems', () => {
 
     result.current.toolbarProps.exportConfig.onSelect(undefined, 'csv');
     await waitFor(() => {
-      expect(downloadFile).toBeCalledWith(
+      expect(downloadFile).toHaveBeenCalledWith(
         'System name,Status,Message,Test 1,Test 2\n"System deleted","Success","Completed","success",""some","array",1"',
         expect.anything(),
         'csv',

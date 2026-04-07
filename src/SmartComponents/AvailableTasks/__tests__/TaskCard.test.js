@@ -55,7 +55,7 @@ describe('TaskCard', () => {
     );
 
     await waitFor(() => {
-      expect(openTaskModalMocked).toBeCalled();
+      expect(openTaskModalMocked).toHaveBeenCalled();
     });
   });
 });

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`buildFilterString filter building returns a base filter for name when searching 1`] = `"name ~ Name"`;
 

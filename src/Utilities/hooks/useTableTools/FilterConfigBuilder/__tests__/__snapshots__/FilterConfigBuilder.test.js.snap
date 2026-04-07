@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`FilterConfigBuilder categoryLabelForValue to return a matching category label 1`] = `"Compliant"`;
 

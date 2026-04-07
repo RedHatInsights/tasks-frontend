@@ -32,7 +32,7 @@ describe('TaskName', () => {
       'A',
     );
 
-    expect(setTaskNameMock).toBeCalledWith('Initial task nameA');
+    expect(setTaskNameMock).toHaveBeenCalledWith('Initial task nameA');
   });
 
   it('shows alert on empty name', () => {

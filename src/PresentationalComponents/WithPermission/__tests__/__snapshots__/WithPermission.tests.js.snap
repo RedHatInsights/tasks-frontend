@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`WithPermission should not render child without Kessel permissions when enabled 1`] = `
 <DocumentFragment>

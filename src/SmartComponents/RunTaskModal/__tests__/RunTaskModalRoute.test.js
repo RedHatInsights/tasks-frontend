@@ -29,7 +29,7 @@ describe('RunTaskModalRoute', () => {
     render(<RunTaskModalRoute />);
 
     await waitFor(() => {
-      expect(fetchAvailableTask).toBeCalledWith('test-slug');
+      expect(fetchAvailableTask).toHaveBeenCalledWith('test-slug');
     });
     screen.getByText(/runtaskmodal/i);
   });
@@ -44,7 +44,7 @@ describe('RunTaskModalRoute', () => {
     render(<RunTaskModalRoute />);
 
     await waitFor(() => {
-      expect(mockAddNotification).toBeCalledWith(
+      expect(mockAddNotification).toHaveBeenCalledWith(
         expect.objectContaining({ description: 'Test error' }),
       );
     });

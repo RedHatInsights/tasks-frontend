@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`] = `
 <DocumentFragment>
@@ -1001,7 +1001,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                               data-ouia-component-id="OUIA-Generated-TableRow-16"
                               data-ouia-component-type="PF6/TableRow"
                               data-ouia-safe="true"
-                              style="border-bottom-color: #4d4d4d;"
+                              style="border-bottom-color: rgb(77, 77, 77);"
                             >
                               <td
                                 class="pf-v6-c-table__td pf-v6-c-table__toggle"
@@ -1188,7 +1188,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                               data-ouia-component-id="OUIA-Generated-TableRow-18"
                               data-ouia-component-type="PF6/TableRow"
                               data-ouia-safe="true"
-                              style="border-bottom-color: #4d4d4d;"
+                              style="border-bottom-color: rgb(77, 77, 77);"
                             >
                               <td
                                 class="pf-v6-c-table__td pf-v6-c-table__toggle"
@@ -1331,7 +1331,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                               data-ouia-component-id="OUIA-Generated-TableRow-20"
                               data-ouia-component-type="PF6/TableRow"
                               data-ouia-safe="true"
-                              style="border-bottom-color: #4d4d4d;"
+                              style="border-bottom-color: rgb(77, 77, 77);"
                             >
                               <td
                                 class="pf-v6-c-table__td pf-v6-c-table__toggle"
@@ -1728,7 +1728,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                               data-ouia-component-id="OUIA-Generated-TableRow-25"
                               data-ouia-component-type="PF6/TableRow"
                               data-ouia-safe="true"
-                              style="border-bottom-color: #4d4d4d;"
+                              style="border-bottom-color: rgb(77, 77, 77);"
                             >
                               <td
                                 class="pf-v6-c-table__td pf-v6-c-table__toggle"
@@ -1919,7 +1919,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                               data-ouia-component-id="OUIA-Generated-TableRow-27"
                               data-ouia-component-type="PF6/TableRow"
                               data-ouia-safe="true"
-                              style="border-bottom-color: #4d4d4d;"
+                              style="border-bottom-color: rgb(77, 77, 77);"
                             >
                               <td
                                 class="pf-v6-c-table__td pf-v6-c-table__toggle"
@@ -2106,7 +2106,7 @@ exports[`CompletedTaskDetails should render convert2rhel correctly completed 1`]
                               data-ouia-component-id="OUIA-Generated-TableRow-29"
                               data-ouia-component-type="PF6/TableRow"
                               data-ouia-safe="true"
-                              style="border-bottom-color: #4d4d4d;"
+                              style="border-bottom-color: rgb(77, 77, 77);"
                             >
                               <td
                                 class="pf-v6-c-table__td pf-v6-c-table__toggle"
@@ -5214,7 +5214,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                               data-ouia-component-id="OUIA-Generated-TableRow-42"
                               data-ouia-component-type="PF6/TableRow"
                               data-ouia-safe="true"
-                              style="border-bottom-color: #4d4d4d;"
+                              style="border-bottom-color: rgb(77, 77, 77);"
                             >
                               <td
                                 class="pf-v6-c-table__td pf-v6-c-table__toggle"
@@ -5380,7 +5380,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                               data-ouia-component-id="OUIA-Generated-TableRow-44"
                               data-ouia-component-type="PF6/TableRow"
                               data-ouia-safe="true"
-                              style="border-bottom-color: #4d4d4d;"
+                              style="border-bottom-color: rgb(77, 77, 77);"
                             >
                               <td
                                 class="pf-v6-c-table__td pf-v6-c-table__toggle"
@@ -5546,7 +5546,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                               data-ouia-component-id="OUIA-Generated-TableRow-46"
                               data-ouia-component-type="PF6/TableRow"
                               data-ouia-safe="true"
-                              style="border-bottom-color: #4d4d4d;"
+                              style="border-bottom-color: rgb(77, 77, 77);"
                             >
                               <td
                                 class="pf-v6-c-table__td pf-v6-c-table__toggle"
@@ -5712,7 +5712,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                               data-ouia-component-id="OUIA-Generated-TableRow-48"
                               data-ouia-component-type="PF6/TableRow"
                               data-ouia-safe="true"
-                              style="border-bottom-color: #4d4d4d;"
+                              style="border-bottom-color: rgb(77, 77, 77);"
                             >
                               <td
                                 class="pf-v6-c-table__td pf-v6-c-table__toggle"
@@ -6037,7 +6037,7 @@ exports[`CompletedTaskDetails should render expandable rows correctly 1`] = `
                       <div>
                         <div
                           class="pf-v6-c-code-block"
-                          style="border-bottom-color: #ffffff; background-color: rgb(255, 255, 255);"
+                          style="border-bottom-color: rgb(255, 255, 255); background-color: rgb(255, 255, 255);"
                         >
                           <div
                             class="pf-v6-c-code-block__content"
@@ -6289,7 +6289,7 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                               data-ouia-component-id="OUIA-Generated-TableRow-54"
                               data-ouia-component-type="PF6/TableRow"
                               data-ouia-safe="true"
-                              style="border-bottom-color: #4d4d4d;"
+                              style="border-bottom-color: rgb(77, 77, 77);"
                             >
                               <td
                                 class="pf-v6-c-table__td pf-v6-c-table__toggle"
@@ -6455,7 +6455,7 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                               data-ouia-component-id="OUIA-Generated-TableRow-56"
                               data-ouia-component-type="PF6/TableRow"
                               data-ouia-safe="true"
-                              style="border-bottom-color: #4d4d4d;"
+                              style="border-bottom-color: rgb(77, 77, 77);"
                             >
                               <td
                                 class="pf-v6-c-table__td pf-v6-c-table__toggle"
@@ -6631,7 +6631,7 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                               data-ouia-component-id="OUIA-Generated-TableRow-58"
                               data-ouia-component-type="PF6/TableRow"
                               data-ouia-safe="true"
-                              style="border-bottom-color: #4d4d4d;"
+                              style="border-bottom-color: rgb(77, 77, 77);"
                             >
                               <td
                                 class="pf-v6-c-table__td pf-v6-c-table__toggle"
@@ -6797,7 +6797,7 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                               data-ouia-component-id="OUIA-Generated-TableRow-60"
                               data-ouia-component-type="PF6/TableRow"
                               data-ouia-safe="true"
-                              style="border-bottom-color: #4d4d4d;"
+                              style="border-bottom-color: rgb(77, 77, 77);"
                             >
                               <td
                                 class="pf-v6-c-table__td pf-v6-c-table__toggle"
@@ -6963,7 +6963,7 @@ Key: 8fb81863f8413bd617c2a55b69b8e10ff03d7c72
                               data-ouia-component-id="OUIA-Generated-TableRow-62"
                               data-ouia-component-type="PF6/TableRow"
                               data-ouia-safe="true"
-                              style="border-bottom-color: #4d4d4d;"
+                              style="border-bottom-color: rgb(77, 77, 77);"
                             >
                               <td
                                 class="pf-v6-c-table__td pf-v6-c-table__toggle"

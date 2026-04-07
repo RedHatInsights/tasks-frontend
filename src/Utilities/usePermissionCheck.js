@@ -7,14 +7,14 @@ import { useDefaultWorkspace } from './useDefaultWorkspace';
 /**
  * Hook for checking permissions using RBAC v1 (traditional approach).
  *
- * @param {string} appName - The application name (e.g., 'tasks', 'inventory')
- * @param {string[]} requiredPermissions - Array of permission strings in format 'application:resource:action'
- * @returns {{hasAccess: boolean, isLoading: boolean}} Permission check result
+ *  @param   {string}                                   appName             - The application name (e.g., 'tasks', 'inventory')
+ *  @param   {string[]}                                 requiredPermissions - Array of permission strings in format 'application:resource:action'
+ *  @returns {{hasAccess: boolean, isLoading: boolean}}                     Permission check result
  */
 export const useRbacV1Permissions = (appName, requiredPermissions) => {
   const { hasAccess, isLoading } = useRbacPermissions(
     appName,
-    requiredPermissions
+    requiredPermissions,
   );
 
   return { hasAccess, isLoading };
@@ -23,8 +23,8 @@ export const useRbacV1Permissions = (appName, requiredPermissions) => {
 /**
  * Hook for checking permissions using Kessel (workspace-aware approach).
  *
- * @param {string[]} kesselRelations - Array of Kessel relation strings in format 'application_resource_action'
- * @returns {{hasAccess: boolean, isLoading: boolean}} Permission check result
+ *  @param   {string[]}                                 kesselRelations - Array of Kessel relation strings in format 'application_resource_action'
+ *  @returns {{hasAccess: boolean, isLoading: boolean}}                 Permission check result
  */
 export const useKesselPermissions = (kesselRelations) => {
   const {
@@ -46,6 +46,7 @@ export const useKesselPermissions = (kesselRelations) => {
           },
         })
       : { resources: [] };
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- kesselRelations is intentionally excluded
   }, [workspaceId, kesselRelationsKey]);
 
   const { data, loading, error } = useSelfAccessCheck(params);
@@ -68,7 +69,7 @@ export const useKesselPermissions = (kesselRelations) => {
 
   const hasAccess = Array.isArray(data)
     ? data.every((check) => check?.allowed === true)
-    : data?.allowed ?? false;
+    : (data?.allowed ?? false);
 
   return { hasAccess, isLoading: loading };
 };

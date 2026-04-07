@@ -12,8 +12,8 @@ const ExpandedIssues = ({ rowPairs, isReportJson }) => {
 
   const [expanded, setExpanded] = useState(
     Object.fromEntries(
-      Object.entries(rowPairs).map(([k]) => [k, Boolean(false)])
-    )
+      Object.entries(rowPairs).map(([k]) => [k, Boolean(false)]),
+    ),
   );
 
   const handleExpansionToggle = (event, pairIndex) => {

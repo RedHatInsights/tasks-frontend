@@ -43,7 +43,7 @@ describe('LogDrawerDetails', () => {
     fireEvent.click(
       screen.getByRole('button', {
         name: /open log in new tab/i,
-      })
+      }),
     );
 
     // Assert that the openInNewTab function is called with the correct arguments

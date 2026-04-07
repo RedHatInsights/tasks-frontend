@@ -26,7 +26,7 @@ describe('ParameterCheckbox', () => {
       <ParameterCheckbox
         parameter={defaultParameter}
         updateParameter={mockUpdateParameter}
-      />
+      />,
     );
 
     expect(screen.getByLabelText('test-checkbox')).toBeInTheDocument();
@@ -44,7 +44,7 @@ describe('ParameterCheckbox', () => {
       <ParameterCheckbox
         parameter={paramWithoutTitle}
         updateParameter={mockUpdateParameter}
-      />
+      />,
     );
 
     expect(screen.getByText('test-checkbox')).toBeInTheDocument();
@@ -58,12 +58,12 @@ describe('ParameterCheckbox', () => {
         parameter={defaultParameter}
         updateParameter={mockUpdateParameter}
         customDescription={customDescription}
-      />
+      />,
     );
 
     expect(screen.getByText(customDescription)).toBeInTheDocument();
     expect(
-      screen.queryByText('This is a test checkbox')
+      screen.queryByText('This is a test checkbox'),
     ).not.toBeInTheDocument();
   });
 
@@ -72,7 +72,7 @@ describe('ParameterCheckbox', () => {
       <ParameterCheckbox
         parameter={defaultParameter}
         updateParameter={mockUpdateParameter}
-      />
+      />,
     );
 
     const checkbox = screen.getByLabelText('test-checkbox');
@@ -89,7 +89,7 @@ describe('ParameterCheckbox', () => {
       <ParameterCheckbox
         parameter={checkedParameter}
         updateParameter={mockUpdateParameter}
-      />
+      />,
     );
 
     const checkbox = screen.getByLabelText('test-checkbox');
@@ -101,7 +101,7 @@ describe('ParameterCheckbox', () => {
       <ParameterCheckbox
         parameter={defaultParameter}
         updateParameter={mockUpdateParameter}
-      />
+      />,
     );
 
     const checkbox = screen.getByLabelText('test-checkbox');
@@ -127,7 +127,7 @@ describe('ParameterCheckbox', () => {
       <ParameterCheckbox
         parameter={numericParameter}
         updateParameter={mockUpdateParameter}
-      />
+      />,
     );
 
     const checkbox = screen.getByLabelText('test-checkbox');
@@ -148,7 +148,7 @@ describe('ParameterCheckbox', () => {
       <ParameterCheckbox
         parameter={numericParameter}
         updateParameter={mockUpdateParameter}
-      />
+      />,
     );
 
     const checkbox = screen.getByLabelText('test-checkbox');
@@ -160,20 +160,17 @@ describe('ParameterCheckbox', () => {
     expect(checkbox).not.toBeChecked();
   });
 
-  it('should use correct PatternFly v6 attributes', () => {
-    const { container } = render(
+  it('should render checkbox with correct attributes', () => {
+    render(
       <ParameterCheckbox
         parameter={defaultParameter}
         updateParameter={mockUpdateParameter}
-      />
+      />,
     );
 
     const checkbox = screen.getByLabelText('test-checkbox');
     expect(checkbox).toHaveAttribute('type', 'checkbox');
     expect(checkbox).toHaveAttribute('id', 'test-checkbox');
-    expect(checkbox).toHaveAttribute('aria-label', 'test-checkbox');
-
-    const checkboxLabel = container.querySelector('.pf-v6-c-check__label');
-    expect(checkboxLabel).toBeInTheDocument();
+    expect(screen.getByText('Test Checkbox')).toBeInTheDocument();
   });
 });

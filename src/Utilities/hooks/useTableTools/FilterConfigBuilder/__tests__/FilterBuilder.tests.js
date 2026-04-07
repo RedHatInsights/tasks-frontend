@@ -18,7 +18,7 @@ describe('buildFilterString', () => {
     };
 
     expect(
-      filterBuilder.buildFilterString(exampleActiveFilters)
+      filterBuilder.buildFilterString(exampleActiveFilters),
     ).toMatchSnapshot();
   });
 
@@ -28,7 +28,7 @@ describe('buildFilterString', () => {
         name: 'Name',
       };
       expect(
-        filterBuilder.buildFilterString(testExampleState)
+        filterBuilder.buildFilterString(testExampleState),
       ).toMatchSnapshot();
     });
 
@@ -37,7 +37,7 @@ describe('buildFilterString', () => {
         compliant: [true],
       };
       expect(
-        filterBuilder.buildFilterString(testExampleState)
+        filterBuilder.buildFilterString(testExampleState),
       ).toMatchSnapshot();
     });
 
@@ -46,7 +46,7 @@ describe('buildFilterString', () => {
         systemsmeetingcompliance: ['0-49', '50-69'],
       };
       expect(
-        filterBuilder.buildFilterString(testExampleState)
+        filterBuilder.buildFilterString(testExampleState),
       ).toMatchSnapshot();
     });
   });

@@ -30,9 +30,9 @@ describe('TasksTabs', () => {
   it('should update tab index', async () => {
     render(<TasksTabs {...props} />);
 
-    userEvent.click(screen.getByText('Activity'));
+    await userEvent.click(screen.getByText('Activity'));
     await waitFor(() =>
-      expect(props.updateTab).toHaveBeenCalledWith(expect.anything(), 1)
+      expect(props.updateTab).toHaveBeenCalledWith(expect.anything(), 1),
     );
   });
 });

@@ -11,7 +11,7 @@ export const useModalActions = (
   taskName,
   setAreSystemsSelected,
   parameters,
-  definedParameters
+  definedParameters,
 ) => {
   const checkForSystemsAndTaskName = () => {
     return !selectedIds?.length || !taskName.trim().length;

@@ -38,13 +38,13 @@ const SystemTable = ({
   const { resolve } = usePromiseQueue();
 
   const tagsFilter = useSelector(
-    ({ globalFilterState }) => globalFilterState?.tagsFilter
+    ({ globalFilterState }) => globalFilterState?.tagsFilter,
   );
   const workloadsFilter = useSelector(
-    ({ globalFilterState }) => globalFilterState?.workloadsFilter
+    ({ globalFilterState }) => globalFilterState?.workloadsFilter,
   );
   const sidsFilter = useSelector(
-    ({ globalFilterState }) => globalFilterState?.sidsFilter
+    ({ globalFilterState }) => globalFilterState?.sidsFilter,
   );
 
   useEffect(() => {
@@ -60,6 +60,7 @@ const SystemTable = ({
         selected: selectedIds,
       },
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- dispatch is stable
   }, [selectedIds]);
 
   useEffect(() => {
@@ -82,7 +83,7 @@ const SystemTable = ({
       const isStringCol = typeof column === 'string';
       const key = isStringCol ? column : column.key;
       const defaultColumn = defaultColumns.find(
-        (defaultCol) => defaultCol.key === key
+        (defaultCol) => defaultCol.key === key,
       );
       return {
         ...defaultColumn,
@@ -107,7 +108,7 @@ const SystemTable = ({
       items: eligibilityFilterItems,
       onChange: (_event, selectedValues) => {
         setEligibilityData(
-          eligibilityFilterItems.find(({ value }) => value === selectedValues)
+          eligibilityFilterItems.find(({ value }) => value === selectedValues),
         );
       },
     },
@@ -213,7 +214,7 @@ const SystemTable = ({
             },
           },
           undefined,
-          { arrayEnhancer: 'contains' }
+          { arrayEnhancer: 'contains' },
         ),
       }}
       getEntities={getEntities}

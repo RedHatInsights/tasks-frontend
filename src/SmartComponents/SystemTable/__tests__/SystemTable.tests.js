@@ -52,7 +52,7 @@ describe('SystemTable', () => {
     const { asFragment } = render(
       <Provider store={mockStore()}>
         <SystemTable selectedIds={[]} />
-      </Provider>
+      </Provider>,
     );
 
     expect(asFragment()).toMatchSnapshot();
@@ -62,14 +62,14 @@ describe('SystemTable', () => {
     render(
       <Provider store={mockStore()}>
         <SystemTable selectedIds={[]} slug="convert-to-rhel-conversion" />
-      </Provider>
+      </Provider>,
     );
 
     expect(InventoryTable).toHaveBeenCalledWith(
       expect.objectContaining({
         noSystemsTable: expect.anything(),
       }),
-      expect.anything() // ref
+      expect.anything(), // ref
     );
   });
 
@@ -77,14 +77,14 @@ describe('SystemTable', () => {
     render(
       <Provider store={mockStore()}>
         <SystemTable selectedIds={[]} slug="convert-to-rhel-analysis" />
-      </Provider>
+      </Provider>,
     );
 
     expect(InventoryTable).toHaveBeenCalledWith(
       expect.objectContaining({
         noSystemsTable: expect.anything(),
       }),
-      expect.anything() // ref
+      expect.anything(), // ref
     );
   });
 
@@ -92,14 +92,14 @@ describe('SystemTable', () => {
     render(
       <Provider store={mockStore()}>
         <SystemTable selectedIds={[]} slug="abc" />
-      </Provider>
+      </Provider>,
     );
 
     expect(InventoryTable).toHaveBeenCalledWith(
       expect.not.objectContaining({
         noSystemsTable: expect.anything(),
       }),
-      expect.anything() // ref
+      expect.anything(), // ref
     );
   });
 });

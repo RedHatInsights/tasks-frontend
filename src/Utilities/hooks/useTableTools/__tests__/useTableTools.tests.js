@@ -19,7 +19,7 @@ describe('useTableTools', () => {
 
   it('should set default with no params', () => {
     const { result } = renderHook(() =>
-      useTableTools(undefined, undefined, options)
+      useTableTools(undefined, undefined, options),
     );
     expect(result.current.tableProps.rows.length).toBe(0);
     expect(result.current.tableProps.cells.length).toBe(0);

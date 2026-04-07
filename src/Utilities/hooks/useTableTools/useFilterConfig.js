@@ -19,7 +19,7 @@ const filterConfigBuilder = new FilterConfigBuilder([]);
 
 const perpareInitialActiveFilters = (
   initialActiveFiltersRaw,
-  activeFilters
+  activeFilters,
 ) => {
   if (typeof initialActiveFiltersRaw === 'function') {
     return initialActiveFiltersRaw(activeFilters);
@@ -37,7 +37,7 @@ const useFilterConfig = (options = {}) => {
   const [activeFilters, setActiveFilters] = useState({});
   const initialActiveFilters = perpareInitialActiveFilters(
     initialActiveFiltersRaw,
-    activeFilters
+    activeFilters,
   );
   const onFilterUpdate = (filter, value) => {
     setActiveFilters((prevFilters) => ({
@@ -58,7 +58,7 @@ const useFilterConfig = (options = {}) => {
 
   const deleteFilter = (chips) =>
     setActiveFilters(
-      filterConfigBuilder.removeFilterWithChip(chips, activeFilters)
+      filterConfigBuilder.removeFilterWithChip(chips, activeFilters),
     );
   const onFilterDelete = async (_event, chips, clearAll = false) => {
     (await clearAll) ? clearAllFilter() : deleteFilter(chips[0]);
@@ -80,7 +80,7 @@ const useFilterConfig = (options = {}) => {
 
   const activeFilterValues = useMemo(
     () => filterValues(activeFilters),
-    [activeFilters]
+    [activeFilters],
   );
 
   const filterConfigWithSelected = [
@@ -93,12 +93,13 @@ const useFilterConfig = (options = {}) => {
     filterConfigWithSelected.filter((v) => !!v).forEach(addConfigItem);
     setActiveFilters(
       filterConfigBuilder.initialDefaultState(initialActiveFilters || []),
-      filterConfig
+      filterConfig,
     );
 
     return () => {
       filterConfigBuilder.config = [];
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- intentional JSON.stringify dependency
   }, [JSON.stringify(initialActiveFilters)]);
 
   return enableFilters
@@ -110,7 +111,7 @@ const useFilterConfig = (options = {}) => {
             onFilterUpdate,
             activeFilters,
             {},
-            filterConfigWithSelected
+            filterConfigWithSelected,
           ),
           activeFiltersConfig: {
             filters: filterConfigBuilder

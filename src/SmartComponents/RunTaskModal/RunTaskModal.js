@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Modal } from '@patternfly/react-core/deprecated';
 import propTypes from 'prop-types';
-// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
+
 import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 import { EXECUTE_TASK_NOTIFICATION } from '../../constants';
 import { isError } from '../completedTaskDetailsHelpers';
@@ -33,6 +33,7 @@ const RunTaskModal = ({
     if (isOpen) {
       setSelectedIds(selectedSystems);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- selectedSystems handled separately
   }, [isOpen]);
 
   useEffect(() => {
@@ -56,7 +57,7 @@ const RunTaskModal = ({
           }
 
           return definedParam;
-        })
+        }),
       );
     }
   }, [parameters]);
@@ -79,12 +80,13 @@ const RunTaskModal = ({
           EXECUTE_TASK_NOTIFICATION(
             taskName,
             selectedIds,
-            executeTaskResult.data.id
-          )
+            executeTaskResult.data.id,
+          ),
         );
         setModalOpened(false);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- callbacks are stable
   }, [executeTaskResult]);
 
   const cancelModal = () => {
@@ -101,7 +103,7 @@ const RunTaskModal = ({
     taskName,
     setAreSystemsSelected,
     parameters,
-    definedParameters
+    definedParameters,
   );
 
   return (

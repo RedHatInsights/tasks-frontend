@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
+
 import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 import { ExclamationCircleIcon, WrenchIcon } from '@patternfly/react-icons';
 import columns, { exportableColumns } from './Columns';
@@ -58,14 +58,14 @@ const ActivityTable = () => {
     const fetchedTaskDetails = await fetchTask(
       id,
       setTaskError,
-      addNotification
+      addNotification,
     );
 
     if (Object.keys(fetchedTaskDetails).length > 0) {
       const fetchedTaskJobs = await fetchTaskJobs(
         fetchedTaskDetails,
         setTaskError,
-        addNotification
+        addNotification,
       );
 
       setSelectedSystems(getSelectedSystems(fetchedTaskJobs));
@@ -84,9 +84,9 @@ const ActivityTable = () => {
       [...new Array(pages)].map(
         (_, pageIdx) => () =>
           fetchExecutedTasks(
-            `?limit=${batchSize}&offset=${batchSize * pageIdx}`
-          )
-      )
+            `?limit=${batchSize}&offset=${batchSize * pageIdx}`,
+          ),
+      ),
     );
 
     if (isError(result[0])) {
@@ -112,12 +112,12 @@ const ActivityTable = () => {
 
   const actionResolver = useActionResolver(
     handleCancelOrDeleteTask,
-    fetchTaskDetails
+    fetchTaskDetails,
   );
 
   const setTasks = async (result) => {
     result?.map(
-      (task) => (task.run_date_time = renderRunDateTime(task.start_time))
+      (task) => (task.run_date_time = renderRunDateTime(task.start_time)),
     );
 
     await setActivities(result);
@@ -146,6 +146,7 @@ const ActivityTable = () => {
 
   useEffect(() => {
     fetchSingleTask();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- run only on mount
   }, []);
 
   useInterval(() => {
@@ -163,6 +164,7 @@ const ActivityTable = () => {
       refetchData();
       setIsRunTaskAgain(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- refetchData is stable
   }, [isCancel, isDelete, isRunTaskAgain]);
 
   return (

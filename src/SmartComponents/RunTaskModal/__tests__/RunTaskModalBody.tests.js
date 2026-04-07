@@ -40,11 +40,11 @@ describe('RunTaskModalBody', () => {
     render(
       <Provider store={store}>
         <RunTaskModalBody {...props} />
-      </Provider>
+      </Provider>,
     );
 
     expect(
-      screen.getByText('This task cannot be displayed')
+      screen.getByText('This task cannot be displayed'),
     ).toBeInTheDocument();
   });
 
@@ -52,7 +52,7 @@ describe('RunTaskModalBody', () => {
     render(
       <Provider store={store}>
         <RunTaskModalBody {...props} />
-      </Provider>
+      </Provider>,
     );
 
     expect(screen.getByText('Systems to run tasks on')).toBeInTheDocument();
@@ -63,7 +63,7 @@ describe('RunTaskModalBody', () => {
     render(
       <Provider store={store}>
         <RunTaskModalBody {...props} />
-      </Provider>
+      </Provider>,
     );
 
     expect(screen.getByText('Playbook Path')).toBeInTheDocument();
@@ -77,13 +77,13 @@ describe('RunTaskModalBody', () => {
     render(
       <Provider store={store}>
         <RunTaskModalBody {...props} slug="convert-to-rhel-analysis" />
-      </Provider>
+      </Provider>,
     );
 
     expect(
       screen.getByRole('button', {
         name: /help me get started/i,
-      })
+      }),
     ).toBeVisible();
   });
 
@@ -91,13 +91,13 @@ describe('RunTaskModalBody', () => {
     render(
       <Provider store={store}>
         <RunTaskModalBody {...props} slug="convert-to-rhel-conversion" />
-      </Provider>
+      </Provider>,
     );
 
     expect(
       screen.getByRole('button', {
         name: /help me get started/i,
-      })
+      }),
     ).toBeVisible();
   });
 
@@ -105,13 +105,13 @@ describe('RunTaskModalBody', () => {
     render(
       <Provider store={store}>
         <RunTaskModalBody {...props} />
-      </Provider>
+      </Provider>,
     );
 
     expect(
       screen.queryByRole('button', {
         name: /help me get started/i,
-      })
+      }),
     ).not.toBeInTheDocument();
   });
 });

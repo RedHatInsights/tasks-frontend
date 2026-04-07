@@ -8,7 +8,7 @@ export const systemFilter = [
       jobs.filter((job) =>
         typeof job.display_name === 'string'
           ? job.display_name.toLowerCase().includes(value.toLowerCase())
-          : null
+          : null,
       ),
   },
 ];

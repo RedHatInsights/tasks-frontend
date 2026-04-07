@@ -2,7 +2,7 @@ import './CompletedTaskDetails.scss';
 import React, { useState, useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
-// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
+
 import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 import TasksTables from '../../Utilities/hooks/useTableTools/Components/TasksTables';
 import {
@@ -101,7 +101,7 @@ const CompletedTaskDetailsContent = ({ hasAccess, isLoading }) => {
       const fetchedTaskJobs = await fetchTaskJobs(
         fetchedTaskDetails,
         setError,
-        addNotification
+        addNotification,
       );
 
       if (fetchedTaskJobs.length) {
@@ -125,12 +125,13 @@ const CompletedTaskDetailsContent = ({ hasAccess, isLoading }) => {
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- fetchData is stable
   }, [id]);
 
   useEffect(() => {
     completedTaskDetails &&
       chrome.updateDocumentTitle(
-        `${completedTaskDetails.name} - Tasks - Automation`
+        `${completedTaskDetails.name} - Tasks - Automation`,
       );
   }, [chrome, completedTaskDetails]);
 
@@ -148,13 +149,14 @@ const CompletedTaskDetailsContent = ({ hasAccess, isLoading }) => {
       fetchData();
       setIsCancel(false);
     }*/
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- navigate is stable
   }, [isCancel, isDelete]);
 
   const actionResolver = useActionResolver(
     setIsLogDrawerExpanded,
     setJobId,
     setJobName,
-    navigateToInventory
+    navigateToInventory,
   );
 
   const JobResultsRow = useMemo(
@@ -170,23 +172,24 @@ const CompletedTaskDetailsContent = ({ hasAccess, isLoading }) => {
           />
         );
       },
-    [completedTaskJobs]
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- intentional dependencies
+    [completedTaskJobs],
   );
 
   const hasReportJson = useMemo(
     () =>
       !tableLoading &&
       completedTaskJobs.some(
-        (job) => job.results?.report_json?.entries !== undefined
+        (job) => job.results?.report_json?.entries !== undefined,
       ),
-    [completedTaskJobs, tableLoading]
+    [completedTaskJobs, tableLoading],
   );
 
   const hasPlainReport = useMemo(
     () =>
       !tableLoading &&
       completedTaskJobs.some((job) => job.results?.report !== undefined),
-    [completedTaskJobs, tableLoading]
+    [completedTaskJobs, tableLoading],
   );
 
   const buildFilterConfig = () => {
@@ -278,7 +281,7 @@ const CompletedTaskDetailsContent = ({ hasAccess, isLoading }) => {
                   completedTaskDetails.task_slug,
                   setRunTaskModalOpened,
                   completedTaskDetails.status,
-                  setIsDeleteCancelModalOpened
+                  setIsDeleteCancelModalOpened,
                 )}
                 flexProps={COMPLETED_INFO_BUTTONS_FLEX_PROPS}
               />
@@ -327,7 +330,7 @@ const CompletedTaskDetailsContent = ({ hasAccess, isLoading }) => {
                         ...(hasReportJson ? { prepareItems } : {}), // report json can generate more records for one item
                       },
                       detailsComponent: completedTaskJobs.some((job) =>
-                        hasDetails(job)
+                        hasDetails(job),
                       )
                         ? JobResultsRow
                         : undefined,
@@ -375,11 +378,11 @@ const CompletedTaskDetailsWithRbac = () => {
 const CompletedTaskDetailsWithKessel = () => {
   const inventoryKesselRelations = useMemo(
     () => [KESSEL_RELATIONS.inventoryView],
-    []
+    [],
   );
 
   const { hasAccess, isLoading } = useKesselPermissions(
-    inventoryKesselRelations
+    inventoryKesselRelations,
   );
 
   return (

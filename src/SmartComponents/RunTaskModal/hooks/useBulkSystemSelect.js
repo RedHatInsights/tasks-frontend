@@ -4,7 +4,7 @@ export const useSystemBulkSelect = (
   selectedIds,
   setSelectedIds,
   filterSortString,
-  slug
+  slug,
 ) => {
   const bulkSelectIds = async (type, options) => {
     let newSelectedIds = [...selectedIds];
@@ -47,9 +47,9 @@ export const useSystemBulkSelect = (
                 filterSortString
                   .replace(/limit=\d+/, `limit=${batchSize}`)
                   .replace(/offset=\d+/, `offset=${batchSize * pageIdx}`),
-                slug
-              )
-          )
+                slug,
+              ),
+          ),
         );
         // extract all the 'data' arrays and merge them into a single array
         const eligibleIds = allSystems

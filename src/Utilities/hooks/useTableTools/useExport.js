@@ -26,7 +26,7 @@ export const csvForItems = ({ items, columns }) => {
     ...items.map((row) =>
       columns
         .map((column) => encodeCsvCell(textForCell(row, column)))
-        .join(CSV_DELIMITER)
+        .join(CSV_DELIMITER),
     ),
   ];
 
@@ -41,7 +41,7 @@ export const jsonForItems = ({ items, columns }) => {
 
       object[key] = value;
       return object;
-    }, {})
+    }, {}),
   );
 
   return JSON.stringify(result);
@@ -59,7 +59,7 @@ const useExport = ({
 }) => {
   const exportableColumns = columns.filter(
     (column) =>
-      column.export !== false && (column.exportKey || column.renderExport)
+      column.export !== false && (column.exportKey || column.renderExport),
   );
   const exportWithFormat = async (format) => {
     callCallback(onStart);
@@ -79,7 +79,7 @@ const useExport = ({
           columns: exportableColumns,
         }),
         filename(),
-        format
+        format,
       );
     } else {
       console.info('No items returned for export');
@@ -107,7 +107,7 @@ export const useExportWithItems = (items, columns, options = {}) => {
   } = typeof options.exportable === 'object' ? options.exportable : {};
 
   const exportableSelectedColumns = (exportableColumns || columns).filter(
-    (column) => columns.includes(column)
+    (column) => columns.includes(column),
   );
 
   const exportProps = useExport({

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -45,12 +45,10 @@ describe('ExecuteTaskButton', () => {
         <Provider store={store}>
           <ExecuteTaskButton {...props} />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
-    await waitFor(() =>
-      userEvent.click(screen.getByLabelText('taska-submit-task-button'))
-    );
+    await userEvent.click(screen.getByLabelText('taska-submit-task-button'));
     expect(props.setExecuteTaskResult).toHaveBeenCalled();
   });
 });

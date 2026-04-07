@@ -16,7 +16,7 @@ describe('useTableSort', () => {
     const { result } = renderHook(() =>
       useTableSort(columns, {
         sortBy,
-      })
+      }),
     );
     expect(result.current.tableProps.sortBy).toEqual(sortBy);
   });
@@ -34,7 +34,7 @@ describe('useTableSort', () => {
     const { result } = renderHook(() =>
       useTableSort(columns, {
         sortBy,
-      })
+      }),
     );
 
     act(() => {
@@ -54,7 +54,7 @@ describe('useTableSortWithItems', () => {
     const { result } = renderHook(() =>
       useTableSortWithItems([], columns, {
         sortBy,
-      })
+      }),
     );
     expect(result.current.tableProps.sortBy).toEqual(undefined);
   });

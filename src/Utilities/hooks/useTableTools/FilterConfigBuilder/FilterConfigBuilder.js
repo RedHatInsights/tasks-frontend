@@ -123,7 +123,7 @@ class FilterConfigBuilder {
     ...props,
     items: (initConfig || this.config)
       .map((item) =>
-        this.toFilterConfigItem(item, handler, states[stringToId(item.label)])
+        this.toFilterConfigItem(item, handler, states[stringToId(item.label)]),
       )
       .filter((v) => !!v),
   });
@@ -155,7 +155,7 @@ class FilterConfigBuilder {
     const category = this.config.filter((category) =>
       category.items
         ? category.items.map((item) => item.value).includes(value)
-        : false
+        : false,
     )[0];
 
     return category ? category.label : value;
@@ -163,7 +163,7 @@ class FilterConfigBuilder {
 
   getCategoryForLabel = (query) =>
     this.config.filter(
-      (item) => stringToId(item.key || item.label) === stringToId(query)
+      (item) => stringToId(item.key || item.label) === stringToId(query),
     )[0] || {};
 
   getItemByLabelOrValue = (query, category) => {
@@ -175,22 +175,20 @@ class FilterConfigBuilder {
             item.items.map((subItem) => ({
               ...subItem,
               parentValue: item.value,
-            }))
+            })),
           );
     const results = (items || []).filter(
-      (item) => item.value === query || item.label === query
+      (item) => item.value === query || item.label === query,
     );
 
     if (results.length === 1) {
       return results[0];
     } else if (results.length > 1) {
-      // eslint-disable-next-line no-console
       console.info(
-        `Multiple items found for ${query} in ${category}! Returning first one.`
+        `Multiple items found for ${query} in ${category}! Returning first one.`,
       );
       return results[0];
     } else {
-      // eslint-disable-next-line no-console
       console.info('No item found for ' + query + ' in ', category);
     }
   };

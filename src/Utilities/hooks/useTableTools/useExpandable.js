@@ -8,7 +8,7 @@ const buildExpandableRows = (
   options,
   columns,
   isOpen,
-  parentIndex
+  parentIndex,
 ) => {
   let newRow;
 
@@ -23,7 +23,7 @@ const buildExpandableRows = (
       rowIndex,
       options,
       columns,
-      parentIndex
+      parentIndex,
     );
 
     return [newRow, expandableRow];
@@ -58,7 +58,7 @@ const itemDetailsRow = (item, idx, options, columns, parentIndex) =>
     idx,
     options.detailsComponent,
     calculateColSpan(columns, options),
-    parentIndex
+    parentIndex,
   );
 
 const useExpandable = (options) => {
@@ -81,7 +81,7 @@ const useExpandable = (options) => {
       options,
       columns,
       isOpen,
-      parentIndex
+      parentIndex,
     );
 
     return newRow;

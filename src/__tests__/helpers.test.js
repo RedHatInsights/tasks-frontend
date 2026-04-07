@@ -9,7 +9,7 @@ describe('populateRHELAIColumn', () => {
     expect(
       populateRHELAIColumn({
         bootc_status: { booted: { image: 'registry/image:latest' } },
-      })
+      }),
     ).toEqual('N/A');
   });
 
@@ -17,7 +17,7 @@ describe('populateRHELAIColumn', () => {
     expect(
       populateRHELAIColumn({
         bootc_status: { booted: { image: 'registry/rhelai1/image:version' } },
-      })
+      }),
     ).toEqual('Unknown');
   });
 
@@ -47,7 +47,7 @@ describe('populateRHELAIColumn', () => {
           </Icon>
           <span style={{ marginLeft: '0.5rem' }}>1.1-1724974282</span>
         </div>
-      </Tooltip>
+      </Tooltip>,
     );
   });
 });

@@ -23,7 +23,7 @@ describe('JobLogDrawer', () => {
         jobId={1}
         jobName="system1"
         setIsLogDrawerExpanded={() => jest.fn()}
-      />
+      />,
     );
 
     expect(getLogs).toHaveBeenCalledWith(1);
@@ -42,7 +42,7 @@ describe('JobLogDrawer', () => {
       <JobLogDrawer
         isLogDrawerExpanded={true}
         setIsLogDrawerExpanded={mockSetIsLogDrawerExpanded}
-      />
+      />,
     );
 
     fireEvent.click(screen.getByLabelText('Close drawer panel'));

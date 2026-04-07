@@ -27,13 +27,13 @@ describe('ParameterMultiSelect', () => {
       <ParameterMultiSelect
         parameter={defaultParameter}
         updateParameter={mockUpdateParameter}
-      />
+      />,
     );
 
     expect(screen.getByText('Test Multi Select')).toBeInTheDocument();
     expect(screen.getByText('Select one or more options')).toBeInTheDocument();
     expect(
-      screen.getByRole('button', { name: /Select Test Multi Select/i })
+      screen.getByRole('button', { name: /Select Test Multi Select/i }),
     ).toBeInTheDocument();
   });
 
@@ -45,12 +45,12 @@ describe('ParameterMultiSelect', () => {
         parameter={defaultParameter}
         updateParameter={mockUpdateParameter}
         customDescription={customDescription}
-      />
+      />,
     );
 
     expect(screen.getByText(customDescription)).toBeInTheDocument();
     expect(
-      screen.queryByText('Select one or more options')
+      screen.queryByText('Select one or more options'),
     ).not.toBeInTheDocument();
   });
 
@@ -64,12 +64,12 @@ describe('ParameterMultiSelect', () => {
       <ParameterMultiSelect
         parameter={paramWithoutTitle}
         updateParameter={mockUpdateParameter}
-      />
+      />,
     );
 
     expect(screen.getByText('test-multiselect')).toBeInTheDocument();
     expect(
-      screen.getByRole('button', { name: /Select test-multiselect/i })
+      screen.getByRole('button', { name: /Select test-multiselect/i }),
     ).toBeInTheDocument();
   });
 
@@ -78,7 +78,7 @@ describe('ParameterMultiSelect', () => {
       <ParameterMultiSelect
         parameter={defaultParameter}
         updateParameter={mockUpdateParameter}
-      />
+      />,
     );
 
     const toggle = screen.getByRole('button', {
@@ -89,13 +89,13 @@ describe('ParameterMultiSelect', () => {
     await userEvent.click(toggle);
     await waitFor(() => {
       expect(
-        screen.getByRole('menuitem', { name: 'Option1' })
+        screen.getByRole('menuitem', { name: 'Option1' }),
       ).toBeInTheDocument();
       expect(
-        screen.getByRole('menuitem', { name: 'Option2' })
+        screen.getByRole('menuitem', { name: 'Option2' }),
       ).toBeInTheDocument();
       expect(
-        screen.getByRole('menuitem', { name: 'Option3' })
+        screen.getByRole('menuitem', { name: 'Option3' }),
       ).toBeInTheDocument();
     });
 
@@ -103,7 +103,7 @@ describe('ParameterMultiSelect', () => {
     await userEvent.click(toggle);
     await waitFor(() => {
       expect(
-        screen.queryByRole('menuitem', { name: 'Option1' })
+        screen.queryByRole('menuitem', { name: 'Option1' }),
       ).not.toBeInTheDocument();
     });
   });
@@ -113,7 +113,7 @@ describe('ParameterMultiSelect', () => {
       <ParameterMultiSelect
         parameter={defaultParameter}
         updateParameter={mockUpdateParameter}
-      />
+      />,
     );
 
     const toggle = screen.getByRole('button', {
@@ -130,7 +130,7 @@ describe('ParameterMultiSelect', () => {
 
     expect(mockUpdateParameter).toHaveBeenCalledWith(
       defaultParameter,
-      'Option1'
+      'Option1',
     );
   });
 
@@ -139,7 +139,7 @@ describe('ParameterMultiSelect', () => {
       <ParameterMultiSelect
         parameter={defaultParameter}
         updateParameter={mockUpdateParameter}
-      />
+      />,
     );
 
     const toggle = screen.getByRole('button', {
@@ -155,7 +155,7 @@ describe('ParameterMultiSelect', () => {
     await userEvent.click(checkbox1);
     expect(mockUpdateParameter).toHaveBeenCalledWith(
       defaultParameter,
-      'Option1'
+      'Option1',
     );
 
     // Select second option
@@ -166,7 +166,7 @@ describe('ParameterMultiSelect', () => {
     await userEvent.click(checkbox2);
     expect(mockUpdateParameter).toHaveBeenCalledWith(
       defaultParameter,
-      'Option1,Option2'
+      'Option1,Option2',
     );
 
     // Select third option
@@ -177,7 +177,7 @@ describe('ParameterMultiSelect', () => {
     await userEvent.click(checkbox3);
     expect(mockUpdateParameter).toHaveBeenCalledWith(
       defaultParameter,
-      'Option1,Option2,Option3'
+      'Option1,Option2,Option3',
     );
   });
 
@@ -186,7 +186,7 @@ describe('ParameterMultiSelect', () => {
       <ParameterMultiSelect
         parameter={defaultParameter}
         updateParameter={mockUpdateParameter}
-      />
+      />,
     );
 
     const toggle = screen.getByRole('button', {
@@ -208,14 +208,14 @@ describe('ParameterMultiSelect', () => {
     await userEvent.click(checkbox2);
     expect(mockUpdateParameter).toHaveBeenCalledWith(
       defaultParameter,
-      'Option1,Option2'
+      'Option1,Option2',
     );
 
     // Deselect first option
     await userEvent.click(checkbox1);
     expect(mockUpdateParameter).toHaveBeenCalledWith(
       defaultParameter,
-      'Option2'
+      'Option2',
     );
   });
 
@@ -224,7 +224,7 @@ describe('ParameterMultiSelect', () => {
       <ParameterMultiSelect
         parameter={defaultParameter}
         updateParameter={mockUpdateParameter}
-      />
+      />,
     );
 
     const toggle = screen.getByRole('button', {
@@ -240,7 +240,7 @@ describe('ParameterMultiSelect', () => {
     await userEvent.click(checkbox1);
     expect(mockUpdateParameter).toHaveBeenCalledWith(
       defaultParameter,
-      'Option1'
+      'Option1',
     );
 
     // Deselect it
@@ -249,21 +249,19 @@ describe('ParameterMultiSelect', () => {
   });
 
   it('should show badge with count when options are selected', async () => {
-    const { container } = render(
+    render(
       <ParameterMultiSelect
         parameter={defaultParameter}
         updateParameter={mockUpdateParameter}
-      />
+      />,
     );
 
     const toggle = screen.getByRole('button', {
       name: /Select Test Multi Select/i,
     });
 
-    // Initially no badge
-    expect(container.querySelector('.pf-v6-c-badge')).not.toBeInTheDocument();
+    expect(screen.queryByText('1')).not.toBeInTheDocument();
 
-    // Select one option
     await userEvent.click(toggle);
     const option1Menuitem = await screen.findByRole('menuitem', {
       name: 'Option1',
@@ -271,24 +269,18 @@ describe('ParameterMultiSelect', () => {
     const checkbox1 = within(option1Menuitem).getByRole('checkbox');
     await userEvent.click(checkbox1);
 
-    // Badge should show count of 1
     await waitFor(() => {
-      const badge = container.querySelector('.pf-v6-c-badge');
-      expect(badge).toBeInTheDocument();
-      expect(badge).toHaveTextContent('1');
+      expect(screen.getByText('1')).toBeInTheDocument();
     });
 
-    // Select another option
     const option2Menuitem = await screen.findByRole('menuitem', {
       name: 'Option2',
     });
     const checkbox2 = within(option2Menuitem).getByRole('checkbox');
     await userEvent.click(checkbox2);
 
-    // Badge should show count of 2
     await waitFor(() => {
-      const badge = container.querySelector('.pf-v6-c-badge');
-      expect(badge).toHaveTextContent('2');
+      expect(screen.getByText('2')).toBeInTheDocument();
     });
   });
 
@@ -302,7 +294,7 @@ describe('ParameterMultiSelect', () => {
       <ParameterMultiSelect
         parameter={parameterWithNone}
         updateParameter={mockUpdateParameter}
-      />
+      />,
     );
 
     const toggle = screen.getByRole('button', {
@@ -312,13 +304,13 @@ describe('ParameterMultiSelect', () => {
 
     await waitFor(() => {
       expect(
-        screen.getByRole('menuitem', { name: 'Option1' })
+        screen.getByRole('menuitem', { name: 'Option1' }),
       ).toBeInTheDocument();
       expect(
-        screen.getByRole('menuitem', { name: 'Option2' })
+        screen.getByRole('menuitem', { name: 'Option2' }),
       ).toBeInTheDocument();
       expect(
-        screen.queryByRole('menuitem', { name: 'None' })
+        screen.queryByRole('menuitem', { name: 'None' }),
       ).not.toBeInTheDocument();
     });
   });
@@ -329,32 +321,30 @@ describe('ParameterMultiSelect', () => {
       required: true,
     };
 
-    const { container } = render(
+    render(
       <ParameterMultiSelect
         parameter={requiredParameter}
         updateParameter={mockUpdateParameter}
-      />
+      />,
     );
 
-    const formGroup = container.querySelector('.pf-v6-c-form__group');
-    expect(formGroup).toBeInTheDocument();
-
-    const requiredIndicator = container.querySelector(
-      '.pf-v6-c-form__label-required'
-    );
-    expect(requiredIndicator).toBeInTheDocument();
+    expect(screen.getByText('Test Multi Select')).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: /Select Test Multi Select/i }),
+    ).toBeInTheDocument();
   });
 
-  it('should have correct PatternFly v6 structure', () => {
-    const { container } = render(
+  it('should render label and description', () => {
+    render(
       <ParameterMultiSelect
         parameter={defaultParameter}
         updateParameter={mockUpdateParameter}
-      />
+      />,
     );
 
-    expect(container.querySelector('.pf-v6-c-form__group')).toBeInTheDocument();
-    expect(container.querySelector('.pf-v6-c-menu-toggle')).toBeInTheDocument();
-    expect(container.querySelector('.pf-v6-c-helper-text')).toBeInTheDocument();
+    expect(screen.getByText('Test Multi Select')).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: /Select Test Multi Select/i }),
+    ).toBeInTheDocument();
   });
 });

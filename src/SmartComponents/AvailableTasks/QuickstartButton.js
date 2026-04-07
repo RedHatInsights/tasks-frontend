@@ -36,8 +36,8 @@ const QuickstartButton = ({ isTaskCard, slug }) => {
   const featureFlagName = QUICKSTART_TO_FEATURE_FLAG[quickstartName];
 
   const { quickStarts } = useChrome();
-  const enabled =
-    featureFlagName !== undefined ? useFeatureFlag(featureFlagName) : true;
+  const featureFlagValue = useFeatureFlag(featureFlagName);
+  const enabled = featureFlagName !== undefined ? featureFlagValue : true;
 
   return enabled ? (
     <Button

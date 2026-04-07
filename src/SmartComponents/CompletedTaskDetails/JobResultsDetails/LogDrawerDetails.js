@@ -15,7 +15,7 @@ const LogDrawerDetails = ({ jobName, logs }) => {
   function downloadFile(
     data,
     filename = `${new Date().toISOString()}`,
-    format = 'txt'
+    format = 'txt',
   ) {
     const blob = new Blob([data], { type: 'text/plain;charset=utf-8' });
     const link = document.createElement('a');

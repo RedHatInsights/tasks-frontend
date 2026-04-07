@@ -28,16 +28,18 @@ PermissionRouter.propTypes = {
   props: PropTypes.object,
 };
 
-const TasksPage = lazy(() =>
-  import(
-    /* webpackChunkName: "TasksPage" */ './SmartComponents/TasksPage/TasksPage'
-  )
+const TasksPage = lazy(
+  () =>
+    import(
+      /* webpackChunkName: "TasksPage" */ './SmartComponents/TasksPage/TasksPage'
+    ),
 );
 
-const CompletedTaskDetails = lazy(() =>
-  import(
-    /* webpackChunkName: "CompletedTaskDetails" */ './SmartComponents/CompletedTaskDetails/CompletedTaskDetails'
-  )
+const CompletedTaskDetails = lazy(
+  () =>
+    import(
+      /* webpackChunkName: "CompletedTaskDetails" */ './SmartComponents/CompletedTaskDetails/CompletedTaskDetails'
+    ),
 );
 
 const INVENTORY_TOTAL_FETCH_URL = '/api/inventory/v1/hosts';
@@ -46,9 +48,11 @@ const INVENTORY_TOTAL_FETCH_URL = '/api/inventory/v1/hosts';
  * the Switch component changes routes depending on the path.
  *
  * Route properties:
- *      exact - path must match exactly,
- *      path - https://prod.foo.redhat.com:1337/insights/advisor/rules
- *      component - component to be rendered when a route has been chosen.
+ * exact - path must match exactly,
+ * path - https://prod.foo.redhat.com:1337/insights/advisor/rules
+ * component - component to be rendered when a route has been chosen.
+ *
+ *  @returns {React.Element} Routes component
  */
 const TasksRoutes = () => {
   const [hasSystems, setHasSystems] = useState(true);

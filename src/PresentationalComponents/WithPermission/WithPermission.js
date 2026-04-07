@@ -11,7 +11,7 @@ import useFeatureFlag from '../../Utilities/useFeatureFlag';
 const WithRbacV1Permission = ({ requiredPermissions, children }) => {
   const { hasAccess, isLoading } = useRbacV1Permissions(
     'tasks',
-    requiredPermissions
+    requiredPermissions,
   );
 
   if (isLoading) {
@@ -29,7 +29,8 @@ WithRbacV1Permission.propTypes = {
 const WithKesselPermission = ({ requiredPermissions, children }) => {
   const kesselRelations = useMemo(
     () => [KESSEL_RELATIONS.tasksView, KESSEL_RELATIONS.tasksEdit],
-    [requiredPermissions?.length]
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- intentional dependency on length
+    [requiredPermissions?.length],
   );
 
   const { hasAccess, isLoading } = useKesselPermissions(kesselRelations);

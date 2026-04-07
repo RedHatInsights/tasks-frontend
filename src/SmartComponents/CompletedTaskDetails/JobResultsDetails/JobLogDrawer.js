@@ -32,6 +32,7 @@ const JobLogDrawer = ({
     if (isLogDrawerExpanded) {
       fetchlogs();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- jobId is stable
   }, [isLogDrawerExpanded]);
 
   const drawerRef = useRef();

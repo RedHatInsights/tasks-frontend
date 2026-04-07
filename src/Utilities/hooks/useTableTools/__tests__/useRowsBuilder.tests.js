@@ -12,7 +12,7 @@ describe('useRowsBuilder', () => {
         rowTransformer: [undefined],
         isTableLoading: false,
         paginator: paginator,
-      })
+      }),
     );
     expect(paginator).toHaveBeenCalled();
     expect(result).toMatchSnapshot();
@@ -25,7 +25,7 @@ describe('useRowsBuilder', () => {
         rowTransformer: [undefined],
         isTableLoading: true,
         paginator: paginator,
-      })
+      }),
     );
     expect(paginator).not.toHaveBeenCalled();
   });

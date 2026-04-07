@@ -11,7 +11,7 @@ import {
   log4j_task_jobs,
 } from './__fixtures__/completedTasksDetails.fixtures';
 import useInsightsNavigate from '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate';
-// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
+
 import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 
 jest.mock('../../../../api');
@@ -27,7 +27,7 @@ jest.mock('../../../Utilities/usePermissionCheck', () => ({
 jest.mock('../../../Utilities/useFeatureFlag', () => jest.fn());
 
 jest.mock(
-  '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate'
+  '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate',
 );
 
 const {
@@ -69,7 +69,7 @@ describe('CompletedTaskDetails - Permission Checking with Feature Flag', () => {
         <Provider store={store}>
           <CompletedTaskDetails />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     await waitFor(() => expect(fetchExecutedTask).toHaveBeenCalled());
@@ -100,7 +100,7 @@ describe('CompletedTaskDetails - Permission Checking with Feature Flag', () => {
         <Provider store={store}>
           <CompletedTaskDetails />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     await waitFor(() => expect(fetchExecutedTask).toHaveBeenCalled());
@@ -129,7 +129,7 @@ describe('CompletedTaskDetails - Permission Checking with Feature Flag', () => {
         <Provider store={store}>
           <CompletedTaskDetails />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     await waitFor(() => expect(fetchExecutedTask).toHaveBeenCalled());
@@ -137,7 +137,7 @@ describe('CompletedTaskDetails - Permission Checking with Feature Flag', () => {
     // Should NOT show jobs table when RBAC denies access
     await waitFor(() => {
       expect(
-        screen.queryByLabelText('216-completed-jobs')
+        screen.queryByLabelText('216-completed-jobs'),
       ).not.toBeInTheDocument();
     });
   });
@@ -158,7 +158,7 @@ describe('CompletedTaskDetails - Permission Checking with Feature Flag', () => {
         <Provider store={store}>
           <CompletedTaskDetails />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     await waitFor(() => expect(fetchExecutedTask).toHaveBeenCalled());
@@ -166,7 +166,7 @@ describe('CompletedTaskDetails - Permission Checking with Feature Flag', () => {
     // Should NOT show jobs table when Kessel denies access
     await waitFor(() => {
       expect(
-        screen.queryByLabelText('216-completed-jobs')
+        screen.queryByLabelText('216-completed-jobs'),
       ).not.toBeInTheDocument();
     });
   });
@@ -187,7 +187,7 @@ describe('CompletedTaskDetails - Permission Checking with Feature Flag', () => {
         <Provider store={store}>
           <CompletedTaskDetails />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     await waitFor(() => expect(fetchExecutedTask).toHaveBeenCalled());
@@ -213,14 +213,14 @@ describe('CompletedTaskDetails - Permission Checking with Feature Flag', () => {
         <Provider store={store}>
           <CompletedTaskDetails />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     await waitFor(() => expect(fetchExecutedTask).toHaveBeenCalled());
 
     // Should NOT show jobs table while permissions are loading
     expect(
-      screen.queryByLabelText('216-completed-jobs')
+      screen.queryByLabelText('216-completed-jobs'),
     ).not.toBeInTheDocument();
   });
 });

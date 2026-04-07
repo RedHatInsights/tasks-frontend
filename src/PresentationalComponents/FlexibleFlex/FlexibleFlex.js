@@ -21,7 +21,7 @@ const FlexibleFlex = ({ data, flexContents, flexProps }) => {
         {item.match
           ? item.renderFunc
             ? renderFlexItem(
-                item.renderFunc(item.match.map((prop) => data[prop]))
+                item.renderFunc(item.match.map((prop) => data[prop])),
               )
             : renderFlexItem(data[item.match], item.key, idx)
           : null}

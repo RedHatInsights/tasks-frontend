@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import propTypes from 'prop-types';
-// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
+
 import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 import { fetchAvailableTasks } from '../../../api';
 import {
@@ -62,6 +62,7 @@ const AvailableTasks = ({ openTaskModal }) => {
     };
 
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- run only on mount
   }, []);
 
   return (

@@ -12,7 +12,7 @@ import { Provider } from 'react-redux';
 import { init } from '../../../store';
 
 import ActivityTable from '../ActivityTable';
-// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
+
 import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications';
 
 jest.mock('@redhat-cloud-services/frontend-components-notifications', () => ({
@@ -27,6 +27,7 @@ import {
   log4j_task_jobs,
 } from '../../CompletedTaskDetails/__tests__/__fixtures__/completedTasksDetails.fixtures';
 import {
+  deleteExecutedTask,
   executeTask,
   fetchExecutedTask,
   fetchExecutedTaskJobs,
@@ -55,7 +56,7 @@ describe('ActivityTable', () => {
     const { asFragment } = render(
       <MemoryRouter keyLength={0}>
         <ActivityTable />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(asFragment()).toMatchSnapshot();
@@ -69,12 +70,10 @@ describe('ActivityTable', () => {
     render(
       <MemoryRouter keyLength={0}>
         <ActivityTable />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
-    await waitFor(() =>
-      expect(screen.getByLabelText('empty-state')).toBeInTheDocument()
-    );
+    expect(await screen.findByLabelText('empty-state')).toBeInTheDocument();
   });
 
   it('should export', async () => {
@@ -89,11 +88,11 @@ describe('ActivityTable', () => {
         <Provider store={store}>
           <ActivityTable />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
-    await waitFor(() => userEvent.click(screen.getByLabelText('Export')));
-    await waitFor(() => userEvent.click(screen.getByText('Export to CSV')));
+    await userEvent.click(screen.getByLabelText('Export'));
+    await userEvent.click(screen.getByText('Export to CSV'));
     expect(mockAddNotification).toHaveBeenCalled();
 
     global.URL.createObjectURL.mockRestore();
@@ -109,12 +108,12 @@ describe('ActivityTable', () => {
         <Provider store={store}>
           <ActivityTable />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     await waitFor(() => expect(fetchExecutedTasks).toHaveBeenCalled());
     const input = screen.getByLabelText('text input');
-    await waitFor(() => fireEvent.change(input, { target: { value: 'A' } }));
+    fireEvent.change(input, { target: { value: 'A' } });
     expect(input.value).toBe('A');
   });
 
@@ -128,7 +127,7 @@ describe('ActivityTable', () => {
         <Provider store={store}>
           <ActivityTable />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     await waitFor(() => expect(fetchExecutedTasks).toHaveBeenCalled());
@@ -149,7 +148,7 @@ describe('ActivityTable', () => {
         <Provider store={store}>
           <ActivityTable />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     await waitFor(() => {
@@ -160,7 +159,7 @@ describe('ActivityTable', () => {
     await userEvent.click(
       screen.getByRole('button', {
         name: /conditional filter toggle/i,
-      })
+      }),
     );
 
     // Click the "Status" menuitem from the dropdown
@@ -169,7 +168,7 @@ describe('ActivityTable', () => {
     // After selecting Status filter, wait for the Options menu button to appear
     await waitFor(() => {
       expect(
-        screen.getByRole('button', { name: 'Options menu' })
+        screen.getByRole('button', { name: 'Options menu' }),
       ).toBeInTheDocument();
     });
 
@@ -195,7 +194,7 @@ describe('ActivityTable', () => {
         <Provider store={store}>
           <ActivityTable />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     await waitFor(() => {
@@ -206,7 +205,7 @@ describe('ActivityTable', () => {
     await userEvent.click(
       screen.getByRole('button', {
         name: /conditional filter toggle/i,
-      })
+      }),
     );
 
     // Click the "Status" menuitem from the dropdown
@@ -215,7 +214,7 @@ describe('ActivityTable', () => {
     // After selecting Status filter, wait for the Options menu button to appear
     await waitFor(() => {
       expect(
-        screen.getByRole('button', { name: 'Options menu' })
+        screen.getByRole('button', { name: 'Options menu' }),
       ).toBeInTheDocument();
     });
 
@@ -245,13 +244,13 @@ describe('ActivityTable', () => {
         <Provider store={store}>
           <ActivityTable />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     await waitFor(() =>
       screen.findByRole('row', {
         name: /task b 5 running 21 apr 2022, 10:10 utc/i,
-      })
+      }),
     );
     const row = screen.getByRole('row', {
       name: /task b 5 running 21 apr 2022, 10:10 utc/i,
@@ -260,20 +259,20 @@ describe('ActivityTable', () => {
     await userEvent.click(
       within(row).getByRole('button', {
         name: /kebab toggle/i,
-      })
+      }),
     );
 
     await userEvent.click(
       screen.getByRole('menuitem', {
         name: /run this task again/i,
-      })
+      }),
     );
 
     expect(fetchExecutedTask).toHaveBeenCalled();
     expect(fetchExecutedTaskJobs).not.toHaveBeenCalled();
   });
 
-  it.skip('should run this task again', async () => {
+  it('should run this task again', async () => {
     fetchExecutedTasks.mockImplementation(async () => {
       return activityTableItems;
     });
@@ -295,26 +294,45 @@ describe('ActivityTable', () => {
         <Provider store={store}>
           <ActivityTable />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
-    await waitFor(() => {
-      expect(fetchExecutedTasks).toHaveBeenCalled();
+    await waitFor(() =>
+      screen.findByRole('row', {
+        name: /task a 10 completed/i,
+      }),
+    );
+    const row = screen.getByRole('row', {
+      name: /task a 10 completed/i,
     });
-    await waitFor(() => {
-      userEvent.click(screen.getAllByLabelText('Kebab toggle')[0]);
-    });
-    await waitFor(() => {
-      userEvent.click(screen.getByText('Run this task again'));
-    });
+
+    await userEvent.click(
+      within(row).getByRole('button', {
+        name: /kebab toggle/i,
+      }),
+    );
+
+    await userEvent.click(
+      screen.getByRole('menuitem', {
+        name: /run this task again/i,
+      }),
+    );
+
     await waitFor(() => {
       expect(fetchExecutedTask).toHaveBeenCalled();
     });
     await waitFor(() => {
       expect(fetchExecutedTaskJobs).toHaveBeenCalled();
     });
+
+    const runButton = await screen.findByLabelText('log4j-submit-task-button');
+    await userEvent.click(runButton);
+
     expect(executeTask).toHaveBeenCalled();
-    expect(fetchExecutedTasks).toHaveBeenCalledTimes(3);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledTimes(4);
+    });
   });
 
   it('should set errors', async () => {
@@ -327,7 +345,7 @@ describe('ActivityTable', () => {
         <Provider store={store}>
           <ActivityTable />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     await waitFor(() => expect(mockAddNotification).toHaveBeenCalled());
@@ -338,20 +356,45 @@ describe('ActivityTable', () => {
       return activityTableItems;
     });
 
+    deleteExecutedTask.mockImplementation(async () => {
+      return { data: {} };
+    });
+
     render(
       <MemoryRouter keyLength={0}>
         <Provider store={store}>
           <ActivityTable />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
-    await waitFor(() => {
-      expect(fetchExecutedTasks).toHaveBeenCalled();
-      userEvent.click(screen.getAllByLabelText('Kebab toggle')[1]);
-      userEvent.click(screen.getByText('Delete'));
-      userEvent.click(screen.getByTestId('delete-task-button'));
+    await waitFor(() =>
+      screen.findByRole('row', {
+        name: /task a 10 completed/i,
+      }),
+    );
+    const row = screen.getByRole('row', {
+      name: /task a 10 completed/i,
     });
-    expect(fetchExecutedTasks).toHaveBeenCalledTimes(2);
+
+    await userEvent.click(
+      within(row).getByRole('button', {
+        name: /kebab toggle/i,
+      }),
+    );
+
+    await userEvent.click(
+      screen.getByRole('menuitem', {
+        name: /delete/i,
+      }),
+    );
+
+    await userEvent.click(await screen.findByLabelText('Delete task button'));
+
+    expect(deleteExecutedTask).toHaveBeenCalledWith(1);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledTimes(4);
+    });
   });
 });

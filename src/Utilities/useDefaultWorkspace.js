@@ -5,7 +5,7 @@ import { useAxiosWithPlatformInterceptors } from '@redhat-cloud-services/fronten
  * Hook to fetch the default workspace ID from RBAC API.
  * Fetches the workspace once on mount and caches the result.
  *
- * @returns {{workspaceId: string|null, isLoading: boolean, error: Error|null}} Workspace fetch result
+ *  @returns {{workspaceId: string|null, isLoading: boolean, error: Error|null}} Workspace fetch result
  */
 export const useDefaultWorkspace = () => {
   const axios = useAxiosWithPlatformInterceptors();
@@ -49,6 +49,7 @@ export const useDefaultWorkspace = () => {
     return () => {
       isCancelled = true;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- axios is stable
   }, []);
 
   return { workspaceId, isLoading, error };

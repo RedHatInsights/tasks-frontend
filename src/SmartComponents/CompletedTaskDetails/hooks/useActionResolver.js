@@ -2,7 +2,7 @@ const useActionResolver = (
   setIsLogDrawerExpanded,
   setJobId,
   setJobName,
-  navigateToInventory
+  navigateToInventory,
 ) => {
   const handleOpenDrawer = (jobId, jobName) => {
     setJobId(jobId);

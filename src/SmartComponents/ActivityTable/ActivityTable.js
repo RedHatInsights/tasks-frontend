@@ -30,7 +30,6 @@ import {
 } from '../completedTaskDetailsHelpers';
 import RunTaskModal from '../RunTaskModal/RunTaskModal';
 import RefreshFooterContent from '../RefreshFooterContent';
-import usePromiseQueue from '../../Utilities/hooks/usePromiseQueue';
 
 const ActivityTable = () => {
   const addNotification = useAddNotification();
@@ -49,8 +48,9 @@ const ActivityTable = () => {
   const [selectedSystems, setSelectedSystems] = useState([]);
   const [lastUpdated, setLastUpdated] = useState(null);
   const [isRunning, setIsRunning] = useState(false);
-
-  const { resolve } = usePromiseQueue();
+  const [page, setPage] = useState(1);
+  const [perPage, setPerPage] = useState(20);
+  const [total, setTotal] = useState(0);
 
   const fetchTaskDetails = async (id) => {
     setTaskError();
@@ -76,33 +76,35 @@ const ActivityTable = () => {
     }
   };
 
-  const fetchData = async (count) => {
-    let results;
-    const batchSize = 200;
-    const pages = Math.ceil(count / batchSize) || 1;
-    const result = await resolve(
-      [...new Array(pages)].map(
-        (_, pageIdx) => () =>
-          fetchExecutedTasks(
-            `?limit=${batchSize}&offset=${batchSize * pageIdx}`,
-          ),
-      ),
+  /**
+   * Fetches a single page of tasks from the server using server-side pagination
+   *  @param   {number}        pageNum  - Current page number (1-indexed)
+   *  @param   {number}        pageSize - Number of items per page
+   *  @returns {Promise<void>}
+   */
+  const fetchData = async (pageNum, pageSize) => {
+    const offset = (pageNum - 1) * pageSize;
+    const result = await fetchExecutedTasks(
+      `?limit=${pageSize}&offset=${offset}`,
     );
 
-    if (isError(result[0])) {
-      createNotification(result[0], addNotification);
-      setError(result[0]);
+    if (isError(result)) {
+      createNotification(result, addNotification);
+      setError(result);
+      setActivities([]);
+      setTableLoading(false);
     } else {
-      results = result.map(({ data }) => data).flat();
-    }
+      const tasks = result.data || [];
 
-    if (results.some((result) => result.status === 'Running')) {
-      setIsRunning(true);
-    } else {
-      setIsRunning(false);
-    }
+      if (tasks.some((task) => task.status === 'Running')) {
+        setIsRunning(true);
+      } else {
+        setIsRunning(false);
+      }
 
-    setTasks(results);
+      setTotal(result.meta?.count || 0);
+      setTasks(tasks);
+    }
   };
 
   const handleCancelOrDeleteTask = async (task) => {
@@ -115,6 +117,11 @@ const ActivityTable = () => {
     fetchTaskDetails,
   );
 
+  /**
+   * Sets tasks data and updates run_date_time for display
+   *  @param   {Array}         result - Array of task objects
+   *  @returns {Promise<void>}
+   */
   const setTasks = async (result) => {
     result?.map(
       (task) => (task.run_date_time = renderRunDateTime(task.start_time)),
@@ -124,34 +131,34 @@ const ActivityTable = () => {
     setTableLoading(false);
   };
 
+  /**
+   * Refetches the current page of data and resets table loading state
+   *  @returns {Promise<void>}
+   */
   const refetchData = async () => {
     setTableLoading(true);
     await setActivities(LOADING_ACTIVITIES_TABLE);
-    fetchSingleTask();
+    fetchCurrentPage();
   };
 
-  const fetchSingleTask = async () => {
+  /**
+   * Fetches the current page based on state values (page, perPage)
+   * Updates lastUpdated timestamp
+   *  @returns {Promise<void>}
+   */
+  const fetchCurrentPage = async () => {
     setLastUpdated(new Date());
-    const task = await fetchExecutedTasks(`?limit=1&offset=0`);
-    if (isError(task)) {
-      createNotification(task, addNotification);
-      setError(task);
-      setActivities([]);
-    } else if (task.data.length === 0) {
-      setActivities([]);
-    } else {
-      fetchData(task.meta.count);
-    }
+    await fetchData(page, perPage);
   };
 
   useEffect(() => {
-    fetchSingleTask();
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- run only on mount
-  }, []);
+    fetchCurrentPage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- fetch on page/perPage change
+  }, [page, perPage]);
 
   useInterval(() => {
     if (isRunning) {
-      fetchSingleTask();
+      fetchCurrentPage();
     }
   }, 60000);
 
@@ -226,6 +233,17 @@ const ActivityTable = () => {
               exportable: {
                 ...TASKS_TABLE_DEFAULTS(addNotification).exportable,
                 columns: exportableColumns,
+              },
+              perPage,
+              pagination: {
+                page,
+                perPage,
+                itemCount: total,
+                onSetPage: (_, newPage) => setPage(newPage),
+                onPerPageSelect: (_, newPerPage) => {
+                  setPerPage(newPerPage);
+                  setPage(1);
+                },
               },
             }}
             emptyRows={emptyRows('tasks')}

@@ -331,7 +331,8 @@ describe('ActivityTable', () => {
     expect(executeTask).toHaveBeenCalled();
 
     await waitFor(() => {
-      expect(fetchExecutedTasks).toHaveBeenCalledTimes(4);
+      // 1 call on mount + 1 call after delete/cancel = 2 calls with server-side pagination
+      expect(fetchExecutedTasks).toHaveBeenCalledTimes(2);
     });
   });
 
@@ -394,7 +395,27 @@ describe('ActivityTable', () => {
     expect(deleteExecutedTask).toHaveBeenCalledWith(1);
 
     await waitFor(() => {
-      expect(fetchExecutedTasks).toHaveBeenCalledTimes(4);
+      // 1 call on mount + 1 call after delete/cancel = 2 calls with server-side pagination
+      expect(fetchExecutedTasks).toHaveBeenCalledTimes(2);
+    });
+  });
+
+  it('should use server-side pagination with correct offset and limit on initial load', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return activityTableItems;
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <ActivityTable />
+        </Provider>
+      </MemoryRouter>,
+    );
+
+    // Verify initial fetch uses default page=1, perPage=20, resulting in offset=0, limit=20
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith('?limit=20&offset=0');
     });
   });
 });

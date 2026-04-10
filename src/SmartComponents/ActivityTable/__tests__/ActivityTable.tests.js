@@ -413,9 +413,291 @@ describe('ActivityTable', () => {
       </MemoryRouter>,
     );
 
-    // Verify initial fetch uses default page=1, perPage=20, resulting in offset=0, limit=20
     await waitFor(() => {
-      expect(fetchExecutedTasks).toHaveBeenCalledWith('?limit=20&offset=0');
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time',
+      );
+    });
+  });
+
+  it('should use server-side sorting when clicking column headers', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return activityTableItems;
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <ActivityTable />
+        </Provider>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const taskHeader = screen.getAllByRole('columnheader')[0];
+    const taskHeaderButton = within(taskHeader).getByRole('button');
+    await userEvent.click(taskHeaderButton);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=name',
+      );
+    });
+  });
+
+  it('should toggle sort direction when clicking same column twice', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return activityTableItems;
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <ActivityTable />
+        </Provider>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalled();
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const systemsHeader = screen.getAllByRole('columnheader')[1];
+    const systemsHeaderButton = within(systemsHeader).getByRole('button');
+
+    await userEvent.click(systemsHeaderButton);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=systems_count',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    await userEvent.click(systemsHeaderButton);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-systems_count',
+      );
+    });
+  });
+
+  it('should sort by status column', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return activityTableItems;
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <ActivityTable />
+        </Provider>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalled();
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const statusHeader = screen.getAllByRole('columnheader')[2];
+    const statusHeaderButton = within(statusHeader).getByRole('button');
+    await userEvent.click(statusHeaderButton);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=status',
+      );
+    });
+  });
+
+  it('should reset to page 1 when sorting from a different page', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return { data: activityTableItems.data, meta: { count: 100 } };
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <ActivityTable />
+        </Provider>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const pagination = screen.getAllByLabelText('Go to next page')[0];
+    await userEvent.click(pagination);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=20&sort=-start_time',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const taskHeader = screen.getAllByRole('columnheader')[0];
+    const taskHeaderButton = within(taskHeader).getByRole('button');
+    await userEvent.click(taskHeaderButton);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=name',
+      );
+    });
+  });
+
+  it('should sort by run date/time column in ascending order', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return activityTableItems;
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <ActivityTable />
+        </Provider>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalled();
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const runDateHeader = screen.getAllByRole('columnheader')[3];
+    const runDateHeaderButton = within(runDateHeader).getByRole('button');
+    await userEvent.click(runDateHeaderButton);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=start_time',
+      );
+    });
+  });
+
+  it('should refetch with current sort after delete', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return activityTableItems;
+    });
+
+    deleteExecutedTask.mockImplementation(async () => {
+      return { data: {} };
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <ActivityTable />
+        </Provider>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const taskHeader = screen.getAllByRole('columnheader')[0];
+    const taskHeaderButton = within(taskHeader).getByRole('button');
+    await userEvent.click(taskHeaderButton);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=name',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const row = screen.getByRole('row', {
+      name: /task a 10 completed/i,
+    });
+
+    await userEvent.click(
+      within(row).getByRole('button', {
+        name: /kebab toggle/i,
+      }),
+    );
+
+    await userEvent.click(
+      screen.getByRole('menuitem', {
+        name: /delete/i,
+      }),
+    );
+
+    await userEvent.click(await screen.findByLabelText('Delete task button'));
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=name',
+      );
+    });
+  });
+
+  it('should handle pagination with sorted data', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return { data: activityTableItems.data, meta: { count: 100 } };
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <ActivityTable />
+        </Provider>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const statusHeader = screen.getAllByRole('columnheader')[2];
+    const statusHeaderButton = within(statusHeader).getByRole('button');
+    await userEvent.click(statusHeaderButton);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=status',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const nextPageButton = screen.getAllByLabelText('Go to next page')[0];
+    await userEvent.click(nextPageButton);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=20&sort=status',
+      );
     });
   });
 });

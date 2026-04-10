@@ -19,8 +19,12 @@ const columnOffset = (options = {}) =>
   (typeof options.detailsComponent !== 'undefined');
 
 const useTableSort = (columns, options = {}) => {
+  // If onSort is provided externally (server-side sorting), use it
+  const externalOnSort = options.onSort;
+  const externalSortBy = options.sortBy;
+
   const [sortBy, setSortBy] = useState(
-    options.sortBy || {
+    externalSortBy || {
       index: 3,
       direction: 'asc',
     },
@@ -39,6 +43,18 @@ const useTableSort = (columns, options = {}) => {
       items,
       sortBy.direction,
     );
+
+  if (externalOnSort) {
+    return {
+      sorter: null, // Disable client-side sorting
+      tableProps: {
+        onSort: externalOnSort,
+        sortBy: externalSortBy,
+        cells: addSortableTransform(columns),
+      },
+    };
+  }
+
   return {
     sorter,
     tableProps: {

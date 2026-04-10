@@ -51,6 +51,7 @@ const ActivityTable = () => {
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(20);
   const [total, setTotal] = useState(0);
+  const [sortBy, setSortBy] = useState({ index: 3, direction: 'desc' });
 
   const fetchTaskDetails = async (id) => {
     setTaskError();
@@ -77,6 +78,16 @@ const ActivityTable = () => {
   };
 
   /**
+   * Maps column index to API sort field name
+   *  @param   {number} columnIndex - Column index (0-based)
+   *  @returns {string}             API field name for sorting
+   */
+  const getApiSortField = (columnIndex) => {
+    const sortFields = ['name', 'systems_count', 'status', 'start_time'];
+    return sortFields[columnIndex] || 'start_time';
+  };
+
+  /**
    * Fetches a single page of tasks from the server using server-side pagination
    *  @param   {number}        pageNum  - Current page number (1-indexed)
    *  @param   {number}        pageSize - Number of items per page
@@ -84,8 +95,10 @@ const ActivityTable = () => {
    */
   const fetchData = async (pageNum, pageSize) => {
     const offset = (pageNum - 1) * pageSize;
+    const sortField = getApiSortField(sortBy.index);
+    const sortParam = sortBy.direction === 'desc' ? `-${sortField}` : sortField;
     const result = await fetchExecutedTasks(
-      `?limit=${pageSize}&offset=${offset}`,
+      `?limit=${pageSize}&offset=${offset}&sort=${sortParam}`,
     );
 
     if (isError(result)) {
@@ -116,6 +129,18 @@ const ActivityTable = () => {
     handleCancelOrDeleteTask,
     fetchTaskDetails,
   );
+
+  /**
+   * Handles sort changes - updates sort state and resets to page 1
+   *  @param   {*}      _         - Unused event parameter
+   *  @param   {number} index     - Column index being sorted
+   *  @param   {string} direction - Sort direction ('asc' or 'desc')
+   *  @returns {void}
+   */
+  const handleSort = (_, index, direction) => {
+    setSortBy({ index, direction });
+    setPage(1);
+  };
 
   /**
    * Sets tasks data and updates run_date_time for display
@@ -153,8 +178,8 @@ const ActivityTable = () => {
 
   useEffect(() => {
     fetchCurrentPage();
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- fetch on page/perPage change
-  }, [page, perPage]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page, perPage, sortBy]);
 
   useInterval(() => {
     if (isRunning) {
@@ -245,6 +270,8 @@ const ActivityTable = () => {
                   setPage(1);
                 },
               },
+              sortBy,
+              onSort: handleSort,
             }}
             emptyRows={emptyRows('tasks')}
             isStickyHeader

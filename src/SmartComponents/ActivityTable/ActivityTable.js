@@ -52,6 +52,20 @@ const ActivityTable = () => {
   const [perPage, setPerPage] = useState(20);
   const [total, setTotal] = useState(0);
   const [sortBy, setSortBy] = useState({ index: 3, direction: 'desc' });
+  const [activeFilters, setActiveFilters] = useState({});
+
+  /**
+   * Checks if any filters are currently active
+   *  @returns {boolean} True if any filter has a non-empty value
+   */
+  const hasActiveFilters = () => {
+    return Object.values(activeFilters).some((value) => {
+      if (Array.isArray(value)) {
+        return value.length > 0;
+      }
+      return value !== '' && value !== undefined && value !== null;
+    });
+  };
 
   const fetchTaskDetails = async (id) => {
     setTaskError();
@@ -88,7 +102,30 @@ const ActivityTable = () => {
   };
 
   /**
-   * Fetches a single page of tasks from the server using server-side pagination
+   * Builds filter query parameters from active filters
+   *  @param   {object}   filters          - Active filter state object with filter keys and values
+   *  @param   {string}   [filters.task]   - Text filter for task name
+   *  @param   {string[]} [filters.status] - Array of status values to filter by
+   *  @returns {string}                    URL query string for filters (e.g., "&text=value&status=Running")
+   */
+  const buildFilterParams = (filters) => {
+    let params = '';
+
+    if (filters['task']) {
+      params += `&text=${encodeURIComponent(filters['task'])}`;
+    }
+
+    if (filters['status'] && filters['status'].length > 0) {
+      filters['status'].forEach((statusValue) => {
+        params += `&status=${encodeURIComponent(statusValue)}`;
+      });
+    }
+
+    return params;
+  };
+
+  /**
+   * Fetches a single page of tasks from the server using server-side pagination and filtering
    *  @param   {number}        pageNum  - Current page number (1-indexed)
    *  @param   {number}        pageSize - Number of items per page
    *  @returns {Promise<void>}
@@ -97,8 +134,9 @@ const ActivityTable = () => {
     const offset = (pageNum - 1) * pageSize;
     const sortField = getApiSortField(sortBy.index);
     const sortParam = sortBy.direction === 'desc' ? `-${sortField}` : sortField;
+    const filterParams = buildFilterParams(activeFilters);
     const result = await fetchExecutedTasks(
-      `?limit=${pageSize}&offset=${offset}&sort=${sortParam}`,
+      `?limit=${pageSize}&offset=${offset}&sort=${sortParam}${filterParams}`,
     );
 
     if (isError(result)) {
@@ -177,9 +215,11 @@ const ActivityTable = () => {
   };
 
   useEffect(() => {
+    setTableLoading(true);
+    setActivities(LOADING_ACTIVITIES_TABLE);
     fetchCurrentPage();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page, perPage, sortBy]);
+  }, [page, perPage, sortBy, activeFilters]);
 
   useInterval(() => {
     if (isRunning) {
@@ -235,7 +275,7 @@ const ActivityTable = () => {
             text={COMPLETED_TASKS_ERROR}
             error={`Error ${error?.response?.status}: ${error?.message}`}
           />
-        ) : activities?.length === 0 ? (
+        ) : activities?.length === 0 && !tableLoading && !hasActiveFilters() ? (
           <EmptyStateDisplay
             icon={WrenchIcon}
             color="#6a6e73"
@@ -250,6 +290,13 @@ const ActivityTable = () => {
             items={activities}
             filters={{
               filterConfig: [...nameFilter, ...statusFilter],
+              onFilterUpdate: (filterName, filterValue) => {
+                setActiveFilters((prev) => ({
+                  ...prev,
+                  [filterName]: filterValue,
+                }));
+                setPage(1);
+              },
             }}
             options={{
               ...TASKS_TABLE_DEFAULTS(addNotification),

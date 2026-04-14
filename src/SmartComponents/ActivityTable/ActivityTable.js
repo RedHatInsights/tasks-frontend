@@ -30,7 +30,6 @@ import {
 } from '../completedTaskDetailsHelpers';
 import RunTaskModal from '../RunTaskModal/RunTaskModal';
 import RefreshFooterContent from '../RefreshFooterContent';
-import usePromiseQueue from '../../Utilities/hooks/usePromiseQueue';
 
 const ActivityTable = () => {
   const addNotification = useAddNotification();
@@ -49,8 +48,24 @@ const ActivityTable = () => {
   const [selectedSystems, setSelectedSystems] = useState([]);
   const [lastUpdated, setLastUpdated] = useState(null);
   const [isRunning, setIsRunning] = useState(false);
+  const [page, setPage] = useState(1);
+  const [perPage, setPerPage] = useState(20);
+  const [total, setTotal] = useState(0);
+  const [sortBy, setSortBy] = useState({ index: 3, direction: 'desc' });
+  const [activeFilters, setActiveFilters] = useState({});
 
-  const { resolve } = usePromiseQueue();
+  /**
+   * Checks if any filters are currently active
+   *  @returns {boolean} True if any filter has a non-empty value
+   */
+  const hasActiveFilters = () => {
+    return Object.values(activeFilters).some((value) => {
+      if (Array.isArray(value)) {
+        return value.length > 0;
+      }
+      return value !== '' && value !== undefined && value !== null;
+    });
+  };
 
   const fetchTaskDetails = async (id) => {
     setTaskError();
@@ -76,33 +91,71 @@ const ActivityTable = () => {
     }
   };
 
-  const fetchData = async (count) => {
-    let results;
-    const batchSize = 200;
-    const pages = Math.ceil(count / batchSize) || 1;
-    const result = await resolve(
-      [...new Array(pages)].map(
-        (_, pageIdx) => () =>
-          fetchExecutedTasks(
-            `?limit=${batchSize}&offset=${batchSize * pageIdx}`,
-          ),
-      ),
+  /**
+   * Maps column index to API sort field name
+   *  @param   {number} columnIndex - Column index (0-based)
+   *  @returns {string}             API field name for sorting
+   */
+  const getApiSortField = (columnIndex) => {
+    const sortFields = ['name', 'systems_count', 'status', 'start_time'];
+    return sortFields[columnIndex] || 'start_time';
+  };
+
+  /**
+   * Builds filter query parameters from active filters
+   *  @param   {object}   filters          - Active filter state object with filter keys and values
+   *  @param   {string}   [filters.task]   - Text filter for task name
+   *  @param   {string[]} [filters.status] - Array of status values to filter by
+   *  @returns {string}                    URL query string for filters (e.g., "&text=value&status=Running")
+   */
+  const buildFilterParams = (filters) => {
+    let params = '';
+
+    if (filters['task']) {
+      params += `&text=${encodeURIComponent(filters['task'])}`;
+    }
+
+    if (filters['status'] && filters['status'].length > 0) {
+      filters['status'].forEach((statusValue) => {
+        params += `&status=${encodeURIComponent(statusValue)}`;
+      });
+    }
+
+    return params;
+  };
+
+  /**
+   * Fetches a single page of tasks from the server using server-side pagination and filtering
+   *  @param   {number}        pageNum  - Current page number (1-indexed)
+   *  @param   {number}        pageSize - Number of items per page
+   *  @returns {Promise<void>}
+   */
+  const fetchData = async (pageNum, pageSize) => {
+    const offset = (pageNum - 1) * pageSize;
+    const sortField = getApiSortField(sortBy.index);
+    const sortParam = sortBy.direction === 'desc' ? `-${sortField}` : sortField;
+    const filterParams = buildFilterParams(activeFilters);
+    const result = await fetchExecutedTasks(
+      `?limit=${pageSize}&offset=${offset}&sort=${sortParam}${filterParams}`,
     );
 
-    if (isError(result[0])) {
-      createNotification(result[0], addNotification);
-      setError(result[0]);
+    if (isError(result)) {
+      createNotification(result, addNotification);
+      setError(result);
+      setActivities([]);
+      setTableLoading(false);
     } else {
-      results = result.map(({ data }) => data).flat();
-    }
+      const tasks = result.data || [];
 
-    if (results.some((result) => result.status === 'Running')) {
-      setIsRunning(true);
-    } else {
-      setIsRunning(false);
-    }
+      if (tasks.some((task) => task.status === 'Running')) {
+        setIsRunning(true);
+      } else {
+        setIsRunning(false);
+      }
 
-    setTasks(results);
+      setTotal(result.meta?.count || 0);
+      setTasks(tasks);
+    }
   };
 
   const handleCancelOrDeleteTask = async (task) => {
@@ -115,6 +168,23 @@ const ActivityTable = () => {
     fetchTaskDetails,
   );
 
+  /**
+   * Handles sort changes - updates sort state and resets to page 1
+   *  @param   {*}      _         - Unused event parameter
+   *  @param   {number} index     - Column index being sorted
+   *  @param   {string} direction - Sort direction ('asc' or 'desc')
+   *  @returns {void}
+   */
+  const handleSort = (_, index, direction) => {
+    setSortBy({ index, direction });
+    setPage(1);
+  };
+
+  /**
+   * Sets tasks data and updates run_date_time for display
+   *  @param   {Array}         result - Array of task objects
+   *  @returns {Promise<void>}
+   */
   const setTasks = async (result) => {
     result?.map(
       (task) => (task.run_date_time = renderRunDateTime(task.start_time)),
@@ -124,34 +194,36 @@ const ActivityTable = () => {
     setTableLoading(false);
   };
 
+  /**
+   * Refetches the current page of data and resets table loading state
+   *  @returns {Promise<void>}
+   */
   const refetchData = async () => {
     setTableLoading(true);
     await setActivities(LOADING_ACTIVITIES_TABLE);
-    fetchSingleTask();
+    fetchCurrentPage();
   };
 
-  const fetchSingleTask = async () => {
+  /**
+   * Fetches the current page based on state values (page, perPage)
+   * Updates lastUpdated timestamp
+   *  @returns {Promise<void>}
+   */
+  const fetchCurrentPage = async () => {
     setLastUpdated(new Date());
-    const task = await fetchExecutedTasks(`?limit=1&offset=0`);
-    if (isError(task)) {
-      createNotification(task, addNotification);
-      setError(task);
-      setActivities([]);
-    } else if (task.data.length === 0) {
-      setActivities([]);
-    } else {
-      fetchData(task.meta.count);
-    }
+    await fetchData(page, perPage);
   };
 
   useEffect(() => {
-    fetchSingleTask();
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- run only on mount
-  }, []);
+    setTableLoading(true);
+    setActivities(LOADING_ACTIVITIES_TABLE);
+    fetchCurrentPage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page, perPage, sortBy, activeFilters]);
 
   useInterval(() => {
     if (isRunning) {
-      fetchSingleTask();
+      fetchCurrentPage();
     }
   }, 60000);
 
@@ -203,7 +275,7 @@ const ActivityTable = () => {
             text={COMPLETED_TASKS_ERROR}
             error={`Error ${error?.response?.status}: ${error?.message}`}
           />
-        ) : activities?.length === 0 ? (
+        ) : activities?.length === 0 && !tableLoading && !hasActiveFilters() ? (
           <EmptyStateDisplay
             icon={WrenchIcon}
             color="#6a6e73"
@@ -218,6 +290,13 @@ const ActivityTable = () => {
             items={activities}
             filters={{
               filterConfig: [...nameFilter, ...statusFilter],
+              onFilterUpdate: (filterName, filterValue) => {
+                setActiveFilters((prev) => ({
+                  ...prev,
+                  [filterName]: filterValue,
+                }));
+                setPage(1);
+              },
             }}
             options={{
               ...TASKS_TABLE_DEFAULTS(addNotification),
@@ -227,6 +306,19 @@ const ActivityTable = () => {
                 ...TASKS_TABLE_DEFAULTS(addNotification).exportable,
                 columns: exportableColumns,
               },
+              perPage,
+              pagination: {
+                page,
+                perPage,
+                itemCount: total,
+                onSetPage: (_, newPage) => setPage(newPage),
+                onPerPageSelect: (_, newPerPage) => {
+                  setPerPage(newPerPage);
+                  setPage(1);
+                },
+              },
+              sortBy,
+              onSort: handleSort,
             }}
             emptyRows={emptyRows('tasks')}
             isStickyHeader

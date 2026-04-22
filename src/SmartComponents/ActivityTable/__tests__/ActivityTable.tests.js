@@ -117,7 +117,7 @@ describe('ActivityTable', () => {
     expect(input.value).toBe('A');
   });
 
-  it('should remove name filter', async () => {
+  it('should remove name filter and refetch data', async () => {
     fetchExecutedTasks.mockImplementation(async () => {
       return activityTableItems;
     });
@@ -130,12 +130,34 @@ describe('ActivityTable', () => {
       </MemoryRouter>,
     );
 
-    await waitFor(() => expect(fetchExecutedTasks).toHaveBeenCalled());
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
     const input = screen.getByLabelText('text input');
     fireEvent.change(input, { target: { value: 'A' } });
     expect(input.value).toBe('A');
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time&text=A',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
     fireEvent.change(input, { target: { value: '' } });
     expect(input.value).toBe('');
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time',
+      );
+    });
   });
 
   it('should filter by status completed', async () => {
@@ -152,8 +174,12 @@ describe('ActivityTable', () => {
     );
 
     await waitFor(() => {
-      expect(fetchExecutedTasks).toHaveBeenCalled();
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time',
+      );
     });
+
+    fetchExecutedTasks.mockClear();
 
     // Click the conditional filter toggle
     await userEvent.click(
@@ -178,9 +204,11 @@ describe('ActivityTable', () => {
     // Now click the Completed checkbox
     await userEvent.click(screen.getAllByText('Completed')[0]);
 
+    // Verify server-side filtering: API called with status filter parameter
     await waitFor(() => {
-      expect(screen.getByText('Task A')).toBeInTheDocument();
-      expect(screen.queryByText('Task B')).not.toBeInTheDocument();
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time&status=Completed',
+      );
     });
   });
 
@@ -198,8 +226,12 @@ describe('ActivityTable', () => {
     );
 
     await waitFor(() => {
-      expect(fetchExecutedTasks).toHaveBeenCalled();
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time',
+      );
     });
+
+    fetchExecutedTasks.mockClear();
 
     // Click the conditional filter toggle
     await userEvent.click(
@@ -224,9 +256,11 @@ describe('ActivityTable', () => {
     // Now click the Running checkbox
     await userEvent.click(screen.getAllByText('Running')[0]);
 
+    // Verify server-side filtering: API called with status filter parameter
     await waitFor(() => {
-      expect(screen.getByText('Task B')).toBeInTheDocument();
-      expect(screen.queryByText('Task A')).not.toBeInTheDocument();
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time&status=Running',
+      );
     });
   });
 
@@ -331,7 +365,8 @@ describe('ActivityTable', () => {
     expect(executeTask).toHaveBeenCalled();
 
     await waitFor(() => {
-      expect(fetchExecutedTasks).toHaveBeenCalledTimes(4);
+      // 1 call on mount + 1 call after delete/cancel = 2 calls with server-side pagination
+      expect(fetchExecutedTasks).toHaveBeenCalledTimes(2);
     });
   });
 
@@ -394,7 +429,665 @@ describe('ActivityTable', () => {
     expect(deleteExecutedTask).toHaveBeenCalledWith(1);
 
     await waitFor(() => {
-      expect(fetchExecutedTasks).toHaveBeenCalledTimes(4);
+      // 1 call on mount + 1 call after delete/cancel = 2 calls with server-side pagination
+      expect(fetchExecutedTasks).toHaveBeenCalledTimes(2);
+    });
+  });
+
+  it('should use server-side pagination with correct offset and limit on initial load', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return activityTableItems;
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <ActivityTable />
+        </Provider>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time',
+      );
+    });
+  });
+
+  it('should use server-side sorting when clicking column headers', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return activityTableItems;
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <ActivityTable />
+        </Provider>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const taskHeader = screen.getAllByRole('columnheader')[0];
+    const taskHeaderButton = within(taskHeader).getByRole('button');
+    await userEvent.click(taskHeaderButton);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=name',
+      );
+    });
+  });
+
+  it('should toggle sort direction when clicking same column twice', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return activityTableItems;
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <ActivityTable />
+        </Provider>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalled();
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const systemsHeader = screen.getAllByRole('columnheader')[1];
+    const systemsHeaderButton = within(systemsHeader).getByRole('button');
+
+    await userEvent.click(systemsHeaderButton);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=systems_count',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    await userEvent.click(systemsHeaderButton);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-systems_count',
+      );
+    });
+  });
+
+  it('should sort by status column', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return activityTableItems;
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <ActivityTable />
+        </Provider>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalled();
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const statusHeader = screen.getAllByRole('columnheader')[2];
+    const statusHeaderButton = within(statusHeader).getByRole('button');
+    await userEvent.click(statusHeaderButton);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=status',
+      );
+    });
+  });
+
+  it('should reset to page 1 when sorting from a different page', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return { data: activityTableItems.data, meta: { count: 100 } };
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <ActivityTable />
+        </Provider>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const pagination = screen.getAllByLabelText('Go to next page')[0];
+    await userEvent.click(pagination);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=20&sort=-start_time',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const taskHeader = screen.getAllByRole('columnheader')[0];
+    const taskHeaderButton = within(taskHeader).getByRole('button');
+    await userEvent.click(taskHeaderButton);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=name',
+      );
+    });
+  });
+
+  it('should sort by run date/time column in ascending order', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return activityTableItems;
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <ActivityTable />
+        </Provider>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalled();
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const runDateHeader = screen.getAllByRole('columnheader')[3];
+    const runDateHeaderButton = within(runDateHeader).getByRole('button');
+    await userEvent.click(runDateHeaderButton);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=start_time',
+      );
+    });
+  });
+
+  it('should refetch with current sort after delete', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return activityTableItems;
+    });
+
+    deleteExecutedTask.mockImplementation(async () => {
+      return { data: {} };
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <ActivityTable />
+        </Provider>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const taskHeader = screen.getAllByRole('columnheader')[0];
+    const taskHeaderButton = within(taskHeader).getByRole('button');
+    await userEvent.click(taskHeaderButton);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=name',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const row = screen.getByRole('row', {
+      name: /task a 10 completed/i,
+    });
+
+    await userEvent.click(
+      within(row).getByRole('button', {
+        name: /kebab toggle/i,
+      }),
+    );
+
+    await userEvent.click(
+      screen.getByRole('menuitem', {
+        name: /delete/i,
+      }),
+    );
+
+    await userEvent.click(await screen.findByLabelText('Delete task button'));
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=name',
+      );
+    });
+  });
+
+  it('should handle pagination with sorted data', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return { data: activityTableItems.data, meta: { count: 100 } };
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <ActivityTable />
+        </Provider>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const statusHeader = screen.getAllByRole('columnheader')[2];
+    const statusHeaderButton = within(statusHeader).getByRole('button');
+    await userEvent.click(statusHeaderButton);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=status',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const nextPageButton = screen.getAllByLabelText('Go to next page')[0];
+    await userEvent.click(nextPageButton);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=20&sort=status',
+      );
+    });
+  });
+
+  it('should apply multiple status filters with server-side filtering', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return activityTableItems;
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <ActivityTable />
+        </Provider>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    await userEvent.click(
+      screen.getByRole('button', {
+        name: /conditional filter toggle/i,
+      }),
+    );
+
+    await userEvent.click(screen.getByRole('menuitem', { name: 'Status' }));
+
+    await waitFor(() => {
+      expect(
+        screen.getByRole('button', { name: 'Options menu' }),
+      ).toBeInTheDocument();
+    });
+
+    await userEvent.click(screen.getByRole('button', { name: 'Options menu' }));
+
+    await userEvent.click(screen.getAllByText('Running')[0]);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time&status=Running',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    await userEvent.click(screen.getAllByText('Completed')[0]);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time&status=Running&status=Completed',
+      );
+    });
+  });
+
+  it('should combine text and status filters', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return activityTableItems;
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <ActivityTable />
+        </Provider>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const input = screen.getByLabelText('text input');
+    fireEvent.change(input, { target: { value: 'test' } });
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time&text=test',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    await userEvent.click(
+      screen.getByRole('button', {
+        name: /conditional filter toggle/i,
+      }),
+    );
+
+    await userEvent.click(screen.getByRole('menuitem', { name: 'Status' }));
+
+    await waitFor(() => {
+      expect(
+        screen.getByRole('button', { name: 'Options menu' }),
+      ).toBeInTheDocument();
+    });
+
+    await userEvent.click(screen.getByRole('button', { name: 'Options menu' }));
+
+    await userEvent.click(screen.getAllByText('Running')[0]);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time&text=test&status=Running',
+      );
+    });
+  });
+
+  it('should reset to page 1 when applying filters', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return { data: activityTableItems.data, meta: { count: 100 } };
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <ActivityTable />
+        </Provider>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const nextPageButton = screen.getAllByLabelText('Go to next page')[0];
+    await userEvent.click(nextPageButton);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=20&sort=-start_time',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const input = screen.getByLabelText('text input');
+    fireEvent.change(input, { target: { value: 'test' } });
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time&text=test',
+      );
+    });
+  });
+
+  it('should maintain filters when sorting', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return activityTableItems;
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <ActivityTable />
+        </Provider>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const input = screen.getByLabelText('text input');
+    fireEvent.change(input, { target: { value: 'test' } });
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time&text=test',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const taskHeader = screen.getAllByRole('columnheader')[0];
+    const taskHeaderButton = within(taskHeader).getByRole('button');
+    await userEvent.click(taskHeaderButton);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=name&text=test',
+      );
+    });
+  });
+
+  it('should maintain filters when changing page', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return { data: activityTableItems.data, meta: { count: 100 } };
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <ActivityTable />
+        </Provider>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const input = screen.getByLabelText('text input');
+    fireEvent.change(input, { target: { value: 'test' } });
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time&text=test',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const nextPageButton = screen.getAllByLabelText('Go to next page')[0];
+    await userEvent.click(nextPageButton);
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=20&sort=-start_time&text=test',
+      );
+    });
+  });
+
+  it('should show table with empty rows when filters return no results', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return activityTableItems;
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <ActivityTable />
+        </Provider>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalled();
+    });
+
+    fetchExecutedTasks.mockImplementation(async () => {
+      return { data: [], meta: { count: 0 } };
+    });
+
+    const input = screen.getByLabelText('text input');
+    fireEvent.change(input, { target: { value: 'nonexistent' } });
+
+    await waitFor(() => {
+      expect(screen.getByText('No matching tasks found')).toBeInTheDocument();
+    });
+
+    expect(screen.getByLabelText('text input')).toBeInTheDocument();
+  });
+
+  it('should encode special characters in text filter', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return activityTableItems;
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <ActivityTable />
+        </Provider>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    const input = screen.getByLabelText('text input');
+    fireEvent.change(input, { target: { value: 'test&value=hack' } });
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time&text=test%26value%3Dhack',
+      );
+    });
+  });
+
+  it('should handle all status filter options', async () => {
+    fetchExecutedTasks.mockImplementation(async () => {
+      return activityTableItems;
+    });
+
+    render(
+      <MemoryRouter keyLength={0}>
+        <Provider store={store}>
+          <ActivityTable />
+        </Provider>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalled();
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    await userEvent.click(
+      screen.getByRole('button', {
+        name: /conditional filter toggle/i,
+      }),
+    );
+
+    await userEvent.click(screen.getByRole('menuitem', { name: 'Status' }));
+
+    await waitFor(() => {
+      expect(
+        screen.getByRole('button', { name: 'Options menu' }),
+      ).toBeInTheDocument();
+    });
+
+    await userEvent.click(screen.getByRole('button', { name: 'Options menu' }));
+
+    await userEvent.click(screen.getByText('Completed With Errors'));
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time&status=Completed%20With%20Errors',
+      );
+    });
+
+    fetchExecutedTasks.mockClear();
+
+    await userEvent.click(screen.getByText('Failure'));
+
+    await waitFor(() => {
+      expect(fetchExecutedTasks).toHaveBeenCalledWith(
+        '?limit=20&offset=0&sort=-start_time&status=Completed%20With%20Errors&status=Failure',
+      );
     });
   });
 });

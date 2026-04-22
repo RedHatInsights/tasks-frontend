@@ -4,12 +4,7 @@ export const nameFilter = [
   {
     type: conditionalFilterType.text,
     label: 'Task',
-    filter: (tasks, value) =>
-      tasks.filter((task) =>
-        typeof task.name === 'string'
-          ? task.name.toLowerCase().includes(value.toLowerCase())
-          : null,
-      ),
+    filter: (tasks) => tasks,
   },
 ];
 
@@ -17,13 +12,12 @@ export const statusFilter = [
   {
     type: conditionalFilterType.checkbox,
     label: 'Status',
-    filter: (tasks, value) =>
-      tasks.filter((task) => value.includes(task.status.toLowerCase())),
+    filter: (tasks) => tasks,
     items: [
-      { label: 'Running', value: 'running' },
-      { label: 'Completed', value: 'completed' },
-      { label: 'Completed with errors', value: 'completed with errors' },
-      { label: 'Failure', value: 'failure' },
+      { label: 'Running', value: 'Running' },
+      { label: 'Completed', value: 'Completed' },
+      { label: 'Completed With Errors', value: 'Completed With Errors' },
+      { label: 'Failure', value: 'Failure' },
     ],
   },
 ];

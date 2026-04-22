@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import FilterConfigBuilder from './FilterConfigBuilder/FilterConfigBuilder';
 import useSelectedFilter from './useSelectedFilter';
+import { stringToId } from './FilterConfigBuilder/Helpers';
 
 const filterValues = (activeFilters) =>
   Object.values(activeFilters).filter((value) => {
@@ -31,8 +32,11 @@ const perpareInitialActiveFilters = (
 const useFilterConfig = (options = {}) => {
   const { filters, setPage, selectedFilter, onDeleteFilter } = options;
   const enableFilters = !!filters;
-  const { filterConfig = [], activeFilters: initialActiveFiltersRaw } =
-    filters || {};
+  const {
+    filterConfig = [],
+    activeFilters: initialActiveFiltersRaw,
+    onFilterUpdate: onFilterUpdateCallback,
+  } = filters || {};
 
   const [activeFilters, setActiveFilters] = useState({});
   const initialActiveFilters = perpareInitialActiveFilters(
@@ -46,6 +50,7 @@ const useFilterConfig = (options = {}) => {
     }));
 
     setPage && setPage(1);
+    onFilterUpdateCallback && onFilterUpdateCallback(filter, value);
   };
 
   const addConfigItem = (item) => {
@@ -53,13 +58,31 @@ const useFilterConfig = (options = {}) => {
     setActiveFilters(filterConfigBuilder.initialDefaultState(activeFilters));
   };
 
-  const clearAllFilter = () =>
-    setActiveFilters(filterConfigBuilder.initialDefaultState());
+  const clearAllFilter = () => {
+    const newFilters = filterConfigBuilder.initialDefaultState();
+    setActiveFilters(newFilters);
+    if (onFilterUpdateCallback) {
+      Object.keys(activeFilters).forEach((key) => {
+        const newValue = newFilters[key] !== undefined ? newFilters[key] : '';
+        onFilterUpdateCallback(key, newValue);
+      });
+    }
+  };
 
-  const deleteFilter = (chips) =>
-    setActiveFilters(
-      filterConfigBuilder.removeFilterWithChip(chips, activeFilters),
+  const deleteFilter = (chips) => {
+    const newFilters = filterConfigBuilder.removeFilterWithChip(
+      chips,
+      activeFilters,
     );
+    setActiveFilters(newFilters);
+    if (onFilterUpdateCallback && chips.category) {
+      const filterId = stringToId(chips.category);
+      const newValue =
+        newFilters[filterId] !== undefined ? newFilters[filterId] : '';
+      onFilterUpdateCallback(filterId, newValue);
+    }
+  };
+
   const onFilterDelete = async (_event, chips, clearAll = false) => {
     (await clearAll) ? clearAllFilter() : deleteFilter(chips[0]);
     onDeleteFilter && onDeleteFilter(chips, clearAll);

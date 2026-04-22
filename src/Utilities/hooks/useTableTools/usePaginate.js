@@ -4,10 +4,19 @@ import {
   SkeletonSize,
 } from '@redhat-cloud-services/frontend-components/Skeleton';
 
+/**
+ * Hook for handling table pagination - supports both client-side and server-side pagination
+ *  @param   {object}           options              - Configuration options
+ *  @param   {number}           [options.perPage]    - Items per page
+ *  @param   {object | boolean} [options.pagination] - Custom pagination config (for server-side) or false to disable
+ *  @param   {boolean}          isTableLoading       - Whether table is currently loading
+ *  @returns {object}                                Pagination utilities
+ */
 const usePaginate = (options = {}, isTableLoading) => {
-  const { perPage = 10 } = options;
+  const { perPage = 10, pagination: customPagination } = options;
   const enablePagination = options?.pagination !== false;
 
+  // Client-side pagination state (always called to satisfy React hooks rules)
   const [paginationState, setPaginationState] = useState({
     perPage,
     page: 1,
@@ -36,6 +45,21 @@ const usePaginate = (options = {}, isTableLoading) => {
       page: nextPage > 0 ? nextPage : 1,
     });
   };
+
+  // If custom pagination is provided (server-side), use it directly
+  if (customPagination && typeof customPagination === 'object') {
+    return {
+      paginator: (items) => items, // No client-side pagination
+      setPage: () => {}, // Handled by parent
+      toolbarProps: {
+        pagination: !isTableLoading ? (
+          customPagination
+        ) : (
+          <Skeleton size={SkeletonSize.lg} />
+        ),
+      },
+    };
+  }
 
   return enablePagination
     ? {

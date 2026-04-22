@@ -43,6 +43,25 @@ describe('useTableSort', () => {
 
     expect(result.current.tableProps.sortBy).toEqual(newSortBy);
   });
+
+  it('uses external onSort for server-side sorting', () => {
+    const sortBy = {
+      index: 3,
+      direction: 'desc',
+    };
+    const externalOnSort = jest.fn();
+
+    const { result } = renderHook(() =>
+      useTableSort(columns, {
+        sortBy,
+        onSort: externalOnSort,
+      }),
+    );
+
+    expect(result.current.sorter).toBeNull();
+    expect(result.current.tableProps.onSort).toBe(externalOnSort);
+    expect(result.current.tableProps.sortBy).toEqual(sortBy);
+  });
 });
 
 describe('useTableSortWithItems', () => {

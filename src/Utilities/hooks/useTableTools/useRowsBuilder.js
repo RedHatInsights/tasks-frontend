@@ -58,10 +58,16 @@ const useRowsBuilder = (items, columns, options = {}) => {
         })
       : EmptyRowsComponent;
 
+  // Build pagination props, preserving custom itemCount for server-side pagination
   const pagination = options?.pagination
     ? {
         ...options.pagination,
-        itemCount: filteredItems.length,
+        // Server-side pagination provides itemCount (total from API)
+        // Client-side pagination uses filtered items length
+        itemCount:
+          options.pagination.itemCount !== undefined
+            ? options.pagination.itemCount
+            : filteredItems.length,
       }
     : undefined;
 

@@ -40,6 +40,13 @@ const mockStore = configureStore([]);
 describe('App', () => {
   let store;
 
+  const renderApp = () =>
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>,
+    );
+
   beforeEach(() => {
     store = mockStore({});
     useFlagsStatus.mockReturnValue({ flagsReady: true });
@@ -51,17 +58,14 @@ describe('App', () => {
   });
 
   describe('Feature flag loading states', () => {
-    it('waits for feature flags to load before rendering', () => {
+    it('shows loading spinner while waiting for feature flags', () => {
       useFlagsStatus.mockReturnValue({ flagsReady: false });
-      useFeatureFlag.mockReturnValue(false);
 
-      render(
-        <Provider store={store}>
-          <App />
-        </Provider>,
-      );
+      renderApp();
 
+      expect(screen.getByRole('progressbar')).toBeInTheDocument();
       expect(screen.queryByTestId('rbac-provider')).not.toBeInTheDocument();
+      expect(screen.queryByTestId('kessel-provider')).not.toBeInTheDocument();
       expect(screen.queryByTestId('routes')).not.toBeInTheDocument();
     });
 
@@ -69,56 +73,30 @@ describe('App', () => {
       useFlagsStatus.mockReturnValue({ flagsReady: true });
       useFeatureFlag.mockReturnValue(false);
 
-      render(
-        <Provider store={store}>
-          <App />
-        </Provider>,
-      );
+      renderApp();
 
       expect(screen.getByTestId('rbac-provider')).toBeInTheDocument();
       expect(screen.getByTestId('routes')).toBeInTheDocument();
+      expect(screen.queryByTestId('kessel-provider')).not.toBeInTheDocument();
     });
 
     it('renders Kessel provider after flags load with Kessel enabled', () => {
       useFlagsStatus.mockReturnValue({ flagsReady: true });
       useFeatureFlag.mockReturnValue(true);
 
-      render(
-        <Provider store={store}>
-          <App />
-        </Provider>,
-      );
+      renderApp();
 
       expect(screen.getByTestId('kessel-provider')).toBeInTheDocument();
-      expect(screen.queryByTestId('rbac-provider')).not.toBeInTheDocument();
       expect(screen.getByTestId('routes')).toBeInTheDocument();
-    });
-
-    it('avoids rendering RBACProvider during flag loading phase', () => {
-      useFlagsStatus.mockReturnValue({ flagsReady: false });
-      useFeatureFlag.mockReturnValue(false);
-
-      render(
-        <Provider store={store}>
-          <App />
-        </Provider>,
-      );
-
       expect(screen.queryByTestId('rbac-provider')).not.toBeInTheDocument();
-      expect(screen.queryByTestId('routes')).not.toBeInTheDocument();
     });
   });
 
   describe('RBAC v1 mode', () => {
     it('renders only RBACProvider when Kessel is disabled', () => {
-      useFlagsStatus.mockReturnValue({ flagsReady: true });
       useFeatureFlag.mockReturnValue(false);
 
-      render(
-        <Provider store={store}>
-          <App />
-        </Provider>,
-      );
+      renderApp();
 
       expect(screen.getByTestId('rbac-provider')).toBeInTheDocument();
       expect(screen.queryByTestId('kessel-provider')).not.toBeInTheDocument();
@@ -127,14 +105,9 @@ describe('App', () => {
 
   describe('Kessel mode', () => {
     it('renders only Kessel provider when enabled', () => {
-      useFlagsStatus.mockReturnValue({ flagsReady: true });
       useFeatureFlag.mockReturnValue(true);
 
-      render(
-        <Provider store={store}>
-          <App />
-        </Provider>,
-      );
+      renderApp();
 
       expect(screen.getByTestId('kessel-provider')).toBeInTheDocument();
       expect(screen.queryByTestId('rbac-provider')).not.toBeInTheDocument();

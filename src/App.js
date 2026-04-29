@@ -7,6 +7,7 @@ import './App.scss';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 import { RBACProvider } from '@redhat-cloud-services/frontend-components/RBACProvider';
 import { AccessCheck } from '@project-kessel/react-kessel-access-check';
+import { Bullseye, Spinner } from '@patternfly/react-core';
 import { KESSEL_API_BASE_URL } from './constants';
 import useFeatureFlag from './Utilities/useFeatureFlag';
 import { useFlagsStatus } from '@unleash/proxy-client-react';
@@ -36,7 +37,11 @@ const App = () => {
   }, [chrome]);
 
   if (!flagsReady) {
-    return null;
+    return (
+      <Bullseye>
+        <Spinner />
+      </Bullseye>
+    );
   }
 
   return isKesselEnabled ? (

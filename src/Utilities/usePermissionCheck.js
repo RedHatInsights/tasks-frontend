@@ -55,16 +55,12 @@ export const useKesselPermissions = (kesselRelations) => {
     return { hasAccess: false, isLoading: true };
   }
 
+  if (!workspaceId || workspaceError || error) {
+    return { hasAccess: false, isLoading: false };
+  }
+
   if (params?.resources?.length === 0) {
     return { hasAccess: true, isLoading: false };
-  }
-
-  if (!workspaceId || workspaceError) {
-    return { hasAccess: false, isLoading: false };
-  }
-
-  if (error) {
-    return { hasAccess: false, isLoading: false };
   }
 
   const hasAccess = Array.isArray(data)

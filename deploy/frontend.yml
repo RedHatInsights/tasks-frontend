@@ -38,18 +38,14 @@ objects:
               - pathname: /ansible/tasks
 
       bundleSegments:
-        - segmentId: tasks-insights-automation
+        - segmentId: tasks-insights
           bundleId: insights
-          position: 1500
+          position: 1600
           navItems:
-            - title: Automation Toolkit
-              id: automation
-              expandable: true
-              routes:
-                - title: Tasks
-                  id: tasks
-                  href: /insights/tasks
-                  product: Red Hat Insights
+            - title: Tasks
+              id: tasks
+              href: /insights/tasks
+              product: Red Hat Insights
         - segmentId: tasks-ansible
           bundleId: ansible
           position: 1000

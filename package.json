@@ -82,9 +82,9 @@
     "semver": "^7.7.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.29.0",
-    "@babel/plugin-transform-runtime": "^7.29.0",
-    "@babel/preset-env": "^7.29.2",
+    "@babel/core": "^8.0.1",
+    "@babel/plugin-transform-runtime": "^8.0.1",
+    "@babel/preset-env": "^8.0.2",
     "@babel/preset-react": "^7.28.5",
     "@commitlint/cli": "^19.8.0",
     "@commitlint/config-conventional": "^19.8.0",
@@ -94,7 +94,7 @@
     "@testing-library/jest-dom": "^6.4.3",
     "@testing-library/react": "^15.0.6",
     "@testing-library/user-event": "^14.5.2",
-    "babel-jest": "^30.0.5",
+    "babel-jest": "^30.4.1",
     "eslint": "^9.39.2",
     "eslint-plugin-jest-dom": "^5.5.0",
     "eslint-plugin-jsdoc": "^62.8.0",

@@ -1,5 +1,11 @@
 import { useState, useEffect } from 'react';
-import { useAxiosWithPlatformInterceptors } from '@redhat-cloud-services/frontend-components-utilities/interceptors';
+import { fetchDefaultWorkspace } from '@project-kessel/react-kessel-access-check';
+
+let defaultWorkspacePromise = null;
+
+export const resetDefaultWorkspaceCache = () => {
+  defaultWorkspacePromise = null;
+};
 
 /**
  * Hook to fetch the default workspace ID from RBAC API.
@@ -8,49 +14,29 @@ import { useAxiosWithPlatformInterceptors } from '@redhat-cloud-services/fronten
  *  @returns {{workspaceId: string|null, isLoading: boolean, error: Error|null}} Workspace fetch result
  */
 export const useDefaultWorkspace = () => {
-  const axios = useAxiosWithPlatformInterceptors();
   const [workspaceId, setWorkspaceId] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const baseUrl = window.location.origin;
 
   useEffect(() => {
-    let isCancelled = false;
+    if (!defaultWorkspacePromise) {
+      defaultWorkspacePromise = fetchDefaultWorkspace(baseUrl);
+    }
 
-    const fetchDefaultWorkspaceId = async () => {
-      try {
-        setIsLoading(true);
-        const { data } = await axios.get('/api/rbac/v2/workspaces/', {
-          params: {
-            limit: 1,
-            type: 'default',
-          },
-        });
-
-        if (!isCancelled) {
-          const defaultWorkspaceId = data?.[0]?.id || null;
-          setWorkspaceId(defaultWorkspaceId);
-          setError(null);
-        }
-      } catch (err) {
-        if (!isCancelled) {
-          console.error('Failed to fetch default workspace:', err);
-          setError(err);
-          setWorkspaceId(null);
-        }
-      } finally {
-        if (!isCancelled) {
-          setIsLoading(false);
-        }
-      }
-    };
-
-    fetchDefaultWorkspaceId();
-
-    return () => {
-      isCancelled = true;
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- axios is stable
-  }, []);
+    defaultWorkspacePromise
+      .then((workspace) => {
+        setWorkspaceId(workspace?.id ?? null);
+        setError(null);
+      })
+      .catch((err) => {
+        defaultWorkspacePromise = null;
+        console.error('Failed to fetch default workspace:', err);
+        setError(err);
+        setWorkspaceId(null);
+      })
+      .finally(() => setIsLoading(false));
+  }, [baseUrl]);
 
   return { workspaceId, isLoading, error };
 };

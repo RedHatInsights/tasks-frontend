@@ -167,7 +167,7 @@ describe('useKesselPermissions', () => {
     expect(result.current.isLoading).toBe(true);
   });
 
-  it('should return hasAccess true when workspace is not available but resources empty', () => {
+  it('should return hasAccess false when workspace ID is not available', () => {
     useDefaultWorkspace.mockReturnValue({
       workspaceId: null,
       isLoading: false,
@@ -186,7 +186,7 @@ describe('useKesselPermissions', () => {
 
     const { result } = renderHook(() => useKesselPermissions(['view']));
 
-    expect(result.current.hasAccess).toBe(true);
+    expect(result.current.hasAccess).toBe(false);
     expect(result.current.isLoading).toBe(false);
   });
 

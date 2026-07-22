@@ -56,10 +56,10 @@
     "postinstall": "ts-patch install"
   },
   "dependencies": {
-    "@patternfly/react-core": "^6.4.1",
+    "@patternfly/react-core": "^6.6.0",
     "@patternfly/react-icons": "^6.4.0",
-    "@patternfly/react-log-viewer": "^6.3.0",
-    "@patternfly/react-table": "^6.4.1",
+    "@patternfly/react-log-viewer": "^6.5.0",
+    "@patternfly/react-table": "^6.6.0",
     "@patternfly/react-tokens": "^6.4.0",
     "@project-kessel/react-kessel-access-check": "^0.5.3",
     "@redhat-cloud-services/frontend-components": "^7.3.0",

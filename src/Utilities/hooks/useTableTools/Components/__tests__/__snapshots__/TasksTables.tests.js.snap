@@ -13,62 +13,70 @@ exports[`TasksTables should render correctly 1`] = `
       class="pf-v6-c-toolbar__content"
     >
       <div
-        class="pf-v6-c-toolbar__content-section"
+        class="pf-v6-c-toolbar__content-section pf-m-align-items-center"
       >
         <div
-          class="pf-v6-c-toolbar__group pf-m-filter-group ins-c-primary-toolbar__group-filter pf-m-spacer-md pf-m-space-items-lg"
+          class="pf-v6-c-toolbar__item ins-c-primary-toolbar__filter"
         >
           <div
-            class="pf-v6-c-toolbar__item ins-c-primary-toolbar__filter"
+            class="ins-c-conditional-filter"
           >
-            <div
-              class="ins-c-conditional-filter"
+            <span
+              class="pf-v6-c-form-control pf-m-icon ins-c-conditional-filter"
             >
+              <input
+                aria-invalid="false"
+                aria-label="text input"
+                data-ouia-component-id="ConditionalFilter"
+                data-ouia-component-type="PF6/TextInput"
+                data-ouia-safe="true"
+                id="default-input"
+                type="text"
+                value=""
+                widget-type="InsightsInput"
+              />
               <span
-                class="pf-v6-c-form-control pf-m-icon ins-c-conditional-filter"
+                class="pf-v6-c-form-control__utilities"
               >
-                <input
-                  aria-invalid="false"
-                  aria-label="text input"
-                  data-ouia-component-id="ConditionalFilter"
-                  data-ouia-component-type="PF6/TextInput"
-                  data-ouia-safe="true"
-                  id="default-input"
-                  type="text"
-                  value=""
-                  widget-type="InsightsInput"
-                />
                 <span
-                  class="pf-v6-c-form-control__utilities"
+                  class="pf-v6-c-form-control__icon"
                 >
                   <span
-                    class="pf-v6-c-form-control__icon"
+                    class="pf-v6-c-icon pf-m-md ins-c-search-icon"
                   >
                     <span
-                      class="pf-v6-c-icon pf-m-md ins-c-search-icon"
+                      class="pf-v6-c-icon__content"
                     >
-                      <span
-                        class="pf-v6-c-icon__content"
+                      <svg
+                        aria-hidden="true"
+                        class="pf-v6-svg"
+                        fill="currentColor"
+                        height="1em"
+                        role="img"
+                        width="1em"
                       >
                         <svg
-                          aria-hidden="true"
-                          class="pf-v6-svg"
-                          fill="currentColor"
-                          height="1em"
-                          role="img"
+                          class="pf-v6-icon-default"
                           viewBox="0 0 512 512"
-                          width="1em"
                         >
                           <path
                             d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
                           />
                         </svg>
-                      </span>
+                        <svg
+                          class="pf-v6-icon-rh-ui"
+                          viewBox="0 0 32 32"
+                        >
+                          <path
+                            d="m30.796 29.205-8.557-8.557A11.945 11.945 0 0 0 25 13c0-6.617-5.383-12-12-12S1 6.383 1 13s5.383 12 12 12c2.904 0 5.57-1.038 7.648-2.761l8.556 8.556a1.122 1.122 0 0 0 1.592 0 1.127 1.127 0 0 0 0-1.591ZM3 13C3 7.486 7.486 3 13 3s10 4.486 10 10-4.486 10-10 10S3 18.514 3 13Z"
+                          />
+                        </svg>
+                      </svg>
                     </span>
                   </span>
                 </span>
               </span>
-            </div>
+            </span>
           </div>
         </div>
         <div
@@ -101,7 +109,7 @@ exports[`TasksTables should render correctly 1`] = `
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 class="pf-v6-c-menu-toggle pf-m-plain pf-m-text"
-                data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-1"
+                data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-:r6:"
                 data-ouia-component-type="PF6/MenuToggle"
                 data-ouia-safe="true"
                 id="options-menu-top-toggle"
@@ -131,11 +139,11 @@ exports[`TasksTables should render correctly 1`] = `
                       fill="currentColor"
                       height="1em"
                       role="img"
-                      viewBox="0 0 320 512"
+                      viewBox="0 0 20 20"
                       width="1em"
                     >
                       <path
-                        d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                        d="m17.65 8.76-6.674 5.72a1.496 1.496 0 0 1-.976.365c-.347 0-.694-.122-.978-.366l-6.673-5.72A1 1 0 0 1 3 7h14a1 1 0 0 1 .65 1.76Z"
                       />
                     </svg>
                   </span>
@@ -153,7 +161,7 @@ exports[`TasksTables should render correctly 1`] = `
                   aria-label="Go to previous page"
                   class="pf-v6-c-button pf-m-plain"
                   data-action="previous"
-                  data-ouia-component-id="OUIA-Generated-Button-plain-1"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-:r7:"
                   data-ouia-component-type="PF6/Button"
                   data-ouia-safe="true"
                   disabled=""
@@ -168,12 +176,24 @@ exports[`TasksTables should render correctly 1`] = `
                       fill="currentColor"
                       height="1em"
                       role="img"
-                      viewBox="0 0 256 512"
                       width="1em"
                     >
-                      <path
-                        d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
-                      />
+                      <svg
+                        class="pf-v6-icon-default"
+                        viewBox="0 0 256 512"
+                      >
+                        <path
+                          d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                        />
+                      </svg>
+                      <svg
+                        class="pf-v6-icon-rh-ui"
+                        viewBox="0 0 32 32"
+                      >
+                        <path
+                          d="M21 30a.997.997 0 0 1-.707-.293L7.647 17.061a1.501 1.501 0 0 1 0-2.121L20.293 2.293a.999.999 0 1 1 1.414 1.414L9.414 16l12.293 12.293A.999.999 0 0 1 21 30Z"
+                        />
+                      </svg>
                     </svg>
                   </span>
                 </button>
@@ -185,7 +205,7 @@ exports[`TasksTables should render correctly 1`] = `
                   aria-label="Go to next page"
                   class="pf-v6-c-button pf-m-plain"
                   data-action="next"
-                  data-ouia-component-id="OUIA-Generated-Button-plain-2"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-:r8:"
                   data-ouia-component-type="PF6/Button"
                   data-ouia-safe="true"
                   disabled=""
@@ -200,12 +220,24 @@ exports[`TasksTables should render correctly 1`] = `
                       fill="currentColor"
                       height="1em"
                       role="img"
-                      viewBox="0 0 256 512"
                       width="1em"
                     >
-                      <path
-                        d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
-                      />
+                      <svg
+                        class="pf-v6-icon-default"
+                        viewBox="0 0 256 512"
+                      >
+                        <path
+                          d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                        />
+                      </svg>
+                      <svg
+                        class="pf-v6-icon-rh-ui"
+                        viewBox="0 0 32 32"
+                      >
+                        <path
+                          d="M11 30a.999.999 0 0 1-.707-1.707L22.586 16 10.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121L11.707 29.706a.997.997 0 0 1-.707.293Z"
+                        />
+                      </svg>
                     </svg>
                   </span>
                 </button>
@@ -237,7 +269,7 @@ exports[`TasksTables should render correctly 1`] = `
     >
       <tr
         class="pf-v6-c-table__tr"
-        data-ouia-component-id="OUIA-Generated-TableRow-1"
+        data-ouia-component-id="OUIA-Generated-TableRow-:ra:"
         data-ouia-component-type="PF6/TableRow"
         data-ouia-safe="true"
       >
@@ -269,12 +301,24 @@ exports[`TasksTables should render correctly 1`] = `
                   fill="currentColor"
                   height="1em"
                   role="img"
-                  viewBox="0 0 256 512"
                   width="1em"
                 >
-                  <path
-                    d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
-                  />
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 256 512"
+                  >
+                    <path
+                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M21.293 23.293 17 27.586V4.414l4.293 4.293a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414l-5.646-5.646a1.5 1.5 0 0 0-2.121 0L9.294 7.293a.999.999 0 1 0 1.414 1.414l4.293-4.293v23.172l-4.293-4.293a.999.999 0 1 0-1.414 1.414l5.646 5.646c.292.293.676.438 1.061.438s.768-.146 1.061-.438l5.646-5.646a.999.999 0 1 0-1.414-1.414Z"
+                    />
+                  </svg>
                 </svg>
               </span>
             </div>
@@ -308,12 +352,24 @@ exports[`TasksTables should render correctly 1`] = `
                   fill="currentColor"
                   height="1em"
                   role="img"
-                  viewBox="0 0 256 512"
                   width="1em"
                 >
-                  <path
-                    d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
-                  />
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 256 512"
+                  >
+                    <path
+                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M21.293 23.293 17 27.586V4.414l4.293 4.293a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414l-5.646-5.646a1.5 1.5 0 0 0-2.121 0L9.294 7.293a.999.999 0 1 0 1.414 1.414l4.293-4.293v23.172l-4.293-4.293a.999.999 0 1 0-1.414 1.414l5.646 5.646c.292.293.676.438 1.061.438s.768-.146 1.061-.438l5.646-5.646a.999.999 0 1 0-1.414-1.414Z"
+                    />
+                  </svg>
                 </svg>
               </span>
             </div>
@@ -347,12 +403,24 @@ exports[`TasksTables should render correctly 1`] = `
                   fill="currentColor"
                   height="1em"
                   role="img"
-                  viewBox="0 0 256 512"
                   width="1em"
                 >
-                  <path
-                    d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
-                  />
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 256 512"
+                  >
+                    <path
+                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M21.293 23.293 17 27.586V4.414l4.293 4.293a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414l-5.646-5.646a1.5 1.5 0 0 0-2.121 0L9.294 7.293a.999.999 0 1 0 1.414 1.414l4.293-4.293v23.172l-4.293-4.293a.999.999 0 1 0-1.414 1.414l5.646 5.646c.292.293.676.438 1.061.438s.768-.146 1.061-.438l5.646-5.646a.999.999 0 1 0-1.414-1.414Z"
+                    />
+                  </svg>
                 </svg>
               </span>
             </div>
@@ -387,12 +455,24 @@ exports[`TasksTables should render correctly 1`] = `
                   fill="currentColor"
                   height="1em"
                   role="img"
-                  viewBox="0 0 256 512"
                   width="1em"
                 >
-                  <path
-                    d="M88 166.059V468c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12V166.059h46.059c21.382 0 32.09-25.851 16.971-40.971l-86.059-86.059c-9.373-9.373-24.569-9.373-33.941 0l-86.059 86.059c-15.119 15.119-4.411 40.971 16.971 40.971H88z"
-                  />
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 256 512"
+                  >
+                    <path
+                      d="M88 166.059V468c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12V166.059h46.059c21.382 0 32.09-25.851 16.971-40.971l-86.059-86.059c-9.373-9.373-24.569-9.373-33.941 0l-86.059 86.059c-15.119 15.119-4.411 40.971 16.971 40.971H88z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M22.707 8.707a.997.997 0 0 1-1.414 0L17 4.414V30a1 1 0 1 1-2 0V4.414l-4.293 4.293a.999.999 0 1 1-1.414-1.414l5.646-5.647a1.501 1.501 0 0 1 2.121 0l5.646 5.646a.999.999 0 0 1 0 1.414Z"
+                    />
+                  </svg>
                 </svg>
               </span>
             </div>
@@ -406,7 +486,7 @@ exports[`TasksTables should render correctly 1`] = `
     >
       <tr
         class="pf-v6-c-table__tr"
-        data-ouia-component-id="OUIA-Generated-TableRow-2"
+        data-ouia-component-id="OUIA-Generated-TableRow-:rb:"
         data-ouia-component-type="PF6/TableRow"
         data-ouia-safe="true"
       >
@@ -464,12 +544,24 @@ exports[`TasksTables should render correctly 1`] = `
                           fill="currentColor"
                           height="1em"
                           role="img"
-                          viewBox="0 0 512 512"
                           width="1em"
                         >
-                          <path
-                            d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
-                          />
+                          <svg
+                            class="pf-v6-icon-default"
+                            viewBox="0 0 512 512"
+                          >
+                            <path
+                              d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
+                            />
+                          </svg>
+                          <svg
+                            class="pf-v6-icon-rh-ui"
+                            viewBox="0 0 32 32"
+                          >
+                            <path
+                              d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm7.795 11.795-8.646 8.646c-.317.317-.733.475-1.149.475s-.832-.158-1.149-.475l-4.646-4.646a1.126 1.126 0 0 1 1.591-1.591l4.205 4.205 8.205-8.205a1.126 1.126 0 0 1 1.591 1.591Z"
+                            />
+                          </svg>
                         </svg>
                       </span>
                     </span>
@@ -491,7 +583,7 @@ exports[`TasksTables should render correctly 1`] = `
       </tr>
       <tr
         class="pf-v6-c-table__tr"
-        data-ouia-component-id="OUIA-Generated-TableRow-3"
+        data-ouia-component-id="OUIA-Generated-TableRow-:rc:"
         data-ouia-component-type="PF6/TableRow"
         data-ouia-safe="true"
       >
@@ -555,12 +647,24 @@ exports[`TasksTables should render correctly 1`] = `
                             fill="currentColor"
                             height="1em"
                             role="img"
-                            viewBox="0 0 1024 1024"
                             width="1em"
                           >
-                            <path
-                              d="M513.417211,16.013668 L513.417211,112.013668 C513.406007,120.539653 520.082422,127.576718 528.597211,128.013668 C732.697211,136.513668 896.147211,305.013668 896.147211,511.343668 C896.147211,723.013668 724.007211,895.163668 512.417211,895.163668 C437.186239,895.277345 363.602574,873.135095 300.927211,831.523668 C294.58293,827.2982 286.138663,828.135095 280.747211,833.523668 L211.807211,902.353668 C208.502935,905.676185 206.82123,910.280199 207.20607,914.950237 C207.590911,919.620275 210.00361,923.886884 213.807211,926.623668 C300.709573,989.398037 405.213535,1023.13146 512.417211,1023.01398 C794.537211,1023.01398 1023.91724,793.433668 1023.91724,511.413668 C1024.00721,235.103668 804.007211,9.22366802 529.897211,0.00645736761 C525.571205,-0.116171039 521.377128,1.51204372 518.271915,4.52681369 C515.166702,7.54158367 513.415263,11.6857144 513.417211,16.013668 M97.1272107,212.923668 C64.2190689,258.479443 39.0698895,309.162997 22.6972107,362.923668 C21.2705092,367.756559 22.2039184,372.979173 25.2163356,377.018685 C28.2287528,381.058197 32.9681443,383.442545 38.0072107,383.453683 L139.407211,383.453683 C145.970195,383.46249 151.873012,379.462528 154.297211,373.363668 C164.307669,347.593304 177.068112,322.977652 192.357211,299.943668 C196.579666,293.633658 195.741339,285.216847 190.357211,279.863668 L121.497211,211.013668 C118.186635,207.662531 113.567544,205.940538 108.871166,206.30669 C104.174788,206.672841 99.8783994,209.089927 97.1272107,212.913668 M112.907211,511.433663 L17.0072107,511.433663 C12.679257,511.433663 8.5351263,513.183159 5.52035633,516.288373 C2.50558635,519.393586 0.877371594,523.587662 1.00721065,527.913668 C4.13104542,629.408217 37.6085847,727.635936 97.1172107,809.913668 C99.8539943,813.717268 104.120603,816.129968 108.790642,816.514809 C113.46068,816.899649 118.064693,815.217944 121.387211,811.913668 L190.217211,743.073668 C195.605784,737.682216 196.442679,729.237949 192.217211,722.893668 C153.520825,664.580171 131.611534,596.745437 128.887211,526.813668 C128.553964,518.220138 121.487197,511.427209 112.887211,511.433663"
-                            />
+                            <svg
+                              class="pf-v6-icon-default"
+                              viewBox="0 0 1024 1024"
+                            >
+                              <path
+                                d="M513.417211,16.013668 L513.417211,112.013668 C513.406007,120.539653 520.082422,127.576718 528.597211,128.013668 C732.697211,136.513668 896.147211,305.013668 896.147211,511.343668 C896.147211,723.013668 724.007211,895.163668 512.417211,895.163668 C437.186239,895.277345 363.602574,873.135095 300.927211,831.523668 C294.58293,827.2982 286.138663,828.135095 280.747211,833.523668 L211.807211,902.353668 C208.502935,905.676185 206.82123,910.280199 207.20607,914.950237 C207.590911,919.620275 210.00361,923.886884 213.807211,926.623668 C300.709573,989.398037 405.213535,1023.13146 512.417211,1023.01398 C794.537211,1023.01398 1023.91724,793.433668 1023.91724,511.413668 C1024.00721,235.103668 804.007211,9.22366802 529.897211,0.00645736761 C525.571205,-0.116171039 521.377128,1.51204372 518.271915,4.52681369 C515.166702,7.54158367 513.415263,11.6857144 513.417211,16.013668 M97.1272107,212.923668 C64.2190689,258.479443 39.0698895,309.162997 22.6972107,362.923668 C21.2705092,367.756559 22.2039184,372.979173 25.2163356,377.018685 C28.2287528,381.058197 32.9681443,383.442545 38.0072107,383.453683 L139.407211,383.453683 C145.970195,383.46249 151.873012,379.462528 154.297211,373.363668 C164.307669,347.593304 177.068112,322.977652 192.357211,299.943668 C196.579666,293.633658 195.741339,285.216847 190.357211,279.863668 L121.497211,211.013668 C118.186635,207.662531 113.567544,205.940538 108.871166,206.30669 C104.174788,206.672841 99.8783994,209.089927 97.1272107,212.913668 M112.907211,511.433663 L17.0072107,511.433663 C12.679257,511.433663 8.5351263,513.183159 5.52035633,516.288373 C2.50558635,519.393586 0.877371594,523.587662 1.00721065,527.913668 C4.13104542,629.408217 37.6085847,727.635936 97.1172107,809.913668 C99.8539943,813.717268 104.120603,816.129968 108.790642,816.514809 C113.46068,816.899649 118.064693,815.217944 121.387211,811.913668 L190.217211,743.073668 C195.605784,737.682216 196.442679,729.237949 192.217211,722.893668 C153.520825,664.580171 131.611534,596.745437 128.887211,526.813668 C128.553964,518.220138 121.487197,511.427209 112.887211,511.433663"
+                              />
+                            </svg>
+                            <svg
+                              class="pf-v6-icon-rh-ui"
+                              viewBox="0 0 32 32"
+                            >
+                              <path
+                                d="M31 16c0 8.271-6.729 15-15 15-.806 0-1.614-.064-2.401-.191a1 1 0 0 1 .318-1.974c.683.11 1.384.166 2.083.166 7.168 0 13-5.832 13-13S23.168 3 16 3a1 1 0 1 1 0-2c8.271 0 15 6.729 15 15ZM5.299 23.384a1 1 0 1 0-1.645 1.138 15.011 15.011 0 0 0 3.824 3.824.997.997 0 0 0 1.39-.253 1 1 0 0 0-.254-1.391 13.037 13.037 0 0 1-3.316-3.317ZM2 15a1 1 0 0 0-1 1c0 .802.064 1.61.191 2.401a1 1 0 1 0 1.974-.318A13.199 13.199 0 0 1 2.999 16a1 1 0 0 0-1-1Z"
+                              />
+                            </svg>
                           </svg>
                         </span>
                       </span>
@@ -585,10 +689,10 @@ exports[`TasksTables should render correctly 1`] = `
   </table>
   <div
     class="pf-v6-c-toolbar ins-c-table__toolbar ins-m-footer"
-    data-ouia-component-id="OUIA-Generated-RHI/TableToolbar-true-1"
+    data-ouia-component-id="OUIA-Generated-RHI/TableToolbar-true-:re:"
     data-ouia-component-type="RHI/TableToolbar"
     data-ouia-safe="true"
-    id="pf-random-id-0"
+    id="pf-random-id-:rf:"
   >
     <div
       class="pf-v6-c-toolbar__content"
@@ -604,7 +708,7 @@ exports[`TasksTables should render correctly 1`] = `
         >
           <div
             class="pf-v6-c-pagination pf-m-bottom"
-            data-ouia-component-id="OUIA-Generated-Pagination-bottom-1"
+            data-ouia-component-id="OUIA-Generated-Pagination-bottom-:rh:"
             data-ouia-component-type="PF6/Pagination"
             data-ouia-safe="true"
             id="options-menu-bottom-pagination"
@@ -617,7 +721,7 @@ exports[`TasksTables should render correctly 1`] = `
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 class="pf-v6-c-menu-toggle pf-m-plain pf-m-text"
-                data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-2"
+                data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-:rj:"
                 data-ouia-component-type="PF6/MenuToggle"
                 data-ouia-safe="true"
                 id="options-menu-bottom-toggle"
@@ -647,11 +751,11 @@ exports[`TasksTables should render correctly 1`] = `
                       fill="currentColor"
                       height="1em"
                       role="img"
-                      viewBox="0 0 320 512"
+                      viewBox="0 0 20 20"
                       width="1em"
                     >
                       <path
-                        d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                        d="m17.65 8.76-6.674 5.72a1.496 1.496 0 0 1-.976.365c-.347 0-.694-.122-.978-.366l-6.673-5.72A1 1 0 0 1 3 7h14a1 1 0 0 1 .65 1.76Z"
                       />
                     </svg>
                   </span>
@@ -669,7 +773,7 @@ exports[`TasksTables should render correctly 1`] = `
                   aria-label="Go to first page"
                   class="pf-v6-c-button pf-m-plain"
                   data-action="first"
-                  data-ouia-component-id="OUIA-Generated-Button-plain-3"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-:rk:"
                   data-ouia-component-type="PF6/Button"
                   data-ouia-safe="true"
                   disabled=""
@@ -684,11 +788,11 @@ exports[`TasksTables should render correctly 1`] = `
                       fill="currentColor"
                       height="1em"
                       role="img"
-                      viewBox="0 0 448 512"
+                      viewBox="0 0 20 20"
                       width="1em"
                     >
                       <path
-                        d="M223.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L319.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L393.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34zm-192 34l136 136c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9L127.9 256l96.4-96.4c9.4-9.4 9.4-24.6 0-33.9L201.7 103c-9.4-9.4-24.6-9.4-33.9 0l-136 136c-9.5 9.4-9.5 24.6-.1 34z"
+                        d="M10 19a.997.997 0 0 1-.707-.293l-7.647-7.646c-.283-.284-.439-.66-.439-1.061s.156-.777.44-1.06l7.646-7.647a1 1 0 1 1 1.414 1.414L3.414 10l7.293 7.293A1 1 0 0 1 10 19Zm8.707-.293a1 1 0 0 0 0-1.414L11.414 10l7.293-7.293a1 1 0 1 0-1.414-1.414L9.646 8.939c-.283.284-.439.66-.439 1.061s.156.777.44 1.06l7.646 7.647a.997.997 0 0 0 1.414 0Z"
                       />
                     </svg>
                   </span>
@@ -701,7 +805,7 @@ exports[`TasksTables should render correctly 1`] = `
                   aria-label="Go to previous page"
                   class="pf-v6-c-button pf-m-plain"
                   data-action="previous"
-                  data-ouia-component-id="OUIA-Generated-Button-plain-4"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-:rl:"
                   data-ouia-component-type="PF6/Button"
                   data-ouia-safe="true"
                   disabled=""
@@ -716,12 +820,24 @@ exports[`TasksTables should render correctly 1`] = `
                       fill="currentColor"
                       height="1em"
                       role="img"
-                      viewBox="0 0 256 512"
                       width="1em"
                     >
-                      <path
-                        d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
-                      />
+                      <svg
+                        class="pf-v6-icon-default"
+                        viewBox="0 0 256 512"
+                      >
+                        <path
+                          d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                        />
+                      </svg>
+                      <svg
+                        class="pf-v6-icon-rh-ui"
+                        viewBox="0 0 32 32"
+                      >
+                        <path
+                          d="M21 30a.997.997 0 0 1-.707-.293L7.647 17.061a1.501 1.501 0 0 1 0-2.121L20.293 2.293a.999.999 0 1 1 1.414 1.414L9.414 16l12.293 12.293A.999.999 0 0 1 21 30Z"
+                        />
+                      </svg>
                     </svg>
                   </span>
                 </button>
@@ -735,7 +851,7 @@ exports[`TasksTables should render correctly 1`] = `
                   <input
                     aria-invalid="false"
                     aria-label="Current page"
-                    data-ouia-component-id="OUIA-Generated-TextInputBase-2"
+                    data-ouia-component-id="OUIA-Generated-TextInputBase-:rn:"
                     data-ouia-component-type="PF6/TextInput"
                     data-ouia-safe="true"
                     disabled=""
@@ -758,7 +874,7 @@ exports[`TasksTables should render correctly 1`] = `
                   aria-label="Go to next page"
                   class="pf-v6-c-button pf-m-plain"
                   data-action="next"
-                  data-ouia-component-id="OUIA-Generated-Button-plain-5"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-:ro:"
                   data-ouia-component-type="PF6/Button"
                   data-ouia-safe="true"
                   disabled=""
@@ -773,12 +889,24 @@ exports[`TasksTables should render correctly 1`] = `
                       fill="currentColor"
                       height="1em"
                       role="img"
-                      viewBox="0 0 256 512"
                       width="1em"
                     >
-                      <path
-                        d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
-                      />
+                      <svg
+                        class="pf-v6-icon-default"
+                        viewBox="0 0 256 512"
+                      >
+                        <path
+                          d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                        />
+                      </svg>
+                      <svg
+                        class="pf-v6-icon-rh-ui"
+                        viewBox="0 0 32 32"
+                      >
+                        <path
+                          d="M11 30a.999.999 0 0 1-.707-1.707L22.586 16 10.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121L11.707 29.706a.997.997 0 0 1-.707.293Z"
+                        />
+                      </svg>
                     </svg>
                   </span>
                 </button>
@@ -790,7 +918,7 @@ exports[`TasksTables should render correctly 1`] = `
                   aria-label="Go to last page"
                   class="pf-v6-c-button pf-m-plain"
                   data-action="last"
-                  data-ouia-component-id="OUIA-Generated-Button-plain-6"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-:rp:"
                   data-ouia-component-type="PF6/Button"
                   data-ouia-safe="true"
                   disabled=""
@@ -805,12 +933,24 @@ exports[`TasksTables should render correctly 1`] = `
                       fill="currentColor"
                       height="1em"
                       role="img"
-                      viewBox="0 0 448 512"
                       width="1em"
                     >
-                      <path
-                        d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"
-                      />
+                      <svg
+                        class="pf-v6-icon-default"
+                        viewBox="0 0 448 512"
+                      >
+                        <path
+                          d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"
+                        />
+                      </svg>
+                      <svg
+                        class="pf-v6-icon-rh-ui"
+                        viewBox="0 0 32 32"
+                      >
+                        <path
+                          d="M30.354 17.061 17.708 29.707a.997.997 0 0 1-1.414 0 .999.999 0 0 1 0-1.414L28.587 16 16.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121Zm-14-2.122L3.707 2.293a.999.999 0 1 0-1.414 1.414L14.586 16 2.293 28.293a.999.999 0 1 0 1.414 1.414l12.646-12.646a1.501 1.501 0 0 0 0-2.121Z"
+                        />
+                      </svg>
                     </svg>
                   </span>
                 </button>
@@ -829,6 +969,9 @@ exports[`TasksTables should render correctly 1`] = `
       />
     </div>
   </div>
+  <div
+    class="ins-c-table__toolbar-results"
+  />
 </DocumentFragment>
 `;
 
@@ -845,62 +988,70 @@ exports[`TasksTables should render empty 1`] = `
       class="pf-v6-c-toolbar__content"
     >
       <div
-        class="pf-v6-c-toolbar__content-section"
+        class="pf-v6-c-toolbar__content-section pf-m-align-items-center"
       >
         <div
-          class="pf-v6-c-toolbar__group pf-m-filter-group ins-c-primary-toolbar__group-filter pf-m-spacer-md pf-m-space-items-lg"
+          class="pf-v6-c-toolbar__item ins-c-primary-toolbar__filter"
         >
           <div
-            class="pf-v6-c-toolbar__item ins-c-primary-toolbar__filter"
+            class="ins-c-conditional-filter"
           >
-            <div
-              class="ins-c-conditional-filter"
+            <span
+              class="pf-v6-c-form-control pf-m-icon ins-c-conditional-filter"
             >
+              <input
+                aria-invalid="false"
+                aria-label="text input"
+                data-ouia-component-id="ConditionalFilter"
+                data-ouia-component-type="PF6/TextInput"
+                data-ouia-safe="true"
+                id="default-input"
+                type="text"
+                value=""
+                widget-type="InsightsInput"
+              />
               <span
-                class="pf-v6-c-form-control pf-m-icon ins-c-conditional-filter"
+                class="pf-v6-c-form-control__utilities"
               >
-                <input
-                  aria-invalid="false"
-                  aria-label="text input"
-                  data-ouia-component-id="ConditionalFilter"
-                  data-ouia-component-type="PF6/TextInput"
-                  data-ouia-safe="true"
-                  id="default-input"
-                  type="text"
-                  value=""
-                  widget-type="InsightsInput"
-                />
                 <span
-                  class="pf-v6-c-form-control__utilities"
+                  class="pf-v6-c-form-control__icon"
                 >
                   <span
-                    class="pf-v6-c-form-control__icon"
+                    class="pf-v6-c-icon pf-m-md ins-c-search-icon"
                   >
                     <span
-                      class="pf-v6-c-icon pf-m-md ins-c-search-icon"
+                      class="pf-v6-c-icon__content"
                     >
-                      <span
-                        class="pf-v6-c-icon__content"
+                      <svg
+                        aria-hidden="true"
+                        class="pf-v6-svg"
+                        fill="currentColor"
+                        height="1em"
+                        role="img"
+                        width="1em"
                       >
                         <svg
-                          aria-hidden="true"
-                          class="pf-v6-svg"
-                          fill="currentColor"
-                          height="1em"
-                          role="img"
+                          class="pf-v6-icon-default"
                           viewBox="0 0 512 512"
-                          width="1em"
                         >
                           <path
                             d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
                           />
                         </svg>
-                      </span>
+                        <svg
+                          class="pf-v6-icon-rh-ui"
+                          viewBox="0 0 32 32"
+                        >
+                          <path
+                            d="m30.796 29.205-8.557-8.557A11.945 11.945 0 0 0 25 13c0-6.617-5.383-12-12-12S1 6.383 1 13s5.383 12 12 12c2.904 0 5.57-1.038 7.648-2.761l8.556 8.556a1.122 1.122 0 0 0 1.592 0 1.127 1.127 0 0 0 0-1.591ZM3 13C3 7.486 7.486 3 13 3s10 4.486 10 10-4.486 10-10 10S3 18.514 3 13Z"
+                          />
+                        </svg>
+                      </svg>
                     </span>
                   </span>
                 </span>
               </span>
-            </div>
+            </span>
           </div>
         </div>
         <div
@@ -933,7 +1084,7 @@ exports[`TasksTables should render empty 1`] = `
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 class="pf-v6-c-menu-toggle pf-m-plain pf-m-text"
-                data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-3"
+                data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-:r10:"
                 data-ouia-component-type="PF6/MenuToggle"
                 data-ouia-safe="true"
                 id="options-menu-top-toggle"
@@ -963,11 +1114,11 @@ exports[`TasksTables should render empty 1`] = `
                       fill="currentColor"
                       height="1em"
                       role="img"
-                      viewBox="0 0 320 512"
+                      viewBox="0 0 20 20"
                       width="1em"
                     >
                       <path
-                        d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                        d="m17.65 8.76-6.674 5.72a1.496 1.496 0 0 1-.976.365c-.347 0-.694-.122-.978-.366l-6.673-5.72A1 1 0 0 1 3 7h14a1 1 0 0 1 .65 1.76Z"
                       />
                     </svg>
                   </span>
@@ -985,7 +1136,7 @@ exports[`TasksTables should render empty 1`] = `
                   aria-label="Go to previous page"
                   class="pf-v6-c-button pf-m-plain"
                   data-action="previous"
-                  data-ouia-component-id="OUIA-Generated-Button-plain-7"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-:r11:"
                   data-ouia-component-type="PF6/Button"
                   data-ouia-safe="true"
                   disabled=""
@@ -1000,12 +1151,24 @@ exports[`TasksTables should render empty 1`] = `
                       fill="currentColor"
                       height="1em"
                       role="img"
-                      viewBox="0 0 256 512"
                       width="1em"
                     >
-                      <path
-                        d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
-                      />
+                      <svg
+                        class="pf-v6-icon-default"
+                        viewBox="0 0 256 512"
+                      >
+                        <path
+                          d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                        />
+                      </svg>
+                      <svg
+                        class="pf-v6-icon-rh-ui"
+                        viewBox="0 0 32 32"
+                      >
+                        <path
+                          d="M21 30a.997.997 0 0 1-.707-.293L7.647 17.061a1.501 1.501 0 0 1 0-2.121L20.293 2.293a.999.999 0 1 1 1.414 1.414L9.414 16l12.293 12.293A.999.999 0 0 1 21 30Z"
+                        />
+                      </svg>
                     </svg>
                   </span>
                 </button>
@@ -1017,7 +1180,7 @@ exports[`TasksTables should render empty 1`] = `
                   aria-label="Go to next page"
                   class="pf-v6-c-button pf-m-plain"
                   data-action="next"
-                  data-ouia-component-id="OUIA-Generated-Button-plain-8"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-:r12:"
                   data-ouia-component-type="PF6/Button"
                   data-ouia-safe="true"
                   disabled=""
@@ -1032,12 +1195,24 @@ exports[`TasksTables should render empty 1`] = `
                       fill="currentColor"
                       height="1em"
                       role="img"
-                      viewBox="0 0 256 512"
                       width="1em"
                     >
-                      <path
-                        d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
-                      />
+                      <svg
+                        class="pf-v6-icon-default"
+                        viewBox="0 0 256 512"
+                      >
+                        <path
+                          d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                        />
+                      </svg>
+                      <svg
+                        class="pf-v6-icon-rh-ui"
+                        viewBox="0 0 32 32"
+                      >
+                        <path
+                          d="M11 30a.999.999 0 0 1-.707-1.707L22.586 16 10.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121L11.707 29.706a.997.997 0 0 1-.707.293Z"
+                        />
+                      </svg>
                     </svg>
                   </span>
                 </button>
@@ -1069,7 +1244,7 @@ exports[`TasksTables should render empty 1`] = `
     >
       <tr
         class="pf-v6-c-table__tr"
-        data-ouia-component-id="OUIA-Generated-TableRow-4"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r14:"
         data-ouia-component-type="PF6/TableRow"
         data-ouia-safe="true"
       >
@@ -1101,12 +1276,24 @@ exports[`TasksTables should render empty 1`] = `
                   fill="currentColor"
                   height="1em"
                   role="img"
-                  viewBox="0 0 256 512"
                   width="1em"
                 >
-                  <path
-                    d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
-                  />
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 256 512"
+                  >
+                    <path
+                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M21.293 23.293 17 27.586V4.414l4.293 4.293a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414l-5.646-5.646a1.5 1.5 0 0 0-2.121 0L9.294 7.293a.999.999 0 1 0 1.414 1.414l4.293-4.293v23.172l-4.293-4.293a.999.999 0 1 0-1.414 1.414l5.646 5.646c.292.293.676.438 1.061.438s.768-.146 1.061-.438l5.646-5.646a.999.999 0 1 0-1.414-1.414Z"
+                    />
+                  </svg>
                 </svg>
               </span>
             </div>
@@ -1140,12 +1327,24 @@ exports[`TasksTables should render empty 1`] = `
                   fill="currentColor"
                   height="1em"
                   role="img"
-                  viewBox="0 0 256 512"
                   width="1em"
                 >
-                  <path
-                    d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
-                  />
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 256 512"
+                  >
+                    <path
+                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M21.293 23.293 17 27.586V4.414l4.293 4.293a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414l-5.646-5.646a1.5 1.5 0 0 0-2.121 0L9.294 7.293a.999.999 0 1 0 1.414 1.414l4.293-4.293v23.172l-4.293-4.293a.999.999 0 1 0-1.414 1.414l5.646 5.646c.292.293.676.438 1.061.438s.768-.146 1.061-.438l5.646-5.646a.999.999 0 1 0-1.414-1.414Z"
+                    />
+                  </svg>
                 </svg>
               </span>
             </div>
@@ -1179,12 +1378,24 @@ exports[`TasksTables should render empty 1`] = `
                   fill="currentColor"
                   height="1em"
                   role="img"
-                  viewBox="0 0 256 512"
                   width="1em"
                 >
-                  <path
-                    d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
-                  />
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 256 512"
+                  >
+                    <path
+                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M21.293 23.293 17 27.586V4.414l4.293 4.293a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414l-5.646-5.646a1.5 1.5 0 0 0-2.121 0L9.294 7.293a.999.999 0 1 0 1.414 1.414l4.293-4.293v23.172l-4.293-4.293a.999.999 0 1 0-1.414 1.414l5.646 5.646c.292.293.676.438 1.061.438s.768-.146 1.061-.438l5.646-5.646a.999.999 0 1 0-1.414-1.414Z"
+                    />
+                  </svg>
                 </svg>
               </span>
             </div>
@@ -1218,12 +1429,24 @@ exports[`TasksTables should render empty 1`] = `
                   fill="currentColor"
                   height="1em"
                   role="img"
-                  viewBox="0 0 256 512"
                   width="1em"
                 >
-                  <path
-                    d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
-                  />
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 256 512"
+                  >
+                    <path
+                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M21.293 23.293 17 27.586V4.414l4.293 4.293a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414l-5.646-5.646a1.5 1.5 0 0 0-2.121 0L9.294 7.293a.999.999 0 1 0 1.414 1.414l4.293-4.293v23.172l-4.293-4.293a.999.999 0 1 0-1.414 1.414l5.646 5.646c.292.293.676.438 1.061.438s.768-.146 1.061-.438l5.646-5.646a.999.999 0 1 0-1.414-1.414Z"
+                    />
+                  </svg>
                 </svg>
               </span>
             </div>
@@ -1237,7 +1460,7 @@ exports[`TasksTables should render empty 1`] = `
     >
       <tr
         class="pf-v6-c-table__tr"
-        data-ouia-component-id="OUIA-Generated-TableRow-5"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r15:"
         data-ouia-component-type="PF6/TableRow"
         data-ouia-safe="true"
       >
@@ -1289,10 +1512,10 @@ exports[`TasksTables should render empty 1`] = `
   </table>
   <div
     class="pf-v6-c-toolbar ins-c-table__toolbar ins-m-footer"
-    data-ouia-component-id="OUIA-Generated-RHI/TableToolbar-true-2"
+    data-ouia-component-id="OUIA-Generated-RHI/TableToolbar-true-:r16:"
     data-ouia-component-type="RHI/TableToolbar"
     data-ouia-safe="true"
-    id="pf-random-id-1"
+    id="pf-random-id-:r17:"
   >
     <div
       class="pf-v6-c-toolbar__content"
@@ -1308,7 +1531,7 @@ exports[`TasksTables should render empty 1`] = `
         >
           <div
             class="pf-v6-c-pagination pf-m-bottom"
-            data-ouia-component-id="OUIA-Generated-Pagination-bottom-2"
+            data-ouia-component-id="OUIA-Generated-Pagination-bottom-:r19:"
             data-ouia-component-type="PF6/Pagination"
             data-ouia-safe="true"
             id="options-menu-bottom-pagination"
@@ -1321,7 +1544,7 @@ exports[`TasksTables should render empty 1`] = `
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 class="pf-v6-c-menu-toggle pf-m-plain pf-m-text"
-                data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-4"
+                data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-:r1b:"
                 data-ouia-component-type="PF6/MenuToggle"
                 data-ouia-safe="true"
                 id="options-menu-bottom-toggle"
@@ -1351,11 +1574,11 @@ exports[`TasksTables should render empty 1`] = `
                       fill="currentColor"
                       height="1em"
                       role="img"
-                      viewBox="0 0 320 512"
+                      viewBox="0 0 20 20"
                       width="1em"
                     >
                       <path
-                        d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                        d="m17.65 8.76-6.674 5.72a1.496 1.496 0 0 1-.976.365c-.347 0-.694-.122-.978-.366l-6.673-5.72A1 1 0 0 1 3 7h14a1 1 0 0 1 .65 1.76Z"
                       />
                     </svg>
                   </span>
@@ -1373,7 +1596,7 @@ exports[`TasksTables should render empty 1`] = `
                   aria-label="Go to first page"
                   class="pf-v6-c-button pf-m-plain"
                   data-action="first"
-                  data-ouia-component-id="OUIA-Generated-Button-plain-9"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-:r1c:"
                   data-ouia-component-type="PF6/Button"
                   data-ouia-safe="true"
                   disabled=""
@@ -1388,11 +1611,11 @@ exports[`TasksTables should render empty 1`] = `
                       fill="currentColor"
                       height="1em"
                       role="img"
-                      viewBox="0 0 448 512"
+                      viewBox="0 0 20 20"
                       width="1em"
                     >
                       <path
-                        d="M223.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L319.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L393.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34zm-192 34l136 136c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9L127.9 256l96.4-96.4c9.4-9.4 9.4-24.6 0-33.9L201.7 103c-9.4-9.4-24.6-9.4-33.9 0l-136 136c-9.5 9.4-9.5 24.6-.1 34z"
+                        d="M10 19a.997.997 0 0 1-.707-.293l-7.647-7.646c-.283-.284-.439-.66-.439-1.061s.156-.777.44-1.06l7.646-7.647a1 1 0 1 1 1.414 1.414L3.414 10l7.293 7.293A1 1 0 0 1 10 19Zm8.707-.293a1 1 0 0 0 0-1.414L11.414 10l7.293-7.293a1 1 0 1 0-1.414-1.414L9.646 8.939c-.283.284-.439.66-.439 1.061s.156.777.44 1.06l7.646 7.647a.997.997 0 0 0 1.414 0Z"
                       />
                     </svg>
                   </span>
@@ -1405,7 +1628,7 @@ exports[`TasksTables should render empty 1`] = `
                   aria-label="Go to previous page"
                   class="pf-v6-c-button pf-m-plain"
                   data-action="previous"
-                  data-ouia-component-id="OUIA-Generated-Button-plain-10"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-:r1d:"
                   data-ouia-component-type="PF6/Button"
                   data-ouia-safe="true"
                   disabled=""
@@ -1420,12 +1643,24 @@ exports[`TasksTables should render empty 1`] = `
                       fill="currentColor"
                       height="1em"
                       role="img"
-                      viewBox="0 0 256 512"
                       width="1em"
                     >
-                      <path
-                        d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
-                      />
+                      <svg
+                        class="pf-v6-icon-default"
+                        viewBox="0 0 256 512"
+                      >
+                        <path
+                          d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                        />
+                      </svg>
+                      <svg
+                        class="pf-v6-icon-rh-ui"
+                        viewBox="0 0 32 32"
+                      >
+                        <path
+                          d="M21 30a.997.997 0 0 1-.707-.293L7.647 17.061a1.501 1.501 0 0 1 0-2.121L20.293 2.293a.999.999 0 1 1 1.414 1.414L9.414 16l12.293 12.293A.999.999 0 0 1 21 30Z"
+                        />
+                      </svg>
                     </svg>
                   </span>
                 </button>
@@ -1439,7 +1674,7 @@ exports[`TasksTables should render empty 1`] = `
                   <input
                     aria-invalid="false"
                     aria-label="Current page"
-                    data-ouia-component-id="OUIA-Generated-TextInputBase-4"
+                    data-ouia-component-id="OUIA-Generated-TextInputBase-:r1f:"
                     data-ouia-component-type="PF6/TextInput"
                     data-ouia-safe="true"
                     disabled=""
@@ -1462,7 +1697,7 @@ exports[`TasksTables should render empty 1`] = `
                   aria-label="Go to next page"
                   class="pf-v6-c-button pf-m-plain"
                   data-action="next"
-                  data-ouia-component-id="OUIA-Generated-Button-plain-11"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-:r1g:"
                   data-ouia-component-type="PF6/Button"
                   data-ouia-safe="true"
                   disabled=""
@@ -1477,12 +1712,24 @@ exports[`TasksTables should render empty 1`] = `
                       fill="currentColor"
                       height="1em"
                       role="img"
-                      viewBox="0 0 256 512"
                       width="1em"
                     >
-                      <path
-                        d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
-                      />
+                      <svg
+                        class="pf-v6-icon-default"
+                        viewBox="0 0 256 512"
+                      >
+                        <path
+                          d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                        />
+                      </svg>
+                      <svg
+                        class="pf-v6-icon-rh-ui"
+                        viewBox="0 0 32 32"
+                      >
+                        <path
+                          d="M11 30a.999.999 0 0 1-.707-1.707L22.586 16 10.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121L11.707 29.706a.997.997 0 0 1-.707.293Z"
+                        />
+                      </svg>
                     </svg>
                   </span>
                 </button>
@@ -1494,7 +1741,7 @@ exports[`TasksTables should render empty 1`] = `
                   aria-label="Go to last page"
                   class="pf-v6-c-button pf-m-plain"
                   data-action="last"
-                  data-ouia-component-id="OUIA-Generated-Button-plain-12"
+                  data-ouia-component-id="OUIA-Generated-Button-plain-:r1h:"
                   data-ouia-component-type="PF6/Button"
                   data-ouia-safe="true"
                   disabled=""
@@ -1509,12 +1756,24 @@ exports[`TasksTables should render empty 1`] = `
                       fill="currentColor"
                       height="1em"
                       role="img"
-                      viewBox="0 0 448 512"
                       width="1em"
                     >
-                      <path
-                        d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"
-                      />
+                      <svg
+                        class="pf-v6-icon-default"
+                        viewBox="0 0 448 512"
+                      >
+                        <path
+                          d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"
+                        />
+                      </svg>
+                      <svg
+                        class="pf-v6-icon-rh-ui"
+                        viewBox="0 0 32 32"
+                      >
+                        <path
+                          d="M30.354 17.061 17.708 29.707a.997.997 0 0 1-1.414 0 .999.999 0 0 1 0-1.414L28.587 16 16.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121Zm-14-2.122L3.707 2.293a.999.999 0 1 0-1.414 1.414L14.586 16 2.293 28.293a.999.999 0 1 0 1.414 1.414l12.646-12.646a1.501 1.501 0 0 0 0-2.121Z"
+                        />
+                      </svg>
                     </svg>
                   </span>
                 </button>
@@ -1533,5 +1792,8 @@ exports[`TasksTables should render empty 1`] = `
       />
     </div>
   </div>
+  <div
+    class="ins-c-table__toolbar-results"
+  />
 </DocumentFragment>
 `;

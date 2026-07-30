@@ -4,7 +4,7 @@ exports[`SelectedFilterSwitch expect to render without error 1`] = `
 <DocumentFragment>
   <label
     class="pf-v6-c-switch"
-    data-ouia-component-id="OUIA-Generated-Switch-1"
+    data-ouia-component-id="OUIA-Generated-Switch-:r1:"
     data-ouia-component-type="PF6/Switch"
     data-ouia-safe="true"
     for="selected-filter-swtich"
@@ -34,7 +34,7 @@ exports[`SelectedFilterSwitch expect to render without error when isChecked is f
 <DocumentFragment>
   <label
     class="pf-v6-c-switch"
-    data-ouia-component-id="OUIA-Generated-Switch-2"
+    data-ouia-component-id="OUIA-Generated-Switch-:r3:"
     data-ouia-component-type="PF6/Switch"
     data-ouia-safe="true"
     for="selected-filter-swtich"

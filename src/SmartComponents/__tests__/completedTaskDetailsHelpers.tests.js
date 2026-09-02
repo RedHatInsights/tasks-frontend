@@ -14,8 +14,10 @@ import {
   jobs_systems_no_display,
   successResponse,
   taskJobsSuccess,
+  taskJobsSuccessNoMessage,
 } from './__fixtures__/completedTaskDetailsHelpers.fixtures';
 import { fetchExecutedTask, fetchExecutedTaskJobs } from '../../../api';
+import { JOB_SUCCESS_NO_MESSAGE } from '../../constants';
 
 jest.mock('../../../api');
 
@@ -97,5 +99,19 @@ describe('fetchTaskJobs', () => {
     await fetchTaskJobs({ id: 'abcd1234' }, setError, addNotification);
     expect(setError).toHaveBeenCalled();
     expect(addNotification).toHaveBeenCalled();
+  });
+
+  it('should default message for successful jobs with no message', async () => {
+    fetchExecutedTaskJobs.mockImplementation(async () => {
+      return taskJobsSuccessNoMessage;
+    });
+
+    let taskJobs = await fetchTaskJobs(
+      { id: 'abcd1234' },
+      setError,
+      addNotification,
+    );
+
+    expect(taskJobs[0].results.message).toEqual(JOB_SUCCESS_NO_MESSAGE);
   });
 });

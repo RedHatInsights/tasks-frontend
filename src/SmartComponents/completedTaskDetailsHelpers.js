@@ -2,6 +2,7 @@ import { fetchExecutedTask, fetchExecutedTaskJobs } from '../../api';
 import {
   JOB_FAILED_MESSAGE,
   JOB_RUNNING_MESSAGE,
+  JOB_SUCCESS_NO_MESSAGE,
   JOB_TIMED_OUT_MESSAGE,
 } from '../constants';
 
@@ -68,6 +69,8 @@ export const fetchTaskJobs = async (taskDetails, setError, addNotification) => {
         job.results.message = JOB_TIMED_OUT_MESSAGE;
       } else if (job.status === 'Running') {
         job.results.message = JOB_RUNNING_MESSAGE;
+      } else if (job.status === 'Success' && !job.results.message) {
+        job.results.message = JOB_SUCCESS_NO_MESSAGE;
       }
     });
 

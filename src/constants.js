@@ -77,6 +77,7 @@ export const JOB_TIMED_OUT_MESSAGE =
   'Task failed to complete due to timing out. Retry this task at a later time.';
 
 export const JOB_RUNNING_MESSAGE = 'No result yet';
+export const JOB_SUCCESS_NO_MESSAGE = 'No message to display';
 export const CONVERSION_SLUG = 'convert-to-rhel';
 
 export const TASK_STATUS = {

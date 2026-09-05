@@ -32,3 +32,15 @@ export const taskJobsSuccess = {
     },
   ],
 };
+
+export const taskJobsSuccessNoMessage = {
+  response: { status: 200 },
+  data: [
+    {
+      status: 'Success',
+      results: {
+        message: '',
+      },
+    },
+  ],
+};

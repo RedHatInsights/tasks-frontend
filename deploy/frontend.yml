@@ -35,7 +35,17 @@ objects:
             module: ./RootApp
             routes:
               - pathname: /insights/tasks
+                permissions:
+                  - method: featureFlag
+                    args:
+                      - platform.tasks.enabled
+                      - true
               - pathname: /ansible/tasks
+                permissions:
+                  - method: featureFlag
+                    args:
+                      - platform.tasks.enabled
+                      - true
 
       navigationSegments:
         - segmentId: tasks-nav
@@ -44,6 +54,11 @@ objects:
               id: tasks
               href: /insights/tasks
               product: Red Hat Insights
+              permissions:
+                - method: featureFlag
+                  args:
+                    - platform.tasks.enabled
+                    - true
 
       bundleSegments:
         - segmentId: tasks-insights
@@ -68,6 +83,11 @@ objects:
               id: tasks
               href: /ansible/tasks
               product: Red Hat Insights
+              permissions:
+                - method: featureFlag
+                  args:
+                    - platform.tasks.enabled
+                    - true
 
       serviceTiles:
         - id: tasks-rhel-automation
@@ -77,6 +97,11 @@ objects:
           group: rhel
           section: automation
           icon: InsightsIcon
+          permissions:
+            - method: featureFlag
+              args:
+                - platform.tasks.enabled
+                - true
         - id: tasks-ansible-automation
           title: Tasks
           description: "Perform Red Hat-recommended analysis for your Ansible Automation Platform, like upgrade and conversion readiness."
@@ -84,12 +109,22 @@ objects:
           group: ansible
           section: automation
           icon: AnsibleIcon
+          permissions:
+            - method: featureFlag
+              args:
+                - platform.tasks.enabled
+                - true
 
       searchEntries:
         - id: tasks-rhel
           title: Tasks - Automation
           description: "Perform Red Hat-recommended analysis across your Red Hat Enterprise Linux fleet, like upgrade and conversion readiness."
           href: /insights/tasks
+          permissions:
+            - method: featureFlag
+              args:
+                - platform.tasks.enabled
+                - true
           alt_title:
             - tasks,
             - task,
@@ -121,6 +156,11 @@ objects:
           title: Tasks - Automation
           description: "Perform Red Hat-recommended analysis for your Ansible Automation Platform, like upgrade and conversion readiness."
           href: /ansible/tasks
+          permissions:
+            - method: featureFlag
+              args:
+                - platform.tasks.enabled
+                - true
           alt_title:
             - tasks,
             - task,

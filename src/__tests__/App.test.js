@@ -11,6 +11,11 @@ jest.mock('../Routes', () => {
   MockRoutes.displayName = 'MockRoutes';
   return MockRoutes;
 });
+jest.mock('@redhat-cloud-services/frontend-components/InvalidObject', () => {
+  const MockInvalidObject = () => <div data-testid="not-found">NotFound</div>;
+  MockInvalidObject.displayName = 'MockInvalidObject';
+  return MockInvalidObject;
+});
 jest.mock('../Utilities/useFeatureFlag');
 jest.mock('@unleash/proxy-client-react');
 jest.mock('@redhat-cloud-services/frontend-components/useChrome', () => ({
@@ -50,7 +55,12 @@ describe('App', () => {
   beforeEach(() => {
     store = mockStore({});
     useFlagsStatus.mockReturnValue({ flagsReady: true });
-    useFeatureFlag.mockReturnValue(false);
+    useFeatureFlag.mockImplementation((flag) => {
+      if (flag === 'platform.tasks.enabled') {
+        return true;
+      }
+      return false;
+    });
   });
 
   afterEach(() => {
@@ -67,34 +77,75 @@ describe('App', () => {
       expect(screen.queryByTestId('rbac-provider')).not.toBeInTheDocument();
       expect(screen.queryByTestId('kessel-provider')).not.toBeInTheDocument();
       expect(screen.queryByTestId('routes')).not.toBeInTheDocument();
+      expect(screen.queryByTestId('not-found')).not.toBeInTheDocument();
     });
 
-    it('renders RBAC provider after flags load with Kessel disabled', () => {
+    it('renders InvalidObject when platform.tasks.enabled is false', () => {
       useFlagsStatus.mockReturnValue({ flagsReady: true });
-      useFeatureFlag.mockReturnValue(false);
+      useFeatureFlag.mockImplementation((flag) => {
+        if (flag === 'platform.tasks.enabled') {
+          return false;
+        }
+        return false;
+      });
+
+      renderApp();
+
+      expect(screen.getByTestId('not-found')).toBeInTheDocument();
+      expect(screen.queryByTestId('rbac-provider')).not.toBeInTheDocument();
+      expect(screen.queryByTestId('kessel-provider')).not.toBeInTheDocument();
+      expect(screen.queryByTestId('routes')).not.toBeInTheDocument();
+    });
+
+    it('renders RBAC provider after flags load with Kessel disabled and tasks enabled', () => {
+      useFlagsStatus.mockReturnValue({ flagsReady: true });
+      useFeatureFlag.mockImplementation((flag) => {
+        if (flag === 'platform.tasks.enabled') {
+          return true;
+        }
+        if (flag === 'tasks.kessel_enabled') {
+          return false;
+        }
+        return false;
+      });
 
       renderApp();
 
       expect(screen.getByTestId('rbac-provider')).toBeInTheDocument();
       expect(screen.getByTestId('routes')).toBeInTheDocument();
       expect(screen.queryByTestId('kessel-provider')).not.toBeInTheDocument();
+      expect(screen.queryByTestId('not-found')).not.toBeInTheDocument();
     });
 
-    it('renders Kessel provider after flags load with Kessel enabled', () => {
+    it('renders Kessel provider after flags load with Kessel enabled and tasks enabled', () => {
       useFlagsStatus.mockReturnValue({ flagsReady: true });
-      useFeatureFlag.mockReturnValue(true);
+      useFeatureFlag.mockImplementation((flag) => {
+        if (flag === 'platform.tasks.enabled') {
+          return true;
+        }
+        if (flag === 'tasks.kessel_enabled') {
+          return true;
+        }
+        return false;
+      });
 
       renderApp();
 
       expect(screen.getByTestId('kessel-provider')).toBeInTheDocument();
       expect(screen.getByTestId('routes')).toBeInTheDocument();
       expect(screen.queryByTestId('rbac-provider')).not.toBeInTheDocument();
+      expect(screen.queryByTestId('not-found')).not.toBeInTheDocument();
     });
   });
 
   describe('RBAC v1 mode', () => {
-    it('renders only RBACProvider when Kessel is disabled', () => {
-      useFeatureFlag.mockReturnValue(false);
+    it('renders only RBACProvider when Kessel is disabled and tasks enabled', () => {
+      useFeatureFlag.mockImplementation((flag) => {
+        if (flag === 'platform.tasks.enabled') {
+          return true;
+        }
+        return false;
+      });
 
       renderApp();
 
@@ -104,8 +155,16 @@ describe('App', () => {
   });
 
   describe('Kessel mode', () => {
-    it('renders only Kessel provider when enabled', () => {
-      useFeatureFlag.mockReturnValue(true);
+    it('renders only Kessel provider when enabled and tasks enabled', () => {
+      useFeatureFlag.mockImplementation((flag) => {
+        if (flag === 'platform.tasks.enabled') {
+          return true;
+        }
+        if (flag === 'tasks.kessel_enabled') {
+          return true;
+        }
+        return false;
+      });
 
       renderApp();
 

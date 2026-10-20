@@ -8,6 +8,7 @@ import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome'
 import { RBACProvider } from '@redhat-cloud-services/frontend-components/RBACProvider';
 import { AccessCheck } from '@project-kessel/react-kessel-access-check';
 import { Bullseye, Spinner } from '@patternfly/react-core';
+import InvalidObject from '@redhat-cloud-services/frontend-components/InvalidObject';
 import { KESSEL_API_BASE_URL } from './constants';
 import useFeatureFlag from './Utilities/useFeatureFlag';
 import { useFlagsStatus } from '@unleash/proxy-client-react';
@@ -17,6 +18,7 @@ const App = () => {
   const chrome = useChrome();
   const dispatch = useDispatch();
   const { flagsReady } = useFlagsStatus();
+  const isTasksEnabled = useFeatureFlag('platform.tasks.enabled', true);
   const isKesselEnabled = useFeatureFlag('tasks.kessel_enabled');
 
   useEffect(() => {
@@ -42,6 +44,10 @@ const App = () => {
         <Spinner />
       </Bullseye>
     );
+  }
+
+  if (!isTasksEnabled) {
+    return <InvalidObject />;
   }
 
   return isKesselEnabled ? (

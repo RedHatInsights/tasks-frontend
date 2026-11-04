@@ -1,6 +1,11 @@
 [![Build Status](https://img.shields.io/github/actions/workflow/status/RedhatInsights/tasks-frontend/test.yml?branch=master)](https://github.com/RedHatInsights/tasks-frontend/actions/workflows/test.yml)
 [![codecov](https://codecov.io/gh/RedHatInsights/tasks-frontend/branch/master/graph/badge.svg)](https://codecov.io/gh/RedHatInsights/tasks-frontend)
 
+# Tasks Frontend
+
+## Decommissioned
+The Tasks service has been decommissioned. This repository has been archived.
+
 ## Initial /etc/hosts setup
 To access the https://[env].foo.redhat.com in your browser, add entries to your `/etc/hosts` file.
 This is a **one-time** setup that has to be done only once (unless you modify hosts) on each machine.
